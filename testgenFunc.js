@@ -16,7 +16,7 @@ const htmlToJson = (sourceFile) => {
     let parsedData = parser.parser(htmldemo);
     return parsedData;
   } catch (error) {
-    res.status(500).send({ error: error.message });
+    console.log(error);
   }
 };
 
