@@ -11,10 +11,9 @@ let setfiles = async () => {
 
   let content = TEXTfiles.map((item) => {
     let key = item.split("\\").slice(2).join("\\");
-    console.log({key,item});
-
     key = preFix + "\\" + key.slice(0, -4);
     let value = item;
+    console.log({key,item});
     return key + " => " + value;
   });
   let resFiles = 0
