@@ -6,12 +6,12 @@ let setfiles = async () => {
   const [_, __, sourceHTML, sourceTEXT] = process.argv;
 
   const HTMLfiles = await glob(`${sourceHTML}/**/*.html`);
-  let preFix = HTMLfiles[0].split("\\").slice(0, 2).join("\\");
+  let preFix = HTMLfiles[0].split("/").slice(0, 2).join("/");
   const TEXTfiles = await glob(`${sourceTEXT}/**/*.txt`);
 
   let content = TEXTfiles.map((item) => {
-    let key = item.split("\\").slice(2).join("\\");
-    key = preFix + "\\" + key.slice(0, -4);
+    let key = item.split("/").slice(2).join("/");
+    key = preFix + "/" + key.slice(0, -4);
     let value = item;
     console.log({key,item});
     return key + " => " + value;
