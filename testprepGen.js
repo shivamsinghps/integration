@@ -10,8 +10,9 @@ let setfiles = async () => {
   const TEXTfiles = await glob(`${sourceTEXT}/**/*.txt`);
 
   let content = TEXTfiles.map((item) => {
-    console.log({key,item});
     let key = item.split("\\").slice(2).join("\\");
+    console.log({key,item});
+
     key = preFix + "\\" + key.slice(0, -4);
     let value = item;
     return key + " => " + value;
