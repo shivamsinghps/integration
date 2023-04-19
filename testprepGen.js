@@ -10,6 +10,7 @@ let setfiles = async () => {
   const TEXTfiles = await glob(`${sourceTEXT}/**/*.txt`);
 
   let content = TEXTfiles.map((item) => {
+    console.log({key,item});
     let key = item.split("\\").slice(2).join("\\");
     key = preFix + "\\" + key.slice(0, -4);
     let value = item;
@@ -23,7 +24,7 @@ let setfiles = async () => {
     resFiles = 1
   }
   let start = 0;
-  for (let i = 0; i < resFiles; i++) {
+  for (let i = 0; i < 10; i++) {
     let data = content.slice(start, start + 20);
     fs.writeFileSync(
       `./prepdata/chunk${i + 1}.txt`,
