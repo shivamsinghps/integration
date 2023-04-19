@@ -9,8 +9,8 @@ const reader = async () => {
   let Map = JSON.parse(dataMap);
   for (const element of Map) {
     let [key, value] = element.split(" => ");
-    const outPath = key.split("\\").slice(2, -1).join("\\");
-    const filename = key.split("\\").slice(-1);
+    const outPath = key.split("/").slice(2, -1).join("/");
+    const filename = key.split("/").slice(-1);
     let treeData = generatorFunction.htmlToJson(key);
     let rephrasedData = await generatorFunction.paraphrase(value);
     const generatedData = generatorFunction.findNestedObj(
