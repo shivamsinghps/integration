@@ -6,7 +6,7 @@ const reader = async () => {
   const [_, __, file] = process.argv;
 
   const dataMap = fs.readFileSync(file, "utf-8");
-  let Map = JSON.parse(JSON.parse(dataMap));
+  let Map = JSON.parse(dataMap);
   for (const element of Map) {
     let [key, value] = element.split(" => ");
     const outPath = key.split("\\").slice(2, -1).join("\\");
