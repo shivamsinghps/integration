@@ -13,7 +13,6 @@ let setfiles = async () => {
     let key = item.split("/").slice(2).join("/");
     key = preFix + "/" + key.slice(0, -4);
     let value = item;
-    console.log({key,item});
     return key + " => " + value;
   });
   let resFiles = 0
@@ -24,7 +23,7 @@ let setfiles = async () => {
     resFiles = 1
   }
   let start = 0;
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < resFiles; i++) {
     let data = content.slice(start, start + 20);
     fs.writeFileSync(
       `./prepdata/chunk${i + 1}.txt`,
