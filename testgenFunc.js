@@ -34,12 +34,11 @@ const paraphrase = async (sourceFile) => {
         content != undefined && content.length > 2
           ? content.trim().slice(1, -1)
           : "";
-      if (contentText != "" && contentText.length > 40) {
+      if (contentText != "" && contentText.length > 150) {
         textOnlyList.push(contentText);
         textList.push([tag, content]);
       }
     });
-    console.log({textOnlyList});
     for (let x = 0; x < textOnlyList.length; x += 1) {
       let processedData = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
@@ -59,10 +58,9 @@ const paraphrase = async (sourceFile) => {
         original: textOnlyList[x],
         result: processedData.data.choices[0].message.content
       };
-      console.log({generatedData,sourceFile});
       results.push(generatedData);
-      return results;
     }
+    return results;
   } catch (error) {
     console.log(error);
   }
