@@ -44,8 +44,12 @@ const paraphrase = async (sourceFile) => {
         model: "gpt-3.5-turbo",
         messages: [
           {
+            role: "assistant",
+            content: textOnlyList[x] 
+          },
+          {
             role: "user",
-            content: textOnlyList[x]
+            content: "Rephrase this content so that it's not plagiarised."
           }
         ]
       });
