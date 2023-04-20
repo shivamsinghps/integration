@@ -18,7 +18,6 @@ let setfiles = async () => {
   let resFiles = 0
   if(TEXTfiles.length>20){
     resFiles = parseInt(HTMLfiles.length / 20);
-    console.log(resFiles);
   }else{
     resFiles = 1
   }

@@ -27,7 +27,6 @@ const paraphrase = async (sourceFile) => {
       textList = [],
       results = [];
     let data = fs.readFileSync(sourceFile, "utf-8");
-    console.log(data);
     data = data.split("\n");
     data.forEach((item) => {
       let [tag, content] = item.split(" => ");
@@ -46,7 +45,7 @@ const paraphrase = async (sourceFile) => {
         messages: [
           {
             role: "user",
-            content: textOnlyList[x] + "\n\n" + "rephrase the above content"
+            content: textOnlyList[x]
           }
         ]
       });
@@ -55,6 +54,7 @@ const paraphrase = async (sourceFile) => {
         original: textOnlyList[x],
         result: processedData.data.choices[0].message.content
       };
+      console.log({generatedData});
       results.push(generatedData);
       return results;
     }
