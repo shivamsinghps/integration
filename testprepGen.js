@@ -15,11 +15,11 @@ let setfiles = async () => {
     let value = item;
     return key + " => " + value;
   });
-  let resFiles = 0
-  if(TEXTfiles.length>20){
+  let resFiles = 0;
+  if (TEXTfiles.length > 20) {
     resFiles = parseInt(HTMLfiles.length / 20);
-  }else{
-    resFiles = 1
+  } else {
+    resFiles = 1;
   }
   let start = 0;
   for (let i = 0; i < resFiles; i++) {

@@ -20,7 +20,7 @@ const htmlToJson = (sourceFile) => {
   }
 };
 
-const paraphrase = async (sourceFile) => {
+const paraphrase = async (sourceFile, outfile, filename) => {
   try {
     const openai = new OpenAIApi(configuration);
     let textOnlyList = [],
@@ -31,10 +31,10 @@ const paraphrase = async (sourceFile) => {
     data.forEach((item) => {
       let [tag, content] = item.split(" => ");
       let contentText =
-        content != undefined && content.length > 2
+        content != undefined && content.trim().split(" ").length > 5
           ? content.trim().slice(1, -1)
           : "";
-      if (contentText != "" && contentText.length > 150) {
+      if (contentText != "") {
         textOnlyList.push(contentText);
         textList.push([tag, content]);
       }
@@ -45,7 +45,7 @@ const paraphrase = async (sourceFile) => {
         messages: [
           {
             role: "assistant",
-            content: textOnlyList[x] 
+            content: textOnlyList[x]
           },
           {
             role: "user",
@@ -60,10 +60,21 @@ const paraphrase = async (sourceFile) => {
       };
       results.push(generatedData);
     }
+    writeParsedData(outfile, filename, results);
     return results;
   } catch (error) {
     console.log(error);
   }
+};
+
+const writeParsedData = async (outfile, filename, results) => {
+  const filepath = "./parsedData/" + outfile;
+  await mkdirp(filepath);
+  fs.writeFileSync(
+    filepath + "/" + filename + ".json",
+    JSON.stringify(results),
+    "utf8"
+  );
 };
 
 const findNestedObj = (tree, dataValue) => {

@@ -12,7 +12,7 @@ const reader = async () => {
     const outPath = key.split("/").slice(2, -1).join("/");
     const filename = key.split("/").slice(-1);
     let treeData = generatorFunction.htmlToJson(key);
-    let rephrasedData = await generatorFunction.paraphrase(value);
+    let rephrasedData = await generatorFunction.paraphrase(value,outPath,filename);
     const generatedData = generatorFunction.findNestedObj(
       treeData,
       rephrasedData
