@@ -25,14 +25,14 @@ let setfiles = async () => {
     return key + " => " + value;
   });
   let resFiles = 0;
-  if (TEXTfiles.length > 20) {
-    resFiles = parseInt(TEXTfiles.length / 20);
+  if (TEXTfiles.length > 10) {
+    resFiles = parseInt(TEXTfiles.length / 10);
   } else {
     resFiles = 1;
   }
   let start = 0;
   for (let i = 0; i < resFiles; i++) {
-    let data = content.slice(start, start + 20);
+    let data = content.slice(start, start + 10);
     fs.writeFileSync(
       `./prepdata/chunk${i + 1}.txt`,
       JSON.stringify(data),
