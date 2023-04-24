@@ -67,7 +67,7 @@ const paraphrase = async (sourceFile, outfile, filename) => {
     writeParsedData(outfile, filename, results);
     return results;
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
 
