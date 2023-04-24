@@ -5,9 +5,18 @@ const process = require("process");
 let setfiles = async () => {
   const [_, __, sourceHTML, sourceTEXT] = process.argv;
 
-  const HTMLfiles = await glob(`${sourceHTML}/**/*.html`);
+  let HTMLfiles = await glob(`${sourceHTML}/**/*.html`);
   let preFix = HTMLfiles[0].split("/").slice(0, 2).join("/");
-  const TEXTfiles = await glob(`${sourceTEXT}/**/*.txt`);
+  let TEXTfiles = await glob(`${sourceTEXT}/**/*.txt`);
+
+  TEXTfiles = TEXTfiles.filter((item) => {
+    let data = String(item);
+    if (data.includes("interview")) {
+      return true;
+    } else {
+      return false;
+    }
+  });
 
   let content = TEXTfiles.map((item) => {
     let key = item.split("/").slice(2).join("/");
@@ -17,7 +26,7 @@ let setfiles = async () => {
   });
   let resFiles = 0;
   if (TEXTfiles.length > 20) {
-    resFiles = parseInt(HTMLfiles.length / 20);
+    resFiles = parseInt(TEXTfiles.length / 20);
   } else {
     resFiles = 1;
   }
