@@ -43,7 +43,6 @@ const paraphrase = async (sourceFile, outfile, filename) => {
     });
     console.log(lines);
     for (let x = 0; x < textOnlyList.length; x += 1) {
-      console.log(textOnlyList[x],x);
       let processedData = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [
@@ -57,6 +56,7 @@ const paraphrase = async (sourceFile, outfile, filename) => {
           }
         ]
       });
+      console.log({ processedData, x });
       let generatedData = {
         tag: textList[x][0],
         original: textOnlyList[x],
