@@ -29,7 +29,7 @@ const reader = async () => {
     console.timeEnd("completed");
   } catch (error) {
     console.timeEnd("completed");
-    console.log(error);
+    console.log(error.message);
   }
 };
 
