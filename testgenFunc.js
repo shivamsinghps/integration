@@ -35,7 +35,7 @@ const paraphrase = async (sourceFile, outfile, filename) => {
         content != undefined && content.trim().split(" ").length > 5
           ? content.trim().slice(1, -1)
           : "";
-      if (contentText != "") {
+      if (contentText != "" && !(tag.includes("h"))) {
         lines++;
         textOnlyList.push(contentText);
         textList.push([tag, content]);
