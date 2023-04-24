@@ -28,6 +28,7 @@ const paraphrase = async (sourceFile, outfile, filename) => {
       results = [];
     let data = fs.readFileSync(sourceFile, "utf-8");
     data = data.split("\n");
+    let lines = 0;
     data.forEach((item) => {
       let [tag, content] = item.split(" => ");
       let contentText =
@@ -35,10 +36,12 @@ const paraphrase = async (sourceFile, outfile, filename) => {
           ? content.trim().slice(1, -1)
           : "";
       if (contentText != "") {
+        lines++;
         textOnlyList.push(contentText);
         textList.push([tag, content]);
       }
     });
+    console.log(lines);
     for (let x = 0; x < textOnlyList.length; x += 1) {
       let processedData = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
