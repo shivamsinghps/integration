@@ -35,34 +35,39 @@ const paraphrase = async (sourceFile, outfile, filename) => {
         content != undefined && content.trim().split(" ").length > 5
           ? content.trim().slice(1, -1)
           : "";
-      if (contentText != "" && !(tag.includes("h"))) {
+      if (contentText != "" && !tag.includes("h")) {
         lines++;
         textOnlyList.push(contentText);
         textList.push([tag, content]);
       }
     });
-    console.log(lines);
-    for (let x = 0; x < textOnlyList.length; x += 1) {
-      let processedData = await openai.createChatCompletion({
-        model: "gpt-3.5-turbo",
-        messages: [
-          {
-            role: "assistant",
-            content: textOnlyList[x]
-          },
-          {
-            role: "user",
-            content: "Rephrase this content so that it's not plagiarised."
-          }
-        ]
-      });
-      console.log({ processedData, x });
-      let generatedData = {
-        tag: textList[x][0],
-        original: textOnlyList[x],
-        result: processedData.data.choices[0].message.content
-      };
-      results.push(generatedData);
+    let x = 0;
+    while (x < textOnlyList.length) {
+      try {
+        let processedData = await openai.createChatCompletion({
+          model: "gpt-3.5-turbo",
+          messages: [
+            {
+              role: "assistant",
+              content: textOnlyList[x]
+            },
+            {
+              role: "user",
+              content: "Rephrase this content so that it's not plagiarised."
+            }
+          ]
+        });
+        let generatedData = {
+          tag: textList[x][0],
+          original: textOnlyList[x],
+          result: processedData.data.choices[0].message.content
+        };
+        results.push(generatedData);
+        x = x + 1;
+      } catch (error) {
+        console.log(error.message);
+        await sleep();
+      }
     }
     writeParsedData(outfile, filename, results);
     return results;
@@ -74,7 +79,7 @@ const paraphrase = async (sourceFile, outfile, filename) => {
 const writeParsedData = async (outfile, filename, results) => {
   const filepath = "./parsedData/" + outfile;
   await mkdirp(filepath);
-  fs.writeFileSync(
+  fs.writeFile(
     filepath + "/" + filename + ".json",
     JSON.stringify(results),
     "utf8"
@@ -111,5 +116,12 @@ const writeHtmlFile = async (tree, path, filename) => {
   const filepath = "./result/" + path;
   await mkdirp(filepath);
   fs.writeFileSync(filepath + "/" + filename, html, "utf8");
+};
+
+sleep = async () => {
+  return new Promise((resolve) => {
+    console.log("waiting 30 secs");
+    setTimeout(() => resolve(), 30000);
+  });
 };
 module.exports = { htmlToJson, paraphrase, findNestedObj, writeHtmlFile };
