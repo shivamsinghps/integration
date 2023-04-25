@@ -15,11 +15,13 @@ const reader = async () => {
       const outPath = key.split("/").slice(2, -1).join("/");
       const filename = key.split("/").slice(-1);
       let treeData = generatorFunction.htmlToJson(key);
+      console.log("json Generated");
       let rephrasedData = await generatorFunction.paraphrase(
         value,
         outPath,
         filename
       );
+      console.log("rephrasing done");
       const generatedData = generatorFunction.findNestedObj(
         treeData,
         rephrasedData
@@ -28,8 +30,8 @@ const reader = async () => {
     }
     console.timeEnd("completed");
   } catch (error) {
-    console.timeEnd("completed");
     console.log(error.message);
+    console.timeEnd("completed");
   }
 };
 
