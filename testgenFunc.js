@@ -82,7 +82,8 @@ const writeParsedData = async (outfile, filename, results) => {
   fs.writeFile(
     filepath + "/" + filename + ".json",
     JSON.stringify(results),
-    "utf8"
+    "utf8",
+    () => {}
   );
 };
 

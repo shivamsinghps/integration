@@ -3,7 +3,7 @@ const fs = require("fs");
 const process = require("process");
 
 const reader = async () => {
-  console.time();
+  console.time("completed");
 
   try {
     const [_, __, file] = process.argv;
@@ -28,7 +28,7 @@ const reader = async () => {
     }
     console.timeEnd("completed");
   } catch (error) {
-    console.timeEnd();
+    console.timeEnd("completed");
     console.log(error.message);
   }
 };
