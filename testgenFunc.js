@@ -22,6 +22,8 @@ const htmlToJson = (sourceFile) => {
 
 const paraphrase = async (sourceFile, outfile, filename) => {
   try {
+    let retry = 0;
+    const max_retry = 5;
     const openai = new OpenAIApi(configuration);
     let textOnlyList = [],
       textList = [],
@@ -44,7 +46,7 @@ const paraphrase = async (sourceFile, outfile, filename) => {
     let x = 0;
     while (x < textOnlyList.length) {
       try {
-        console.log(textOnlyList[x],"processing");
+        console.log(textOnlyList[x], "processing");
         let processedData = await openai.createChatCompletion({
           model: "gpt-3.5-turbo",
           messages: [
@@ -65,9 +67,15 @@ const paraphrase = async (sourceFile, outfile, filename) => {
         };
         results.push(generatedData);
         x = x + 1;
+        retry = 0;
       } catch (error) {
-        console.log(error.message);
-        await sleep();
+        retry += 1;
+        if (retry < max_retry) {
+          console.log(error);
+          await sleep();
+        }else{
+          throw new Error("Please check OPENAI limits")
+        }
       }
     }
     writeParsedData(outfile, filename, results);
@@ -126,4 +134,5 @@ sleep = async () => {
     setTimeout(() => resolve(), 30000);
   });
 };
+
 module.exports = { htmlToJson, paraphrase, findNestedObj, writeHtmlFile };

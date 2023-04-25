@@ -2,6 +2,12 @@ const generatorFunction = require("./testgenFunc");
 const fs = require("fs");
 const process = require("process");
 
+// const reader = (source) => {
+//   let treeData = generatorFunction.htmlToJson(source);
+//   fs.writeFileSync("./htmljson.json", JSON.stringify(treeData), "utf-8");
+//   console.log("done");
+// };
+
 const reader = async () => {
   console.time("completed");
 
