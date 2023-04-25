@@ -130,8 +130,8 @@ const writeHtmlFile = async (tree, path, filename) => {
 
 sleep = async () => {
   return new Promise((resolve) => {
-    console.log("waiting 30 secs");
-    setTimeout(() => resolve(), 30000);
+    console.log("waiting 40 secs");
+    setTimeout(() => resolve(), 40000);
   });
 };
 
