@@ -73,8 +73,8 @@ const paraphrase = async (sourceFile, outfile, filename) => {
         if (retry < max_retry) {
           console.log(error);
           await sleep();
-        }else{
-          throw new Error("Please check OPENAI limits")
+        } else {
+          throw new Error("Please check OPENAI limits");
         }
       }
     }
@@ -99,6 +99,22 @@ const writeParsedData = async (outfile, filename, results) => {
 const findNestedObj = (tree, dataValue) => {
   let data = JSON.stringify(tree, (_, nestedValue) => {
     if (
+      nestedValue !== undefined &&
+      nestedValue.tag === "p" &&
+      nestedValue.content &&
+      nestedValue.content.length > 1
+    ) {
+      let text = normalizeText(nestedValue.content);
+      nestedValue.content = [text];
+      let findData = dataValue.filter(
+        (item) =>
+          item.tag === nestedValue.tag &&
+          item.original.trim() === nestedValue.content[0].trim()
+      );
+      if (findData.length > 0) {
+        nestedValue.content = [findData[0].result];
+      }
+    } else if (
       nestedValue &&
       nestedValue !== undefined &&
       nestedValue.content &&
@@ -126,6 +142,22 @@ const writeHtmlFile = async (tree, path, filename) => {
   const filepath = "./result/" + path;
   await mkdirp(filepath);
   fs.writeFileSync(filepath + "/" + filename, html, "utf8");
+};
+
+const normalizeText = (arr) => {
+  let result = "";
+  let i = 0;
+  while (i < arr.length) {
+    if (typeof arr[i] === "string") {
+      result = result + " " + arr[i];
+    } else {
+      if (arr[i].content && arr[i].content !== undefined) {
+        result = result + " " + arr[i].content[0];
+      }
+    }
+    i++;
+  }
+  return result;
 };
 
 sleep = async () => {
