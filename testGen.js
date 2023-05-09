@@ -9,11 +9,10 @@ const process = require("process");
 // };
 
 const reader = async () => {
-  console.time("completed");
-
   try {
     for (let fileno = 1; fileno <= 31; fileno++) {
       let file = `./prepdata/chunk${fileno}.txt`;
+      console.time("completed");
       console.log(file, "started");
 
       const dataMap = fs.readFileSync(file, "utf-8");
