@@ -1,0 +1,776 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/rapid-elasticity-in-cloud-computing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:25:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Rapid Elasticity in Cloud Computing - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Rapid Elasticity in Cloud Computing - javatpoint" /><meta property="og:description" content="Rapid Elasticity in Cloud Computing with Introduction, Advantages, Disadvantages, history of cloud computing, virtualization, software virtualization, hardware virtualization etc." />
+<meta name="keywords" content="cloud, computing, tutorial, introduction, basics, beginners, professionals, cloud computing tutorial, advantages of cloud computing, disadvantages of cloud computing, history of cloud computing, types of cloud, virtualization, software virtualization, hardware virtualization" /><meta name="description" content="Rapid Elasticity in Cloud Computing with Introduction, Advantages, Disadvantages, history of cloud computing, virtualization, software virtualization, hardware virtualization etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="rapid-elasticity-in-cloud-computing.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Rapid Elasticity in Cloud Computing - javatpoint" /><meta name="twitter:description" property="og:description" content="Rapid Elasticity in Cloud Computing with Introduction, Advantages, Disadvantages, history of cloud computing, virtualization, software virtualization, hardware virtualization etc." /><meta property="og:url" content="rapid-elasticity-in-cloud-computing.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul><li><a href="index.html">Home</a></li>
+<li><a href="cloud-computing.html" class="selected">Cloud Computing</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="python-tutorial.html">Python</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="ajax-tutorial.html">AJAX</a></li>
+<li><a href="design-patterns-in-java.html">Design Pattern</a></li>
+<li><a href="examaccess.html">Quiz</a></li> <li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Cloud Computing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cloud-computing.html">What is Cloud Computing</a>
+<a href="advantages-and-disadvantages-of-cloud-computing.html">Advantage &amp; Disadvantage</a>
+<a href="https://www.javatpoint.com/history-of-cloud-computing">History of Cloud</a>
+<a href="cloud-computing-architecture.html">Cloud Computing Architecture</a>
+<a href="cloud-computing-technologies.html">Cloud Computing Technologies</a>
+<a href="cloud-computing-vs-grid-computing.html">Cloud Computing vs Grid Computing</a>
+<a href="how-does-cloud-computing-work.html">How Cloud work</a>
+<a href="cloud-computing-applications.html">Cloud Computing Applications</a>
+<a href="security-risks-of-cloud-computing.html">Security Risks of Cloud Computing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Cloud</span></h2>
+</div>
+<div class="leftmenu">
+<a href="types-of-cloud.html">Types of Cloud</a>
+<a href="public-cloud.html">Public Cloud</a>
+<a href="private-cloud.html">Private Cloud</a>
+<a href="hybrid-cloud.html">Hybrid Cloud</a>
+<a href="community-cloud.html">Community Cloud</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Cloud Service Models</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cloud-service-models.html">Cloud Service Models</a>
+<a href="infrastructure-as-a-service.html">IaaS Layer</a>
+<a href="platform-as-a-service.html">PaaS Layer</a>
+<a href="software-as-a-service.html">SaaS Layer</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Virtualization</span></h2>
+</div>
+<div class="leftmenu">
+<a href="virtualization-in-cloud-computing.html">What is Virtualization</a>
+<a href="cloud-computing-data-virtualization.html">Data Virtualization</a>
+<a href="hardware-virtualization.html">Hardware Virtualization</a>
+<a href="software-virtualization.html">Software Virtualization</a>
+<a href="server-virtualization.html">Server Virtualization</a>
+<a href="storage-virtualization.html">Storage Virtualization</a>
+<a href="os-virtualization.html">OS Virtualization</a>
+<a href="linux-virtualization.html">Linux Virtualization</a>
+<a href="windows-virtualization.html">Windows Virtualization</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Cloud Service Providers</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cloud-service-provider-companies.html">Cloud Service Provider Companies</a>
+<a href="how-to-create-amazon-ec2-window.html">Amazon EC2</a>
+<a href="aws-vs-azure-vs-google-cloud-platform.html">AWS vs Azure vs GCP</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Miscellaneous</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cloud-server.html">Cloud Server</a>
+<a href="cloud-deployment-model.html">Cloud Deployment Model</a>
+<a href="cloud-hypervisor.html">Cloud Hypervisor</a>
+<a href="cloud-computing-examples.html">Cloud Computing Examples</a>
+<a href="cloud-computing-jobs.html">Cloud Computing Jobs</a>
+<a href="features-of-cloud-computing.html">Features of Cloud Computing</a>
+<a href="multitenancy-in-cloud-computing.html">Multitenancy in Cloud computing</a>
+<a href="grid-computing.html">Grid Computing</a>
+<a href="aneka-in-cloud-computing.html">Aneka in Cloud Computing</a>
+<a href="scaling-in-cloud-computing.html">Scaling in Cloud Computing</a>
+<a href="how-does-multi-cloud-differ-from-a-hybrid-cloud.html">How Does Multi-Cloud Differ from A Hybrid Cloud</a>
+<a href="rapid-elasticity-in-cloud-computing.html">Rapid Elasticity in Cloud Computing</a>
+<a href="fog-computing-vs-cloud-computing.html">Fog computing vs Cloud computing</a>
+<a href="strategy-of-multi-cloud.html">Strategy of Multi-Cloud</a>
+<a href="service-level-agreements-in-cloud-computing.html">Service level agreements in Cloud Computing</a>
+<a href="xaas-in-cloud-computing.html">Xaas in Cloud Computing</a>
+<a href="resource-pooling-in-cloud-computing.html">Resource pooling in Cloud Computing</a>
+<a href="load-balancing-in-cloud-computing.html">Load Balancing in Cloud Computing</a>
+<a href="https://www.javatpoint.com/daas-in-cloud-computing">DaaS in Cloud Computing</a>
+<a href="what-is-cloud-computing-replacing.html">What is Cloud Computing Replacing</a>
+<a href="cloud-computing-vs-internet-of-things.html">Cloud computing vs Internet of Things</a>
+<a href="web-services-in-cloud-computing.html">Web Services in Cloud Computing</a>
+<a href="container-as-a-service-in-cloud-computing.html">CaaS in Cloud Computing</a>
+<a href="fault-tolerance-in-cloud-computing.html">Fault Tolerance in Cloud Computing</a>
+<a href="principles-of-cloud-computing.html">Principles of Cloud Computing</a>
+<a href="what-are-roots-of-cloud-computing.html">What are Roots of Cloud Computing</a>
+<a href="what-is-data-center-in-cloud-computing.html">What is Data Center in Cloud Computing</a>
+<a href="resiliency-in-cloud-computing.html">Resiliency in Cloud Computing</a>
+<a href="cloud-computing-security-architecture.html">Cloud Computing Security Architecture</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Cloud Computing MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cloud-computing-mcq.html">Cloud Computing MCQ</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cloud-computing-interview-questions.html">Interview Questions</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="fog-computing-vs-cloud-computing.html">next &rarr;</a>
+<a class="next" href="how-does-multi-cloud-differ-from-a-hybrid-cloud.html">&larr; prev</a>
+</div>
+<h1 class="h1">Rapid Elasticity in Cloud Computing</h1>
+<p>Elasticity is a 'rename' of scalability, a known non-functional requirement in IT architecture for many years already. Scalability is the ability to add or remove capacity, mostly processing, memory, or both, from an IT environment.</p>
+<p>Ability to dynamically scale the services provided directly to customers' need for space and other services. It is one of the five fundamental aspects of cloud computing.</p>
+<p><strong>It is usually done in two ways:</strong></p>
+<ul class="points">
+<li><strong>Horizontal Scalability</strong>: Adding or removing nodes, servers, or instances to or from a pool, such as a cluster or a farm.</li>
+<li><strong>Vertical Scalability</strong>: Adding or removing resources to an existing node, server, or instance to increase the capacity of a node, server, or instance.</li>
+</ul>
+<p>Most implementations of scalability are implemented using the horizontal method, as it is the easiest to implement, especially in the current web-based world we live in. Vertical Scaling is less dynamic because this requires reboots of systems, sometimes adding physical components to servers.</p>
+<p>A well-known example is adding a load balancer in front of a farm of web servers that distributes the requests.</p>
+<h2 class="h2">Why call it Elasticity?</h2>
+<p>Traditional IT environments have scalability built into their architecture, but scaling up or down isn't done very often. It has to do with Scaling and the amount of time, effort, and cost.</p>
+<p>Servers have to be purchased, operations need to be screwed into server racks, installed and configured, and then the test team needs to verify functioning, and only after that's done can you get the big There are. And you don't just buy a server for a few months - typically, it's three to five years. So it is a long-term investment that you make.</p>
+<p>The latch is doing the same, but more like a rubber band. You 'stretch' the ability when you need it and 'release' it when you don't have it. And this is possible because of some of the other features of cloud computing, such as "resource pooling" and "on-demand self-service". Combining these features with advanced image management capabilities allows you to scale more efficiently.</p>
+<h2 class="h2">Three forms for scalability</h2>
+<p><strong>Below I describe the three forms of scalability as I see them, describing what makes them different from each other.</strong></p>
+<ul class="points">
+<li><strong>Manual Scaling</strong></li>
+</ul>
+<p>Manual scalability begins with forecasting the expected workload on a cluster or farm of resources, then manually adding resources to add capacity. Ordering, installing, and configuring physical resources takes a lot of time, so forecasting needs to be done weeks, if not months, in advance. It is mostly done using physical servers, which are installed and configured manually.</p>
+<p>Another downside of manual scalability is that removing resources does not result in cost savings because the physical server has already been paid for.</p>
+<ul class="points">
+<li><strong>Semi-automated Scaling</strong></li>
+</ul>
+<p>Semi-automated scalability takes advantage of virtual servers, which are provisioned (installed) using predefined images. A manual forecast or automated warning of system monitoring tooling will trigger operations to expand or reduce the cluster or farm of resources.</p>
+<p>Using predefined, tested, and approved images, every new virtual server will be the same as others (except for some minor configuration), which gives you repetitive results. It also reduced the manual labor on the systems significantly, and it is a well-known fact that manual actions on systems cause around 70 to 80 percent of all errors. There are also huge benefits to using a virtual server; this saves costs after the virtual server is de-provisioned. The freed resources can be directly used for other purposes.</p>
+<ul class="points">
+<li><strong>Elastic Scaling (fully automatic Scaling)</strong></li>
+</ul>
+<p>Elasticity, or fully automatic scalability, takes advantage of the same concepts that semi-automatic scalability does but removes any manual labor required to increase or decrease capacity. Everything is controlled by a trigger from the System Monitoring tooling, which gives you this "rubber band" effect. If more capacity is needed now, it is added now and there in minutes. Depending on the system monitoring tooling, the capacity is immediately reduced.</p>
+<h2 class="h2">Scalability vs. Elasticity in Cloud Computing</h2>
+<p>Imagine a restaurant in an excellent location. It can accommodate up to 30 customers, including outdoor seating. Customers come and go throughout the day. Therefore restaurants rarely exceed their seating capacity.</p>
+<p>The restaurant increases and decreases its seating capacity</p>
+<p>within the limits of its seating area. But the staff adds a table or two to lunch and dinner when more people stream in with an appetite. Then they remove the tables and chairs to de-clutter the space.</p>
+<p>A nearby center hosts a bi-annual event that attracts hundreds of attendees for the week-long convention.</p>
+<p>The restaurant often sees increased traffic during convention weeks. The demand is usually so high that it has to drive away customers. It often loses business and customers to nearby competitors. The restaurant has disappointed those potential customers for two years in a row.</p>
+<p>Elasticity allows a cloud provider's customers to achieve cost savings, which are often the main reason for adopting cloud services.</p>
+<p>Depending on the type of cloud service, discounts are sometimes offered for long-term contracts with cloud providers. If you are willing to charge a higher price and not be locked in, you get flexibility.</p>
+<p><strong>Let's look at some examples where we can use it.</strong></p>
+<p><strong>Cloud Rapid Elasticity Example 1</strong></p>
+<p>Let us tell you that 10 servers are needed for a three-month project. The company can provide cloud services within minutes, pay a small monthly OpEx fee to run them, not a large upfront CapEx cost, and decommission them at the end of three months at no charge.</p>
+<p>We can compare this to before cloud computing became available. Let's say a customer comes to us with the same opportunity, and we have to move to fulfill the opportunity. We have to buy 10 more servers as a huge capital cost.</p>
+<p>When the project is complete at the end of three months, we'll have servers left when we don't need them anymore. It's not economical, which could mean we have to forgo the opportunity.</p>
+<p>Because cloud services are much more cost-efficient, we are more likely to take this opportunity, giving us an advantage over our competitors.</p>
+<p><strong>Cloud Rapid Elasticity Example 2</strong></p>
+<p>Let's say we are an eCommerce store. We're probably going to get more seasonal demand around Christmas time. We can automatically spin up new servers using cloud computing as demand grows.</p>
+<p>It works to monitor the load on the CPU, memory, bandwidth of the server, etc. When it reaches a certain threshold, we can automatically add new servers to the pool to help meet demand. When demand drops again, we may have another lower limit below which we automatically shut down the server. We can use it to automatically move our resources in and out to meet current demand.</p>
+<p><strong>Cloud-based software service example</strong></p>
+<p>If we need to use cloud-based software for a short period, we can pay for it instead of buying a one-time perpetual license. Most software as service companies offers a range of pricing options that support different features and duration lengths to choose the most cost-effective one.</p>
+<p>There will often be monthly pricing options, so if you need occasional access, you can pay for it as and when needed.</p>
+<h2 class="h2">What is the Purpose of Cloud Elasticity?</h2>
+<p>Cloud elasticity helps users prevent over-provisioning or under-provisioning system resources. Over-provisioning refers to a scenario where you buy more capacity than you need.</p>
+<img src="https://static.javatpoint.com/cloudpages/images/rapid-elasticity-in-cloud-computing.png" alt="Rapid Elasticity in Cloud Computing" />
+<p>Under-provisioning refers to allocating fewer resources than you are used to.</p>
+<img src="https://static.javatpoint.com/cloudpages/images/rapid-elasticity-in-cloud-computing2.png" alt="Rapid Elasticity in Cloud Computing" />
+<p>Over-provisioning leads to wastage of cloud costs, while under-provisioning can lead to server outages as the available servers overwork. Server shutdowns result in revenue loss and customer dissatisfaction, which is bad for business.</p>
+<p>Scaling with Elasticity provides a middle ground.</p>
+<img src="https://static.javatpoint.com/cloudpages/images/rapid-elasticity-in-cloud-computing3.png" alt="Rapid Elasticity in Cloud Computing" />
+<p>Elasticity is ideal for short-term needs, such as handling website traffic spikes and database backups.</p>
+<p>But Elasticity Cloud also helps to streamline service delivery when combined with scalability. For example, by spinning up additional VMs in the same server, you create more capacity in that server to handle dynamic workload surges.</p>
+<p><strong>So, how does cloud elasticity work in a business environment?</strong></p>
+<h2 class="h2">Rapid Elasticity Use Cases and Examples</h2>
+<p>At work, three excellent examples of cloud elasticity include e-commerce, insurance, and streaming services.</p>
+<h3 class="h3">Use case one: Insurance.</h3>
+<p>Let's say you are in the auto insurance business. Perhaps your customers renew auto policies at roughly the same time every year. Policyholders will rush to exceed the renewal deadline. You can expect a surge in traffic when you arrive at that time.</p>
+<p>If you rely on scalability alone, a traffic spike can quickly overwhelm your provisioned virtual machine, causing service outages. It will result in a loss of revenue and customers.</p>
+<p>But if you have "leased" a few more virtual machines, you can handle the traffic for the entire policy renewal period. Thus, you will have multiple scalable virtual machines to manage demand in real-time.</p>
+<p>Policyholders wouldn't notice any changes in performance whether you served more customers this year than the previous year. To reduce cloud spending, you can then release some of them to virtual machines when you no longer need them, such as during off-peak months.</p>
+<p>An Elastic Cloud Platform will let you do just that. It will only charge you for the resources you use on a pay-per-use basis and not for the number of virtual machines you employ.</p>
+<h3 class="h3">Use case two: e-commerce.</h3>
+<p>The more effectively you run your awareness campaign, the more potential buyers' interest you can expect to peak. Let's say you run a limited-time offer on notebooks to mark your anniversary, Black Friday, or a techno celebration. You can expect more traffic and server requests during that time.</p>
+<p>New buyers will register new accounts. This will put a lot of load on your server during the campaign's duration compared to most times of the year.</p>
+<p>Existing customers will also revisit abandoned trains from old wishlists or try to redeem accumulated points.</p>
+<p>You can provide more resources to absorb the high festive season demand with an elastic platform. After that, you can return the excess capacity to your cloud provider and keep what is doable in everyday operations.</p>
+<h3 class="h3">Use case three: Streaming services.</h3>
+<p>Netflix is probably the best example to use here. When the streaming service released all 13 episodes of House of Cards' second season, viewership jumped to 16% of Netflix's subscribers, compared to just 2% for the first season's premiere weekend.</p>
+<p>Those subscribers streamed one of those episodes within seven to ten hours that Friday. Now, Netflix has over 50 million subscribers (February 2014). So a 16% jump in viewership means that over 8 million subscribers streamed a portion of the show in a single day within a workday.</p>
+<p>Netflix engineers have repeatedly stated that they take advantage of the Elastic Cloud services by AWS to serve multiple such server requests within a short period and with zero downtime.</p>
+<p><strong>Bottom line:</strong> If your cloud provider offers Cloud Elasticity by default, and you have activated the feature in your account, the platform will allocate you unlimited resources at any time. It means that you will be able to handle both sudden and expected workload spikes.</p>
+<h2 class="h2">Benefits and Limitations of Cloud Elasticity</h2>
+<p>Elasticity in the cloud has many powerful benefits.</p>
+<ul class="points">
+<li><strong>Elasticity balances performance with cost-effectiveness</strong></li>
+</ul>
+<p>An Elastic Cloud provider provides system monitoring tools that track resource usage. Then they automatically analyze resource allocation versus usage. The goal is always to ensure that these two metrics match to ensure that the system performs cost-effectively at its peak.</p>
+<p>Cloud providers also price it on a pay-per-use model, allowing you to pay for what you use and no more. The pay-as-you-expansion model will let you add new infrastructure components to prepare them for growth.</p>
+<ul class="points">
+<li><strong>It helps in providing smooth services.</strong></li>
+</ul>
+<p>Cloud elasticity combines with cloud scalability to ensure that both the customer and the cloud platform meet changing computing needs when the need arises.</p>
+<p>For a cloud platform, Elasticity helps keep customers happy.</p>
+<p>While scalability helps it handle long-term growth, Elasticity currently ensures flawless service availability. It also helps prevent system overloading or runaway cloud costs due to over-provisioning.</p>
+<p><strong>But, what are the limits or disadvantages of cloud elasticity?</strong></p>
+<p>Cloud elasticity may not be for everyone. Cloud scalability alone may be sufficient if you have a relatively stable demand for your products or services online.</p>
+<p>For example, if you run a business that doesn't experience seasonal or occasional spikes in server requests, you may not mind using scalability without Elasticity. <strong>Keep in mind that Elasticity requires scalability, but not vice versa.</strong></p>
+<p>Still, no one could have predicted that you might need to take advantage of a sudden wave of interest in your company. So, what do you do when you need to be up for that opportunity but don't want to ruin your cloud budget speculation? Enter cloud cost optimization.</p>
+<h3 class="h3">How is cloud cost optimization related to cloud elasticity?</h3>
+<p>Elasticity uses dynamic variations to align computing resources to the demands of the workload as closely as possible to prevent wastage and promote cost-efficiency. Another goal is usually to ensure that your systems can continue to serve customers satisfactorily, even when bombarded by heavy, sudden workloads.</p>
+<p>But not all cloud platform services support the Scaling in and out of cloud elasticity.</p>
+<p><strong>For example.</strong> Some AWS services include Elasticity as a part of their offerings, such as Amazon Simple Storage Service (S3), Amazon Simple Queue Service (SQS), and Amazon Aurora. Amazon Aurora qualifies as serverless Elastic, while others like Amazon Elastic Compute Cloud (EC2) integrate with Amazon Auto Scaling and support Elastic.</p>
+<p>Whether or not you use the Elastic service to reduce cloud costs dynamically, you'll want to increase your cloud cost visibility in a way that Amazon Cloud Watch doesn't offer.</p>
+<p>CloudZero allows engineering teams to track and oversee the specific costs and services driving their products, facilities, etc. You can group costs by feature, product, service, or account to uncover unique insights about your cloud costs that will help you answer what's changing, why, and why you want to know more about it.</p>
+<p>You can also measure and monitor your unit costs, such as cost per customer. Here's a look at Cloud Xero's cost per customer report, where you can uncover important cost information about your customers, which can help guide your engineering and pricing decisions.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="fog-computing-vs-cloud-computing.html">Fog computing vs. Cloud computing</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="how-does-multi-cloud-differ-from-a-hybrid-cloud.html">&larr; prev</a>
+<a style="float:right" class="next" href="fog-computing-vs-cloud-computing.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6b0d0e0e0f090a08002b010a1d0a1f1b0402051f45080406">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/rapid-elasticity-in-cloud-computing"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/rapid-elasticity-in-cloud-computing"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/rapid-elasticity-in-cloud-computing"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+ <a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+ </a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="abc3d9ebc1caddcadfdbc4c2c5df85c8c4c6">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="58302a1832392e392c283731362c763b373576">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/rapid-elasticity-in-cloud-computing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:25:35 GMT -->
+</html> 

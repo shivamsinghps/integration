@@ -1,0 +1,881 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/microprocessor-architecture by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:52:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Microprocessor Architecture - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Microprocessor Architecture - javatpoint" /><meta property="og:description" content="Microprocessor Architecture with Microprocessor Tutorial, Introduction, Evolution, Working of Microprocessor, Vector Processors, Features, Digital Signal Processors, Graphic Processors, Architecture, Intel, Set of 8085, Programming in 8085, Applications, Set of 8086, Configuration, Memory and I/O Interfacing, Peripheral Devices, Pins, Logical, Interrupts, Segment LED Display, bit numbers etc." />
+<meta name="keywords" content="microprocessor tutorial, introduction, evolution of microprocessors, working of microprocessor, vector processors, features of microprocessor, digital signal processors, graphic processors, architecture, intel, set of 8085, programming in 8085, applications, set of 8086, configuration, memory and i/o interfacing, peripheral devices, pins, logical, interrupts, segment led display, bit numbers" /><meta name="description" content="Microprocessor Architecture with Microprocessor Tutorial, Introduction, Evolution, Working of Microprocessor, Vector Processors, Features, Digital Signal Processors, Graphic Processors, Architecture, Intel, Set of 8085, Programming in 8085, Applications, Set of 8086, Configuration, Memory and I/O Interfacing, Peripheral Devices, Pins, Logical, Interrupts, Segment LED Display, bit numbers etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="microprocessor-architecture.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Microprocessor Architecture - javatpoint" /><meta name="twitter:description" property="og:description" content="Microprocessor Architecture with Microprocessor Tutorial, Introduction, Evolution, Working of Microprocessor, Vector Processors, Features, Digital Signal Processors, Graphic Processors, Architecture, Intel, Set of 8085, Programming in 8085, Applications, Set of 8086, Configuration, Memory and I/O Interfacing, Peripheral Devices, Pins, Logical, Interrupts, Segment LED Display, bit numbers etc." /><meta property="og:url" content="microprocessor-architecture.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="microprocessor-tutorial.html" class="selected">Microprocessor</a></li>
+<li><a href="computer-fundamentals-tutorial.html">Computer Fundamentals</a></li>
+<li><a href="computer-network-tutorial.html">Computer Network</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Microprocessor Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="microprocessor-tutorial.html">Microprocessor Tutorial</a>
+<a href="microprocessor-introduction.html">Microprocessor Introduction</a>
+<a href="types-of-microprocessors.html">Types of Microprocessors</a>
+<a href="microprocessor-architecture.html">Microprocessor Architecture</a>
+<a href="instruction-set-of-8085.html">Instruction Set of 8085</a>
+<a href="programming-in-8085.html">Programming in 8085</a>
+<a href="microprocessor-applications.html">Microprocessor Applications</a>
+<a href="8086-microprocessor.html">8086 Microprocessor</a>
+<a href="instruction-set-of-8086.html">Instruction Set of 8086</a>
+<a href="multiprocessor-configuration.html">Multiprocessor Configuration</a>
+<a href="memory-and-io-interfacing.html">Memory and I/O Interfacing</a>
+<a href="microcontroller.html">Microcontroller</a>
+<a href="peripheral-devices.html">Peripheral Devices</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="instruction-set-of-8085.html">next &rarr;</a>
+<a class="next" href="types-of-microprocessors.html">&larr; prev</a>
+</div>
+<h1 class="h1">Microprocessor Architecture</h1>
+<p>The <strong>microprocessor</strong> is the CPU (Central Processing Unit) of a computer. It is the heart of the computer. Here, we will describe Intel 8085 as it is one of the most popular 8-bit microprocessor.</p>
+<h2 class="h2">Intel 8085</h2>
+<p>Intel 8085 is an 8-bit, NMOS microprocessor designed by Intel in 1977. </p>
+<p><strong>It has following configuration:</strong></p>
+<ul class="points">
+<li>It is a 40 pin I.C. package fabricated on a single LSI chip. </li>
+<li>The Intel 8085 uses a single +5Vd.c. supply for its operation.</li>
+<li>Intel 8085?s clock speed is about 3 MHz; the clock cycle is of 320ns.</li>
+<li>8 ?bit data bus.</li>
+<li>Address bus is of 16-bit, which can address up to 64KB</li>
+<li>16-bit stack pointer</li>
+<li>16 bit PC (Program Counter)</li>
+<li>Six 8-bit registers are arranged in pairs :BC, DE, HL</li>
+</ul>
+<p>Intel 8085 is used in mobile phones, microwave ovens, washing machines etc.</p>
+<p>The below diagram shows the <strong>block diagram of Intel 8085</strong>:</p>
+<img src="https://static.javatpoint.com/tutorial/microprocessor/images/microprocessor-architecture-block-diagram.png" alt="Microprocessor Architecture" />
+<hr />
+<h2 class="h2">ALU</h2>
+<p>The <strong>Arithmetic and Logic Unit</strong>, ALU performs the arithmetic and logical operations:</p>
+<ul class="points">
+<li>Addition</li>
+<li>Subtraction</li>
+<li>Logical AND</li>
+<li>Logical OR</li>
+<li>Logical EXCLUSIVE OR</li>
+<li>Complement (Logical NOT)</li>
+<li>Increment (add 1)</li>
+<li>Decrement (subtract 1)</li>
+<li>Left shift, Rotate left, Rotate right</li>
+<li>Clear, etc.</li>
+</ul>
+<hr />
+<h2 class="h2">Timing and Control Unit</h2>
+<p><strong>The timing and control unit</strong> is the section of the CPU.</p>
+<ul class="points">
+<li>It is used to generate timing and control signals which are necessary for the execution of instructions.</li>
+<li>It is used to control data flow between CPU and peripherals (including memory).</li>
+<li>It is used to provide status, control and timing signals which are required for the operation of memory and I/O devices. </li>
+<li>It is used to control the entire operations of the microprocessor and peripherals connected to it.</li>
+</ul>
+<p>Thus we can see that the control unit of the CPU acts as the brain of the computer system.</p>
+<hr />
+<h2 class="h2">Registers</h2>
+<p><strong>Registers</strong> are used for temporary storage and manipulation of data and instructions by the microprocessor. Data remain in the registers till they are sent to the I/O devices or memory. Intel 8085 microprocessor has the following registers:</p>
+<ul class="points">
+<li>One 8-bit accumulator (ACC) i.e. register A</li>
+<li>Six general purpose registers of 8-bit, these are B,C, D, E, H and L</li>
+<li>One 16-bit stack pointer, SP</li>
+<li>One 16-bit Program Counter, PC</li>
+<li>Instruction register</li>
+<li>Temporary register</li>
+</ul>
+<p>In addition to the above mentioned registers the 8085 microprocessor contains a set of five flip-flops which serve as flags (or status flags). </p>
+<p>A flag is a flip-flop which indicates some conditions which arises after the execution of an arithmetic or logical instruction.</p>
+<ol class="pointsa">
+<li><strong>Accumulator (ACC):</strong> The accumulator is an 8-bit register associated with the ALU. The register 'A' is an accumulator in the 8085. It is used to hold one of the operands of an arithmetic and logical operation.<br>
+The final result of an arithmetic or logical operation is also placed in the accumulator.</li>
+<li><strong>General-Purpose Registers:</strong> The 8085 microprocessor contains six 8-bit general purpose registers. They are: B, D, C, E, H and L register. <br>
+To hold data of 16-bit a combination of two 8-bit registers can be employed. <br>
+The combination of two 8-bit registers is called <strong>register pair</strong>. The valid register pairs in the 8085 are: D-E, B-C and H-L. The H-L pair is used to act as a memory pointer.</li>
+<li><strong>Program Counter (PC):</strong> It is a 16-bit special purpose register. It is used to hold the address of memory of the next instruction to be executed. It keeps the track of the instruction in a program while they are being executed.<br>
+The microprocessor increments the content of the next program counter during the execution of an instruction so that at the end of the execution of an instruction it points to the next instruction?s address in the program.</li>
+<li><strong>Stack Pointer (SP):</strong> It is a 16-bit special function register used as memory pointer. A stack is nothing but a portion of RAM. In the stack, the contents of only those registers are saved, which are needed in the later part of the program. <br>
+The stack pointer (SP) controls the addressing of the stack. The Stack Pointer contains the address of the top element of data stored in the stack.</li>
+<li><strong>Instruction Register:</strong> The instruction register holds the opcode (operation code or instruction code) of the instruction which is being decoded and executed.</li>
+<li><strong>Temporary Register:</strong> It is an 8-bit register associated with the ALU. It holds data during an arithmetic/logical operation. It is used by the microprocessor. It is not accessible to programmer. </li>
+<li><strong>Flags:</strong> The Intel 8085 microprocessor contains five flip-flops to serve as a status flags. The flip-flops are reset or set according to the conditions which arise during an arithmetic or logical operation.</li>
+</ol>
+<p><strong>The five status flags of Intel 8085 are:</strong></p>
+<ul class="points">
+<li>Carry Flag (CS)</li>
+<li>Parity Flag (P)</li>
+<li>Auxiliary Carry Flag (AC)</li>
+<li>Zero Flag(Z)</li>
+<li>Sign Flag(S)</li>
+</ul>
+<p>If a flip-flop for a particular flag is set, then it indicates 1. When it is reset, it indicates 0.</p>
+<hr />
+<h2 class="h2">Data and Address Bus</h2>
+<ul class="points">
+<li>The Intel 8085 is an 8-bit microprocessor. Its <strong>data bus</strong> is 8-bit wide and therefore, 8 bits of data can be transmitted in parallel from or to the microprocessor. </li>
+<li>The Intel 8085 requires an <strong>address bus</strong> of 16-bit wide as the memory addresses are of 16-bits. </li>
+<li>The 8 most significant bits of the address are transmitted by the address bus, A-bus (pins A<sub>8</sub> ? A<sub>15</sub>). </li>
+<li>The 8 least significant bits of the address are transmitted by data/address bus, AD-bus (pins AD<sub>0</sub> ? AD<sub>7</sub>).</li>
+</ul>
+<hr />
+<h2 class="h2">Pin Configuration</h2>
+<img src="https://static.javatpoint.com/tutorial/microprocessor/images/microprocessor-architecture-pin-configuration.png" alt="Microprocessor Architecture" />
+<p><strong>Fig: Pin diagram of Intel 8085 microprocessor</strong></p>
+<p>The descriptions of various pins are as follows:</p>
+<p><strong>Address Bus and Data Bus</strong></p>
+<ul class="points">
+<li><Strong>A<sub>8</sub> ? A<sub>15</sub> (Output):</Strong> These are <strong>address bus</strong> and are used for the most significant bits of the memory address or 8-bits of I/O address.</li>
+<li><Strong>AD<sub>0</sub> ? AD<sub>7</sub> (Input/output):</Strong> These are time multiplexed <strong>address/data bus</strong> i.e. they serve dual purpose. They are used for the least significant 8 bits of the memory address or I/O address during the first cycle. Again they are used for data during 2nd and 3rd clock cycles.</li>
+</ul>
+<p><strong>Control and Status Signals</strong></p>
+<ul class="points">
+<li><strong>ALE (Output):</strong> ALE stands for <strong>Address Latch Enable</strong> signal. ALE goes high during first clock cycle of a machine cycle and enables the lower 8-bits of the address to be latched either into the memory or external latch.</li>
+<li><strong>IO/M (Output):</strong> It is a <strong>status signal</strong> which distinguishes whether the address is for memory or I/O device.</li>
+<li><strong>S<sub>0</sub>, S<sub>1</sub> (Output):</strong> These are <strong>status signals</strong> sent by the microprocessors to distinguish the various types of operation given in table below:</li>
+</ul>
+<p><strong>Status codes for Intel 8085</strong></p>
+<table class="alt">
+<tr>
+<th>S<sub>1</sub></th>
+<th>S<sub>0</sub></th>
+<th>Operations</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>HALT</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>WRITE</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>READ</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>FETCH</td>
+</tr>
+</table>
+<ul class="points">
+<li><strong>RD (Output):</strong> RD is a <strong>signal to control READ operation</strong>. When it goes low, the selected I/O device or memory is read.</li>
+<li><strong>WR (Output):</strong> WR is a <strong>signal to control WRITE operation</strong>. When it goes low, the data bus' data is written into the selected memory or I/O location.</li>
+<li><strong>READY (Input):</strong> It is used by the microprocessor to sense whether a peripheral is ready to transfer a data or not. If READY is high, the peripheral is ready. If it is low the micro processor waits till it goes high.</li>
+</ul>
+<p><strong>Interrupts and Externally Initiated Signals</strong></p>
+<ul class="points">
+<li><strong>HOLD (INPUT):</strong> HOLD indicates that another device is requesting for the use of the address and data bus. </li>
+<li><strong>HLDA (OUTPUT):</strong> HLDA is a signal for <strong>HOLD acknowledgement</strong> which indicates that the HOLD request has been received. After the removal of this request the HLDA goes low. </li>
+<li><strong>INTR (Input):</strong> INTR is an <strong>Interrupt Request Signal</strong>. Among interrupts it has the lowest priority. The INTR is enabled or disabled by software.</li>
+<li><strong>INTA (Output):</strong> INTA is an <strong>interrupt acknowledgement</strong> sent by the microprocessor after INTR is received. </li>
+<li><strong>RST 5.5, 6.5, 7.5 and TRAP (Inputs):</strong> These <strong>all are interrupts</strong>. When any interrupt is recognized the next instruction is executed from a fixed location in the memory as given below:</li>
+</ul>
+<table class="alt">
+<tr>
+<th>Line</th>
+<th>Location from which next instruction is picked up</th>
+</tr>
+<tr>
+<td>TRAP</td>
+<td>0024</td>
+</tr>
+<tr>
+<td>RST 5.5</td>
+<td>002C</td>
+</tr>
+<tr>
+<td>RST 6.5</td>
+<td>0034</td>
+</tr>
+<tr>
+<td>RST 7.5</td>
+<td>003C</td>
+</tr>
+</table>
+<p>RST 7.5, RST 6.5 and RST 5.5 are the restart interrupts which cause an internal restart to be automatically inserted.</p>
+<p>The TRAP has the highest priority among interrupts. The order of priority of interrupts is as follows:</p>
+<ul class="points">
+<li>TRAP (Highest priority) </li>
+<li>RST 7.5 </li>
+<li>RST 6.5 </li>
+<li>RST 5.5 </li>
+<li>INTR (Lowest priority). </li>
+</ul>
+<p><strong>Reset Signals</strong></p>
+<ul class="points">
+<li><strong>RESET IN (Input):</strong> It resets the program counter (PC) to 0. It also resets interrupt enable and HLDA flip-flops. The CPU is held in reset condition till RESET is not applied.</li>
+<li><strong>RESET OUT (Output):</strong> RESET OUT indicates that the CPU is being reset.</li>
+</ul>
+<p><strong>Clock Signals</strong></p>
+<ul class="points">
+<li><strong>X<sub>1</sub>, X<sub>2</sub> (Input):</strong> X1 and X2 are terminals to be connected to an external crystal oscillator which drives an internal circuitry of the microprocessor. It is used to produce a suitable clock for the operation of microprocessor. </li>
+<li><strong>CLK (Output):</strong> CLK is a <strong>clock output</strong> for user, which can be used for other digital ICs. Its frequency is same at which processor operates.</li>
+</ul>
+<p><strong>Serial I/O Signals</strong></p>
+<ul class="points">
+<li><strong>SID (Input):</strong> SID is data line for <strong>serial input</strong>. The data on this line is loaded into the seventh bit of the accumulator when RIM instruction is executed.</li>
+<li><strong>SOD (Output):</strong> SOD is a data line for <strong>serial output</strong>. The seventh bit of the accumulator is output on SOD line when SIM instruction is executed.</li>
+</ul>
+<p><strong>Power Supply</strong></p>
+<p>V<sub>cc</sub> : +5 Vlots supply</p>
+<p>V<sub>ss</sub> : ground reference</p>
+<hr />
+<h2 class="h2">8085 Instructions</h2>
+<p>An <strong>instruction</strong> of computer is a command given to the computer to perform a specified operation on given data. Some instructions of Intel 8085 microprocessor are: MOV, MVI, LDA, STA, ADD, SUB, RAL, INR, MVI, etc.</p>
+<hr />
+<h2 class="h2">Opcode and Operands</h2>
+<p>Each instruction contains two parts: Opcode (Operation code) and Operand. </p>
+<p>The 1st part of an instruction which specifies the task to be performed by the computer is called Opcode. </p>
+<p>The 2nd part of the instruction is the data to be operated on, and it is called Operand. The Operand (or data) given in the instruction may be in various forms such as 8-bit or 16-bit data, 8-bit or 16-bit address, internal registers or a register or memory location.</p>
+<hr />
+<h2 class="h2">Instruction Word Size</h2>
+<p>A digital computer understands instruction written in binary codes (machine codes). The binary codes of all instructions are not of the same length. </p>
+<p><strong>According to the word size, the Intel 8085 instructions are classified into the following three types:</strong></p>
+<ol class="points">
+<li>One byte instruction</li>
+<li>Two byte instruction</li>
+<li>Three byte instruction</li>
+</ol>
+<p><strong>1. One-byte instruction:</strong> Examples of one byte instructions are:</p>
+<ul class="points">
+<li><strong>MOV A, B</strong> - Move the content of the register B to register A.</li>
+<li><strong>ADD B</strong> ? Add the content of register B to the content of the accumulator.</li>
+</ul>
+<p>All the above two examples are only one byte long. All one-byte instructions contain information regarding operands in the opcode itself.</p>
+<p><strong>2. Two-byte instruction:</strong> In a two byte instruction the first byte of the instruction is its opcode and the second byte is either data or address.</p>
+<p><strong>Example:</strong></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>MVI B, 05;</strong> 05 moved to register B.</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>06, 05;</strong> MVI B, 05 is in the code form.</p>
+<p>The first byte 06 is the opcode for MVI B and second byte 05 is the data which is to be moved to register B.</p>
+<p><strong>3. Three-byte instruction:</strong> The first byte of the instruction is its opcode and the second and third bytes are either 16-bit data or 16-bit address.</p>
+<p><strong>Example:</strong></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;LXI H, 2400H; Load H-L Pair with 2400H</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;21, 00, 24; LXI H, 2400H in the code form</p>
+<p>The first byte 21 is the opcode for the instruction LXI H. The second 00 is 8 LSBs of the data (2400H), which is loaded into register L. The third byte 24 is 8 MSBs of the data (2400H), which is loaded into register H.</p>
+<hr />
+<h2 class="h2">Instruction Cycle</h2>
+<img src="https://static.javatpoint.com/tutorial/microprocessor/images/microprocessor-architecture-instruction-cycle.png" alt="Microprocessor Architecture" />
+<p>The time required to fetch an instruction and necessary data from memory and to execute it, is called an <strong>instruction cycle</strong>. Or the total time required to execute an instruction is given by:</p>
+<div class="codeblock"><pre>      IC = FC + EC
+</pre></div>
+<p><strong>Where,</strong></p>
+<div class="codeblock"><pre>IC = Instruction Cycle
+FC = Fetch Cycle
+EC = Execute Cycle
+</pre></div>
+<p><strong>Timing Diagram for Instruction Cycle</strong></p>
+<img src="https://static.javatpoint.com/tutorial/microprocessor/images/microprocessor-architecture-timing-diagram.png" alt="Microprocessor Architecture" />
+<ul class="points">
+<li><strong>Fetch the instruction (Fetch Cycle)</strong></li>
+</ul>
+<p>In the beginning of the fetch cycle, the content of the program counter (PC), which is the address of the memory location where opcode is available, is sent to the memory. The memory puts the opcode on the data bus so as to transfer it to the CPU. </p>
+<p>The whole operation of fetching an opcode takes three clock cycles. A slow memory may take more time.</p>
+<ul class="points">
+<li><strong>Decode the instruction (Decode Cycle)</strong></li>
+</ul>
+<p>The opcode fetched from the memory goes to the data register, DR and then to instruction register, IR. From the IR it goes to the decoder circuitry which decodes the instruction. Decoder circuitry is within the microprocessor.</p>
+<ul class="points">
+<li><strong>Execute the Instruction (Execute Cycle)</strong></li>
+</ul>
+<p>After the instruction is decoded, execution begins. </p>
+<p>If the operand is reside the general purpose registers, execution is immediately performed. The time taken in decoding and execution of an instruction is one clock cycle. </p>
+<p>In some situations, an execute cycle may involve one or more read or write cycles or both.</p>
+<p><strong>Read Cycle:</strong> If an instruction contains data or operand address which are in the memory, the CPU has to perform some read operations to get the desired data. In case of a read cycle the instruction received from the memory are data or operand address instead of an opcode. </p>
+<p><strong>Write Cycle:</strong> In write cycle data are sent from the CPU to the memory or an output device.</p>
+<ul class="points">
+<li><strong>Machine Cycle and State</strong></li>
+</ul>
+<p>The necessary steps carried out to perform the operation of accessing either memory or input output device, constitute a <strong>machine cycle</strong>. In other words, necessary steps carried out to perform a fetch, a read or a write operation constitutes a machine cycle. </p>
+<p>One sub-division of an operation performed in one clock cycle is called a state or <strong>T-state</strong>. In short, one clock cycle of the system clock is referred to as a state. </p>
+<hr />
+<h2 class="h2">Timing Diagram</h2>
+<p>The necessary steps carried out in a machine cycle can be represented graphically. Such a graphical representation is called <strong>timing diagram</strong>. The timing diagram for opcode fetch, memory read, memory write, I/O read and I/O write will be discussed below: </p>
+<ul class="points">
+<li><strong>Timing Diagram for Opcode Fetch Cycle:</strong></li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/microprocessor/images/microprocessor-architecture-timing-diagram2.png" alt="Microprocessor Architecture" />
+<ul class="points">
+<li><strong>Timing Diagram for Memory Read</strong></li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/microprocessor/images/microprocessor-architecture-timing-diagram3.png" alt="Microprocessor Architecture" />
+<ul class="points">
+<li><strong>Timing Diagram for Memory Write</strong></li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/microprocessor/images/microprocessor-architecture-timing-diagram4.png" alt="Microprocessor Architecture" />
+<ul class="points">
+<li><strong>Timing Diagram for I/O Read</strong></li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/microprocessor/images/microprocessor-architecture-timing-diagram5.png" alt="Microprocessor Architecture" />
+<ul class="points">
+<li><strong>Timing Diagram for I/O Write</strong></li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/microprocessor/images/microprocessor-architecture-timing-diagram6.png" alt="Microprocessor Architecture" />
+<h3 class="h4">In the above diagrams, the basic used parameters are:</h3>
+<p><strong>ALE:</strong> ALE indicates the availability of a valid address on the multiplexed address/data lines. When it is high or 1, then it acts as an address bus and when low or 0, then it acts as a data bus.</p>
+<p><strong>RD (low active):</strong> If it is high or 1, then no data is read by the microprocessor. If signal is low or 0, then data is read by the microprocessor.</p>
+<p><strong>WR (low active):</strong> If it is high or 1, then no data is written by the microprocessor. If signal is low or 0, then data is written by the microprocessor. </p>
+<p><strong>IO/M (low active):</strong> A high or 1 on this signal indicates I/O operation while a low or 0 indicates memory operation.</p>
+<p><strong>S<sub>0</sub>, S<sub>1</sub>:</strong> S0 and S1 Indicate the type of machine cycle in progress.</p>
+<p>The below table, shows the status of different control signal for different operation:</p>
+<img src="https://static.javatpoint.com/tutorial/microprocessor/images/microprocessor-architecture-timing-diagram-parameters.png" alt="Microprocessor Architecture" />
+<br />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="instruction-set-of-8085.html">Instruction Set of 8085</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="types-of-microprocessors.html">&larr; prev</a>
+<a style="float:right" class="next" href="instruction-set-of-8085.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="395f5c5c5d5b585a527953584f584d495650574d175a5654">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/microprocessor-architecture"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/microprocessor-architecture"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/microprocessor-architecture"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+ </a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+ </a>
+ <a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+ </div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+ </fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="1a72685a707b6c7b6e6a7573746e34797577">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="640c16240e05120510140b0d0a104a070b094a">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/microprocessor-architecture by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:52:28 GMT -->
+</html> 

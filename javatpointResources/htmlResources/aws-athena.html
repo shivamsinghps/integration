@@ -1,0 +1,912 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/aws-athena by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:25:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>AWS Athena - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="AWS Athena - Javatpoint" /><meta property="og:description" content="AWS Athena with aws, tutorial, introduction, amazon web services, aws history, features of aws, aws free tier, storage, database, network services, redshift, web services etc." />
+<meta name="keywords" content="aws, tutorial, introduction, amazon web services, aws history, features of aws, aws global infrastructure, aws free tier, storage, database, network services, redshift, web services, computer services" /><meta name="description" content="AWS Athena with aws, tutorial, introduction, amazon web services, aws history, features of aws, aws free tier, storage, database, network services, redshift, web services etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="aws-athena.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="AWS Athena - Javatpoint" /><meta name="twitter:description" property="og:description" content="AWS Athena with aws, tutorial, introduction, amazon web services, aws history, features of aws, aws free tier, storage, database, network services, redshift, web services etc." /><meta property="og:url" content="aws-athena.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="aws-tutorial.html" class="selected">AWS</a></li>
+<li><a href="computer-network-tutorial.html">Computer Network</a></li>
+<li><a href="iot-internet-of-things.html">IoT</a></li>
+<li><a href="data-structure-tutorial.html">DS</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="aptitude/quantitative.html">Aptitude</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="kotlin-tutorial.html">Kotlin</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">AWS Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="aws-tutorial.html">AWS Tutorial</a>
+<a href="history-of-aws.html">History of AWS</a>
+<a href="https://www.javatpoint.com/features-of-aws">AWS Features</a>
+<a href="aws-global-infrastructure.html">Global Infrastructure</a>
+<a href="aws-free-tier.html">AWS Free Tier</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">AWS IAM</span></h2>
+</div>
+<div class="leftmenu">
+<a href="aws-iam.html">AWS IAM</a>
+<a href="aws-saml.html">AWS SAML</a>
+<a href="aws-iam-identities.html">IAM Identities</a>
+<a href="aws-iam-roles.html">IAM Roles</a>
+<a href="aws-iam-roles-use-cases.html">IAM Roles Use Cases</a>
+<a href="aws-creating-iam-roles.html">Creating IAM Roles</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Storage Services</span></h2>
+</div>
+<div class="leftmenu">
+<a href="aws-s3.html">AWS S3</a>
+<a href="aws-s3-concepts.html">AWS S3 Concepts</a>
+<a href="aws-creating-s3-bucket.html">Creating S3 Bucket</a>
+<a href="aws-storage-classes.html">AWS Storage Classes</a>
+<a href="aws-versioning.html">AWS Versioning</a>
+<a href="aws-cross-region-replication.html">Cross Region Replication</a>
+<a href="aws-lifecycle-management.html">Lifecycle Management</a>
+<a href="aws-cloudfront-cdn.html">CloudFront CDN</a>
+<a href="aws-creating-a-cloudfront-cdn.html">Creating CloudFront CDN</a>
+<a href="aws-storage-gateway.html">Storage Gateway</a>
+<a href="aws-snowball.html">AWS Snowball</a>
+<a href="aws-s3-transfer-acceleration.html">S3 Transfer Acceleration</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">EC2 - Backbone of AWS</span></h2>
+</div>
+<div class="leftmenu">
+<a href="aws-ec2.html">AWS EC2</a>
+<a href="aws-ebs.html">AWS EBS</a>
+<a href="aws-ec2-creating-an-instance.html">Creating an EC2 instance</a>
+<a href="aws-ebs-volume.html">EBS Volume</a>
+<a href="aws-security-group.html">Security Group</a>
+<a href="aws-ami.html">AWS AMI</a>
+<a href="aws-creating-an-ami.html">Creating an AMI</a>
+<a href="aws-load-balancing.html">AWS Load Balancing</a>
+<a href="aws-creating-load-balancer.html">Creating Load Balancer</a>
+<a href="aws-lambda.html">AWS Lambda</a>
+<a href="aws-creating-a-lambda.html">Creating a Lambda</a>
+<a href="aws-cloudwatch-ec2.html">CloudWatch EC2</a>
+<a href="aws-bash-script.html">AWS Bash Script</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">AWS Route53</span></h2>
+</div>
+<div class="leftmenu">
+<a href="aws-dns.html">What is DNS</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Database Services</span></h2>
+</div>
+<div class="leftmenu">
+<a href="aws-relational-databases.html">Relational Database</a>
+<a href="aws-non-relational-database.html">Non Relational Database</a>
+<a href="aws-elasticache.html">AWS Elasticache</a>
+<a href="creating-an-rds-instance-in-aws.html">Creating an RDS Instance</a>
+<a href="aws-dynamodb.html">AWS DynamoDB</a>
+<a href="aws-aurora.html">AWS Aurora</a>
+<a href="aws-redshift.html">AWS Redshift</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Application Services</span></h2>
+</div>
+<div class="leftmenu">
+<a href="aws-sqs.html">AWS SQS</a>
+<a href="aws-swf.html">AWS SWF</a>
+<a href="aws-sns.html">AWS SNS</a>
+<a href="aws-elastic-transcoder.html">Elastic Transcoder</a>
+<a href="aws-api-gateway.html">API Gateway</a>
+<a href="aws-kinesis.html">AWS Kinesis</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">AWS VPC</span></h2>
+</div>
+<div class="leftmenu">
+<a href="aws-vpc.html">AWS VPC</a>
+<a href="creating-your-own-custom-vpc.html">Creating your own custom VPC</a>
+<a href="aws-direct-connect.html">Direct Connect</a>
+<a href="aws-nat-gateways.html">NAT Gateways</a>
+<a href="aws-bastion-host.html">AWS Bastion Host</a>
+<a href="aws-vpc-endpoint.html">AWS VPC Endpoint</a>
+<a href="aws-vpc-flowlogs.html">AWS VPC FlowLogs</a>
+<a href="aws-nacl.html">AWS NACL</a>
+<a href="https://www.javatpoint.com/aws-nacl-vs-security-group">NACL vs Security Group</a>
+<a href="aws-data-pipeline.html">AWS Data Pipeline</a>
+<a href="aws-lightsail.html">AWS Lightsail</a>
+<a href="amazon-ses.html">Amazon SES</a>
+<a href="aws-cloudformation.html">AWS CloudFormation</a>
+<a href="what-is-aws-cli.html">What is AWS CLI</a>
+<a href="what-is-amazon-emr.html">What is Amazon EMR</a>
+<a href="amazon-relational-database-service.html">Amazon RDS</a>
+<a href="aws-athena.html">AWS Athena</a>
+<a href="what-is-aws-amplify.html">What is AWS Amplify</a>
+<a href="amazon-cognito.html">Amazon Cognito</a>
+<a href="what-is-aws-console.html">What is AWS Console</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="aws-interview-questions.html">AWS Interview Questions</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="what-is-aws-amplify.html">next &rarr;</a>
+<a class="next" href="amazon-relational-database-service.html">&larr; prev</a>
+</div>
+<h1 class="h1">AWS Athena</h1>
+<p>Data analysis is a very complex process, and efforts have always been made to make it easy. There are many tools for analytics, and even the popular tech giant Amazon offers an AWS service called <em>Amazon Athena.</em> This Amazon Athena tutorial will guide you through the basic and advanced use of Amazon Athena.</p>
+<p>Amazon Athena is an interactive data analysis tool used to process complex queries in a relatively short amount of time. It is serverless. Hence, there is no hassle to set up, and no infrastructure management is required. It is not a database service. Therefore, you pay for the queries you run. You just point your data into S3, define the necessary schema, and you are good to go with a standard SQL. Learn all about Amazon Web Services with AWS Training.</p>
+<h3 class="h3">Introduction to Amazon Athena</h3>
+<p>On 20 November 2016, Amazon launched Athena as one of its services. As mentioned earlier, Amazon Athena is a serverless query service that analyzes data using standard SQL stored in Amazon S3. With a few clicks in the AWS Management Console, customers can point Amazon Athena at their data stored in Amazon S3 and run queries using standard SQL to retrieve results in seconds.</p>
+<p>With Amazon Athena, there is no infrastructure to set up or manage, and the customer only pays for the queries they run. Amazon Athena scales automatically, executing queries in parallel, giving fast results even with large datasets and complex queries.</p>
+<h3 class="h3">Difference Between Microsoft SQL Server And Amazon Athena</h3>
+<table class="alt">
+<tr>
+<th>Features</th>
+<th>Microsoft SQL Server</th>
+<th>Amazon Athena</th>
+</tr>
+<tr>
+<td><strong>DEFINITION</strong></td>
+<td>Microsoft SQL Server is a database management and analysis system.</td>
+<td>Amazon Athena is an interactive query service that makes data analysis easy.</td>
+</tr>
+<tr>
+<td><strong>USAGE</strong></td>
+<td>Used for DML, DCL, DDL, and TCL operations on Database.</td>
+<td>Used for DML operations on Database.</td>
+</tr>
+<tr>
+<td><strong>BENEFITS</strong></td>
+<td>
+<ol class="points">
+<li>Reliable and easy to use.</li>
+<li>High performance.</li>
+<li>Easy to maintain.</li>
+<li>Easy server installation.</li>
+<li>Multiple tools integration possible.</li>
+</ol>
+</td>
+<td>
+<ol class="points">
+<li>Easy to use.</li>
+<li>High performance.</li>
+<li>No maintenance is required.</li>
+<li>No server configuration is required.</li>
+<li>Multiple tools integration possible.</li>
+</ol>
+</td>
+</tr>
+<tr>
+<td><strong>INTEGRATION</strong></td>
+<td>
+<ol class="points">
+<li>Sequlize</li>
+<li>SQLDep</li>
+<li>Presto</li>
+</ol>
+</td>
+<td>
+<ol class="points">
+<li>Amazon S3</li>
+<li>AWS Glue</li>
+<li>Presto</li>
+</ol>
+</td>
+</tr>
+<tr>
+<td><strong>LIMITATIONS</strong></td>
+<td>
+<ol class="points">
+<li>Limited RDS storage.</li>
+<li>Limited instances.</li>
+<li>Can not handle recursion.</li>
+</ol>
+</td>
+<td>
+<ol class="points">
+<li>No DDLs supported.</li>
+<li>Works with external table only.</li>
+<li>Defined User Functions not supported.</li>
+</ol>
+</td>
+</tr>
+</table>
+<h3 class="h3">Creating Table in Athena</h3>
+<p>We use live resources, so you're only charged for the queries you run, but not for the datasets you use, and if you want to upload your data files to Amazon S3, then charges apply.</p>
+<p>To query S3 file data, you must have an external table associated with the file structure. We can create external tables in two ways:</p>
+<ul class="points">
+<li>Manually.</li>
+<li>Using AWS Glue Crawler.</li>
+</ul>
+<p>To create an external table manually, follow the correct structure CREATE DETAILS CREATE EXTERNAL TABLE and specify the correct format and exact location. An example is given below:</p>
+<h3 class="h3">Creating an external table manually</h3>
+<p>The created external tables are stored in the AWS Glue Catalog. Glu Clover parses the input file structure and creates a metadata table defined in the Glu Data Catalog.</p>
+<p>The Crawler uses the AWS IAM (Identity and Access Management) role to allow archived data and data catalogs. You must have permission to pass roles to the Crawler to access crawled Amazon S3 paths.</p>
+<p>Go to AWS Glue, select <strong>"Add Table,"</strong> and select the option <strong>"Add Table Using Crawler".</strong></p>
+<h3 class="h3">Add tables using a glue crawler.</h3>
+<p>Give the Crawler a name. Let's say, for example, a car-crawler</p>
+<p><strong>Enter crawler name</strong></p>
+<p>Choose the path in <strong>Amazon S3,</strong> where the file is saved.</p>
+<p>If you plan to query only one file, you can choose either the S3 file path or the S3 folder path to query all files in a folder with the same structure.</p>
+<h3 class="h3">Enter crawler name</h3>
+<p>Choose the path in <strong>Amazon S3,</strong> where the file is saved.</p>
+<p>If you plan to query only one file, you can choose either the S3 file path or the S3 folder path to query all files in a folder with the same structure.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+The Cars.json file is in the S3 location s3://rosyll-niranjana-xavier/data_input/json-files/cars.json. You can also choose s3://rosyll-niranjana-xavier/data_input/json-files/ 
+</textarea></div>
+<p>as the path.</p>
+<p>Create an IAM role with permissions to the S3 object whose target you want to query or select an existing IAM role (that has sufficient privileges to access the S3 object).</p>
+<p>Choose a database that contains external tables and optionally choose a prefix to be added to the external table name.</p>
+<h3 class="h3">Select Database and prefix for external tables</h3>
+<p><strong>Click Finish to create the Glue Crawler</strong></p>
+<ul class="points">
+<li><strong>Run crawler</strong></li>
+</ul>
+<p>The external table has been created under the specified Database. Now you can query the S3 object using this.</p>
+<ul class="points">
+<li><strong>Select data from external table</strong></li>
+</ul>
+<p>Since we put a file, the <strong>query "select * from json_files"</strong> returns one record in the file. Let's try to put another file with the same structure in the same S3 folder and query the external table again.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+petercars.json file S3. 
+</textarea></div>
+<p>If you query the same EXTERNAL table, you will see two rows returned instead of one.</p>
+<p>When the same external table is queried, you will get two records. It is because there are two files in the S3 folder with the desired structure. You can perform many operations on the data. For example, the following Query will UNNEST the array in the result set.</p>
+<h3 class="h3">Accessing Amazon Athena</h3>
+<p>Athena is very easy to reach, and one can either:</p>
+<p>These are some of the ways to access Amazon Athena. By now, you know everything important about Amazon Athena, and let me tell you about the different features of Athena.</p>
+<h2 class="h2">Features of Athena</h2>
+<p>Among the many services provided by Amazon, Athena is one of the services. It has several features that make it suitable for data analysis. Let's take a look at the different features one by one.</p>
+<ol class="points">
+<li><strong>Easy Implementation:</strong> Athena does not require installation, and it can also be accessed by the AWS CLI directly from the AWS console.</li>
+<li><strong>Serverless:</strong> It is serverless, so the end-user does not need to worry about infrastructure, configuration, scaling, or failure. Athena takes care of everything herself.</li>
+<li><strong>Pay Per Query:</strong> Athena charges you only for the Query you run, i.e., the amount of data managed per Query. You can save a lot if you can compress them and format your dataset accordingly.</li>
+<li><strong>Fast:</strong> Athena is a very fast analysis tool. It can execute complex queries quickly by breaking them down into simpler queries and running them in parallel, then combining the results to give the desired output.</li>
+<li><strong>Secure:</strong> With the help of IAM policies and AWS identities, Athena gives you complete control over the data set. Since data is stored in S3 buckets, IAM policies can help you manage users' controls.</li>
+<li><strong>Highly Available:</strong> With the assurance of AWS, Athena is highly available, and the user can execute queries round the clock. As is AWS 99.999% available, so is Athena.</li>
+<li><strong>Integration:</strong> The best feature of Athena is that it can be integrated with AWS Glue. AWS Glue will help the user to build a better-integrated data repository. It helps you create better versions of data, better tables, views, etc.</li>
+</ol>
+<p>As of now, you will be impressed with AWS Athena. Now that you know a lot about Athena. Let's roll up our sleeves and understand Athena's work by doing a small demo.</p>
+<h3 class="h3">Demo (Comparison between Amazon Athena and MySQL)</h3>
+<p>In this Amazon Athena tutorial, now we will compare MySQL and Athena and understand how even simple queries take less time to execute in Athena.</p>
+<ol class="points">
+<li>
+Loading the CSV file to MySQL took around 1 hour, but in Athena, it took just 3 minutes to upload the CSV file to S3 and 0.42 seconds to create a table.<br>
+<img src="https://static.javatpoint.com/tutorial/aws/images/aws-athena1.png" alt="AWS Athena" />
+</li>
+<li>
+Select Query. Select * from table.<br>
+<img src="https://static.javatpoint.com/tutorial/aws/images/aws-athena2.png" alt="AWS Athena" />
+</li>
+<li>Select Query in Athena.<br>
+<img src="https://static.javatpoint.com/tutorial/aws/images/aws-athena3.png" alt="AWS Athena" /></li>
+<li>
+Select Query in MySQL.</li>
+<li>
+Select a specific column from the table.<br>
+<img src="https://static.javatpoint.com/tutorial/aws/images/aws-athena4.png" alt="AWS Athena" /><br>
+<strong>Select a specific column in Athena</strong><br>
+<img src="https://static.javatpoint.com/tutorial/aws/images/aws-athena5.png" alt="AWS Athena" />
+</li>
+<li>
+Select a specific column in MySQL.<br>
+</li>
+<li>
+Getting the count of a specific column.<br>
+<img src="https://static.javatpoint.com/tutorial/aws/images/aws-athena6.png" alt="AWS Athena" />
+</li>
+<li>Count of a specific column in Athena.<br>
+<img src="https://static.javatpoint.com/tutorial/aws/images/aws-athena7.png" alt="AWS Athena" /></li>
+<li>
+Counting the number of records in the table.<br>
+<img src="https://static.javatpoint.com/tutorial/aws/images/aws-athena8.png" alt="AWS Athena" /><br>
+<strong>Count all records in Athena</strong><br>
+<img src="https://static.javatpoint.com/tutorial/aws/images/aws-athena9.png" alt="AWS Athena" /><br>
+Select Query with a specified range.<br>
+<img src="https://static.javatpoint.com/tutorial/aws/images/aws-athena10.png" alt="AWS Athena" /><br>
+<strong>Select Query within the said range in Athena.</strong><br>
+<img src="https://static.javatpoint.com/tutorial/aws/images/aws-athena11.png" alt="AWS Athena" />
+</li>
+</ol>
+<p><strong>Select Query within the said range in MySQL.</strong></p>
+<h3 class="h3">What are the limitations of Amazon Athena?</h3>
+<ul class="points">
+<li>Optimization is limited to queries. For example, data already stored in S3 cannot be optimized.</li>
+<li>No indexing options. Indexing options commonly appear in traditional databases. Without indexing, the operation load on Athena increases, potentially affecting performance.</li>
+<li>Efficient queries require partitioning. To enable efficient queries, data must first be partitioned, and partitions must then be managed for what best fits performance needs.</li>
+<li>Stored procedures, parameterized queries, and Presto federated connectors are not supported. Amazon Athena Federated Query is needed to connect data sources.</li>
+<li>When querying a table with thousands of partitions, Athena can time out.</li>
+<li>Source files that start with an underscore or a dot are treated as hidden.</li>
+<li>The row and column size cannot exceed 32 megabytes.</li>
+<li>Athena does not support querying data in S3 Glacier and S3 Glacier Deep Archive storage classes.</li>
+<li>Statements such as CREATE TABLE LIKE, DESCRIBE INPUT and DESCRIBE OUTPUT, EXECUTE ? USING, MERGE and UPDATE are not supported.</li>
+</ul>
+<h2 class="h2">AWS Athena vs. AWS Glue</h2>
+<p>Since its initial release in August 2017, AWS Glu has been operating as a fully-managed Extract, Transform and Load (ETL) service. It comes with three primary components:</p>
+<ol class="points">
+<li>A flexible scheduler to handle job monitoring</li>
+<li>An ETL engine capable of generating Scala or Python code</li>
+<li>A data catalog that serves as a central metadata repository</li>
+</ol>
+<p>AWS Glue helps you find and transform data sets and prepare them for discovery and querying with these tools.</p>
+<p>So, you should be able to use AWS Athena with AWS Glue. Subsequent data catalogs will create, store, and retrieve table metadata (or schemas) as queried by Athena.</p>
+<h3 class="h3">What are the advantages and disadvantages of using AWS Athena?</h3>
+<p>AWS Athena, as it turned out, is a double-edged sword. The features that make it conveniently cheap and accessible are the ones that may limit you somewhat.</p>
+<h3 class="h3">Pros of AWS Athena</h3>
+<ul class="points">
+<li><strong>Serverless:</strong> Since it is delivered as a fully managed serverless service, AWS Athena saves you all the hassle that comes with managing infrastructure. You don't have to worry about setting up clusters, regulating capacity, or loading data.</li>
+<li><strong>Cost-effective:</strong> AWS Athena is not only cost-effective but also quite affordable as compared to its close competitors. It is because the service doesn't charge you for count instances. And instead, you only pay for the queries you're running.</li>
+<li><strong>Widely Accessible:</strong> As a service that runs its queries using standard SQL, AWS Athena is widely accessible to anyone - not just developers and engineers. It can be adopted by business analysts and other data professionals, as standard SQL queries are very simple and straightforward.</li>
+<li><strong>Flexibility:</strong> Amazon Athena's open and versatile architecture doesn't limit you to any specific vendor, technology, or device. For example, you can work with a wide range of open-source file formats and freely switch between query engines without adjusting schemas.</li>
+</ul>
+<h2 class="h2">Cons of AWS Athena</h2>
+<ul class="points">
+<li><strong>No Data Optimization:</strong> AWS Athena doesn't offer a lot of customization capabilities. The farthest you can go here is to optimize the queries - not the underlying data. Even when you try to replace Amazon S3 data using AWS Glu, you still need to be careful not to harm other services that access the same data.</li>
+<li><strong>Shared Resources:</strong> According to Amazon's Service Level Agreement (SLA), all AWS Athena users worldwide share the same resource when running their queries. This multi-tenancy approach can trigger resource stress from time to time, leading to fluctuating query performance.</li>
+<li><strong>Reduction in data manipulation operations:</strong> AWS Athena is just a query service, and you will find only one query engine here. It does not come with a built-in Data Manipulation Language <strong>(DML)</strong> interface for inserting, deleting, and updating data.</li>
+<li><strong>Requires data partitioning:</strong> If you intend to run your SQL queries efficiently, you may want to partition the data sets stored in Amazon S3. The number of partitions you have to create will affect the speed and performance of your queries to a great extent. For example, every 500 partitions scanned will increase your query time by one second.</li>
+<li><strong>Lack of indices:</strong> While indexing has always been a built-in provision in traditional databases, you do not get this privilege with AWS Athena. As such, you should expect challenges in operations such as consolidating large tables.</li>
+</ul>
+<h3 class="h3">How is AWS Athena priced?</h3>
+<p>As we've already said, <strong>AWS</strong> Athena, follows a pricing schedule that charges you based on the queries you choose to run in your data analysis.</p>
+<p>Amazon calculates the bytes and then rounds them to the nearest megabyte, 10MB being the minimum amount per Query.</p>
+<p>You should expect to pay $5 for every terabyte <strong>(TB)</strong> of data you can afford. In the meantime, you will not be charged for failed queries, statements for managing partitions, as well as <strong>Data Definition Language (DDL)</strong> statements.</p>
+<p>But that's not all. Amazon further makes it possible for you to reduce per-query costs by as much as <strong>30%</strong> to <strong>90%.</strong> You just need to <strong>split, compress</strong> or <strong>convert</strong> your data to a columnar format.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="what-is-aws-amplify.html">What is AWS Amplify</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="amazon-relational-database-service.html">&larr; prev</a>
+<a style="float:right" class="next" href="what-is-aws-amplify.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f5939090919794969eb59f94839481859a9c9b81db969a98">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/aws-athena"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/aws-athena"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/aws-athena"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+ <a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+ </a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b7dfc5f7ddd6c1d6c3c7d8ded9c399d4d8da">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e58d97a58f84938491958a8c8b91cb868a88cb">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/aws-athena by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:25:39 GMT -->
+</html> 

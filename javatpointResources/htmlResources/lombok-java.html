@@ -1,0 +1,1039 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/lombok-java by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:36:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Lombok Java - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Lombok Java - Javatpoint" /><meta property="og:description" content="Lombok Java with java tutorial, features, history, variables, object, programs, operators, oops concept, array, string, map, math, methods, examples etc." />
+<meta name="keywords" content="java tutorial, features, history, variables, object, class, programs, operators, swith, for-loop, if-else, oops concept, inheritance, array, string, map, math, methods, examples" /><meta name="description" content="Lombok Java with java tutorial, features, history, variables, object, programs, operators, oops concept, array, string, map, math, methods, examples etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="lombok-java.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Lombok Java - Javatpoint" /><meta name="twitter:description" property="og:description" content="Lombok Java with java tutorial, features, history, variables, object, programs, operators, oops concept, array, string, map, math, methods, examples etc." /><meta property="og:url" content="lombok-java.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div id="smoothmenu1" class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="java-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/java.png" alt="java" /> Java</a></li>
+<li><a href="java-programs.html"><img src="https://static.javatpoint.com/images/icon/java-program.png" alt="java programs" /> Programs</a></li>
+<li><a href="java-oops-concepts.html"><img src="https://static.javatpoint.com/images/icon/oops.png" alt="oops" /> OOPs</a></li>
+<li><a href="java-string.html"><img src="https://static.javatpoint.com/images/icon/string.png" alt="String" /> String</a></li>
+<li><a href="exception-handling-in-java.html"><img src="https://static.javatpoint.com/images/icon/exception.png" alt="Exception" /> Exception</a></li>
+<li><a href="multithreading-in-java.html"><img src="https://static.javatpoint.com/images/icon/multithreading.png" alt="Multithreading" /> Multithreading</a></li>
+<li><a href="collections-in-java.html"><img src="https://static.javatpoint.com/images/icon/collection.png" alt="Collections" /> Collections</a></li>
+<li><a href="javafx-tutorial.html"><img src="https://static.javatpoint.com/images/icon/javafx.png" alt="javafx" /> JavaFX</a></li>
+<li><a href="jsp-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jsp.png" alt="jsp" /> JSP</a></li>
+<li><a href="spring-tutorial.html"><img src="https://static.javatpoint.com/images/icon/spring.png" alt="spring" /> Spring</a></li>
+<li><a href="spring-boot-tutorial.html"><img src="https://static.javatpoint.com/images/icon/spring-boot.png" alt="Spring Boot" /> Spring Boot</a></li>
+<li><a href="free-java-projects.html"><img src="https://static.javatpoint.com/images/icon/projects.png" alt="Projects" /> Projects</a></li>
+<li><a href="corejava-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="interview questions" /> Interview Questions</a>
+</li>
+</ul>
+<br style="clear: left" />
+</div>
+</div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="java-tutorial.html">What is Java</a>
+<a href="history-of-java.html">History of Java </a>
+<a href="features-of-java.html">Features of Java </a>
+<a href="cpp-vs-java.html">C++ vs Java </a>
+<a href="simple-program-of-java.html">Hello Java Program</a>
+<a href="internal-details-of-hello-java-program.html">Program Internal</a>
+<a href="how-to-set-path-in-java.html">How to set path? </a>
+<a href="difference-between-jdk-jre-and-jvm.html">JDK, JRE and JVM </a>
+<a href="jvm-java-virtual-machine.html">JVM: Java Virtual Machine </a>
+<a href="java-variables.html">Java Variables</a>
+<a href="java-data-types.html">Java Data Types</a>
+<a href="unicode-system-in-java.html">Unicode System </a>
+
+<a href="operators-in-java.html">Operators </a>
+<a href="java-keywords.html">Keywords </a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Control Statements</span></h2>
+</div>
+<div class="leftmenu">
+<a href="control-flow-in-java.html">Java Control Statements</a>
+<a href="java-if-else.html">Java If-else</a>
+<a href="java-switch.html">Java Switch</a>
+<a href="java-for-loop.html">Java For Loop</a>
+<a href="java-while-loop.html">Java While Loop</a>
+<a href="java-do-while-loop.html">Java Do While Loop</a>
+<a href="java-break.html">Java Break</a>
+<a href="java-continue.html">Java Continue</a>
+<a href="java-comments.html">Java Comments</a>
+<a href="java-programs.html">Java Programs </a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Object Class</span></h2>
+</div>
+<div class="leftmenu">
+<a href="java-oops-concepts.html" class="l1">Java OOPs Concepts</a>
+<a href="java-naming-conventions.html" class="l1">Naming Convention</a>
+<a href="object-and-class-in-java.html" class="l1">Object and Class</a>
+<a href="method-in-java.html" class="l1">Method</a>
+<a href="java-constructor.html" class="l1">Constructor</a>
+<a href="static-keyword-in-java.html" class="l1">static keyword </a>
+<a href="this-keyword.html" class="l1">this keyword</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Inheritance</span></h2>
+</div>
+<div class="leftmenu">
+<a href="inheritance-in-java.html" class="l1">Inheritance(IS-A)</a>
+<a href="aggregation-in-java.html" class="l1">Aggregation(HAS-A)</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Polymorphism</span></h2>
+</div>
+<div class="leftmenu">
+<a href="method-overloading-in-java.html" class="l1">Method Overloading</a>
+<a href="method-overriding-in-java.html" class="l1">Method Overriding</a>
+<a href="covariant-return-type.html" class="l1">Covariant Return Type</a>
+<a href="super-keyword.html" class="l1">super keyword</a>
+<a href="instance-initializer-block.html" class="l1">Instance Initializer block</a>
+<a href="final-keyword.html" class="l1">final keyword</a>
+<a href="runtime-polymorphism-in-java.html" class="l1">Runtime Polymorphism</a>
+<a href="static-binding-and-dynamic-binding.html" class="l1">Dynamic Binding</a>
+<a href="downcasting-with-instanceof-operator.html" class="l1">instanceof operator</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Abstraction</span></h2>
+</div>
+<div class="leftmenu">
+<a href="abstract-class-in-java.html" class="l1">Abstract class</a>
+<a href="interface-in-java.html" class="l1">Interface</a>
+<a href="difference-between-abstract-class-and-interface.html" class="l1">Abstract vs Interface</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Encapsulation</span></h2>
+</div>
+<div class="leftmenu">
+<a href="package.html" class="l1">Package</a>
+<a href="access-modifiers.html" class="l1">Access Modifiers</a>
+<a href="encapsulation.html" class="l1">Encapsulation</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Array</span></h2>
+</div>
+<div class="leftmenu">
+<a href="array-in-java.html" class="l1">Java Array</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java OOPs Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="object-class.html" class="l1">Object class </a>
+<a href="object-cloning.html" class="l1">Object Cloning</a>
+<a href="java-math.html" class="l1">Math class </a>
+<a href="wrapper-class-in-java.html" class="l1">Wrapper Class</a>
+<a href="recursion-in-java.html" class="l1">Java Recursion</a>
+<a href="call-by-value-and-call-by-reference-in-java.html" class="l1">Call By Value </a>
+<a href="strictfp-keyword.html" class="l1">strictfp keyword</a>
+<a href="creating-api-document.html" class="l1">javadoc tool</a>
+<a href="command-line-argument.html" class="l1">Command Line Arg</a>
+<a href="difference-between-object-and-class.html" class="l1">Object vs Class</a>
+<a href="method-overloading-vs-method-overriding-in-java.html" class="l1">Overloading vs Overriding</a>
+</div>
+<div class="leftmenu2">
+<a href="java-string.html"><span>Java String</span></a>
+<a href="java-regex.html"><span>Java Regex</span></a>
+<a href="exception-handling-in-java.html"><span>Exception Handling</span></a>
+<a href="java-inner-class.html"><span>Java Inner classes</span></a>
+<a href="multithreading-in-java.html"><span>Java Multithreading</span></a>
+<a href="java-io.html"><span>Java I/O</span></a>
+<a href="java-networking.html"><span>Java Networking</span></a>
+<a href="java-awt.html"><span>Java AWT &amp; Events</span></a>
+<a href="java-swing.html"><span>Java Swing</span></a>
+<a href="javafx-tutorial.html"><span>JavaFX</span></a>
+<a href="java-applet.html"><span>Java Applet</span></a>
+<a href="java-reflection.html"><span>Java Reflection</span></a>
+<a href="java-date.html"><span>Java Date</span></a>
+<a href="java-string-to-int.html"><span>Java Conversion</span></a>
+<a href="collections-in-java.html"><span>Java Collection</span></a>
+<a href="java-jdbc.html"><span>Java JDBC</span></a>
+<a href="java-main-method.html"><span>Java Misc</span></a>
+<a href="New-features-in-java.html"><span>Java New Features</span></a>
+<a href="RMI.html"><span>RMI</span></a>
+<a href="internationalization-in-java.html"><span>Internationalization</span></a>
+<a href="corejava-interview-questions.html"><span>Interview Questions</span></a>
+<a href="java-mcq.html"><span>Java MCQ</span></a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="ordinal-number-in-java.html">next &rarr;</a>
+<a class="next" href="labeled-loop-in-java.html">&larr; prev</a>
+</div>
+<h1 class="h1">Lombok Java</h1>
+<p>Java is the most popular object-oriented programming language but it has some drawbacks. The major drawback is to write lots of <strong>boilerplate</strong> code. To overcome this drawback, project <strong>Lombok</strong> comes into existence. It is a tool that spices up our Java application. In this section, we will discuss the <strong>project Lombok, features, Lombok package</strong>.</p>
+<img src="https://static.javatpoint.com/core/images/lombok-java.png" alt="Lombok Java" />
+<h2 class="h2">What is project Lombok?</h2>
+<p>The project Lombok is a popular and widely used Java library that is used to minimize or remove the boilerplate code. It saves time and effort. Just by using the annotations, we can save space and readability of the source code. It is automatically plugging into IDEs and build tools to spice up our Java application.</p>
+<p>Here, a question arises that <strong>does project Lombok and IDEs do the same work? If yes, then what is the use of Lombok?</strong></p>
+<p>The answer is <strong>no</strong>, IDEs and Lombok do different works but are closely similar to each other. When we use IDEs to generate these boilerplate codes (getters and setters), we save ourselves from writing getters and setters manually but it actually exists in the source code that increases the lines of code, and reduces maintainability and readability. While the project Lombok adds all these boilerplate codes at the compile-time in the class file instead of adding these boilerplate code in original source code.</p>
+<p>The Lombok Java API includes the following packages that can be used for different purposes.</p>
+<ul class="points">
+<li>lombok</li>
+<li>experimental</li>
+<li>extern.apachecommons</li>
+<li>extern.flogger</li>
+<li>extern.java</li>
+<li>extern.jbosslog</li>
+<li>extern.log4j</li>
+<li>extern.slf4j</li>
+</ul>
+<h3 class="h3">Why project Lombok?</h3>
+<p>Suppose, we are developing a Java application for which a POJO file is required that has several private fields. For these fields, we have to generate getters and setters accessor methods to provide access. Generating getters and setters for each field increases the line of code.</p>
+<p>Moreover, adding a constructor and a toString() technique will cause much more lines of code and mess. What about when we are utilizing Java objects that need to be closed after use, so we need to code a finally-block or use try-with-resources to ensure that the object closing occurs. Adding a finally-block boilerplate to close objects can add a significant amount of clutter to the code. Hence, we deal with lots of boilerplate code.</p>
+<p>To overcome the same problem, the project Lombok comes into existence.</p>
+<h3 class="h3">Features of Lombok Project</h3>
+<ul class="points">
+<li>It reduces the <strong>boilerplate</strong></li>
+<li>It replaces boilerplate code with easy-to-use <strong>annotations</strong>.</li>
+<li>It makes code easier to read and <strong>less</strong> <strong>error-prone</strong>.</li>
+<li>By using Lombok the developers becomes more <strong>productive</strong>.</li>
+<li>It works well with all popular IDEs.</li>
+<li>Also provides <strong>delombok</strong> utility (adding back all the boilerplate code).</li>
+<li>Provide annotation for checking null values.</li>
+<li>Concise data objects</li>
+<li>Easy cleanup</li>
+<li>Locking safely</li>
+<li>Effortless logging</li>
+</ul>
+<h2 class="h2">Java Lombok Package</h2>
+<p>The package contains all the annotations and classes required to use Lombok. All other packages are only applicable to those who are extending Lombok for their own uses, except the following two packages:</p>
+<ul class="points">
+<li><strong>lombok.extern.*:</strong> The packages contain Lombok annotations that are useful to reduce boilerplate issues for libraries. It is not part of the JRE itself.</li>
+<li><strong>lombok.experimental:</strong> The package contains Lombok features that are new or likely to change before committing to long-term support.</li>
+</ul>
+<p>The Java Lombok package contains the following classes, and annotations.</p>
+<table class="alt">
+<tr>
+<th colspan="2"><strong>Classes</strong></th>
+</tr>
+<tr>
+<td><strong>Class</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr>
+<td>ConfigurationKeys</td>
+<td>A container class containing all Lombok configuration keys that do not belong to a specific annotation.</td>
+</tr>
+<tr>
+<td>Lombok</td>
+<td>Useful utility methods to manipulate Lombok-generated code.</td>
+</tr>
+<tr>
+<th colspan="2"><strong>Enum</strong></th>
+</tr>
+<tr>
+<td>AccessLevel</td>
+<td>Represents an AccessLevel.</td>
+</tr>
+<tr>
+<th colspan="2"><strong>Annotations</strong></th>
+</tr>
+<tr>
+<td><strong>Annotations</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr>
+<td>AllArgsConstructor</td>
+<td>Generates an all-args constructor.</td>
+</tr>
+<tr>
+<td>Builder</td>
+<td>The builder annotation creates a so-called 'builder' aspect to the class that is annotated or the class that contains a member which is annotated with @Builder.</td>
+</tr>
+<tr>
+<td>Builder.Default</td>
+<td>The field annotated with @Default must have an initializing expression; that expression is taken as the default to be used if not explicitly set during building.</td>
+</tr>
+<tr>
+<td>Builder.ObtainVia</td>
+<td>Put on a field (in case of @Builder on a type) or a parameter (for @Builder on a constructor or static method) to indicate how Lombok should obtain a value for this field or parameter given an instance; this is only relevant if toBuilder is true.</td>
+</tr>
+<tr>
+<td>Cleanup</td>
+<td>Ensures the variable declaration that you annotate will be cleaned up by calling its close method, regardless of what happens.</td>
+</tr>
+<tr>
+<td>CustomLog</td>
+<td>Causes Lombok to generate a logger field based on a custom logger implementation.</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>Generates getters for all fields, a useful toString method, and hashCode and equals implementations that check all non-transient fields.</td>
+</tr>
+<tr>
+<td>EqualsAndHashCode</td>
+<td>Generates implementations for the equals and hashCode methods inherited by all objects, based on relevant fields.</td>
+</tr>
+<tr>
+<td>EqualsAndHashCode.Exclude</td>
+<td>If present, do not include this field in the generated equals and hashCode methods.</td>
+</tr>
+<tr>
+<td>EqualsAndHashCode.Include</td>
+<td>Configure the behavior of how this member is treated in the equals and hashCode implementation; if on a method, include the method's return value as part of calculating hashCode/equality.</td>
+</tr>
+<tr>
+<td>Generated</td>
+<td>Lombok will eventually automatically add this annotation to all generated constructors, methods, fields, and types.</td>
+</tr>
+<tr>
+<td>Getter</td>
+<td>Put on any field to make Lombok build a standard getter.</td>
+</tr>
+<tr>
+<td>NoArgsConstructor</td>
+<td>Generates a no-args constructor.</td>
+</tr>
+<tr>
+<td>NonNull</td>
+<td>If put on a parameter, Lombok will insert a null-check at the start of the method /constructor's body, throwing a NullPointerException with the parameter's name as a message.</td>
+</tr>
+<tr>
+<td>RequiredArgsConstructor</td>
+<td>Generates a constructor with required arguments.</td>
+</tr>
+<tr>
+<td>Setter</td>
+<td>Put on any field to make Lombok build a standard setter.</td>
+</tr>
+<tr>
+<td>Singular</td>
+<td>The singular annotation is used together with @Builder to create single element 'add' methods in the builder for collections.</td>
+</tr>
+<tr>
+<td>SneakyThrows</td>
+<td>@SneakyThrow will avoid javac's insistence that you either catch or throw onward any checked exceptions that statements in your method body declare they generate.</td>
+</tr>
+<tr>
+<td>Synchronized</td>
+<td>Almost exactly like putting the 'synchronized' keyword on a method, except will synchronize on a private internal Object, so that other code not under your control doesn't meddle with your thread management by locking on your own instance.</td>
+</tr>
+<tr>
+<td>ToString</td>
+<td>Generates an implementation for the toString method inherited by all objects, consisting of printing the values of relevant fields.</td>
+</tr>
+<tr>
+<td>ToString.Exclude</td>
+<td>If present, do not include this field in the generated toString.</td>
+</tr>
+<tr>
+<td>ToString.Include</td>
+<td>Configure the behavior of how this member is rendered in the toString; if on a method, include the method's return value in the output.</td>
+</tr>
+<tr>
+<td>val</td>
+<td>Use val as the type of any local variable declaration (even in a for-each statement), and the type will be inferred from the initializing expression.</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>Generates a lot of code that fits with a class that is a representation of an immutable entity.</td>
+</tr>
+<tr>
+<td>var</td>
+<td>Use var as the type of any local variable declaration (even in a for statement), and the type will be inferred from the initializing expression (any further assignments to the variable are not involved in this type inference).</td>
+</tr>
+<tr>
+<td>With</td>
+<td>Put on any field to make Lombok build a 'with' - a withX method that produces a clone of this object (except for 1 field which gets a new value).</td>
+</tr>
+</table>
+<h3 class="h3">Purpose to Use Lombok Project</h3>
+<p>There are several reasons to use Lombok but some of them are as follows:</p>
+<p><strong>Check for Nulls</strong> </p>
+<p>It is the most basic utility that Lombok offers. The library offers <strong>@NonNull</strong> annotation that can be used to generate a null check on a setter field. It throws the <strong>NullPointerException</strong> if the annotated class field contains a null value. Note that we cannot annotate the <strong>primitive</strong> parameter. With @NonNull annotation. For example, consider the following code snippet.</p>
+<div class="codeblock"><textarea name="code" class="java">
+@NonNull @Setter
+private String studentId;
+</textarea></div>
+<p>The above code is the same as:</p>
+<div class="codeblock"><textarea name="code" class="java">
+public id setStudentId(@NonNull final String StudentId)
+{
+if(studentId == null) throw 
+new java.lang.NullPointerException("studentId");
+this.studentId = studentId;
+}
+</textarea></div>
+<h3 class="h3">Concise Data Object</h3>
+<p>Generating getters and setters can be laborious work if there are several private fields in the POJO file. The task can be performed easily with the Lombok by using the <strong>@Getter</strong> and <strong>@Setter</strong> annotation. For example, consider the following code.</p>
+<p><strong>Without Project Lombok:</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+private String studentName;
+public String getStudentName()
+{
+return this.studentName;
+}
+public void setStudentName(String studentName)
+{
+this.studentName = studentName;
+}
+</textarea></div>
+<p><strong>Using Project Lombok:</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+@Getter @Setter private String studentName;
+</textarea></div>
+<p>We observe that the code becomes more concise and less error-prone. Note that @Getter and @Setter annotation also accept an optimal parameter to designate the access level if needed. One of the benefits is that it takes care of the naming convention. For example, it generates an accessor method for the boolean field that begins with <strong>is</strong> instead of <strong>get</strong>. If they are applied at the class level, getters and setters are generated for each non-static field within the class.</p>
+<h3 class="h3">Generating Getters and Setters</h3>
+<p>The <strong>@Data</strong> annotation can be used to apply usefulness behind all the annotations. It means that annotate a class with the @Data annotation, Lombok produces getters and setters for every one of the non-static class fields and a class constructor. It is the same as <strong>toString(), equivalents(), and hashCode() strategies. It makes the coding of a POJO exceptionally simple.</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+@Data
+public class StudentBean 
+{
+@NonNull
+private BigDecimal studentId;
+@NonNull
+private String studentName;
+@NonNull
+private String studentAddress;
+}
+</textarea></div>
+<h4 class="n">Note: If we create getters and setters manually, Lombok doesn't produce the code regardless of whether the fields are annotated.</h4>
+<p><strong>Generate Constructor Automatically</strong></p>
+<p>It provides two annotations to generate constructors i.e. <strong>@AllArgsConstructor</strong> and <strong>@NoArgsConstructor</strong>. The <strong>@AllArgsConstructor</strong> annotation generates a constructor with all fields that are declared. If any field is added or removed, the constructor is also revised for the changes. The <strong>@NoArgsConstructor</strong> annotation simply generates the constructor without any argument.</p>
+<p><strong>Generating Getters for Final Fields</strong></p>
+<p>The <strong>@Value</strong> annotation is the same as the @Data annotation. It is a class-level annotation. The only difference is that it generates an <strong>immutable</strong> class. It invokes the automatic generation of getters only for all <strong>private</strong> and <strong>final</strong> fields. Note that it does not generate <strong>setters</strong> for any field, and marked the class as final.</p>
+<h2 class="h2">Configure Lombok in Eclipse IDE</h2>
+<p>To configure the Lombok project in Eclipse IDE, follow the steps given below:</p>
+<p><strong>Step 1:</strong> First, download the <a href="https://projectlombok.org/downloads/lombok.jar" rel="nofollow" target="_blank">lombok.jar</a> file.</p>
+<p><strong>Step 2:</strong> For executing the above JAR file, double-click on the downloaded JAR file. A GUI appears on the screen in which we have to specify the IDE on which we want to configure the Lombok project.</p>
+<img src="https://static.javatpoint.com/core/images/lombok-java2.png" alt="Lombok Java" />
+<p><strong>Step 3:</strong> Click on the <strong>Specify location</strong> button and browse the directory in which Eclipse IDE is installed. From the folder select <strong>eclipse.exe</strong> file.</p>
+<img src="https://static.javatpoint.com/core/images/lombok-java3.png" alt="Lombok Java" />
+<p><strong>Step 4:</strong> Click on the <strong>Install/ Update</strong> button.</p>
+<p>Once the above process is completed check project Lombok is installed successfully or not.</p>
+<p><strong>Step 5:</strong> Open eclipse IDE -&gt; <strong>Help</strong> -&gt; <strong>About Eclipse IDE</strong>. If the project Lombok is listed, means that properly installed.</p>
+<img src="https://static.javatpoint.com/core/images/lombok-java4.png" alt="Lombok Java" />
+<p><strong>Step 6:</strong> At last, click on the <strong>Close</strong> button.</p>
+<p>The project Lombok is successfully integrated with the Eclipse IDE.</p>
+<h2 class="h2">Java Program without Using Lombok</h2>
+<p>First, we will create a Java program without using Lombok to see the differences.</p>
+<p><strong>Student.java</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+public class Student
+{
+private Integer studentId;
+private String studentName;
+private String studentClass;
+private String studentEmailId;
+//default constructor
+public Student() 
+{
+}
+//parameterized constructor
+public Student(Integer studentId, String studentName, String studentClass, String studentEmailId) 
+{
+super();
+this.studentId = studentId;
+this.studentName = studentName;
+this.studentClass = studentClass;
+this.studentEmailId = studentEmailId;
+}
+//generating getters and setters
+public Integer getStudentId() 
+{
+return studentId;
+}
+public void setStudentId(Integer studentId) 
+{
+this.studentId = studentId;
+}
+public String getStudentName() 
+{
+return studentName;
+}
+public void setStudentName(String studentName) 
+{
+this.studentName = studentName;
+}
+public String getStudentClass() 
+{
+return studentClass;
+}
+public void setStudentClass(String studentClass) 
+{
+this.studentClass = studentClass;
+}
+public String getStudentEmailId() 
+{
+return studentEmailId;
+}
+public void setStudentEmailId(String studentEmailId) 
+{
+this.studentEmailId = studentEmailId;
+}
+@Override
+public String toString() 
+{
+return "Student [studentId=" + studentId + ", studentName=" + studentName + ", studentClass=" + studentClass + ", studentEmailId=" + studentEmailId + "]";
+}
+}
+</textarea></div>
+<p>Let's consider the above code with Lombok.</p>
+<h3 class="h3">Java Program with Lombok</h3>
+<p>In the following program, we have used the commonly used Lombok annotation to make our code concise.</p>
+<p><strong>Employee.java</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class Student
+{
+private @Getter @Setter Integer sttudentId;
+private @Getter @Setter String studentName;
+private @Getter @Setter String studentClass;
+private @Getter @Setter String studentEmailId;
+}
+</textarea></div>
+<p>Consider both the above codes, we can clearly see the differences. Using Lombok reduces the line of code, makes the code concise, readable, and less error-prone.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="ordinal-number-in-java.html">Ordinal Number in Java</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="labeled-loop-in-java.html">&larr; prev</a>
+<a style="float:right" class="next" href="ordinal-number-in-java.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="55333030313734363e153f34233421253a3c3b217b363a38">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/lombok-java"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/lombok-java"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/lombok-java"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+ </div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+ <p>Blockchain</p>
+ </div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+ </div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="472f35072d2631263337282e29336924282a">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="375f45775d5641564347585e59431954585a19">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/lombok-java by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:36:45 GMT -->
+</html> 

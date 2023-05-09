@@ -1,0 +1,981 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/arduino-operators by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 14:33:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Arduino Operators - JavaTpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Arduino Operators - JavaTpoint" /><meta property="og:description" content="Arduino Operators with What is Arduino, Arduino Installation, Arduino Data Types, Arduino Variables, Arduino Loops, Arduino Functions, Arduino Strings etc." />
+<meta name="keywords" content="arduino tutorial, arduino, arduino introduction, features of arduino, what is arduino, arduino installation, arduino data types, arduino variables, arduino loops, arduino functions, arduino strings" /><meta name="description" content="Arduino Operators with What is Arduino, Arduino Installation, Arduino Data Types, Arduino Variables, Arduino Loops, Arduino Functions, Arduino Strings etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="arduino-operators.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Arduino Operators - JavaTpoint" /><meta name="twitter:description" property="og:description" content="Arduino Operators with What is Arduino, Arduino Installation, Arduino Data Types, Arduino Variables, Arduino Loops, Arduino Functions, Arduino Strings etc." /><meta property="og:url" content="arduino-operators.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="arduino.html" class="selected">Arduino</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="cpp-tutorial.html">C++</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+<li><a href="comment.html">Comment</a></li>
+<li><a href="forum.html">Forum</a></li>
+<li><a href="training.html">Training</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Arduino Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="arduino.html">Arduino Tutorial</a>
+<a href="arduino-download.html">Arduino Download</a>
+<a href="arduino-ide.html">Arduino IDE</a>
+<a href="arduino-kit.html">Arduino Kit</a>
+<a href="arduino-shields.html">Arduino Shields</a>
+<a href="arduino-boards.html">Arduino Boards</a>
+<a href="arduino-uno.html">Arduino UNO</a>
+<a href="arduino-uno-pinout.html">Arduino UNO Pinout</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Arduino Programming</span></h2>
+</div>
+<div class="leftmenu">
+<a href="arduino-coding-basics.html">Arduino Coding Basics</a>
+<a href="arduino-syntax-and-program-flow.html">Syntax &amp; Program Flow</a>
+<a href="arduino-serial-serial-begin.html">Serial &amp; Serial.begin()</a>
+<a href="arduino-serial-print.html">Serial.print ()</a>
+<a href="arduino-serial-available.html">Serial.available()</a>
+<a href="arduino-serial-read-and-serial-write.html">Serial.read() &amp; Serial.write()</a>
+<a href="arduino-analogread.html">Arduino analogRead ()</a>
+<a href="arduino-functions.html">Arduino Functions</a>
+<a href="arduino-data-types.html">Arduino Data Types</a>
+<a href="arduino-variables.html">Arduino Variables</a>
+<a href="arduino-constants.html">Arduino Constants</a>
+<a href="arduino-operators.html">Arduino Operators</a>
+<a href="arduino-array.html">Arduino Array</a>
+<a href="arduino-delay.html">Arduino Delay</a>
+<a href="arduino-if-statement.html">Arduino If statement</a>
+<a href="arduino-if-else-and-else-if.html">if-else &amp; else-if</a>
+<a href="arduino-for-loop.html">Arduino for Loop</a>
+<a href="arduino-while-loop.html">Arduino while loop</a>
+<a href="arduino-switch-case.html">Arduino switch case</a>
+<a href="arduino-string.html">Arduino String</a>
+<a href="arduino-string-object.html">Arduino String Object</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Basic Projects</span></h2>
+</div>
+<div class="leftmenu">
+<a href="arduino-blinking-an-led.html">Blinking an LED</a>
+<a href="arduino-blinking-two-led.html">Blinking Two LED</a>
+<a href="arduino-blinking-various-leds-using-arrays.html">Blinking various LEDs using Arrays</a>
+<a href="arduino-blinking-multiple-leds-using-loop.html">Blinking multiple LEDs using loop</a>
+<a href="arduino-blinking-multiple-leds-using-switch-case.html">Blinking multiple LEDs using switch case</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Arduino Advanced</span></h2>
+</div>
+<div class="leftmenu">
+<a href="arduino-simulator.html">Arduino Simulator</a>
+<a href="arduino-web-editor.html">Arduino Web Editor</a>
+<a href="arduino-switch.html">Arduino Switch</a>
+<a href="arduino-button.html">Arduino button</a>
+<a href="arduino-pwm.html">Arduino PWM</a>
+<a href="arduino-library.html">Arduino Library</a>
+<a href="arduino-lcd-display.html">Arduino LCD Display</a>
+<a href="arduino-potentiometer.html">Arduino Potentiometer</a>
+<a href="arduino-interrupt.html">Arduino Interrupt</a>
+<a href="arduino-spi.html">Arduino SPI</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Arduino Sensors</span></h2>
+</div>
+<div class="leftmenu">
+<a href="arduino-sensors.html">What are Arduino sensors</a>
+<a href="arduino-ldr.html">Arduino LDR</a>
+<a href="arduino-accelerometer.html">Arduino Accelerometer</a>
+<a href="arduino-ultrasonic-distance-sensor.html">Ultrasonic distance sensor</a>
+<a href="arduino-ultrasonic-range-finder.html">Ultrasonic Range finder</a>
+<a href="arduino-temperature-sensor.html">Temperature Sensor</a>
+<a href="arduino-motion-sensor.html">Arduino Motion Sensor</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Control Motor</span></h2>
+</div>
+<div class="leftmenu">
+<a href="arduino-stepper-motor.html">Arduino Stepper motor</a>
+<a href="arduino-servo-motor.html">Arduino Servo Motor</a>
+<a href="arduino-servomotor-using-potentiometer.html">Arduino Servomotor using Potentiometer</a>
+<a href="arduino-dc-motor.html">Arduino DC motor</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Miscallaneous</span></h2>
+</div>
+<div class="leftmenu">
+<a href="arduino-nano.html">Arduino Nano</a>
+<a href="arduino-pro-mini.html">Arduino Pro Mini</a>
+<a href="arduino-mega.html">Arduino Mega</a>
+<a href="arduino-micro.html">Arduino Micro</a>
+<a href="arduino-due.html">Arduino Due</a>
+<a href="arduino-vs-raspberry-pi.html">Arduino vs Raspberry Pi</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Arduino Pinout</span></h2>
+</div>
+<div class="leftmenu">
+<a href="arduino-nano-pinout.html">Arduino Nano Pinout</a>
+<a href="arduino-mega-pinout.html">Arduino Mega Pinout</a>
+<a href="arduino-micro-pinout.html">Arduino Micro Pinout</a>
+<a href="arduino-due-pinout.html">Arduino Due Pinout</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="arduino-array.html">next &rarr;</a>
+<a class="next" href="arduino-constants.html">&larr; prev</a>
+</div>
+<h1 class="h1">Arduino Operators</h1>
+<p>The operators are widely used in Arduino programming from basics to advanced levels. It plays a crucial role in every programming concept like <a href="c-programming-language-tutorial.html">C</a>, <a href="cpp-tutorial.html">C++</a>, <a href="java-tutorial.html">Java</a>, etc.</p>
+<p>The operators are used to solve logical and mathematical problems. For example, to calculate the temperature given by the sensor based on some analog voltage.</p>
+<p>The types of Operators classified in Arduino are:</p>
+<ol class="points">
+<li>Arithmetic Operators</li>
+<li>Compound Operators</li>
+<li>Boolean Operators</li>
+<li>Comparison Operators</li>
+<li>Bitwise Operators</li>
+</ol>
+<h3 class="h3">Arithmetic Operators</h3>
+<p>There are six basic operators responsible for performing mathematical operations in Arduino, which are listed below:</p>
+<ul class="points">
+<li><strong>Assignment Operator ( = )</strong></li>
+</ul>
+<p>The Assignment operator in <a href="arduino.html">Arduino</a> is used to set the variable's value. It is quite different from the equal symbol (=) normally used in mathematics.</p>
+<ul class="points">
+<li><strong>Addition ( + )</strong></li>
+</ul>
+<p>The addition operator is used for the addition of two numbers. For example, P + Q.</p>
+<ul class="points">
+<li><strong>Subtraction ( - )</strong></li>
+</ul>
+<p>Subtraction is used to subtract one value from the another. For example, P - Q.</p>
+<ul class="points">
+<li><strong>Multiplication ( * )</strong></li>
+</ul>
+<p>The multiplication is used to multiply two numbers. For example, P * Q.</p>
+<ul class="points">
+<li><strong>Division ( / )</strong></li>
+</ul>
+<p>The division is used to determine the result of one number divided with another. For example, P/Q.</p>
+<ul class="points">
+<li><strong>Modulo ( % )</strong></li>
+</ul>
+<p>The Modulo operator is used to calculate the remainder after the division of one number by another number.</p>
+<p>Most of the operators are similar to the usual operator used in mathematics.</p>
+<p>Let's understand the operators with the help of two examples.</p>
+<p><strong>Example 1:</strong></p>
+<p>Consider the below code.</p>
+<div class="codeblock"><textarea name="code" class="java">
+int b;
+void setup ( )
+{
+Serial.begin( 9600 );
+}
+void loop ( )
+{
+b = 5 + 2;
+Serial.println(b); 
+}
+</textarea></div>
+<p>In the above code, we have assigned the result of the addition of two numbers to b before printing it to the console.</p>
+<p>For output, click on the <strong>Upload</strong> and <strong>Serial Monitor button</strong> present on the toolbar.</p>
+<p><strong>Output: 7</strong></p>
+<p><strong>Example 2:</strong></p>
+<p>Consider the below code:</p>
+<div class="codeblock"><textarea name="code" class="java">
+int d;
+void setup ( )
+{
+Serial.begin( 9600 );
+}
+void loop ( )
+{
+d = 5 - 2;
+Serial.println(d); 
+d = d + 3;
+Serial.println(d);
+}
+</textarea></div>
+<p>Here, d= d +3 is not operated as a usual mathematical operation. It is the assignment operator where right of the function is evaluated first and is assigned to the left of the equal sign.</p>
+<p>Let's consider the below image for better understanding.</p>
+<img src="https://static.javatpoint.com/tutorial/arduino/images/arduino-operators1.png" alt="Arduino Operators" />
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>3
+6
+</pre></div>
+<p>Similarly, we can perform multiplication, modulo, and division. The int variable will store the integer values. For example, 20/3 = 6.</p>
+<p>If we want decimal values to be printed, we need to use the <strong>float</strong> instead of <strong>int</strong>.</p>
+<p>For example,</p>
+<p>Consider the below code:</p>
+<div class="codeblock"><textarea name="code" class="java">
+int b;
+void setup ( )
+{
+Serial.begin( 9600 );
+}
+void loop ( )
+{
+b = 20.0 / 3; //  decimal value is used to force the compiler to print decimal value.
+Serial.println(b); 
+}
+</textarea></div>
+<p><strong>Output: 6.66</strong></p>
+<h3 class="h3">Order of mathematical operations</h3>
+<p>Let's understand the order of operations considered by the Arduino while performing calculation:</p>
+<ol class="points">
+<li>Parentheses ( )</li>
+<li>Multiplication, division, and modulo</li>
+<li>Addition and subtraction</li>
+</ol>
+<p>If there are multiple operations next to each other, they will be computed from left to right.</p>
+<p>Let's understand with an example.</p>
+<p>Consider the below code:</p>
+<div class="codeblock"><textarea name="code" class="java">
+int c;
+void setup ( )
+{
+Serial.begin( 9600 );
+}
+void loop ( )
+{
+c = 2 * 3 / (2 + 1)  + 4;
+Serial.println(c); 
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>6
+</pre></div>
+<p>Let's understand how the above output occurred. Consider the below image:</p>
+<img src="https://static.javatpoint.com/tutorial/arduino/images/arduino-operators2.png" alt="Arduino Operators" />
+<h3 class="h3">Compound Operators</h3>
+<p>The compound operators perform two or more calculations at once.</p>
+<p>The result of the right operand is assigned to the left operand, as already discussed above. The same condition will apply to all the compound operators, which are listed below:</p>
+<p>Let's consider a variable <strong>b</strong>.</p>
+<ul class="points">
+<li><strong>b + +</strong> </li>
+</ul>
+<p>Here, b = b + 1. It is called the <strong>increment operator</strong>.</p>
+<ul class="points">
+<li><strong>b + =</strong></li>
+</ul>
+<p>For example, b + = 4. It means, b = b+ 4.</p>
+<ul class="points">
+<li><strong>b - -</strong></li>
+</ul>
+<p>Here, b = b - 1. It is called as the <strong>decrement operator</strong>.</p>
+<ul class="points">
+<li><strong>b - =</strong></li>
+</ul>
+<p>For example, b - = 3. It means, b = b - 3.</p>
+<ul class="points">
+<li><strong>b * =</strong></li>
+</ul>
+<p>For example, b * = 6. It means, b = b * 6.</p>
+<ul class="points">
+<li><strong>b / =</strong></li>
+</ul>
+<p>For example, b / = 5. It means, b = b / 5.</p>
+<ul class="points">
+<li><strong>b % =</strong></li>
+</ul>
+<p>For example, b % = 2. It means, b = b % 2.</p>
+<p>Now, let's use the above operators with two variables, b and c.</p>
+<ul class="points">
+<li>b + = c ( b = b + c)</li>
+<li>b - = c ( b = b - c)</li>
+<li>b * = c ( b = b * c)</li>
+<li>b / = c ( b = b / c)</li>
+<li>b % = c ( b = b % c)</li>
+</ul>
+<p>We can specify any variable instead of b and c.</p>
+<h3 class="h3">Boolean Operators</h3>
+<p>The Boolean Operators are <strong>NOT ( ! ), Logical AND ( &amp; &amp; ), and Logical OR ( | | )</strong>.</p>
+<p>Let's discuss the above operators in detail.</p>
+<ul class="points">
+<li><strong>Logical AND ( &amp; &amp; )</strong></li>
+</ul>
+<p>The result of the condition is true if both the operands in the condition are true.</p>
+<p>Consider the below example:</p>
+<div class="codeblock"><textarea name="code" class="java">
+if ( a = = b & & b = = c )
+</textarea></div>
+<p>Above statement is true if both conditions are true. If any of the conditions is false, the statement will be false.</p>
+<ul class="points">
+<li><strong>Logical OR ( | | )</strong></li>
+</ul>
+<p>The result of the condition is true, if either of the variables in the condition is true.</p>
+<p>Consider the below example.</p>
+<div class="codeblock"><textarea name="code" class="java">
+if ( a > 0 | | b  > 0 )
+</textarea></div>
+<p>The above statement is true, if either of the above condition ( a&gt; 0 or b &gt; 0 ) is true.</p>
+<ul class="points">
+<li><strong>NOT ( ! )</strong></li>
+</ul>
+<p>It is used to reverse the logical state of the operand.</p>
+<p>For example, a ! = 2.</p>
+<p>The NOT operator returns the value 1 or TRUE when the specified operand is FALSE. It also reverses the value of the specified expression.</p>
+<h2 class="h2">Comparison Operators</h2>
+<p>The comparison operators are used to compare the value of one variable with the other.</p>
+<p>The comparison operators are listed below:</p>
+<ul class="points">
+<li><strong>less than ( &lt; )</strong></li>
+</ul>
+<p>The less than operator checks that the value of the left operand is less than the right operand. The statement is true if the condition is satisfied.</p>
+<p>Consider the below code.</p>
+<div class="codeblock"><textarea name="code" class="java">
+int b;
+int c ;
+void setup ( )
+{
+Serial.begin( 9600 );
+}
+void loop ( )
+{
+b = 3;
+c = 5;
+if ( b < 4 )
+Serial.println(b); 
+if ( c < 4)
+Serial.println( c);
+}
+</textarea></div>
+<p><strong>Output: 3</strong></p>
+<p>In the above code, if any of the two statement is correct, the corresponding value of the variable will be printed. Here, only first condition is correct. Hence, the value of b will be printed.</p>
+<ul class="points">
+<li><strong>greater than ( &gt; )</strong></li>
+</ul>
+<p>The less than operator checks that the value of the left side of a statement is greater than the right side. The statement is true if the condition is satisfied.</p>
+<p>For example, a &gt; b.</p>
+<p>If a is greater than b, the condition is true, else false.</p>
+<ul class="points">
+<li><strong>equal to ( = = )</strong></li>
+</ul>
+<p>It checks the value of two operands. If the values are equal, the condition is satisfied.</p>
+<p>For example, a = = b.</p>
+<p>The above statement is used to check if the value of a is equal to b or not.</p>
+<ul class="points">
+<li><strong>not equal to ( ! = )</strong></li>
+</ul>
+<p>It checks the value of two specified variables. If the values are not equal, the condition will be correct and satisfied.</p>
+<p>For example, a ! = b.</p>
+<ul class="points">
+<li><strong>less than or equal to ( &lt; = )</strong></li>
+</ul>
+<p>The less or equal than operator checks that the value of left side of a statement is less or equal to the value on right side. The statement is true if either of the condition is satisfied.</p>
+<p>For example, a &lt; = b</p>
+<p>It checks the value of a is less or equal than b.</p>
+<ul class="points">
+<li><strong>greater than or equal to ( &gt; = )</strong></li>
+</ul>
+<p>The greater or equal than operator checks that the value of the left side of a statement is greater or equal to the value on the right side of that statement. The statement is true if the condition is satisfied.</p>
+<p>For example, a &gt; = b</p>
+<p>It checks the value of a is greater or equal than b. If either of the condition satisfies, the statement is true.</p>
+<h2 class="h2">Bitwise Operators</h2>
+<p>The Bitwise operators operate at the <strong>binary level</strong>. These operators are quite easy to use.</p>
+<p>There are various bitwise operators. Some of the popular operators are listed below:</p>
+<ul class="points">
+<li><strong>bitwise NOT ( ~ )</strong></li>
+</ul>
+<p>The bitwise NOT operator acts as a complement for reversing the bits.</p>
+<p>For example, if b = 1, the NOT operator will make the value of b = 0.</p>
+<p>Let's understand with another example.</p>
+<div class="codeblock"><textarea name="code" class="java">
+0 0 1 1 // Input or operand 1   ( decimal value 3)
+1 1 0 0 // Output ( reverses the input bits ) decimal value is 12
+</textarea></div>
+<ul class="points">
+<li><strong>bitwise XOR ( ^ )</strong></li>
+</ul>
+<p>The output is 0 if both the inputs are same, and it is 1 if the two input bits are different.</p>
+<p>For example,</p>
+<p>For example,</p>
+<div class="codeblock"><textarea name="code" class="java">
+1 0 0 1  // input 1 or operand 1
+0 1 0 1  // input 2
+1 1 0 0 // Output ( resultant - XOR) 
+</textarea></div>
+<ul class="points">
+<li><strong>bitwise OR ( | )</strong></li>
+</ul>
+<p>The output is 0 if both of the inputs in the OR operation are 0. Otherwise, the output is 1. The two input patterns are of 4 bits.</p>
+<p>For example,</p>
+<div class="codeblock"><textarea name="code" class="java">
+1 1 0 0  // input 1 or operand 1
+0 0 0 1  // input 2
+1 1 0 1 // Output ( resultant - OR) 
+</textarea></div>
+<ul class="points">
+<li><strong>bitwise AND ( &amp; )</strong></li>
+</ul>
+<p>The output is 1 if both the inputs in the AND operation are 1. Otherwise, the output is 0. The two input patterns are of 4 bits.</p>
+<p>For example,</p>
+<div class="codeblock"><textarea name="code" class="java">
+1 1 0 0  // input 1 or operand 1
+0 1 0 1  // input 2
+0 1 0 0 // Output ( resultant - AND) 
+</textarea></div>
+<ul class="points">
+<li><strong>bitwise left shift ( &lt; &lt; )</strong></li>
+</ul>
+<p>The left operator is shifted by the number of bits defined by the right operator.</p>
+<ul class="points">
+<li><strong>bitwise right shift ( &gt; &gt; )</strong></li>
+</ul>
+<p>The right operator is shifted by the number of bits defined by the left operator.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="arduino-array.html">Arduino array</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="arduino-constants.html">&larr; prev</a>
+<a style="float:right" class="next" href="arduino-array.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e98f8c8c8d8b888a82a983889f889d998680879dc78a8684">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/arduino-operators"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/arduino-operators"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/arduino-operators"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+  <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="670f15270d0611061317080e09134904080a">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="761e04361c1700170206191f18025815191b58">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/arduino-operators by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 14:33:37 GMT -->
+</html> 

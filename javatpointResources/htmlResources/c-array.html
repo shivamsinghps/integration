@@ -1,0 +1,1125 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/c-array by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:09:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>C Array - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="C Array - javatpoint" /><meta property="og:description" content="C Array with programming examples for beginners and professionals, Advantage and disadvantage of C Array, Declaration of C Array, Initialization of C Array, C Array: Declaration with Initialization, covering concepts." />
+<meta name="keywords" content="c array, array in c programming language, tutorial, programming, example, loop, pointer, array, file, functions, array, strings, beginners, professionals" /><meta name="description" content="C Array with programming examples for beginners and professionals, Advantage and disadvantage of C Array, Declaration of C Array, Initialization of C Array, C Array: Declaration with Initialization, covering concepts." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="c-array.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="C Array - javatpoint" /><meta name="twitter:description" property="og:description" content="C Array with programming examples for beginners and professionals, Advantage and disadvantage of C Array, Declaration of C Array, Initialization of C Array, C Array: Declaration with Initialization, covering concepts." /><meta property="og:url" content="c-array.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="c-programming-language-tutorial.html" class="selected">C</a></li>
+<li><a href="cpp-tutorial.html">C++</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="xml-tutorial.html">XML</a></li>
+<li><a href="ajax-tutorial.html">Ajax</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="cloud-computing.html">Cloud</a></li>
+<li><a href="design-patterns-in-java.html">Design Pattern</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-programming-language-tutorial.html">What is C Language</a>
+<a href="history-of-c-language.html">History of C </a>
+<a href="features-of-c-language.html">Features of C</a>
+<a href="how-to-install-c.html">How to install C</a>
+<a href="first-c-program.html">First C Program</a>
+<a href="compilation-process-in-c.html">Compilation Process in C</a>
+<a href="printf-scanf.html">printf scanf</a>
+<a href="variables-in-c.html">Variables in C</a>
+<a href="data-types-in-c.html">Data Types in c</a>
+<a href="keywords-in-c.html">Keywords in c</a>
+<a href="c-identifiers.html">C Identifiers</a>
+<a href="c-operators.html">C Operators</a>
+<a href="comments-in-c.html">C Comments</a>
+<a href="c-format-specifier.html">C Format Specifier</a>
+<a href="escape-sequence-in-c.html">C Escape Sequence</a>
+<a href="ascii-value-in-c.html">ASCII value in C</a>
+<a href="constants-in-c.html">Constants in C</a>
+<a href="literals-in-c.html">Literals in C</a>
+<a href="tokens-in-c.html">Tokens in C</a>
+<a href="c-boolean.html">C Boolean</a>
+<a href="static-in-c.html">Static in C</a>
+<a href="programming-errors-in-c.html">Programming Errors in C</a>
+<a href="compile-time-vs-runtime.html">Compile time vs Runtime</a>
+<a href="conditional-operator-in-c.html">Conditional Operator in C</a>
+<a href="bitwise-operator-in-c.html">Bitwise Operator in C</a>
+<a href="2s-complement-in-c.html">2s complement in C</a>
+<a href="test/c-fundamental-1.html"><span>C Fundamental Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Control Statements</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-if-else.html">C if-else</a>
+<a href="c-switch.html">C switch</a>
+<a href="if-else-vs-switch.html">if-else vs switch</a>
+<a href="c-loop.html">C Loops</a>
+<a href="do-while-loop-in-c.html">C do-while loop</a>
+<a href="while-loop-in-c.html">C while loop</a>
+<a href="for-loop-in-c.html">C for loop</a>
+<a href="nested-loops-in-c.html">Nested Loops in C</a>
+<a href="infinite-loop-in-c.html">Infinite Loop in C</a>
+<a href="c-break.html">C break</a>
+<a href="c-continue.html">C continue</a>
+<a href="c-goto.html">C goto</a>
+<a href="type-casting-in-c.html">Type Casting</a>
+<a href="test/c-control-statements-1.html"><span>C Control Statement Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Functions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="functions-in-c.html">What is function</a>
+<a href="call-by-value-and-call-by-reference-in-c.html">Call: Value &amp; Reference</a>
+<a href="recursion-in-c.html">Recursion in c</a>
+<a href="storage-classes-in-c.html">Storage Classes</a>
+<a href="test/c-functions-1.html"><span>C Functions Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Array</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-array.html">1-D Array</a>
+<a href="two-dimensional-array-in-c.html">2-D Array</a>
+<a href="return-an-array-in-c.html">Return an Array in C</a>
+<a href="passing-array-to-function-in-c.html">Array to Function</a>
+<a href="test/c-array-1.html"><span>C Array Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Pointers</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-pointers.html"><span>C Pointers</span></a>
+<a href="c-pointer-to-pointer.html"><span>C Pointer to Pointer</span></a>
+<a href="pointer-arithmetic-in-c.html"><span>C Pointer Arithmetic</span></a>
+<a href="dangling-pointers-in-c.html">Dangling Pointers in C</a>
+<a href="size-of-operator-in-c.html">sizeof() operator in C</a>
+<a href="const-pointer-in-c.html">const Pointer in C</a>
+<a href="void-pointer-in-c.html">void pointer in C</a>
+<a href="c-dereference-pointer.html">C Dereference Pointer</a>
+<a href="null-pointer-in-c.html">Null Pointer in C</a>
+<a href="c-function-pointer.html">C Function Pointer</a>
+<a href="function-pointer-as-argument-in-c.html">Function pointer as argument in C</a>
+<a href="test/c-pointers-1.html"><span>C Pointers Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Dynamic Memory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="dynamic-memory-allocation-in-c.html"><span>Dynamic memory</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Strings</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-strings.html"><span>String in C</span></a>
+<a href="c-gets-puts.html"><span>C gets() &amp; puts()</span></a>
+<a href="c-string-functions.html"><span>C String Functions</span></a>
+<a href="c-strlen.html"><span>C strlen()</span></a>
+<a href="c-strcpy.html"><span>C strcpy()</span></a>
+<a href="c-strcat.html"><span>C strcat()</span></a>
+<a href="c-strcmp.html"><span>C strcmp()</span></a>
+<a href="c-strrev.html"><span>C strrev()</span></a>
+<a href="c-strlwr.html"><span>C strlwr()</span></a>
+<a href="c-strupr.html"><span>C strupr()</span></a>
+<a href="c-strstr.html"><span>C strstr()</span></a>
+<a href="test/c-string-1.html"><span>C String Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Math</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-math.html"><span>C Math Functions</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Structure Union</span></h2>
+</div>
+<div class="leftmenu">
+<a href="structure-in-c.html"><span>C Structure</span></a>
+<a href="typedef-in-c.html">typedef in C</a>
+<a href="array-of-structures-in-c.html"><span>C Array of Structures</span></a>
+<a href="nested-structure-in-c.html"><span>C Nested Structure</span></a>
+<a href="structure-padding-in-c.html">Structure Padding in C</a>
+<a href="c-union.html"><span>C Union</span></a>
+<a href="test/c-structure-union-enums-1.html"><span>C Structure Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C File Handling</span></h2>
+</div>
+<div class="leftmenu">
+<a href="file-handling-in-c.html"><span>C File Handling</span></a>
+<a href="fprintf-fscanf-in-c.html"><span>C fprintf() fscanf()</span></a>
+<a href="fputc-fgetc-in-c.html"><span>C fputc() fgetc()</span></a>
+<a href="fputs-fgets-in-c.html"><span>C fputs() fgets()</span></a>
+<a href="fseek-in-c.html"><span>C fseek()</span></a>
+<a href="rewind-in-c.html"><span>C rewind()</span></a>
+<a href="ftell-in-c.html"><span>C ftell()</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Preprocessor</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-preprocessor.html"><span>C Preprocessor</span></a>
+<a href="c-macros.html"><span>C Macros</span></a>
+<a href="c-preprocessor-include.html"><span>C #include</span></a>
+<a href="c-preprocessor-define.html"><span>C #define</span></a>
+<a href="c-preprocessor-undef.html"><span>C #undef</span></a>
+<a href="c-preprocessor-ifdef.html"><span>C #ifdef</span></a>
+<a href="c-preprocessor-ifndef.html"><span>C #ifndef</span></a>
+<a href="c-preprocessor-if.html"><span>C #if</span></a>
+<a href="c-preprocessor-else.html"><span>C #else</span></a>
+<a href="c-preprocessor-error.html"><span>C #error</span></a>
+<a href="c-preprocessor-pragma.html"><span>C #pragma</span></a>
+<a href="test/c-preprocessor-1.html"><span>C Preprocessor Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Command Line</span></h2>
+</div>
+<div class="leftmenu">
+<a href="command-line-arguments-in-c.html"><span>Command Line Arguments</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-expressions.html">C Expressions</a>
+<a href="c-data-segments.html">Data Segments</a>
+<a href="flow-of-c-program.html">Flow of C Program</a>
+<a href="classification-of-programming-languages.html">Classification of Programming Languages</a>
+<a href="enum-in-c.html">Enum in C</a>
+<a href="what-is-getch-in-c.html">What is getch() in C</a>
+<a href="what-is-the-function-call-in-c.html">What is the function call in C</a>
+<a href="typedef-vs-define-in-c.html">typedef vs define in C</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Programming Test</span></h2>
+</div>
+<div class="leftmenu">
+<a href="test/c-programming.html"><span>C Programming Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Programs</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-programs.html"><span>Top 10+ C Programs</span></a>
+<a href="fibonacci-series-in-c.html"><span>Fibonacci Series</span></a>
+<a href="prime-number-program-in-c.html"><span>Prime Number</span></a>
+<a href="palindrome-program-in-c.html"><span>Palindrome Number</span></a>
+<a href="c-program-to-compare-the-two-strings.html">C program to compare the two strings</a>
+<a href="strings-concatenation-in-c.html">Strings Concatenation in C</a>
+<a href="factorial-program-in-c.html"><span>Factorial</span></a>
+<a href="armstrong-number-in-c.html"><span>Armstrong Number</span></a>
+<a href="sum-of-digits-program-in-c.html"><span>Sum of digits</span></a>
+<a href="count-the-number-of-digits-in-c.html">Count the number of digits in C</a>
+<a href="c-program-to-reverse-number.html"><span>Reverse Number</span></a>
+<a href="c-program-to-swap-two-numbers-without-using-third-variable.html"><span>Swap Number</span></a>
+<a href="c-program-to-print-hello-without-semicolon.html"><span>Print "Hello" without ;</span></a>
+<a href="assembly-program-in-c.html"><span>Assembly code in C</span></a>
+<a href="c-program-without-main.html"><span>C program without main</span></a>
+<a href="matrix-multiplication-in-c.html"><span>Matrix Multiplication</span></a>
+<a href="c-program-to-convert-decimal-to-binary.html"><span>Decimal to Binary</span></a>
+<a href="c-program-to-convert-number-in-characters.html"><span>Number in Characters</span></a>
+<a href="c-program-to-print-alphabet-triangle.html"><span>Alphabet Triangle</span></a>
+<a href="c-program-to-print-number-triangle.html"><span>Number Triangle</span></a>
+<a href="c-program-to-generate-fibonacci-triangle.html"><span>Fibonacci Triangle</span></a>
+<a href="hexadecimal-to-binary-in-c.html">Hexadecimal to Binary</a>
+<a href="hexadecimal-to-decimal-in-c.html">Hexadecimal to Decimal</a>
+<a href="octal-to-hexadecimal-in-c.html">Octal to Hexadecimal in C</a>
+<a href="strong-number-in-c.html">Strong number in C</a>
+<a href="star-program-in-c.html">Star Program in C</a>
+<a href="itoa-function-in-c.html">itoa Function in C</a>
+<a href="extra-long-factorials-in-c.html">Extra Long Factorials in C</a>
+<a href="leap-year-program-in-c.html">Leap year program in C</a>
+<a href="perfect-number-program-in-c.html">Perfect Number Program in C</a>
+<a href="variables-vs-constants-in-c.html">Variables vs Constants</a>
+<a href="round-robin-program-in-c.html">Round Robin Program in C with Output</a>
+<a href="c-program-to-find-the-roots-of-quadratic-equation.html">C Program to find the roots of quadratic equation</a>
+<a href="type-casting-vs-type-conversion.html">Type Casting vs Type Conversion</a>
+<a href="how-to-run-a-c-program-in-visual-studio-code.html">How to run a C program in Visual Studio Code</a>
+<a href="modulus-operator-in-c-or-cpp.html">Modulus Operator in C/C++</a>
+<a href="sum-of-first-n-natural-numbers-in-c.html">Sum of first N natural numbers in C</a>
+<a href="big-o-notation-in-c.html">Big O Notation in C</a>
+<a href="lcm-of-two-numbers-in-c.html">LCM of two numbers in C</a>
+<a href="while-loop-vs-do-while-loop-in-c.html">while loop vs do-while loop in C</a>
+<a href="memory-layout-in-c.html">Memory Layout in C</a>
+<a href="balanced-parenthesis-in-c.html">Balanced Parenthesis in C</a>
+<a href="binary-to-decimal-number-in-c.html">Binary to Decimal Number in C</a>
+<a href="gcd-of-two-numbers-in-c.html">GCD of two numbers in C</a>
+<a href="getchar-function-in-c.html">Getchar() function in C</a>
+<a href="flowchart-in-c-programming-language.html">flowchart in C</a>
+<a href="simpson-method.html">Simpson Method</a>
+<a href="pyramid-patterns-in-c.html">Pyramid Patterns in C</a>
+<a href="random-function-in-c.html">Random Function in C</a>
+<a href="floyds-triangle-in-c.html">Floyd's Triangle in C</a>
+<a href="c-header-files.html">C Header Files</a>
+<a href="abs-function-in-c.html">abs() function in C</a>
+<a href="atoi-function-in-c.html">Atoi() function in C</a>
+<a href="structure-pointer-in-c.html">Structure Pointer in C</a>
+<a href="sprintf-in-c.html">sprintf() in C</a>
+<a href="range-of-int-in-c.html">Range of Int in C</a>
+<a href="c-program-to-convert-24-hour-time-to-12-hour-time.html">C Program to convert 24 Hour time to 12 Hour time</a>
+<a href="what-is-double-in-c.html">What is double in C</a>
+<a href="what-is-the-main-in-c.html">What is the main in C</a>
+<a href="calculator-program-in-c.html">Calculator Program in C</a>
+<a href="calloc-in-c.html">Calloc in C</a>
+<a href="user-defined-vs-library-function-in-c.html">user-defined vs library function in C</a>
+<a href="memset-c.html">Memset C</a>
+<a href="ascii-table-in-c.html">ASCII Table in C</a>
+<a href="static-function-in-c.html">Static function in C</a>
+<a href="reverse-a-string-in-c.html">Reverse a String in C</a>
+<a href="twin-prime-numbers-in-c.html">Twin Prime Numbers in C</a>
+<a href="strchr-function-in-c.html">strchr() function in C</a>
+<a href="structure-of-a-c-program.html">Structure of a C program</a>
+<a href="power-function-in-c.html">Power Function in C</a>
+<a href="malloc-in-c.html">Malloc in C</a>
+<a href="table-program-in-c.html">Table Program in C</a>
+<a href="types-of-recursion-in-c.html">Types of Recursion in C</a>
+<a href="convert-uppercase-to-lowercase-in-c.html">Convert Uppercase to Lowercase in C</a>
+<a href="unary-operator-in-c.html">Unary Operator in C</a>
+<a href="arithmetic-operator-in-c.html">Arithmetic Operator in C</a>
+<a href="ceil-function-in-c.html">Ceil Function in C</a>
+<a href="relational-operator-in-c.html">Relational Operator in C</a>
+<a href="assignment-operator-in-c.html">Assignment Operator in C</a>
+<a href="pre-increment-and-post-increment-operator-in-c.html">Pre-increment and Post-increment Operator in C</a>
+<a href="pointer-vs-array-in-c.html">Pointer vs array in C</a>
+<a href="restrict-keyword-in-c.html">Restrict keyword in C</a>
+<a href="exit-function-in-c.html">The exit() function in C</a>
+<a href="const-qualifier-in-c.html">Const Qualifier in C</a>
+<a href="sequence-points-in-c.html">Sequence Points in C</a>
+<a href="anagram-in-c.html">Anagram in C</a>
+<a href="increment-and-decrement-operators-in-c.html">Increment and Decrement Operators in C</a>
+<a href="logical-and-operator-in-c.html">Logical AND Operator in C</a>
+<a href="shift-operators-in-c.html">Shift Operators in C</a>
+<a href="near-far-and-huge-pointers-in-c.html">Near, Far, and Huge pointers in C language</a>
+<a href="magic-number-in-c.html">Magic Number in C</a>
+<a href="remove-duplicate-elements-from-an-array-in-c.html">Remove Duplicate Elements from an Array in C</a>
+<a href="generic-linked-list-in-c.html">Generic Linked list in C</a>
+<a href="isalnum-function-in-c.html">isalnum() function in C</a>
+<a href="isalpha-function-in-c.html">isalpha() function in C</a>
+<a href="bisection-method-in-c.html">Bisection Method in C</a>
+<a href="snprintf-function-in-c.html">snprintf() function in C</a>
+<a href="remove-an-element-from-an-array-in-c.html">Remove an element from an array in C</a>
+<a href="square-root-in-c.html">Square Root in C</a>
+<a href="isprint-function-in-c.html">isprint() function in C</a>
+<a href="isdigit-function-in-c.html">isdigit() function in C</a>
+<a href="isgraph-function-in-c.html">isgraph() function in C</a>
+<a href="logical-not-operator-in-c.html">Logical NOT (!) Operator in C</a>
+<a href="self-referential-structure.html">Self-referential structure</a>
+<a href="break-vs-continue-in-c.html">Break Vs. Continue in C</a>
+<a href="for-vs-while-loop-in-c.html">For vs. While loop in C</a>
+<a href="abort-function-in-c-programming.html">Abort() Function in C</a>
+<a href="assert-in-c-programming.html">Assert in C</a>
+<a href="floor-function-in-c-programming.html">Floor() Function in C</a>
+<a href="memcmp-in-c.html">memcmp() in C</a>
+<a href="find-day-from-day-in-c-without-using-function.html">Find Day from Day in C without Using Function</a>
+<a href="find-median-of-1d-array-using-functions-in-c.html">Find Median of 1D Array Using Functions in C</a>
+<a href="find-reverse-of-an-array-in-c-using-functions.html">Find Reverse of an Array in C Using Functions</a>
+<a href="find-occurrence-of-substring-in-c-using-function.html">Find Occurrence of Substring in C using Function</a>
+<a href="find-out-power-without-using-pow-function-in-c.html">Find out Power without Using POW Function in C</a>
+<a href="exponential-in-c.html">Exponential() in C</a>
+<a href="float-in-c.html">Float in C</a>
+<a href="islower-in-c.html">islower() in C</a>
+<a href="memcpy-in-c.html">memcpy() in C</a>
+<a href="memmove-in-c.html">memmove() in C</a>
+<a href="matrix-calculator-in-c.html">Matrix Calculator in C</a>
+<a href="bank-account-management-system.html">Bank Account Management System</a>
+<a href="library-management-system-in-c.html">Library Management System in C</a>
+<a href="calendar-application-in-c.html">8th Sep - Calendar Application in C</a>
+<a href="va_start-in-c-programming.html">8th Sep - va_start() in C programming</a>
+<a href="ascii-vs-unicode.html">8th Sep - Ascii vs Unicode</a>
+<a href="student-record-system-in-c.html">Student Record System in C</a>
+<a href="contact-management-system-in-c.html">Contact Management System in C</a>
+<a href="cricket-score-sheet-in-c.html">Cricket Score Sheet in C</a>
+<a href="c-or-cpp-tricky-programs.html">C/C++ Tricky Programs</a>
+<a href="clearing-the-input-buffer-in-c-or-cpp.html">Clearing the Input Buffer in C/C++</a>
+<a href="in-place-conversion-of-sorted-dll-to-balanced-bst.html">In-place Conversion of Sorted DLL to Balanced BST</a>
+<a href="merge-two-balanced-binary-search-trees.html">Merge Two Balanced Binary Search Trees</a>
+<a href="responsive-images-in-bootstrap-with-examples.html">Responsive Images in Bootstrap with Examples</a>
+<a href="why-cant-a-priority-queue-wrap-around-like-an-ordinary-queue.html">Why can't a Priority Queue Wrap around like an Ordinary Queue</a>
+<a href="customer-billing-system-in-c.html">Customer Billing System in C</a>
+<a href="builtin-functions-of-gcc-compiler.html">Builtin functions of GCC compiler</a>
+<a href="integer-promotions-in-c.html">Integer Promotions in C</a>
+<a href="bit-fields-in-c.html">Bit Fields in C</a>
+<a href="department-management-system-in-c.html">Department Management System in C</a>
+<a href="local-labels-in-c.html">Local Labels in C</a>
+<a href="school-billing-system-in-c.html">School Billing System in C</a>
+<a href="banking-account-system-in-c-using-file-handling.html">Banking Account System in C using File handling</a>
+<a href="data-structures-and-algorithms-in-c-set-1.html">Data Structures and Algorithms in C - Set 1</a>
+<a href="data-structures-and-algorithms-in-c-set-2.html">Data Structures and Algorithms in C - Set 2</a>
+<a href="employee-record-system-in-c.html">Employee Record System in C</a>
+<a href="hangman-game-in-c.html">Hangman Game in C</a>
+<a href="hospital-management-system-in-c.html">Hospital Management System in C</a>
+<a href="number-of-even-and-odd-numbers-in-a-given-range.html">Number of even and odd numbers in a given range</a>
+<a href="qsort-in-c.html">qsort() in C</a>
+<a href="quiz-game-in-c.html">Quiz game in C</a>
+<a href="an-array-of-strings-in-c.html">An Array of Strings in C</a>
+<a href="peak-element-in-the-array-in-c.html">Peak element in the Array in C</a>
+<a href="move-all-negative-elements-to-one-side-of-an-array-c.html">Move all negative elements to one side of an Array-C</a>
+<a href="reverse-an-array-in-c.html">Reverse an Array in C</a>
+<a href="3-way-merge-sort-in-c.html">3 way merge sort in c</a>
+<a href="segregate-0s-and-1s-in-an-array.html">Segregate 0s and 1s in an array</a>
+<a href="articulation-points-and-bridges.html">Articulation Points and Bridges</a>
+<a href="execution-of-printf-with-plus-plus-operators.html">Execution of printf with ++ Operators</a>
+<a href="understanding-the-extern-keyword-in-c.html">Understanding the extern Keyword in C</a>
+<a href="bankers-algorithm-in-c.html">Banker's Algorithm in C</a>
+<a href="fifo-page-replacement-algorithm-in-c.html">FIFO Page Replacement Algorithm in C</a>
+<a href="kruskals-algorithm-in-c.html">Kruskal's Algorithm in C</a>
+<a href="fcfs-program-in-c.html">FCFS Program in C</a>
+<a href="triple-des-algorithm-in-c.html">Triple DES Algorithm in C</a>
+<a href="window-sliding-technique-in-c.html">Window Sliding Technique in C</a>
+<a href="sleeping-barber-problem-solution-in-c.html">Sleeping Barber Problem Solution in C</a>
+<a href="how-to-add-matrix-in-c.html">How to Add Matrix in C</a>
+<a href="c-program-to-demonstrate-fork-and-pipe.html">C Program to Demonstrate fork() and pipe()</a>
+<a href="deadlock-prevention-using-bnkers-algorithm-in-c.html">Deadlock Prevention using Banker's Algorithm in C</a>
+<a href="simple-stopwatch-program-in-c.html">Simple Stopwatch Program in C</a>
+<a href="add-node-to-linked-list-in-c.html">Add Node to Linked List in C</a>
+<a href="how-to-add-two-array-in-c.html">How to Add two Array in C</a>
+<a href="algorithm-in-c-language.html">Algorithm in C language</a>
+<a href="add-digits-of-number-in-c.html">Add Digits of Number in C</a>
+<a href="add-element-in-array-in-c.html">Add Element in Array in C</a>
+<a href="add-string-in-c.html">Add String in C</a>
+<a href="add-two-matrices-in-c.html">Add Two Matrices in C</a>
+<a href="add-two-numbers-using-pointer-in-c.html">Add two numbers using Pointer in C</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-language-mcq.html">C language MCQ</a>
+<a href="c-language-mcq-part-2.html">C language MCQ Part 2</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Math</span></h2>
+</div>
+<div class="leftmenu">
+<a href="prime-numbers-list.html">Prime Numbers List</a>
+<a href="composite-numbers-list.html">Composite Numbers List</a>
+<a href="square-numbers-list.html">Square Numbers List</a>
+<a href="binary-numbers-list.html">Binary Numbers List</a>
+<a href="fibonacci-numbers-list.html">Fibonacci Numbers List</a>
+<a href="how-many-ounces-in-a-cup.html">Ounces in a Cup</a>
+<a href="how-many-ounces-in-a-pound.html">Ounces in a Pound</a>
+<a href="how-many-ounces-in-a-gallon.html">Ounces in a Gallon</a>
+<a href="how-many-ounces-in-a-liter.html">Ounces in a Liter</a>
+<a href="how-many-ounces-in-a-pint.html">Ounces in a Pint</a>
+<a href="how-many-ounces-in-a-quart.html">Ounces in a Quart</a>
+<a href="how-many-ounces-in-a-tablespoon.html">Ounces in a Tablespoon</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-interview-questions.html">C Interview Questions</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="two-dimensional-array-in-c.html">next &rarr;</a>
+<a class="next" href="storage-classes-in-c.html">&larr; prev</a>
+</div>
+<h1 class="h1">C Array</h1>
+<p>An array is defined as the collection of similar type of data items stored at contiguous memory locations. Arrays are the derived data type in C programming language which can store the primitive type of data such as int, char, double, float, etc. It also has the capability to store the collection of derived data types, such as pointers, structure, etc. The array is the simplest data structure where each data element can be randomly accessed by using its index number.</p>
+<p>C array is beneficial if you have to store similar elements. For example, if we want to store the marks of a student in 6 subjects, then we don't need to define different variables for the marks in the different subject. Instead of that, we can define an array which can store the marks in each subject at the contiguous memory locations.</p>
+<p>By using the array, we can access the elements easily. Only a few lines of code are required to access the elements of the array.</p>
+<h3 class="h3">Properties of Array</h3>
+<p>The array contains the following properties.</p>
+<ul class="points">
+<li>Each element of an array is of same data type and carries the same size, i.e., int = 4 bytes.</li>
+<li>Elements of the array are stored at contiguous memory locations where the first element is stored at the smallest memory location.</li>
+<li>Elements of the array can be randomly accessed since we can calculate the address of each element of the array with the given base address and the size of the data element.</li>
+</ul>
+<h3 class="h3">Advantage of C Array</h3>
+<p><strong>1) Code Optimization</strong>: Less code to the access the data.</p>
+<p><strong>2) Ease of traversing</strong>: By using the for loop, we can retrieve the elements of an array easily.</p>
+<p><strong>3) Ease of sorting</strong>: To sort the elements of the array, we need a few lines of code only.</p>
+<p><strong>4) Random Access</strong>: We can access any element randomly using the array.</p>
+<h3 class="h3">Disadvantage of C Array</h3>
+<p><strong>1) Fixed Size</strong>: Whatever size, we define at the time of declaration of the array, we can't exceed the limit. So, it doesn't grow the size dynamically like LinkedList which we will learn later.</p>
+<h2 class="h2">Declaration of C Array</h2>
+<p>We can declare an array in the c language in the following way.</p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+data_type array_name[array_size];
+</textarea></div>
+<p>Now, let us see the example to declare the array.</p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+int marks[5];
+</textarea></div>
+<p>Here, int is the <em>data_type</em>, marks are the <em>array_name</em>, and 5 is the <em>array_size</em>.</p>
+<h2 class="h2">Initialization of C Array</h2>
+<p>The simplest way to initialize an array is by using the index of each element. We can initialize each element of the array by using the index. Consider the following example.</p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+marks[0]=80;//initialization of array
+marks[1]=60;
+marks[2]=70;
+marks[3]=85;
+marks[4]=75;
+</textarea></div>
+<img src="https://static.javatpoint.com/cpages/images/arrayinitialization.png" alt="initialization of array in c language" />
+<h3 class="h3">C array example</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include&lt;stdio.h&gt;
+int main(){    
+int i=0;  
+int marks[5];//declaration of array     
+marks[0]=80;//initialization of array  
+marks[1]=60;  
+marks[2]=70;  
+marks[3]=85;  
+marks[4]=75;  
+//traversal of array  
+for(i=0;i&lt;5;i++){    
+printf("%d \n",marks[i]);  
+}//end of for loop   
+return 0;
+}  
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>80
+60
+70
+85
+75
+</pre></div>
+<h2 class="h2">C Array: Declaration with Initialization</h2>
+<p>We can initialize the c array at the time of declaration. Let's see the code.</p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+int marks[5]={20,30,40,50,60};
+</textarea></div>
+<p>In such case, there is <strong>no requirement to define the size</strong>. So it may also be written as the following code.</p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+int marks[]={20,30,40,50,60};
+</textarea></div>
+<p>Let's see the C program to declare and initialize the array in C.</p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include<stdio.h>
+int main(){    
+int i=0;  
+int marks[5]={20,30,40,50,60};//declaration and initialization of array  
+ //traversal of array  
+for(i=0;i<5;i++){    
+printf("%d \n",marks[i]);  
+}  
+return 0;
+}  
+
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>20
+30
+40
+50
+60
+</pre></div>
+<h2 class="h2">C Array Example: Sorting an array</h2>
+<p>In the following program, we are using bubble sort method to sort the array in ascending order.</p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include&lt;stdio.h&gt;  
+void main ()  
+{  
+    int i, j,temp;   
+    int a[10] = { 10, 9, 7, 101, 23, 44, 12, 78, 34, 23};   
+    for(i = 0; i&lt;10; i++)  
+    {  
+        for(j = i+1; j&lt;10; j++)  
+        {  
+            if(a[j] &gt; a[i])  
+            {  
+                temp = a[i];  
+                a[i] = a[j];  
+                a[j] = temp;   
+            }   
+        }   
+    }   
+    printf("Printing Sorted Element List ...\n");  
+    for(i = 0; i&lt;10; i++)  
+    {  
+        printf("%d\n",a[i]);  
+    }  
+}   
+</textarea></div>
+<h2 class="h3">Program to print the largest and second largest element of the array.</h2>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include&lt;stdio.h&gt;
+void main ()
+{
+    int arr[100],i,n,largest,sec_largest;
+    printf("Enter the size of the array?");
+    scanf("%d",&n);
+    printf("Enter the elements of the array?");
+    for(i = 0; i&lt;n; i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    largest = arr[0];
+    sec_largest = arr[1];
+    for(i=0;i&lt;n;i++)
+    {
+        if(arr[i]&gt;largest)
+        {
+            sec_largest = largest;
+            largest = arr[i];
+        }
+        else if (arr[i]&gt;sec_largest && arr[i]!=largest)
+        {
+            sec_largest=arr[i];
+        }
+    }
+    printf("largest = %d, second largest = %d",largest,sec_largest);
+    
+}
+</textarea></div>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="two-dimensional-array-in-c.html">Two Dimensional Array in C</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="storage-classes-in-c.html">&larr; prev</a>
+<a style="float:right" class="next" href="two-dimensional-array-in-c.html">next &rarr;</a>
+</div>
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="4f292a2a2b2d2e2c240f252e392e3b3f2026213b612c2022">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/c-array"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/c-array"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/c-array"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+ <a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+ <a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="93fbe1d3f9f2e5f2e7e3fcfafde7bdf0fcfe">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0a62784a606b7c6b7e7a6563647e2469656724">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/c-array by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:09:50 GMT -->
+</html> 

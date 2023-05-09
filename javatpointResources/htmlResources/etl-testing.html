@@ -1,0 +1,985 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/etl-testing by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Mar 2023 10:17:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>ETL Testing Tutorial - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="ETL Testing Tutorial - javatpoint" /><meta property="og:description" content="ETL Testing Tutorial with ETL Testing Introduction, ETL Testing, ETL, What is ETL, ETL Architecture, ETL Testing Tools, ETL Safety Listing, ETL Testing, ETL vs ELT, etc." />
+<meta name="keywords" content="etl testing tutorial, etl testing introduction, etl, what is etl, what is etl testing, etl architecture, etl testing tools, elt safety listing, etl testing, etl vs elt, elt vs ul, elt data, elt process, elt pipeline, elt files, elt interview questions" /><meta name="description" content="ETL Testing Tutorial with ETL Testing Introduction, ETL Testing, ETL, What is ETL, ETL Architecture, ETL Testing Tools, ETL Safety Listing, ETL Testing, ETL vs ELT, etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="etl-testing.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="ETL Testing Tutorial - javatpoint" /><meta name="twitter:description" property="og:description" content="ETL Testing Tutorial with ETL Testing Introduction, ETL Testing, ETL, What is ETL, ETL Architecture, ETL Testing Tools, ETL Safety Listing, ETL Testing, ETL vs ELT, etc." /><meta property="og:url" content="etl-testing.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.html" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.html" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.html" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="software-testing-tutorial.html">Software Testing</a>
+<li><a href="etl-testing.html" class="selected">ETL Testing</a>
+<li><a href="compiler-tutorial.html">Compiler</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="computer-organization-and-architecture-tutorial.html">COA</a></li>
+<li><a href="computer-network-tutorial.html">Computer Network</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="servlet-tutorial.html">Servlet</a></li>
+<li><a href="jsp-tutorial.html">JSP</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="examaccess.html">Quiz</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+<li><a href="comment.html">Comment</a></li>
+<li><a href="forum.html">Forum</a></li>
+<li><a href="training.html">Training</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">ETL Testing Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="etl-testing.html">ETL Testing Tutorial</a>
+<a href="etl-architecture.html">ETL Architecture</a>
+<a href="etl-tools.html">ETL Testing TOOLS</a>
+<a href="difference-between-etl-and-elt.html">ETL vs. ELT</a>
+<a href="etl-pipeline.html">ETL Pipeline</a>
+<a href="etl-files.html">ETL Files</a>
+<a href="etl-listed-mark.html">ETL Listed Mark</a>
+<a href="etl-vs-database-testing.html">ETL vs Database Testing</a>
+<a href="etl-process.html">ETL Process</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="etl-testing-interview-questions.html">ETL Testing Interview</a>
+</div>
+<img src="wh.html" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="etl-architecture.html">next &rarr;</a>
+</div>
+<h1 class="h1">ELT Testing Tutorial</h1>
+<img src="https://static.javatpoint.com/tutorial/etl-testing/images/etl-testing.jpg" alt="ELT Testing Tutorial" class="imageright" />
+<p>ELT Testing tutorial provides basic and advanced concepts of ELT Testing. Our ELT Testing tutorial is designed for beginners and professionals.</p>
+<p>ETL tools extract the data from all the different data sources, transforms the data and (after applying joining fields, calculations, removing incorrect data fields etc.) and loads it into a data warehouse.</p>
+<p>ETL testing is done to ensure that the data has been loaded from a source to destination after business transformation is accurate. It also involves the verification of data at various stages that used between source and destination</p>
+<img src="https://static.javatpoint.com/tutorial/etl-testing/images/etl-testing2.png" alt="ELT Testing Tutorial" />
+<h2 class="h2">ETL (Extraction, Transformation and Loading) Testing</h2>
+<p>ETL testing is done before data is moved to production data warehouse systems. It is also called as table balancing or product reconciliation. ETL testing is different from Database testing in terms of its scope and the steps followed during this testing.</p>
+<p>ETL testing is to ensure that the data which has been loaded from a source to destination after transformation is accurate. It involves the verification of data at various stages, which is used between source and destination.</p>
+<img src="https://static.javatpoint.com/tutorial/etl-testing/images/etl-testing-introduction.png" alt="ETL Testing Introduction" />
+<h2 class="h2">Process for ETL testing</h2>
+<p>Like other testing process, ETL testing also go through some testing processes. </p>
+<img src="https://static.javatpoint.com/tutorial/etl-testing/images/etl-testing-introduction2.png" alt="ETL Testing Introduction" />
+<p>ETL testing performed in five stages.</p>
+<ol class="points">
+<li>ETL testing identifies data sources and requirements.</li>
+<li>Data recovery</li>
+<li>Implement dimensional modeling and business logic.</li>
+<li>Build and populate data</li>
+<li>Build reports</li>
+</ol>
+<h2 class="h2">Types of ETL testing</h2>
+<p>The types of ETL testing are:</p>
+<p><strong>1. New Data Warehouse Testing:</strong> It is built and verified from the core. In this testing, the input is taken from the customer's requirement and different data sources. However, the new data warehouse is built and verified with the help of ETL tools.</p>
+<p><strong>Here are the responsibilities which are played by different groups:</strong></p>
+<ul class="points">
+<li><strong>Business Analyst:</strong> Business Analyst gathers and documents the requirements.</li>
+<li><strong>Infrastructure People:</strong> These people set up the test environment. </li>
+<li><strong>QA Testers:</strong> QA Testers develop test plans and test scripts and then execute these test plan and scripts.</li>
+<li><strong>Developers:</strong> Developers perform the unit test for each module.</li>
+<li><strong>Database Administrator:</strong> Database Administrator test for the performance and also for the stress.</li>
+<li><strong>Users:</strong> Users do functional testing, which includes UAT (User Acceptance Testing).</li>
+</ul>
+<p><strong>2. Production Validation Testing:</strong> This testing is done on data when data is moved to production systems. Informatica Data Validation option provides the automation of ETL testing and management capabilities to ensure that the data do not compromise production systems.</p>
+<p><strong>3. Source to Target Testing (Validation):</strong> This type of testing is done to validate the data values transformed the expected data values.</p>
+<p><strong>4. Application Upgrade:</strong> This type of ETL testing is automatically generated, which saves the test development time. This type of testing checks the extracted data from an older application are precisely same as the data in a new application.</p>
+<p><strong>5. Metadata Testing:</strong> Metadata testing includes the measurement of types of data, length of data, and check index/constraint.</p>
+<p><strong>6. Data Accuracy Testing:</strong> This testing is done to ensure that the data is accurately loaded and transformed as expected.</p>
+<p><strong>7. Data Transformation Testing:</strong> Data transformation testing done in many cases. It cannot be achieved by writing one source SQL query and comparing the output with the target. Multiple SQL queries need to be run for each row to verify the transformation rules.</p>
+<p><strong>8. Data Quality Testing:</strong> Data Quality Tests includes syntax and reference test. To avoid any error due to date or order number during business process data quality is done. <strong>Syntax tests:</strong> It will report dirty data, based on invalid character, character pattern, incorrect upper or lower case order, etc. <strong>Reference Tests:</strong> It will check the data according to the data model.</p>
+<p><strong>For Example</strong>, Customer ID data quality testing includes number check, date check, precision check, date check, etc.</p>
+<p><strong>9. Incremental ETL Testing:</strong> This testing is done to check the data integrity of old and new data when the new data added. Incremental testing verifies that the system processes correctly even after the insertion and updating the data during an incremental ETL process.</p>
+<p><strong>10. GUI/Navigation Testing:</strong> This testing is done to check the navigation or GUI aspects of the front end reports.</p>
+<p><strong>11. Migration Testing:</strong> In this testing, the customer has an existing data warehouse, and ETL is performing the job. But customers are looking for tools to improve efficiency. It includes these steps:</p>
+<ul class="points">
+<li><strong>Design and validation tests</strong></li>
+<li><strong>Setting up the test environment</strong></li>
+<li><strong>Executing the validation test</strong></li>
+<li><strong>Reporting the bugs</strong></li>
+</ul>
+<p><strong>12. Change Requests:</strong> In this case, data added to an existing data warehouse. There might be condition arises where customers require to change the present business rule, or they can integrate new rule.</p>
+<p><strong>13. Report Testing:</strong> The final result of the data warehouse, <strong>reported testing</strong>. Repots should test by validating the data, layout in the report. Reports are an essential resource for creating vital business decisions.</p>
+<h2 class="h2">Tasks performed in ETL Testing</h2>
+<p>Tasks involved in ETL testing are:</p>
+<ul class="points">
+<li>Understanding of data, used for reporting</li>
+<li>Data Model Reviewing</li>
+<li>Mapping of the source to target</li>
+<li>Checks the data in the source data</li>
+<li>Validation of packages and schema</li>
+<li>In the target system, data verification should be done</li>
+<li>Verification of aggregation rules and data transformation calculation</li>
+<li>Data comparison between the target system and data source</li>
+<li>For the target system, quality and data integrity should be examined.</li>
+<li>Performance testing of data.</li>
+</ul>
+<h2 class="h2">Differences between the ETL and the Database Testing</h2>
+<p>ETL and database testing involve data validation, but both are not same. ETL testing is usually performed on data in a data warehouse, whereas, database testing is performed on transactional systems. Data comes into the transactional database from different applications.</p>
+<h3 class="h3">Operations performed in ETL Testing</h3>
+<p>ETL testing involves the following operations:</p>
+<ul class="points">
+<li>Validation of data movement from source to the target system.</li>
+<li>Data count verification in the source and target system.</li>
+<li>ETL testing verifies the transformation, extraction as per requirement and expectation.</li>
+<li>ETL testing verifies if table relations join and keys are preservers during the transformation.</li>
+</ul>
+<h3 class="h3">The operation performed in Database Testing</h3>
+<p>Database testing focuses on data accuracy, the correctness of data, and valid values.</p>
+<p>Database testing performs the following operations:</p>
+<ul class="points">
+<li>Database testing focuses on verification of the column in a table that has valid data values.</li>
+<li>To verify whether the primary or foreign key is maintained, database testing is used. </li>
+<li>Database testing verifies if the data is missing in the column. Here, we check that are there any null values in columns which should have a valid value?</li>
+<li>We verify the accuracy of data in columns.</li>
+</ul>
+<p><strong>For example</strong>, the Number of month's column shouldn't have a value greater than 12.</p>
+<table class="alt">
+<tr>
+<th>Function</th>
+<th>ETL Testing</th>
+<th>Database Testing</th>
+</tr>
+<tr>
+<td><strong>Primary Goal</strong></td>
+<td>ETL testing is performed for data extraction, transformation and loading for BI reporting.</td>
+<td>Database testing is performed to validate and integrate the data.</td>
+</tr>
+<tr>
+<td><strong>Business Need</strong></td>
+<td>ETL testing used for information, forecasting, and analytical reporting.</td>
+<td>This testing is used to integrate the data from multiple applications and server impact.</td>
+</tr>
+<tr>
+<td><strong>Applicable System</strong></td>
+<td>ETL testing contains historic data that cannot be used in business flow environment.</td>
+<td>ETL testing contains the transactional system where the flow of business occurs.</td>
+</tr>
+<tr>
+<td><strong>Modeling</strong></td>
+<td>The multidimensional method is used.</td>
+<td>ER method is used.</td>
+</tr>
+<tr>
+<td><strong>Database Type</strong></td>
+<td>ETL testing is applied to OLAP systems.</td>
+<td>Database testing is used in OLTP system.</td>
+</tr>
+<tr>
+<td><strong>Data Type</strong></td>
+<td>ETL uses the de-normalized data with fewer joins, more indexes, and aggregations.</td>
+<td>The database uses normalized data with joins.</td>
+</tr>
+<tr>
+<td><strong>Common Tools</strong></td>
+<td>QuerySurge, Informatica, etc. tools are used.</td>
+<td>QTP, Selenium tools are used in database testing.</td>
+</tr>
+</table>
+<h2 class="h2">ETL performance Testing</h2>
+<p>ETL performance testing is used to ensure if an ETL system can handle an expected load of multiple users and transactions. Performance testing involves server-side workload on the ETL system. </p>
+<h3 class="h3">How to perform ETL testing performance?</h3>
+<p>Here are the following steps which are followed to test the performance of ETL testing:</p>
+<p><strong>Step 1:</strong> Find the load which transformed in production.</p>
+<p><strong>Step 2:</strong> New data will be created of the same load or move it from production data to a local server.</p>
+<p><strong>Step 3:</strong> Now, we will disable the ETL until the required code is generated.</p>
+<p><strong>Step 4:</strong> We will count the needed data from the database table.</p>
+<p><strong>Step 5:</strong> We will note down the last run of ETL and enable the ETL. It will get enough stress to transform the entire load which has created and run it.</p>
+<p><strong>Step 6:</strong> After the completion of ETL, we will count the created data.</p>
+<p><strong>Essential performance that should be noted:</strong></p>
+<ul class="points">
+<li>Find out the total time taken to transform the load</li>
+<li>Find out the performance that has been improved or dropped.</li>
+<li>We will check if the entire expected load is extracted and transferred.</li>
+</ul>
+<h2 class="h2">Data Accuracy in ETL Testing</h2>
+<p>In ETL Testing, we focus on data accuracy to ensure whether the data is accurately loaded to the target system as per our expectations.</p>
+<p><strong>Here are the steps which should be followed to perform the data accuracy are:</strong></p>
+<p><strong>Value Comparison:</strong> In value comparison, we compare the data in the source and target system with minimum or no transformation. ETL testing can be possible by using various ETL tools. For example, Source Qualifier Transformation in Informatica.</p>
+<p>Expression Transformation can also be performed in data accuracy testing. Set of operators can be used in SQL statements to check the data accuracy in the source and the target systems.</p>
+<p><strong>Check the columns of critical data:</strong> Critical Data columns can be checked by comparing the distinct values in the source and the target system.</p>
+<div class="codeblock"><textarea name="code" class="java">
+SELECT cust_name, order_id, city, count(*)  FROM customer GROUP BY cust_name, order_id, city;
+</textarea></div>
+<h2 class="h2">ETL testing in data transformation</h2>
+<p>It is quite complex to perform the data transformation because it cannot be achieved by writing a single SQL query and comparing the output with the target. To do the ETL testing for Data Transformation, we have to write multiple SQL queries for each row to verify the transformation rules.</p>
+<p>To perform the successful ETL testing for data transformation, we have to pick the sufficient and sample data from the source system to apply the transformation rule.</p>
+<p><strong>The significant steps to perform ETL testing for data transformation are:</strong></p>
+<p><strong>Step 1.</strong> The first step is to create a scenario for input data and the expected results. Now we will validate ETL testing with the business customer. ETL testing is the best approach to gather the requirements during designs and can be used as a part of testing.</p>
+<p><strong>Step 2.</strong> The second step is to create the test data according to the scenario. ETL developer will automate the entire process of populating the datasets with the scenario spreadsheet permit versatility and mobility for the reason that the situation is changed.</p>
+<p><strong>Step 3.</strong> Utilize the data profiling and the results will compare the range and submission of values in each field between the source and the target data.</p>
+<p><strong>Step 4.</strong> We will validate the accurate processing of ETL generated fields. For example, Surrogate keys.</p>
+<p><strong>Step 5.</strong> We will validate the data types within the warehouse that are the same as specified in the data model or design.</p>
+<p><strong>Step 6.</strong> Scenarios of data will be created between tables which test the referential integrity.</p>
+<p><strong>Step 7.</strong> We will validate the parent to child relationship in the data.</p>
+<p><strong>Step 8.</strong> And at the end, we will perform <strong>lookup transformation</strong>. Lookup query should be straight without any data gathering and expected to return only one value as per the source table. We can directly join the lookup table in the source qualifier. If this is not a case, we will write a query which will join the lookup table with the main table in the source and will compare the data in the corresponding column in the target. </p>
+<h2 class="h2">ETL Test Cases</h2>
+<p><strong><em>The objective of ETL testing is to assure that the loaded data from source to destination after business transformation is accurate.</em></strong></p>
+<p>ETL testing applies to different tools and databases in the information management industry.</p>
+<p>During the ETL testing performance, two documents always used by the ETL tester which are:</p>
+<p><strong>1. ETL mapping sheets:</strong> ETL mapping sheets contain all the information of the source and destination tables, which includes every column and their lookup in the reference table. ETL tester needs to be comfortable with SQL queries as ETL testing may involve writing big queries with multiple joins to validate the data at any stage of ETL. ETL mapping sheets provide significant help when we write queries for data verification.</p>
+<p><strong>2. DB Schema of Source (Target):</strong> It should be kept accessible to verify any detail in mapping sheet.</p>
+<h2 class="h3">ETL Test Scenarios and Test Cases:</h2>
+<table class="alt">
+<tr>
+<th>ETL Test Scenario</th>
+<th>ETL Test Cases</th>
+</tr>
+<tr>
+<td><strong>Mapping doc validation</strong></td>
+<td>We will verify the mapping document whether the ETL information provided or not. Log change should maintain in every mapping doc.</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td><ul class="points">
+<li>We will validate the target and source table structure with the corresponding mapping doc.</li>
+<li>The data type of source and target table should be the same.</li>
+<li>Length of the data type of both source and target should be the same.</li>
+<li>We will verify the data field type, and formats which are specified.</li>
+<li>The length of the source data type should not be less than the length of the target data type.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><strong>Constraint Validation</strong></td>
+<td>The constraint should be defined for a specific table as per our expectation.</td>
+</tr>
+<tr>
+<td><strong>Data Consistency Issues</strong></td>
+<td><ul class="points">
+<li>Data Type and length of a particular attribute may vary in files or tables through the semantic definition.</li>
+<li>Misuse of integrity constraint.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><strong>Completeness Issues</strong></td>
+<td><ul class="points">
+<li>Here, we have to be ensure that all the expected data is loaded into the target table.</li>
+<li>In this scenario, record counts will be compared between source and target.</li>
+<li>We will check the rejected records.</li>
+<li>Data should not be truncated in the column of the truncated table.</li>
+<li>Will check the boundary value analysis.</li>
+<li>We will compare unique values of critical fields between the data loaded in warehouse and source data.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><strong>Correctness Issues</strong></td>
+<td><ul class="points">
+<li>This scenario is used to correct the data, which is misspelled or inaccurately recorded.</li>
+<li>To correct the data, that is null, non-unique, and out of range.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><strong>Transformation</strong></td>
+<td><ul class="points">
+<li>This scenario is used to check the transformation.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><strong>Data Quality</strong></td>
+<td><ul class="points">
+<li>This scenario is used to check the number and validate it.</li>
+<li>Data Check: This scenario will follow the date format, and it should be same for all the records.</li>
+<li>Precision check</li>
+<li>Data check</li>
+<li>Null check</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><strong>Null Validate</strong></td>
+<td><ul class="poitns">
+<li>This scenario will verify the null values, where "Not null" values are specified for a specific column.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><strong>Duplicate Check</strong></td>
+<td><ul class="poitns">
+<li>In this scenario, we will check the validation of unique key, primary key, and any other column should be unique as per business requirement having any duplicate rows.</li>
+<li>We will check if any duplicate values exist in any column which is extracted from multiple column sources and combine them into one column.</li>
+<li>As per the client requirements, we need to ensure that there are no duplicates in a combination of multiple columns with target only.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><strong>Date Validation</strong></td>
+<td><ul class="poitns">
+<li>Date values are using many areas in development to know the row creation date.</li>
+<li>Identify the existing records as per the ETL development perspective.</li>
+<li>Sometimes on the date values, the updates and inserts are generated.</li>
+</ul></td>
+</tr>
+<tr>
+<td><strong>Data Cleanness</strong></td>
+<td><ul class="poitns">
+<li>The unnecessary column should be removed before loading into the staging area.</li>
+</ul></td>
+</tr>
+</table>
+<h2 class="h2">Types of ETL Bugs</h2>
+<br>
+<img src="https://static.javatpoint.com/tutorial/etl-testing/images/etl-test-cases.png" alt="ETL Testing Introduction" />
+<br>
+<table class="alt">
+<tr>
+<th>Types of ETL Bugs</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>User Interface Bugs</strong></td>
+<td>These bugs are related to the Graphical User Interface of an application such as, color, font style, navigation, spelling check, etc.</td>
+</tr>
+<tr>
+<td><strong>Input-Output Bugs</strong></td>
+<td>In this type of bug, the application starts taking invalid values, and the valid values are rejected.</td>
+</tr>
+<tr>
+<td><strong>Boundary value analysis bug</strong></td>
+<td>These bugs check for the minimum and maximum values.</td>
+</tr>
+<tr>
+<td><strong>Calculation Bugs</strong></td>
+<td>Calculation bugs show the mathematical errors, and most of the time the final output is wrong.</td>
+</tr>
+<tr>
+<td><strong>Load Condition Bugs</strong></td>
+<td>These types of bugs don't allow multiple users. It does not allow the data which is user accepted.</td>
+</tr>
+<tr>
+<td><strong>Race Condition Bugs</strong></td>
+<td>In this kind of bugs, the system will not run properly. It starts crashing or hanging.</td>
+</tr>
+<tr>
+<td><strong>Equivalence Class Partitioning bugs</strong></td>
+<td>This type of bug results invalid or invalid types.</td>
+</tr>
+<tr>
+<td><strong>Version Control Bugs</strong></td>
+<td>These types of bugs usually occur in Regression Testing and do not give any information on versions.</td>
+</tr>
+<tr>
+<td><strong>Hardware Bugs</strong></td>
+<td>In this type of bug, the device will not respond to the application as expected.</td>
+</tr>
+<tr>
+<td><strong>Help Source Bugs</strong></td>
+<td>This bug will result as the mistakes in the help documents.</td>
+</tr>
+</table>
+<h2 class="h2">Responsibility of ETL tester</h2>
+<p>ETL tester is responsible for validating the data sources, applying transformation logic, and loading the data in the target table, extraction of data. </p>
+<p>The responsibilities of ETL tester are:</p>
+<p><strong>Verify the table in the source system.</strong> It involves the following types of operation:</p>
+<ul class="points">
+<li>Count Check</li>
+<li>Data Type check</li>
+<li>Reconcile records with source data</li>
+<li>Ensure no spam data is loaded</li>
+<li>Remove duplicate data</li>
+<li>Check all the keys are in place</li>
+</ul>
+<p><strong>Apply Transformation Logic</strong></p>
+<p>Transformation logic is applied before loading the data. It involves the following operations:</p>
+<ul class="points">
+<li>Transformation logic is applied before and after checking the record of the count.</li>
+<li>Validation of data flow from the staging area to the intermediate table.</li>
+<li>Check the data threshold validation; for example, the age value should not be more than 100.</li>
+<li>Check the surrogate key</li>
+</ul>
+<p><strong>Data Loading</strong></p>
+<p>Data is loaded from the staging area to the target systems. It involves the following operations:</p>
+<p>We will check if the aggregate values and calculated measures loaded in the fact table.</p>
+<ul class="points">
+<li>During the loading of the data, we will check the modeling views based on the target table. </li>
+<li>We will check, if the CDC has been applied to the incremental load table.</li>
+<li>Check the data dimension table and review the history of the table.</li>
+<li>Check the reports of BI which are based on the loaded fact and dimension table as per the expected results.</li>
+</ul>
+<h2 class="h2">Testing of ETL Tools</h2>
+<p>ETL testers are required to test the test cases and tools as well. It involves the following operations:</p>
+<ul class="points">
+<li>Test the ETL tool and its functions</li>
+<li>Test the ETL Data Warehouse system</li>
+<li>Create, design and execute the test cases and test plan</li>
+<li>Test the flat file data transfer</li>
+</ul>
+<h2 class="h2">Advantages of ETL Testing</h2>
+<p>Benefits of ETL testing are given below: </p>
+<ol class="points">
+<li>ETL testing can extract or receive data from any data sources at the same time.</li>
+<li>ETL can load the data from heterogeneous sources to a single generalized (frequent)\ different target at the same time.</li>
+<li>ETL can be able to load different types of the goal at the same time.</li>
+<li>ETL can be able to extract required business data from various sources and can be needed load business data into the different target as the desired format.</li>
+<li>ETL can perform any data transformation according to the business.</li>
+</ol>
+<h2 class="h2">Disadvantages of ETL Testing</h2>
+<p>Disadvantages of ETL testing are given below:</p>
+<ol class="points">
+<li>One of the main disadvantages of ETL testing is that we must be a data-oriented developer or database analyst to use it.</li>
+<li>When we need a fast response, it is not ideal for real-time or on-demand access. </li>
+<li>ETL testing will take months to put on any place.</li>
+<li>It is challenging to keep the data in the changing requirement.</li>
+</ol>
+<p>heading:</p>
+<p>ETL testers are required to test the test cases and tools as well. It involves the following operation: </p>
+<ul class="points">
+<li>Test the ETL tool and its function</li>
+<li>Test the ETL Data Warehouse system</li>
+<li>Create, design and execute the test cases and test plan</li>
+<li>Test the flat file data transfer</li>
+</ul>
+<h2 class="h2">Future Scope of ETL Testing</h2>
+<p>The scope of ETL testing is very bright. ETL tools like <strong>Informatica PowerCenter, Oracle Data Integrator, Microsoft SQL server integrated service, SAS, IBM infosphere information server,</strong> etc. all are in huge demand in the industry because of its demand. The scope of ETL testing will increase in the future.</p>
+<h2 class="h2">Conclusion</h2>
+<p>ETL testing is a type of business testing in which developers, business analyst, end-users, and DBAs are involved. ETL testing requires the knowledge of <strong>SDLC</strong> and <strong>ETL policies</strong>, and the tester should know how to write the <strong>SQL queries</strong>. Many businesses consider ETL as a challenge, but the fact is that it is beneficial for the business. It is essential to protect the data from loss, and it is necessary to update the data to meet the requirements of the market. </p>
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="etl-architecture.html">ETL Architecture</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:right" class="next" href="etl-architecture.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="8ee8ebebeaecefede5cee4eff8effafee1e7e0faa0ede1e3">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/etl-testing"><img src="images/facebook32.html" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/etl-testing"><img src="images/twitter32.html" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/etl-testing"><img src="images/pinterest32.html" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.html"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+ </div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+ <a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+ </a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+ </div>
+</a>
+ <a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+ </fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="1a72685a707b6c7b6e6a7573746e34797577">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="95fde7d5fff4e3f4e1e5fafcfbe1bbf6faf8bb">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.html"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.html">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/etl-testing by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Mar 2023 10:17:32 GMT -->
+</html> 

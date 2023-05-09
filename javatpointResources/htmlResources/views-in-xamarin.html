@@ -1,0 +1,1318 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/views-in-xamarin by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:49:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Views in Xamarin - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Views in Xamarin - Javatpoint" /><meta property="og:description" content="Views in Xamarin with Xamarin Tutorial, Xamarin Introduction, What is Xamarin, Installation of Xamarin, Xamarin Forms, Xamarin Layouts, Xamarin Views, Xamarin Studio, Xamarin Android, Xamarin vs Ionic, Xamarin vs ReactNative, Xamarin Profiler, Xamarin Workbook, Xamarin Intevirew Questions etc." />
+<meta name="keywords" content="xamarin tutorial, xamarin introduction, what is xamarin, installation of xamarin, xamarin forms, xamarin layouts, xamarin views, xamarin studio, xamarin android, xamarin vs ionic, xamarin vs reactnative, xamarin profiler, xamarin workbook, xamarin intevirew questions" /><meta name="description" content="Views in Xamarin with Xamarin Tutorial, Xamarin Introduction, What is Xamarin, Installation of Xamarin, Xamarin Forms, Xamarin Layouts, Xamarin Views, Xamarin Studio, Xamarin Android, Xamarin vs Ionic, Xamarin vs ReactNative, Xamarin Profiler, Xamarin Workbook, Xamarin Intevirew Questions etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="views-in-xamarin.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Views in Xamarin - Javatpoint" /><meta name="twitter:description" property="og:description" content="Views in Xamarin with Xamarin Tutorial, Xamarin Introduction, What is Xamarin, Installation of Xamarin, Xamarin Forms, Xamarin Layouts, Xamarin Views, Xamarin Studio, Xamarin Android, Xamarin vs Ionic, Xamarin vs ReactNative, Xamarin Profiler, Xamarin Workbook, Xamarin Intevirew Questions etc." /><meta property="og:url" content="views-in-xamarin.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="python-tutorial.html">Python</a></li>
+<li><a href="xamarin.html" class="selected">Xamarin</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="cloud-computing-tutorial.html">Cloud</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="servlet-tutorial.html">Servlet</a></li>
+<li><a href="jsp-tutorial.html">JSP</a></li>
+<li><a href="struts-2-tutorial.html">Struts2</a></li>
+<li><a href="spring-tutorial.html">Spring</a></li>
+<li><a href="examaccess.html">Quiz</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+<li><a href="comment.html">Comment</a></li>
+<li><a href="forum.html">Forum</a></li>
+<li><a href="training.html">Training</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Xamarin Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="xamarin.html">Xamarin Tutorial</a>
+<a href="what-is-xamarin.html">Xamarin Introduction</a>
+<a href="installation-of-xamarin.html">Xamarin Installation</a>
+<a href="xamarin-forms.html">Xamarin Forms</a>
+<a href="xamarin-forms-life-cycle.html">Xamarin.Forms Life Cycle</a>
+<a href="xaml-for-xamarin-forms.html">XAML for Xamarin.Forms</a>
+<a href="xamarin-layout.html">Xamarin Layout</a>
+<a href="views-in-xamarin.html">Views in Xamarin</a>
+<a href="xamarin-forms-cells.html">Xamarin.Forms Cells</a>
+<a href="xamarin-android.html">Xamarin.Android</a>
+<a href="xamarin-android-activity-lifecycle.html">Android Activity LifeCycle</a>
+<a href="xamarin-android-application-fundamentals.html">Android Application Fundamentals</a>
+<a href="xamarin-vs-ionic.html">Xamarin vs Ionic</a>
+<a href="xamarin-vs-react-native.html">Xamarin vs React Native</a>
+<a href="xamarin-profiler.html">Xamarin Profiler</a>
+<a href="xamarin-workbook.html">Xamarin Workbook</a>
+<a href="xamarin-model-view-viewmodel-pattern.html">Model-View-ViewModel Pattern</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="xamarin-interview-questions.html">Xamarin I/Q</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="xamarin-forms-cells.html">next &rarr;</a>
+<a class="next" href="xamarin-layout.html">&larr; prev</a>
+</div>
+<h1 class="h1">Views in Xamarin</h1>
+<p>The building blocks of cross-platform mobile application is Xamarin.Forms views. Views are the user-interfaces objects such as labels, buttons, and sliders which are known as controls or widgets in other programming environments.</p>
+<p>Views can be divided into several categories:</p>
+<h2 class="h2">Views for Presentation</h2>
+<p>Xamarin.Forms have three primary views for working with text: </p>
+<ul class="points">
+<li><strong>Label</strong><br>
+The label is used to show the text in a single or multi-line text. Here, we can show the text with multiple formatting options in the same line.</li>
+<li><strong>Entry</strong><br>
+To enter the text in a one-line uses the Entry. The entry has password mode.</li>
+<li><strong>Editor</strong><br>
+To enter the text, which can take more than one line.</li>
+</ul>
+<p><strong>Label:</strong> Label view is used to display the text. We can show multiple lines of text or a single line of text. Label can present text with multiple formatting options used in inline. The label view can wrap or truncate the text when it can't fit on one line.</p>
+<p><strong>MainPage.Xaml</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Label"
+             x:Class="Label.MainPage" 
+              Title="Label Demo - XAML"&gt;
+    &lt;StackLayout Padding="5,10"&gt;
+        &lt;Label Text="Label Page"&gt;&lt;/Label&gt;
+        &lt;Label LineBreakMode="WordWrap"&gt;
+            &lt;Label.FormattedText&gt;
+                &lt;FormattedString&gt;
+                    &lt;Span Text="Red Bold, " TextColor="Red" FontAttributes="Bold" /&gt;
+                    &lt;Span Text="default, " Style="{DynamicResource BodyStyle}"&gt;
+                        &lt;Span.GestureRecognizers&gt;
+                            &lt;TapGestureRecognizer Command="{Binding TapCommand}" /&gt;
+                        &lt;/Span.GestureRecognizers&gt;
+                    &lt;/Span&gt;
+                    &lt;Span Text="italic small." FontAttributes="Italic" FontSize="Small" /&gt;
+                &lt;/FormattedString&gt;
+            &lt;/Label.FormattedText&gt;
+        &lt;/Label&gt;
+    &lt;/StackLayout&gt;
+
+&lt;/ContentPage&gt;
+</textarea></div>
+<br>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin.png" alt="Views in Xamarin" />
+<p><strong>Entry:</strong> Entry is used to accept the single-line text. Entry offers controls over colours and fonts. Entry has a password mode and can show placeholder text until we entered the text. </p>
+<p><strong>MainPage.XAML</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Label"
+             x:Class="Label.MainPage" 
+              Title="Entry Page-XAML"&gt;
+    &lt;StackLayout Padding="5,10"&gt;
+        &lt;Label Text="Enter Your Name"&gt;&lt;/Label&gt;
+        &lt;Entry Placeholder="UserName" TextColor="Black" BackgroundColor="Yellow"&gt;&lt;/Entry&gt;
+    &lt;/StackLayout&gt;
+
+&lt;/ContentPage&gt;
+</textarea></div>
+<br>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin2.png" alt="Views in Xamarin" />
+<p><strong>Editor:</strong> Editor is used to enter the multi-line text input. Editor offers the controls over colours and fonts. Editor like other-text presenting views shows the text property. Editor can be used to set and read the text presented by editor.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Label"
+             x:Class="Label.MainPage" 
+              Title="Editor Page-XAML"&gt;
+    &lt;ContentPage.Content&gt;
+        &lt;StackLayout Padding="5,10"&gt;
+            &lt;Label Text="Hii i am Editor"&gt;&lt;/Label&gt;
+            &lt;Editor Placeholder="Enter text here" PlaceholderColor="Olive" /&gt;
+        &lt;/StackLayout&gt;
+    &lt;/ContentPage.Content&gt;
+&lt;/ContentPage&gt;
+</textarea></div>
+<br>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin3.png" alt="Views in Xamarin" />
+<ul class="points">
+<li><strong>Image</strong><br>
+Image displays the Bitmap. In the common project,Bitmaps can be downloaded over the web and can embedd as a resource . We can share the images across platforms with Xamarin.Forms. Images are the important part of application navigation,branding and usability. Xamarin.Forms application needs to be share images across all the platforms. It also displays different images on each platform. Platform-specific images are also required icons and splash screens.</li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin4.png" alt="Views in Xamarin" />
+<h3 class="h3">Display images</h3>
+<p>Xamarin.Forms use the image view to display the images on a page. It has two important pages: </p>
+<ul class="points">
+<li><strong>Source:</strong> An image source instance that can be file, Uri, Resources which sets the image to display. </li>
+<li><strong>Aspect:</strong> how to size the image within the bounds it is being displayed within. </li>
+</ul>
+<ul class="points">
+<li><strong>ImageSource:</strong> Instances can be obtained using the static method for each type of image source.
+<ul class="points">
+<li><strong><u>From File:</u></strong> Requires a name of the file(filename) or path of the file (Filepath) which can be resolved on each platform.</li>
+</ul></li>
+</ul>
+<p>To show the image on the Xamarin. Forms we should have to follow the following steps:</p>
+<p>Here, we are going to add the image through the file name. For that firstly, we should have to download the image ("jpg image download"). Copy the image from the folder where we saved the file and paste it into a drawable folder for this we should have to follow these steps: <strong>the Android-> Resources-> Drawable</strong>. </p>
+<h3 class="h3">MainPage.XAML</h3>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Label"
+             x:Class="Label.MainPage" 
+              Title="Editor Page-XAML"&gt;
+    &lt;ContentPage.Content&gt;
+        &lt;StackLayout Padding="5,10"&gt;
+// In the source we have to give the name of the image file.
+            &lt;Image Source="nature.jpg"&gt;&lt;/Image&gt;
+        &lt;/StackLayout&gt;
+    &lt;/ContentPage.Content&gt;
+&lt;/ContentPage&gt;
+</textarea></div>
+<p><strong>Output</strong></p>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin5.png" alt="Views in Xamarin" />
+<p>Now we will learn how we can use the image in the backend code. </p>
+<h3 class="h3">MainPage.XAML</h3>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Label"
+             x:Class="Label.MainPage" 
+              Title="Editor Page-XAML"&gt;
+    &lt;ContentPage.Content&gt;
+        &lt;StackLayout Padding="5,10"&gt;
+            &lt;Image Source="" x:Name="Myimage"&gt;&lt;/Image&gt;
+        &lt;/StackLayout&gt;
+    &lt;/ContentPage.Content&gt;
+&lt;/ContentPage&gt;
+</textarea></div>
+<h3 class="h3">MainPage.XAML.CS</h3>
+<div class="codeblock"><textarea name="code" class="xml">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+
+namespace Label
+{
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+            Myimage.Source = ImageSource.FromFile("nature.jpg");
+
+
+        }
+    }
+</textarea></div>
+<p><strong>Output</strong></p>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin6.png" alt="Views in Xamarin" />
+<ul class="points">
+<li><strong><u>FromUri:</u></strong> Requires Uri (Uniform Resource Indicator)object e.g. new Uri ("https://sample-videos.com/download-sample-jpg-image"). <br>
+Here, we will display the images through the URI in which we give the path from the internet to the source.</li>
+<li><strong>From resource:</strong> Requires resource identifier to an image file embedded in the application or .Net Standard Library Project with a <strong>BuildAction: EmbeddedResource</strong>.</li>
+<li><strong>FromStream:</strong> Requires a stream that supplies the image data.</li>
+</ul>
+<ul class="points">
+<li><strong>Aspect:</strong> Aspect property determines how the image will be scaled to fit the display area:
+<ul class="points">
+<li><strong>Fill:</strong> Stretches the image to completely and fill the display area. The result of this can be an image is being distorted.</li>
+<li><strong>AspectFill:</strong> Clips the images so that it fills the display area while preserving the aspect (i.e. no distortion).</li>
+<li><strong>AspectFit:</strong> Letterboxes the image (if required) so that the entire image fits into the display area, with blank spaces added to top/bottom depend on whether the image is wide or tall. </li>
+</ul></li>
+</ul>
+<p>Images can be loaded from Local file, embedded resource or downloaded. </p>
+<ul class="points">
+<li><strong>BoxView:</strong> BoxView is a simple rectangle of specified width, height, and colour. We can use BoxView for decoration, rudimentary graphics, and interaction with the user through touch.</li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin7.png" alt="Views in Xamarin" />
+<h3 class="h3">MainPage.XAML</h3>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Label"
+             x:Class="Label.MainPage" 
+              Title="Editor Page-XAML"&gt;
+    &lt;StackLayout&gt;
+        &lt;Label Text="BoxView"
+               FontSize="50"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" /&gt;
+
+        &lt;BoxView Color="Accent"
+                 WidthRequest="150"
+                 HeightRequest="150"
+                 HorizontalOptions="Center"
+                 VerticalOptions="CenterAndExpand" /&gt;
+    &lt;/StackLayout&gt;
+&lt;/ContentPage&gt;
+</textarea></div>
+<br>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin8.png" alt="Views in Xamarin" />
+<p>BoxView might seem simple at the first look, but it can be versatile and can produce almost all the visuals that are usually possible only with the vector graphics.</p>
+<ul class="points">
+<li><strong>WebView:</strong> WebView is a view for displaying the web and HTML content on our app. WebView displays the HTML content inside our app.
+<ul class="points">
+<li><strong>Content</strong><br>
+WebView supports the following types of content:
+<ul class="points">
+<li><strong>HTML & CSS website:</strong> WebView supports all the websites that are written using the HTML & CSS, which includes the support of javascript.</li>
+<li><strong>Documents:</strong> WebView is implemented using the native component on each platform that's why WebView is capable of showing the documents that are viewable on each platform. This means that PDF files work on iOS and Android.</li>
+<li><strong>HTML Strings:</strong> WebView can show HTML strings from memory.</li>
+<li><strong>Local Files:</strong> WebView can type of content in the app. </li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 class="h3">MainPage.XAML</h3>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Label"
+             x:Class="Label.MainPage" 
+              Title="Editor Page-XAML"&gt;
+    &lt;ContentPage.Content&gt;
+    &lt;StackLayout BackgroundColor="Orange" Padding="5"&gt;
+            &lt;Entry Text="" x:Name="urlEntry" Placeholder="URL"&gt;&lt;/Entry&gt;
+            &lt;Button Text="Get data from URL" Clicked="Button_Clicked" BackgroundColor="Wheat" TextColor="Black"&gt;&lt;/Button&gt;
+            &lt;StackLayout&gt;
+                &lt;ScrollView&gt;
+                    &lt;WebView x:Name="BROWSER" VerticalOptions="FillAndExpand" HeightRequest="500"&gt;&lt;/WebView&gt;
+                &lt;/ScrollView&gt;
+            &lt;/StackLayout&gt;
+    &lt;/StackLayout&gt;
+    &lt;/ContentPage.Content&gt;
+&lt;/ContentPage&gt;
+</textarea></div>
+<h3 class="h3">MainPage.XAML.CS</h3>
+<div class="codeblock"><textarea name="code" class="xml">
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+
+namespace Label
+{
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+           // Myimage.Source = ImageSource.FromResource("Label.images.hey.jpg");
+
+
+        }
+
+        private void AbsoluteLayout_SizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            var url = "http://"+urlEntry.Text;
+            BROWSER.Source = url; 
+
+        }
+    }
+}
+</textarea></div>
+<br>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin9.png" alt="Views in Xamarin" /> <img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin10.png" alt="Views in Xamarin" />
+<h2 class="h2">OpenGLView</h2>
+<h3 class="h3">MainPage.XAML</h3>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:OpenGLVIEW"
+             x:Class="OpenGLVIEW.MainPage"&gt;
+
+    &lt;StackLayout&gt;
+        &lt;Label Text="OpenGLView"
+               FontSize="50"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" /&gt;
+
+        &lt;OpenGLView x:Name="openGLView"
+                    VerticalOptions="FillAndExpand" /&gt;
+
+        &lt;Label x:Name="regretsLabel"
+               Text="Sorry, OpenGLView cannot be used on this device!"
+               FontSize="Large"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="CenterAndExpand"
+               Margin="10, 0" /&gt;
+    &lt;/StackLayout&gt;
+
+&lt;/ContentPage&gt;
+</textarea></div>
+<br>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin11.png" alt="Views in Xamarin" />
+<h2 class="h2">Views that initiate the command</h2>
+<h3 class="h3">Buttons</h3>
+<p>When we click on a button, it responds and will perform a particular task in an application. In all the Xamarin.Forms button plays an important role. The button displays the short text string when it follows the command. Button can also display a bitmap image or a combination of text and image. To initiate the command user presses the button with a finger or with the mouse.</p>
+<p><strong>MainPage.XAML</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MapView1"
+             x:Class="MapView1.MainPage"&gt;
+
+    &lt;StackLayout&gt;
+        &lt;Label Text="Button"
+               FontSize="50"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" /&gt;
+
+        &lt;Button Text="Click Me!"
+                Font="Large"
+                BorderWidth="1"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand"
+                Clicked="Button_Clicked" BackgroundColor="Yellow"/&gt;
+
+        &lt;Label x:Name="label"
+               Text="0 button clicks"
+               FontSize="Large"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" /&gt;
+    &lt;/StackLayout&gt;
+&lt;/ContentPage&gt; 
+</textarea></div>
+<p>Coding behind the button_click here, button will count how many times button pressed. </p>
+<p><strong>MainPage.XAML.CS</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+
+namespace MapView1
+{
+    public partial class MainPage : ContentPage
+    {
+        static int ClickTotal;
+        public MainPage()
+        {
+            InitializeComponent();
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            ClickTotal += 1;
+            label.Text = String.Format("{0} button click{1}", ClickTotal, ClickTotal == 1 ? "" : "s");
+
+        }
+    }
+}
+</textarea></div>
+<p><strong><u>OUTPUT:</u></strong></p>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin12.png" alt="Views in Xamarin" />
+<h2 class="h2">ImageButton</h2>
+<p>The ImageButton displays an image and responds to tap or click, which directs an application to perform a particular task.</p>
+<p>ImageButton View combines the Button view and Image view to create a button whose content is an image. When we press the button with our finger or click it with the mouse, it will perform a particular task for the application.</p>
+<p><strong>Setting the image source</strong></p>
+<p>ImageButton defines a source property which should be configured to display the image on the button </p>
+<h2 class="h2">SearchBar</h2>
+<p>It is a part of the UI elements of Xamarin.Forms. It is used to search the data from a list or web page or anything. We can place the search bar to do a search from the web or from anywhere else. Mostly we use a search bar on Google homepage or any search engine.</p>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin13.png" alt="Views in Xamarin" />
+<h2 class="h2">Implementation</h2>
+<p>Here, we will code in the following steps:</p>
+<ul class="points">
+<li>Creating the UI class</li>
+<li>Make a class and set the binding to the list view.</li>
+<li>Add data to the list and add functionality to the search bar</li>
+</ul>
+<h3 class="h3">Creating a UI</h3>
+<p>Firstly we will create Xamarin.Forms project. Here, we will create an application and will make a ListView and search bar on a XAML file. Here, we can use Stack Layout and add a search bar and list view in the stack layout. The search bar will place on the top of the list.</p>
+<p><strong>MainPage.Xaml</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:imagebutton1"
+             x:Class="imagebutton1.MainPage"&gt;
+
+    &lt;StackLayout&gt;
+        &lt;SearchBar TextChanged="SearchBar_TextChanged"&gt;&lt;/SearchBar&gt;
+        &lt;ListView x:Name="list"&gt;
+            &lt;ListView.ItemTemplate&gt;
+                &lt;DataTemplate&gt;
+                    &lt;TextCell Text="{Binding Name}" Detail="{Binding Num}"&gt;
+
+                    &lt;/TextCell&gt;
+                &lt;/DataTemplate&gt;
+            &lt;/ListView.ItemTemplate&gt;
+        &lt;/ListView&gt;
+
+    &lt;/StackLayout&gt;
+
+&lt;/ContentPage&gt;
+</textarea></div>
+<p>Now we will create a class which contains two property Name and NUM like this:</p>
+<h3 class="h3"><u>Contacts.CS</u></h3>
+<div class="codeblock"><textarea name="code" class="xml">
+namespace imagebutton1
+{
+    public class Contacts
+    {
+        public string Name { get; set; }
+        public string Num { get; set; }
+        public string imgsource { get; set; }
+    }
+}
+</textarea></div>
+<p>Now we will add the binding to text cell of listview. </p>
+<div class="codeblock"><textarea name="code" class="xml">
+  &lt;TextCell Text="{Binding Name}" Detail="{Binding Num}"&gt;
+</textarea></div>
+<p>Here, class is create and binding is done. Now we will do coding in Xaml.CS file.</p>
+<p>To add the data is ListView and functionality to search bar. Here, firstly we create a contact class then initialize it and add some new data. After this, we will set the item source of ListView to the list of contacts.</p>
+<p><strong>Code to add the data to our ListView:</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+public List&lt;Contacts&gt; tempdata;
+       
+
+        public MainPage()
+        {
+            InitializeComponent();
+            data();
+            list.ItemsSource = tempdata;
+
+        }
+
+        public void data()
+        {
+            // all the temp data  
+            tempdata = new List&lt;Contacts&gt; {
+                new Contacts(){ Name = "Shaily", Num = "2323423"},
+                new Contacts(){ Name = "Vishi", Num = "23423"},
+                new Contacts(){ Name = "Vaishali", Num = "233423423"},
+                new Contacts(){ Name = "AkshayILU", Num = "2423"},
+                new Contacts(){ Name = "Aman", Num = "323423"},
+                new Contacts(){ Name = "Arpita", Num = "2323423"},
+                new Contacts(){ Name = "Himanshu", Num = "2323423"},
+                new Contacts(){ Name = "Arvind", Num = "2323423"},
+                new Contacts(){ Name = "Neetu", Num = "2323423"},
+                new Contacts(){ Name = "etc", Num = "2323423"},
+            };
+        }
+</textarea></div>
+<p>Here we will make an event handler of Text Changed functionality of search bar like this:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;SearchBar TextChanged="SearchBar_TextChanged"&gt;&lt;/SearchBar&gt;
+</textarea></div>
+<h3 class="h3">Code</h3>
+<div class="codeblock"><textarea name="code" class="xml">
+private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //that's all you need to do a search   
+
+            if (string.IsNullOrEmpty(e.NewTextValue))
+            {
+                list.ItemsSource = tempdata;
+            }
+
+            else
+            {
+                list.ItemsSource = tempdata.Where(x => x.Name.StartsWith(e.NewTextValue));
+            }
+        }
+</textarea></div>
+<p>Whenever the text in the search bar is changed, it can work on two possible conditions. If the text is null or empty, we will set the item source of list to temp data. Temp data contains the list of all the data. Else this can change the item source of list according to the LINQ query. This query works on temp data and finds the given text in the character match with the starting value of the name. Now we will see to search the some data:</p>
+<h3 class="h3">Complete XAML code and CS code</h3>
+<p><strong>MainPage.XAML</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:imagebutton1"
+             x:Class="imagebutton1.MainPage"&gt;
+
+    &lt;StackLayout&gt;
+        &lt;SearchBar TextChanged="SearchBar_TextChanged"&gt;&lt;/SearchBar&gt;
+        &lt;ListView x:Name="list"&gt;
+            &lt;ListView.ItemTemplate&gt;
+                &lt;DataTemplate&gt;
+                    &lt;TextCell Text="{Binding Name}" Detail="{Binding Num}"&gt;
+
+                    &lt;/TextCell&gt;
+                &lt;/DataTemplate&gt;
+            &lt;/ListView.ItemTemplate&gt;
+        &lt;/ListView&gt;
+
+    &lt;/StackLayout&gt;
+
+&lt;/ContentPage&gt;
+</textarea></div>
+<p><strong>MainPage.XAML.CS</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+
+namespace imagebutton1
+{
+    public partial class MainPage : ContentPage
+    {
+        public List<Contacts> tempdata;
+       
+
+        public MainPage()
+        {
+            InitializeComponent();
+            data();
+            list.ItemsSource = tempdata;
+
+        }
+
+        public void data()
+        {
+            // all the temp data  
+            tempdata = new List<Contacts> {
+                new Contacts(){ Name = "Shaily", Num = "2323423"},
+                new Contacts(){ Name = "Vishi", Num = "23423"},
+                new Contacts(){ Name = "Vaishali", Num = "233423423"},
+                new Contacts(){ Name = "AkshayILU", Num = "2423"},
+                new Contacts(){ Name = "Aman", Num = "323423"},
+                new Contacts(){ Name = "Arpita", Num = "2323423"},
+                new Contacts(){ Name = "Himanshu", Num = "2323423"},
+                new Contacts(){ Name = "Arvind", Num = "2323423"},
+                new Contacts(){ Name = "Neetu", Num = "2323423"},
+                new Contacts(){ Name = "etc", Num = "2323423"},
+            };
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //that's all you need to do a search   
+
+            if (string.IsNullOrEmpty(e.NewTextValue))
+            {
+                list.ItemsSource = tempdata;
+            }
+
+            else
+            {
+                list.ItemsSource = tempdata.Where(x => x.Name.StartsWith(e.NewTextValue));
+            }
+        }
+    }
+}
+</textarea></div>
+<br>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin14.png" alt="Views in Xamarin" /> <img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin15.png" alt="Views in Xamarin" />
+<h2 class="h2">Views for setting the Values</h2>
+<h3 class="h3">ListView</h3>
+<p>ListView is a view for presenting a list of data, especially the long list which needs scrolling. Xamarin.Forms provide ListView Control which can be used for displaying the scrollable list of data. ListView control is best for homogeneous data.</p>
+<p><strong>MainPage.XAML</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ListView"
+             x:Class="ListView.MainPage"&gt;
+    &lt;StackLayout Margin="20,35,20,20"&gt;
+        &lt;ListView&gt;
+            &lt;ListView.ItemsSource&gt;
+                &lt;x:Array Type="{x:Type x:String}"&gt;
+                    &lt;x:String&gt;Baboon&lt;/x:String&gt;
+                    &lt;x:String&gt;Capuchin Monkey&lt;/x:String&gt;
+                    &lt;x:String&gt;Blue Monkey&lt;/x:String&gt;
+                    &lt;x:String&gt;Squirrel Monkey&lt;/x:String&gt;
+                    &lt;x:String&gt;Golden Lion Tamarin&lt;/x:String&gt;
+                    &lt;x:String&gt;Howler Monkey&lt;/x:String&gt;
+                    &lt;x:String&gt;Japanese Macaque&lt;/x:String&gt;
+                &lt;/x:Array&gt;
+            &lt;/ListView.ItemsSource&gt;
+        &lt;/ListView&gt;
+    &lt;/StackLayout&gt;
+
+&lt;/ContentPage&gt;
+</textarea></div>
+<p>This code defines the user interface for the page which consists the ListView in a StackLayout. The ListView.ItemSource property specifies the item to display.</p>
+<p><strong>Output</strong></p>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin16.png" alt="Views in Xamarin" />
+<p><strong>Populate with Data</strong></p>
+<p>Here, we will populate the data using the ItemSource property, which is of type <u>IEnumerable</u>. Here we will fill the ListView with data from a collection of the object of objects stored in it.</p>
+<p><strong>Monkey class will add</strong></p>
+<p><strong>Monkey.cs</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+namespace ListView
+{
+    class Monkey
+    {
+        public string Name { get; set; }
+        public string Location { get; set; }
+        public string ImageUrl { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
+}
+</textarea></div>
+<p>This code defines the Monkey object which stores the name, location and URL of an image which represents the monkey. Also, the class overrides the ToString method to return the name property.</p>
+<h3 class="h3">DatePicker</h3>
+<p>Xamarin.Form view allows the user to select the date. The Xamarin.Forms <strong>DatePicker</strong> invokes the platform's date-picker control that enables the user to select a date. DatePicker defines the eight properties. </p>
+<ul class="points">
+<li><strong>MinimumDate:</strong> This is a type of <strong>DateTime</strong>, which it defaults to the first day of the year 1900.</li>
+<li><strong>MaximumDate:</strong> This is the type of <strong>DateTime</strong>, which is the default of the last day of the year 2100.</li>
+</ul>
+<p><strong>MainPage.XAML</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TimePickerView"
+             x:Class="TimePickerView.MainPage"&gt;
+
+    &lt;StackLayout&gt;
+        &lt;Label Text="DatePicker"
+               FontSize="50"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" /&gt;
+
+        &lt;DatePicker Format="D"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="10, 0" /&gt;
+
+    &lt;/StackLayout&gt;
+
+&lt;/ContentPage&gt;
+</textarea></div>
+<h3 class="h3">TimePicker</h3>
+<p>Xamarin.Forms view allow the user to select a time. Xamarin.Forms TimePicker invokes the platforms time-picker control and enables the user to choose a time.</p>
+<p><strong>MainPage.XAML</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App15"
+             x:Class="App15.MainPage" BackgroundColor="Aqua"&gt;
+    &lt;ContentPage.Content&gt;
+        &lt;StackLayout Padding="10"&gt;
+            &lt;Label Text="DatePicker" FontSize="20" HorizontalOptions="Center"&gt;&lt;/Label&gt;
+            &lt;DatePicker x:Name="dp" MaximumDate="2020/12/31" MinimumDate="2000/12/31"&gt;&lt;/DatePicker&gt;
+            &lt;TimePicker x:Name="tp"&gt;&lt;/TimePicker&gt;
+            &lt;Button x:Name="button" Clicked="Button_Clicked" Text="Details"&gt;&lt;/Button&gt;
+            &lt;Label x:Name="details"&gt;&lt;/Label&gt;
+        &lt;/StackLayout&gt;
+    &lt;/ContentPage.Content&gt;
+
+    
+
+&lt;/ContentPage&gt;
+</textarea></div>
+<p><strong>MainPage.XAML.CS</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+
+namespace App15
+{
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            var date = dp.Date;
+            var time = tp.Time;
+            details.Text = string.Format("Date:{0}\n Time:{1}", date, time);
+        }
+    }
+}
+</textarea></div>
+<p><strong>OUTPUT</strong></p>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin17.png" alt="Views in Xamarin" />
+<h3 class="h3">TableView</h3>
+<p>TableView is a view for displaying the scrollable list of data or choices where there are rows which don't share the same template. TableView does not have the concept of ItemSource, so here we will add the items manually.</p>
+<p><strong>Structure:</strong> Elements in TableView are organized in sections. At the root of the TableView is the TableRoot which is a parent to one or more TableSection instances. Each TableSection consist of the heading and one or more ViewCell cases.</p>
+<p><strong>MainPage.XAML</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TableView"
+             x:Class="TableView.MainPage"&gt;
+    &lt;TableView Intent="Settings"&gt;
+        &lt;TableRoot&gt;
+            &lt;TableSection Title="Ring"&gt;
+                &lt;SwitchCell Text="New Voice Mail" /&gt;
+                &lt;SwitchCell Text="New Mail" On="true" /&gt;
+            &lt;/TableSection&gt;
+        &lt;/TableRoot&gt;
+    &lt;/TableView&gt;
+
+&lt;/ContentPage&gt;
+</textarea></div>
+<p><strong>Output</strong></p>
+<img src="https://static.javatpoint.com/tutorial/xamarin/images/views-in-xamarin18.png" alt="Views in Xamarin" />
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="xamarin-forms-cells.html">Xamarin.Forms Cells</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="xamarin-layout.html">&larr; prev</a>
+<a style="float:right" class="next" href="xamarin-forms-cells.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f5939090919794969eb59f94839481859a9c9b81db969a98">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/views-in-xamarin"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/views-in-xamarin"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/views-in-xamarin"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+ </a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+ </a>
+ <a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+ <a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="69011b2903081f081d190600071d470a0604">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b5ddc7f5dfd4c3d4c1c5dadcdbc19bd6dad89b">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/views-in-xamarin by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:49:41 GMT -->
+</html> 

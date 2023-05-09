@@ -1,0 +1,984 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/gui-testing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:39:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>GUI Testing - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="GUI Testing - javatpoint" /><meta property="og:description" content="GUI Testing with introduction, software development life cycle, design, development, quality assurance, methods, black box testing, white box testing, etc." />
+<meta name="keywords" content="software testing tutorial, software testing introduction, software development life cycle, design, development, testing, overview, quality assurance, quality control, assurance versus, methods, black box testing, white box testing, alpha testing vs beta testing, gray box testing, visual testing, manual testing, system testing, unit testing, system testing, functional testing, non-functional testing, alpha testing, beta testing, security testing, test plan, test case, estimation techniques, defects" /><meta name="description" content="GUI Testing with introduction, software development life cycle, design, development, quality assurance, methods, black box testing, white box testing, etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="gui-testing.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="GUI Testing - javatpoint" /><meta name="twitter:description" property="og:description" content="GUI Testing with introduction, software development life cycle, design, development, quality assurance, methods, black box testing, white box testing, etc." /><meta property="og:url" content="gui-testing.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="software-testing-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/testing.png" alt="software testing" /> Software Testing</a></li>
+<li><a href="selenium-tutorial.html"><img src="https://static.javatpoint.com/images/icon/selenium.png" alt="selenium" /> Selenium</a></li>
+<li><a href="appium.html"><img src="https://static.javatpoint.com/images/icon/appium.png" alt="appium" /> Appium</a></li>
+<li><a href="jmeter-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jmeter.png" alt="jmeter" /> JMeter</a></li>
+<li><a href="junit-tutorial.html"><img src="https://static.javatpoint.com/images/icon/junit.png" alt="junit" /> JUnit</a></li>
+<li><a href="postman.html"><img src="https://static.javatpoint.com/images/icon/postman.png" alt="postman" /> Postman</a></li>
+<li><a href="jira-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jira.png" alt="jira" /> Jira</a></li>
+<li><a href="testng-tutorial.html"><img src="https://static.javatpoint.com/images/icon/testng.png" alt="testng" /> TestNG</a></li>
+<li><a href="soapui.html"><img src="https://static.javatpoint.com/images/icon/soapui.png" alt="soapui" /> SoapUI</a></li>
+<li><a href="uipath.html"><img src="https://static.javatpoint.com/images/icon/uipath.png" alt="uipath" /> UIPath</a></li>
+<li><a href="rpa.html"><img src="https://static.javatpoint.com/images/icon/rpa.png" alt="rpa" /> RPA</a></li>
+<li><a href="quality-assurance.html"><img src="https://static.javatpoint.com/images/icon/qa.png" alt="qa" /> QA</a></li>
+<li><a href="selenium-python.html"><img src="https://static.javatpoint.com/images/icon/selenium-python.png" alt="selenium python" /> Selenium Python</a></li>
+<li><a href="software-testing-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="manual testing interview questions" /> Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-tutorial.html">Tutorial</a>
+<a href="software-testing-principles.html">Software Testing Principles</a>
+<a href="software-development-life-cycle.html">Software Development Life Cycle</a>
+<a href="software-testing-life-cycle.html">Software Testing Life Cycle</a>
+<a href="types-of-software-testing.html">Types of Software Testing</a>
+<a href="levels-of-testing.html">Levels of Testing</a>
+<a href="test-maturity-model.html">Test Maturity Model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SDLC models</span></h2>
+</div>
+<div class="leftmenu">
+<a href="waterfall-model.html">Waterfall model</a>
+<a href="spiral-model.html">Spiral Model</a>
+<a href="hybrid-model.html">Hybrid Model</a>
+<a href="prototype-model.html">Prototype Model</a>
+<a href="v-model.html">V-model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="manual-testing.html">Manual Testing</a>
+<a href="automation-testing.html">Automation Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Manual</span></h2>
+</div>
+<div class="leftmenu">
+<a href="white-box-testing.html">White Box Testing</a>
+<a href="black-box-testing.html">Black Box Testing</a>
+<a href="grey-box-testing.html">Grey Box Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">White Box Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-flow-testing-in-white-box-testing.html">Data Flow Testing</a>
+<a href="control-flow-testing-in-white-box-testing.html">Control Flow Testing</a>
+<a href="branch-coverage-testing-in-white-box-testing.html">Branch Coverage Testing</a>
+<a href="statement-coverage-testing-in-white-box-testing.html">Statement Coverage Testing</a>
+<a href="decision-coverage-testing-in-white-box-testing.html">Decision Coverage Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Black Box Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="decision-table-technique-in-black-box-testing.html">Decision Table</a>
+<a href="all-pairs-testing-technique-in-black-box-testing.html">All-pair Testing</a>
+<a href="cause-and-effect-graph-technique-in-black-box-testing.html">Cause-Effect Testing</a>
+<a href="state-transition-technique-in-black-box-testing.html">State Transition</a>
+<a href="use-case-technique-in-black-box-testing.html">Use Case</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Black Box</span></h2>
+</div>
+<div class="leftmenu">
+<a href="functional-testing.html">Functional Testing</a>
+<a href="non-functional-testing.html">Non-Functional Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Functional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="unit-testing.html">Unit Testing</a>
+<a href="integration-testing.html">Integration Testing</a>
+<a href="system-testing.html">System Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Non-functional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="performance-testing.html">Performance Testing</a>
+<a href="usability-testing.html">Usability Testing</a>
+<a href="compatibility-testing.html">Compatibility Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Test case development</span></h2>
+</div>
+<div class="leftmenu">
+<a href="testing-documentation.html">Testing Documentation</a>
+<a href="test-scenario.html">Test Scenario</a>
+<a href="test-case.html">Test Case</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Testing Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="error-guessing-technique-in-black-box-testing.html">Error Guessing</a>
+<a href="equivalence-partitioning-technique-in-black-box-testing.html">Equivalence Portioning</a>
+<a href="boundary-value-analysis-in-black-box-testing.html">Boundary Value analysis</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Test Management</span></h2>
+</div>
+<div class="leftmenu">
+<a href="test-plan.html">Test Plan</a>
+<a href="test-case-review-process.html">Test case review process</a>
+<a href="traceability-matrix.html">Requirement Traceability Matrix</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Defect Tracking</span></h2>
+</div>
+<div class="leftmenu">
+<a href="bug-in-software-testing.html">Bug in Software Testing</a>
+<a href="software-testing-bug-life-cycle.html">Bug Life cycle</a>
+<a href="severity-and-priority-in-testing.html">Severity &amp; Priority</a>
+<a href="test-environment.html">Test Environment</a>
+<a href="defect-management-process.html">Defect Management Process</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Other types of Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="regression-testing.html">Regression Testing</a>
+<a href="smoke-testing.html">Smoke Testing</a>
+<a href="sanity-testing.html">Sanity Testing</a>
+<a href="static-testing.html">Static Testing</a>
+<a href="dynamic-testing.html">Dynamic Testing</a>
+<a href="load-testing.html">Load Testing</a>
+<a href="stress-testing.html">Stress Testing</a>
+<a href="recovery-testing.html">Recovery testing</a>
+<a href="exploratory-testing.html">Exploratory Testing</a>
+<a href="visual-testing.html">Visual Testing</a>
+<a href="acceptance-testing.html">Acceptance Testing</a>
+<a href="alpha-testing.html">Alpha Testing</a>
+<a href="beta-testing.html">Beta Testing</a>
+<a href="database-testing.html">Database Testing</a>
+<a href="mainframe-testing.html">Mainframe Testing</a>
+<a href="adhoc-testing.html">Adhoc Testing</a>
+<a href="globalization-testing.html">Globalization Testing</a>
+<a href="mutation-testing.html">Mutation Testing</a>
+<a href="security-testing.html">Security Testing</a>
+<a href="accessibility-testing.html">Accessibility Testing</a>
+<a href="structural-testing.html">Structural Testing</a>
+<a href="volume-testing.html">Volume Testing</a>
+<a href="scalability-testing.html">Scalability Testing</a>
+<a href="stability-testing.html">Stability Testing</a>
+<a href="spike-testing.html">Spike Testing</a>
+<a href="negative-testing.html">Negative Testing</a>
+<a href="positive-testing.html">Positive Testing</a>
+<a href="endurance-testing.html">Endurance Testing</a>
+<a href="reliability-testing.html">Reliability Testing</a>
+<a href="monkey-testing.html">Monkey Testing</a>
+<a href="agile-testing.html">Agile Testing</a>
+<a href="component-testing.html">Component Testing</a>
+<a href="gui-testing.html">GUI Testing</a>
+<a href="test-strategy.html">Test Strategy</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing Tools</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-tools.html">Software testing tools</a>
+<a href="test-management-tool.html">Test management tools</a>
+<a href="defect-or-bug-tracking-tool.html">Defect/Bug tracking tools</a>
+<a href="automation-testing-tool.html">Automation testing tools</a>
+<a href="performance-testing-tools.html">Performance testing tools</a>
+<a href="cross-browser-testing-tools.html">Cross-browser testing tools</a>
+<a href="integration-testing-tools.html">Integration testing tools</a>
+<a href="unit-testing-tools.html">Unit testing tools</a>
+<a href="mobile-testing-tools.html">Mobile Testing Tools</a>
+<a href="gui-testing-tools.html">GUI testing tools</a>
+<a href="security-testing-tools.html">Security testing tools</a>
+<a href="penetration-testing-tools.html">Penetration Testing Tools</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="automation-testing-vs-manual-testing.html">Automation Testing vs Manual Testing</a>
+<a href="load-testing-vs-stress-testing.html">Load Testing vs Stress Testing</a>
+<a href="smoke-testing-vs-sanity-testing.html">Smoke Testing vs Sanity Testing</a>
+<a href="system-testing-vs-acceptance-testing.html">System Testing vs Acceptance Testing</a>
+<a href="difference-between-quality-assurance-and-quality-control.html">Quality Assurance vs Quality Control</a>
+<a href="static-testing-vs-dynamic-testing.html">Static Testing vs Dynamic Testing</a>
+<a href="verification-and-validation-testing.html">Verification vs Validation Testing</a>
+<a href="alpha-testing-vs-beta-testing.html">Alpha Testing vs Beta Testing</a>
+<a href="black-box-testing-vs-white-box-testing-vs-grey-box-testing.html">Black Box vs. White Box vs. Grey Box Testing</a>
+<a href="globalization-testing-vs-localization-testing.html">Globalization Testing vs Localization Testing</a>
+<a href="test-case-vs-test-scenarios.html">Test Case vs Test Scenarios</a>
+<a href="test-plan-vs-test-strategy.html">Test Plan vs Test Strategy</a>
+<a href="boundary-value-analysis-vs-equivalence-partitioning.html">Boundary value analysis vs Equivalence partitioning</a>
+<a href="sdlc-vs-stlc.html">SDLC vs STLC</a>
+<a href="bug-vs-defect-vs-error-vs-fault-vs-failure.html">Bug vs Defect vs Error vs Fault vs Failure</a>
+<a href="testing-vs-debugging.html">Testing vs Debugging</a>
+<a href="frontend-testing-vs-backend-testing.html">Frontend Testing vs Backend Testing</a>
+<a href="hld-vs-lld.html">HLD vs LLD</a>
+<a href="brs-vs-srs.html">BRS vs SRS</a>
+<a href="positive-testing-vs-negative-testing.html">Positive Testing vs Negative Testing</a>
+<a href="top-down-vs-bottom-up-integration-testing.html">Top-Down vs Bottom-Up Integration Testing</a>
+<a href="use-case-vs-test-case.html">Use Case vs Test Case</a>
+<a href="monkey-testing-vs-gorilla-testing.html">Monkey Testing VS Gorilla Testing</a>
+<a href="stubs-vs-drivers.html">Stubs vs Drivers</a>
+<a href="component-testing-vs-unit-testing.html">Component Testing vs Unit Testing</a>
+<a href="software-testing-vs-embedded-testing.html">Software Testing vs Embedded Testing</a>
+<a href="gui-testing-vs-usability-testing.html">GUI Testing vs Usability Testing</a>
+<a href="sdet-vs-tester.html">SDET vs Tester</a>
+<a href="desktop-application-testing-vs-client-server-application-testing-vs-web-application-testing.html">Desktop Application testing vs Client-Server Application Testing vs Web Application Testing</a>
+<a href="active-testing.html">Active Testing</a>
+<a href="what-is-an-api.html">What is an API</a>
+<a href="automation-testing.html">Automation Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-mcq.html">Software Testing MCQ</a>
+<a href="software-testing-mcq-part-2.html">Software Testing MCQ Part 2</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-interview-questions.html">Software Testing Interview</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="test-strategy.html">next &rarr;</a>
+<a class="next" href="component-testing.html">&larr; prev</a>
+</div>
+<h1 class="h1">GUI Testing</h1>
+<p>In this section, we are going to discuss all GUI (<strong>Graphical User Interface</strong>) Testing, which includes the following important topics:</p>
+<ul class="points">
+<li><strong>What is GUI Testing?</strong></li>
+<li><strong>Why do we need to perform GUI Testing?</strong></li>
+<li><strong>Features of GUI Testing</strong> </li>
+<li><strong>Types of GUI Testing</strong></li>
+<li><strong>Examples of GUI Testing</strong></li>
+<li><strong>Different challenges faced during the GUI testing</strong></li>
+<li><strong>GUI Testing Tools</strong></li>
+</ul>
+<p>Before getting deep into all the above mention topics, firstly, we will understand Graphical User Interface (GUI).</p>
+<h2 class="h2">What is GUI?</h2>
+<p>In the computer application, we have mainly two types of interfaces such as:</p>
+<ul class="points">
+<li><strong>Command Line Interface (CLI)</strong></li>
+<li><strong>Graphical User Interface (GUI)</strong></li>
+</ul>
+<p>The <strong>Command-line interface</strong> is used when we need to type text, and at the same time computer responds to that command.</p>
+<p>On the other hand, the <strong>Graphical user interface</strong> is used to interrelate along with the computer by using the images rather than text.</p>
+<p>We have some of the critical GUI elements that can be used for communication between the user and application.</p>
+<ul class="points">
+<li><strong>Check Box</strong></li>
+<li><strong>List Box</strong></li>
+<li><strong>Radio button</strong></li>
+<li><strong>Text Box</strong></li>
+</ul>
+<p>As we can see in the below image:</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/gui-testing.png" alt="GUI Testing" />
+<p>Now, we will move to our main point of discussion which is GUI testing.</p>
+<h2 class="h2">What is GUI (Graphical User Interface) Testing?</h2>
+<p>It is one of the unique <a href="types-of-software-testing.html">types of <strong>software testing</strong></a> that is frequently used to check the Graphical user interface features for the application or the software.</p>
+<p>Usually, the GUI testing is used to assesses a design of elements or features like:</p>
+<ul class="points">
+<li><strong>Text boxes</strong></li>
+<li><strong>Font size</strong></li>
+<li><strong>Font color</strong></li>
+<li><strong>Buttons</strong></li>
+<li><strong>Menus</strong></li>
+<li><strong>Links</strong></li>
+<li><strong>Layout</strong></li>
+<li><strong>Labels</strong></li>
+<li><strong>Text Formatting</strong></li>
+<li><strong>Lists</strong></li>
+<li><strong>Captions</strong></li>
+<li><strong>Icons</strong></li>
+<li><strong>Content</strong></li>
+</ul>
+<p>The primary goal of the GUI testing is to validate the features of the software, or the application performs as per the given requirement/specifications.</p>
+<p>The <strong>Graphical user interface testing</strong> process implemented either manually or automatically and repeatedly executed by the <strong>third-parties organization</strong> instead of the developers or the end-users.</p>
+<p>In other words, we can say that GUI testing is an approach in which the application's user interface is tested if the software or an application works as expected relating to the user interface performance.</p>
+<h2 class="h2">Why do we need to perform GUI Testing?</h2>
+<p>After understanding the definition of GUI testing, we get the basic idea of it. But some question will arise like:</p>
+<ul class="points">
+<li>Is GUI testing required to test the Application?</li>
+<li>Why do we need to perform GUI testing?</li>
+<li>And does testing of features and logics of Application is not too much?? Then why do we need to waste time on executing the UI testing?</li>
+</ul>
+<p>If we want an answer to all the questions mentioned above, we need to think like a user, not a test engineer. Because a user doesn't have any exposure to the specified application or the software, it is a user interface of the application that determines whether a user will use the application more or not.</p>
+<p>Here, firstly, a regular user understands the looks and design of the application or the software and how easy it is for her/him in order to understand the user interface.</p>
+<p>He/she would never be going to use that Application again if a user is not happy with the interface or unable to identify the Application's difficulties in order to understand it. Because of the above scenarios, graphical user interface testing must be implemented to ensure that GUI testing delivers a defect-free application.</p>
+<h2 class="h2">Why is Graphical user Interface testing being necessary?</h2>
+<p>In software testing techniques, the implementation of a Graphical user interface is essential for executing the other types of <a href="software-testing-tutorial.html"><strong>software testing</strong></a>.</p>
+<p>As we know, delivering a quality product and matching the customer's requirement and a bug-free product is the primary concern of executing any type of testing.</p>
+<p>And it has been stated that" <strong>we cannot review quality into a product</strong>."</p>
+<p>That's why in order to enhance the quality of a product, the development teams seek to develop it into their projects from the beginning.</p>
+<p>To improve the quality of the product, we can use the testing process earlier in the <a href="software-development-life-cycle.html"><strong>SDLC (Software Development Life Cycle)</strong></a>, which is also known as <strong>Shift Left testing</strong>.</p>
+<p>The development teams enhance the time and resources expended in the unit and interface testing instead of waiting for <a href="system-testing.html"><strong>system testing</strong></a> after an application is complete. And in result, the early error detection in the development process will cut down the costs of fixing them.</p>
+<p>As we are already aware, the <strong>unit and interface/API tests</strong> are compatible for automation because the developers develop the unit tests as they code; on the other hand, the APIs tests lean to be very stable and involve less maintenance than the APIs GUI tests.</p>
+<p>We can observe that the importance of <strong>Shift Left testing</strong> is enchanting, making the GUI testing vulnerable. Despite everything, manual GUI testing can be a time taking and resource-intensive process.</p>
+<p>Whereas the test automation is a bit more stimulating for GUIs because the user interface can frequently modify, earlier functioning automated GUI tests may fail, demanding a considerable determination to maintain them.</p>
+<p>However, the <strong>unit and interface testing</strong> cannot assess all areas of a system, particularly the crucial features of <strong>workflow</strong> and <strong>usability</strong>. And, this is the importance of GUI testing, which is implemented from the user's point of view rather than a developer.</p>
+<p>By evaluating an application from a <strong>user's perspective</strong> helps us to deliver the information to the project team where they need to choose whether an application is ready to deploy or not.</p>
+<p><strong>For example</strong>, The Drop-down list that appears in the <strong>Windows Firefox browser</strong> will be different from the <strong>mac-Firefox</strong>. These issues can be adequate because these are operating system functions, and we need to accept them in the same way.</p>
+<h2 class="h2">Features of GUI Testing</h2>
+<p>Some of the most significant features of Graphical user interface (GUI) testing are as discussed below:</p>
+<ul class="points">
+<li>The GUI testing is used to execute the tests in matching or allocate on a Selenium Grid with fixed Selenium Web Driver.</li>
+<li>The execution of GUI testing will allow us to test the feature of an application from a user's point of view.</li>
+<li>As a result of Graphical user interface testing, we can get the customize test report.</li>
+<li>It also produces a consistent object documentation, at the same time for web elements along with the dynamic IDs.</li>
+<li>Sometimes the internal performance of the system works correctly, but the user interface doesn't; that's why GUI testing is an excellent approach in order to test other types of applications as well.</li>
+</ul>
+<h2 class="h2">Types of GUI Testing</h2>
+<p>The Graphical User Interface testing divided into two different types, which are as discussed below:</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/gui-testing2.png" alt="GUI Testing" />
+<h3 class="h3">Analog Recording</h3>
+<p>The first type of Graphical user interface testing is <strong>Analog Recording</strong>. With the help of analog recording, people will always be connected with the GUI testing tools.</p>
+<p>Essentially, the GUI testing tools are used to encapsulates the precise <strong>keyboard presses, mouse clicks, and other user activities</strong> and then stores them in a file for playback. Let see one example to understand the basic functionality of Analog Recording.</p>
+<p><strong>Example</strong></p>
+<p>The analog recording might record that a user left-clicked at position X = 700 pixels, Y = 600 pixels, or entered the word "<strong>Sign-in"</strong> in a box and then pressed the <strong>ENTER</strong> key on their keyboard.</p>
+<h3 class="h3">Object-based Recording</h3>
+<p>Another GUI testing type is <strong>Object-based recording</strong>. In this, the testing tool can connect programmatically to that application, which needs to be tested and <strong>observe</strong> each of the specific user interface modules, such as a <strong>text box, button, and hyperlink, as a distinct object.</strong></p>
+<p>In the object-based recording, we can execute the following activities such as</p>
+<ul class="points">
+<li><strong>Click</strong></li>
+<li><strong>Enter text</strong></li>
+<li><strong>Read the state(whether it is enabled or disabled)</strong></li>
+</ul>
+<p>After seeing all the types of GUI Testing, we will move to our next topic, which is <strong>Graphical user Interface Testing Techniques or different methods</strong>.</p>
+<h2 class="h2">Graphical user interface (GUI) testing Techniques/Methods</h2>
+<p>We have some unique techniques in order to execute the GUI testing, which are as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/gui-testing3.png" alt="GUI Testing" />
+<ul class="points">
+<li><strong>Manual Based Testing</strong></li>
+<li><strong>Model-Based Testing</strong></li>
+<li><strong>Record and Replay</strong></li>
+<li><strong>Hybrid Tests</strong></li>
+<li><strong>Code-based Testing</strong> </li>
+</ul>
+<p>Let see them in details for our better understanding:</p>
+<h3 class="h3">1. Manual Based Testing</h3>
+<p>The first method of GUI testing is <strong>Manual based testing</strong>. The simplest way of executing the GUI testing is purely using the application manually. Usually, manual-based testing is implemented by enthusiastic parament test engineers.</p>
+<p>In other words, we can say that in this approach, the graphical projects are tested manually by the test engineer following the requirements specified in the <strong>BRS (Business Requirements Specification</strong>) document.</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/gui-testing4.png" alt="GUI Testing" />
+<p>As we already knew that the <strong>Manual testing</strong> is not productive because sometimes the execution of manual testing is slow, monotonous, and error-prone. If we want to release high-quality software appropriately, we should try to automate our testing strategy insistently.</p>
+<p>But in a current testing strategy, manual testing still plays an important role. We identify the right balance to execute the manual testing. Precisely talking about GUI testing, the manual test engineer could have more subjective facets of the interface, like its <strong>look and feel and usability</strong>.</p>
+<h3 class="h3">2. Model-Based Testing</h3>
+<p>The next approach of GUI testing is <strong>Model-based Testing</strong> as we knew that a model is a visual narrative of System performance, which helps us to understand and predict the system performance or activity.</p>
+<p>The models are beneficial in order to develop a practical test case with the help of the system requirements.</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/gui-testing5.png" alt="GUI Testing" />
+<p>Some of the essential requirements need to be considered while executing the model-based testing approach:</p>
+<ul class="points">
+<li>Create the model</li>
+<li>Verify the inputs for the model</li>
+<li>For the particular model analyze the expected result</li>
+<li>Implement the tests</li>
+<li>Balance the actual result with the expected result</li>
+<li>An evaluation on added action on the model</li>
+</ul>
+<p>It is also a growing procedure in order to create the test case with the help of the given requirements. Compared to the other GUI testing approaches, model-based testing provides the benefits of fixing the adverse states that our GUI can accomplish.</p>
+<p>We can obtain the test cases with the help of some the other model-based approaches:</p>
+<ul class="points">
+<li><strong>Decision tables</strong></li>
+<li><strong>Charts</strong> </li>
+</ul>
+<p><strong>Decision Tables:</strong> The decision tables are use to control the outputs for each related input.</p>
+<p><strong>Charts:</strong> The charts technique represents the state of a system and tests the state after some input.</p>
+<h3 class="h3">3. Record and Replay</h3>
+<p>We can perform the GUI testing with the help of Automation tools, which can be completed in two types. Throughout the record part, the test steps are encapsulated by the automation tool. And in the playback, these recorded test steps are implemented on the application under test. <strong>For example: QTP.</strong></p>
+<p>The automation approach is the most common technique in which the GUI automated testing demonstrates itself is beyond record-and-playback methods.</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/gui-testing6.png" alt="GUI Testing" />
+<p>As its name recommends, the record and replay approach depends on having a test engineer use a specific tool to record a testing session. The significant benefits of the Record and replay approach is that it doesn't need any coding skills that reduce the barrier for us to use it. And the major drawback of record-and-replay tests is their <strong>weakness</strong>.</p>
+<p>Since the <strong>user interface</strong> is a part of the application that frequently modifies, and rely on the strategy used for interrelating with the elements on the screen.</p>
+<h3 class="h3">4. Hybrid Tests</h3>
+<p>The hybrid tests are the different approach in order to perform GUI testing at the current time. It is a beneficial technique for non-technical background users to develop a test case by recording their sessions. And after that, the user who is familiar with coding can further control these recorded tests technically.</p>
+<p>And the person who have the coding knowledge can further manipulate these recorded tests to modify them for more complex situations.</p>
+<h3 class="h3">5. Code-based Testing</h3>
+<p>Another method of performing Graphical user interface testing is Code-based testing. In order to develop test cases by using the code the GUI testing provides some GUI testing tools. To discover more difficult test scenarios, we can use the code-based testing approach.</p>
+<p>Subsequently, their code, test cases can be design in source control along with the application's code.</p>
+<p>The perceptible disadvantage of the code-based methods that they either involve us to take developers away from coding and have them write test cases or teach our test engineer to code or programming.</p>
+<h2 class="h2">Examples of GUI Testing</h2>
+<p>After describing the Graphical user interface, the description of GUI testing follows quickly. And we can state that it is a method of testing, which is used to validate whether the GUI of a product.</p>
+<p>Let see various elements/ objects/ modules, which can be tested under the GUI testing. Essentially, the Graphical User Interface (GUI) testing includes the following:</p>
+<ul class="points">
+<li>The GUI Testing, check the various sections of the screen and analyze the screen in different resolutions.</li>
+<li>It checks whether the interface is attractive or pleasant or not and whether the image has good clarity.</li>
+<li>The GUI testing analysis the headings whether it is correctly aligned or not.</li>
+<li>The GUT testing tests the <strong>spelling, position size, width, height of the features or elements, color of the fonts, the color of hyperlinks, alignment of the images, size of the images, color of the error messages, warning messages,</strong></li>
+<li>Testing of the scrollbars as per the size of the page, if any, font whether it is transparent/ readable or not.</li>
+<li>It also checks the error messages, which are getting displayed or not, and the disabled fields, if any.</li>
+<li>It also makes sure that the user must not get frustrated while using the system interface.</li>
+</ul>
+<h2 class="h2">Different challenges faced during the GUI testing</h2>
+<p>In <strong>Software testing</strong>, the most frequent drawback or problem while performing Regression Testing is that GUI changes regularly. And it became a very tough situation for a test engineer in order to perform the test and find whether it is a problem or improvement.</p>
+<p>The problem displays when we don't have any documents related to the GUI modification. Some of the most frequent challenges during the execution of Graphical User Interface (GUI) testing are as follows:</p>
+<ul class="points">
+<li><strong>Stability of Objects</strong></li>
+<li><strong>Technology Support</strong></li>
+<li><strong>Instrumentation</strong></li>
+</ul>
+<h2 class="h2">GUI Testing Tools</h2>
+<p>In order to identify the bugs or defects, which occurred during the design phase, we will use the <strong>Graphical User Interface (GUI) testing tools</strong> that help us improve the quality of the software.</p>
+<p>By using these tools, we can easily detect the loopholes rather than implementing the GUI testing manually.</p>
+<p>Based on the application behavior, we will test the application that is involved the <strong>mouse and keyboard actions</strong> and some of the additional GUI items such as <strong>Dialog boxes, buttons, Menu bars, toolbars, and the edit fields.</strong></p>
+<p>Some of the most commonly used GUI testing tools are as follows:</p>
+<ul class="points">
+<li><strong>Ranorex Studio</strong></li>
+<li><strong>Eggplant</strong></li>
+<li><strong>Squish</strong></li>
+<li><strong>AutoIT</strong></li>
+<li><strong>RIATest</strong></li>
+</ul>
+<p>For more information about GUI testing tools, refers to the following link: <a href="gui-testing-tools.html">https://www.javatpoint.com/gui-testing-tools</a>.</p>
+<h2 class="h2">Conclusion</h2>
+<p>After seeing all the GUI testing topics thoroughly, we can say that the execution of Graphical User Interface testing is essential. And the accomplishment of the software product relies on how the GUI interrelates with the end-user and helps in using its several attributes.</p>
+<p>The execution of Graphical User interface testing is much needed as it ensures the application present looking and works equally in the different platforms and browsers. Consequently, GUI testing is very significant as it will ensure a considerable customer base and business value.</p>
+<p>In GUI testing, sometimes executing the Manual GUI testing can be a repetitive and tedious process. However, Automation is highly suggested for the GUI testing process.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="test-strategy.html">Test Strategy</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="component-testing.html">&larr; prev</a>
+<a style="float:right" class="next" href="test-strategy.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="c1a7a4a4a5a3a0a2aa81aba0b7a0b5b1aea8afb5efa2aeac">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/gui-testing"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/gui-testing"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/gui-testing"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+ </a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+ <p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+ </a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+ </a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="503822103a31263124203f393e247e333f3d">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a5cdd7e5cfc4d3c4d1d5cacccbd18bc6cac88b">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/gui-testing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:39:45 GMT -->
+</html> 

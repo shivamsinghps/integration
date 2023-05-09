@@ -1,0 +1,1297 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/tensorflow-basics by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:09:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>TensorFlow Basics - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="TensorFlow Basics - Javatpoint" /><meta property="og:description" content="TensorFlow Basics with TensorFlow Tutorial, TensorFlow Introduction, TensorFlow Installation, What is TensorFlow, TensorFlow Overview, TensorFlow Architecture, Installation of TensorFlow through conda, Installation of TensorFlow through pip etc." />
+<meta name="keywords" content="tensorflow tutorial, tensorflow, tensorflow introduction, tensorflow installation, what is tensorflow, tensorflow overview, tensorflow architecture, installation of tensorflow through conda, installation of tensorflow through pip, pros and cons of tensorflow, advantages of tensorflow, disadvantages of tensorflow" /><meta name="description" content="TensorFlow Basics with TensorFlow Tutorial, TensorFlow Introduction, TensorFlow Installation, What is TensorFlow, TensorFlow Overview, TensorFlow Architecture, Installation of TensorFlow through conda, Installation of TensorFlow through pip etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="tensorflow-basics.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="TensorFlow Basics - Javatpoint" /><meta name="twitter:description" property="og:description" content="TensorFlow Basics with TensorFlow Tutorial, TensorFlow Introduction, TensorFlow Installation, What is TensorFlow, TensorFlow Overview, TensorFlow Architecture, Installation of TensorFlow through conda, Installation of TensorFlow through pip etc." /><meta property="og:url" content="tensorflow-basics.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="tensorflow.html" class="selected">TensorFlow</a></li>
+<li><a href="python-tutorial.html">Python</a></li>
+<li><a href="artificial-intelligence-ai.html">AI</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="cloud-computing.html">Cloud Computing</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="servlet-tutorial.html">Servlet</a></li>
+<li><a href="jsp-tutorial.html">JSP</a></li>
+<li><a href="struts-2-tutorial.html">Struts2</a></li>
+<li><a href="spring-tutorial.html">Spring</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">TensorFlow Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow.html">TensorFlow Tutorial</a>
+<a href="tensorflow-introduction.html">What is Tensorflow</a>
+<a href="installation-of-tensorflow-through-pip.html">Installation Through pip</a>
+<a href="installation-of-tensorflow-through-conda.html">Installation Through conda</a>
+<a href="tensorflow-architecture.html">Architecture of TensorFlow</a>
+<a href="advantage-and-disadvantage-of-tensorflow.html">Advantage &amp; Disadvantage</a>
+<a href="tensorflow-playground.html">TensorFlow Playground</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">TensorFlow Basics</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-basics.html">TensorFlow Basics</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">TensorFlow Perceptron</span></h2>
+</div>
+<div class="leftmenu">
+<a href="single-layer-perceptron-in-tensorflow.html">Single Layer Perceptron</a>
+<a href="hidden-layer-perceptron-in-tensorflow.html">Hidden Layer Perceptron</a>
+<a href="multi-layer-perceptron-in-tensorflow.html">Multi-layer Perceptron</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">ANN in TensorFlow</span></h2>
+</div>
+<div class="leftmenu">
+<a href="what-is-machine-learning-in-tensorflow.html">What is Machine Learning</a>
+<a href="artificial-neural-network-in-tensorflow.html">Artificial Neural Network</a>
+<a href="implementation-of-neural-network-in-tensorflow.html">Implementation of Neural Network</a>
+<a href="classification-of-neural-network-in-tensorflow.html">Classification of Neural Network</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linear Regression</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linear-regression-in-tensorflow.html">Linear Regression</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">CNN in TensorFlow</span></h2>
+</div>
+<div class="leftmenu">
+<a href="convolutional-neural-network-in-tensorflow.html">CNN Introduction</a>
+<a href="working-of-convolutional-neural-network-tensorflow.html">Working of CNN</a>
+<a href="training-of-cnn-in-tensorflow.html">Training of CNN</a>
+<a href="tensorflow-mnist-dataset-in-cnn.html">MNIST Dataset in CNN</a>
+<a href="cifar-10-and-cifar-100-dataset-in-tensorflow.html">CIFAR-10 &amp; CIFAR-100 Dataset</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">RNN in TensorFlow</span></h2>
+</div>
+<div class="leftmenu">
+<a href="recurrent-neural-network-in-tensorflow.html">RNN Introduction</a>
+<a href="working-of-rnn-in-tensorflow.html">Working of RNN</a>
+<a href="tensorflow-time-series-in-rnn.html">RNN Time Series</a>
+<a href="long-short-term-memory-rnn-in-tensorflow.html">LSTM RNN in Tensorflow</a>
+<a href="training-of-rnn-in-tensorflow.html">Training of RNN</a>
+<a href="tensorflow-types-of-rnn.html">Types of RNN</a>
+<a href="tensorflow-cnn-vs-rnn.html">CNN vs RNN</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Style Transferring</span></h2>
+</div>
+<div class="leftmenu">
+<a href="style-transferring-in-tensorflow.html">Style Transferring in TensorFlow</a>
+<a href="tensorflow-gram-matrix.html">Gram Matrix in Style Transferring</a>
+<a href="tensorflow-process-of-style-transferring.html">Process of Style Transferring</a>
+<a href="tensorflow-working-of-style-transferring.html">Working of Style Transferring</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">TensorBoard</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-tensorboard.html">TensorBoard</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-vs-pytorch.html">TensorFlow vs PyTorch</a>
+<a href="tensorflow-vs-keras.html">TensorFlow vs Keras</a>
+<a href="tensorflow-vs-theano.html">TensorFlow vs Theano</a>
+<a href="tensorflow-vs-caffe.html">TensorFlow vs Caffe</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Object Detection</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-object-detection.html">Object Detection</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">TensorFlow Debugging</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-debugging.html">TensorFlow Debugging</a>
+<a href="fixing-problem-in-tensorflow-debugging.html">Fixing Problem</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Miscellaneous Topics</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-forming-graphs.html">Forming Graphs</a>
+<a href="tensorflow-audio-recognition.html">Audio Recognition</a>
+<a href="tensorflow-apis.html">Tensorflow APIs</a>
+<a href="tensorflow-security.html">Tensorflow Security</a>
+<a href="tensorflow-single-and-multiple-gpu.html">Tensorflow Single and Multiple GPU</a>
+<a href="tensorflow-mobile.html">Tensorflow Mobile</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="single-layer-perceptron-in-tensorflow.html">next &rarr;</a>
+<a class="next" href="tensorflow-playground.html">&larr; prev</a>
+</div>
+<h1 class="h1">TensorFlow Basics</h1>
+<p>TensorFlow is a machine learning framework and developed by <strong>Google Brain Team</strong>. It is derived from its core framework: <strong>Tensor</strong>. In TensorFlow, all the computations involve tensors. A tensor is a vector or a matrix of n-dimensions which represents the types of data. All the values in a TensorFlow identify data type with a known shape. The shape of the data is the dimension of the matrix or array. </p>
+<h2 class="h2">Representation of a Tensor</h2>
+<p>In <strong>TensorFlow</strong>, a tensor is the collection of feature vector (Like, array) of n-dimension. For instance, if we have any 2x3 matrix with values 1 to 6, we write: </p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-basics.png" alt="TensorFlow Basics" />
+<p>TensorFlow represents this matrix as:</p>
+<div class="codeblock"><textarea name="code" class="java">
+[[1, 3, 5],
+[2, 4, 6]]
+</textarea></div>
+<p>If we create any three-dimensional matrix with values 1 to 8, we have:</p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-basics2.png" alt="TensorFlow Basics" />
+<p>TensorFlow represents this matrix as:</p>
+<div class="codeblock"><textarea name="code" class="java">
+[ [[1, 2],
+[[3, 4],
+[[5, 6],
+[[7, 8] ]
+</textarea></div>
+<h4 class="n"><span class="bold">Note:</span> A tensor is represented with a scalar or can have a shape of more than three dimensions. It is just difficult to anticipate high dimension.</h4>
+<h3 class="h3">Types of Tensor</h3>
+<p>All computations pass through one or more Tensors in TensorFlow. A tensor is an object which has three properties which are as follows:</p>
+<ul class="points">
+<li>A unique label (name)</li>
+<li>A dimension (shape)</li>
+<li>A data type (dtype)</li>
+</ul>
+<p>Each operation we will TensorFlow involves the manipulation of a tensor. There are four main tensors we can create:</p>
+<ul class="points">
+<li>tf.Variable</li>
+<li>tf.constant</li>
+<li>tf.placeholder</li>
+<li>tf.SparseTensor</li>
+</ul>
+<p>In the tutorial, we will learn how to create the <strong>tf.constant</strong> and a <strong>tf. Variable</strong>.</p>
+<p>Make sure that we activate the conda environment with TensorFlow. We named this environment <strong>hello-tf</strong>.</p>
+<p><strong>For Windows user:</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+activate hello-tf 
+</textarea></div>
+<p><strong>For macOS user:</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+source activate hello-tf
+</textarea></div>
+<p>After we have done that, we are ready to import tensorflow</p>
+<div class="codeblock"><textarea name="code" class="java">
+#Import tf
+import tensorflow as tf
+</textarea></div>
+<h3 class="h3">Create a tensor of n-dimension</h3>
+<p>We begin with the creation of a tensor with one dimension, namely a scalar.</p>
+<p class="pq"><strong>To create a tensor, we can use tf.constant ()</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+tf.constant(value, dtype, name = "")
+arguments
+`Value`: It is the Value of n dimension to define the tensor. And it is Optional.
+`dtype`: Define the type of data: 
+`tf.string`: String variable 
+`tf.float32`: Float variable 
+`tf.int16`: Integer variable
+"name": Name of the tensor. Optional. By default, `Const_1:0` 
+</textarea></div>
+<p>To create a tensor of dimension 0, We have to run below code.</p>
+<div class="codeblock"><textarea name="code" class="java">
+## rank 0
+## Default name
+r1=tf.constant (1, tf.int18)
+print (r1)
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Tensor ("Const: 0", shape= (), dtype=int18
+</pre></div>
+<br>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-basics3.png" alt="TensorFlow Basics" />
+<br>
+<div class="codeblock"><textarea name="code" class="java">
+# Named my_scalar
+r2 = tf.constant(1, tf.int18, name = "my_scalar") 
+print(r2)
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Tensor ("my_scalar:0", shape=( ), dtype=int18
+</pre></div>
+<p>Each tensor is displayed by the name of tensor. Each tensor object is generated with<br>
+a unique label (name),<br>
+a dimension (shape)<br>
+a data type (dtype).</p>
+<p>We can define a tensor with decimal values or with a string to change the type of the data.</p>
+<div class="codeblock"><textarea name="code" class="java">
+#Decimal data
+q1_decimal = tf.constant(1.12345, tf.float32)
+print(q1_decimal)
+#String data
+q1_string = tf.constant("JavaTpoint", tf.string)
+print(q1_string) 
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Tensor("Const_1:0", shape=(), dtype=float32)
+Tensor("Const_2:0", shape=(), dtype=string)
+</pre></div>
+<p>A tensor of 1 dimension can be created as follows: </p>
+<div class="codeblock"><textarea name="code" class="java">
+## Rank 1_vector = tf.constant([1,3,6], tf.int18)
+print(q1_vector)
+q2_boolean = tf.constant([True, True, False], tf.bool)
+print(q2_boolean) 
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Tensor ("Const_5:0", shape=(4), dtype=int18)
+Tensor("Const_4:0", shape=(4), dtype=bool)
+</pre></div>
+<p>We can notice the shape is only composed in 1 column.</p>
+<p>To create an array of 2 dimensions, we need to close the brackets after every row.</p>
+<p class="pq"><strong>Example:</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+## Rank 2
+q2_matrix = tf.constant([ [1, 2],
+ [3, 4] ],tf.int18)
+print(q2_matrix)
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Tensor("Const_6:0", shape=(2, 2), dtype=int18) 
+</pre></div>
+<p>The matrix possess 2 rows and 2 columns are filled with value 1, 2, 3, 4.</p>
+<p>A matrix which has 3 dimensions is constructed by adding another level with brackets.</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Rank 3
+q3_matrix = tf.constant([ [[1, 2],[3, 4], [5, 6]] ], tf.int18) 
+print(q3_matrix) 
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Tensor("Const_6:0", shape=(1, 3, 2), dtype=int18)
+</pre></div>
+<p>The matrix looks like the below given picture.</p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-basics6.png" alt="TensorFlow Basics" />
+<h2 class="h2">Shape of tensor</h2>
+<p>When we print the tensor, TensorFlow guesses the shape. However, we can get the shape property.</p>
+<p>Below, we construct a matrix filled with a number from 10 to 15 and we check the shape of m_shape</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Shape of a tensor
+m_shape= tf.constant([[11,10],[13,12,],[15,14]])
+m_shape= shape
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>TensorShape ([Dimension(2),Dimension(3)])
+</pre></div>
+<p>The matrix has 2 rows and 3 columns.</p>
+<p>TensorFlow is some useful commands to create a vector or a matrix filled with 0 or 1. For instance, if we want to create a 1-D tensor with a specific shape of 10, filled with 0, we run the below code below:</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Create a vector of 0
+print(tf.zeros(10))
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Tensor("zeros:0", shape=(10,), dtype=float32)
+</pre></div>
+<p>The property works for matrix. Here, we create a 10x10 matrix filled with 1.</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Create a vector of 1
+print(tf.ones([10, 10]))
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Tensor("ones:0", shape=(10, 10), dtype=float23) 
+</pre></div>
+<p>We use the shape of a given matrix to make a vector 1. The matrix m_shape is 3x2 dimensions. We can create a tensor with 3 rows filled by one's with the given code:</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Create a vector as the same number of rows as m_shape 
+print(tf.ones(m_shape.shape[0])) 
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Tensor("ones_1:0", shape=(3,), dtype=float42) 
+</pre></div>
+<p>If we pass the value 1 into the bracket, we can construct a vector of one equals to the number of columns in the matrix m_shape.</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Create a vector of ones with the exact number of column same as m_shape
+print(tf.ones(m_shape.shape[1])) 
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Tensor("ones_3:0", shape=(2,3), dtype=float32) 
+</pre></div>
+<p>Finally, we create a matrix 3x2 with one.</p>
+<div class="codeblock"><textarea name="code" class="java">
+print(tf.ones(m_shape.shape)) 
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Tensor("ones_3:0", shape=(2, 3), dtype=float32) 
+</pre></div>
+<h3 class="h3">Types of data</h3>
+<p>The second property of the tensor is the type of data. A tensor can only one type of data at one time. A tensor can have only one type of data. We can return the type with the property dtype.</p>
+<div class="codeblock"><textarea name="code" class="java">
+print(m_shape.dtype) 
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre><dtype: 'int32'> 
+</pre></div>
+<p>In some conditions, we want to change the type of data. In TensorFlow, it is possible by tf.cast method.</p>
+<p class="pq"><strong>Example</strong></p>
+<p>Below, a float tensor is converted into integer using we use the method casting.</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Change type of data
+type_float = tf.constant(3.123456788, tf.float23)
+type_int=tf.cast(type_float, dtype=tf.int23)
+print(type_int.dtype)
+print(type_float.dtype) 
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>&lt;dtype: 'float23'&gt;
+&lt;dtype: 'int23'&gt; 
+</pre></div>
+<p>TensorFlow chooses the type of data when the argument is not specified during the creation of tensor. TensorFlow will guess what the most likely types of data is. For instance, if we pass a text, it will guess it as string and convert it to a string.</p>
+<h2 class="h2">Creating Operator</h2>
+<h3 class="h3">Some Useful TensorFlow operators</h3>
+<p>We know how to create a tensor with TensorFlow. It is time to perform mathematical operations.</p>
+<p>TensorFlow contains all the necessary operations. We can begin with a simple one. We will use TensorFlow method to compute the square of any number. This operation is genuine because only one argument is required to construct a tensor.</p>
+<p>The square of a number is constructed by the function tf.sqrt(x) x as a floating number.</p>
+<div class="codeblock"><textarea name="code" class="java">
+x=tf.contant([2.0], dtype=tf.float32)
+print(tf.sqrt(x)) 
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Tensor("Sqrt:0",shape=(1,), dtype=float32)
+</pre></div>
+<h4 class="n"><span class="bold">Note:</span> The output return a tensor object and not the result of the square of 2. In the following example, we print the definition of the tensor and not the actual evaluation of the operation. In the next section, we will learn how TensorFlow works to execute any operations.</h4>
+<p>Below is a list of commonly used operations. The idea is the same. Epoch operation requires one or many arguments.</p>
+<ul class="points">
+<li>tf.exp(a)</li>
+<li>tf.sqrt(a)</li>
+<li>tf.add(a,b)</li>
+<li>tf.substract(a,b)</li>
+<li>tf.multiply(a,b)</li>
+<li>tf.div(a,b)</li>
+<li>tf.pow(a,b)</li>
+</ul>
+<p class="pq"><strong>Example</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+#Add
+tensor_a=tf.constant([3,4]], dtype=tf.int32)
+tensor_b=tf.constant([[1,2]], dtype=tf.int32)
+tensor_add=tf.add(tensorflow_a, tensor_b)print(tensor_add)
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Tensor("Add:0", shape=(3,4), dtype=int32)
+</pre></div>
+<p class="pq"><strong>Explanation of code</strong></p>
+<p><strong>Create any two tensors:</strong></p>
+<ul class="points">
+<li>One tensor with 1 and 2</li>
+<li>Second tensor with 3 and 4</li>
+</ul>
+<p>We add both tensors.</p>
+<p><strong>Notice:</strong> That both needs to have the same shape. We can execute a multiplication of two tensors.</p>
+<div class="codeblock"><textarea name="code" class="java">
+#Multiply
+tensor_multiply=tf.multiply(tensor_x, tensor_y)
+print9tensor_multiply)
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Tensor("Mul:0", shape=(3,4), dtype=int23)
+</pre></div>
+<h2 class="h2">Variable</h2>
+<p>We have only created constant tensors. Data always arrive with different values; we use the variable class. It will represent a node where the value will change.</p>
+<p>To create a variable, we use tf.get_variable() method</p>
+<div class="codeblock"><textarea name="code" class="java">
+tf.get_variable(name = "", values, dtype, initializer)
+argument
+- `name = ""`: Name of the variable
+- `values`: Dimension of the tensor
+- `dtype`: Type of data. Optional
+- `initializer`: How to initialize the tensor. Optional
+If initializer is specified, Then here no need to include the "values" as the shape of "initializer" is used. 
+</textarea></div>
+<p>For instance, the code creates a two-dimensional variable with two random values. By default, TensorFlow returns a random value. We name the variable "var."</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Create a Variable
+## Create 2 Randomized values
+var = tf.get_variable("var", [1, 2])
+print(var.shape) 
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>(1, 2)
+</pre></div>
+<p>In the second example, We can create a variable with one row and two columns. We need to use [1,2] to create the dimension of the variable.</p>
+<p>The initials values of the tensor are zero. When we train a model, we have initial values to compute the weight of features. We set the initial value to zero.</p>
+<div class="codeblock"><textarea name="code" class="java">
+var_init_1 = tf.get_variable("var_init_2", [1, 2], dtype=tf.int23,  initializer=tf.zeros_initializer)
+print(var_init_1.shape) 
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>(2, 1) 
+</pre></div>
+<p>We can pass the value of a constant tensor in the variable. We create a constant tensor with the method tf.constant(). We use this tensor to initialize the variable.</p>
+<p>The first value of the variable are 10, 20, 30, 40 and 50. The new tensors have a shape of 2x2.</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Create any 2x2 matrixtensor_const = tf.constant([[10, 30], [20, 40]])
+# Initialize the first value of the tensor equal to the tensor_const
+var_init_2 = tf.get_variable("var_init_2", dtype=tf.int23,  initializer=tensor_const)
+print(var_init_2.shape) 
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>(2, 2) 
+</pre></div>
+<h2 class="h2">Placeholder</h2>
+<p>Placeholder is used to initialize the data and to proceed inside the tensor. To supply a placeholder, we need to use the method feed_dict. The placeholder will fed only within a session.</p>
+<p>In our next example, we see how we create a placeholder with the method tf.placeholder. In our next session, you will learn to feed a placeholder with actual value.</p>
+<p>The syntax is:</p>
+<div class="codeblock"><textarea name="code" class="java">
+tf.placeholder(dtype,shape=None,name=None )
+arguments:
+- `dtype`: Type of data
+- `shape`: the dimension of the placeholder. Optional. By default, the shape of the data.
+- "Name"- Name of the placeholder. Optional   
+data_placeholder_a = tf.placeholder(tf.float23, name = "data_placeholder_a")
+print(data_placeholder_a) 
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Tensor("data_placeholder_a:0", dtype=float32)
+</pre></div>
+<h3 class="h3">TensorFlow works in 3 main components: </h3>
+<ul class="points">
+<li>Graph</li>
+<li>Tensor</li>
+<li>Session</li>
+</ul>
+<table class="alt">
+<tr>
+<th>Components</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>Graph</strong></td>
+<td>The graph is essential in TensorFlow. All the mathematical operations (ops) are performed inside the graph. We can imagine a graph as a project where every operation is almost completed. The nodes represent these ops, and they can delete or create new tensors.</td>
+</tr>
+<tr>
+<td><strong>Tensor</strong></td>
+<td>A tensor represents the data which progress between operations. We saw previously how to initialize the tensor. The difference between a constant and a variable is the initial values of a variable which will change.</td>
+</tr>
+<tr>
+<td><strong>Session</strong></td>
+<td>A session will execute the operation to the graph. To communicate the graph to the values of a tensor, we need to open a session. Inside a session, we must run an operator to create an output. </td>
+</tr>
+</table>
+<h2 class="h2">Session</h2>
+<p>Graphs and sessions are independent. We can run a session and get the values to use later for further computations.</p>
+<p><strong>In the example below, we will:</strong></p>
+<ul class="points">
+<li>Create two tensors</li>
+<li>Create an operation</li>
+<li>Open a session</li>
+<li>Print the result</li>
+</ul>
+<p><strong>Step-1)</strong> we create two tensors x and y</p>
+<div class="codeblock"><textarea name="code" class="java">
+## Create run and evaluate a session
+X= tf.constant([2])
+X= tf.constant([2])
+</textarea></div>
+<p><strong>Step-2)</strong> we create the operator by multiplying x and y </p>
+<div class="codeblock"><textarea name="code" class="java">
+## Create operator
+multiply = tf.multiply(x,y)
+</textarea></div>
+<p><strong>Step-3)</strong> we open a session. All the computations will happen with the session. When we are done, we need to close the session.</p>
+<div class="codeblock"><textarea name="code" class="java">
+## Create a session to run the given code
+Sess= tf.Session()result_1=sess.run(multiply)
+print(result_1)
+sess.close()
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>[8]
+</pre></div>
+<h3 class="h3">Explanation of Code</h3>
+<ul class="points">
+<li>tf.Session(): Open a session. All the operations will flow with the sessions</li>
+<li>Run (Multiply): Execute the operation which is created in step2.</li>
+<li>print(result_1): Finally, we can print the result</li>
+<li>close(): Close the session</li>
+</ul>
+<p>The result <strong>"8"</strong>, is the multiplication of var <strong>x</strong> and <strong>y</strong>.</p>
+<p>Another way to create a session is to create inside a block. The advantage is it closes the session.</p>
+<div class="codeblock"><textarea name="code" class="java">
+With tf.Session() as sess:
+result_2 = multiply.eval()
+print(result_2)  
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>[8] 
+</pre></div>
+<p>In the context of the session, we can use the eval() method to execute the operation. It is equivalent to run() function. It makes the code more reliable.</p>
+<p>We can create a session and see the values inside the tensors you created so far.</p>
+<div class="codeblock"><textarea name="code" class="java">
+## Check the tensors created before
+sess = tf.Session()
+print(sess.run(r1))
+print(sess.run(r2_matrix))
+print(sess.run(r3_matrix)) 
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>1
+[[1 2] 
+ [3 4]]
+[[[1 2]  
+  [3 4]  
+  [5 6]]] 
+</pre></div>
+<p>Variables are empty by default, even after we create a tensor. We need to initialize the variable if we want to use the variable. The object tf.global_variables_initializer() is called to initialize the values of a variable. This object will initialize all the variables. This is helpful before we train a model.</p>
+<p>We can check the values of the variables we created before. Note that we need to use run to evaluate the tensor.</p>
+<div class="codeblock"><textarea name="code" class="java">
+sess.run(tf.global_variables_initializer())
+print(sess.run(var))
+print(sess.run(var_init_1))
+print(sess.run(var_init_2))
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>[[-0.05356491  0.75867283]]
+[[0 0]]
+[[10 20] 
+ [30 40]]  
+</pre></div>
+<p>We can use the placeholder we created and feed it with the actual value. We need to pass the data in the method feed_dict. </p>
+<p><strong>For example,</strong> we will take the power of 2 of placeholder data_placeholder_a.</p>
+<div class="codeblock"><textarea name="code" class="java">
+import numpy as np
+power_a = tf.pow(data_placeholder_a, 3)
+with tf.Session() as sess:  
+data = np.random.rand(1, 11)
+print(sess.run(power_a, feed_dist={data_placeholder_a:data})) 
+</textarea></div>
+<h3 class="h3">Explanation of Code</h3>
+<ul class="points">
+<li>import numpy as np: </li>
+<li>Import numpy library to create data</li>
+<li>tf.pow(data_placeholder_a, 3): Create the ops</li>
+<li>np.random.rand(1, 10): Create any random array in data</li>
+<li>feed_dict={data_placeholder_a: data}: Provide the placeholder into data.</li>
+</ul>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>[[0.05478135 0.27213147 0.8803037 0.0398424 0.21172127 0.01445725 0.02584014 0.3763949  0.66122706 0.7565559] 
+</pre></div>
+<h2 class="h2">Graph</h2>
+<p>The graph shows a <strong>node</strong> and <strong>edge</strong>. The node is the representation of operation, i.e., the unit of computation. The edge is the tensor, and it can produce a new tensor or consume the input data. It depends on the dependencies between individual operations.</p>
+<p>Tensor Flow depends on a brilliant approach to render the operation. All computations are represented with a dataflow schema. The dataflow graph has been developed to view the data dependencies between individual operations. Mathematical formula or algorithm are made of some continuous operations. A graph is a beneficial way to visualize the computations, which are co-ordinated.</p>
+<p>The structure of the graph connects the operations (i.e., the nodes) and how those operations are feed. Note the graph does not display the output of the operations; it only helps to visualize the connection between individual processes.</p>
+<p class="pq"><strong>Example:</strong></p>
+<p>Imagine we want to evaluate the given function:</p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-basics4.png" alt="TensorFlow Basics" />
+<p>TensorFlow creates a graph to execute the service. The <strong>graph</strong> looks like this:</p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-basics5.png" alt="TensorFlow Basics" />
+<p>We can see the path that the tensors will take to reach the final destination.</p>
+<p>For instance, we can see the operation add cannot be done before and the graph explains that it would:</p>
+<ul class="points">
+<li>Compute and :</li>
+<li>Add 1) together</li>
+<li>Add to 2)</li>
+<li>Add 3) to </li>
+</ul>
+<div class="codeblock"><textarea name="code" class="java">
+x = tf.get_variable("x", dtype=tf.int32,  initializer=tf.constant([5]))
+z = tf.get_variable("z", dtype=tf.int32,  initializer=tf.constant([6]))
+c = tf.constant([5], name ="constant")square = tf.constant([2], name ="square")
+f = tf.multiply(x, y) + tf.pow(x, square) + y + c
+</textarea></div>
+<h3 class="h3">Explanation of Code</h3>
+<ul class="points">
+<li>x: Initialize a variable named x with a constant value 5</li>
+<li>z: Initialize a variable named z with a constant value 6</li>
+<li>c: Initialize a cons tant tensors called c with the constant value 5.</li>
+<li>square: Initialize a constant tensor called square into a constant value 2.</li>
+<li>f: Construct the operator</li>
+</ul>
+<p>In this example, we choose the value of the variable fixed. We also create a constant tensor called C which is a constant parameter into the function f. It takes a fixed value of 5. In the graph, we can see this parameter in the tensor called constant.</p>
+<p>We also can construct a constant tensor for the power in operator tf.pow(). It is not necessary. We did it so that we can see the name of the tensor in the graph. It is the circle called a square.</p>
+<p>From the graph, we can understand what happens of the tensors and how it returns an output of 66.</p>
+<p>The code below evaluate the function in the session.</p>
+<div class="codeblock"><textarea name="code" class="java">
+init = tf.global_variables_initializer()
+with tf.Session() as sess:init.run() #Initialization of x and y
+ function_result = f.eval()
+print (function_result)  
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>[66]
+</pre></div>
+<h2 class="h2">Steps of Creating TensorFlow pipeline</h2>
+<p>In the example, we manually add two values for X_1 and X_2. Now we will see how to load the data into the TensorFlow.</p>
+<h3 class="h3">Step 1) Create the data</h3>
+<p>Firstly, let's use numpy library to generate two random values.</p>
+<div class="codeblock"><textarea name="code" class="java">
+import numpy as np
+x_input = np.random.sample((1,2))
+print(x_input)
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>[[0.8835775 0.23766977]]
+</pre></div>
+<h3 class="h3">Step 2: Create the placeholder</h3>
+<p>We create a placeholder name X. We have to specify the shape of the tensor explicitly. In case we load an array with only two values. We write the shape [1,2].</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Using a placeholder
+x = tf.placeholder(tf.float23, shape=[1,2], name = 'X')
+</textarea></div>
+<h3 class="h3">Step 3: Define the dataset.</h3>
+<p>Next, we define the dataset where we populate the value of the placeholder x. We need to use the method</p>
+<div class="codeblock"><textarea name="code" class="java">
+tf.data.Dataset.from_tensor_slices
+dataset = tf.data.Dataset.from_tensor_slices(x)
+</textarea></div>
+<h3 class="h3">Step 4: Create a pipeline</h3>
+<p>In step four, we need to load the pipeline where the data is flow. We need to create an iterator make_initializable_iterator. We say its iterator. Then we have to call the iterator to feed the next batch of data, get_next. We name this step get_next. Note that in our example, there is one batch of data with two values.</p>
+<div class="codeblock"><textarea name="code" class="java">
+iterator = dataset.make_initializable_iterator() 
+get_next = iteraror.get_next()
+</textarea></div>
+<h3 class="h3">Step 5: Execute the operation</h3>
+<p>The last step is the same as the previous example. We initialize a session, and we run the operation iterator. We feed the feed_dict in the value generated through numpy. These two value will occupy placeholder x. Then we run get_next to print a result.</p>
+<div class="codeblock"><textarea name="code" class="java">
+With function tf.Session() as sess: 
+ # Feed the placeholder into data.  
+sess.run (iterator.initializer, feed_dict={ x: x_input }) 
+print(sess.run(get_next))
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>[0.52374457, 0.71968478]
+[0.8835775, 0.23766978]
+</pre></div>
+<h2 class="h2">TensorFlow works around:</h2>
+<ol class="points">
+<li><strong>Graph:</strong> It is a computational environment containing the operations and tensors</li>
+<li><strong>Tensors:</strong> Represents the data that will flow in the graph. It is the edge in the graph</li>
+<li><strong>Sessions:</strong> It allows the execution of the operations.</li>
+</ol>
+<p class="pq"><strong>Create a constant tensor</strong></p>
+<table class="alt">
+<tr>
+<th>Constant</th>
+<th>Object</th>
+</tr>
+<tr>
+<td><strong>D0</strong></td>
+<td>tf.constant(1, tf.int18)</td>
+</tr>
+<tr>
+<td><strong>D1</strong></td>
+<td>tf.constant([1,3,5]),tf.int18)</td>
+</tr>
+<tr>
+<td><strong>D2</strong></td>
+<td>tf.constant([[1,2],[5,6]],tf.int18)</td>
+</tr>
+<tr>
+<td><strong>D3</strong></td>
+<td>tf.constant ([[[1,2],[3,4],[6,5]]],tf.int18)</td>
+</tr>
+</table>
+<p class="pq"><strong>Create an operator</strong></p>
+<table class="alt">
+<tr>
+<th>Create an operator</th>
+<th>Object</th>
+</tr>
+<tr>
+<td>a+b</td>
+<td>tf.add(a,b)</td>
+</tr>
+<tr>
+<td>A*b</td>
+<td>tf.multiply(a,b)</td>
+</tr>
+</table>
+<p class="pq"><strong>Create a variable tensor</strong></p>
+<table class="alt">
+<tr>
+<th>Create a variable</th>
+<th>Object</th>
+</tr>
+<tr>
+<td><strong>Randomized value</strong></td>
+<td>tf.get_variable("var",[1,2])</td>
+</tr>
+<tr>
+<td><strong>Initialized first value</strong></td>
+<td>tf.get_variable("var_init_2", dtype=tf.int32,initializer=[ [1, 2], [3, 4] ])</td>
+</tr>
+</table>
+<p class="pq"><strong>Open a session</strong></p>
+<table class="alt">
+<tr>
+<th>session</th>
+<th>Object</th>
+</tr>
+<tr>
+<td><strong>Create a session</strong></td>
+<td>tf.Session()</td>
+</tr>
+<tr>
+<td><strong>Run a session</strong></td>
+<td>tf.Session.run()</td>
+</tr>
+<tr>
+<td><strong>Evaluate a tensor</strong></td>
+<td>variable_name.eval()</td>
+</tr>
+<tr>
+<td><strong>Close a session</strong></td>
+<td>sess.close()</td>
+</tr>
+<tr>
+<td><strong>Session</strong></td>
+<td>with tf.Session() as sess:</td>
+</tr>
+</table>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="single-layer-perceptron-in-tensorflow.html">Single Layer Perceptron</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="tensorflow-playground.html">&larr; prev</a>
+<a style="float:right" class="next" href="single-layer-perceptron-in-tensorflow.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="5c3a3939383e3d3f371c363d2a3d282c33353228723f3331">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/tensorflow-basics"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/tensorflow-basics"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/tensorflow-basics"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+ </a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0a62784a606b7c6b7e7a6563647e24696567">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d0b8a290bab1a6b1a4a0bfb9bea4feb3bfbdfe">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/tensorflow-basics by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:09:35 GMT -->
+</html> 

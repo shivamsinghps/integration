@@ -1,0 +1,1118 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/keras-restricted-boltzmann-machine by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:02:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Restricted Boltzmann Machine - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Restricted Boltzmann Machine - Javatpoint" /><meta property="og:description" content="Restricted Boltzmann Machine with What is Keras, Keras Backend, Models, Functional API, Pooling Layers, Merge Layers, Sequence Preprocessing, Metrics, Optimizers, Backend, Visualization etc." />
+<meta name="keywords" content="keras tutorial, keras, what is keras, keras backend, keras models, keras functional api, core layer, pooling layers, merge layers, sequence preprocessing, metrics, optimizers, backend, visualization" /><meta name="description" content="Restricted Boltzmann Machine with What is Keras, Keras Backend, Models, Functional API, Pooling Layers, Merge Layers, Sequence Preprocessing, Metrics, Optimizers, Backend, Visualization etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="keras-restricted-boltzmann-machine.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Restricted Boltzmann Machine - Javatpoint" /><meta name="twitter:description" property="og:description" content="Restricted Boltzmann Machine with What is Keras, Keras Backend, Models, Functional API, Pooling Layers, Merge Layers, Sequence Preprocessing, Metrics, Optimizers, Backend, Visualization etc." /><meta property="og:url" content="keras-restricted-boltzmann-machine.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="keras.html" class="selected">Keras</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="xhtml-tutorial.html">XHTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="xml-tutorial.html">XML</a></li>
+<li><a href="json-tutorial.html">JSON</a></li>
+<li><a href="comment.html">Comment</a></li>
+<li><a href="forum.html">Forum</a></li>
+<li><a href="training.html">Training</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Keras Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="keras.html">Keras Tutorial</a>
+<a href="https://www.javatpoint.com/installation-of-keras-library-in-anaconda">Installation of Keras library in Anaconda</a>
+<a href="keras-backends.html">Keras Backends</a>
+<a href="keras-models.html">Keras Models</a>
+<a href="keras-layers.html">Keras layers</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Keras Models</span></h2>
+</div>
+<div class="leftmenu">
+<a href="keras-the-model-class.html">Keras Model class</a>
+<a href="keras-sequential-class.html">Keras Sequential class</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Keras Layers</span></h2>
+</div>
+<div class="leftmenu">
+<a href="keras-core-layers.html">Keras Core Layers</a>
+<a href="keras-convolutional-layers.html">Convolutional Layer</a>
+<a href="pooling-layers.html">Pooling Layers</a>
+<a href="keras-locally-connected-layers.html">Locally-Connected layers</a>
+<a href="keras-recurrent-layers.html">Recurrent Layers</a>
+<a href="keras-embedding.html">Embedding Layers</a>
+<a href="keras-merge-layers.html">Keras Merge Layers</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Deep Learning Library</span></h2>
+</div>
+<div class="leftmenu">
+<a href="deep-learning.html">Deep Learning</a>
+<a href="https://www.javatpoint.com/keras-artificial-neural-networks">Artificial Neural Network</a>
+<a href="keras-convolutional-neural-network.html">Convolutional Neural Network</a>
+<a href="keras-recurrent-neural-networks.html">Recurrent Neural Network</a>
+<a href="keras-kohonen-self-organizing-maps.html">Self-Organizing Maps</a>
+<a href="keras-mega-case-study.html">Mega Case Study</a>
+<a href="keras-restricted-boltzmann-machine.html">Restricted Boltzmann Machine</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="#">next &rarr;</a>
+<a class="next" href="keras-mega-case-study.html">&larr; prev</a>
+</div>
+<h1 class="h1">Restricted Boltzmann Machine</h1>
+<p>Nowadays, Restricted Boltzmann Machine is an undirected graphical model that plays a major role in the deep learning framework. Initially, it was introduced by Paul Smolensky in 1986 as a <strong>Harmonium</strong>, which then gained huge popularity in recent years in the context of the <strong>Netflix</strong> Price, where RBM achieved state-of-the-art performance in collaborative filtering and have beaten most of the competition.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine.png" alt="Restricted Boltzmann Machine" />
+<p>Many hidden layers can be efficiently learned by composing restricted Boltzmann machines using the future activations of one as the training data for the next. These are basically the neural network that belongs to so-called energy-based models. It is an algorithm that is used for dimensionality reduction, classification, regression collaborative filtering, feature learning, and topic modeling.</p>
+<h2 class="h2">Autoencoders vs. Restricted Boltzmann Machine</h2>
+<p>Autoencoders are none other than a neural network that encompasses 3-layers, such that the output layer is connected back to the input layer. It has much less hidden units in comparison to the visible units. It performs the training task in order to minimize reconstruction or error. In simple words, we can say that training helps in discovering an efficient way for the representation of the input data.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine2.png" alt="Restricted Boltzmann Machine" />
+<p>However, RBM also shares a similar idea, but instead of using deterministic distribution, it uses the stochastic units with a particular distribution. It trains the model to understand the association between the two sets of variables.</p>
+<p>RBM has two biases, which is one of the most important aspects that distinguish them from other autoencoders. The hidden bias helps the RBM provide the activations on the forward pass, while the visible layer biases help the RBM learns the reconstruction on the backward pass.</p>
+<h2 class="h2">Layers in Restricted Boltzmann Machine</h2>
+<p>The Restricted Boltzmann Machines are shallow; they basically have two-layer neural nets that constitute the building blocks of deep belief networks. The input layer is the first layer in RBM, which is also known as visible, and then we have the second layer, i.e., the hidden layer. Each node represents a neuron-like unit, which is further interconnected to each other crossways the different layers.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine3.png" alt="Restricted Boltzmann Machine" />
+<p>But no two nodes of the same layer are linked, affirms that there is no intralayer communication, which is the only restriction in the restricted Boltzmann machine. At each node, the calculation takes place by simply processing the inputs and makes the stochastic decisions about whether it should start transmitting the input or not.</p>
+<h2 class="h2">Working of Restricted Boltzmann Machine</h2>
+<p>A low-level feature is taken by each of the visible node from an item residing in the database so that it can be learned; for example, from a dataset of grayscale images, each visible node would receive one-pixel value for each pixel in one image.</p>
+<p>Let's follow that single pixel value X through the two-layer net. At the very first node of the hidden layer, <strong>X</strong> gets multiplied by a <strong>weight</strong>, which is then added to the <strong>bias</strong>. After then the result is provided to the <strong>activation function</strong> so that it can produce the output of that node, or the signal's strength, which passes through it when the input x is already given.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine4.png" alt="Restricted Boltzmann Machine" />
+<p>After now, we will look at how different inputs get combines at one particular hidden node. Basically, each X gets multiplied by a distinct weight, followed by summing up their products and then add them to the bias. Again, the result is provided to the activation function to produce the output of that node.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine5.png" alt="Restricted Boltzmann Machine" />
+<p>Each of the input X gets multiplied by an individual weight w at each hidden node. In other words, we can say that a single input would encounter three weights, which will further result in a total of 12 weights, i.e. (4 input nodes x 3 hidden nodes). The weights between the two layers will always form a matrix where the rows are equal to the input nodes, and the columns are equal to the output nodes.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine6.png" alt="Restricted Boltzmann Machine" />
+<p>Here each of the hidden nodes is going to receive four inputs, which will get multiplied by the separate weights followed by again adding these products to the bias. Then it passes the result through the activation algorithm to produce one output for each hidden node.</p>
+<h2 class="h2">Training of Restricted Boltzmann Machine</h2>
+<p>The training of a Restricted Boltzmann Machine is completely different from that of the Neural Networks via stochastic gradient descent.</p>
+<p>Following are the two main training steps:</p>
+<ul class="points">
+<li>Gibbs Sampling</li>
+</ul>
+<p>Gibbs sampling is the first part of the training. Whenever we are given an input vector <strong>v</strong>, we use the following <strong>p(h| v)</strong> for predicting the hidden values <strong>h</strong>. However, if we are given the hidden values <strong>h</strong>, we use <strong>p(v| h)</strong> to predict the new input values <strong>v</strong>.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine7.png" alt="Restricted Boltzmann Machine" />
+<p>This process is repeated numerously (k times), such that after each iteration (k), we obtain another input vector <strong>v_k</strong>, which is recreated from the original input value <strong>v_0</strong>.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine8.png" alt="Restricted Boltzmann Machine" />
+<ul class="points">
+<li>Contrastive Divergence Step</li>
+</ul>
+<p>During the contrastive divergence step, it updates the weight matrix gets. To analyze the activation probabilities for hidden values <strong>h_0</strong> and <strong>h_k</strong>, it uses the vector <strong>v_0</strong> and <strong>v_k</strong>.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine9.png" alt="Restricted Boltzmann Machine" />
+<p>The update matrix is calculated as a difference between the outer products of the probabilities with input vectors <strong>v_0</strong> and <strong>v_k</strong>, which is represented by the following matrix.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine10.png" alt="Restricted Boltzmann Machine" />
+<p>Now with the help of this update weight matrix, we can analyze new weight with the gradient descent that is given by the following equation.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine11.png" alt="Restricted Boltzmann Machine" />
+<h2 class="h2">Training to Prediction</h2>
+<p><strong>Step1:</strong> Train the network on the data of all the users.</p>
+<p><strong>Step2:</strong> Take the training data of a specific user during inference time.</p>
+<p><strong>Step3:</strong> Use the data to obtain the activations of the hidden neuron.</p>
+<p><strong>Step4:</strong> Use the hidden neuron values to get the activations of the input neurons.</p>
+<p><strong>Step5:</strong> The new values of input neurons show the rating the user would give.</p>
+<h2 class="h2">Building a Restricted Boltzmann Machine</h2>
+<p>We are going to implement our Restricted Boltzmann Machine with <a href="pytorch.html">PyTorch</a>, which is a highly advanced Deep Learning and AI platform. We have to make sure that we install PyTorch on our machine, and to do that, follow the below steps.</p>
+<p>For Windows users:</p>
+<p>Click on the Windows button in the <img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine12.png" alt="Restricted Boltzmann Machine" /> lower-left corner -&gt; List of programs -&gt; Anaconda -&gt; Anaconda prompt.</p>
+<p>Inside the Anaconda prompt, run the following command.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+conda install -c pytorch pytorch
+</textarea></div>
+<br>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine13.png" alt="Restricted Boltzmann Machine" />
+<p>From the above image, we can see that it asks whether to proceed or not. Confirm it with <strong>y</strong> and press enter.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine14.png" alt="Restricted Boltzmann Machine" />
+<p>We can see from the above image that we have successfully installed our library.</p>
+<p>After this, we will move on to build our two recommended systems, one of which will predict if the user is going to like yes/no a movie, and the other one will predict the rating of a movie by a user. So, the first one will predict the binary outcome, 1 or 0, i.e., yes or no, and the second one predicts the rating from 1 to 5. In this way, we will have the most recommended system that is mostly used in the industry. Nowadays, many companies build some recommended systems and most of the time, these recommended systems either predict if the user or the customer is going to like yes or no the product or some other recommended systems can predict a rating or review of certain products.</p>
+<p>So, we will create the recommended system that predicts a binary outcome yes or no with our restricted Boltzmann machines. The neural network that we will implement in this topic, and then we will implement the other recommended system that predicts the rating from 1 to 5 in the next topic, which is an Autoencoder. However, for both of these recommended systems, we will use the same dataset, which is actually the real-world dataset that can be found online, i.e., <strong>MovieLens</strong> dataset.</p>
+<p>You can download the dataset by clicking on the link; <a href="https://grouplens.org/datasets/movielens/" rel="nofollow" target="_blank">https://grouplens.org/datasets/movielens/</a>, which will direct you to the official website. This dataset was created by the <strong>grouplens</strong> research, and on that page, you will see several datasets with different amounts of ratings. But we will work with <strong>older datasets</strong> with another 100,000 ratings from 1000 users and 1700 movies, as shown in the image given below. Also, we have another old dataset with one million rates, so I recommend you to have a look at these datasets and download them. Here we are going to download both of the red marked datasets.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine15.png" alt="Restricted Boltzmann Machine" />
+<p>Next, we will import the libraries that we will be using to import our Restricted Boltzmann Machines. Since we will be working with arrays, so we will import <a href="numpy-tutorial.html"><strong>NumPy</strong></a>. Then there are <a href="python-pandas.html"><strong>Pandas</strong></a> to import the dataset and create the training set and test set. Next, we have all the <strong>Torch</strong> libraries; for example, <strong>nn</strong> is the module of Torch to implement the neural network. Here the <strong>parallel</strong> is for the parallel computations, <strong>optim</strong> is for the optimizers, <strong>utils</strong> are the tools that we will use, and <strong>autograd</strong> is for stochastic gradient descent.</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Importing the libraries
+import numpy as np
+import pandas as pd
+import torch
+import torch.nn as nn
+import torch.nn.parallel
+import torch.optim as optim
+import torch.utils.data
+from torch.autograd import Variable
+</textarea></div>
+<p>After importing all the libraries, classes and functions, we will now import our dataset. The first dataset that we are going to import is all your movies, which are in the file <strong>movies.dat</strong>. So, we will create new variable <strong>movies</strong> that will contain all our movies and then we will use <strong>the read_csv()</strong> function for reading the CSV file. Inside the function, we will pass the following argument:</p>
+<ul class="points">
+<li>The first argument is the path that contains the dataset. Here the first element of the path is <strong>ml-1m</strong>, followed by typing the name of the file, which is <strong>dat</strong>.</li>
+<li>The second argument is the separator, and the default separator is the comma that works for the CSV files where the features are separated by commas. Since we already have the titles of the movies and some of them contain a comma in the title, so we cannot use commas because then we could have the same movie in two different columns. Therefore the separator is not a comma but the double colon, i.e., "<strong>::</strong>".</li>
+<li>Then the third argument is the header because actually, the file movies.dat doesn't contain the header, i.e., names of columns. Thus, we need to specify it because the default value of the header is not none because that is the case when there are no column names but infer, so we need to specify that there are no column names, and to do this, we will put <strong>header = None</strong>.</li>
+<li>The next parameter is the engine, which is to make sure that the dataset gets imported correctly, so we will use the <strong>python</strong> engine to make it efficient.</li>
+<li>Lastly, we need to input the last argument, which is the encoding, and we need to input different encoding than usual because some of the movie titles contain special characters that cannot be treated properly with the classic encoding, UTF-8. So, we will input <strong>latin-1</strong> due to some of the special characters in the movie's title.</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+# Importing the dataset
+movies = pd.read_csv('ml-1m/movies.dat', sep = '::', header = None, engine = 'python', encoding = 'latin-1')
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine16.png" alt="Restricted Boltzmann Machine" />
+<p>After executing the above line, we will get the list of all the movies in the <strong>MovieLens</strong> database. We have thousands of movies, and for each of these movies, we have the first column, which is the movie ID, and that's the most important information because we will use it to make our recommended system. We will not use the titles; in fact, it will be much simpler with the movies ID.</p>
+<p>Next, in the same way, we will import the user dataset. So, we will create a new variable <strong>Users</strong> for which we will just change the path, and the rest of the things will remain the same because we actually need to use the exact same arguments here for the separator, header, engine, as well as encoding.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+Users = pd.read_csv('ml-1m/users.dat', sep = '::', header = None, engine = 'python', encoding = 'latin-1')
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine17.png" alt="Restricted Boltzmann Machine" />
+<p>From the above image, we can see that we got all the different information of the users, where the first column is the user ID, the second column is the gender, the third column is the age, the fourth column is some codes that corresponds to the user's job, and lastly the fifth column is the zip code.</p>
+<p>Now we will import the ratings, which we will do again as we did before just, we will create new variable <strong>Ratings</strong> followed by changing its path, and the rest will remain the same as it is.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+Ratings = pd.read_csv('ml-1m/ratings.dat', sep = '::', header = None, engine = 'python', encoding = 'latin-1')
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine18.png" alt="Restricted Boltzmann Machine" />
+<p>After executing the above line of code, we can see that we have successfully imported our ratings variable. Here the first column corresponds to the users, such that all of 1's corresponds to the same user. Then the second column relates to the movies, and the numbers shown in the second column are the movies ID that is contained in the movies DataFrame. Next, the third column corresponds to the ratings, which goes from 1 to 5. And the last column is the timesteps that specify when each user rated the movie.</p>
+<p>Next, we will prepare the training set and the test set for which we will create a variable <strong>training_set</strong> followed by using the Pandas library to import <strong>u1.base</strong>. Then we will convert this training set into an array because by importing u1.base with Pandas, we will end up getting a DataFrame. So, first, we will use pandas <strong>read_csv</strong> function, and then we will pass our first argument, which is the path that will take the u1.base in the ml-100k folder and in order to do that, we will start with the folder that contains u1.base, which actually resides in the <strong>ml-100k folder</strong> followed by adding the name of the training set, i.e., <strong>u1.base</strong>. Since the separator for the u1.base is the tab instead of the double column, so we need to specify it because otherwise, it will take a comma, which is the default separator. Therefore, we will add our second argument, which is the <strong>delimiter = '\t'</strong> to specify the tab.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+# Preparing the training set and the test set
+training_set = pd.read_csv('ml-100k/u1.base', delimiter = '\t')
+</textarea></div>
+<p>As we already saw, the whole original dataset in the ml-100k contains 100,000 ratings, and since each observation corresponds to one rating, we can see from the image given below that after executing the above line of code, we have 80,000 ratings. Therefore, the training set is <strong>80%</strong> of the original dataset composed of 100,000 ratings. So, it will be an 80%:20% train: test split, which is an optimal split of the training set and the test set to train a model.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine19.png" alt="Restricted Boltzmann Machine" />
+<p>We can check the <strong>training_set</strong> variable, simply by clicking on it to see what it looks like.</p>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine20.png" alt="Restricted Boltzmann Machine" />
+<p>From the above image, we can see that it is exactly the same to that of the ratings dataset that we imported earlier, i.e., the first column corresponds to the users, the second column corresponds to the movies, the third column corresponds to the ratings, and the fourth column corresponds to the timesteps that specifically we really don't need because it won't be relevant to train the model. The training_set is imported as DataFrame, which we have to convert it into an array because later on in this topic, we will be using the PyTorch tensors, and for that, we need an array instead of the DataFrames.</p>
+<p>After this, we will convert this training set into an array for which we will again take our <strong>training_set</strong> variable followed by using a NumPy function, i.e., <strong>array</strong> to convert a DataFrame into an array. Inside the function, we will first input the <strong>training_set</strong> argument, and as a second argument, we will need to specify the type of this new array that we are creating. Since we only have user IDs, movie IDs and ratings, which are all integers, so we will convert this whole array into an array of integers, and to do this, we will input <strong>dtype = 'int'</strong> for integers.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+training_set = np.array(training_set, dtype = 'int')
+</textarea></div>
+<p>After executing the above line, we will see that our <strong>training_set</strong> is as an array of <strong>integer32</strong> and of the same size as shown in the below image.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine21.png" alt="Restricted Boltzmann Machine" />
+<p>We can check the <strong>training_set</strong> variable, simply by clicking on it to see what it looks like.</p>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine22.png" alt="Restricted Boltzmann Machine" />
+<p>It can be seen from the above image that we got the same values, but this time into an array.</p>
+<p>Now, in the same way, we will do for the test set, we will prepare the test_set, which will be quite easy this time because we will incorporate the same techniques to import and convert our test_set into an array. We will exactly use the above code. All we got to do is replace the training_set by the <strong>test_set</strong> as well as u1.base by <strong>u1.test</strong> because we are taking now the test set, which is u1.test.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+test_set = pd.read_csv('ml-100k/u1.test', delimiter = '\t')
+</textarea></div>
+<p>After executing the above line, we will get our <strong>test_set</strong>, and we can see that this is exactly the same structure. We have the users in the first column, then the movies in the second column and the ratings in the third column. From the image given below, we have to understand that both the test_set and the training_set have different ratings. There is no common rating of the same movie by the same user between the training_set and the test_set. However, we have the same users. Here indeed, we start with user 1 as in the training_set, but for this same user 1, we won't have the same movies because the ratings are different.</p>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine23.png" alt="Restricted Boltzmann Machine" />
+<p>Since our dataset is again a DataFrame, so we need to convert it into an array and to do that, we will do it in the same way as we did for the training_set.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+test_set = np.array(test_set, dtype = 'int')
+</textarea></div>
+<p>After running the above line of code, we can see from the image given below that our <strong>test_set</strong> is an array of <strong>integers32</strong> of 20,000 ratings that correspond to the <strong>20%</strong> of the original dataset composed of the 100,000 ratings.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine24.png" alt="Restricted Boltzmann Machine" />
+<p>We can check the <strong>test_set</strong> variable, simply by clicking on it to see what it looks like.</p>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine25.png" alt="Restricted Boltzmann Machine" />
+<p>It can be seen from the above image that we got the same values, but this time into an array.</p>
+<p>In the next step, we are going to get the total number of users and movies because, in the further steps, we will be converting our <strong>training_set</strong> as well as the <strong>test_set</strong> into a <strong>matrix</strong>, where the lines are going to be users, the columns are going to be the movies and the cells are going to be the ratings. We are going to create such a matrix for the training_set and another one for the test_set. However, besides these two matrices, we want to include all the users and all the movies from the original dataset. And if in the training set that we just imported, a user didn't rate a movie, well, in that case, we will put a <strong>0</strong> into the cell of the matric that corresponds to this user and those movies.</p>
+<p>Therefore, in order to get the total number of users and the total of movies, we will take the maximum of the maximum user ID in the training_set as well as the test_set, so that we can get the total number of users and the total number of movies, which will further help us in making the matrix of users in line and movies in columns.</p>
+<p>To do this, we will make two new variables, <strong>nb_users</strong>, which is going to be the total number of users and <strong>nb_movies</strong> that is going to be the total number of movies. And as we said, we are going to take the max of the maximum user ID in the training set, so we will do with the help of <strong>max(max(training_set[:,0])</strong>. Inside the brackets, we are required to put the index of the user column, and that is index <strong>0,</strong> as well as we needed to take all the lines, so we have added <strong>:</strong>. Therefore, the <strong>training_set[:,0]</strong> corresponds to the first column of the training_set, i.e., the users and since we are taking the max, which means we are definitely taking the maximum of the user ID column.</p>
+<p>After this, we need to do the same for the <strong>test_set</strong> because the maximum user ID might be in the test set, so in the same manner, we will do for the test set and to do that, we will now take max<strong>(test_set[:,0])</strong>. In order to force the max number to be an integer, we have to convert the number into an integer, and for that reason, we have used the <strong>int</strong> function followed by putting all these maximums inside the int function, as shown below.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+# Getting the number of users and movies
+nb_users = int(max(max(training_set[:,0]), max(test_set[:,0])))
+</textarea></div>
+<p>By executing the above line, we will get the total number of user IDs is <strong>943</strong>, but it might not work the same way for the other train/test split, so we will use the above code in case we want to apply for the other training and test sets.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine26.png" alt="Restricted Boltzmann Machine" />
+<p>Now, in the same we will do for the movies, we will use the same code but will replace the index of the column users, which is <strong>0</strong> by the index of the column movies, i.e.<strong>, 1</strong>.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+nb_movies = int(max(max(training_set[:,1]), max(test_set[:,1])))
+</textarea></div>
+<br>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine27.png" alt="Restricted Boltzmann Machine" />
+<p>By executing the above line, we get the total number of movie IDs is <strong>1682</strong>. So, we had to take the max of the max because we don't know if this movie ID was in the training set or test set, and we actually check out by running the following command.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+max(training_set[:,1])
+</textarea></div>
+<p>Therefore, the <strong>maximum movie ID</strong> in the <strong>training_set</strong> is <strong>1682</strong>.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine28.png" alt="Restricted Boltzmann Machine" />
+<p>In the same way, we can check for the <strong>test_set</strong>.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+max(test_set[:,1])
+</textarea></div>
+<p>After running the above code, we can see from the image given below that the <strong>maximum movie ID</strong> in the <strong>test_set</strong> it <strong>1591</strong>. So, it could have been in the test_set, which is not the case for this first train/test split, but it could be the other way for other train/test splits.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine29.png" alt="Restricted Boltzmann Machine" />
+<p>Now we will convert our training_set and test_set into an array with users in lines and movies in columns because we need to make a specific structure of data that will correspond to what the restricted Boltzmann machine expects as inputs. The restricted Boltzmann machines are a type of neural network where you have some input nodes that are the features, and you have some observations going one by one into the networks starting with the input nodes.</p>
+<p>So, we will create a structure that will contain these observations, which will go into the network, and their different features will go into the input nodes. Basically, we are just making the usual structure of data for neural networks or even for machine learning in general, i.e., with the observation in lines and the features in columns, which is exactly the structure of data expected by the neural network.</p>
+<p>Thus, we will convert our data into such a structure, and since we are going to do this for both the training_set and the test_set, so we will create a function which we will apply to both of them separately. In order to create a function in python, we will start with <strong>def</strong>, which stands for definition, followed by giving it a name called <strong>convert()</strong>. Inside the function, we will pass only one argument, i.e., <strong>data</strong> because we will apply this function to only a set, which will be the training_set first and then the test_set.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+# Converting the data into an array with users in lines and movies in columns
+def convert(data):
+</textarea></div>
+<p>Next, we will create a list of lists, which means we will be creating several lists where one list is for each line/user. Since we have <strong>943 users</strong>, so accordingly, we will have <strong>943 lists</strong>, and these will be horizontal lists, which will correspond to our observations in lines in the special structure that we have just described. The first list will correspond to the first user, the second list will correspond to the second user, etc. and by doing this, we will get the ratings of <strong>1682 movies</strong> by the user corresponding to the list. Basically, we will get the ratings for each of the movies where if the user didn't rate the movie, well, in that case, we will get a <strong>0</strong> for that set. This is the reason why the newly converted training_set and the test_set will have the same size because, for both of them, we are considering all the users and all the movies, and we just put 0 when the user didn't rate the movie.</p>
+<p>So, we will create the list of lists by calling it <strong>new_data</strong>, which will be our final output that the function will return, i.e., it will be the final array with the users in lines and the movies in the columns.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+    new_data = []
+</textarea></div>
+<p>Since the <strong>new_data</strong> is a list of lists, so we need to initialize it as a <strong>list</strong>. After this, we will make a <strong>loop</strong> because we want to create a list for each user, the list of all the ratings of the movies by the user, and therefore, we need a for loop that will get the ratings for each user.</p>
+<p>In order to make for loop, we will introduce a local variable that will loop over all the users of the data, i.e., the training_set or the test_set. So, we will call this variable as <strong>id_users</strong> that will take all the IDs of the users in our database followed by specifying a range for these user IDs, which is going to be all the user IDs from one to the max, i.e., the total number of users that we found earlier before initiating this step. Therefore, the <strong>id_users</strong> will range from <strong>1 to nb_users + 1</strong> so that when it goes up to 944, it will be excluded, and we will go up to 943.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+for id_users in range(1, nb_users + 1):
+</textarea></div>
+<p>Now inside the loop, we will create the first list of this new data list, which is ratings of the first user because here the <strong>id_users</strong> start at <strong>1</strong>, which is why we will start with the first user, and so, we will add the list of ratings of the first user in the whole list. We will get all the movie IDs of all the movies that were rated by the first user, and in order to do this, we will put all the <strong>movie IDs</strong> into a variable called <strong>id_movies</strong>.</p>
+<p>Then we will take our data, which is assumed to be our training_set because then we will apply to convert to the training_set and then from the training set, we will first take the column that contains all the movie IDs, which is 2<sup>nd</sup> column of our index, i.e., index 1.Next, we will take all the observation for which we will use <strong>:</strong> followed by separating the colon and the one by the comma, i.e. <strong>[:,1]</strong>. It basically means that we are only taking the whole column here, the whole one with all the users.</p>
+<p>Since we only want the movies IDs of the first user because we are at the beginning of the loop, so we will make some kind of syntax that will tell we want the first column of the data, i.e., the training_set such that the first column equals to one and to do this in python, we will add a new condition that we will add in a new pair of brackets []. Inside this bracket, we will put the condition <strong>data[:,0] == id_users</strong>, which will take all the movies ID for the first user.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+id_movies = data[:,1][data[:,0] == id_users]
+</textarea></div>
+<p>Now, in the same way, we will get the same for the ratings, i.e., we will get all the ratings of that same first user. Instead of taking id_movies, we will take <strong>id_ratings</strong> as we want to take all the ratings of the training_set, which is in the 3<sup>rd</sup> index column, i.e., at index 2, so we will only need to replace 1 by 2, and the rest will remain same. By doing this, we will have all that we needed to create the first list, i.e., is the list of the ratings of the first user.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+id_ratings = data[:,2][data[:,0] == id_users]
+</textarea></div>
+<p>After this, we will get all the <strong>zeros</strong> when the user didn't rate the movie or more specifically, we can say that we will now create a list of 1682 elements, where the elements of this list correspond to 1682 movies, such that for each of the movie we get the rating of the movie if the user rated the movie and a zero if the user didn't rate the movie.</p>
+<p>So, we will start with initializing the list of 1682 movies for which we will first call this list as <strong>ratings</strong> followed by using NumPy that has a shortcut <strong>np</strong> and then we will use a <strong>zeros</strong> function. Inside this function, we will put the number of zeros that we want to have in this list, i.e., 1682, which corresponds to <strong>nb_movies</strong>.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+ratings = np.zeros(nb_movies)
+</textarea></div>
+<p>After this, we will replace the zeros by the ratings for the movies that the user rated and in order to do this, we will take the <strong>ratings</strong> followed by adding <strong>[id_movies - 1]</strong> as it will get us the indexes of the movies that were rated. These indices are the id_movies that we already created in the few steps ago because it contains all the indexes of the movies that were rated, which is exactly what we want to do. Since in python, the indexes start at 0, but in the id_movies, the index starts as 1, and we basically need the movie ID to start at the same base as the indexes of the ratings, i.e., 0, so we have added -1. As we managed to get the indexes of the movies that were rated in the rating list of all the movies, so for these ratings, we will give the real ratings by adding <strong>id_ratings</strong>. By doing this, we managed to create for each user the list of all the ratings, including the zeros for the movies that were not rated.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+ratings[id_movies - 1] = id_ratings
+</textarea></div>
+<p>Now, we are left with only one thing to do, i.e., to add the list of ratings here corresponding to one user to the huge list that will contain all the different lists for all the diffe+rent users. So, we will take this whole list, i.e., <strong>new_data</strong>, followed by taking the <strong>append</strong> function as it will append this list of ratings here for one user for the user of the loop, id_users to this whole new_data list. Inside the function, we will put the whole list of ratings for one particular user. And in order to make sure that this is a list, we will put <strong>ratings</strong> into the <strong>list</strong> function because we are looking for a list of lists, which is actually expected by PyTorch.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+new_data.append(list(ratings))
+</textarea></div>
+<p>So, here we are done with our function, now we will apply it to our training_set and test_set. But before moving ahead, we need to add the final line to return what we want and to do that, we will first add <strong>return</strong> followed by adding <strong>new_data</strong>, which is the list of all the different lists of ratings.</p>
+<p>The next step is to apply this function to the training_set as well as the test_set, and to do this; we will our <strong>training_set</strong> followed by using the <strong>convert</strong> function on it. Inside the convert function, we will add the <strong>training_set</strong> that is the old version of the training_set, which will then become the new version, i.e., an array with the users in lines and the movies in the columns.</p>
+<p>In the exact same manner, we will now do for the <strong>test_set</strong>. We will only need to replace the training_set by the <strong>test_set</strong>, and the rest will remain the same.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+return new_data
+training_set = convert(training_set)
+test_set = convert(test_set)
+</textarea></div>
+<p>By running the above section of code, we can see from the below image that the <strong>training_set</strong> is a list of <strong>943 lists</strong>.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine30.png" alt="Restricted Boltzmann Machine" />
+<p>We can also have a look at <strong>training_set</strong> by simply clicking on it.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine31.png" alt="Restricted Boltzmann Machine" />
+<p>From the above image, we can see this huge list contains 943 horizontal lists, where each of these <strong>943 lists</strong> corresponds to each <strong>user</strong> of our database. So, we can check for the first movie, the second movie and the third movie; the ratings are as expected <strong>0, 3</strong> and <strong>4</strong>. It can be clearly seen that for each user, we get the ratings of all the movies of the database, and we get a <strong>0</strong> when the movies weren't rated and the real rating when the user rated the movie.</p>
+<p>Similarly, for the test_set, we have our new version of <strong>test_set</strong> that also contains a list of <strong>943 elements</strong>, as shown below.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine32.png" alt="Restricted Boltzmann Machine" />
+<p>Again, we can also have a look at <strong>test_set</strong> by simply clicking on it.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine33.png" alt="Restricted Boltzmann Machine" />
+<p>From the above image, we can see that we got a list of lists with all the ratings inside, including <strong>0</strong> for the movies that weren't rated.</p>
+<p>Next, we will convert our training_set and test_set that are so far a list of lists into some Torch tensors, such that our <strong>training_set</strong> will be <strong>one Torch tensor</strong>, and the <strong>test_set</strong> is going to be another Torch tensor. In a simpler way, we can say that there will be two separate, multi-dimensional matrices based on PyTorch and to do this; we will just use a class from the torch library, which will do the conversion itself.</p>
+<p>Thus, we will start by taking our <strong>training_set</strong>, followed by giving it a new value, which will be this converted training set into the torch tensor. So, we will take <strong>a torch.FloatTensor</strong>, where the torch is the library, and <strong>FloatTensor</strong> is the class that will create an object of this class. The object will be the Torch tensor itself, i.e., a multi-dimensional matrix with a single type, and since we are using the FloatTensor class, well, in that case, the single type is going to be a <strong>float</strong>.</p>
+<p>Inside the class, we will take one argument, which has to be the list of lists, i.e., the <strong>training_set</strong>, and this is the reason why we had to make this conversion into a list of lists in the previous section because the FloatTensor class expects a list of lists.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+# Converting the data into Torch tensors
+training_set = torch.FloatTensor(training_set)
+</textarea></div>
+<p>Similarly, we will do for the <strong>test_set</strong>. We only need to replace the training_set by the test_set, and the rest will remain the same. After running the below code, we will see that the training_set and the test_set variable will get disappear in the variable explorer pane because, in Spyder, it doesn't recognize the torch tensor yet. However, the variable will still exist, but they will not be displayed in the variable explorer pane.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+test_set = torch.FloatTensor(test_set)
+</textarea></div>
+<p>After executing the above two lines of code, our training_set and the test_set variable will get disappear, but they are now converted into a Torch tensor, and with this, we are done with the common data pre-processing for a recommended system.</p>
+<p>In the next step, we will convert the ratings into binary ratings, 0 or 1, because these are going to be the inputs of our restricted Boltzmann machines. So, we will start with the <strong>training_set</strong>, and then we will replace all the 0's in the original training set by <strong>-1</strong> because all the zeros in the original training_set, all the ratings that were not, actually, existent, these corresponded to the movies that were not rated by the users. In order to access these original ratings that were 0 in the original dataset, we will do this with the help of <strong>[training_set == 0]</strong> as it will interpret that we want to take all the values of the training_set, such that the values of the training_set are equal to <strong>0</strong>. And for all these zero values in the training_set, these zero ratings, we want to replace them by <strong>-1</strong>.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+# Converting the ratings into binary ratings 1 (Liked) or 0 (Not Liked)
+training_set[training_set == 0] = -1
+</textarea></div>
+<p>Now we will do for the other ratings as well, i.e., the ratings from 1 to 5. It will be done in the same way as we did above by taking care of ratings that we want to convert into zero, i.e., not liked. As we already discussed, the movies that are not liked by the user are the movies that were given one star or two stars. So, we will do the same for the ratings that were equal to one, simply by replacing 0 by <strong>1</strong> and -1 by <strong>0</strong> because, in our new ratings, format 0 corresponds to the movies that the users didn't like.</p>
+<p>Again, we will do the same for the ratings that were equal to two in the original training_set. We will now replace 1 by <strong>2</strong>, and the rest will remain the same. So, with these two lines given below, all the ratings that were equal to 1 or 2 in the original training_set will now be equal to <strong>0</strong>.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+training_set[training_set == 1] = 0
+training_set[training_set == 2] = 0
+</textarea></div>
+<p>After this, we simply need to do for the movies that the users liked. So, the movies that were rated at least three stars were rather liked by the users, which means that the three stars, four stars and five stars will become 1. In order to access the three, four and five stars, we need to replace == by <strong>&gt;=</strong> to include 3 and not the 2. So, <strong>[training_set &gt;= 3]</strong> means that all the values in the training_set larger or equal to three will include getting the rating, <strong>1</strong>. By doing this, three, four and five will become one in the training_set. Since we want the RBM to output the ratings in binary format, so the inputs must have the same binary format 0 or 1, which we successfully converted all our ratings in the training_set.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+training_set[training_set >= 3] = 1
+</textarea></div>
+<p>Now we will do the same for the <strong>test_set</strong>, and to do this, we will copy the whole above code section and simply replace all the training_set by the test_set. So, with this, all the ratings from 1 to 5 will be converted into the binary ratings in both the training_set and the test_set.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+test_set[test_set == 0] = -1
+test_set[test_set == 1] = 0
+test_set[test_set == 2] = 0
+test_set[test_set >= 3] = 1
+</textarea></div>
+<p>After executing the above section of code, our inputs are ready to go into the RBM so that it can return the ratings of the movies that were not originally rated in the input vector because this is unsupervised deep learning, and that's how it actually works.</p>
+<p>Now we will create the architecture of the Neural Network, i.e., the <strong>architecture of the Restricted Boltzmann Machines</strong>. So, we will choose the number of hidden nodes, and mostly we will build the neural network just like how it works, i.e., we will make this probabilistic graphical model because an RBM is itself a probabilistic graphical model and to build it, we will use class.</p>
+<p>Basically, we will make three functions; one to initialize the RBM object that we will create, the second function will be <strong>sample H</strong> that will sample the probabilities of the hidden nodes given the visible nodes, and the third function will be <strong>sample V</strong>, which will sample the probabilities of the visible nodes given the hidden nodes.</p>
+<p>So, we will start with defining the class by naming it as <strong>RBM</strong>, and inside the class, we will first make the <strong>__init__()</strong> function that defines the parameters of the object that will be created once the class is made. It is, by default, a compulsory function, which will be defined as <strong>def __init__()</strong>. After this, we will input the following arguments inside the function:</p>
+<ul class="points">
+<li>The first one is the default argument <strong>self</strong>, which corresponds to the object that will be created afterword. It will help us to define some variables for which we will need to specify these variables are the variables of the object that will be created further and not some global variables. All the variables that are attached to the object will be created by putting a self before the variable.</li>
+<li>The second variable is the <strong>nv</strong> that corresponds to the number of visible nodes.</li>
+<li>Lastly, the third argument is the <strong>nh</strong>, which defines the number of hidden nodes.</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+# Creating the architecture of the Neural Network
+class RBM():
+    def __init__(self, nv, nh):
+</textarea></div>
+<p>Since we want to initialize the weight and bias, so we will go inside the function where we will initialize the parameters of our future objects, the object that we will create from this class. Basically, inside the __init__ function, we will initialize all the parameters that we will optimize during the training of the RBM, i.e., the weights and the bias.</p>
+<p>And since these parameters are specific to the RBM model, i.e., to our future objects that we are going to create from the RBM class, so we need to specify these variables are the variables of the object. Therefore, to initialize these variables, we need to start with <strong>self.W</strong>, where <strong>W</strong> is the name of the weight variable. These weights are all the parameters of the probabilities of the visible nodes given the hidden nodes. Next, we will use the <strong>torch</strong>, the torch library, followed by using the <strong>randn</strong> function to randomly initialize all the weights in tensor, which should be of size <strong>nh</strong> and <strong>nv</strong>.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+self.W = torch.randn(nh, nv)
+</textarea></div>
+<p>Next, we will initialize the <strong>bias</strong>. There is some bias for the probability of the hidden node given the visible node and some bias for the probability of the visible node given the hidden node. So, we will start with the bias for the probabilities of the hidden nodes given the visible nodes. It is the same as what we have done before, we will give a name to these biases, and for the first bias, we will name it <strong>a</strong>. But before that, we will take the <strong>self</strong>-object because a is the parameter of the object. Then we will again take the <strong>torch.randn</strong> to initialize the weights according to the normal distribution of <strong>mean 0</strong> and <strong>variance 1</strong>. Since there is only one bias for each hidden node and we have <strong>nh</strong> hidden nodes, so we will create a vector of nh elements. But we need to create an additional dimension corresponding to the batch, and therefore this vector shouldn't have one dimension like a single input vector; it should have two dimensions. The first dimension corresponding to the batch, and the second dimension corresponding to the bias. So, inside the function, we will first input <strong>1</strong> and then <strong>nh</strong> as it will help in creating our 2-Dimensional tensor.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+self.a = torch.randn(1, nh)
+</textarea></div>
+<p>Then we have our third parameter to define, which is still specific to the object that will be created, which is the bias for the visible nodes, so we will name it as <strong>b</strong>. Here it is exactly similar to the previous line; we will take the <strong>torch.randn</strong> function but this time for <strong>nv</strong>. So, we ended up initializing a tensor of nv elements with one additional dimension corresponding to the batch.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+self.b = torch.randn(1, nv)
+</textarea></div>
+<p>Next, we will make the second function that we need for our RBM class, which is all about sampling the hidden nodes according to the probabilities <strong>P(h)</strong> given <strong>v</strong>, where <strong>h</strong> is the <strong>hidden node</strong>, and <strong>v</strong> is a <strong>visible node</strong>. This probability is nothing else than the sigmoid activation function.</p>
+<p>During the training, we will approximate the log-likelihood gradient through Gibbs sampling, and to apply it, we need to compute the probabilities of the hidden nodes given the visible nodes. Then once we have this probability, we can sample the activations of the hidden nodes. So, we will start by calling our <strong>sample_h()</strong> to return some samples of the different hidden nodes of our RBM.</p>
+<p>Inside the sample_h(), we will pass two arguments;</p>
+<ul class="points">
+<li>The first one is the <strong>self</strong> that corresponds to the <strong>object</strong> because to make sample_h function, we have to use the variables that we defined in it, and to take these variables, we need to take our object, which is identified by itself. So, in order to access these variables, we are taking self here.</li>
+<li>Then the second variable is <strong>x</strong> that corresponds to the <strong>visible neurons</strong> v in the probabilities P(h) given v.</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+def sample_h(self, x):
+</textarea></div>
+<p>Now, inside the function, we will first compute the probability of h given v, which is the probability that the hidden neurons equal one given the values of the visible neurons, i.e., input vectors of observations with all the ratings. The probability of h given v is nothing but the sigmoid activation function, which is applied to <strong>wx,</strong> the product of <strong>w</strong> the vector of weights times <strong>x</strong> the vector of visible neurons plus the bias <strong>a</strong> because a corresponds to bias of the hidden nodes. Then <strong>b</strong> corresponds to the bias of the visible nodes, which we will use to define the sample function, but for the visible nodes. And since we are dealing with hidden nodes at present, so we will take the bias of the hidden nodes, i.e., <strong>a</strong>.</p>
+<p>We will start by first computing the product of the weights times the neuron, i.e., <strong>x</strong>. So, we will first define <strong>wx</strong> as a variable, and then we will use a torch because we are working with the torch tensors. And since we are about to make a product of two tensors, so we have to take a torch to make that product, for which we will use <strong>mm</strong> function. Inside the function, we will input our two matrices; matrix 1 and matrix 2.</p>
+<p>As we said earlier that we want to make the product of <strong>x</strong>, the visible neurons and <strong>nw</strong>, the tensor of weights. But here, W is attached to the object because it's the tensor of weights of the object that will be initialized by __init__ function, so instead of taking only W, we will take <strong>self.W</strong> that we will input inside the mm function. In order to make it mathematically correct, we will compute its transpose of the matrix of weights with the help of <strong>t()</strong>.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+wx = torch.mm(x, self.W.t())
+</textarea></div>
+<p>After this, we will compute what is going to be inside the sigmoid activation function, which is nothing but the wx plus the bias, i.e., the linear function of the neurons where the coefficients are the weights and then we have the bias, a.</p>
+<p>We will call the wx + a as an <strong>activation</strong> because that is what is going to be inside the activation function. Then we will take the <strong>wx</strong> plus the bias, i.e., a, and since it is attached to the object that will be created by the RBM class, so we need to take <strong>self.a</strong> to specify that a is the variable of the object.</p>
+<p>As said previously that each input vector will not be treated individually, but inside the batches and even if the batch contains one input vector or one vector of bias, well that input vector still resides in the batch, we will call it as a mini-batch. So, when we add a bias of the hidden nodes, we want to make sure that this bias is applied to each line of the mini-batch, i.e., of each line of the dimension. We will use <strong>the expand_as</strong> function that will again add a new dimension for these biases that we are adding, followed by passing <strong>wx</strong> as an argument inside the function as it corresponds to what we want to expand the bias.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+activation = wx + self.a.expand_as(wx)
+</textarea></div>
+<p>Next, we will compute the activation function for which we will call <strong>p_h_given_v</strong> function, which corresponds to the probability that the hidden node is activated, given the value of the visible node. Since we already discussed that p_h_given_v is the sigmoid of the activation, so we will pursue taking <strong>the torch.sigmoid</strong> function, followed by passing <strong>activation</strong> inside the function.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+p_h_given_v = torch.sigmoid(activation) 
+</textarea></div>
+<p>After this, in the last step, we will return the probability as well as the sample of h, which is the sample of all the hidden nodes of all the hidden neurons according to the probability p_h_given_v. So, we will first use <strong>return p_h_given_v</strong>, which will return the first element we want and then <strong>torch.bernoulli(p_h_given_v)</strong> that will result in returning all the probabilities of the hidden neurons, given the values of the visible nodes, i.e., the ratings as well as the sampling of hidden neurons.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+return p_h_given_v, torch.bernoulli(p_h_given_v)
+</textarea></div>
+<p>So, we just implemented the sample_h function to sample the hidden nodes according to the probability p_h_given_v. We will now do the same for <strong>visible nodes</strong> because from the values in the hidden nodes, i.e., whether they were activated or not, we will also estimate the probabilities of the visible nodes, which are the probabilities that each of the visible nodes equals one.</p>
+<p>In the end, we will output the predicted ratings, 0 or 1 of the movies that were not originally rated by the user, and these new ratings that we get in the end will be taken from what we obtained in the hidden node, i.e., from the sample of the hidden node. Thus, we will make the function <strong>sample_v</strong> because it is also required for Gibbs sampling that we will apply when we approximate the <strong>log-likelihood gradient</strong>.</p>
+<p>And in order to make this function, it is exactly the same as that of the above function; we will only need to replace few things. First, we will call the function <strong>sample_v</strong> because we will make some samples of the visible nodes according to the probabilities <strong>p_v_given_h</strong>, i.e., given the values of the hidden nodes, we return the probabilities that each of the visible nodes equals one.</p>
+<p>Here we will return the p_v_given_h and some samples of the visible node still based on the Bernoulli sampling, i.e., we have our vector of probabilities of the visible nodes, and from this vector, we will return some sampling of the visible node. Next, we will change what's inside the activation function, and to that, we will first replace variable x by <strong>y</strong> because x in the sample_h function represented the visible node, but here we are making the <strong>sample_v</strong> function that will return the probabilities of the visible nodes given the values of hidden nodes, so the variable is this time the values of the hidden nodes and <strong>y</strong> corresponds to the <strong>hidden nodes</strong>.</p>
+<p>Similarly, we will replace wx by <strong>wy</strong>, and then we take the torch product of matrices of tensors of not x but <strong>y</strong> by the torch tensor of all the weights. Since we are making the product of the hidden nodes and the torch tensor of weight, i.e., W for the probabilities p_v_given_h, so we will not take the transpose here. After this, we will compute the activation of the hidden neurons inside the sigmoid function, and for that, we will not take wx but <strong>wy</strong> as well as we will replace a by <strong>b</strong> for the fact that we will need to take the bias of the visible node, which is contained in <strong>self.b</strong> variable, keeping the rest remain same.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+def sample_v(self, y):
+        wy = torch.mm(y, self.W)
+        activation = wy + self.b.expand_as(wy)
+        p_v_given_h = torch.sigmoid(activation)
+        return p_v_given_h, torch.bernoulli(p_v_given_h)
+</textarea></div>
+<p>Now we will make our last function, which is about the contrastive divergence that we will use to approximate the log-likelihood gradient because the RBM is an energy-based model, i.e., we have some energy function which we are trying to minimize and since this energy function depends on the weights of the model, all the weights in the tensor of weights that we defined in the beginning, so we need to optimize these weights to minimize the energy.</p>
+<p>Not that it can be seen as an energy-based model, but it can also be seen as a probabilistic graphical model where the goal is to maximize the log-likelihood of the training set. In order to minimize the energy or to maximize the log-likelihood for any deep learning model or a machine learning model, we need to compute the gradient. However, the direct computations of the gradient are too heavy, so instead of directly computing it, we will rather try to approximate the gradient with the help of Contrastive Divergence.</p>
+<p>So, we will again start with defining our new function called a <strong>train,</strong> and then inside the function, we will pass several arguments, which are as follows:</p>
+<ul class="points">
+<li>The first argument is the <strong>self</strong> because we will update the tensor of weights and the bias a and b that are variables specifically attached to the object.</li>
+<li>The second argument is the input vector, which we will call as <strong>v0</strong> that contains the ratings of all the movies by one user.</li>
+<li>The third argument is <strong>vk</strong> that corresponds to the visible nodes obtained after k sampling, i.e., after k round trips from the visible nodes to the hidden nodes first and then way back from the hidden nodes to the visible nodes. So, the visible nodes are obtained after k iterations and k contrastive divergence.</li>
+<li>Then our fourth argument is <strong>ph0</strong>, which is the vector of probabilities that at the first iteration, the hidden nodes equal one given the values of v0, i.e., our input vector of observation.</li>
+<li>Lastly, we will take our fifth argument, which is <strong>phk</strong>, that will correspond to the probabilities of hidden nodes after k sampling given the values of the visible nodes, vk.</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+def train(self, v0, vk, ph0, phk):
+</textarea></div>
+<p>After this, we will take our tensor or weights <strong>self.W</strong>, and since we have to take it again and add something, so we will take <strong>+=</strong>. Then we will make the product of the probabilities that the hidden nodes equal one given the input vector v0 by that input vector <strong>v0</strong> and the probability that the hidden node equals one given the input vector v0 is nothing else than <strong>ph0</strong>.</p>
+<p>Thus, in order to do that, we will first take our <strong>torch</strong> library followed by <strong>mm</strong> to make the product of two tensors, and within the parenthesis, we will input the two tensors in that product, i.e., <strong>v0</strong>, the input vector of observations followed by taking its transpose with the help of <strong>t()</strong> and then <strong>ph0</strong>, which is the second element of the product.</p>
+<p>Then we will need to subtract again <strong>torch.mm</strong>, the torch product of the visible nodes obtained after k sampling, i.e., <strong>vk</strong> followed by taking its transpose with the help of <strong>t()</strong> and the probabilities that the hidden nodes equal one given the values of these visible nodes vk, which is nothing else than <strong>phk</strong>.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+self.W += torch.mm(v0.t(), ph0) - torch.mm(vk.t(), phk)
+</textarea></div>
+<p>Next, we will update the weight b, which is the bias of the probabilities p(v) given h and in order to do that, we will start by taking <strong>self.b</strong> and then again <strong>+=</strong> because we will be adding something to <strong>b</strong> followed by taking <strong>torch.sum</strong> as we are going to sum <strong>(v0 - vk)</strong>, which is the difference between the input vector of observations v0 and the visible nodes after k sampling vk and <strong>0</strong>. Basically, we are just making the sum of v0-vk and 0, which is just to keep the format of b as a tensor of two dimensions.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+self.b += torch.sum((v0 - vk), 0)
+</textarea></div>
+<p>After this, we will do our last update, i.e., bias a that contains the probabilities of P(h) given v. So, we will start with <strong>self.a</strong> followed by taking <strong>+=</strong> because we will be adding something as well, i.e., we will add the difference between the probabilities that the hidden node equals one given the value of v0, the input vector of observations and the probabilities that the hidden nodes equals one given the value of vk, which is the value of the visible nodes after k sampling. Basically, we will just add the difference <strong>(ph0-phk)</strong> and <strong>0</strong>, which we will perform in the same way as we did just above.</p>
+<p>Now we have our class, and we can use it to create several objects. So, we can create several RBM models. We can test many of them with different configurations, i.e., with several number of hidden nodes because that is our main parameter. But then we can also add some more parameters to the class like a learning rate in order to improve and tune the model.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+ self.a += torch.sum((ph0 - phk), 0)
+</textarea></div>
+<p>After executing the above sections of code, we are now ready to create our RBM object for which we will need two parameters, <strong>nv</strong> and <strong>nh</strong>. Here nv is a fixed parameter that corresponds to the number of movies because nv is the number of visible nodes, and at the start, the visible nodes are the ratings of all the movies by a specific user, which is the only reason we have one visible node for each movie. So, we have a number of ways to get the number of visible nodes; first, we can say nv equals to nb_movies, 1682 or the other way is to make sure that it corresponds to the number of features in our matrix of features, which is the training set, tensor of features.</p>
+<p>Therefore, we will start by defining <strong>nv</strong> as <strong>len(training_set[0])</strong>, where training_set[0] corresponds to the first line of the training set and len(training_set[0]) is the number of elements in the first line, i.e., the number of features we want for nv.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+nv = len(training_set[0])
+</textarea></div>
+<p>Next, we will do for <strong>nh</strong>, which corresponds to the number of hidden nodes. Since we have 1682 movies, or we can say 1682 visible nodes, and as we know, the hidden nodes correspond to some features that are going to be detected by the RBM model, so initially, we will start by detecting <strong>100</strong> features.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+nh = 100
+</textarea></div>
+<p>Then we have another variable, <strong>batch_size</strong>, which was not highlighted yet. However, we already mention its concept in the above code section, and that is because when we train our model algorithm, we will not update the weights after each observation rather, we will update the weights after several observations that will go into a batch and so the batches will have each one the same number of observations.</p>
+<p>So, this additional parameter that we can tune as well to try to improve the model, in the end, is the batch_size itself. In order to get fast training, we will create a new variable <strong>batch_size</strong> and make it equal to <strong>100</strong>, but you can try with several batch_sizes to have better performance results.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+batch_size = 100
+</textarea></div>
+<p>Now we will create our RBM object because we have our two required parameters of the __init__ method, i.e., nv and nh. In order to create our object, we will start by calling our object as <strong>rbm</strong>, followed by taking our class <strong>RBM</strong>. Inside the class, we will input <strong>nv</strong> and <strong>nh</strong> as an argument.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+rbm = RBM(nv, nh)
+</textarea></div>
+<p>Next, we will move on to training our Restricted Boltzmann Machines for which we have to include inside of a for loop, the different functions that we made in the RBM class. We will start by choosing a number of epochs for which we will call the variable <strong>nb_epoch</strong> followed by making it equal to <strong>10</strong> because we have few observations, i.e., 943 and besides, we only have a binary value 0 and 1, therefore the convergence will be reached pretty fast.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+# Training the RBM
+nb_epoch = 10
+</textarea></div>
+<p>After this, we will make a for loop that will go through the 10 epochs. In each epoch, all our observations will go back into the network, followed by updating the weights after the observations of each batch passed through the network, and then, in the end, we will get the final visible node with the new ratings for the movies that were not originally rated.</p>
+<p>In order to make the for loop, we will start with <strong>for</strong> then we will come up with a variable for epoch, so we will simply call it as <strong>an epoch</strong>, which is the name of the looping variable <strong>in range</strong> and then inside the parenthesis, we will start with <strong>(1, nb_epoch+1)</strong> that will make sure we go from 1 to 10 because even if <strong>nb_epoch + 1</strong> equals to <strong>11</strong>, it will not include the upper bound.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+for epoch in range(1, nb_epoch + 1):
+</textarea></div>
+<p>Then we will go inside the loop and make the loss function to measure the error between the predictions and the real ratings. In this training, we will compare the predictions to the ratings we already have, i.e., the ratings of the training_set. So, basically, we will measure the difference between the predicted ratings, i.e., either 0 or 1 and the real ratings 0 or 1.</p>
+<p>For this RBM model, we will go with the simple difference in the absolute value method to measure the loss. Thus, we will introduce a loss variable, calling it as <strong>train_loss</strong>, and we will initialize it to <strong>0</strong> because before starting the training, the loss is zero, which is will further increase when we find some errors between the predictions and the real ratings.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+train_loss = 0
+</textarea></div>
+<p>After this, we will need a counter because we are going to normalize the train_loss and to normalize the train_loss, we will simply divide the train_loss by the counter, <strong>s</strong> followed by initializing it to <strong>0</strong>. Since we want it to be a float, so we will add a dot after 0 that will make sure s has a float type. And with this, we have a counter, which we will increment after each epoch.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+    s = 0.
+</textarea></div>
+<p>Next, we will do the real training that happens with the three functions that we created so far in the above steps, i.e., sample _h, sample_v and train when we made these functions was regarding one user, and of course, the samplings, as well as the contrastive divergence algorithm, have to be done overall users in the batch.&nbsp;</p>
+<p>Therefore, we will first get the batches of users, and in order to do that, we will need another for loop. Here we are going to make a for loop inside the first for loop, so will start with <strong>for</strong> and since this for loop is about looping over all the users, we will introduce a looping variable <strong>id_user in range()</strong>. As we already know, the indexes of the users start at 0, so we will start the range with <strong>0</strong>.</p>
+<p>Now before we move ahead, one important point is to be noted that we want to take some batches of users. We don't want to take each user one by one and then update the weights, but we want to update the weight after each batch of users going through the network. Therefore, we will not take each user one by one, but we will take the batches of the users.</p>
+<p>Since the batch_size equals 100, well, the first batch will contain all the users from index 0 to 99, then the second batch_size will contain the users from index 100 to index 199, and the third batch_size will be from 200 to 299, etc. until the end. So, the last batch that will go into the network will be the batch_size of the users from index 943 - 100 = 84, which means that the last batch will contain the users from 843 to 943. Hence the stop of the range for the user is not nb_users but <strong>nb_users - batch_size</strong>, i.e., <strong>843</strong>. After this, we will need a step because we don't want to go from 1 to 1, instead, we want to go from 1 to 100 and 100 to 200, etc. until the last batch. Thus, the step, which is the third argument that we need to input, will not be 1, the default step but 100, i.e., the <strong>batch_size</strong>.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+for id_user in range(0, nb_users - batch_size, batch_size):
+</textarea></div>
+<p>Now we will get inside the loop, and our first step will be separating out the input and the target, where the input is the ratings of all the movies by the specific user we are dealing in the loop and the target is going to be at the beginning the same as the input. Since the input is going to be inside the Gibbs chain and will be updated to get the new ratings in each visible node, so the input will get change, but the target will remain the same.</p>
+<p>Therefore, we will call the input as <strong>vk</strong> because it is going to be the output of the Gibbs sampling after the <strong>k</strong> steps of the random walk. But initially, this vk will actually be the input batch of all the observations, i.e., the input batch of all the ratings of the users in the batch. So, the input is going to be the <strong>training_set</strong>, and since we are dealing with a specific user that has the ID id_user, well the batch that we want to get is all the users from id_user up to id_user + batch_size and in order to that, we will <strong>[id_user:id_user+batch_size]</strong> as it will result in the batch of 100 users.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+vk = training_set[id_user:id_user+batch_size]
+</textarea></div>
+<p>Similarly, we will do for the target, which is the batch of the original ratings that we don't want to touch, but we want to compare it in the end to our predicted ratings. We need it because we want to measure the error between the predicted ratings and the real ratings to get the loss, the train_loss.</p>
+<p>So, we will call the target as <strong>v0</strong>, which contains the ratings of the movies that were already rated by the 100 users in this batch. And since the target is the same as the input at the beginning, well, we will just copy the above line of code because, at the beginning, the input is the same as that of the target, it will get updated later on.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+v0 = training_set[id_user:id_user+batch_size]
+</textarea></div>
+<p>Then we will take <strong>ph0</strong> followed by adding <strong>,_</strong>in order to make it understand that we only want to return the first element of the sample_h function. Since sample_h is the method of RBM class, so we will use the sample_h function from our rbm object with the help of <strong>rbm.sample_h</strong>. Inside the function, we will input <strong>v0</strong> as it corresponds to the visible nodes at the start, i.e., the original ratings of the movies for all the users of our batch.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+ph0,_ = rbm.sample_h(v0)
+</textarea></div>
+<p>In the next step, we will add another for loop for the k steps of contrastive divergence. So, we will start with <strong>for</strong> followed by calling the looping variable, i.e., <strong>k in range(10)</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+for k in range(10):
+</textarea></div>
+<p>Next, we will take <strong>_,hk</strong> that is going to be the hidden nodes obtained at the k<sup>th</sup> step of contrastive divergence and as we are at the beginning, so k equals 0. But the h0 is going to be the second element returned by the sample_h method, and since the sample_h method is in the RBM class, so we will call it from our <strong>rbm.sample_h</strong>. As we are doing the sampling of the first hidden nodes, given the values of the first visible nodes, i.e., the original ratings, well the first input of the sample_h function in the first step of the Gibbs sampling will be <strong>vk</strong> because vk so far is our input batch of observations and then vk will be updated. Here vk equals v0.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+    _,hk = rbm.sample_h(vk)
+</textarea></div>
+<p>Now we will update the <strong>vk</strong> so that vk is no longer v0, but now vk is going to be the sampled visible nodes after the first step of Gibbs Sampling. In order to get this sample, we will be calling <strong>the sample_v</strong> function on the first sample of our hidden nodes, i.e., <strong>hk</strong>, the result of the first sampling based on the first visible nodes, the original visible nodes. Thus, vk is going to be <strong>rbm.sample_v</strong> that we call on <strong>hk</strong>, the first sampled hidden nodes.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+  _,vk = rbm.sample_v(hk)
+</textarea></div>
+<p>In the next step, we will update the weights and the bias with the help of vk. But before moving ahead, we need to do one important thing. i.e., we will skip the sales that have -1 ratings in the training process by freezing the visible nodes that contain -1 ratings because it would not be possible to update them during the Gibbs sampling.</p>
+<p>In order to freeze the visible nodes containing the -1 ratings, we will take <strong>vk</strong>, which is our visible nodes that are being updated during the k-steps of the random walk. Then we will get the nodes that have -1 ratings with the help of our target, v0 because it was not changed, it actually keeps the original ratings. So, we will take <strong>[v0&lt;0]</strong> to get the -1 ratings due to the fact that our ratings are either -1, 0 or 1. For these visible nodes, we will say that they are equal to -1 ratings by taking the original -1 ratings from the target because it is not changed and to do that, we will take <strong>v0[v0&lt;0]</strong> as it will get all the -1 ratings. It is just to make sure that the training is not done on these ratings that were not actually existent. We only want to do the training on the ratings that happened.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+vk[v0<0] = v0[v0<0]
+</textarea></div>
+<p>Next, we will compute the phk before applying the train function, and to do this, we will start by taking the <strong>phk,_</strong> because we want to get the first element returned by the sample_h function. Then we will get the sample_h function applied on the last sample of the visible nodes, i.e., at the end of for loop. So, we will first take our <strong>rbm</strong> object followed by applying <strong>sample_h</strong> function to the last sample of visible nodes after 10 steps, i.e., <strong>vk</strong>.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+phk,_ = rbm.sample_h(vk)
+</textarea></div>
+<p>After now, we will apply the train function, and since it doesn't return anything, so we will not create any new variable, instead, we will our <strong>rbm</strong> object as it is a function from the RBM class. Then from the rbm object, we will call our <strong>train</strong> function followed by passing <strong>v0</strong>, <strong>vk</strong>, <strong>ph0</strong> and <strong>phk</strong> as an argument inside the function.</p>
+<p>Now the training will happen easily as well as the weights, and the bias will be updated towards the direction of the maximum likelihood, and therefore, all our probabilities P(v) given the states of the hidden nodes will be more relevant. We will get the largest weights for the probabilities that are the most significant, and will eventually lead us to some predicted ratings, which will be close to the real ratings.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+rbm.train(v0, vk, ph0, phk)
+</textarea></div>
+<p>Next, we will update the <strong>train_loss</strong>, and then we will use <strong>+=</strong> because we want to add the error to it, which is the difference between the predicted ratings and the real original ratings of the target, v0. So, we will start by comparing the <strong>vk</strong>, which is the last of the last visible nodes after the last batch of the users that went through the network to v0, the target that hasn't changed since the beginning.</p>
+<p>Here we will measure the errors with the help of simple distance in absolute values between the predictions and the real ratings, and to do so, we will use <strong>torch</strong> function, i.e., <strong>mean</strong>. Inside the mean function, we will use another torch function, which is the <strong>abs</strong> function that returns the absolute value of a number. So, we will take the absolute value of the target <strong>v0</strong> and our prediction <strong>vk</strong>. In order to improve the absolute value v0-vk, we will include the ratings for the ones that actually existed, i.e. <strong>[v0&gt;=0]</strong> for both v0 and vk as it corresponds to the indexes of the ratings that are existent.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+train_loss += torch.mean(torch.abs(v0[v0>=0] - vk[v0>=0]))
+</textarea></div>
+<p>Now we will update the counter for normalizing the train_loss. So, here we will increment it by 1 in the float.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+        s += 1.
+</textarea></div>
+<p>Lastly, we will print all that is going to happen in training, i.e., the number of epochs to see in which epoch we are during the training, and then for these epochs, we want to see the loss, how it is decreasing. So, we will use the <strong>print</strong> function, which is included in the for loop, looping through all the epochs because we want it to print at each epoch.</p>
+<p>Inside the print function, we will start with a string, which is going to be the epoch, i.e. <strong>'epoch: '</strong> followed by adding <strong>+</strong> to concatenate two strings and then we will add our second string that we are getting with the str function because inside this function, we will input the epoch we are at in training, i.e., an integer epoch that will become string inside the str function, so we will simply add <strong>str(epoch)</strong>. Then we will again add <strong>+</strong> followed by adding another string, i.e. <strong>' loss: '</strong> and then again, we will add <strong>+ str(train_loss/s)</strong>. Basically, it will print the epoch where we are at in the training and the associated loss, which is actually the normalized train_loss.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+print('epoch: '+str(epoch)+' loss: '+str(train_loss/s))
+</textarea></div>
+<p>So, after executing the above section of code, we can see from the image given below that we ended with a <strong>train_loss</strong> of 0.245 or we can say <strong>0.25</strong> approximately, which is pretty good because it means that in the training set, we get the correct predictive rating, three times out of four and one times out of four we make a mistake when predicting the ratings of the movies by all the users.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine34.png" alt="Restricted Boltzmann Machine" />
+<p>Next, we will get the final results on the new observations with the <strong>test_set</strong> results so as to see if the results are close to the training_set results, i.e., even on new predictions, we can predict three correct ratings out of four. Testing the test_set result is very easy and quite similar to that of testing the training_set result; the only difference is that there will not be any training. So, we will simply copy the above code and make the required changes.</p>
+<p>In order to get the test_set results, we will replace the training_set with the <strong>test_set</strong>. And since there isn't any training, so we don't need the loop over the epoch, and therefore, we will remove nb_epoch = 10, followed by removing the first for loop. Then we will replace the train_loss by the <strong>test_loss</strong> to compute the loss. We will keep the counter that we initialize at zero, followed by incrementing it by one at each step.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+# Testing the RBM
+test_loss = 0
+s = 0.
+</textarea></div>
+<p>Then we have the for loop over all the users of the test_set, so we will not include the batch_size because it is just a technique to specific to the training. It is a parameter that you can tune to get more or less performance results on the training_set and, therefore, on the test_set. But gathering the observations in the batch_size is only for the training phase.</p>
+<p>Thus, we will remove everything that is related to the batch_size, and we will take the users up to the last user because, basically, we will make some predictions for each user one by one. Also, we will remove 0 because that's the default start. So, we will do <strong>for id_user in range(nb_user)</strong> because basically, we are looping over all the users, one by one.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+for id_user in range(nb_users):
+</textarea></div>
+<p>Now for each user, we will go into the loop, and we will again remove the batch_size because we don't really need them. Since we are going to make the predictions for each user one by one, so we will simply replace the batch_size by <strong>1</strong>. After this, we will replace vk by <strong>v</strong> and v0, which was the target by <strong>vt</strong>. Here v is the input on which we will make the prediction. For v, which is the input, we will not replace the training_set here by the test_set because the <strong>training_set</strong> is the input that will be used to activate the hidden neurons to get the output. Since vt contains the original ratings of the test_set, which we will use to compare to our predictions in the end, so we will replace the training_set here with the <strong>test_set</strong>.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+    v = training_set[id_user:id_user+1]
+    vt = test_set[id_user:id_user+1]
+</textarea></div>
+<p>Now, we will move on to the next step in which we will make one step so that our prediction will be directly the result of one round trip of Gibbs sampling, or we can say one step, one iteration of the bind walk. Here we will simply remove the for a loop because we don't have to make 10 steps, we only have to make one single step. So, to make this one step, we will start with the <strong>if</strong> condition to filter the non-existent ratings of the test_set followed by taking the <strong>len</strong> function. Inside the function, we will input <strong>vt[vt&gt;=0]</strong>, which relates to all the ratings that are existent, i.e. 0 or 1. So if len, the length that is the number of the visible nodes containing set ratings, (vt[vt&gt;=0]) is larger than 0, then we can make some predictions.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+if len(vt[vt>=0]) > 0:
+</textarea></div>
+<p>Since we only have to make one step of the blind walk, i.e., the Gibbs sampling, because we don't have a loop over 10 steps, so we will remove all the k's.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+        _,h = rbm.sample_h(v)
+        _,v = rbm.sample_v(h)
+</textarea></div>
+<p>Next, we will replace the train_loss by the <strong>test_loss</strong> in order to update it. And then again, we will update the <strong>mean</strong> function from the <strong>torch</strong> library as well as we will still take the absolute distance between the prediction and the target. So, this time, our target will not be v0 but <strong>vt</strong>, followed by taking all the ratings that are existent in the test_set, i.e. <strong>[vt&gt;=0]</strong>. Also, the prediction will not vk anymore, but <strong>v</strong> because there is only step, and then we will again take the same existent ratings, <strong>[vt&gt;=0]</strong> because it will help us to get the indexes of the cells that have the existent ratings.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+   test_loss += torch.mean(torch.abs(vt[vt>=0] - v[vt>=0]))
+</textarea></div>
+<p>After now, we will update the <strong>counter</strong> in order to normalize the test_loss.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+   s += 1.
+</textarea></div>
+<p>Lastly, we will print the final test_loss for which we will get rid of all the epochs from the code. Then from the first string, we will replace the loss by the <strong>test_loss</strong> to specify that it is a test loss. Next, we will replace the train_loss by the <strong>test_loss</strong> that we divide by <strong>s</strong> to normalize.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+print('test loss: '+str(test_loss/s))
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/restricted-boltzmann-machine35.png" alt="Restricted Boltzmann Machine" />
+<p>Thus, after executing the above line of code, we can see from the above image that we get a <strong>test_loss</strong> of <strong>0.25</strong>, which is pretty good because that is for new observations, new movies. We managed to predict some correct ratings three times out of four. We actually managed to make a robust recommended system, which was the easier one, predicting the binary ratings.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="#">#</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="keras-mega-case-study.html">&larr; prev</a>
+<a style="float:right" class="next" href="#">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="8debe8e8e9efeceee6cde7ecfbecf9fde2e4e3f9a3eee2e0">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/keras-restricted-boltzmann-machine"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/keras-restricted-boltzmann-machine"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/keras-restricted-boltzmann-machine"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+ <p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+ </div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+ <p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a7cfd5e7cdc6d1c6d3d7c8cec9d389c4c8ca">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f19983b19b90879085819e989f85df929e9cdf">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/keras-restricted-boltzmann-machine by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:02:13 GMT -->
+</html> 

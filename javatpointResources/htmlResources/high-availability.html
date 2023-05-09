@@ -1,0 +1,724 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/high-availability by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 18:02:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>High Availability - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="High Availability - Javatpoint" /><meta property="og:description" content="High Availability with blog, what is quora, what is yandex, contact page, duckduckgo search engine, search engine journal, facebook, whatsapp, google chrome, firefox etc." />
+<meta name="keywords" content="java tutorial, features, history, blog, what is quora, what is yandex, contact page, duckduckgo search engine, seo, search engine journal" /><meta name="description" content="High Availability with blog, what is quora, what is yandex, contact page, duckduckgo search engine, search engine journal, facebook, whatsapp, google chrome, firefox etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="high-availability.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="High Availability - Javatpoint" /><meta name="twitter:description" property="og:description" content="High Availability with blog, what is quora, what is yandex, contact page, duckduckgo search engine, search engine journal, facebook, whatsapp, google chrome, firefox etc." /><meta property="og:url" content="high-availability.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="blog-files.html" class="selected">Blog</a></li>
+<li><a href="python-tutorial.html">Python</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="xml-tutorial.html">XML</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="embedded-system-tutorial.html">Embedded System</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="examaccess.html">Quiz</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+<li><a href="comment.html">Comment</a></li>
+<li><a href="forum.html">Forum</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Blog</span></h2>
+</div>
+<div class="leftmenu">
+<a href="blog-files.html">Blog Files</a>
+</div>
+
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="best-c-cleaner-alternatives-in-2020.html">next &rarr;</a>
+<a class="next" href="apple-and-orange-problem-solution.html">&larr; prev</a>
+</div>
+<h1 class="h1">High Availability</h1>
+<p>Accomplishing corporate sustainability is a big priority for global corporations. Downtime may cause severe economic effects and, in certain cases, irreparable system failures.</p>
+<p>A high availability architecture is a strategy to eliminate service interruption and process failures. Every organization is highly dependent on the Internet, because of which machines and servers for companies should remain readily available at all times.</p>
+<p>High availability should be the primary aspect to be considered while establishing your IT infrastructure, whether you'd like to host your own <a href="it-full-form.html">IT</a> technology or opt for the unified platform on a server farm.</p>
+<h2 class="h2">What is High Availability</h2>
+<p>In order to provide continuous service over a particular time, a highly available architecture needs numerous modules functioning simultaneously. This often requires the reaction time to the queries of users. In particular, software solutions need not only to be digital but also reactive.</p>
+<p>To ensure the uninterrupted supply of crucial software and systems, implementing <a href="cloud-computing-tutorial.html">cloud computing</a> infrastructure that allows it is important. When the different component damage occurs or when a device is under intense strain, it remains online and adaptive.</p>
+<p>Highly available networks have the potential to regenerate in the quickest way possible from unforeseen incidents. These systems reduce downtime or remove it by transferring the functions to replacement modules. In order to ensure that there are no trouble spots, this normally includes routine servicing, inspection, and preliminary in-depth checks.</p>
+<p>Multiple server structures with device software for ongoing analysis of the network's efficiency provide high availability situations. Avoiding unscheduled downtime for machines is the highest priority. When a part of machinery crashes, a total cessation of operation during the manufacturing time must not be triggered.</p>
+<p>For large organizations, remaining functional without disruptions is extremely crucial. A few moments disrupted in such environments can cause a loss of credibility, clients, and billions of dollars.</p>
+<p>Modern computers that are universally readable enable bugs as long as the degree of accessibility does not affect business activities.</p>
+<p>There are the following features of a highly available infrastructure:</p>
+<ul class="points">
+<li>Inefficiency of hardware</li>
+<li>Dependencies of technologies and applications</li>
+<li>Flexibility of Data</li>
+<li>Eliminating the performance degradation</li>
+</ul>
+<img src="https://static.javatpoint.com/blog/images/high-availability.png" alt="High Availability" />
+<h2 class="h2">The Need of High Availability</h2>
+<p>Downtime is the amount of time when your device (or connection) is unconscious or inaccessible. Leisure time may cause severe damage for a business, as when their devices are overloaded; all their operations are temporarily suspended. Amazon fell down for 15 minutes in August 2013 (like web and mobile operations) and eventually lost more than $66,000 in a minute. These are all massive numbers, even for an Amazon-sized company.</p>
+<p>There are two kinds of rest time: scheduled and unscheduled. A planned schedule throughput is an inevitable consequence of service. This involves the application of patches, software updates, and even modifications to the data structure. After all, unplanned downtime is induced by a certain unexpected occurrence, such as system failure. It can occur because of a module's power shortages or failure. Planned schedule breakdowns are largely prohibited from estimations of achievement.</p>
+<p>The primary goal of introducing the High Availability structure is to ensure that your device or software is designed with limited to no rest time to accommodate multiple pressures and multiple vulnerabilities. There are many factors that influence you to accomplish it, and we will speak about it momentarily.</p>
+<h2 class="h2">The Architecture of High Availability (HA)</h2>
+<p>There might be several instances in the modern world where a decrease in your server's output from incidents varying from a sharp uptick in traffic can escalate to a sudden power failure. It can be even worse; regardless of whether the programs are hosted in the clouds or on a computer device, the servers can be overwhelmed. Such circumstances are inevitable. Instead of pretending that it doesn't happen, though, what you can really do is prepare properly so that your devices don't breakdown.</p>
+<p>The solution to the crisis is the use of setting up or infrastructure for High Availability (HA). The architecture of high availability is an approach to determine the elements, units or utilities of a device that ensures maximum production efficiency, however at periods of high load. While there are no predetermined guidelines for the implementation of High Availability systems, there are typically a few standard methods that should be followed in order to achieve the most from the least amount of effort.</p>
+<img src="https://static.javatpoint.com/blog/images/high-availability2.png" alt="High Availability" />
+<h2 class="h2">How to measure the percentage of response time for high availability?</h2>
+<p>Availability is defined as how long over a definite duration, generally a year, a particular device remains fully functional.</p>
+<p>As a percentage, it is conveyed. Notice that response time does not have to indicate just like availability inherently. It is possible for a device to be up and going but not open to consumers. Network or load balancing problems may be the causes for this.</p>
+<p>Normally, the response time is demonstrated by using the scoring with the availability of five 9's. It will be specified in the Service Level Agreement (SLA) if you plan to go out for a unified platform. A rating of 'one nine' implies that the availability assured is 90%. Many organizations and corporations currently need to provide at least "three nines," i.e., 99.9% of availability.</p>
+<p>Organizations have different availability requirements. Five nines, "99.999 percent of throughput, would target those who need to stay functional across the clock during the year." It would seem like 0.1 percent doesn't make a significant difference that much. The measurements are small, indeed, if you translate it to minutes and hours.</p>
+<p>To consider the cumulative response time per year each rank contains, according to the list of nines:</p>
+<table class="alt">
+<tr>
+<th>Level of Availability</th>
+<th>Response Time/year</th>
+<th>Response Time/Day</th>
+</tr>
+<tr>
+<td>One Nine: 90%</td>
+<td>36.5 days</td>
+<td>2.4 hours</td>
+</tr>
+<tr>
+<td>Two Nine: 99%</td>
+<td>3.65 days</td>
+<td>14 minutes</td>
+</tr>
+<tr>
+<td>Three Nine: 99.9%</td>
+<td>8.76 hours</td>
+<td>86 second</td>
+</tr>
+<tr>
+<td>Four Nine: 99.99%</td>
+<td>52.6 minute</td>
+<td>8.6 second</td>
+</tr>
+<tr>
+<td>Five Nine: 99.999%</td>
+<td>5.25 minute</td>
+<td>0.86 second</td>
+</tr>
+<tr>
+<td>Six Nine: 99.9999%</td>
+<td>31.5 second</td>
+<td>8.6 second</td>
+</tr>
+</table>
+<p>The disparity among 99 percent and 99.9 percent is significant, as the above table indicates. Remember that it is estimated in days, not in hours or minutes, every year. The farther you want to be on the availability level, the cost of the product will also grow.</p>
+<p>How will response time be measured? For any element that could influence the efficient implementation of a part of the system, or the whole structure, it is important to quantify downtime. The Planned service of the device should be part of the calculation of availability.</p>
+<p>As you can see, the above table does not show a 100% availability point.</p>
+<p>In simple terms, any system is not completely exempt from failure. In contrast, it can require some time to turn to substitute parts, be milliseconds, minutes, or hours.</p>
+<h2 class="h2">Achievement of High Availability</h2>
+<p>Corporations trying to incorporate strategies of high availability need to consider several elements and criteria required to obtain as highly available for a system. Security mechanisms and facilities requirements to be managed around the clock to achieve the business goals and serviceability. Some requirements that need to be fulfilled include industry standards for achieving high availability.</p>
+<p>Here we have four steps to achieve efficiency and uptime of 99.999%.</p>
+<h3 class="h3">1. Reducing high availability vs. redundancy of single points of failure</h3>
+<p>By ensuring replication on all grades, the crucial aspect of high-availability structures is to remove vulnerabilities. Regardless of if there is a global catastrophe, a device or power outage, to repair the damaged device, IT infrastructures should have backup elements.</p>
+<p>There are various extremes of part duplication that exist. The most prevalent among them are:</p>
+<ul class="points">
+<li><strong>N+1 Model</strong></li>
+<li><strong>N+2 Model</strong></li>
+<li><strong>2N Model</strong></li>
+<li><strong>2N+1 Model</strong></li>
+</ul>
+<p>Let's go through each above-mentioned model.</p>
+<p><strong>N+1 Model</strong></p>
+<p>It involves the volume of hardware required to maintain the machine up (referred to as 'N'). For each of the modules, it is functional with single separate backup element in case of a fault. Using an external source of power for a database server will be an instance, but this could be some other IT element. Normally, this paradigm is active / passive. If a malfunction occurs, replacement modules are on reserve, preparing to take over. The replication of N+1 may be active as well. Notice that the N+1 template is not a design that is fully redundant.</p>
+<p><strong>N+2 Model</strong></p>
+<p>It is equivalent to the N+1 model. The discrepancy is that the device can tolerate the breakdown of two similar elements. This will be enough in the higher nines to sustain most companies running smoothly.</p>
+<p><strong>2N Model</strong></p>
+<p>This model requires twice the amount of every single part required for the system to operate. The benefit of this strategy is that you may not have to take into account whether a single element or the entire system has failed. The tasks can be transferred directly to the substitute elements.</p>
+<p><strong>2N+1 Model</strong></p>
+<p>With some other variables for enhanced security, the 2N+1 model offers the same degree of availability and replication as 2N.</p>
+<p>By regional replication, the absolute redundancy is accomplished.</p>
+<p>It is the only full failure strategy toward natural catastrophes and other occurrences. In this situation, in various regions, servers are spread over several regions.</p>
+<p>It is appropriate to position websites in different towns, nations, or even continents. They are completely autonomous in that sense. Another will be able to acquire and keep the company going if a massive failure occurs in one place. This form of replication proves to be relatively expensive. The positive territory would be to go for a unified platform from one of the network infrastructure vendors spanning the globe.</p>
+<p>In addition to power failures, one of the most prominent determinants of this business slowdown is network problems.</p>
+<p>The network should be designed in such a manner that it remains up 24/7/365 for that purpose. There must be alternative network routes to reach 100 percent network service throughput. There should be interchangeable enterprise-grade switching and adapters in each of them.</p>
+<h3 class="h3">2. Remediation and Data Backup</h3>
+<p>One of the main challenges for any enterprise is data protection. A system with high availability should have sound strategies for data security and recovery procedures.</p>
+<p>To have adequate replacements is an essential necessity. The order to effectively restore in the event of a system failure, fraud, or total storage breakdown is another important thing. The best choice to suggest is to use data replication when your company needs low RTOs and RPOs, and you cannot stand to waste data. Based on company scope, needs, and expenditure, there are several contingency plans to select from.</p>
+<p>With the high availability of IT, full backup and recovery go together. Both should be prepared carefully. To ensure data redundancy, the development of complete backups on a replicate infrastructure is crucial and must not be ignored.</p>
+<h3 class="h3">3. Automatic failback with Detection of Failure</h3>
+<p>In a highly usable, replicate IT architecture, the device requires to divert requests to a backup generator immediately in case of a fault. This is known as failover. Early diagnosis of vulnerability is critical for enhancing failover rates and ensuring optimum efficiency of services.</p>
+<p>For high availability, one of the solutions and services we suggest Carbonite Availability. Either it is digital or actual, it is sufficient for any architecture. You may switch to Cloud Replica for efficient and scalable cloud-based network downtime and fail-back. The failover approach refers to either an entire system or some of its components that may crash down. Failover must be transparent and happen in real-time if a part fails or a database server avoids reacting.</p>
+<p>The mechanism seems like the following:</p>
+<ol class="points">
+<li>Device 1, with its replica device 2, normally alluded to as Hot Spare, is available.</li>
+<li>Device 2 tracks Device 1 's position continuously for any problems.</li>
+<li>Device 1 confronts a problem. As a consequence of any variety of causes, it crashes or closes down.</li>
+<li>Device 2 turns up instantly. c Rather than device 1, any query is now redirected to device 2. This occurs to end-users with no effects. You don't even know that there are any problems with device 1.</li>
+<li>Device 1 and Device 2 retake their initial positions when the problem with the broken part is solved.</li>
+</ol>
+<p>The length of the failure cycle focuses on how complex the device is. It will take a few minutes in several situations. However, it may also take many hours.</p>
+<p>To achieve the best performance, preparing for high availability should be dependent on all of these factors. The overall purpose of obtaining 99.999 % availability and improving failover times must be in alignment with each device component.</p>
+<h3 class="h3">4. Load Balancing</h3>
+<p>A load balancer may be a system for devices or a system for software. It aims to disperse multiple servers and modules with software or network services. The aim is to enhance overall efficiency and reliability in operations. By effectively handling loads and constantly tracking the back-end server's performance, it significantly improves the usage of servers and communication resources.</p>
+<h2 class="h2">How does a load balancer select the server?</h2>
+<p>You may use several different strategies to spread the load through a pool of servers. It will rely on different considerations to choose the one for your caseloads. Any of these involve the form of software being supported, the network's status, and the backend servers' status. As per the current number of received requests, a load balancer determines which algorithm to use.</p>
+<p>Many of the most widely used algorithms for load balancing are discussed below:</p>
+<h3 class="h3">Robin's Round</h3>
+<p>The load balancer, with the Round Robin algorithm, guides requests to the very first server in the queue. It will switch to the last one down the priority list and then start from scratch. It is simple to execute this method, and it is extensively utilized. It's doesn't, although, take into account whether servers have various parameters of hardware and whether they can overwhelm more easily.</p>
+<h3 class="h3">Limited Connection</h3>
+<p>In this situation, the server with the minimum number of registered links will be selected by the load balancer. If the user requests in, the load balancer just wouldn't, as is the situation with Round Robin, grant a link to another server in the queue. Rather, one with the minimum current links will be sought. In some cases where sessions last for a longer period, the lowest link method is especially suitable to prevent overburdening the web servers.</p>
+<h3 class="h3">Hash of Source IP</h3>
+<p>This method will decide which server to choose as per the request's source IP address. By using source and destination IP address, the load balancer generates a special cryptographic hash key. This key often allows a user's request to be directed to a certain server.</p>
+<p>After all, load balancers play a significant role in maintaining a highly open infrastructure. Even so, just getting a load balancer doesn't really imply that the system's availability is high. If a load balancer design just routes congestion to minimize the burden on an individual computer, it does not make the device highly usable.</p>
+<p>You may remove it as a single point of failure with the implementation of replication for the load balancer itself.</p>
+<h2 class="h2">Advantages of High Availability</h2>
+<p>Here, we have some advantages of the High Availability system. They are mentioned-below.</p>
+<ol class="points">
+<li>It is not required to restore missing information due to storage or even other device failures; you will save time and resources. In certain instances, the recovery of your information after a failure is unlikely. It can have a devastating effect on your business.</li>
+<li>Less downtime ensures that users and customers are less affected. If five-nines calculate your availability, it indicates almost no service interruption. This results in higher employee performance and ensures customer loyalty.</li>
+<li>The efficiency of the apps and services will be enhanced.</li>
+<li>If you don't fulfill the agreement SLAs due to a server problem, you can escape financial penalties.</li>
+</ol>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="best-c-cleaner-alternatives-in-2020.html">Best C Cleaner Alternatives in 2020</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="apple-and-orange-problem-solution.html">&larr; prev</a>
+<a style="float:right" class="next" href="best-c-cleaner-alternatives-in-2020.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="75131010111714161e351f14031401051a1c1b015b161a18">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/high-availability"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/high-availability"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/high-availability"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="4c243e0c262d3a2d383c23252238622f2321">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="c6aeb486aca7b0a7b2b6a9afa8b2e8a5a9abe8">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/high-availability by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 18:02:25 GMT -->
+</html> 

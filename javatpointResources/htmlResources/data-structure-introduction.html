@@ -1,0 +1,1181 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/data-structure-introduction by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 12:59:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>What are Data Structures? Definition and Types - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="What are Data Structures? Definition and Types - javatpoint" /><meta property="og:description" content="What are Data Structures? Definition and Types with Introduction, Asymptotic Analysis, Array, Pointer, Structure, Singly Linked List, Doubly Linked List, Circular Linked List, Binary Search, Linear Search, Sorting, Bucket Sort, Comb Sort, Shell Sort, Heap Sort, Merge Sort, Selection Sort, Counting Sort, Stack, Qene, Circular Quene, Graph, Tree, B Tree, B+ Tree, Avl Tree etc." />
+<meta name="keywords" content="data structure introduction, introduction, asymptotic analysis, array, pointer, structure, singly linked list, doubly linked list, circular linked list, binary search, linear search, sorting, bucket sort, comb sort, shell sort, heap sort, merge sort, selection sort, counting sort, stack, quene, circular quene, graph, tree, b tree, b+ tree, avl tree" /><meta name="description" content="What are Data Structures? Definition and Types with Introduction, Asymptotic Analysis, Array, Pointer, Structure, Singly Linked List, Doubly Linked List, Circular Linked List, Binary Search, Linear Search, Sorting, Bucket Sort, Comb Sort, Shell Sort, Heap Sort, Merge Sort, Selection Sort, Counting Sort, Stack, Qene, Circular Quene, Graph, Tree, B Tree, B+ Tree, Avl Tree etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="data-structure-introduction.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="What are Data Structures? Definition and Types - javatpoint" /><meta name="twitter:description" property="og:description" content="What are Data Structures? Definition and Types with Introduction, Asymptotic Analysis, Array, Pointer, Structure, Singly Linked List, Doubly Linked List, Circular Linked List, Binary Search, Linear Search, Sorting, Bucket Sort, Comb Sort, Shell Sort, Heap Sort, Merge Sort, Selection Sort, Counting Sort, Stack, Qene, Circular Quene, Graph, Tree, B Tree, B+ Tree, Avl Tree etc." /><meta property="og:url" content="data-structure-introduction.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="data-structure-tutorial.html" class="selected">Data Structure</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="cpp-tutorial.html">C++</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="ajax-tutorial.html">Ajax</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="cloud-computing.html">Cloud</a></li>
+<li><a href="design-patterns-in-java.html">Design Pattern</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-tutorial.html">DS Tutorial</a>
+<a href="data-structure-introduction.html">DS Introduction</a>
+<a href="data-structure-algorithm.html">DS Algorithm</a>
+<a href="data-structure-asymptotic-analysis.html">Asymptotic Analysis</a>
+<a href="data-structure-pointer.html">DS Pointer</a>
+<a href="data-structure-structure.html">DS Structure</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Array</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-array.html">DS Array</a>
+<a href="data-structure-2d-array.html">2D Array</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Linked List</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ds-linked-list.html">Linked List</a>
+<a href="ds-types-of-linked-list.html">Types of Linked List</a>
+<a href="singly-linked-list.html">Singly Linked List</a>
+<a href="doubly-linked-list.html">Doubly Linked List</a>
+<a href="circular-singly-linked-list.html">Circular Linked List</a>
+<a href="circular-doubly-linked-list.html">Circular Doubly List</a>
+<a href="skip-list-in-data-structure.html">Skip list in DS</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Stack</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-stack.html">DS Stack</a>
+<a href="ds-array-implementation-of-stack.html">Array Implementation</a>
+<a href="ds-linked-list-implementation-of-stack.html">Linked List Implementation</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Queue</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-queue.html">DS Queue</a>
+<a href="ds-types-of-queues.html">Types of Queues</a>
+<a href="array-representation-of-queue.html">Array Representation</a>
+<a href="linked-list-implementation-of-queue.html">Linked List Representation</a>
+<a href="circular-queue.html">Circular Queue</a>
+<a href="ds-deque.html">Deque</a>
+<a href="ds-priority-queue.html">Priority Queue</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Tree</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tree.html">DS Tree</a>
+<a href="binary-tree.html">Binary Tree</a>
+<a href="binary-search-tree.html">Binary Search Tree</a>
+<a href="avl-tree.html">AVL Tree</a>
+<a href="b-tree.html">B Tree</a>
+<a href="b-plus-tree.html">B+ Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Graph</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ds-graph.html">DS Graph</a>
+<a href="graph-representation.html">Graph Implementation</a>
+<a href="breadth-first-search-algorithm.html">BFS Algorithm</a>
+<a href="depth-first-search-algorithm.html">DFS Algorithm</a>
+<a href="spanning-tree.html">Spanning Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Searching</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linear-search.html">Linear Search</a>
+<a href="binary-search.html">Binary Search</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Sorting</span></h2>
+</div>
+<div class="leftmenu">
+<a href="bubble-sort.html">Bubble Sort</a>
+<a href="bucket-sort.html">Bucket Sort</a>
+<a href="comb-sort.html">Comb Sort</a>
+<a href="counting-sort.html">Counting Sort</a>
+<a href="heap-sort.html">Heap Sort</a>
+<a href="insertion-sort.html">Insertion Sort</a>
+<a href="merge-sort.html">Merge Sort</a>
+<a href="quick-sort.html">Quick Sort</a>
+<a href="radix-sort.html">Radix Sort</a>
+<a href="selection-sort.html">Selection Sort</a>
+<a href="shell-sort.html">Shell Sort</a>
+<a href="bitonic-sort.html">Bitonic Sort</a>
+<a href="cocktail-sort.html">Cocktail Sort</a>
+<a href="cycle-sort.html">Cycle Sort</a>
+<a href="tim-sort.html">Tim Sort</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linear-vs-non-linear-data-structure.html">Linear vs non-linear</a>
+<a href="https://www.javatpoint.com/ds-array-vs-linked-list">Array vs linked list</a>
+<a href="https://www.javatpoint.com/ds-stack-vs-queue">Stack vs queue</a>
+<a href="https://www.javatpoint.com/ds-linear-vs-circular-queue">Linear vs Circular Queue</a>
+<a href="ds-linear-search-vs-binary-search.html">Linear Search vs Binary Search</a>
+<a href="https://www.javatpoint.com/singly-linked-list-vs-doubly-linked-list">Singly Linked List vs Doubly Linked List</a>
+<a href="https://www.javatpoint.com/binary-tree-vs-binary-search-tree">Binary vs Binary Search Tree</a>
+<a href="https://www.javatpoint.com/tree-vs-graph-data-structure">Tree vs Graph</a>
+<a href="https://www.javatpoint.com/binary-search-tree-vs-avl-tree">Binary Search tree vs AVL tree</a>
+<a href="https://www.javatpoint.com/red-black-tree-vs-avl-tree">Red Black Tree vs AVL tree</a>
+<a href="b-tree-vs-bplus-tree.html">B tree vs B+ tree</a>
+<a href="quick-sort-vs-merge-sort.html">Quick Sort vs Merge Sort</a>
+<a href="https://www.javatpoint.com/bfs-vs-dfs">BFS vs DFS</a>
+<a href="stack-vs-heap.html">Stack vs Heap</a>
+<a href="https://www.javatpoint.com/bubble-sort-vs-selection-sort">Bubble sort vs. Selection sort</a>
+<a href="ds-stack-vs-array.html">Stack vs Array</a>
+<a href="https://www.javatpoint.com/full-binary-tree-vs-complete-binary-tree">Full Binary Tree vs Complete Binary Tree</a>
+<a href="binary-tree-vs-b-tree.html">Binary Tree vs B Tree</a>
+<a href="https://www.javatpoint.com/primitive-vs-non-primitive-data-structure">Primitive vs non-primitive data structure</a>
+<a href="data-types-vs-data-structure.html">Data types vs data structure</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/trie-data-structure">Trie Data Structure</a>
+<a href="heap-data-structure.html">Heap Data Structure</a>
+<a href="splay-tree.html">Splay Tree</a>
+<a href="fundamental-of-the-data-structure.html">Fundamental of the DS</a>
+<a href="https://www.javatpoint.com/hash-table">Hash Table</a>
+<a href="https://www.javatpoint.com/preorder-traversal">Preorder Traversal</a>
+<a href="https://www.javatpoint.com/tree-traversal">Tree Traversal</a>
+<a href="https://www.javatpoint.com/implementation-of-queue-using-stacks">Implementation of Queue using Stacks</a>
+<a href="https://www.javatpoint.com/implementation-of-stack-using-queue">Implementation of Stack using Queue</a>
+<a href="https://www.javatpoint.com/binomial-heap">Binomial Heap</a>
+<a href="postorder-traversal.html">Postorder Traversal</a>
+<a href="https://www.javatpoint.com/sparse-matrix">Sparse Matrix</a>
+<a href="https://www.javatpoint.com/detect-loop-in-a-linked-list">Detect loop in a Linked list</a>
+<a href="https://www.javatpoint.com/inorder-traversal">Inorder Traversal</a>
+<a href="https://www.javatpoint.com/convert-infix-to-postfix-notation">Convert Infix to Postfix notation</a>
+<a href="https://www.javatpoint.com/convert-infix-to-prefix-notation">Convert infix to prefix notation</a>
+<a href="https://www.javatpoint.com/conversion-of-prefix-to-postfix-expression">Conversion of Prefix to Postfix expression</a>
+<a href="https://www.javatpoint.com/conversion-of-postfix-to-prefix-expression">Conversion of Postfix to Prefix expression</a>
+<a href="https://www.javatpoint.com/remove-loop-in-a-linked-list">Remove the loop in a Linked List</a>
+<a href="https://www.javatpoint.com/implement-two-stacks-in-an-array">Implement two stacks in an array</a>
+<a href="https://www.javatpoint.com/reverse-a-stack-using-recursion">Reverse a stack using recursion</a>
+<a href="https://www.javatpoint.com/detect-cycle-in-a-directed-graph">Detect cycle in a directed graph</a>
+<a href="https://www.javatpoint.com/optimal-binary-search-tree">Optimal Binary Search Tree</a>
+<a href="https://www.javatpoint.com/priority-queue-using-linked-list">Priority Queue using Linked list</a>
+<a href="balanced-binary-search-tree.html">Balanced Binary Search Tree</a>
+<a href="https://www.javatpoint.com/boundary-traversal-of-binary-tree">Boundary Traversal of Binary tree</a>
+<a href="https://www.javatpoint.com/diagonal-traversal-of-binary-tree">Diagonal Traversal of Binary Tree</a>
+<a href="https://www.javatpoint.com/vertical-traversal-of-a-binary-tree">Vertical Traversal of a Binary tree</a>
+<a href="graph-algorithms.html">Graph Algorithms</a>
+<a href="https://www.javatpoint.com/time-complexity-of-sorting-algorithms">Time Complexity of Sorting Algorithms</a>
+<a href="applications-of-stack-in-data-structure.html">Applications of Stack in Data Structure</a>
+<a href="https://www.javatpoint.com/dictionary-data-structure">Dictionary Data Structure</a>
+<a href="https://www.javatpoint.com/structured-data-and-unstructured-data">Structured Data and Unstructured Data</a>
+<a href="https://www.javatpoint.com/list-data-structure">List Data Structure</a>
+<a href="https://www.javatpoint.com/types-of-tree-in-data-structure">Types of Tree in Data Structure</a>
+<a href="https://www.javatpoint.com/abstract-data-type-in-data-structure">Abstract data type in data structure</a>
+<a href="https://www.javatpoint.com/disjoint-set-data-structure">Disjoint set data structure</a>
+<a href="https://www.javatpoint.com/dynamic-data-structure">Dynamic Data Structure</a>
+<a href="https://www.javatpoint.com/hash-function-in-data-structure">Hash Function in Data Structure</a>
+<a href="https://www.javatpoint.com/complete-binary-tree">Complete Binary Tree</a>
+<a href="https://www.javatpoint.com/threaded-binary-tree">Threaded Binary Tree</a>
+<a href="https://www.javatpoint.com/diameter-of-binary-tree">Diameter of Binary Tree</a>
+<a href="https://www.javatpoint.com/height-of-binary-tree">Height of Binary Tree</a>
+<a href="https://www.javatpoint.com/inorder-tree-traversal-without-stack">Inorder Tree Traversal without Stack</a>
+<a href="https://www.javatpoint.com/enumeration-of-binary-trees">Enumeration of Binary Trees</a>
+<a href="https://www.javatpoint.com/maximum-width-of-a-binary-tree">Maximum Width of a Binary Tree</a>
+<a href="https://www.javatpoint.com/types-of-graph-in-data-structure">Types of Graph in Data Structure</a>
+<a href="https://www.javatpoint.com/primitive-data-type">Primitive Data Type</a>
+<a href="https://www.javatpoint.com/semi-structured-data">Semi-Structured Data</a>
+<a href="https://www.javatpoint.com/advance-data-structures">Advance Data Structures</a>
+<a href="https://www.javatpoint.com/sort-an-array-of-0s-1s-and-2s">Sort an Array of 0's, 1's, and 2's</a>
+<a href="stock-span-problem.html">Stock Span Problem</a>
+<a href="https://www.javatpoint.com/implementation-of-deque-by-circular-array">Implementation of Deque by Circular Array</a>
+<a href="https://www.javatpoint.com/rotate-operation-in-linked-list">Rotate Operation in Linked List</a>
+<a href="https://www.javatpoint.com/subarray-with-given-sum">Subarray with given sum</a>
+<a href="https://www.javatpoint.com/self-organizing-list">Self-organizing List</a>
+<a href="https://www.javatpoint.com/unrolled-linked-list">Unrolled Linked List</a>
+<a href="https://www.javatpoint.com/types-of-sparse-matrices">Types of Sparse Matrices</a>
+<a href="https://www.javatpoint.com/application-of-linked-list">Application of Linked List</a>
+<a href="https://www.javatpoint.com/topological-sorting">Topological Sorting</a>
+<a href="https://www.javatpoint.com/ternary-search-tree">Ternary Search Tree</a>
+<a href="stock-span-problem.html">Stock Span Problem</a>
+<a href="https://www.javatpoint.com/treap-data-structure">Treap Data Structure</a>
+<a href="https://www.javatpoint.com/quicksort-on-doubly-linked-list">Quicksort on Doubly Linked List</a>
+<a href="https://www.javatpoint.com/inversion-count">Inversion count</a>
+<a href="expression-tree-in-data-structure.html">Expression tree in DS</a>
+<a href="https://www.javatpoint.com/garbage-collection-in-data-structure">Garbage Collection in DS</a>
+<a href="https://www.javatpoint.com/merge-sort-on-doubly-linked-list">Merge Sort on Doubly Linked List</a>
+<a href="https://www.javatpoint.com/sort-stack-using-recursion">Sort Stack using Recursion</a>
+<a href="https://www.javatpoint.com/lifo-approach-in-data-structure">LIFO Approach in data structure</a>
+<a href="https://www.javatpoint.com/big-O-notation-in-data-structure">Big O Notation in DS</a>
+<a href="binary-tree-traversal-in-data-structure.html">Binary Tree Traversal in DS</a>
+<a href="queue-operations-in-data-structure.html">Queue Operations in DS</a>
+<a href="what-is-a-non-linear-data-structure.html">What is a Non-Linear Data Structure</a>
+<a href="https://www.javatpoint.com/fifo-approach-in-data-structure">FIFO Approach in data structure</a>
+<a href="https://www.javatpoint.com/what-are-connected-graphs-in-data-structure">What are connected graphs in data structure</a>
+<a href="https://www.javatpoint.com/which-python-data-structure-is-immutable">Which Python data structure is immutable</a>
+<a href="https://www.javatpoint.com/which-data-structure-is-used-by-map">Which data structure is used by map</a>
+<a href="https://www.javatpoint.com/what-is-iteration-in-data-structure">What is iteration in data structure</a>
+<a href="https://www.javatpoint.com/what-are-linear-search-and-binary-search-in-data-structure">What are linear search and binary search in data structure</a>
+<a href="https://www.javatpoint.com/hash-table-vs-stl-map">Hash Table vs STL Map</a>
+<a href="https://www.javatpoint.com/recamans-sequence">Recaman's Sequence</a>
+<a href="https://www.javatpoint.com/maximum-area-rectangle-created-by-selecting-four-sides-from-an-array">Maximum area rectangle created by selecting four sides from an array</a>
+<a href="https://www.javatpoint.com/maximum-number-of-distinct-nodes-in-a-root-to-leaf-path">Maximum number of distinct nodes in a root-to-leaf path</a>
+<a href="https://www.javatpoint.com/hashing-open-addressing-for-collision-handling">Hashing - Open Addressing for Collision Handling</a>
+<a href="https://www.javatpoint.com/introduction-to-hashing">Introduction to Hashing</a>
+<a href="https://www.javatpoint.com/separate-chaining-for-collision-handling">Separate chaining for Collision Handling</a>
+<a href="https://www.javatpoint.com/check-if-a-given-array-contains-duplicate-elements-within-k-distance-from-each-other">Check if a given array contains duplicate elements within k distance from each other</a>
+<a href="https://www.javatpoint.com/given-an-array-a-and-a-number-x-check-for-pair-in-a-with-sum-as-x">Given an array A[] and a number x, check for pair in A[] with sum as x (aka Two Sum)</a>
+<a href="https://www.javatpoint.com/find-number-of-employees-under-every-manager">Find number of Employees Under every Manager</a>
+<a href="https://www.javatpoint.com/union-and-intersection-of-two-linked-lists">Union and Intersection of two Linked Lists</a>
+<a href="https://www.javatpoint.com/kth-largest-element-in-an-array">Kth Largest element in an array</a>
+<a href="https://www.javatpoint.com/sort-an-almost-sorted-k-sorted-or-nearly-sorted-array">Sort an almost-sorted, k-sorted or nearly-sorted array</a>
+<a href="https://www.javatpoint.com/fibonacci-heap">Fibonacci Heap</a>
+<a href="https://www.javatpoint.com/find-whether-an-array-is-subset-of-another-array">Find whether an array is subset of another array</a>
+<a href="https://www.javatpoint.com/print-a-binary-tree-in-vertical-order">Print a Binary Tree in Vertical Order</a>
+<a href="tournament-tree.html">Tournament Tree (Winner Tree)</a>
+<a href="https://www.javatpoint.com/lazy-propagation-in-segment-tree">Lazy Propagation in Segment Tree</a>
+<a href="https://www.javatpoint.com/segment-tree-range-minimum-query">Segment Tree - Range Minimum Query</a>
+<a href="https://www.javatpoint.com/segment-tree-sum-of-given-range">Segment Tree - Sum of given Range</a>
+<a href="https://www.javatpoint.com/2-3-trees-search-insertion-and-deletion">2-3 Trees (Search, Insertion, and Deletion)</a>
+<a href="https://www.javatpoint.com/print-kth-least-significant-bit-of-a-number">Print kth least significant bit of a number</a>
+<a href="https://www.javatpoint.com/add-two-numbers-represented-by-linked-lists">Add two numbers represented by linked lists</a>
+<a href="https://www.javatpoint.com/adding-one-to-the-number-represented-as-array-of-digits">Adding one to the number represented as array of digits</a>
+<a href="https://www.javatpoint.com/find-precedence-characters-form-a-given-sorted-dictionary">Find precedence characters form a given sorted dictionary</a>
+<a href="https://www.javatpoint.com/check-if-any-anagram-of-a-string-is-palindrome-or-not">Check if any anagram of a string is palindrome or not</a>
+<a href="https://www.javatpoint.com/minimum-insertions-to-form-a-palindrome">Minimum Insertions to form a Palindrome</a>
+<a href="https://www.javatpoint.com/allocate-minimum-number-of-pages">Allocate Minimum Number of Pages</a>
+<a href="https://www.javatpoint.com/assembly-line-scheduling">Assembly Line Scheduling</a>
+<a href="https://www.javatpoint.com/breadth-first-search-or-bfs-for-a-graph">Breadth First Search or BFS for a Graph</a>
+<a href="https://www.javatpoint.com/find-an-element-in-array-such-that-sum-of-the-left-array-is-equal-to-the-sum-of-the-right-array">Find an element in array such that sum of the left array is equal to the sum of the right array</a>
+<a href="https://www.javatpoint.com/bridges-in-a-graph">Bridges in a Graph</a>
+<a href="https://www.javatpoint.com/bubble-sort-in-javascript">Bubble Sort in JavaScript</a>
+<a href="https://www.javatpoint.com/burn-the-binary-tree-from-the-target-node">Burn the Binary tree from the Target node</a>
+<a href="https://www.javatpoint.com/lowest-common-ancestor-in-a-binary-search-tree">Lowest Common Ancestor in a Binary Search Tree</a>
+<a href="https://www.javatpoint.com/types-of-hash-functions-in-c">Types of Hash Functions in C</a>
+<a href="https://www.javatpoint.com/implement-dynamic-deque-using-templates-class-and-a-circular-array">Implement Dynamic Deque using Templates Class and a Circular Array</a>
+<a href="https://www.javatpoint.com/iterative-depth-first-traversal-of-graph">Iterative Depth First Traversal of Graph</a>
+<a href="https://www.javatpoint.com/linked-list-data-structure-in-cpp-with-illustration">Linked List Data Structure in C++ With Illustration</a>
+<a href="https://www.javatpoint.com/reverse-a-linked-list-in-groups-of-given-size">Reverse a Linked List in Groups of Given Size</a>
+<a href="https://www.javatpoint.com/reverse-alternate-k-nodes-in-a-singly-linked-list">Reverse Alternate K nodes in a Singly Linked List</a>
+<a href="https://www.javatpoint.com/when-should-i-use-a-list-vs-a-linkedlist">When should I use a List vs a LinkedList</a>
+<a href="https://www.javatpoint.com/why-is-deleting-in-a-singly-linked-list-O-1">Why is deleting in a Singly Linked List O(1)</a>
+<a href="https://www.javatpoint.com/construct-full-binary-tree-using-its-preorder-traversal-and-preorder-traversal-of-its-mirror-tree">Construct Full Binary Tree using its Preorder Traversal and Preorder Traversal of its Mirror Tree</a>
+<a href="https://www.javatpoint.com/find-relative-complement-of-two-sorted-arrays">Find Relative Complement of two Sorted Arrays</a>
+<a href="https://www.javatpoint.com/handshaking-lemma-and-interesting-tree-properties-dsa">Handshaking Lemma and Interesting Tree Properties -DSA</a>
+<a href="https://www.javatpoint.com/how-to-efficiently-implement-kstacks-in-a-single-array">How to Efficiently Implement kStacks in a Single Array</a>
+<a href="https://www.javatpoint.com/write-c-functions-that-modify-head-pointer-of-a-linked-list">Write C Functions that Modify Head Pointer of a Linked List</a>
+<a href="https://www.javatpoint.com/introduction-to-ant-colony-optimization">Introduction to Ant Colony Optimization</a>
+<a href="https://www.javatpoint.com/what-is-array">What is Array</a>
+<a href="https://www.javatpoint.com/practical-byzantine-fault-tolerance">The practical Byzantine Fault Tolerance (pBFT)</a>
+<a href="https://www.javatpoint.com/applications-of-queue-data-structure">Applications of Queue Data Structure</a>
+<a href="https://www.javatpoint.com/line-graph">Line Graph</a>
+<a href="https://www.javatpoint.com/symmetric-binary-tree">Symmetric Binary Tree</a>
+<a href="https://www.javatpoint.com/avl-tree-advantages">AVL Tree Advantages</a>
+<a href="avl-tree-time-complexity.html">AVL Tree Time Complexity</a>
+<a href="merge-two-binary-trees.html">Merge Two Binary Trees</a>
+<a href="stack-operations-in-data-structure.html">Stack Operations in Data Structure</a>
+<a href="self-balancing-binary-search-trees.html">Self-Balancing Binary Search Trees</a>
+<a href="sliding-window-maximum-maximum-of-all-subarrays-of-size-k.html">Sliding Window Maximum (Maximum of all Subarrays of size K)</a>
+<a href="avl-trees-operations.html">AVL Trees Operations</a>
+<a href="limitations-of-sack-in-data-structures.html">Limitations of Stack in Data Structures</a>
+<a href="representation-of-stack-in-data-structure.html">Representation of stack in data structure</a>
+<a href="advantages-of-threaded-binary-tree.html">Advantages of Threaded Binary Tree</a>
+<a href="serialize-and-deserialize-a-binary-tree.html">Serialize and Deserialize a Binary Tree</a>
+<a href="application-of-binary-tree.html">Application of Binary Tree</a>
+<a href="avl-tree-applications.html">AVL Tree Applications</a>
+<a href="b-tree-visualization.html">B Tree Visualization</a>
+<a href="properties-of-avl-trees.html">Properties of AVL Trees</a>
+<a href="push-and-pop-operation-in-stack-in-data-structure.html">Push and Pop Operation in Stack in Data Structure</a>
+<a href="binary-search-tree-implementation.html">Binary Search Tree Implementation</a>
+<a href="find-maximum-sum-by-replacing-the-subarray-in-given-range.html">Find Maximum Sum by Replacing the Subarray in Given Range</a>
+<a href="find-the-number-n-where-n-x-divisible-by-y-and-n-y-divisible-by-x.html">Find The Number N, Where (N+X) Divisible By Y And (N-Y) Divisible By X</a>
+<a href="find-values-of-p-and-q-satisfying-the-equation-n-p-2-q.html">Find Values of P and Q Satisfying the Equation N = P^2.Q</a>
+<a href="what-is-the-balance-factor-of-avl-tree.html">What is the Balance Factor of AVL Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-mcq.html">Data Structure MCQ</a>
+<a href="advanced-data-structure-mcq.html">Advanced DS MCQ</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="data-structure-algorithm.html">next &rarr;</a>
+<a class="next" href="data-structure-tutorial.html">&larr; prev</a>
+</div>
+<h1 class="h1">An Introduction to Data Structures</h1>
+<p>Since the invention of computers, people have been using the term "<strong>Data</strong>" to refer to Computer Information, either transmitted or stored. However, there is data that exists in order types as well. Data can be numbers or texts written on a piece of paper, in the form of bits and bytes stored inside the memory of electronic devices, or facts stored within a person's mind. As the world started modernizing, this data became a significant aspect of everyone's day-to-day life, and various implementations allowed them to store it differently.</p>
+<p><strong>Data</strong> is a collection of facts and figures or a set of values or values of a specific format that refers to a single set of item values. The data items are then classified into sub-items, which is the group of items that are not known as the simple primary form of the item.</p>
+<p>Let us consider an example where an employee name can be broken down into three sub-items: First, Middle, and Last. However, an ID assigned to an employee will generally be considered a single item.</p>
+<img src="https://static.javatpoint.com/ds/images/ds-introduction.png" alt="An Introduction to Data Structures" />
+<p><strong>Figure 1:</strong> Representation of Data Items</p>
+<p>In the example mentioned above, the items such as ID, Age, Gender, First, Middle, Last, Street, Locality, etc., are elementary data items. In contrast, the Name and the Address are group data items.</p>
+<h2 class="h2">What is Data Structure?</h2>
+<p><strong>Data Structure</strong> is a branch of Computer Science. The study of data structure allows us to understand the organization of data and the management of the data flow in order to increase the efficiency of any process or program. Data Structure is a particular way of storing and organizing data in the memory of the computer so that these data can easily be retrieved and efficiently utilized in the future when required. The data can be managed in various ways, like the logical or mathematical model for a specific organization of data is known as a data structure.</p>
+<p>The scope of a particular data model depends on two factors:</p>
+<ol class="points">
+<li>First, it must be loaded enough into the structure to reflect the definite correlation of the data with a real-world object.</li>
+<li>Second, the formation should be so straightforward that one can adapt to process the data efficiently whenever necessary.</li>
+</ol>
+<p>Some examples of Data Structures are Arrays, Linked Lists, Stack, Queue, Trees, etc. Data Structures are widely used in almost every aspect of Computer Science, i.e., Compiler Design, Operating Systems, Graphics, Artificial Intelligence, and many more.</p>
+<p>Data Structures are the main part of many Computer Science Algorithms as they allow the programmers to manage the data in an effective way. It plays a crucial role in improving the performance of a program or software, as the main objective of the software is to store and retrieve the user's data as fast as possible.</p>
+<h2 class="h2">Basic Terminologies related to Data Structures</h2>
+<p>Data Structures are the building blocks of any software or program. Selecting the suitable data structure for a program is an extremely challenging task for a programmer.</p>
+<p>The following are some fundamental terminologies used whenever the data structures are involved:</p>
+<ol class="points">
+<li><strong>Data:</strong> We can define data as an elementary value or a collection of values. For example, the Employee's name and ID are the data related to the Employee.</li>
+<li><strong>Data Items:</strong> A Single unit of value is known as Data Item.</li>
+<li><strong>Group Items:</strong> Data Items that have subordinate data items are known as Group Items. For example, an employee's name can have a first, middle, and last name.</li>
+<li><strong>Elementary Items:</strong> Data Items that are unable to divide into sub-items are known as Elementary Items. For example, the ID of an Employee.</li>
+<li><strong>Entity and Attribute:</strong> A class of certain objects is represented by an Entity. It consists of different Attributes. Each Attribute symbolizes the specific property of that Entity. For example,</li>
+</ol>
+<table class="alt">
+<tr>
+<th>Attributes</th>
+<th>ID</th>
+<th>Name</th>
+<th>Gender</th>
+<th>Job Title</th>
+</tr>
+<tr>
+<td><strong>Values</strong></td>
+<td>1234</td>
+<td>Stacey M. Hill</td>
+<td>Female</td>
+<td>Software Developer</td>
+</tr>
+</table>
+<p>Entities with similar attributes form an <strong>Entity Set</strong>. Each attribute of an entity set has a range of values, the set of all possible values that could be assigned to the specific attribute.</p>
+<p>The term "information" is sometimes utilized for data with given attributes of meaningful or processed data.</p>
+<ol class="points">
+<li><strong>Field:</strong> A single elementary unit of information symbolizing the Attribute of an Entity is known as Field.</li>
+<li><strong>Record:</strong> A collection of different data items are known as a Record. For example, if we talk about the employee entity, then its name, id, address, and job title can be grouped to form the record for the employee.</li>
+<li><strong>File:</strong> A collection of different Records of one entity type is known as a File. For example, if there are 100 employees, there will be 25 records in the related file containing data about each employee.</li>
+</ol>
+<h2 class="h2">Understanding the Need for Data Structures</h2>
+<p>As applications are becoming more complex and the amount of data is increasing every day, which may lead to problems with data searching, processing speed, multiple requests handling, and many more. Data Structures support different methods to organize, manage, and store data efficiently. With the help of Data Structures, we can easily traverse the data items. Data Structures provide Efficiency, Reusability, and Abstraction.</p>
+<h3 class="h3">Why should we learn Data Structures?</h3>
+<ol class="points">
+<li>Data Structures and Algorithms are two of the key aspects of Computer Science.</li>
+<li>Data Structures allow us to organize and store data, whereas Algorithms allow us to process that data meaningfully.</li>
+<li>Learning Data Structures and Algorithms will help us become better Programmers.</li>
+<li>We will be able to write code that is more effective and reliable.</li>
+<li>We will also be able to solve problems more quickly and efficiently.</li>
+</ol>
+<h2 class="h2">Understanding the Objectives of Data Structures</h2>
+<p>Data Structures satisfy two complementary objectives:</p>
+<ol class="points">
+<li><strong>Correctness:</strong> Data Structures are designed to operate correctly for all kinds of inputs based on the domain of interest. In order words, correctness forms the primary objective of Data Structure, which always depends upon the problems that the Data Structure is meant to solve.</li>
+<li><strong>Efficiency:</strong> Data Structures also requires to be efficient. It should process the data quickly without utilizing many computer resources like memory space. In a real-time state, the efficiency of a data structure is a key factor in determining the success and failure of the process.</li>
+</ol>
+<h2 class="h2">Understanding some Key Features of Data Structures</h2>
+<p>Some of the Significant Features of Data Structures are:</p>
+<ol class="points">
+<li><strong>Robustness:</strong> Generally, all computer programmers aim to produce software that yields correct output for every possible input, along with efficient execution on all hardware platforms. This type of robust software must manage both valid and invalid inputs.</li>
+<li><strong>Adaptability:</strong> Building software applications like Web Browsers, Word Processors, and Internet Search Engine include huge software systems that require correct and efficient working or execution for many years. Moreover, software evolves due to emerging technologies or ever-changing market conditions.</li>
+<li><strong>Reusability:</strong> The features like Reusability and Adaptability go hand in hand. It is known that the programmer needs many resources to build any software, making it a costly enterprise. However, if the software is developed in a reusable and adaptable way, then it can be applied in most future applications. Thus, by executing quality data structures, it is possible to build reusable software, which appears to be cost-effective and timesaving.</li>
+</ol>
+<h2 class="h2">Classification of Data Structures</h2>
+<p>A Data Structure delivers a structured set of variables related to each other in various ways. It forms the basis of a programming tool that signifies the relationship between the data elements and allows programmers to process the data efficiently.</p>
+<p>We can classify Data Structures into two categories:</p>
+<ol class="points">
+<li>Primitive Data Structure</li>
+<li>Non-Primitive Data Structure</li>
+</ol>
+<p>The following figure shows the different classifications of Data Structures.</p>
+<img src="https://static.javatpoint.com/ds/images/ds-introduction2.png" alt="An Introduction to Data Structures" />
+<p><strong>Figure 2:</strong> Classifications of Data Structures</p>
+<h3 class="h3">Primitive Data Structures</h3>
+<ol class="points">
+<li><strong>Primitive Data Structures</strong> are the data structures consisting of the numbers and the characters that come <strong>in-built</strong> into programs.</li>
+<li>These data structures can be manipulated or operated directly by machine-level instructions.</li>
+<li>Basic data types like <strong>Integer, Float, Character</strong>, and <strong>Boolean</strong> come under the Primitive Data Structures.</li></li>
+<li>These data types are also called <strong>Simple data types</strong>, as they contain characters that can't be divided further</li>
+</ol>
+<h3 class="h3">Non-Primitive Data Structures</h3>
+<ol class="points">
+<li><strong>Non-Primitive Data Structures</strong> are those data structures derived from Primitive Data Structures.</li>
+<li>These data structures can't be manipulated or operated directly by machine-level instructions.</li>
+<li>The focus of these data structures is on forming a set of data elements that is either <strong>homogeneous</strong> (same data type) or <strong>heterogeneous</strong> (different data types).</li>
+<li>Based on the structure and arrangement of data, we can divide these data structures into two sub-categories -
+<ol class="pointsa">
+<li>Linear Data Structures</li>
+<li>Non-Linear Data Structures</li>
+</ol>
+</li>
+</ol>
+<h3 class="h3">Linear Data Structures</h3>
+<p>A data structure that preserves a linear connection among its data elements is known as a Linear Data Structure. The arrangement of the data is done linearly, where each element consists of the successors and predecessors except the first and the last data element. However, it is not necessarily true in the case of memory, as the arrangement may not be sequential.</p>
+<p>Based on memory allocation, the Linear Data Structures are further classified into two types:</p>
+<ol class="points">
+<li><strong>Static Data Structures:</strong> The data structures having a fixed size are known as Static Data Structures. The memory for these data structures is allocated at the compiler time, and their size cannot be changed by the user after being compiled; however, the data stored in them can be altered.<br>
+The <strong>Array</strong> is the best example of the Static Data Structure as they have a fixed size, and its data can be modified later.</li>
+<li><strong>Dynamic Data Structures:</strong> The data structures having a dynamic size are known as Dynamic Data Structures. The memory of these data structures is allocated at the run time, and their size varies during the run time of the code. Moreover, the user can change the size as well as the data elements stored in these data structures at the run time of the code.<br>
+<strong>Linked Lists, Stacks</strong>, and <strong>Queues</strong> are common examples of dynamic data structures</li>
+</ol>
+<h3 class="h3">Types of Linear Data Structures</h3>
+<p>The following is the list of Linear Data Structures that we generally use:</p>
+<p><strong>1. Arrays</strong></p>
+<p>An <strong>Array</strong> is a data structure used to collect multiple data elements of the same data type into one variable. Instead of storing multiple values of the same data types in separate variable names, we could store all of them together into one variable. This statement doesn't imply that we will have to unite all the values of the same data type in any program into one array of that data type. But there will often be times when some specific variables of the same data types are all related to one another in a way appropriate for an array.</p>
+<p>An Array is a list of elements where each element has a unique place in the list. The data elements of the array share the same variable name; however, each carries a different index number called a subscript. We can access any data element from the list with the help of its location in the list. Thus, the key feature of the arrays to understand is that the data is stored in contiguous memory locations, making it possible for the users to traverse through the data elements of the array using their respective indexes.</p>
+<img src="https://static.javatpoint.com/ds/images/ds-introduction3.png" alt="An Introduction to Data Structures" />
+<p><strong>Figure 3.</strong> An Array</p>
+<p><strong>Arrays can be classified into different types:</strong></p>
+<ol class="pointsa">
+<li><strong>One-Dimensional Array:</strong> An Array with only one row of data elements is known as a One-Dimensional Array. It is stored in ascending storage location.</li>
+<li><strong>Two-Dimensional Array:</strong> An Array consisting of multiple rows and columns of data elements is called a Two-Dimensional Array. It is also known as a Matrix.</li>
+<li><strong>Multidimensional Array:</strong> We can define Multidimensional Array as an Array of Arrays. Multidimensional Arrays are not bounded to two indices or two dimensions as they can include as many indices are per the need.</li>
+</ol>
+<p><strong>Some Applications of Array:</strong></p>
+<ol class="pointsa">
+<li>We can store a list of data elements belonging to the same data type.</li>
+<li>Array acts as an auxiliary storage for other data structures.</li>
+<li>The array also helps store data elements of a binary tree of the fixed count.</li>
+<li>Array also acts as a storage of matrices.</li>
+</ol>
+<p><strong>2. Linked Lists</strong></p>
+<p>A <strong>Linked List</strong> is another example of a linear data structure used to store a collection of data elements dynamically. Data elements in this data structure are represented by the Nodes, connected using links or pointers. Each node contains two fields, the information field consists of the actual data, and the pointer field consists of the address of the subsequent nodes in the list. The pointer of the last node of the linked list consists of a null pointer, as it points to nothing. Unlike the Arrays, the user can dynamically adjust the size of a Linked List as per the requirements.</p>
+<img src="https://static.javatpoint.com/ds/images/ds-introduction4.png" alt="An Introduction to Data Structures" />
+<p><strong>Figure 4.</strong> A Linked List</p>
+<p><strong>Linked Lists can be classified into different types:</strong></p>
+<ol class="pointsa">
+<li><strong>Singly Linked List:</strong> A Singly Linked List is the most common type of Linked List. Each node has data and a pointer field containing an address to the next node.</li>
+<li><strong>Doubly Linked List:</strong> A Doubly Linked List consists of an information field and two pointer fields. The information field contains the data. The first pointer field contains an address of the previous node, whereas another pointer field contains a reference to the next node. Thus, we can go in both directions (backward as well as forward).</li>
+<li><strong>Circular Linked List:</strong> The Circular Linked List is similar to the Singly Linked List. The only key difference is that the last node contains the address of the first node, forming a circular loop in the Circular Linked List.</li>
+</ol>
+<p><strong>Some Applications of Linked Lists:</strong></p>
+<ol class="pointsa">
+<li>The Linked Lists help us implement stacks, queues, binary trees, and graphs of predefined size.</li>
+<li>We can also implement Operating System's function for dynamic memory management.</li>
+<li>Linked Lists also allow polynomial implementation for mathematical operations.</li>
+<li>We can use Circular Linked List to implement Operating Systems or application functions that Round Robin execution of tasks.</li>
+<li>Circular Linked List is also helpful in a Slide Show where a user requires to go back to the first slide after the last slide is presented.</li>
+<li>Doubly Linked List is utilized to implement forward and backward buttons in a browser to move forward and backward in the opened pages of a website.</li>
+</ol>
+<p><strong>3. Stacks</strong></p>
+<p>A <strong>Stack</strong> is a Linear Data Structure that follows the <strong>LIFO</strong> (Last In, First Out) principle that allows operations like insertion and deletion from one end of the Stack, i.e., Top. Stacks can be implemented with the help of contiguous memory, an Array, and non-contiguous memory, a Linked List. Real-life examples of Stacks are piles of books, a deck of cards, piles of money, and many more.</p>
+<img src="https://static.javatpoint.com/ds/images/ds-introduction5.png" alt="An Introduction to Data Structures" />
+<p><strong>Figure 5.</strong> A Real-life Example of Stack</p>
+<p>The above figure represents the real-life example of a Stack where the operations are performed from one end only, like the insertion and removal of new books from the top of the Stack. It implies that the insertion and deletion in the Stack can be done only from the top of the Stack. We can access only the Stack's tops at any given time.</p>
+<p><strong>The primary operations in the Stack are as follows:</strong></p>
+<ol class="pointsa">
+<li><strong>Push:</strong> Operation to insert a new element in the Stack is termed as Push Operation.</li>
+<li><strong>Pop:</strong> Operation to remove or delete elements from the Stack is termed as Pop Operation.</li>
+</ol>
+<img src="https://static.javatpoint.com/ds/images/ds-introduction6.png" alt="An Introduction to Data Structures" />
+<p><strong>Figure 6.</strong> A Stack</p>
+<p><strong>Some Applications of Stacks:</strong></p>
+<ol class="pointsa">
+<li>The Stack is used as a Temporary Storage Structure for recursive operations.</li>
+<li>Stack is also utilized as Auxiliary Storage Structure for function calls, nested operations, and deferred/postponed functions.</li>
+<li>We can manage function calls using Stacks.</li>
+<li>Stacks are also utilized to evaluate the arithmetic expressions in different programming languages.</li>
+<li>Stacks are also helpful in converting infix expressions to postfix expressions.</li>
+<li>Stacks allow us to check the expression's syntax in the programming environment.</li>
+<li>We can match parenthesis using Stacks.</li>
+<li>Stacks can be used to reverse a String.</li>
+<li>Stacks are helpful in solving problems based on backtracking.</li>
+<li>We can use Stacks in depth-first search in graph and tree traversal.</li>
+<li>Stacks are also used in Operating System functions.</li>
+<li>Stacks are also used in UNDO and REDO functions in an edit.</li>
+</ol>
+<p><strong>4. Queues</strong></p>
+<p>A <strong>Queue</strong> is a linear data structure similar to a Stack with some limitations on the insertion and deletion of the elements. The insertion of an element in a Queue is done at one end, and the removal is done at another or opposite end. Thus, we can conclude that the Queue data structure follows FIFO (First In, First Out) principle to manipulate the data elements. Implementation of Queues can be done using Arrays, Linked Lists, or Stacks. Some real-life examples of Queues are a line at the ticket counter, an escalator, a car wash, and many more.</p>
+<img src="https://static.javatpoint.com/ds/images/ds-introduction7.png" alt="An Introduction to Data Structures" />
+<p><strong>Figure 7.</strong> A Real-life Example of Queue</p>
+<p>The above image is a real-life illustration of a movie ticket counter that can help us understand the Queue where the customer who comes first is always served first. The customer arriving last will undoubtedly be served last. Both ends of the Queue are open and can execute different operations. Another example is a food court line where the customer is inserted from the rear end while the customer is removed at the front end after providing the service they asked for.</p>
+<p>The following are the primary operations of the Queue:</p>
+<ol class="pointsa">
+<li><strong>Enqueue:</strong> The insertion or Addition of some data elements to the Queue is called Enqueue. The element insertion is always done with the help of the rear pointer.</li>
+<li><strong>Dequeue:</strong> Deleting or removing data elements from the Queue is termed Dequeue. The deletion of the element is always done with the help of the front pointer.</li>
+</ol>
+<img src="https://static.javatpoint.com/ds/images/ds-introduction8.png" alt="An Introduction to Data Structures" />
+<p><strong>Figure 8.</strong> A Queue</p>
+<p><strong>Some Applications of Queues:</strong></p>
+<ol class="pointsa">
+<li>Queues are generally used in the breadth search operation in Graphs.</li>
+<li>Queues are also used in Job Scheduler Operations of Operating Systems, like a keyboard buffer queue to store the keys pressed by users and a print buffer queue to store the documents printed by the printer.</li>
+<li>Queues are responsible for CPU scheduling, Job scheduling, and Disk Scheduling.</li>
+<li>Priority Queues are utilized in file-downloading operations in a browser.</li>
+<li>Queues are also used to transfer data between peripheral devices and the CPU.</li>
+<li>Queues are also responsible for handling interrupts generated by the User Applications for the CPU.</li>
+</ol>
+<h3 class="h3">Non-Linear Data Structures</h3>
+<p>Non-Linear Data Structures are data structures where the data elements are not arranged in sequential order. Here, the insertion and removal of data are not feasible in a linear manner. There exists a hierarchical relationship between the individual data items.</p>
+<h3 class="h3">Types of Non-Linear Data Structures</h3>
+<p>The following is the list of Non-Linear Data Structures that we generally use:</p>
+<p><strong>1. Trees</strong></p>
+<p>A Tree is a Non-Linear Data Structure and a hierarchy containing a collection of nodes such that each node of the tree stores a value and a list of references to other nodes (the "children").</p>
+<p>The Tree data structure is a specialized method to arrange and collect data in the computer to be utilized more effectively. It contains a central node, structural nodes, and sub-nodes connected via edges. We can also say that the tree data structure consists of roots, branches, and leaves connected.</p>
+<img src="https://static.javatpoint.com/ds/images/ds-introduction9.png" alt="An Introduction to Data Structures" />
+<p><strong>Figure 9.</strong> A Tree</p>
+<p><strong>Trees can be classified into different types:</strong></p>
+<ol class="pointsa">
+<li><strong>Binary Tree:</strong> A Tree data structure where each parent node can have at most two children is termed a Binary Tree.</li>
+<li><strong>Binary Search Tree:</strong> A Binary Search Tree is a Tree data structure where we can easily maintain a sorted list of numbers.</li>
+<li><strong>AVL Tree:</strong> An AVL Tree is a self-balancing Binary Search Tree where each node maintains extra information known as a Balance Factor whose value is either -1, 0, or +1.</li>
+<li><strong>B-Tree:</strong> A B-Tree is a special type of self-balancing Binary Search Tree where each node consists of multiple keys and can have more than two children.</li>
+</ol>
+<p><strong>Some Applications of Trees:</strong></p>
+<ol class="pointsa">
+<li>Trees implement hierarchical structures in computer systems like directories and file systems.</li>
+<li>Trees are also used to implement the navigation structure of a website.</li>
+<li>We can generate code like Huffman's code using Trees.</li>
+<li>Trees are also helpful in decision-making in Gaming applications.</li>
+<li>Trees are responsible for implementing priority queues for priority-based OS scheduling functions.</li>
+<li>Trees are also responsible for parsing expressions and statements in the compilers of different programming languages.</li>
+<li>We can use Trees to store data keys for indexing for Database Management System (DBMS).</li>
+<li>Spanning Trees allows us to route decisions in Computer and Communications Networks.</li>
+<li>Trees are also used in the path-finding algorithm implemented in Artificial Intelligence (AI), Robotics, and Video Games Applications.</li>
+</ol>
+<p><strong>2. Graphs</strong></p>
+<p>A Graph is another example of a Non-Linear Data Structure comprising a finite number of nodes or vertices and the edges connecting them. The Graphs are utilized to address problems of the real world in which it denotes the problem area as a network such as social networks, circuit networks, and telephone networks. For instance, the nodes or vertices of a Graph can represent a single user in a telephone network, while the edges represent the link between them via telephone.</p>
+<p>The Graph data structure, G is considered a mathematical structure comprised of a set of vertices, V and a set of edges, E as shown below:</p>
+<p>G = (V,E)</p>
+<img src="https://static.javatpoint.com/ds/images/ds-introduction10.png" alt="An Introduction to Data Structures" />
+<p><strong>Figure 10.</strong> A Graph</p>
+<p>The above figure represents a Graph having seven vertices A, B, C, D, E, F, G, and ten edges [A, B], [A, C], [B, C], [B, D], [B, E], [C, D], [D, E], [D, F], [E, F], and [E, G].</p>
+<p><strong>Depending upon the position of the vertices and edges, the Graphs can be classified into different types:</strong></p>
+<ol class="pointsa">
+<li><strong>Null Graph:</strong> A Graph with an empty set of edges is termed a Null Graph.</li>
+<li><strong>Trivial Graph:</strong> A Graph having only one vertex is termed a Trivial Graph.</li>
+<li><strong>Simple Graph:</strong> A Graph with neither self-loops nor multiple edges is known as a Simple Graph.</li>
+<li><strong>Multi Graph:</strong> A Graph is said to be Multi if it consists of multiple edges but no self-loops.</li>
+<li><strong>Pseudo Graph:</strong> A Graph with self-loops and multiple edges is termed a Pseudo Graph.</li>
+<li><strong>Non-Directed Graph:</strong> A Graph consisting of non-directed edges is known as a Non-Directed Graph.</li>
+<li><strong>Directed Graph:</strong> A Graph consisting of the directed edges between the vertices is known as a Directed Graph.</li>
+<li><strong>Connected Graph:</strong> A Graph with at least a single path between every pair of vertices is termed a Connected Graph.</li>
+<li><strong>Disconnected Graph:</strong> A Graph where there does not exist any path between at least one pair of vertices is termed a Disconnected Graph.</li>
+<li><strong>Regular Graph:</strong> A Graph where all vertices have the same degree is termed a Regular Graph.</li>
+<li><strong>Complete Graph:</strong> A Graph in which all vertices have an edge between every pair of vertices is known as a Complete Graph.</li>
+<li><strong>Cycle Graph:</strong> A Graph is said to be a Cycle if it has at least three vertices and edges that form a cycle.</li>
+<li><strong>Cyclic Graph:</strong> A Graph is said to be Cyclic if and only if at least one cycle exists.</li>
+<li><strong>Acyclic Graph:</strong> A Graph having zero cycles is termed an Acyclic Graph.</li>
+<li><strong>Finite Graph:</strong> A Graph with a finite number of vertices and edges is known as a Finite Graph.</li>
+<li><strong>Infinite Graph:</strong> A Graph with an infinite number of vertices and edges is known as an Infinite Graph.</li>
+<li><strong>Bipartite Graph:</strong> A Graph where the vertices can be divided into independent sets A and B, and all the vertices of set A should only be connected to the vertices present in set B with some edges is termed a Bipartite Graph.</li>
+<li><strong>Planar Graph:</strong> A Graph is said to be a Planar if we can draw it in a single plane with two edges intersecting each other.</li>
+<li><strong>Euler Graph:</strong> A Graph is said to be Euler if and only if all the vertices are even degrees.</li>
+<li><strong>Hamiltonian Graph:</strong> A Connected Graph consisting of a Hamiltonian circuit is known as a Hamiltonian Graph.</li>
+</ol>
+<p><strong>Some Applications of Graphs:</strong></p>
+<ol class="pointsa">
+<li>Graphs help us represent routes and networks in transportation, travel, and communication applications.</li>
+<li>Graphs are used to display routes in GPS.</li>
+<li>Graphs also help us represent the interconnections in social networks and other network-based applications.</li>
+<li>Graphs are utilized in mapping applications.</li>
+<li>Graphs are responsible for the representation of user preference in e-commerce applications.</li>
+<li>Graphs are also used in Utility networks in order to identify the problems posed to local or municipal corporations.</li>
+<li>Graphs also help to manage the utilization and availability of resources in an organization.</li>
+<li>Graphs are also used to make document link maps of the websites in order to display the connectivity between the pages through hyperlinks.</li>
+<li>Graphs are also used in robotic motions and neural networks.</li>
+</ol>
+<h2 class="h2">Basic Operations of Data Structures</h2>
+<p>In the following section, we will discuss the different types of operations that we can perform to manipulate data in every data structure:</p>
+<ol class="points">
+<li><strong>Traversal:</strong> Traversing a data structure means accessing each data element exactly once so it can be administered. For example, traversing is required while printing the names of all the employees in a department.</li>
+<li><strong>Search:</strong> Search is another data structure operation which means to find the location of one or more data elements that meet certain constraints. Such a data element may or may not be present in the given set of data elements. For example, we can use the search operation to find the names of all the employees who have the experience of more than 5 years.</li>
+<li><strong>Insertion:</strong> Insertion means inserting or adding new data elements to the collection. For example, we can use the insertion operation to add the details of a new employee the company has recently hired.</li>
+<li><strong>Deletion:</strong> Deletion means to remove or delete a specific data element from the given list of data elements. For example, we can use the deleting operation to delete the name of an employee who has left the job.</li>
+<li><strong>Sorting:</strong> Sorting means to arrange the data elements in either Ascending or Descending order depending on the type of application. For example, we can use the sorting operation to arrange the names of employees in a department in alphabetical order or estimate the top three performers of the month by arranging the performance of the employees in descending order and extracting the details of the top three.</li>
+<li><strong>Merge:</strong> Merge means to combine data elements of two sorted lists in order to form a single list of sorted data elements.</li>
+<li><strong>Create:</strong> Create is an operation used to reserve memory for the data elements of the program. We can perform this operation using a declaration statement. The creation of data structure can take place either during the following:
+<ol class="pointsa">
+<li>Compile-time</li>
+<li>Run-time<br>
+For example, the <strong>malloc()</strong> function is used in C Language to create data structure.</li>
+</ol>
+</li>
+<li><strong>Selection:</strong> Selection means selecting a particular data from the available data. We can select any particular data by specifying conditions inside the loop.</li>
+<li><strong>Update:</strong> The Update operation allows us to update or modify the data in the data structure. We can also update any particular data by specifying some conditions inside the loop, like the Selection operation.</li>
+<li><strong>Splitting:</strong> The Splitting operation allows us to divide data into various subparts decreasing the overall process completion time.</li>
+</ol>
+<h2 class="h2">Understanding the Abstract Data Type</h2>
+<p>As per the <strong>National Institute of Standards and Technology (NIST)</strong>, a data structure is an arrangement of information, generally in the memory, for better algorithm efficiency. Data Structures include linked lists, stacks, queues, trees, and dictionaries. They could also be a theoretical entity, like the name and address of a person.</p>
+<p>From the definition mentioned above, we can conclude that the operations in data structure include:</p>
+<ol class="pointsa">
+<li>A high level of abstractions like addition or deletion of an item from a list.</li>
+<li>Searching and sorting an item in a list.</li>
+<li>Accessing the highest priority item in a list.</li>
+</ol>
+<p>Whenever the data structure does such operations, it is known as an <strong>Abstract Data Type (ADT)</strong>.</p>
+<p>We can define it as a set of data elements along with the operations on the data. The term "abstract" refers to the fact that the data and the fundamental operations defined on it are being studied independently of their implementation. It includes what we can do with the data, not how we can do it.</p>
+<p>An ADI implementation contains a storage structure in order to store the data elements and algorithms for fundamental operation. All the data structures, like an array, linked list, queue, stack, etc., are examples of ADT.</p>
+<h3 class="h3">Understanding the Advantages of using ADTs</h3>
+<p>In the real world, programs evolve as a consequence of new constraints or requirements, so modifying a program generally requires a change in one or multiple data structures. For example, suppose we want to insert a new field into an employee's record to keep track of more details about each employee. In that case, we can improve the efficiency of the program by replacing an Array with a Linked structure. In such a situation, rewriting every procedure that utilizes the modified structure is unsuitable. Hence, a better alternative is to separate a data structure from its implementation information. This is the principle behind the usage of Abstract Data Types (ADT).</p>
+<h2 class="h2">Some Applications of Data Structures</h2>
+<p>The following are some applications of Data Structures:</p>
+<ol class="points">
+<li>Data Structures help in the organization of data in a computer's memory.</li>
+<li>Data Structures also help in representing the information in databases.</li>
+<li>Data Structures allows the implementation of algorithms to search through data (For example, search engine).</li>
+<li>We can use the Data Structures to implement the algorithms to manipulate data (For example, word processors).</li>
+<li>We can also implement the algorithms to analyse data using Data Structures (For example, data miners).</li>
+<li>Data Structures support algorithms to generate the data (For example, a random number generator).</li>
+<li>Data Structures also support algorithms to compress and decompress the data (For example, a zip utility).</li>
+<li>We can also use Data Structures to implement algorithms to encrypt and decrypt the data (For example, a security system).</li>
+<li>With the help of Data Structures, we can build software that can manage files and directories (For example, a file manager).</li>
+<li>We can also develop software that can render graphics using Data Structures. (For example, a web browser or 3D rendering software).</li>
+</ol>
+<p>Apart from those, as mentioned earlier, there are many other applications of Data Structures that can help us build any desired software.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="data-structure-algorithm.html">DS Algorithm</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="data-structure-tutorial.html">&larr; prev</a>
+<a style="float:right" class="next" href="data-structure-algorithm.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="385e5d5d5c5a595b537852594e594c485751564c165b5755">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/data-structure-introduction"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/data-structure-introduction"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/data-structure-introduction"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+  <p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+ <p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="cba3b98ba1aabdaabfbba4a2a5bfe5a8a4a6">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ddb5af9db7bcabbca9adb2b4b3a9f3beb2b0f3">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/data-structure-introduction by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:02:57 GMT -->
+</html> 

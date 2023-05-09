@@ -1,0 +1,1042 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/b-tree-visualization by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:07:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>B Tree Visualization - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="B Tree Visualization - javatpoint" /><meta property="og:description" content="B Tree Visualization with Introduction, Asymptotic Analysis, Array, Pointer, Structure, Singly Linked List, Doubly Linked List, Graph, Tree, B+ Tree, Avl Tree etc." />
+<meta name="keywords" content="data structure tutorial, introduction, asymptotic analysis, array, pointer, structure, singly linked list, doubly linked list, circular linked list, binary search, linear search, sorting, bucket sort, comb sort, shell sort, heap sort, merge sort, counting sort, stack, quene, circular quene, graph, tree, b tree, b+ tree, avl tree" /><meta name="description" content="B Tree Visualization with Introduction, Asymptotic Analysis, Array, Pointer, Structure, Singly Linked List, Doubly Linked List, Graph, Tree, B+ Tree, Avl Tree etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="b-tree-visualization.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="B Tree Visualization - javatpoint" /><meta name="twitter:description" property="og:description" content="B Tree Visualization with Introduction, Asymptotic Analysis, Array, Pointer, Structure, Singly Linked List, Doubly Linked List, Graph, Tree, B+ Tree, Avl Tree etc." /><meta property="og:url" content="b-tree-visualization.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="data-structure-tutorial.html" class="selected">Data Structure</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="cpp-tutorial.html">C++</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="ajax-tutorial.html">Ajax</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="cloud-computing.html">Cloud</a></li>
+<li><a href="design-patterns-in-java.html">Design Pattern</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-tutorial.html">DS Tutorial</a>
+<a href="data-structure-introduction.html">DS Introduction</a>
+<a href="data-structure-algorithm.html">DS Algorithm</a>
+<a href="data-structure-asymptotic-analysis.html">Asymptotic Analysis</a>
+<a href="data-structure-pointer.html">DS Pointer</a>
+<a href="data-structure-structure.html">DS Structure</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Array</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-array.html">DS Array</a>
+<a href="data-structure-2d-array.html">2D Array</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Linked List</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ds-linked-list.html">Linked List</a>
+<a href="ds-types-of-linked-list.html">Types of Linked List</a>
+<a href="singly-linked-list.html">Singly Linked List</a>
+<a href="doubly-linked-list.html">Doubly Linked List</a>
+<a href="circular-singly-linked-list.html">Circular Linked List</a>
+<a href="circular-doubly-linked-list.html">Circular Doubly List</a>
+<a href="skip-list-in-data-structure.html">Skip list in DS</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Stack</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-stack.html">DS Stack</a>
+<a href="ds-array-implementation-of-stack.html">Array Implementation</a>
+<a href="ds-linked-list-implementation-of-stack.html">Linked List Implementation</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Queue</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-queue.html">DS Queue</a>
+<a href="ds-types-of-queues.html">Types of Queues</a>
+<a href="array-representation-of-queue.html">Array Representation</a>
+<a href="linked-list-implementation-of-queue.html">Linked List Representation</a>
+<a href="circular-queue.html">Circular Queue</a>
+<a href="ds-deque.html">Deque</a>
+<a href="ds-priority-queue.html">Priority Queue</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Tree</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tree.html">DS Tree</a>
+<a href="binary-tree.html">Binary Tree</a>
+<a href="binary-search-tree.html">Binary Search Tree</a>
+<a href="avl-tree.html">AVL Tree</a>
+<a href="b-tree.html">B Tree</a>
+<a href="b-plus-tree.html">B+ Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Graph</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ds-graph.html">DS Graph</a>
+<a href="graph-representation.html">Graph Implementation</a>
+<a href="breadth-first-search-algorithm.html">BFS Algorithm</a>
+<a href="depth-first-search-algorithm.html">DFS Algorithm</a>
+<a href="spanning-tree.html">Spanning Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Searching</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linear-search.html">Linear Search</a>
+<a href="binary-search.html">Binary Search</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Sorting</span></h2>
+</div>
+<div class="leftmenu">
+<a href="bubble-sort.html">Bubble Sort</a>
+<a href="bucket-sort.html">Bucket Sort</a>
+<a href="comb-sort.html">Comb Sort</a>
+<a href="counting-sort.html">Counting Sort</a>
+<a href="heap-sort.html">Heap Sort</a>
+<a href="insertion-sort.html">Insertion Sort</a>
+<a href="merge-sort.html">Merge Sort</a>
+<a href="quick-sort.html">Quick Sort</a>
+<a href="radix-sort.html">Radix Sort</a>
+<a href="selection-sort.html">Selection Sort</a>
+<a href="shell-sort.html">Shell Sort</a>
+<a href="bitonic-sort.html">Bitonic Sort</a>
+<a href="cocktail-sort.html">Cocktail Sort</a>
+<a href="cycle-sort.html">Cycle Sort</a>
+<a href="tim-sort.html">Tim Sort</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linear-vs-non-linear-data-structure.html">Linear vs non-linear</a>
+<a href="ds-array-vs-linked-list.html">Array vs linked list</a>
+<a href="https://www.javatpoint.com/ds-stack-vs-queue">Stack vs queue</a>
+<a href="ds-linear-vs-circular-queue.html">Linear vs Circular Queue</a>
+<a href="ds-linear-search-vs-binary-search.html">Linear Search vs Binary Search</a>
+<a href="singly-linked-list-vs-doubly-linked-list.html">Singly Linked List vs Doubly Linked List</a>
+<a href="https://www.javatpoint.com/binary-tree-vs-binary-search-tree">Binary vs Binary Search Tree</a>
+<a href="tree-vs-graph-data-structure.html">Tree vs Graph</a>
+<a href="binary-search-tree-vs-avl-tree.html">Binary Search tree vs AVL tree</a>
+<a href="red-black-tree-vs-avl-tree.html">Red Black Tree vs AVL tree</a>
+<a href="b-tree-vs-bplus-tree.html">B tree vs B+ tree</a>
+<a href="quick-sort-vs-merge-sort.html">Quick Sort vs Merge Sort</a>
+<a href="bfs-vs-dfs.html">BFS vs DFS</a>
+<a href="stack-vs-heap.html">Stack vs Heap</a>
+<a href="bubble-sort-vs-selection-sort.html">Bubble sort vs. Selection sort</a>
+<a href="ds-stack-vs-array.html">Stack vs Array</a>
+<a href="full-binary-tree-vs-complete-binary-tree.html">Full Binary Tree vs Complete Binary Tree</a>
+<a href="binary-tree-vs-b-tree.html">Binary Tree vs B Tree</a>
+<a href="primitive-vs-non-primitive-data-structure.html">Primitive vs non-primitive data structure</a>
+<a href="data-types-vs-data-structure.html">Data types vs data structure</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="trie-data-structure.html">Trie Data Structure</a>
+<a href="heap-data-structure.html">Heap Data Structure</a>
+<a href="splay-tree.html">Splay Tree</a>
+<a href="fundamental-of-the-data-structure.html">Fundamental of the DS</a>
+<a href="hash-table.html">Hash Table</a>
+<a href="preorder-traversal.html">Preorder Traversal</a>
+<a href="tree-traversal.html">Tree Traversal</a>
+<a href="implementation-of-queue-using-stacks.html">Implementation of Queue using Stacks</a>
+<a href="implementation-of-stack-using-queue.html">Implementation of Stack using Queue</a>
+<a href="binomial-heap.html">Binomial Heap</a>
+<a href="postorder-traversal.html">Postorder Traversal</a>
+<a href="sparse-matrix.html">Sparse Matrix</a>
+<a href="detect-loop-in-a-linked-list.html">Detect loop in a Linked list</a>
+<a href="inorder-traversal.html">Inorder Traversal</a>
+<a href="convert-infix-to-postfix-notation.html">Convert Infix to Postfix notation</a>
+<a href="convert-infix-to-prefix-notation.html">Convert infix to prefix notation</a>
+<a href="conversion-of-prefix-to-postfix-expression.html">Conversion of Prefix to Postfix expression</a>
+<a href="conversion-of-postfix-to-prefix-expression.html">Conversion of Postfix to Prefix expression</a>
+<a href="remove-loop-in-a-linked-list.html">Remove the loop in a Linked List</a>
+<a href="implement-two-stacks-in-an-array.html">Implement two stacks in an array</a>
+<a href="reverse-a-stack-using-recursion.html">Reverse a stack using recursion</a>
+<a href="detect-cycle-in-a-directed-graph.html">Detect cycle in a directed graph</a>
+<a href="optimal-binary-search-tree.html">Optimal Binary Search Tree</a>
+<a href="priority-queue-using-linked-list.html">Priority Queue using Linked list</a>
+<a href="balanced-binary-search-tree.html">Balanced Binary Search Tree</a>
+<a href="https://www.javatpoint.com/boundary-traversal-of-binary-tree">Boundary Traversal of Binary tree</a>
+<a href="diagonal-traversal-of-binary-tree.html">Diagonal Traversal of Binary Tree</a>
+<a href="vertical-traversal-of-a-binary-tree.html">Vertical Traversal of a Binary tree</a>
+<a href="graph-algorithms.html">Graph Algorithms</a>
+<a href="time-complexity-of-sorting-algorithms.html">Time Complexity of Sorting Algorithms</a>
+<a href="applications-of-stack-in-data-structure.html">Applications of Stack in Data Structure</a>
+<a href="dictionary-data-structure.html">Dictionary Data Structure</a>
+<a href="structured-data-and-unstructured-data.html">Structured Data and Unstructured Data</a>
+<a href="list-data-structure.html">List Data Structure</a>
+<a href="types-of-tree-in-data-structure.html">Types of Tree in Data Structure</a>
+<a href="abstract-data-type-in-data-structure.html">Abstract data type in data structure</a>
+<a href="disjoint-set-data-structure.html">Disjoint set data structure</a>
+<a href="dynamic-data-structure.html">Dynamic Data Structure</a>
+<a href="hash-function-in-data-structure.html">Hash Function in Data Structure</a>
+<a href="complete-binary-tree.html">Complete Binary Tree</a>
+<a href="threaded-binary-tree.html">Threaded Binary Tree</a>
+<a href="diameter-of-binary-tree.html">Diameter of Binary Tree</a>
+<a href="height-of-binary-tree.html">Height of Binary Tree</a>
+<a href="inorder-tree-traversal-without-stack.html">Inorder Tree Traversal without Stack</a>
+<a href="enumeration-of-binary-trees.html">Enumeration of Binary Trees</a>
+<a href="maximum-width-of-a-binary-tree.html">Maximum Width of a Binary Tree</a>
+<a href="types-of-graph-in-data-structure.html">Types of Graph in Data Structure</a>
+<a href="primitive-data-type.html">Primitive Data Type</a>
+<a href="semi-structured-data.html">Semi-Structured Data</a>
+<a href="advance-data-structures.html">Advance Data Structures</a>
+<a href="sort-an-array-of-0s-1s-and-2s.html">Sort an Array of 0's, 1's, and 2's</a>
+<a href="stock-span-problem.html">Stock Span Problem</a>
+<a href="implementation-of-deque-by-circular-array.html">Implementation of Deque by Circular Array</a>
+<a href="rotate-operation-in-linked-list.html">Rotate Operation in Linked List</a>
+<a href="subarray-with-given-sum.html">Subarray with given sum</a>
+<a href="self-organizing-list.html">Self-organizing List</a>
+<a href="unrolled-linked-list.html">Unrolled Linked List</a>
+<a href="types-of-sparse-matrices.html">Types of Sparse Matrices</a>
+<a href="application-of-linked-list.html">Application of Linked List</a>
+<a href="topological-sorting.html">Topological Sorting</a>
+<a href="ternary-search-tree.html">Ternary Search Tree</a>
+<a href="stock-span-problem.html">Stock Span Problem</a>
+<a href="https://www.javatpoint.com/treap-data-structure">Treap Data Structure</a>
+<a href="quicksort-on-doubly-linked-list.html">Quicksort on Doubly Linked List</a>
+<a href="inversion-count.html">Inversion count</a>
+<a href="expression-tree-in-data-structure.html">Expression tree in DS</a>
+<a href="garbage-collection-in-data-structure.html">Garbage Collection in DS</a>
+<a href="https://www.javatpoint.com/merge-sort-on-doubly-linked-list">Merge Sort on Doubly Linked List</a>
+<a href="sort-stack-using-recursion.html">Sort Stack using Recursion</a>
+<a href="lifo-approach-in-data-structure.html">LIFO Approach in data structure</a>
+<a href="big-O-notation-in-data-structure.html">Big O Notation in DS</a>
+<a href="binary-tree-traversal-in-data-structure.html">Binary Tree Traversal in DS</a>
+<a href="queue-operations-in-data-structure.html">Queue Operations in DS</a>
+<a href="what-is-a-non-linear-data-structure.html">What is a Non-Linear Data Structure</a>
+<a href="fifo-approach-in-data-structure.html">FIFO Approach in data structure</a>
+<a href="what-are-connected-graphs-in-data-structure.html">What are connected graphs in data structure</a>
+<a href="which-python-data-structure-is-immutable.html">Which Python data structure is immutable</a>
+<a href="which-data-structure-is-used-by-map.html">Which data structure is used by map</a>
+<a href="what-is-iteration-in-data-structure.html">What is iteration in data structure</a>
+<a href="what-are-linear-search-and-binary-search-in-data-structure.html">What are linear search and binary search in data structure</a>
+<a href="hash-table-vs-stl-map.html">Hash Table vs STL Map</a>
+<a href="recamans-sequence.html">Recaman's Sequence</a>
+<a href="maximum-area-rectangle-created-by-selecting-four-sides-from-an-array.html">Maximum area rectangle created by selecting four sides from an array</a>
+<a href="maximum-number-of-distinct-nodes-in-a-root-to-leaf-path.html">Maximum number of distinct nodes in a root-to-leaf path</a>
+<a href="hashing-open-addressing-for-collision-handling.html">Hashing - Open Addressing for Collision Handling</a>
+<a href="introduction-to-hashing.html">Introduction to Hashing</a>
+<a href="separate-chaining-for-collision-handling.html">Separate chaining for Collision Handling</a>
+<a href="check-if-a-given-array-contains-duplicate-elements-within-k-distance-from-each-other.html">Check if a given array contains duplicate elements within k distance from each other</a>
+<a href="given-an-array-a-and-a-number-x-check-for-pair-in-a-with-sum-as-x.html">Given an array A[] and a number x, check for pair in A[] with sum as x (aka Two Sum)</a>
+<a href="find-number-of-employees-under-every-manager.html">Find number of Employees Under every Manager</a>
+<a href="union-and-intersection-of-two-linked-lists.html">Union and Intersection of two Linked Lists</a>
+<a href="kth-largest-element-in-an-array.html">Kth Largest element in an array</a>
+<a href="sort-an-almost-sorted-k-sorted-or-nearly-sorted-array.html">Sort an almost-sorted, k-sorted or nearly-sorted array</a>
+<a href="fibonacci-heap.html">Fibonacci Heap</a>
+<a href="find-whether-an-array-is-subset-of-another-array.html">Find whether an array is subset of another array</a>
+<a href="print-a-binary-tree-in-vertical-order.html">Print a Binary Tree in Vertical Order</a>
+<a href="tournament-tree.html">Tournament Tree (Winner Tree)</a>
+<a href="https://www.javatpoint.com/lazy-propagation-in-segment-tree">Lazy Propagation in Segment Tree</a>
+<a href="segment-tree-range-minimum-query.html">Segment Tree - Range Minimum Query</a>
+<a href="segment-tree-sum-of-given-range.html">Segment Tree - Sum of given Range</a>
+<a href="2-3-trees-search-insertion-and-deletion.html">2-3 Trees (Search, Insertion, and Deletion)</a>
+<a href="print-kth-least-significant-bit-of-a-number.html">Print kth least significant bit of a number</a>
+<a href="add-two-numbers-represented-by-linked-lists.html">Add two numbers represented by linked lists</a>
+<a href="adding-one-to-the-number-represented-as-array-of-digits.html">Adding one to the number represented as array of digits</a>
+<a href="find-precedence-characters-form-a-given-sorted-dictionary.html">Find precedence characters form a given sorted dictionary</a>
+<a href="check-if-any-anagram-of-a-string-is-palindrome-or-not.html">Check if any anagram of a string is palindrome or not</a>
+<a href="minimum-insertions-to-form-a-palindrome.html">Minimum Insertions to form a Palindrome</a>
+<a href="allocate-minimum-number-of-pages.html">Allocate Minimum Number of Pages</a>
+<a href="assembly-line-scheduling.html">Assembly Line Scheduling</a>
+<a href="breadth-first-search-or-bfs-for-a-graph.html">Breadth First Search or BFS for a Graph</a>
+<a href="find-an-element-in-array-such-that-sum-of-the-left-array-is-equal-to-the-sum-of-the-right-array.html">Find an element in array such that sum of the left array is equal to the sum of the right array</a>
+<a href="bridges-in-a-graph.html">Bridges in a Graph</a>
+<a href="bubble-sort-in-javascript.html">Bubble Sort in JavaScript</a>
+<a href="burn-the-binary-tree-from-the-target-node.html">Burn the Binary tree from the Target node</a>
+<a href="lowest-common-ancestor-in-a-binary-search-tree.html">Lowest Common Ancestor in a Binary Search Tree</a>
+<a href="types-of-hash-functions-in-c.html">Types of Hash Functions in C</a>
+<a href="implement-dynamic-deque-using-templates-class-and-a-circular-array.html">Implement Dynamic Deque using Templates Class and a Circular Array</a>
+<a href="iterative-depth-first-traversal-of-graph.html">Iterative Depth First Traversal of Graph</a>
+<a href="linked-list-data-structure-in-cpp-with-illustration.html">Linked List Data Structure in C++ With Illustration</a>
+<a href="reverse-a-linked-list-in-groups-of-given-size.html">Reverse a Linked List in Groups of Given Size</a>
+<a href="reverse-alternate-k-nodes-in-a-singly-linked-list.html">Reverse Alternate K nodes in a Singly Linked List</a>
+<a href="when-should-i-use-a-list-vs-a-linkedlist.html">When should I use a List vs a LinkedList</a>
+<a href="why-is-deleting-in-a-singly-linked-list-O-1.html">Why is deleting in a Singly Linked List O(1)</a>
+<a href="construct-full-binary-tree-using-its-preorder-traversal-and-preorder-traversal-of-its-mirror-tree.html">Construct Full Binary Tree using its Preorder Traversal and Preorder Traversal of its Mirror Tree</a>
+<a href="find-relative-complement-of-two-sorted-arrays.html">Find Relative Complement of two Sorted Arrays</a>
+<a href="handshaking-lemma-and-interesting-tree-properties-dsa.html">Handshaking Lemma and Interesting Tree Properties -DSA</a>
+<a href="how-to-efficiently-implement-kstacks-in-a-single-array.html">How to Efficiently Implement kStacks in a Single Array</a>
+<a href="write-c-functions-that-modify-head-pointer-of-a-linked-list.html">Write C Functions that Modify Head Pointer of a Linked List</a>
+<a href="introduction-to-ant-colony-optimization.html">Introduction to Ant Colony Optimization</a>
+<a href="what-is-array.html">What is Array</a>
+<a href="practical-byzantine-fault-tolerance.html">The practical Byzantine Fault Tolerance (pBFT)</a>
+<a href="applications-of-queue-data-structure.html">Applications of Queue Data Structure</a>
+<a href="line-graph.html">Line Graph</a>
+<a href="symmetric-binary-tree.html">Symmetric Binary Tree</a>
+<a href="avl-tree-advantages.html">AVL Tree Advantages</a>
+<a href="avl-tree-time-complexity.html">AVL Tree Time Complexity</a>
+<a href="merge-two-binary-trees.html">Merge Two Binary Trees</a>
+<a href="stack-operations-in-data-structure.html">Stack Operations in Data Structure</a>
+<a href="self-balancing-binary-search-trees.html">Self-Balancing Binary Search Trees</a>
+<a href="sliding-window-maximum-maximum-of-all-subarrays-of-size-k.html">Sliding Window Maximum (Maximum of all Subarrays of size K)</a>
+<a href="avl-trees-operations.html">AVL Trees Operations</a>
+<a href="limitations-of-sack-in-data-structures.html">Limitations of Stack in Data Structures</a>
+<a href="representation-of-stack-in-data-structure.html">Representation of stack in data structure</a>
+<a href="advantages-of-threaded-binary-tree.html">Advantages of Threaded Binary Tree</a>
+<a href="serialize-and-deserialize-a-binary-tree.html">Serialize and Deserialize a Binary Tree</a>
+<a href="application-of-binary-tree.html">Application of Binary Tree</a>
+<a href="avl-tree-applications.html">AVL Tree Applications</a>
+<a href="b-tree-visualization.html">B Tree Visualization</a>
+<a href="properties-of-avl-trees.html">Properties of AVL Trees</a>
+<a href="push-and-pop-operation-in-stack-in-data-structure.html">Push and Pop Operation in Stack in Data Structure</a>
+<a href="binary-search-tree-implementation.html">Binary Search Tree Implementation</a>
+<a href="find-maximum-sum-by-replacing-the-subarray-in-given-range.html">Find Maximum Sum by Replacing the Subarray in Given Range</a>
+<a href="find-the-number-n-where-n-x-divisible-by-y-and-n-y-divisible-by-x.html">Find The Number N, Where (N+X) Divisible By Y And (N-Y) Divisible By X</a>
+<a href="find-values-of-p-and-q-satisfying-the-equation-n-p-2-q.html">Find Values of P and Q Satisfying the Equation N = P^2.Q</a>
+<a href="what-is-the-balance-factor-of-avl-tree.html">What is the Balance Factor of AVL Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-mcq.html">Data Structure MCQ</a>
+<a href="advanced-data-structure-mcq.html">Advanced DS MCQ</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="properties-of-avl-trees.html">next &rarr;</a>
+<a class="next" href="avl-tree-applications.html">&larr; prev</a>
+</div>
+<h1 class="h1">B Tree Visualization</h1>
+<p>In the following tutorial, we will learn about the B Tree data structure and consider visualizing it.</p>
+<p>So, let's get started.</p>
+<h2 class="h2">What is a B Tree?</h2>
+<p>The <strong>B Tree</strong> is a <strong>special type of multiway search tree</strong>, commonly known as the <strong>M-way</strong> tree, which balances itself. Because of their balanced structure, these trees are commonly utilized to operate and manage immense databases and simplify searches. In a B Tree, each node can have at most n child nodes. B Tree is an example of Multilevel Indexing in a Database Management System (DBMS). Leaf and Internal nodes will both have record references. B Tree is known as Balanced Stored Tree because all the leaf nodes are at the same level.</p>
+<p>The following diagram is an example of a B Tree:</p>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization.png" alt="B Tree Visualization" />
+<p><strong>Figure 1.</strong> A B Tree with order 3</p>
+<h2 class="h2"><strong>Understanding the Rules of the B Tree</strong></h2>
+<p>The following are the important properties of a B Tree:</p>
+<ol class="points">
+<li>All the leaf nodes are at the same level.</li>
+<li>The B Tree data structure is defined by the term minimum degree 'd'. The value of 'd' depends on the size of the disk block.</li>
+<li>Every node, excluding the root, must consist of at least d-1 keys. The root node may consist of a minimum of 1 key.</li>
+<li>All nodes (including the root node) may consist of at most <strong>(2d-1)</strong> keys.</li>
+<li>The number of children of a node is equal to the <strong>addition of the number of keys present in it and</strong> .</li>
+<li>All keys of a node are sorted in ascending order. The child between two keys, k1 and k2, consists of all the keys ranging between k1 and k2, respectively.</li>
+<li>Unlike the Binary Search Tree, the B Tree data structure grows and shrinks from the root. Whereas the Binary Search Tree grows downwards and shrinks downward.</li>
+<li>Similar to other Self-Balanced Binary Search Trees, the Time complexity of the B Tree data structure for the operations like searching, insertion, and deletion is <strong>O(log?n)</strong>.</li>
+<li>The Insertion of a Node in the B Tree happens only at the Leaf Node.</li>
+</ol>
+<p>Let us consider the following example of a B Tree of minimum order 5.</p>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization2.png" alt="B Tree Visualization" />
+<p><strong>Figure 2.</strong> A B Tree of order 5</p>
+<h4 class="n">Note: The value of the minimum order is much more than 5 in a practical B Trees.</h4>
+<p>In the above diagram, we can observe that all the leaf nodes are at the same level, and all non-leaf nodes have no empty subtree and consist of keys one less than the number of their children.</p>
+<p>The set formulation of the B Tree rules:</p>
+<p>Every B Tree depends upon a positive constant integer known as <strong>MINIMUM</strong>, which is utilized in order to determine the number of data elements that can be held in a single node.</p>
+<p><strong>Rule 1:</strong> The root can have as few as only one data element (or even no data elements if it is also no children); every other node has at least <strong>MINIMUM</strong> data elements.</p>
+<p><strong>Rule 2:</strong> The maximum number of data elements stored in a node is twice the value of <strong>MINIMUM</strong>.</p>
+<p><strong>Rule 3:</strong> The data elements of each node of the B Tree are stored in a partially filled array, sorted from the smallest data element (at index <strong>0</strong>) to the largest data element (at the final utilized position of the array).</p>
+<p><strong>Rule 4:</strong> The total number of subtrees below a non-leaf node is always one more than the number of data elements in that node.</p>
+<ul class="points">
+<li>subtree 0,subtree 1,...</li>
+</ul>
+<p><strong>Rule 5:</strong> With respect to any non-leaf node:</p>
+<ol class="points">
+<li>A data element at index is greater than all the data elements in subtree number <strong>i</strong> of the node, and</li>
+<li>A data element at index is less than all the data elements in subtree number <strong>i+1</strong> of the node.</li>
+</ol>
+<p><strong>Rule 6:</strong> Every leaf in a B Tree has the same depth. Thus, it ensures that a B Tree prevents the problem of an unbalanced tree.</p>
+<h2 class="h2">Operations on a B Tree data structure</h2>
+<p>In order to ensure that none of the properties of a B Tree data structure are violated during the operations, the B Tree may be split or joined. The following are some operations that we can perform on a B Tree:</p>
+<ol class="points">
+<li>Searching a data element in B Tree</li>
+<li>Insertion of a data element in B Tree</li>
+<li>Deletion of a data element in B Tree</li>
+</ol>
+<h3 class="h3">Searching Operation on a B Tree</h3>
+<p>Searching an element in a B Tree is similar to that in a Binary Search Tree. But instead of making a two-way decision (Left or Right) like a Binary Search Tree, a B Tree makes an m-way decision at each node where m is the number of children of the node.</p>
+<p><strong>Steps to search a data element in a B Tree:</strong></p>
+<p><strong>Step 1:</strong> The search begins from the root node. Compare the search element, k, with the root.</p>
+<p><strong>Step 1.1:</strong> If the root node consists of the element k, the search will be complete.</p>
+<p><strong>Step 1.2:</strong> If the element k is less than the first value in the root, we will move to the leftmost child and search the child recursively.</p>
+<p><strong>Step 1.3.1:</strong> If the root has only two children, we will move to the rightmost child and recursively search the child nodes.</p>
+<p><strong>Step 1.3.2:</strong> If the root has more than two keys, we will search the rest.</p>
+<p><strong>Step 2:</strong> If the element k is not found after traversing the whole tree, then the search element is not present in the B Tree.</p>
+<p>Let us visualize the above steps with the help of an example. Suppose that we wanted to search for a key k=34 in the following B Tree:</p>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization3.png" alt="B Tree Visualization" />
+<p><strong>Figure 3.1.</strong> A given B Tree</p>
+<ol class="points">
+<li>Firstly, we will check whether the key <strong>k = 34</strong> is at the root node. Since the key is not at the root, we will move on to its child nodes. We can also observe that the root node has two children; therefore, we will compare the required value between the two keys.<br>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization4.png" alt="B Tree Visualization" /><br>
+<strong>Figure 3.2.</strong> The key k is not present at root</li>
+<li>Now that we can notice that the key k is greater than the root node, i.e., 30, we will proceed with the right child of the root.<br>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization5.png" alt="B Tree Visualization" /><br>
+<strong>Figure 3.3.</strong> The key k > 30, move to right child</li>
+<li>We will now compare the key k with the values present on the node, i.e., 40 and 50, respectively. Since the key k is less than the left key, i.e., 40, we will move to the left child of the node.<br>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization6.png" alt="B Tree Visualization" /><br>
+<strong>Figure 3.4.</strong> The key k < 40, move to left child</li>
+<li>Since the value in the left child of 40 is 34, which is the required value, we can conclude that the key is found, and the search operation is completed.<br>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization7.png" alt="B Tree Visualization" /><br>
+<strong>Figure 3.4.</strong> The key k = 34, the left child of 40</li>
+</ol>
+<p>We compared the key with four different values in the above example until we found it. Thus, the time complexity required for the search operation in a B Tree is <strong>O(log?n)</strong>.</p>
+<h3 class="h3">Inserting Operation on a B Tree</h3>
+<p>While inserting a data element into a B Tree, we must first check whether that element is already present in the tree or not. If the data element is found within the B Tree, then the inserting operation does not occur. However, if that's not the case, we will proceed further with the insertion. There are two scenarios required to be taken care of while insertion an element in the leaf node:</p>
+<ol class="points">
+<li><strong>Node does not consist of more than the MAXIMUM number of keys -</strong> We will insert the key in the node at its proper place.</li>
+<li><strong>A node consists of a MAXIMUM number of keys -</strong> We will insert the key to the full node, and then a split operation will take place, splitting the full node into three parts. The second or median key will move to the parent node, and the first and the third parts will act as the left and right child nodes, respectively. This process will be repeated with the parent node if it also consists of a MAXIMUM number of keys.</li>
+</ol>
+<p><strong>Steps to insert a data element in a B Tree:</strong></p>
+<p><strong>Step 1:</strong> We will start by calculating the maximum number of keys in the node on the basis of the order of the B Tree.</p>
+<p><strong>Step 2:</strong> If the tree is empty, a root node is allocated, and we will insert the key that acts as the root node.</p>
+<p><strong>Step 3:</strong> We will now search the applicable node for insertion.</p>
+<p><strong>Step 4:</strong> If the node is full:</p>
+<p><strong>Step 4.1:</strong> We will insert the data elements in ascending order.</p>
+<p><strong>Step 4.2:</strong> If the data elements are greater than the maximum number of keys, we will split the full node at the median.</p>
+<p><strong>Step 4.3:</strong> We will push the median key upwards and split the left and right keys as left and right child.</p>
+<p><strong>Step 5:</strong> If the node is not full, we will insert the node in ascending order.</p>
+<p>Let us visualize the above steps with the help of an example. Suppose that we are required to create a B Tree of order 4. The data elements needed to be inserted into the B Tree are <strong>5,3,21,11,1,16,8,13,4,and 9</strong>.</p>
+<ol class="points">
+<li>Since m is equal to 3, the maximum number of keys for a node <strong>= m-1 = 3-1 = 2</strong>.</li>
+<li>We will start by inserting <strong>5</strong> in the empty tree.<br>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization8.png" alt="B Tree Visualization" /><br>
+<strong>Figure 4.1.</strong> Inserting 5</li>
+<li>We will now insert 3 into the tree. Since 3 is less than 5, we will insert 3 to the left of 5 in the same node.<br>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization9.png" alt="B Tree Visualization" /><br>
+<strong>Figure 4.2.</strong> Inserting 3</li>
+<li>We will now insert 21 into the tree, and since 21 is greater than 5, it will be inserted to the right of 5 in the same node. However, as we know that the maximum number of keys in the node is 2, one of these keys will be moved to a node above in order to split it. Thus, 5, the middle data element, will move up, and 3 and 21 will become its left and right nodes, respectively.<br>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization10.png" alt="B Tree Visualization" /><br>
+<strong>Figure 4.3.</strong> Inserting 21</li>
+<li>Now it is time to insert the next data element, i.e., 11, which is greater than 5 but less than 21. Therefore, 11 will be inserted as a key on the left of the node consisting of 21 as a key.<br>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization11.png" alt="B Tree Visualization" /><br>
+<strong>Figure 4.4.</strong> Inserting 11</li>
+<li>Similarly, we will insert the next data element 1 into the tree, and as we can observe, 1 is less than 3; therefore, it will be inserted as a key on the left of the node consisting of 3 as a key.<br>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization12.png" alt="B Tree Visualization" /><br>
+<strong>Figure 4.5.</strong> Inserting 1</li>
+<li>Now, we will insert data element 16 into the tree, which is greater than 11 but less than 21. However, the number of keys in that node exceeds the maximum number of keys. Therefore, the node will split, moving the middle key to the root. Hence, 16 will be inserted to the right of the 5, splitting 11 and 21 into two separate nodes.<br>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization13.png" alt="B Tree Visualization" /><br>
+<strong>Figure 4.6.</strong> Inserting 16</li>
+<li>The data element 8 will be inserted as a key to the left of 11.<br>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization14.png" alt="B Tree Visualization" /><br>
+<strong>Figure 4.7.</strong> Inserting 8</li>
+<li>We will insert 13 into the tree, which is less than 16 and greater than 11. Therefore, data element 13 should be inserted to the right of the node consisting of 8 and 11. However, since the maximum number of keys in the tree can only be 2, a split will be occurred, moving the middle data element 11 to the above node and 8 and 13 into two separate nodes. Now, the above node will consist of 5, 11, and 16, which again exceeds the maximum key count. Therefore, there will be another split, making the data element 11 the root node with 5 and 16 as its children.<br>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization15.png" alt="B Tree Visualization" /><br>
+<strong>Figure 4.8.</strong> Inserting 13</li>
+<li>Since the data element 4 is less than 5 but greater than 3, it will be inserted to the right of the node consisting of 1 and 3, which will exceed the maximum count of keys in a node again. Therefore, a spill will occur again, moving the 3 to the upper node beside 5.<br>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization16.png" alt="B Tree Visualization" /><br>
+<strong>Figure 4.9.</strong> Inserting 4</li>
+<li>At last, the data element 9, which is greater than 8 but less than 11, will be inserted to the right of the node consisting of 8 as a key.<br>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization17.png" alt="B Tree Visualization" /><br>
+<strong>Figure 4.10.</strong> Inserting 9</li>
+</ol>
+<p>In the above example, we have performed different comparisons. The first value was directly inserted into the tree; after that, every value had to be compared with the nodes available in that tree. The time complexity for the Inserting Operation in a B Tree depends on the number of nodes and .</p>
+<h3 class="h3">Deleting Operation on a B Tree</h3>
+<p>Deleting a data element on a B Tree contains three primary events:</p>
+<ol class="points">
+<li>Searching the node where the key to be deleted exists,</li>
+<li>Deleting the key, and</li>
+</ol>
+<ul class="points">
+<li>Balancing the tree, if necessary.</li>
+</ul>
+<p>While deleting an element from the tree, a condition known as Underflow may occur. Underflow occurs when a node consists of less than the minimum number of keys; it should hold.</p>
+<p><strong>The following are some terms required to be understood before visualizing the deletion/removal operation:</strong></p>
+<ol class="points">
+<li><strong>In-order Predecessor:</strong> The most significant key on the left child of a node is known as its in-order predecessor.</li>
+<li><strong>In-order Successor:</strong> The minor key on the right child of a node is known as its in-order successor.</li>
+</ol>
+<p><strong>The following are three prominent cases of the deletion operation in a B Tree:</strong></p>
+<p><strong>Case 1: The Deletion/Removal of the key lies in the Leaf node -</strong> This case is further divided into two different cases:</p>
+<p>1. The deletion/removal of the key does not violate the property of the minimum number of keys a node should hold.</p>
+<p>Let us visualize this case using an example where we will delete key 32 from the following B Tree.</p>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization18.png" alt="B Tree Visualization" />
+<p><strong>Figure 4.1:</strong> Deleting a leaf node key (32) from the B Tree</p>
+<p>As we can observe, deleting 32 from this tree does not violate the above property.</p>
+<p>2. The deletion/removal of the key violates the property of the minimum number of keys a node should hold. In this case, we must borrow a key from its proximate sibling node in the order of Left to Right.</p>
+<p>Firstly, we will visit the proximate Left sibling. If the Left sibling node has more than a minimum number of keys, it will borrow a key from this node.</p>
+<p>Else, we will check to borrow from the proximate Right sibling node.</p>
+<p>Let us now visualize this case with the help of an example where we will delete 31 from the above B Tree. We will borrow a key from the left sibling node in this case.</p>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization19.png" alt="B Tree Visualization" />
+<p><strong>Figure 4.2:</strong> Deleting a leaf node key (31) from the B Tree</p>
+<p>If both the proximate sibling nodes already consist of a minimum number of keys, then we will merge the node with either the left sibling node or the right one. This process of merging is done through the parent node.</p>
+<p>Let us visualize again by deleting the key 30 from the above B Tree.</p>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization20.png" alt="B Tree Visualization" />
+<p><strong>Figure 4.3:</strong> Deleting a leaf node key (30) from the B Tree</p>
+<p><strong>Case 2: The Deleting/Removal of the key lies in the non-Leaf node -</strong> This case is further divided into different cases:</p>
+<p>1. The non-Leaf/Internal node, which is removed, is replaced by an in-order predecessor if the Left child node has more than the minimum number of keys.</p>
+<p>Let us visualize this case using an example where we will delete the key 33 from the B Tree.</p>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization21.png" alt="B Tree Visualization" />
+<p><strong>Figure 4.4:</strong> Deleting a leaf node key (33) from the B Tree</p>
+<p>2. The non-Leaf/Internal node, which is removed, is replaced by an in-order successor if the Right child node has more than the minimum number of keys.</p>
+<p>If either child has a minimum number of keys, then we will merge the Left and the Right child nodes.</p>
+<p>Let us visualize this case by deleting the key 30 from the B Tree.</p>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization22.png" alt="B Tree Visualization" />
+<p><strong>Figure 4.5:</strong> Deleting a leaf node key (30) from the B Tree</p>
+<p>After merging, if the parent node has less than the minimum number of keys, one can look for the siblings, as in <strong>Case 1</strong>.</p>
+<p><strong>Case 3:</strong> In the following case, the tree's height shrinks. If the target key lies in an Internal node, and the removal of the key leads to fewer keys in the node (which is less than the minimum necessitated), then look for the in-order predecessor and the in-order successor. If both the children have a minimum number of keys, then borrowing can't occur. This leads to <strong>Case 2(3)</strong>, i.e., merging the child nodes.</p>
+<p>We will again look for the sibling to borrow a key. However, if the sibling also consists of a minimum number of keys, then we will merge the node with the sibling along with the parent node and arrange the child nodes as per the requirements (ascending order).</p>
+<p>Let us visualize this case with the help of an example where we will delete the data element 10 from the given B Tree.</p>
+<img src="https://static.javatpoint.com/ds/images/b-tree-visualization23.png" alt="B Tree Visualization" />
+<p><strong>Figure 4.6:</strong> Deleting a leaf node key (10) from the B Tree</p>
+<p>The time complexity in the above examples vary dependent on the location from where the key needs to be deleted. Thus, the time complexity for the Deleting Operation in a B Tree is <strong>O(log?n)</strong>.</p>
+<h2 class="h2">The Conclusion</h2>
+<p>In this tutorial, we have learned about the B Tree and visualised its different operations with different examples. We have also understood some fundamental properties and rules of the B Tree.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="properties-of-avl-trees.html">Properties of AVL Trees</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="avl-tree-applications.html">&larr; prev</a>
+<a style="float:right" class="next" href="properties-of-avl-trees.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="93f5f6f6f7f1f2f0f8d3f9f2e5f2e7e3fcfafde7bdf0fcfe">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/b-tree-visualization"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/b-tree-visualization"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/b-tree-visualization"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="761e04361c1700170206191f18025815191b">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="eb8399ab818a9d8a9f9b8482859fc5888486c5">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/b-tree-visualization by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:07:27 GMT -->
+</html> 

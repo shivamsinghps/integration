@@ -1,0 +1,957 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/graph-theory-in-discrete-mathematics by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:04:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Graph theory in Discrete Mathematics - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Graph theory in Discrete Mathematics - javatpoint" /><meta property="og:description" content="Graph theory in Discrete Mathematics with introduction, sets theory, types of sets, set operations, algebra of sets, multisets, induction, relations, functions and algorithms etc." />
+<meta name="keywords" content="discrete mathematics, tutorial, dms, introduction, sets, sets theory, types of sets, set operations, algebra of sets, multisets, mathematical induction, relations, functions and algorithms, recursively, logic and propositional calculus, techniques of counting, probability, graphs" /><meta name="description" content="Graph theory in Discrete Mathematics with introduction, sets theory, types of sets, set operations, algebra of sets, multisets, induction, relations, functions and algorithms etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="graph-theory-in-discrete-mathematics.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Graph theory in Discrete Mathematics - javatpoint" /><meta name="twitter:description" property="og:description" content="Graph theory in Discrete Mathematics with introduction, sets theory, types of sets, set operations, algebra of sets, multisets, induction, relations, functions and algorithms etc." /><meta property="og:url" content="graph-theory-in-discrete-mathematics.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="dbms-tutorial.html">DBMS</a></li>
+<li><a href="data-structure-tutorial.html">DS</a></li>
+<li><a href="discrete-mathematics-tutorial.html" class="selected">DMS</a></li>
+<li><a href="daa-tutorial.html">DAA</a></li>
+<li><a href="graph-theory.html">Graph Theory</a></li>
+<li><a href="control-system-tutorial.html">Control System</a></li>
+<li><a href="aptitude/quantitative.html">Aptitude</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="kotlin-tutorial.html">Kotlin</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Discrete Mathematics</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-tutorial.html">Discrete Mathematics</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Sets Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/sets-introduction">Sets Introduction</a>
+<a href="types-of-sets.html">Types of Sets</a>
+<a href="sets-operations.html">Sets Operations</a>
+<a href="algebra-of-sets.html">Algebra of Sets</a>
+<a href="multisets.html">Multisets</a>
+<a href="inclusion-exclusion-principle.html">Inclusion-Exclusion Principle</a>
+<a href="mathematical-induction.html">Mathematical Induction</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Relations</span></h2>
+</div>
+<div class="leftmenu">
+<a href="binary-relation.html">Binary Relation</a>
+<a href="representation-of-relations.html">Representation of Relations</a>
+<a href="composition-of-relations.html">Composition of Relations</a>
+<a href="types-of-relations.html">Types of Relations</a>
+<a href="closure-properties-of-relations.html">Closure Properties of Relations</a>
+<a href="equivalence-relations.html">Equivalence Relations</a>
+<a href="partial-ordering-relations.html">Partial Ordering Relations</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Functions &amp; Algorithms</span></h2>
+</div>
+<div class="leftmenu">
+<a href="functions.html">Functions</a>
+<a href="types-of-functions.html">Types of Functions</a>
+<a href="identity-functions.html">Identity Functions</a>
+<a href="compositions-of-functions.html">Composition of Functions</a>
+<a href="mathematical-functions.html">Mathematical Functions</a>
+<a href="algorithms-and-functions.html">Algorithms &amp; Functions</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Logic &amp; Propositional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="propositions-and-compound-statements.html">Propositions &amp; Compound Statements</a>
+<a href="basic-logical-operations.html">Basic Logical Operations</a>
+<a href="conditional-and-biconditional-statements.html">Conditional &amp; Biconditional Statements</a>
+<a href="tautologies-and-contradiction.html">Tautologies &amp; Contradictions</a>
+<a href="predicate-logic.html">Predicate Logic</a>
+<a href="normal-forms.html">Normal Forms</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Counting Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="basic-counting-principles.html">Basic Counting Principles</a>
+<a href="permutation-and-combinations.html">Permutations &amp; Combinations</a>
+<a href="pigeonhole-principle.html">Pigeonhole Principle</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Recurrence Relations</span></h2>
+</div>
+<div class="leftmenu">
+<a href="recurrence-relations.html">Recurrence Relations</a>
+<a href="linear-recurrence-relations-with-constant-coefficients.html">Linear Recurrence Relations with Constant Coefficients</a>
+<a href="particular-solution.html">Particular Solution</a>
+<a href="total-solution.html">Total Solution</a>
+<a href="https://www.javatpoint.com/generating-functions">Generating Functions</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Probability Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="probability.html">Probability</a>
+<a href="addition-theorem.html">Addition Theorem</a>
+<a href="multiplication-theorem.html">Multiplication Theorem</a>
+<a href="conditional-probability.html">Conditional Probability</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Graph Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="introduction-of-graphs.html">Introduction of Graphs</a>
+<a href="types-of-graphs.html">Types of Graphs</a>
+<a href="representation-of-graphs.html">Representation of Graphs</a>
+<a href="isomorphic-and-homeomorphic-graphs.html">Isomorphic and Homeomorphic Graphs</a>
+<a href="regular-and-bipartite-graphs.html">Regular and Bipartite Graphs</a>
+<a href="planar-and-non-planar-graphs.html">Planar and Non-Planar Graphs</a>
+<a href="discrete-mathematics-dijkstras-algorithm.html">Dijkstra's Algorithm</a>
+<a href="discrete-mathematics-travelling-salesman-problem.html">Travelling Salesman Problem</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Binary Trees</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-introduction-of-trees.html">Introduction of Trees</a>
+<a href="discrete-mathematics-binary-trees.html">Binary Trees</a>
+<a href="discrete-mathematics-traversing-binary-trees.html">Traversing Binary Trees</a>
+<a href="discrete-mathematics-binary-search-trees.html">Binary Search Trees</a>
+<a href="discrete-mathematics-minimum-spanning-tree.html">Minimum Spanning Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Operator &amp; Postulates</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-binary-operation.html">Binary Operation</a>
+<a href="discrete-mathematics-properties-of-binary-operations.html">Property of Binary Operations</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Group Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-semigroup.html">SemiGroup</a>
+<a href="discrete-mathematics-group.html">Group</a>
+<a href="discrete-mathematics-subgroup.html">SubGroup</a>
+<a href="discrete-mathematics-normal-subgroup.html">Normal Subgroup</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Ordered Sets &amp; Lattices</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-partially-ordered-sets.html">Partially Ordered Sets</a>
+<a href="discrete-mathematics-hasse-diagrams.html">Hasse Diagrams</a>
+<a href="discrete-mathematics-lattices.html">Lattices</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Boolean Algebra</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-boolean-algebra.html">Boolean Algebra</a>
+<a href="discrete-mathematics-boolean-expression.html">Boolean Expression</a>
+<a href="discrete-mathematics-canonical-forms.html">Canonical Forms</a>
+<a href="discrete-mathematics-logic-gates-and-circuits.html">Logic Gates &amp; Circuits</a>
+<a href="discrete-mathematics-karnaugh-maps.html">Karnaugh Maps</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="proof-of-de-morgans-law.html">Proof of De Morgan's Law</a>
+<a href="discrete-mathematics-for-computer-science.html">Discrete mathematics for Computer Science</a>
+<a href="abelian-groups-in-discrete-mathematics.html">Abelian Groups in Discrete Mathematics</a>
+<a href="applications-of-discrete-mathematics-in-computer-science.html">Applications of Discrete Mathematics in Computer Science</a>
+<a href="rings-in-discrete-mathematics.html">Rings in Discrete Mathematics</a>
+<a href="order-of-group-in-discrete-mathematics.html">Order of Group in Discrete Mathematics</a>
+<a href="principle-of-duality-in-discrete-mathematics.html">Principle of Duality in Discrete Mathematics</a>
+<a href="atomic-propositions-in-discrete-mathematics.html">Atomic Propositions in Discrete Mathematics</a>
+<a href="applications-of-tree-in-discrete-mathematics.html">Applications of Tree in Discrete Mathematics</a>
+<a href="quantifiers-in-discrete-mathematics.html">Quantifiers</a>
+<a href="algebraic-structure-in-discrete-mathematics.html">Algebraic Structure</a>
+<a href="counting-principle.html">Counting principle</a>
+<a href="bijective-function-in-discrete-mathematics.html">Bijective Function in Discrete Mathematics</a>
+<a href="multinomial-theorem.html">Multinomial Theorem</a>
+<a href="lagranges-mean-value-theorem.html">Lagrange's Mean Value Theorem</a>
+<a href="cauchys-mean-value-theorem.html">Cauchy's Mean Value Theorem</a>
+<a href="rolles-mean-value-theorem.html">Rolle's Mean Value Theorem</a>
+<a href="semantic-difference-between-set-and-type.html">Semantic difference between Set and Type</a>
+<a href="application-of-group-theory-in-discrete-mathematics.html">Application of Group Theory in Discrete Mathematics</a>
+<a href="directed-and-undirected-graph-in-discrete-mathematics.html">Directed and Undirected graph in Discrete Mathematics</a>
+<a href="bayes-formula-for-conditional-probability.html">Bayes Formula for Conditional probability</a>
+<a href="function-vs-relation-in-discrete-mathematics.html">Difference between Function and Relation in Discrete Mathematics</a>
+<a href="recursive-functions-in-discrete-mathematics.html">Recursive functions in discrete mathematics</a>
+<a href="arguments-in-discrete-mathematics.html">Arguments in Discrete Mathematics</a>
+<a href="elementary-matrix-in-discrete-mathematics.html">Elementary Matrix in Discrete Mathematics</a>
+<a href="hypergeometric-distribution-in-discrete-mathematics.html">Hypergeometric Distribution in Discrete Mathematics</a>
+<a href="regular-grammar-in-discrete-mathematics.html">Regular Grammar in Discrete Mathematics</a>
+<a href="prime-number-in-discrete-mathematics.html">Prime Number in Discrete Mathematics</a>
+<a href="peano-axioms-number-system-discrete-mathematics.html">Peano Axioms Number System Discrete Mathematics</a>
+<a href="problems-of-monomorphism-and-epimorphism-in-discrete-mathematics.html">Problems of Monomorphism and Epimorphism in Discrete mathematics</a>
+<a href="properties-of-set-in-discrete-mathematics.html">Properties of Set in Discrete mathematics</a>
+<a href="principal-ideal-domain-in-discrete-mathematics.html">Principal Ideal Domain in Discrete mathematics</a>
+<a href="probable-error-formula-for-discrete-mathematics.html">Probable error formula for discrete mathematics</a>
+<a href="hypergraph-and-its-representation-in-discrete-mathematics.html">HyperGraph & its Representation in Discrete Mathematics</a>
+<a href="hashing-function-in-discrete-mathematics.html">Hashing Function in Discrete mathematics</a>
+<a href="doolittle-algorithm-lu-decomposition.html">Doolittle Algorithm: LU Decomposition</a>
+<a href="rsa-encryption-in-discrete-mathematics.html">RSA Encryption in Discrete Mathematics</a>
+<a href="introduction-to-mojette-transform.html">Introduction to Mojette Transform</a>
+<a href="negation-in-discrete-mathematics.html">Negation in Discrete mathematics</a>
+<a href="hamiltonian-graph-in-discrete-mathematics.html">Hamiltonian Graph in Discrete mathematics</a>
+<a href="relationship-between-number-of-nodes-and-height-of-binary-tree.html">Relationship between number of nodes and height of binary tree</a>
+<a href="independent-events-in-probability.html">Independent events in Probability</a>
+<a href="repeated-trials-in-probability.html">Repeated Trials in probability</a>
+<a href="betweenness-centrality.html">Betweenness Centrality</a>
+<a href="inference-theory-in-discrete-mathematics.html">Inference theory in discrete mathematics</a>
+<a href="https://www.javatpoint.com/tautology-in-discrete-mathematics">Tautology in Discrete Mathematics</a>
+<a href="walks-trails-path-circuit-and-cycle-in-discrete-mathematics.html">Walks, Trails, Path, Circuit and Cycle in Discrete mathematics</a>
+<a href="associative-law-in-discrete-mathematics.html">Associative Law in Discrete Mathematics</a>
+<a href="conjunction-in-discrete-mathematics.html">Conjunction in Discrete Mathematics</a>
+<a href="distributive-law-of-multiplication.html">Distributive Law of Multiplication</a>
+<a href="proof-by-contradiction-in-discrete-mathematics.html">Proof by Contradiction in Discrete mathematics</a>
+<a href="chromatic-number-of-graphs-graph-coloring-in-graph-theory.html">Chromatic Number of graphs</a>
+<a href="how-to-find-chromatic-number-graph-coloring-algorithm.html">How to find Chromatic Number</a>
+<a href="chromatic-polynomial-in-discrete-mathematics.html">Chromatic Polynomial in Discrete mathematics</a>
+<a href="identity-function-in-discrete-mathematics.html">Identity Function in Discrete mathematics</a>
+<a href="injective-function-in-discrete-mathematics.html">Injective Function in Discrete mathematics</a>
+<a href="many-to-one-function-in-discrete-mathematics.html">Many to one function in Discrete Mathematics</a>
+<a href="surjective-function-in-discrete-mathematics.html">Surjective Function in Discrete Mathematics</a>
+<a href="inverse-function-in-discrete-mathematics.html">Inverse Function in Discrete mathematics</a>
+<a href="sampling-and-inference.html">Sampling and Inference</a>
+<a href="constant-function-in-discrete-mathematics.html">Constant Function in Discrete Mathematics</a>
+<a href="graphing-functions-in-discrete-mathematics.html">Graphing Functions in Discrete mathematics</a>
+<a href="continuous-functions-in-discrete-mathematics.html">Continuous Functions in Discrete mathematics</a>
+<a href="linear-function-in-discrete-mathematics.html">Linear Function in Discrete mathematics</a>
+<a href="complement-of-graph-in-discrete-mathematics.html">Complement of Graph in Discrete mathematics</a>
+<a href="graph-isomorphism-in-discrete-mathematics.html">Graph isomorphism in Discrete Mathematics</a>
+<a href="euler-graph-in-discrete-mathematics.html">Euler Graph in Discrete Mathematics</a>
+<a href="planer-graph-in-discrete-mathematics.html">Planer Graph in Discrete Mathematics</a>
+<a href="bipartite-graph-in-discrete-mathematics.html">Bipartite Graph in Discrete mathematics</a>
+<a href="handshaking-theory-in-discrete-mathematics.html">Handshaking Theory in Discrete mathematics</a>
+<a href="konigsberg-bridge-problem-in-discrete-mathematics.html">Konigsberg Bridge Problem in Discrete mathematics</a>
+<a href="what-is-incidence-matrix-in-discrete-mathematics.html">What is Incidence matrix in Discrete mathematics</a>
+<a href="implication-in-discrete-mathematics.html">Implication in Discrete mathematics</a>
+<a href="incident-coloring-in-discrete-mathematics.html">Incident coloring in Discrete mathematics</a>
+<a href="biconditional-statement-in-discrete-mathematics.html">Biconditional Statement in Discrete Mathematics</a>
+<a href="in-degree-and-out-degree-in-discrete-mathematics.html">In-degree and Out-degree in discrete mathematics</a>
+<a href="law-of-logical-equivalence-in-discrete-mathematics.html">Law of Logical Equivalence in Discrete Mathematics</a>
+<a href="graph-theory-in-discrete-mathematics.html">Graph theory in Discrete Mathematics</a>
+<a href="discrete-infinite-groups.html">Discrete Infinite Groups</a>
+<a href="independent-set-in-discrete-mathematics.html">Independent set in discrete mathematics</a>
+<a href="inverse-of-a-matrix-in-discrete-mathematics.html">Inverse of a Matrix in Discrete mathematics</a>
+<a href="inverse-property-in-discrete-mathematics.html">Inverse property in Discrete mathematics</a>
+<a href="irrational-number-in-discrete-mathematics.html">Irrational Number in Discrete mathematics</a>
+<a href="linear-graph-in-discrete-mathematics.html">Linear Graph in Discrete Mathematics</a>
+<a href="linear-equations-vs-non-linear-equations.html">Difference between the Linear equations and Non-linear equations</a>
+<a href="lagrange-theorem-in-discrete-mathematics.html">Lagrange Theorem in Discrete mathematics</a>
+<a href="linear-equations-in-discrete-mathematics.html">Linear Equations in Discrete mathematics</a>
+<a href="limitation-and-propositional-logic-and-predicates.html">Limitation and Propositional Logic and Predicates</a>
+<a href="non-linear-function-in-discrete-mathematics.html">Non-linear Function in Discrete mathematics</a>
+<a href="lexicographic-orders.html">Lexicographic Orders</a>
+<a href="graph-measurements-in-discrete-mathematics.html">Graph Measurements in Discrete Mathematics</a>
+<a href="language-and-grammar-in-discrete-mathematics.html">Language and Grammar in Discrete mathematics</a>
+<a href="logical-connectives-in-discrete-mathematics.html">Logical Connectives in Discrete mathematics</a>
+<a href="propositional-logic-in-discrete-mathematics.html">Propositional Logic in Discrete mathematics</a>
+<a href="conditional-and-bi-conditional-connectivity.html">Conditional and Bi-conditional connectivity</a>
+<a href="problems-based-on-converse-inverse-and-contrapositive.html">Problems based on Converse, inverse and Contrapositive</a>
+<a href="nature-of-propositions-in-discrete-mathematics.html">Nature of Propositions in Discrete mathematics</a>
+<a href="pdnf-and-pcnf-in-discrete-mathematics.html">PDNF and PCNF in Discrete Mathematics</a>
+<a href="linear-correlation-in-discrete-mathematics.html">Linear Correlation in Discrete mathematics</a>
+<a href="equivalence-of-formula-in-discrete-mathematics.html">Equivalence of Formula in Discrete mathematics</a>
+<a href="discrete-time-signals-in-discrete-mathematics.html">Discrete time signals in Discrete Mathematics</a>
+<a href="m-array-tree-in-discrete-mathematics.html">M-array Tree in Discrete Mathematics</a>
+<a href="matrix-in-discrete-mathematics.html">Matrix in Discrete mathematics</a>
+<a href="type-of-matrices-in-discrete-mathematics.html">Type of matrices in Discrete mathematics</a>
+<a href="column-matrix-in-discrete-mathematics.html">Column matrix in discrete mathematics</a>
+<a href="zero-matrix-in-discrete-mathematics.html">Zero matrix in Discrete mathematics</a>
+<a href="rectangular-matrix-in-discrete-mathematics.html">Rectangular matrix in Discrete mathematics</a>
+<a href="row-matrix-in-discrete-mathematics.html">Row matrix in Discrete mathematics</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DMS MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-mcq.html">Discrete Matehmatics MCQ</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="discrete-infinite-groups.html">next &rarr;</a>
+<a class="next" href="law-of-logical-equivalence-in-discrete-mathematics.html">&larr; prev</a>
+</div>
+<h1 class="h1">Graph theory in Discrete Mathematics</h1>
+<p>Graph theory can be described as a study of the graph. A graph is a type of mathematical structure which is used to show a particular function with the help of connecting a set of points. We can use graphs to create a pairwise relationship between objects.</p>
+<p>The graph is created with the help of vertices and edges. The vertices are also known as the nodes, and edges are also known as the lines. In any graph, the edges are used to connect the vertices. We can use the application of linear graphs not only in discrete mathematics but we can also use it in the field of Biology, Computer science, Linguistics, Physics, Chemistry, etc. GPS (Global positioning system) is the best real-life example of graph structure because GPS has used to track the path or to know about the road's direction.</p>
+<h3 class="h3">What is Graph</h3>
+<p>A graph can be used to show any data in an organized manner with the help of pictorial representation. We can show the relationship between the variable quantities with the help of a graph. In graph theory, we usually use the graph to show a set of objects, and these objects are connected with each other in some sense. The objects can be described as mathematical concepts, which can be expressed with the help of nodes or vertices, and the relation between pairs of nodes can be expressed with the help of edges.</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics.png" alt="Graph theory in Discrete Mathematics" />
+<p>Leonhard Euler was introduced the concept of graph theory. He was a very famous Swiss mathematician. On the basis of the given set of points, or given data, he was constructed graphs and solved a lot of mathematical problems. He says that different types of data can be shown in various forms, such as line graphs, bar graphs, line plots, circle graphs, frequency tables, etc, with the help of graphical representation.</p>
+<h3 class="h3">Definition of Graph Theory</h3>
+<p>The graph theory can be described as a study of points and lines. Graph theory is a type of subfield that is used to deal with the study of a graph. With the help of pictorial representation, we are able to show the mathematical truth. The relation between the nodes and edges can be shown in the process of graph theory.</p>
+<p>Formally, a graph can be represented with the help of pair G(V, E).</p>
+<p>Where V is used to indicate the finite set vertices and E is used to indicate the finite set edges.</p>
+<p>Hence, the graph basically contains the non-empty set of edges E and set of vertices V.</p>
+<p><strong>For example:</strong> Suppose there is a graph G = (V, E), where</p>
+<p>V = {a, b, c, d}, and</p>
+<p>E = {(a, b), (a, c), (b, c), (c, d)}.</p>
+<h3 class="h3">Types of Graph:</h3>
+<p>There are basically two types of graphs, i.e., Undirected graph and Directed graph. The directed graph and undirected graph are described as follows:</p>
+<p><strong>Directed graph:</strong></p>
+<p>The directed graph can be made with the help of a set of vertices, which are connected with the directed edges. In the directed graph, the edges have a direction which is associated with the vertices.</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics2.png" alt="Graph theory in Discrete Mathematics" />
+<p>In the above-directed graph, arrows are used to show the direction.</p>
+<p><strong>Undirected Graph</strong></p>
+<p>The undirected graph can also be made of a set of vertices which are connected together by the undirected edges. All the edges of this graph are bidirectional. We can sometimes call this type of graph an undirected network.</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics3.png" alt="Graph theory in Discrete Mathematics" />
+<p>In the undirected graph, there is no arrow.</p>
+<h3 class="h3">Other types of graph</h3>
+<p>There are also some other types of graphs, which are described as follows:</p>
+<p><strong>Null Graph:</strong> A graph will be known as the null graph if it contains no edges. With the help of symbol Nn, we can denote the null graph of n vertices. The diagram of a null graph is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics4.png" alt="Graph theory in Discrete Mathematics" />
+<p>In the above graph, vertices a, b and c are not connected with any edge, and there is no edge. So this graph is a null graph.</p>
+<p><strong>Simple Graph:</strong> A graph will be known as a simple graph if it does not contain any types of loops and multiple edges. The simple graph must be an undirected graph. The diagram of a simple graph is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics5.png" alt="Graph theory in Discrete Mathematics" />
+<p>The above graph is an undirected graph and does not contain a loop and multiple edges. So this graph is a simple graph.</p>
+<p><strong>Multi-Graph:</strong> A graph will be known as a multi-graph if the same sets of vertices contain multiple edges. In this type of graph, we can form a minimum of one loop or more than one edge. The diagram of multi-graph is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics6.png" alt="Graph theory in Discrete Mathematics" />
+<p>In the above graph, vertices a, b, and c contains more than one edge and does not contain a loop. So this graph is a multi-graph.</p>
+<p><strong>Connected Graph:</strong> A graph will be known as a connected graph if it contains two vertices that are connected with the help of a path. The diagram of a connected graph is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics7.png" alt="Graph theory in Discrete Mathematics" />
+<p>In the above graph, the two vertices, a and b, are connected by a single path. Similarly, other vertices such as (a and c), (c and b), (c and d), (a and d) are all connected by a single path. So this graph is a connected graph.</p>
+<p>Disconnected Graph: A graph will be known as the disconnected graph if it contains two vertices which are disconnected with the help of a path. If there is a graph G, which is disconnected, in this case, every maximal connected sub-graph of G will be known as the connected component of the graph G. The diagram of a disconnected graph is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics8.png" alt="Graph theory in Discrete Mathematics" />
+<p>In the above graph, there are vertices a, c, and b, d which are disconnected by a path. So this graph is a disconnected graph.</p>
+<p><strong>Cycle Graph:</strong> A graph will be known as the cycle graph if it completes a cycle. It means that for a cycle graph, the given graph must have a single cycle. With the help of symbol Cn, we can denote a cycle graph with n vertices. The diagram of a cycle graph is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics9.png" alt="Graph theory in Discrete Mathematics" />
+<p>The above graph forms a cycle by path a, b, c, and a. So this graph is a cycle graph.</p>
+<p><strong>Complete Graph:</strong> A graph will be known as the complete graph if each pair of vertices is connected with the help of exactly one edge. A simple graph will be a complete graph if there are n numbers of vertices which are having exactly one edge between each pair of vertices. With the help of symbol Kn, we can indicate the complete graph of n vertices. In a complete graph, the total number of edges with n vertices is described as follows:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+n*(n-1)/2
+</textarea></div>
+<p>The diagram of a complete graph is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics10.png" alt="Graph theory in Discrete Mathematics" />
+<p>In the above graph, two vertices a, c are connected by a single edge. Similarly, all the other vertices (a and b), and (c and b) are connected by a single edge. So this graph is a connected graph.</p>
+<p><strong>Planer Graph:</strong> A graph will be known as the planer graph if it is drawn in a single plane and the two edges of this graph do not cross each other. In this graph, all the nodes and edges can be drawn in a plane. The diagram of a planer graph is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics11.png" alt="Graph theory in Discrete Mathematics" />
+<p>In the above graph, there is no edge which is crossed to each other, and this graph forms in a single plane. So this graph is a planer graph.</p>
+<p><strong>Non-planer graph:</strong> A given graph will be known as the non-planer graph if it is not drawn in a single plane, and two edges of this graph must be crossed each other. The diagram of a non-planer graph is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics12.png" alt="Graph theory in Discrete Mathematics" />
+<p>In the above graph, there are many edges that cross each other, and this graph does not form in a single plane. So this graph is a non-planer graph.</p>
+<h3 class="h3">Properties of a Graph</h3>
+<ul class="points">
+<li>The root can be described as a starting point of the network.</li>
+<li>A graph will be known as the assortative graph if nodes of the same types are connected to one another. The graph will be known as the disassortative graph in all the other cases.</li>
+<li>If a cycle graph contains a single cycle, then that type of cycle graph will be known as a graph.</li>
+<li>If a single edge is used to connect all the pairs of vertices, then that type of graph will be known as the complete graph.</li>
+<li>If there is the same direction or reverse direction in which each pair of vertices are connected, then that type of graph will be known as the symmetry graph.</li>
+<li>If there is a graph which has a single graph, then that type of graph will be a path graph.</li>
+</ul>
+<h3 class="h3">Tree, Degree, Cycle and many more</h3>
+<p>In the graph representation, we can use certain terms, i.e., Tree, Degree, Cycle and many more. Now we will learn about them in detail.</p>
+<p><strong>Trees:</strong></p>
+<p>A tree is a type of graph which has undirected networks. The tree can have only one path to connect any two vertices. British mathematician Arthur Cayley was introduced the concept of a tree in 1857. The tree cannot have loops and cycles. The diagram of a tree is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics13.png" alt="Graph theory in Discrete Mathematics" />
+<p>The above graph is an undirected graph which has only a path to connect the two vertices. So this graph is a tree.</p>
+<p><strong>Degree:</strong></p>
+<p>In any graph, the degree can be calculated by the number of edges which are connected to a vertex. The symbol deg(v) is used to indicate the degree where v is used to show the vertex of a graph. So basically, the degree can be described as the measure of a vertex.</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics14.png" alt="Graph theory in Discrete Mathematics" />
+<p>In the above graph, there are total of 5 vertices. The degree of vertex a is 2, the degree of vertex b is 2, the degree of vertex c is 2, the degree of vertex d is 2, and the degree of vertex e is zero.</p>
+<p><strong>Cycle:</strong></p>
+<p>In any graph, a cycle can be described as a closed path that forms a loop. A cycle will be formed in a graph if there is the same starting and end vertex of the graph, which contains a set of vertices. A cycle will be known as a simple cycle if it does not have any repetition of a vertex in a closed circuit. With the help of symbol Cn, we can indicate the cycle graph. The cycle graph can be of two types, i.e., Even cycle and Odd cycle.</p>
+<ul class="points">
+<li><strong>Even cycle:</strong> If a graph contains the even number of nodes and edges in a cycle, then that type of cycle will be known as an even cycle.</li>
+<li><strong>Odd cycle:</strong> If a graph contains the odd number of nodes and edges in a cycle, then that type of cycle will be known as an odd cycle.</li>
+</ul>
+<p>The diagram of a cycle is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics15.png" alt="Graph theory in Discrete Mathematics" />
+<p>In the above graph, all the graphs have formed a loop, and if we start from any vertex, then we will be able to end the loop of the same vertex. That means in all the above graphs, the starting and end vertex is the same. So this graph is a cycle.</p>
+<p>Graph C3 and C5 contain the odd number of vertices and edges, i.e., C3 contains 3 vertices and edges, and graph C5 contain 5 vertices and edges. So graphs C3 and C5 contain the odd cycle. Similarly, graph C4 and C6 contain the even number of vertices and edges, i.e., C4 contain the 4 vertices and edges, and graph C6 contains the 6 vertices and edges. So graphs C4 and C6 contain the even cycle.</p>
+<p><strong>Bipartite graph:</strong></p>
+<p>A simple graph will be known as the bipartite graph if there are two independent sets which contain the set of vertices. The vertices of this graph will be connected in such a way that each edge in this graph can have a connection from the first set to the second set. That means the vertices of a first set can only connect with the vertices of a second set. Similarly, the vertices of a second set can only connect with the vertices of a first set. But this graph does not contain any edge which can connect the vertices of same set. The diagram of a bipartite graph is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics16.png" alt="Graph theory in Discrete Mathematics" />
+<p>In the above graph, we have two sets of vertices. The Set U contains 5 vertices, i.e., U1, U2, U3, U4, U5, and the set V contains 4 vertices, i.e., V1, V2, V3, and V4. The vertices of set U only have a mapping with vertices of set V. Similarly, vertices of set V have a mapping with vertices of set U. Set U and set V does not have a connection to the same set of vertices. So this graph is a bipartite graph.</p>
+<p><strong>Complete Bipartite graph</strong></p>
+<p>A graph will be known as the complete bipartite graph if it contains two sets in which each vertex of the first set has a connection with every single vertex of the second set. With the help of symbol KX, Y, we can indicate the complete bipartite graph. That means the first set of the complete bipartite graph contains the x number of vertices and the second graph contains the y number of vertices.</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics17.png" alt="Graph theory in Discrete Mathematics" />
+<p>In the above graph, there are a total of two sets. The first set contains the 3 vertices, and the second set contains the 4 vertices. That means the value of x, y will be 3, 4. Every vertex of the first set has a connection with every vertex of a second set. So this graph is a complete bipartite graph.</p>
+<p><strong>Wheels:</strong></p>
+<p>A wheel and a circle are both similar, but the wheel has one additional vertex, which is used to connect with every other vertex. With the help of symbol Wn, we can indicate the wheels of n vertices with 1 additional vertex. In a wheel graph, the total number of edges with n vertices is described as follows:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+2*(n-1)
+</textarea></div>
+<p>The diagram of wheels is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics18.png" alt="Graph theory in Discrete Mathematics" />
+<p>In the above diagram, we have four graphs W3, W4, W5, and W6. All the graphs have an additional vertex which is used to connect to all the other vertices. So these graphs are the wheels.</p>
+<p><strong>Hypercube:</strong></p>
+<p>Hypercube can also be called n cube. This hypercube is similar to a 3-dimensional cube, but this type of cube can have any number of dimensions. The hypercube is a compact, closed, and convex geometrical diagram in which all the edges are perpendicular and have the same amount of length. This cube contains the 2n vertices, and each vertex is indicated by an n-bit string. With the help of symbol Qn, we can indicate the hypercube of 2n vertices. In a cube graph, the total number of edges with 2n vertices is described as follows:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+n*2n-1
+</textarea></div>
+<p>The diagram of a hypercube is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/graph-theory-in-discrete-mathematics19.png" alt="Graph theory in Discrete Mathematics" />
+<p>The above graph is compact and closed, and all the edges of this graph are perpendicular and have an equal amount of length. So this graph is a Hypercube.</p>
+<h3 class="h3">Algorithm of Graph Theory</h3>
+<p>The algorithm of a graph can be defined as a process of calculating any function or the procedure of drawing a graph for any given function. If we want to solve the problem with the help of graphical methods, then we have to follow the predefined steps or sets of instructions. The graph theory follows the different types of algorithms, which are described as follows:</p>
+<p><strong>Ford-Fulkerson algorithm:</strong></p>
+<p>This algorithm is a type of greedy approach. In any graph or any network, we can calculate the maximum possible flow with the help of a Ford Fulkerson algorithm. This algorithm uses a term flow network, which can be used to show the vertices and edges of a graph with a source (S) and a sink (T). Here every edge must have a capacity. An equal amount of stuff can be sent by each vertex except S and T. This is because the S has the ability to only send, and T has the ability to only receive. With the help of following constraints, we can determine the maximum possible flow from s to t:</p>
+<ol class="points">
+<li>In any graph, the flow of an edge should not exceed the given capacity of the edge.</li>
+<li>There must be an equal amount of incoming flow and outgoing flow for every vertex except s and t.</li>
+</ol>
+<p><strong>Bellman-Ford algorithm:</strong></p>
+<p>The bellman ford algorithm can be described as a single shortest path algorithm. We can use this in a weighted graph where this algorithm will be used to determine the shortest path from a selected vertex to all other vertices. The Dijkstra algorithm and the Bellman ford algorithm are very similar. The main difference is that the bellman ford algorithm has the ability to work on the negatively weighted edges. This is because the Bellman ford algorithm has become very popular.</p>
+<p><strong>Edmonds-Karp algorithm:</strong></p>
+<p>This algorithm is also known as the maximum flow algorithm. This algorithm is a type of specific implementation of the Ford Fulkerson algorithm. The main difference between the Edmonds Karp algorithm and the Ford Fulkerson algorithm is that the Ford Fulkerson algorithm contains some parts of protocols which are left unspecified, and the Edmonds Karp algorithm is fully specified. There are different types of techniques in the Edmonds Karp algorithm so that it can determine the augmenting paths. This algorithm is used to deal with the problems related to max flow min cut. This algorithm is also used to show that we can determine the shortest distance at the time of intermediate stage of a program with the help of using breath first search.</p>
+<p><strong>Boruvka's algorithm:</strong></p>
+<p>This algorithm is used to determine the minimum spanning tree for a graph on the basis of the distinct edge weight. In this algorithm, the edges of the graph do not contain the same value. Boruvka's algorithm is the first algorithm which was developed in 1926 to determine the minimum spanning trees (MSTs). This algorithm is mainly used to connect the vertices with the help of shortest edge between the vertices.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="discrete-infinite-groups.html">Discrete Infinite Groups</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="law-of-logical-equivalence-in-discrete-mathematics.html">&larr; prev</a>
+<a style="float:right" class="next" href="discrete-infinite-groups.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a3c5c6c6c7c1c2c0c8e3c9c2d5c2d7d3cccacdd78dc0ccce">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/graph-theory-in-discrete-mathematics"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/graph-theory-in-discrete-mathematics"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/graph-theory-in-discrete-mathematics"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+ </a>
+<a href="reasoning.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+ </div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="39514b7953584f584d495650574d175a5654">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="1e766c5e747f687f6a6e7177706a307d717330">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/graph-theory-in-discrete-mathematics by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:04:17 GMT -->
+</html> 

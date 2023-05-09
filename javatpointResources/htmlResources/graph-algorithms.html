@@ -1,0 +1,1139 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/graph-algorithms by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:07:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Graph Algorithms (Data Structures) - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Graph Algorithms (Data Structures) - javatpoint" /><meta property="og:description" content="Graph Algorithms with Introduction, Asymptotic Analysis, Array, Pointer, Structure, Singly Linked List, Doubly Linked List, Graph, Tree, B Tree, B+ Tree, Avl Tree etc." />
+<meta name="keywords" content="data structure tutorial, introduction, asymptotic analysis, array, pointer, structure, singly linked list, doubly linked list, circular linked list, binary search, linear search, sorting, bucket sort, comb sort, shell sort, heap sort, merge sort, counting sort, stack, quene, circular quene, graph, tree, b tree, b+ tree, avl tree" /><meta name="description" content="Graph Algorithms with Introduction, Asymptotic Analysis, Array, Pointer, Structure, Singly Linked List, Doubly Linked List, Graph, Tree, B Tree, B+ Tree, Avl Tree etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="graph-algorithms.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Graph Algorithms (Data Structures) - javatpoint" /><meta name="twitter:description" property="og:description" content="Graph Algorithms with Introduction, Asymptotic Analysis, Array, Pointer, Structure, Singly Linked List, Doubly Linked List, Graph, Tree, B Tree, B+ Tree, Avl Tree etc." /><meta property="og:url" content="graph-algorithms.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()"><div id=cf_alert_div><style>#cf_alert_div{margin:0 0 5px;padding:0;position:relative;top:0;left:0;display:block;z-index:99999;background-color:#f7f7f8;box-shadow:0 5px 5px rgba(0,0,0,.25)}#cf_alert_div a,#cf_alert_div a:visited{text-decoration:none;color:#276d9b;font-weight:600}#cf_alert_div strong{font-weight:600}#cf_alert_div table{width:100%}#cf_alert_div table td{vertical-align:middle}#cf_alert_div p{margin:0;padding:0;max-width:1100px}#cf_alert_div .wrapper{padding:0;margin:0;text-align:left;font-family:-apple-system,system-ui,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,helvetica neue,Arial,sans-serif;font-weight:400;font-style:normal;font-size:12px;padding:16px 3.334%}#cf_alert_div .wrapper td.refresh{text-align:center;min-width:140px}#cf_alert_div .wrapper td.refresh a{display:inline-block;padding:8px 24px;border:1.5px solid #276d9b;border-radius:5px;margin-right:20px}#cf_alert_div .wrapper td.content{position:relative;padding-right:25px;color:#1d1f20;font-size:14px;max-width:900px}#cf_alert_div .wrapper .x{position:absolute;top:0;right:-12.5px;height:25px;width:25px;cursor:pointer}#cf_alert_div .wrapper .x .line{display:block;height:15px;width:3px;position:absolute;top:5px;left:11px;background:#4e5255}#cf_alert_div .wrapper .x .line:first-of-type{transform:rotate(135deg)}#cf_alert_div .wrapper .x .line:last-of-type{transform:rotate(45deg)}</style><div class=wrapper><table><tr><td class=refresh><a href=# onclick="document.cookie='cf_use_ob%3d0%3bpath%3d/index.html';window.location.reload();return false;">Refresh</a><noscript style="margin:10px 0 10px 0;padding:0;font:12px Helvetica,Arial,sans-serif;color:#404040;display:block">(Enable JavaScript first.)</noscript></td><td class=content><p>This website <strong>www.javatpoint.com/graph-algorithms</strong> is currently offline. <a href=https://www.cloudflare.com/always-online/ target=_blank>Cloudflare's Always Online&trade;</a> shows a snapshot of this web page from the <a href=https://archive.org/web/ target=_blank>Internet Archive's Wayback Machine</a>. To check for the live version, click <strong>Refresh</strong>.</p><a class=x href="javascript:void(null);" onclick="document.getElementById('cf_alert_div').style.display='none';"><span class=line></span> <span class=line></span></a></td></tr></table></div></div>
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="data-structure-tutorial.html" class="selected">Data Structure</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="cpp-tutorial.html">C++</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="ajax-tutorial.html">Ajax</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="cloud-computing.html">Cloud</a></li>
+<li><a href="design-patterns-in-java.html">Design Pattern</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-tutorial.html">DS Tutorial</a>
+<a href="data-structure-introduction.html">DS Introduction</a>
+<a href="data-structure-algorithm.html">DS Algorithm</a>
+<a href="data-structure-asymptotic-analysis.html">Asymptotic Analysis</a>
+<a href="data-structure-pointer.html">DS Pointer</a>
+<a href="data-structure-structure.html">DS Structure</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Array</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-array.html">DS Array</a>
+<a href="data-structure-2d-array.html">2D Array</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Linked List</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ds-linked-list.html">Linked List</a>
+<a href="ds-types-of-linked-list.html">Types of Linked List</a>
+<a href="singly-linked-list.html">Singly Linked List</a>
+<a href="doubly-linked-list.html">Doubly Linked List</a>
+<a href="circular-singly-linked-list.html">Circular Linked List</a>
+<a href="circular-doubly-linked-list.html">Circular Doubly List</a>
+<a href="skip-list-in-data-structure.html">Skip list in DS</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Stack</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-stack.html">DS Stack</a>
+<a href="ds-array-implementation-of-stack.html">Array Implementation</a>
+<a href="ds-linked-list-implementation-of-stack.html">Linked List Implementation</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Queue</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-queue.html">DS Queue</a>
+<a href="ds-types-of-queues.html">Types of Queues</a>
+<a href="array-representation-of-queue.html">Array Representation</a>
+<a href="linked-list-implementation-of-queue.html">Linked List Representation</a>
+<a href="circular-queue.html">Circular Queue</a>
+<a href="ds-deque.html">Deque</a>
+<a href="ds-priority-queue.html">Priority Queue</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Tree</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tree.html">DS Tree</a>
+<a href="binary-tree.html">Binary Tree</a>
+<a href="binary-search-tree.html">Binary Search Tree</a>
+<a href="avl-tree.html">AVL Tree</a>
+<a href="b-tree.html">B Tree</a>
+<a href="b-plus-tree.html">B+ Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Graph</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ds-graph.html">DS Graph</a>
+<a href="graph-representation.html">Graph Implementation</a>
+<a href="breadth-first-search-algorithm.html">BFS Algorithm</a>
+<a href="depth-first-search-algorithm.html">DFS Algorithm</a>
+<a href="spanning-tree.html">Spanning Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Searching</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linear-search.html">Linear Search</a>
+<a href="binary-search.html">Binary Search</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Sorting</span></h2>
+</div>
+<div class="leftmenu">
+<a href="bubble-sort.html">Bubble Sort</a>
+<a href="bucket-sort.html">Bucket Sort</a>
+<a href="comb-sort.html">Comb Sort</a>
+<a href="counting-sort.html">Counting Sort</a>
+<a href="heap-sort.html">Heap Sort</a>
+<a href="insertion-sort.html">Insertion Sort</a>
+<a href="merge-sort.html">Merge Sort</a>
+<a href="quick-sort.html">Quick Sort</a>
+<a href="radix-sort.html">Radix Sort</a>
+<a href="selection-sort.html">Selection Sort</a>
+<a href="shell-sort.html">Shell Sort</a>
+<a href="bitonic-sort.html">Bitonic Sort</a>
+<a href="cocktail-sort.html">Cocktail Sort</a>
+<a href="cycle-sort.html">Cycle Sort</a>
+<a href="tim-sort.html">Tim Sort</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linear-vs-non-linear-data-structure.html">Linear vs non-linear</a>
+<a href="ds-array-vs-linked-list.html">Array vs linked list</a>
+<a href="https://www.javatpoint.com/ds-stack-vs-queue">Stack vs queue</a>
+<a href="ds-linear-vs-circular-queue.html">Linear vs Circular Queue</a>
+<a href="ds-linear-search-vs-binary-search.html">Linear Search vs Binary Search</a>
+<a href="singly-linked-list-vs-doubly-linked-list.html">Singly Linked List vs Doubly Linked List</a>
+<a href="https://www.javatpoint.com/binary-tree-vs-binary-search-tree">Binary vs Binary Search Tree</a>
+<a href="tree-vs-graph-data-structure.html">Tree vs Graph</a>
+<a href="binary-search-tree-vs-avl-tree.html">Binary Search tree vs AVL tree</a>
+<a href="red-black-tree-vs-avl-tree.html">Red Black Tree vs AVL tree</a>
+<a href="b-tree-vs-bplus-tree.html">B tree vs B+ tree</a>
+<a href="quick-sort-vs-merge-sort.html">Quick Sort vs Merge Sort</a>
+<a href="bfs-vs-dfs.html">BFS vs DFS</a>
+<a href="stack-vs-heap.html">Stack vs Heap</a>
+<a href="bubble-sort-vs-selection-sort.html">Bubble sort vs. Selection sort</a>
+<a href="ds-stack-vs-array.html">Stack vs Array</a>
+<a href="full-binary-tree-vs-complete-binary-tree.html">Full Binary Tree vs Complete Binary Tree</a>
+<a href="binary-tree-vs-b-tree.html">Binary Tree vs B Tree</a>
+<a href="primitive-vs-non-primitive-data-structure.html">Primitive vs non-primitive data structure</a>
+<a href="data-types-vs-data-structure.html">Data types vs data structure</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="trie-data-structure.html">Trie Data Structure</a>
+<a href="heap-data-structure.html">Heap Data Structure</a>
+<a href="splay-tree.html">Splay Tree</a>
+<a href="fundamental-of-the-data-structure.html">Fundamental of the DS</a>
+<a href="hash-table.html">Hash Table</a>
+<a href="preorder-traversal.html">Preorder Traversal</a>
+<a href="tree-traversal.html">Tree Traversal</a>
+<a href="implementation-of-queue-using-stacks.html">Implementation of Queue using Stacks</a>
+<a href="implementation-of-stack-using-queue.html">Implementation of Stack using Queue</a>
+<a href="binomial-heap.html">Binomial Heap</a>
+<a href="postorder-traversal.html">Postorder Traversal</a>
+<a href="sparse-matrix.html">Sparse Matrix</a>
+<a href="detect-loop-in-a-linked-list.html">Detect loop in a Linked list</a>
+<a href="inorder-traversal.html">Inorder Traversal</a>
+<a href="convert-infix-to-postfix-notation.html">Convert Infix to Postfix notation</a>
+<a href="convert-infix-to-prefix-notation.html">Convert infix to prefix notation</a>
+<a href="conversion-of-prefix-to-postfix-expression.html">Conversion of Prefix to Postfix expression</a>
+<a href="conversion-of-postfix-to-prefix-expression.html">Conversion of Postfix to Prefix expression</a>
+<a href="remove-loop-in-a-linked-list.html">Remove the loop in a Linked List</a>
+<a href="implement-two-stacks-in-an-array.html">Implement two stacks in an array</a>
+<a href="reverse-a-stack-using-recursion.html">Reverse a stack using recursion</a>
+<a href="detect-cycle-in-a-directed-graph.html">Detect cycle in a directed graph</a>
+<a href="optimal-binary-search-tree.html">Optimal Binary Search Tree</a>
+<a href="priority-queue-using-linked-list.html">Priority Queue using Linked list</a>
+<a href="balanced-binary-search-tree.html">Balanced Binary Search Tree</a>
+<a href="https://www.javatpoint.com/boundary-traversal-of-binary-tree">Boundary Traversal of Binary tree</a>
+<a href="diagonal-traversal-of-binary-tree.html">Diagonal Traversal of Binary Tree</a>
+<a href="vertical-traversal-of-a-binary-tree.html">Vertical Traversal of a Binary tree</a>
+<a href="graph-algorithms.html">Graph Algorithms</a>
+<a href="time-complexity-of-sorting-algorithms.html">Time Complexity of Sorting Algorithms</a>
+<a href="applications-of-stack-in-data-structure.html">Applications of Stack in Data Structure</a>
+<a href="dictionary-data-structure.html">Dictionary Data Structure</a>
+<a href="structured-data-and-unstructured-data.html">Structured Data and Unstructured Data</a>
+<a href="list-data-structure.html">List Data Structure</a>
+<a href="types-of-tree-in-data-structure.html">Types of Tree in Data Structure</a>
+<a href="abstract-data-type-in-data-structure.html">Abstract data type in data structure</a>
+<a href="disjoint-set-data-structure.html">Disjoint set data structure</a>
+<a href="dynamic-data-structure.html">Dynamic Data Structure</a>
+<a href="hash-function-in-data-structure.html">Hash Function in Data Structure</a>
+<a href="complete-binary-tree.html">Complete Binary Tree</a>
+<a href="threaded-binary-tree.html">Threaded Binary Tree</a>
+<a href="diameter-of-binary-tree.html">Diameter of Binary Tree</a>
+<a href="height-of-binary-tree.html">Height of Binary Tree</a>
+<a href="inorder-tree-traversal-without-stack.html">Inorder Tree Traversal without Stack</a>
+<a href="enumeration-of-binary-trees.html">Enumeration of Binary Trees</a>
+<a href="maximum-width-of-a-binary-tree.html">Maximum Width of a Binary Tree</a>
+<a href="types-of-graph-in-data-structure.html">Types of Graph in Data Structure</a>
+<a href="primitive-data-type.html">Primitive Data Type</a>
+<a href="semi-structured-data.html">Semi-Structured Data</a>
+<a href="advance-data-structures.html">Advance Data Structures</a>
+<a href="sort-an-array-of-0s-1s-and-2s.html">Sort an Array of 0's, 1's, and 2's</a>
+<a href="stock-span-problem.html">Stock Span Problem</a>
+<a href="implementation-of-deque-by-circular-array.html">Implementation of Deque by Circular Array</a>
+<a href="rotate-operation-in-linked-list.html">Rotate Operation in Linked List</a>
+<a href="subarray-with-given-sum.html">Subarray with given sum</a>
+<a href="self-organizing-list.html">Self-organizing List</a>
+<a href="unrolled-linked-list.html">Unrolled Linked List</a>
+<a href="types-of-sparse-matrices.html">Types of Sparse Matrices</a>
+<a href="application-of-linked-list.html">Application of Linked List</a>
+<a href="topological-sorting.html">Topological Sorting</a>
+<a href="ternary-search-tree.html">Ternary Search Tree</a>
+<a href="stock-span-problem.html">Stock Span Problem</a>
+<a href="https://www.javatpoint.com/treap-data-structure">Treap Data Structure</a>
+<a href="quicksort-on-doubly-linked-list.html">Quicksort on Doubly Linked List</a>
+<a href="inversion-count.html">Inversion count</a>
+<a href="expression-tree-in-data-structure.html">Expression tree in DS</a>
+<a href="garbage-collection-in-data-structure.html">Garbage Collection in DS</a>
+<a href="https://www.javatpoint.com/merge-sort-on-doubly-linked-list">Merge Sort on Doubly Linked List</a>
+<a href="sort-stack-using-recursion.html">Sort Stack using Recursion</a>
+<a href="lifo-approach-in-data-structure.html">LIFO Approach in data structure</a>
+<a href="big-O-notation-in-data-structure.html">Big O Notation in DS</a>
+<a href="binary-tree-traversal-in-data-structure.html">Binary Tree Traversal in DS</a>
+<a href="queue-operations-in-data-structure.html">Queue Operations in DS</a>
+<a href="what-is-a-non-linear-data-structure.html">What is a Non-Linear Data Structure</a>
+<a href="fifo-approach-in-data-structure.html">FIFO Approach in data structure</a>
+<a href="what-are-connected-graphs-in-data-structure.html">What are connected graphs in data structure</a>
+<a href="which-python-data-structure-is-immutable.html">Which Python data structure is immutable</a>
+<a href="which-data-structure-is-used-by-map.html">Which data structure is used by map</a>
+<a href="what-is-iteration-in-data-structure.html">What is iteration in data structure</a>
+<a href="what-are-linear-search-and-binary-search-in-data-structure.html">What are linear search and binary search in data structure</a>
+<a href="hash-table-vs-stl-map.html">Hash Table vs STL Map</a>
+<a href="recamans-sequence.html">Recaman's Sequence</a>
+<a href="maximum-area-rectangle-created-by-selecting-four-sides-from-an-array.html">Maximum area rectangle created by selecting four sides from an array</a>
+<a href="maximum-number-of-distinct-nodes-in-a-root-to-leaf-path.html">Maximum number of distinct nodes in a root-to-leaf path</a>
+<a href="hashing-open-addressing-for-collision-handling.html">Hashing - Open Addressing for Collision Handling</a>
+<a href="introduction-to-hashing.html">Introduction to Hashing</a>
+<a href="separate-chaining-for-collision-handling.html">Separate chaining for Collision Handling</a>
+<a href="check-if-a-given-array-contains-duplicate-elements-within-k-distance-from-each-other.html">Check if a given array contains duplicate elements within k distance from each other</a>
+<a href="given-an-array-a-and-a-number-x-check-for-pair-in-a-with-sum-as-x.html">Given an array A[] and a number x, check for pair in A[] with sum as x (aka Two Sum)</a>
+<a href="find-number-of-employees-under-every-manager.html">Find number of Employees Under every Manager</a>
+<a href="union-and-intersection-of-two-linked-lists.html">Union and Intersection of two Linked Lists</a>
+<a href="kth-largest-element-in-an-array.html">Kth Largest element in an array</a>
+<a href="sort-an-almost-sorted-k-sorted-or-nearly-sorted-array.html">Sort an almost-sorted, k-sorted or nearly-sorted array</a>
+<a href="fibonacci-heap.html">Fibonacci Heap</a>
+<a href="find-whether-an-array-is-subset-of-another-array.html">Find whether an array is subset of another array</a>
+<a href="print-a-binary-tree-in-vertical-order.html">Print a Binary Tree in Vertical Order</a>
+<a href="tournament-tree.html">Tournament Tree (Winner Tree)</a>
+<a href="https://www.javatpoint.com/lazy-propagation-in-segment-tree">Lazy Propagation in Segment Tree</a>
+<a href="segment-tree-range-minimum-query.html">Segment Tree - Range Minimum Query</a>
+<a href="segment-tree-sum-of-given-range.html">Segment Tree - Sum of given Range</a>
+<a href="2-3-trees-search-insertion-and-deletion.html">2-3 Trees (Search, Insertion, and Deletion)</a>
+<a href="print-kth-least-significant-bit-of-a-number.html">Print kth least significant bit of a number</a>
+<a href="add-two-numbers-represented-by-linked-lists.html">Add two numbers represented by linked lists</a>
+<a href="adding-one-to-the-number-represented-as-array-of-digits.html">Adding one to the number represented as array of digits</a>
+<a href="find-precedence-characters-form-a-given-sorted-dictionary.html">Find precedence characters form a given sorted dictionary</a>
+<a href="check-if-any-anagram-of-a-string-is-palindrome-or-not.html">Check if any anagram of a string is palindrome or not</a>
+<a href="minimum-insertions-to-form-a-palindrome.html">Minimum Insertions to form a Palindrome</a>
+<a href="allocate-minimum-number-of-pages.html">Allocate Minimum Number of Pages</a>
+<a href="assembly-line-scheduling.html">Assembly Line Scheduling</a>
+<a href="breadth-first-search-or-bfs-for-a-graph.html">Breadth First Search or BFS for a Graph</a>
+<a href="find-an-element-in-array-such-that-sum-of-the-left-array-is-equal-to-the-sum-of-the-right-array.html">Find an element in array such that sum of the left array is equal to the sum of the right array</a>
+<a href="bridges-in-a-graph.html">Bridges in a Graph</a>
+<a href="bubble-sort-in-javascript.html">Bubble Sort in JavaScript</a>
+<a href="burn-the-binary-tree-from-the-target-node.html">Burn the Binary tree from the Target node</a>
+<a href="lowest-common-ancestor-in-a-binary-search-tree.html">Lowest Common Ancestor in a Binary Search Tree</a>
+<a href="types-of-hash-functions-in-c.html">Types of Hash Functions in C</a>
+<a href="implement-dynamic-deque-using-templates-class-and-a-circular-array.html">Implement Dynamic Deque using Templates Class and a Circular Array</a>
+<a href="iterative-depth-first-traversal-of-graph.html">Iterative Depth First Traversal of Graph</a>
+<a href="linked-list-data-structure-in-cpp-with-illustration.html">Linked List Data Structure in C++ With Illustration</a>
+<a href="reverse-a-linked-list-in-groups-of-given-size.html">Reverse a Linked List in Groups of Given Size</a>
+<a href="reverse-alternate-k-nodes-in-a-singly-linked-list.html">Reverse Alternate K nodes in a Singly Linked List</a>
+<a href="when-should-i-use-a-list-vs-a-linkedlist.html">When should I use a List vs a LinkedList</a>
+<a href="why-is-deleting-in-a-singly-linked-list-O-1.html">Why is deleting in a Singly Linked List O(1)</a>
+<a href="construct-full-binary-tree-using-its-preorder-traversal-and-preorder-traversal-of-its-mirror-tree.html">Construct Full Binary Tree using its Preorder Traversal and Preorder Traversal of its Mirror Tree</a>
+<a href="find-relative-complement-of-two-sorted-arrays.html">Find Relative Complement of two Sorted Arrays</a>
+<a href="handshaking-lemma-and-interesting-tree-properties-dsa.html">Handshaking Lemma and Interesting Tree Properties -DSA</a>
+<a href="how-to-efficiently-implement-kstacks-in-a-single-array.html">How to Efficiently Implement kStacks in a Single Array</a>
+<a href="write-c-functions-that-modify-head-pointer-of-a-linked-list.html">Write C Functions that Modify Head Pointer of a Linked List</a>
+<a href="introduction-to-ant-colony-optimization.html">Introduction to Ant Colony Optimization</a>
+<a href="what-is-array.html">What is Array</a>
+<a href="practical-byzantine-fault-tolerance.html">The practical Byzantine Fault Tolerance (pBFT)</a>
+<a href="applications-of-queue-data-structure.html">Applications of Queue Data Structure</a>
+<a href="line-graph.html">Line Graph</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-mcq.html">Data Structure MCQ</a>
+<a href="advanced-data-structure-mcq.html">Advanced DS MCQ</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="time-complexity-of-sorting-algorithms.html">next &rarr;</a>
+<a class="next" href="vertical-traversal-of-a-binary-tree.html">&larr; prev</a>
+</div>
+<h1 class="h1">Graph Algorithms</h1>
+<img src="https://static.javatpoint.com/ds/images/graph-algorithms1.png" alt="Graph Algorithms" />
+<p>In this article, you would be learning a brief explanation of some of the most used graph algorithms, which have massive applications in today's words. Graphs cover most high-level data structure techniques that one experiences while implementing them and to know which graph algorithm is best for the moment effectively is what you would be learning here. First, let's get a clear idea from the very basics about graphs.</p>
+<h2 class="h2">What is a Graph?</h2>
+<p>A graph is a <strong>unique data structure</strong> in programming that consists of finite sets of nodes or vertices and a set of edges that connect these vertices to them. At this moment, adjacent vertices can be called those vertices that are connected to the same edge with each other. In simple terms, a graph is a visual representation of vertices and edges sharing some connection or relationship. Although there are plenty of graph algorithms that you might have been familiar with, only some of them are put to use. The reason for this is simple as the standard graph algorithms are designed in such a way to solve millions of problems with just a few lines of logically coded technique. To some extent, one perfect algorithm is solely optimized to achieve such efficient results.</p>
+<h2 class="h2">Types of Graphs</h2>
+<p>There are various types of graph algorithms that you would be looking at in this article but before that, let's look at some types of terms to imply the fundamental variations between them.</p>
+<p><strong>Order:</strong> Order defines the total number of vertices present in the graph.</p>
+<p><strong>Size:</strong> Size defines the number of edges present in the graph.</p>
+<p><strong>Self-loop:</strong> It is the edges that are connected from a vertex to itself.</p>
+<p><strong>Isolated vertex:</strong> It is the vertex that is not connected to any other vertices in the graph.</p>
+<p><strong>Vertex degree:</strong> It is defined as the number of edges incident to a vertex in a graph.</p>
+<p><strong>Weighted graph:</strong> A graph having value or weight of vertices.</p>
+<p><strong>Unweighted graph:</strong> A graph having no value or weight of vertices.</p>
+<p><strong>Directed graph:</strong> A graph having a direction indicator.</p>
+<p><strong>Undirected graph:</strong> A graph where no directions are defined.</p>
+<img src="https://static.javatpoint.com/ds/images/graph-algorithms2.png" alt="Graph Algorithms" />
+<p>Let's now carry forward the main discussion and learn about different types of graph algorithms.</p>
+<h3 class="h3">Breadth-First Search</h3>
+<p>Traversing or searching is one of the most used operations that are undertaken while working on graphs. Therefore, in <strong>breadth-first-search</strong> (BFS), you start at a particular vertex, and the algorithm tries to visit all the neighbors at the given depth before moving on to the next level of traversal of vertices. Unlike trees, graphs may contain cyclic paths where the first and last vertices are remarkably the same always. Thus, in BFS, you need to keep note of all the track of the vertices you are visiting. To implement such an order, you use a queue data structure which First-in, First-out approach. To understand this, see the image given below.</p>
+<img src="https://static.javatpoint.com/ds/images/graph-algorithms3.png" alt="Graph Algorithms" />
+<p><strong>Algorithm</strong></p>
+<ol class="points">
+<li>Start putting anyone vertices from the graph at the back of the queue.</li>
+<li>First, move the front queue item and add it to the list of the visited node.</li>
+<li>Next, create nodes of the adjacent vertex of that list and add them which have not been visited yet.</li>
+<li>Keep repeating steps two and three until the queue is found to be empty.</li>
+</ol>
+<p><strong>Pseudocode</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+Set all nodes to "not visited";
+   q = new Queue();
+   q.enqueue(initial node);
+   while ( q ? empty ) do
+   {
+      x = q.dequeue();
+      if ( x has not been visited )
+      {
+         visited[x] = true;         // Visit node x !
+
+         for ( every edge (x, y)  /* we are using all edges ! */ )    
+            if ( y has not been visited )   
+	       q.enqueue(y);       // Use the edge (x,y) !!!
+      }
+   }
+</textarea></div>
+<p><strong>Complexity: 0(V+E)</strong> where V is vertices and E is edges.</p>
+<p><strong>Applications</strong></p>
+<p>BFS algorithm has various applications. For example, it is used to determine the <strong>shortest path</strong> and <strong>minimum spanning tree.</strong> It is also used in web crawlers to creates web page indexes. It is also used as powering search engines on social media networks and helps to find out peer-to-peer networks in BitTorrent.</p>
+<h3 class="h3">Depth-first search</h3>
+<p>In depth-first-search (DFS), you start by particularly from the vertex and explore as much as you along all the branches before backtracking. In DFS, it is essential to keep note of the tracks of visited nodes, and for this, you use stack data structure.</p>
+<img src="https://static.javatpoint.com/ds/images/graph-algorithms4.png" alt="Graph Algorithms" />
+<p><strong>Algorithm</strong></p>
+<ol class="points">
+<li>Start by putting one of the vertexes of the graph on the stack's top.</li>
+<li>Put the top item of the stack and add it to the visited vertex list.</li>
+<li>Create a list of all the adjacent nodes of the vertex and then add those nodes to the unvisited at the top of the stack.</li>
+<li>Keep repeating steps 2 and 3, and the stack becomes empty.</li>
+</ol>
+<p><strong>Pseudocode</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+ DFS(G,v)   ( v is the vertex where the search starts )
+         Stack S := {};   ( start with an empty stack )
+         for each vertex u, set visited[u] := false;
+         push S, v;
+         while (S is not empty) do
+            u := pop S;
+            if (not visited[u]) then
+               visited[u] := true;
+               for each unvisited neighbour w of uu
+                  push S, w;
+            end if
+         end while
+      END DFS()
+</textarea></div>
+<p><strong>Applications</strong></p>
+<p>DFS finds its application when it comes to finding paths between two vertices and detecting cycles. Also, topological sorting can be done using the DFS algorithm easily. DFS is also used for one-solution puzzles.</p>
+<h3 class="h3">Dijkstra's shortest path algorithm</h3>
+<p>Dijkstra's shortest path algorithm works to find the minor path from one vertex to another. The sum of the vertex should be such that their sum of weights that have been traveled should output minimum. The shortest path algorithm is a highly curated algorithm that works on the concept of receiving efficiency as much as possible. Consider the below diagram.</p>
+<img src="https://static.javatpoint.com/ds/images/graph-algorithms5.png" alt="Graph Algorithms" />
+<p><strong>Algorithm</strong></p>
+<ol class="points">
+<li>Set all the vertices to infinity, excluding the source vertex.</li>
+<li>Push the source in the form (distance, vertex) and put it in the min-priority queue.</li>
+<li>From the priority, queue pop out the minimum distant vertex from the source vertex.</li>
+<li>Update the distance after popping out the minimum distant vertex and calculate the vertex distance using (vertex distance + weight < following vertex distance).</li>
+<li>If you find that the visited vertex is popped, move ahead without using it. </li>
+<li>Apply the steps until the priority queue is found to be empty.</li>
+</ol>
+<p><strong>Pseudocode</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+function dijkstra(G, S)
+    for each vertex V in G
+        distance[V] <- infinite
+        previous[V] <- NULL
+        If V != S, add V to Priority Queue Q
+    distance[S] <- 0	
+    while Q IS NOT EMPTY
+        U <- Extract MIN from Q
+        for each unvisited neighbour V of U
+            tempDistance <- distance[U] + edge_weight(U, V)
+            if tempDistance < distance[V]
+                distance[V] <- tempDistance
+                previous[V] <- U
+    return distance[], previous[]
+</textarea></div>
+<p><strong>Applications</strong></p>
+<p>Dijkstra's shortest path algorithm is used in finding the distance of travel from one location to another, like Google Maps or Apple Maps. In addition, it is highly used in networking to outlay min-delay path problems and abstract machines to identify choices to reach specific goals like the number game or move to win a match.</p>
+<h3 class="h3">Cycle detection</h3>
+<p>A cycle is defined as a path in graph algorithms where the first and last vertices are usually considered. For example, if you start from a vertex and travel along a random path, you might reach the exact point where you eventually started. Hence, this forms a chain or cyclic algorithm to cover along with all the nodes present on traversing. Therefore, cycle detection is based on detecting this kind of cycle. Consider the below image.</p>
+<img src="https://static.javatpoint.com/ds/images/graph-algorithms6.png" alt="Graph Algorithms" />
+<p><strong>Pseudocode</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+Brent's Cycle Algorithm Example
+def brent(f, x0):
+    # main phase: search successive powers of two
+    power = lam = 1
+    tortoise = x0
+    hare = f(x0)  # f(x0) is the element/node next to x0.
+    while tortoise != hare:
+        if power == lam:  # time to start a new power of two?
+            tortoise = hare
+            power *= 2
+            lam = 0
+        hare = f(hare)
+        lam += 1
+    # Find the position of the first repetition of length ?
+    tortoise = hare = x0
+    for i in range(lam):
+    # range(lam) produces a list with the values 0, 1, ... , lam-1
+        hare = f(hare)
+    # The distance between the hare and tortoise is now ?.
+    # Next, the hare and tortoise move at same speed until they agree
+    mu = 0
+    while tortoise != hare:
+        tortoise = f(tortoise)
+        hare = f(hare)
+        mu += 1
+    return lam, mu
+</textarea></div>
+<p><strong>Applications</strong></p>
+<p>Cyclic algorithms are used in message-based distributed systems and large-scale cluster processing systems. It is also mainly used to detect deadlocks in the concurrent system and various cryptographic applications where the keys are used to manage the messages with encrypted values.</p>
+<h3 class="h3">Minimum Spanning Tree</h3>
+<p>A minimum spanning is defined as a subset of edges of a graph having no cycles and is well connected with all the vertices so that the minimum sum is availed through the edge weights. It solely depends on the cost of the spanning tree and the minimum span or least distance the vertex covers. There can be many minimum spanning trees depending on the edge weight and various other factors.</p>
+<img src="https://static.javatpoint.com/ds/images/graph-algorithms7.png" alt="Graph Algorithms" />
+<p><strong>Pseudocode</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+Prim's Algorithm Example
+ReachSet = {0};     
+   UnReachSet = {1, 2, ..., N-1};
+   SpanningTree = {};
+   while ( UnReachSet ? empty )
+   {
+      Find edge e = (x, y) such that:
+         1. x ? ReachSet
+	 2. y ? UnReachSet
+	 3. e has smallest cost
+      SpanningTree = SpanningTree ? {e};
+      ReachSet   = ReachSet ? {y};
+      UnReachSet = UnReachSet - {y};
+   }
+</textarea></div>
+<p><strong>Applications</strong></p>
+<p>Minimum spanning tree finds its application in the network design and is popularly used in <strong>traveling salesman</strong> problems in a data structure. It can also be used to find the minimum-cost weighted perfect matching and multi-terminal minimum cut problems. MST also finds its application in the field of image and handwriting recognition and cluster analysis.</p>
+<h3 class="h3">Topological sorting</h3>
+<p>Topological sorting of a graph follows the algorithm of ordering the vertices linearly so that each directed graph having vertex ordering ensures that the vertex comes before it. Users can understand it more accurately by looking at the sample image given below.</p>
+<img src="https://static.javatpoint.com/ds/images/graph-algorithms8.png" alt="Graph Algorithms" />
+<p>In the above example, you can visualize the ordering of the unsorted graph and topologically sorted graph. The topologically sorted graph ensures to sort vertex that comes in the pathway.</p>
+<p><strong>Pseudocode</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+topological_sort(N, adj[N][N])
+        T = []
+        visited = []
+        in_degree = []
+        for i = 0 to N
+                in_degree[i] = visited[i] = 0
+        for i = 0 to N
+                for j = 0 to N
+                        if adj[i][j] is TRUE
+                                in_degree[j] = in_degree[j] + 1
+        for i = 0 to N
+                if in_degree[i] is 0
+                        enqueue(Queue, i)
+                        visited[i] = TRUE
+        while Queue is not Empty
+                vertex = get_front(Queue)
+                dequeue(Queue)
+                T.append(vertex)
+                for j = 0 to N
+                        if adj[vertex][j] is TRUE and visited[j] is FALSE
+                                in_degree[j] = in_degree[j] - 1
+                                if in_degree[j] is 0
+                                        enqueue(Queue, j)
+                                        visited[j] = TRUE
+        return T
+</textarea></div>
+<p><strong>Application</strong></p>
+<p>Topological sorting covers the room for application in Kahn's and DFS algorithms. In real-life applications, topological sorting is used in scheduling instructions and serialization of data. It is also popularly used to determine the tasks that are to be compiled and used to resolve dependencies in linkers.</p>
+<h3 class="h3">Graph coloring</h3>
+<p>Graph coloring algorithms follow the approach of assigning colors to the elements present in the graph under certain conditions. The conditions are based on the techniques or algorithms. Hence, vertex coloring is a commonly used coloring technique followed here. First, in this method, you try to color the vertex using k color, ensuring that two adjacent vertexes should not have the same color. Other method includes face coloring and edge coloring. Both of these methods should also ensure that no edge or face should be inconsequent color. The coloring of the graph is determined by knowing the chromatic number, which is also the smaller number of colors needed. Consider the below image to understand how it works.</p>
+<img src="https://static.javatpoint.com/ds/images/graph-algorithms9.png" alt="Graph Algorithms" />
+<p><strong>Pseudocode</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+#include <iostream>
+#include <list>
+using namespace std; 
+// A class that represents an undirected graph
+class Graph
+{
+    int V;    // No. of vertices
+    list<int> *adj;    // A dynamic array of adjacency lists
+public:
+    // Constructor and destructor
+    Graph(int V)   { this->V = V; adj = new list<int>[V]; }
+    ~Graph()       { delete [] adj; }
+    // function to add an edge to graph
+    void addEdge(int v, int w);
+    // Prints greedy coloring of the vertices
+    void greedyColoring();
+};
+void Graph::addEdge(int v, int w)
+{
+    adj[v].push_back(w);
+    adj[w].push_back(v);  // Note: the graph is undirected
+}
+// Assigns colors (starting from 0) to all vertices and prints
+// the assignment of colors
+void Graph::greedyColoring()
+{
+    int result[V]; 
+    // Assign the first color to first vertex
+    result[0]  = 0; 
+    // Initialize remaining V-1 vertices as unassigned
+    for (int u = 1; u < V; u++)
+        result[u] = -1;  // no color is assigned to u
+    // A temporary array to store the available colors. True
+    // value of available[cr] would mean that the color cr is
+    // assigned to one of its adjacent vertices
+    bool available[V];
+    for (int cr = 0; cr < V; cr++)
+        available[cr] = false; 
+    // Assign colors to remaining V-1 vertices
+    for (int u = 1; u < V; u++)
+    {
+        // Process all adjacent vertices and flag their colors
+        // as unavailable
+        list<int>::iterator i;
+        for (i = adj[u].begin(); i != adj[u].end(); ++i)
+            if (result[*i] != -1)
+                available[result[*i]] = true; 
+        // Find the first available color
+        int cr;
+        for (cr = 0; cr < V; cr++)
+            if (available[cr] == false)
+                break; 
+        result[u] = cr; // Assign the found color
+        // Reset the values back to false for the next iteration
+        for (i = adj[u].begin(); i != adj[u].end(); ++i)
+            if (result[*i] != -1)
+                available[result[*i]] = false;
+    }
+    // print the result
+    for (int u = 0; u < V; u++)
+        cout << "Vertex " << u << " --->  Color "
+             << result[u] << endl;
+}
+// Driver program to test above function
+int main()
+{
+    Graph g1(5);
+    g1.addEdge(0, 1);
+    g1.addEdge(0, 2);
+    g1.addEdge(1, 2);
+    g1.addEdge(1, 3);
+    g1.addEdge(2, 3);
+    g1.addEdge(3, 4);
+    cout << "Coloring of graph 1 \n";
+    g1.greedyColoring(); 
+    Graph g2(5);
+    g2.addEdge(0, 1);
+    g2.addEdge(0, 2);
+    g2.addEdge(1, 2);
+    g2.addEdge(1, 4);
+    g2.addEdge(2, 4);
+    g2.addEdge(4, 3);
+    cout << "\nColoring of graph 2 \n";
+    g2.greedyColoring();
+    return 0;
+}
+</textarea></div>
+<p><strong>Application</strong></p>
+<p>Graph coloring has vast applications in data structures as well as in solving real-life problems. For example, it is used in timetable scheduling and assigning radio frequencies for mobile. It is also used in Sudoko and to check if the given graph is bipartite. Graph coloring can also be used in geographical maps to mark countries and states in different colors.</p>
+<h3 class="h3">Maximum flow</h3>
+<p>The maximum flow algorithm is usually treated as a problem-solving algorithm where the graph is modeled like a network flow infrastructure. Hence, the maximum flow is determined by finding the path of the flow that has the <strong>maximum flow rate.</strong> The maximum flow rate is determined by augmenting paths which is the total flow-based out of source node equal to the flow in the sink node. Below is the illustration for the same.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+function: DinicMaxFlow(Graph G,Node S,Node T):
+    Initialize flow in all edges to 0, F = 0
+    Construct level graph
+    while (there exists an augmenting path in level graph):
+        find blocking flow f in level graph
+        F = F + f
+        Update level graph
+    return F
+</textarea></div>
+<p><strong>Applications</strong></p>
+<p>Like you, the maximum flow problem covers applications of popular algorithms like the Ford-Fulkerson algorithm, Edmonds-Karp algorithm, and Dinic's algorithm, like you saw in the pseudocode given above. In real life, it finds its applications in scheduling crews in flights and image segmentation for foreground and background. It is also used in games like basketball, where the score is set to a maximum estimated value having the current division leader.</p>
+<h3 class="h3">Matching</h3>
+<p>A matching algorithm or technique in the graph is defined as the edges that no common vertices at all. Matching can be termed maximum matching if the most significant number of edges possibly matches with as many vertices as possible. It follows a specific approach for determining full matches, as shown in the below image.</p>
+<img src="https://static.javatpoint.com/ds/images/graph-algorithms10.png" alt="Graph Algorithms" />
+<p><strong>Applications</strong></p>
+<p>Matching is used in an algorithm like the Hopcroft-Karp algorithm and Blossom algorithm. It can also be used to solve problems using a Hungarian algorithm that covers concepts of matching. In real-life examples, matching can be used resource allocation and travel optimization and some problems like stable marriage and vertex cover problem.</p>
+<h2 class="h2">Conclusion</h2>
+<p>In this article, you came across plenty of graph coloring algorithms and techniques that find their day-to-day applications in all instances of real life. You learned how to implement them according to situations, and hence the pseudo code helped you process the information strategically and efficiently. Graph algorithms are considered an essential aspect in the field confined not only to solve problems using data structures but also in general tasks like Google Maps and Apple Maps. However, a beginner might find it hard to implement Graph algorithms because of their complex nature. Hence, it is highly recommended to go through this article since it covers everything from scratch.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="time-complexity-of-sorting-algorithms.html">Time Complexity of Sorting Algorithms</a></span>
+</div>
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="vertical-traversal-of-a-binary-tree.html">&larr; prev</a>
+<a style="float:right" class="next" href="time-complexity-of-sorting-algorithms.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="690f0c0c0d0b080a022903081f081d190600071d470a0604">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/graph-algorithms"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/graph-algorithms"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/graph-algorithms"><img src="images/pinterest32.png" alt="pinterest" /></a>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d6bea496bcb7a0b7a2a6b9bfb8a2f8b5b9bb">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="acc4deecc6cddacdd8dcc3c5c2d882cfc3c182">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+</div></div>
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/graph-algorithms by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:07:26 GMT -->
+</html> 

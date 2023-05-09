@@ -1,0 +1,919 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/vb-net-file-handling by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 18:04:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>VB.NET File Handling - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="VB.NET File Handling - Javatpoint" /><meta property="og:description" content="VB.NET File Handling with What is VB.NET, VB.NET and Visual Basic, VB.NET vs C#, VB.NET vs Java, VB.NET Keywords, VB.NET Data Types, VB.NET Operators, VB.NET Loops, VB.NET GUI etc." />
+<meta name="keywords" content="vb net, vb.net tutorial, what is vb.net, vb.net vs visual basic, vb.net vs c#, vb.net vs java, download and install visual studio, vb.net hello world program, vb.net keywords, vb.net data types, vb.net variables and constant, vb.net operators, vb.net control statements, vb.net loops, vb.net collection, vb.net gui" /><meta name="description" content="VB.NET File Handling with What is VB.NET, VB.NET and Visual Basic, VB.NET vs C#, VB.NET vs Java, VB.NET Keywords, VB.NET Data Types, VB.NET Operators, VB.NET Loops, VB.NET GUI etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="vb-net-file-handling.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="VB.NET File Handling - Javatpoint" /><meta name="twitter:description" property="og:description" content="VB.NET File Handling with What is VB.NET, VB.NET and Visual Basic, VB.NET vs C#, VB.NET vs Java, VB.NET Keywords, VB.NET Data Types, VB.NET Operators, VB.NET Loops, VB.NET GUI etc." /><meta property="og:url" content="vb-net-file-handling.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="vb-net.html" class="selected">VB.NET</a></li>
+<li><a href="net-framework.html">.Net</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="ado-net-tutorial.html">ADO.NET</a></li>
+<li><a href="asp-net-tutorial.html">ASP.NET</a></li>
+<li><a href="sql-server-tutorial.html">SQL Server</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="f-sharp-tutorial.html">F#</a></li>
+<li><a href="angularjs-tutorial.html">AngularJS</a></li>
+<li><a href="nodejs-tutorial.html">Node.js</a></li>
+<li><a href="expressjs-tutorial.html">Express.js</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="ajax-tutorial.html">Ajax</a></li>
+<li><a href="examaccess.html">Quiz</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="forum.html">Forum</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">VB.NET Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="vb-net.html">VB.NET Tutorial</a>
+<a href="vb-net-dot-net-framework-introduction.html">.NET Framework</a>
+<a href="vb-net-vs-visual-basic.html">VB.NET vs Visual Basic</a>
+<a href="vb-net-vs-c-sharp.html">VB.NET vs C#</a>
+<a href="vb-net-vs-java.html">VB.NET vs Java</a>
+<a href="vb-net-download-and-install-visual-studio.html">Download &amp; Install Visual Studio</a>
+<a href="vb-net-hello-world-program.html">Hello World Program</a>
+<a href="vb-net-keywords.html">VB.NET Keywords</a>
+<a href="vb-net-data-type.html">VB.NET Data Type</a>
+<a href="vb-net-variable-and-constant.html">Variable &amp; Constant</a>
+<a href="vb-net-operators.html">VB.NET Operators</a>
+<a href="vb-net-control-statements.html">Control Statements</a>
+<a href="vb-net-do-loop.html">VB.NET Do Loop</a>
+<a href="vb-net-for-next-loop.html">For Next Loop</a>
+<a href="vb-net-for-each-loop.html">For Each Loop</a>
+<a href="vb-net-while-end-loop.html">While End Loop</a>
+<a href="vb-net-with-end-with-statement.html">With &amp; With Statement</a>
+<a href="vb-net-exit-statement.html">VB.NET Exit Statement</a>
+<a href="vb-net-continue-statement.html">VB.NET Continue Statement</a>
+<a href="vb-net-goto-statement.html">VB.NET GoTo Statement</a>
+<a href="vb-net-enum.html">VB.NET Enum</a>
+<a href="vb-net-string.html">VB.NET String</a>
+<a href="vb-net-arraylist.html">VB.NET ArrayList</a>
+<a href="vb-net-hashtable.html">VB.NET HashTable</a>
+<a href="vb-net-stack.html">VB.NET Stack</a>
+<a href="vb-net-arrays.html">VB.NET Arrays</a>
+<a href="vb-net-queue.html">VB.NET Queue</a>
+<a href="vb-net-dynamic-array.html">VB.NET Dynamic Array</a>
+<a href="vb-net-namevaluecollection.html">NameValueCollection</a>
+<a href="vb-net-list.html">VB.NET List</a>
+<a href="vb-net-functions.html">VB.NET Functions</a>
+<a href="vb-net-sub.html">VB.NET Sub</a>
+<a href="vb-net-classes-and-object.html">Classes and Object</a>
+<a href="vb-net-multithreading.html">VB.NET Multithreading</a>
+<a href="vb-net-exception-handling.html">Exception Handling</a>
+<a href="vb-net-file-handling.html">File Handling</a>
+<a href="vb-net-date-and-time.html">VB.NET Date &amp; Time</a>
+<a href="vb-net-form-controls.html">VB.NET Form Controls</a>
+<a href="vb-net-label-control.html">VB.NET Label Control</a>
+<a href="vb-net-button-control.html">VB.NET Button Control</a>
+<a href="vb-net-textbox-control.html">VB.NET TextBox Control</a>
+<a href="vb-net-combobox-control.html">ComboBox Control</a>
+<a href="vb-net-listbox-control.html">ListBox Control</a>
+<a href="vb-net-checkedlistbox-control.html">CheckedListBox Control</a>
+<a href="vb-net-radiobutton-control.html">RadioButton Control</a>
+<a href="vb-net-checkbox-control.html">CheckBox Control</a>
+<a href="vb-net-picturebox-control.html">PictureBox Control</a>
+<a href="vb-net-progressbar-control.html">ProgressBar Control</a>
+<a href="vb-net-scrollbars-control.html">ScrollBars Control</a>
+<a href="vb-net-datetimepicker-control.html">DateTimePicker Control</a>
+<a href="vb-net-treeview-control.html">TreeView Control</a>
+<a href="vb-net-listview-control.html">ListView Control</a>
+<a href="vb-net-menu-control.html">Menu Control</a>
+<a href="vb-net-mdi-form.html">VB.NET MDI Form</a>
+<a href="vb-net-dialog-box.html">VB.NET Dialog Box</a>
+<a href="vb-net-color-dialog-box.html">Color Dialog Box</a>
+<a href="vb-net-font-dialog-box.html">Font Dialog Box</a>
+<a href="vb-net-openfile-dialog-box.html">OpenFile Dialog Box</a>
+<a href="vb-net-print-dialog-box.html">Print Dialog Box</a>
+<a href="keypress-event-in-vb-net.html">KeyPress Event</a>
+<a href="dynamic-controls-in-vb-net.html">Dynamic Controls</a>
+<a href="vb-net-timer-control.html">VB.NET Timer Control</a>
+<a href="how-to-keep-a-form-on-top-of-others-in-vb-net.html">How to keep a Form on top of others in VB.NET</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="vb-net-date-and-time.html">next &rarr;</a>
+<a class="next" href="vb-net-exception-handling.html">&larr; prev</a>
+</div>
+<h1 class="h1">VB.NET File Handling</h1>
+<p>A <strong>file</strong> is a collection of data stored in computer memory with a specific name and a defined folder path. The term <strong>File Handling</strong> in VB.NET is used to perform various operations like create a file, read a file, write to the file, closing the file, and more. Furthermore, when a file is opened for reading and writing, a <strong>stream</strong> is created.</p>
+<p>A stream is a sequence of bytes that passes data to a file to read or write. In VB.NET file handling, there are two types of stream such as <strong>Input Stream</strong> or <strong>Read Stream</strong> and <strong>Output Stream</strong> or <strong>Write Stream</strong>.</p>
+<h3 class="h3">VB.NET I/O Classes</h3>
+<p>In <a href="vb-net.html">VB.NET</a>, we use the <strong>System.IO</strong> namespace, that has different classes to perform various input and output operations with files, such as the <strong>FileStream</strong> class used to perform any operation like opening a file, closing a file, deleting a files, reading from or writing to a file, etc.</p>
+<p>The following table shows the I/O classes that are commonly used in VB.NET programming.</p>
+<table class="alt">
+<tr>
+<th>I/O Class</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>File</strong></td>
+<td>It is used to perform some changes in files.</td>
+</tr>
+<tr>
+<td><strong>FileInfo</strong></td>
+<td>It is used to perform any operation on files.</td>
+</tr>
+<tr>
+<td><strong>FileStream</strong></td>
+<td>It is used to apply read or write operations on any location of a file.</td>
+</tr>
+<tr>
+<td><strong>BinaryReader</strong></td>
+<td>As the name represents, a Binary reader is used to read primitive data in a binary stream.</td>
+</tr>
+<tr>
+<td><strong>BinaryWriter</strong></td>
+<td>It is used to write the data in binary format.</td>
+</tr>
+<tr>
+<td><strong>Directory</strong></td>
+<td>It is used to perform some changes or manipulating a directory structure.</td>
+</tr>
+<tr>
+<td><strong>DriveInfo</strong></td>
+<td>It helps to provide the necessary information for the drive.</td>
+</tr>
+<tr>
+<td><strong>BuffredStream</strong></td>
+<td>It is a temporary storage area for the collection of steam bytes.</td>
+</tr>
+<tr>
+<td><strong>MemoryStream</strong></td>
+<td>It is used to access stored streaming data in memory.</td>
+</tr>
+<tr>
+<td><strong>StreamReader</strong></td>
+<td>A StreamReader property is used to read characters from the stream byte.</td>
+</tr>
+<tr>
+<td><strong>Path</strong></td>
+<td>It is used to perform operations on the path of a file.</td>
+</tr>
+<tr>
+<td><strong>StreamWriter</strong></td>
+<td>A StreamWriter is used to write characters to a stream.</td>
+</tr>
+<tr>
+<td><strong>DirectoryInfo</strong></td>
+<td>It is used to perform an operation on the directory.</td>
+</tr>
+<tr>
+<td><strong>StringReader</strong></td>
+<td>It is used to read string from a string buffer.</td>
+</tr>
+</table>
+<h3 class="h3">FileStream Class</h3>
+<p>The FileStream class is provided by the System.IO namespace to read, write, close or create files in the file handling.</p>
+<p><strong>Syntax:</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+Dim Obj_name As FileStream = New FileSteam("file_name", FileMode, FileAccess, FileShare)
+</textarea></div>
+<p>For example, we need to create a <strong>FileStream</strong> Object <strong>FS</strong> to read a file with named <strong>myfile.txt</strong>.</p>
+<div class="codeblock"><textarea name="code" class="java">
+Dim FS As FileStream = New FileStream("myFile.txt", FileMode.Open, FileAccess.ReadWrite)
+</textarea></div>
+<p>The following table is the description of FilesStream Class.</p>
+<table class="alt">
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>FileMode</strong></td>
+<td>The FileMode represents the various method for opening or creating a file. Following are the member of FileMode-<br>
+<strong>Append:</strong> It is used to open an existing file and put the cursor at the end of the file. And if the file is not existing, it creates a file.<br>
+<strong>Create:</strong> As the name defines, a create is uses to create a new file.<br>
+<strong>CreateNew:</strong> It specifies the OS to create a new file.<br>
+<strong>Open:</strong> It is used to open an existing file.<br>
+<strong>OpenOrCreate:</strong> It is used to open an existing file, and if the file is not existing, it creates a new file.<br>
+<strong>Truncate:</strong> It is used to open an existing file for shrinking its original size to zero bytes.</td>
+</tr>
+<tr>
+<td><strong>FileAccess</strong></td>
+<td>It is used to perform any operation such as Read, ReadWrite, Delete and Write, etc.</td>
+</tr>
+<tr>
+<td><strong>FileShare</strong></td>
+<td>A FileShare has the following members<br>
+Read: It permits to open a file for reading<br>
+Write: It permits you to open a file for writing.<br>
+None: It is used to reject the sharing of the current file. </td>
+</tr>
+<tr>
+<td><strong>Obj_name</strong></td>
+<td>It represents the object name of the file.</td>
+</tr>
+</table>
+<p>Let's create a program to understand the concept of FileStream in VB.NET program.</p>
+<p><strong>File_Prog.vb</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+Imports System.IO
+Module File_Prog
+    Sub Main()
+' Create an object FS for the FileStream class along with the name of the text file to perform operation like create, read or write.
+        Dim FS As FileStream = New FileStream("myFile.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite)
+        Dim c As Integer
+        ' use for loop to read character
+        For c = 0 To 21
+            FS.WriteByte(CByte(c))  'write byte to the file
+        Next c
+        FS.Position = 0
+        Console.WriteLine("Bytes are:")
+        For c = 0 To 21
+        Console.WriteLine("{0} ", FS.ReadByte()) ' ReadByte() to read byte form the file.
+        Next c
+        FS.Close()  'Close the file
+        Console.WriteLine(" Press any key to exit...")
+        Console.ReadKey()
+    End Sub
+End Module
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/vb-net/images/vb-net-file-handling.png" alt="VB.NET File Handling" />
+<h3 class="h3">VB.NET has some advanced concepts of file operation.</h3>
+<p><strong>1. StreamReader and StreamWriter</strong></p>
+<p>The <strong>StreamReader</strong> class is used to read a text from a text file, and the <strong>StreamWrite</strong> file is used to write a text to a specified text file. These Stream classes are inherited from the <strong>Abstract</strong> base class stream, which represents a reader to read a series of characters, and a writer can write a series of characters.</p>
+<p><strong>Example of StreamReader Class</strong></p>
+<p>Let's create the following example to understand the concept of StreamReader to read a text file named Myfile.txt, as shown below.</p>
+<p><strong>Myfile.txt</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+What is an Exception?
+An exception is an unwanted error that occurs during the execution of a program and can be a system exception or application exception.
+</textarea></div>
+<p><strong>StReader.vb</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+Imports System.IO
+Module StReader
+    Sub Main()
+        ' Create St as an object of StreamReader Class
+        Dim St As StreamReader = New StreamReader("C:/Users/AMIT YADAV/Desktop/Myfile.txt")
+        Dim ln As String
+        ' It reads and prints the content from Myfile.txt
+        ln = St.ReadLine()
+        While (ln <> Nothing)
+            Console.WriteLine(ln)
+            ln = St.ReadLine()
+        End While
+        St.Close()
+        Console.ReadKey()
+    End Sub
+End Module
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/vb-net/images/vb-net-file-handling2.png" alt="VB.NET File Handling" />
+<p><strong>Example of StreamWriter Class</strong></p>
+<p>Let's create the following example to understand the concept of StreamWriter to write a text into a file Mytext.txt, as shown below.</p>
+<p><strong>StWriter.vb</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+Imports System.IO
+Module StWriter
+    Sub Main()
+        Dim ln As String
+        ' Create a path for Mytext.txt file to insert the below data. 
+        Dim St As StreamWriter = New StreamWriter("C:/Users/AMIT YADAV/Desktop/Mytext.txt")
+        St.WriteLine(" Welcome To JavaTpoint")
+        St.WriteLine(" VB.NET is the Programming language")
+        St.WriteLine(" Learn VB.NET File Handling")
+        St.Close()
+
+        ' Read and print the data from the specified file.
+        Dim sw As StreamReader = New StreamReader("C:/Users/AMIT YADAV/Desktop/Mytext.txt")
+        ln = sw.ReadLine()
+        While (ln <> Nothing)
+            Console.WriteLine(ln)
+            ln = sw.ReadLine()
+        End While
+        sw.Close()
+        Console.WriteLine("Press any key to exit...")
+        Console.ReadKey()
+    End Sub
+End Module
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/vb-net/images/vb-net-file-handling3.png" alt="VB.NET File Handling" />
+<p>Further, we can also check if the file <strong>"Mytext.txt"</strong> is created on the defined route <strong>"C:/Users/AMIT YADAV/Desktop/Mytext.txt"</strong> or not. And when we follow the defined path, it shows the following content in <strong>Mytext</strong> file.</p>
+<img src="https://static.javatpoint.com/tutorial/vb-net/images/vb-net-file-handling4.png" alt="VB.NET File Handling" />
+<h4 class="n">Note: Only one stream can be opened at a time. Therefore, in the above example, we first wrote data to the file and then closed the stream. After that, we open the Read stream to read the text and then closed the stream</h4>
+<p><strong>2. BinaryReader and BinaryWriter Classes</strong></p>
+<p>The BinaryReader and BinaryWriter classes are used with binary streams. Binary data is read and write using its internal binary format, and these binary data are not human readable. The <strong>BinaryReader</strong> class can be used to read binary data from a file, and the <strong>BinaryWriter</strong> file is used to write text to a specified binary file.</p>
+<p><strong>Example of BinaryWriter Class</strong></p>
+<p>Let's create the following example to understand the concept of StreamWriter to write a text into a file Mytext.txt, as shown below.</p>
+<p><strong>BinWriter.vb</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+Imports System.IO
+Module BinWriter
+    Sub Main()
+        Dim FS As FileStream = New FileStream("C:\Users\AMIT YADAV\Desktop\Myfolder\binary.txt", FileMode.OpenOrCreate, FileAccess.Write)
+        Dim binWriter As New BinaryWriter(FS)
+        Dim name As String = "Welcome to JavaTpoint"
+        Dim db As Double = 1010
+        Dim age As Integer = 10111
+        binWriter.Write(name)
+        binWriter.Write(db)
+        binWriter.Write(age)
+        binWriter.Close()
+        FS.Close()
+        Console.WriteLine(" Press any key to exit...")
+        Console.ReadKey()
+    End Sub
+End Module
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/vb-net/images/vb-net-file-handling5.png" alt="VB.NET File Handling" />
+<p><strong>Example of BinaryReader Class</strong></p>
+<p>Let's create the following example to understand the concept of BinaryReader to read the text into a file Mytext.txt.</p>
+<p><strong>BinReader.vb</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+Imports System.IO
+Module BinReader
+    Sub Main()
+        Dim FS As FileStream = New FileStream("C:\Users\AMIT YADAV\Desktop\Myfolder\binary.txt", FileMode.Open, FileAccess.Read)
+        Dim binReader As New BinaryReader(FS)
+        Dim a As Integer = binReader.ReadInt32()
+        Dim c As Char = binReader.ReadChar()
+        Dim f As Single = binReader.ReadSingle()
+        Console.WriteLine("Integer is {0}", a)
+        Console.WriteLine("Char data is {0}", c)
+        Console.WriteLine(" Float data is {0}", f)
+        binReader.Close()
+        FS.Close()
+        Console.WriteLine(" Press any key to exit...")
+        Console.ReadKey()
+    End Sub
+End Module
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/vb-net/images/vb-net-file-handling6.png" alt="VB.NET File Handling" />
+<p><strong>3. FileInfo Class</strong></p>
+<p>The <strong>FileInfo</strong> class is used to get file properties such as file creation, copying, moving, name, and size. It also helps to create a <strong>FileStream</strong> object, and the <strong>FileInfo</strong> class is derived from the <strong>FileSystemInfo</strong> class.</p>
+<p>Let's create an example to understand the concept of the FileInfo class in VB.NET.</p>
+<p><strong>GetFilename.vb</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+Imports System.IO
+Module GetFilename
+    Sub Main()
+        Dim mk As DirectoryInfo = New DirectoryInfo("C:\Users\AMIT YADAV\Desktop\Myfolder")
+        Dim fl As FileInfo() = mk.GetFiles()
+        Dim f As FileInfo
+        For Each f In fl
+            Console.WriteLine(" Name of File: {0} Size: {1} Creation time: {2} Extension of file is :{3}", f.Name, f.Length, f.CreationTime, f.Extension)
+        Next f
+        Console.WriteLine("Press any key to exit...")
+        Console.ReadKey()
+    End Sub
+End Module
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/vb-net/images/vb-net-file-handling7.png" alt="VB.NET File Handling" />
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="vb-net-date-and-time.html">VB.NET Date &amp; Time</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="vb-net-exception-handling.html">&larr; prev</a>
+<a style="float:right" class="next" href="vb-net-date-and-time.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9cfaf9f9f8fefdfff7dcf6fdeafde8ecf3f5f2e8b2fff3f1">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/vb-net-file-handling"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/vb-net-file-handling"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/vb-net-file-handling"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+ <a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+  <a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+ <a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="28405a6842495e495c584741465c064b4745">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="4b23390b212a3d2a3f3b2422253f6528242665">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/vb-net-file-handling by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 18:04:39 GMT -->
+</html> 

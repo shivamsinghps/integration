@@ -1,0 +1,995 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/os-file-allocation-table by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:32:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>OS File Allocation Table - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="OS File Allocation Table - javatpoint" /><meta property="og:description" content="OS File Allocation Table with Definition and functions, OS Tutorial, Types of OS, Process Management Introduction, Attributes of a Process, Process Schedulers, CPU Scheduling, SJF Scheduling, FCFS with overhead, FCFS Scheduling etc." />
+<meta name="keywords" content="os tutorial, Definition and functions, Types of OS, Process Management Introduction, Attributes of a Process, Process Schedulers, CPU Scheduling, SJF Scheduling, FCFS with overhead, FCFS Scheduling" /><meta name="description" content="OS File Allocation Table with Definition and functions, OS Tutorial, Types of OS, Process Management Introduction, Attributes of a Process, Process Schedulers, CPU Scheduling, SJF Scheduling, FCFS with overhead, FCFS Scheduling etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="os-file-allocation-table.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="OS File Allocation Table - javatpoint" /><meta name="twitter:description" property="og:description" content="OS File Allocation Table with Definition and functions, OS Tutorial, Types of OS, Process Management Introduction, Attributes of a Process, Process Schedulers, CPU Scheduling, SJF Scheduling, FCFS with overhead, FCFS Scheduling etc." /><meta property="og:url" content="os-file-allocation-table.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="operating-system.html" class="selected">Operating System</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="php-tutorial.html">PHP</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="jquery-ui-tutorial.html">jQuery UI</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Operating System</span></h2>
+</div>
+<div class="leftmenu">
+<a href="operating-system.html">Operating System</a>
+<a href="types-of-operating-systems.html">Types of Operating Systems</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Process Management</span></h2>
+</div>
+<div class="leftmenu">
+<a href="process-management-in-os.html">Process Management in OS</a>
+<a href="os-attributes-of-a-process.html">Attributes of a Process</a>
+<a href="os-process-states.html">Process States</a>
+<a href="os-process-schedulers.html">Process Schedulers</a>
+<a href="os-process-queues.html">Process Queues</a>
+<a href="os-various-time-related-to-the-process.html">Times Related to Process</a>
+<a href="os-cpu-scheduling.html">CPU Scheduling</a>
+<a href="os-scheduling-algorithms.html">Scheduling Algorithms</a>
+<a href="os-fcfs-scheduling.html">FCFS Scheduling</a>
+<a href="os-convoy-effect-in-fcfs.html">Convoy Effect in FCFS</a>
+<a href="os-fcfs-with-overhead.html">FCFS with overhead</a>
+<a href="os-sjf-scheduling.html">SJF Scheduling</a>
+<a href="os-prediction-of-cpu-burst-time-for-a-process-in-sjf.html">Burst Time Prediction</a>
+<a href="os-srtf-scheduling-algorithm.html">SRTF scheduling</a>
+<a href="os-srtf-gate-2011-example.html">SRTF GATE 2011 Example</a>
+<a href="os-round-robin-scheduling-algorithm.html">Round Robin Scheduling</a>
+<a href="os-round-robin-scheduling-example.html">RR scheduling Example</a>
+<a href="os-hrrn-scheduling.html">HRRN Scheduling</a>
+<a href="os-hrrn-example.html">HRNN Example</a>
+<a href="os-priority-scheduling.html">Priority Scheduling</a>
+<a href="os-non-preemptive-priority-scheduling.html">Non Preemptive Priority</a>
+<a href="os-preemptive-priority-scheduling.html">Preemptive Priority</a>
+<a href="os-srtf-with-processes-contains-cpu-and-io-time.html">SRTF:IO bound processes</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Synchronization</span></h2>
+</div>
+<div class="leftmenu">
+<a href="os-process-synchronization-introduction.html">Introduction</a>
+<a href="os-critical-section-problem.html">Critical Section Problem</a>
+<a href="os-lock-variable-mechanism.html">Lock Variable Mechanism</a>
+<a href="os-tsl-mechanism.html">TSL Mechanism</a>
+<a href="os-priority-inversion-in-tsl.html">Priority Inversion in TSL</a>
+<a href="os-turn-variable-or-strict-alternation-approach.html">Turn Variable</a>
+<a href="os-interested-variable-mechanism.html">Interested Variable</a>
+<a href="os-paterson-solution.html">Paterson Solution</a>
+<a href="os-synchronization-mechanism-without-busy-waiting.html">Without Busy Waiting</a>
+<a href="os-sleep-and-wake.html">Sleep and Wake</a>
+<a href="os-semaphore-introduction.html">Semaphore Introduction</a>
+<a href="os-counting-semaphore.html">Counting Semaphore</a>
+<a href="os-problem-on-counting-semaphore.html">Problem on counting semaphore</a>
+<a href="os-binary-semaphore-or-mutex.html">Binary Semaphore</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Deadlocks</span></h2>
+</div>
+<div class="leftmenu">
+<a href="os-deadlocks-introduction.html">Introduction</a>
+<a href="os-strategies-for-handling-deadlock.html">strategies Handling</a>
+<a href="os-deadlock-prevention.html">Deadlock Prevention</a>
+<a href="os-deadlock-avoidance.html">Deadlock Avoidance</a>
+<a href="os-resource-allocation-graph.html">Resource Allocation Graph</a>
+<a href="os-deadlock-detection-using-rag.html">Detection using RAG</a>
+<a href="os-deadlock-detection-and-recovery.html">Detection and Recovery</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Memory Management</span></h2>
+</div>
+<div class="leftmenu">
+<a href="os-memory-management-introduction.html">Introduction</a>
+<a href="os-fixed-partitioning.html">Fixed Partitioning</a>
+<a href="os-dynamic-partitioning.html">Dynamic Partitioning</a>
+<a href="os-compaction.html">Compaction</a>
+<a href="os-bit-map-for-dynamic-partitioning.html">Bit Map for Dynamic Partitioning</a>
+<a href="os-linked-list-for-dynamic-partitioning.html">Linked List for Dynamic Partitioning</a>
+<a href="os-partitioning-algorithms.html">Partitioning Algorithms</a>
+<a href="os-gate-question-on-best-fit-and-first-fit.html">GATE on Best Fit &amp; First Fit</a>
+<a href="os-need-for-paging.html">Need for Paging</a>
+<a href="os-paging-with-example.html">Paging with Example</a>
+<a href="os-basics-of-binary-addresses.html">Binary Addresses</a>
+<a href="os-physical-and-logical-address-space.html">Physical &amp; Logical Address</a>
+<a href="os-page-table.html">Page Table</a>
+<a href="os-mapping-from-page-table-to-main-memory.html">Mapping from page table</a>
+<a href="os-page-table-entry.html">Page Table Entry</a>
+<a href="os-page-table-size.html">Page Table Size</a>
+<a href="os-finding-optimal-page-size.html">Finding Optimal Page Size</a>
+<a href="os-virtual-memory.html">Virtual Memory</a>
+<a href="os-translation-look-aside-buffer.html">Look aside Buffer</a>
+<a href="os-gate-2014-question-on-tlb.html">GATE question on TLB</a>
+<a href="os-demand-paging.html">Demand Paging</a>
+<a href="os-inverted-page-table.html">Inverted Page Table</a>
+<a href="os-page-replacement-algorithms.html">Page Replacement</a>
+<a href="os-gate-2015-question-on-lru-and-fifo.html">Gate on LRU and FIFO</a>
+<a href="os-numerical-on-lru-fifo-and-optimal.html">Numerical on LRU, FIFO</a>
+<a href="os-beladys-anamoly.html">Beladys Anamoly</a>
+<a href="os-segmentation.html">Segmentation</a>
+<a href="os-paging-vs-segmentation.html">Paging VS Segmentation</a>
+<a href="os-segmented-paging.html">Segmented Paging</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">File Management</span></h2>
+</div>
+<div class="leftmenu">
+<a href="os-attributes-of-the-file.html">Attributes of the File</a>
+<a href="os-operations-on-the-file.html">Operations on the File</a>
+<a href="os-file-access-methods.html">File Access Methods</a>
+<a href="os-directory-structure.html">Directory Structure</a>
+<a href="os-single-level-directory.html">Single level Directory</a>
+<a href="os-two-level-directory.html">Two level Directory</a>
+<a href="os-tree-structured-directory.html">Tree structured Directory</a>
+<a href="os-acyclic-graph-directories.html">Acyclic Graph Directories</a>
+<a href="os-file-system.html">File System</a>
+<a href="os-file-system-structure.html">File System Structure</a>
+<a href="os-master-boot-record.html">Master Boot Record</a>
+<a href="os-on-disk-data-structures.html">On Disk Data Structures</a>
+<a href="os-in-memory-data-structures.html">In memory Data structures</a>
+<a href="os-directory-implementation.html">Directory Implementation</a>
+<a href="os-allocation-methods.html">Allocation Methods</a>
+<a href="os-contiguous-allocation.html">Contiguous Allocation</a>
+<a href="os-linked-list-allocation.html">Linked List Allocation</a>
+<a href="os-file-allocation-table.html">File Allocation Table</a>
+<a href="os-indexed-allocation.html">Indexed Allocation</a>
+<a href="os-linked-index-allocation.html">Linked Index Allocation</a>
+<a href="os-inode.html">Inode</a>
+<a href="os-free-space-management.html">Free space Management</a>
+<a href="os-disk-scheduling.html">Disk Scheduling</a>
+<a href="os-fcfs-scheduling-algorithm.html">FCFS Scheduling</a>
+<a href="os-sstf-scheduling-algorithm.html">SSTF Scheduling</a>
+<a href="os-scan-and-c-scan-algorithm.html">SCAN and C-SCAN</a>
+<a href="os-look-and-c-look-scheduling.html">Look and C-Look</a>
+<a href="os-numerical-on-sstf-and-scan.html">Numerical on SSTF</a>
+<a href="os-numerical-on-disk-scheduling-algorithms.html">Numerical on Disk</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="functions-of-operation-system.html">Functions of OS</a>
+<a href="mobile-operating-system.html">Mobile OS</a>
+<a href="swapping-in-operating-system.html">Swapping in OS</a>
+<a href="threads-in-operating-system.html">Threads in OS</a>
+<a href="fedora-operating-system.html">Fedora Operating System</a>
+<a href="uses-of-operating-system.html">Uses of Operating System</a>
+<a href="producer-consumer-problem-in-os.html">Producer-Consumer problem</a>
+<a href="os-dining-philosophers-problem.html">Dining Philosophers Problem</a>
+<a href="os-readers-writers-problem.html">Readers Writers Problem</a>
+<a href="history-of-operating-system.html">History Of OS</a>
+<a href="bankers-algorithm-in-operating-system.html">Banker's Algorithm in OS</a>
+<a href="what-is-the-context-switching-in-the-operating-system.html">What is the context switching in the operating system</a>
+<a href="internal-vs-external-fragmentation.html">Internal vs. External Fragmentation</a>
+<a href="multiprocessing-operating-system.html">Multiprocessing Operating system</a>
+<a href="multiprogramming-vs-multitasking.html">Multiprogramming vs Multitasking</a>
+<a href="network-operating-system.html">Network Operating System</a>
+<a href="latest-operating-systems.html">Latest Operating System</a>
+<a href="system-calls-in-operating-system.html">System Calls in Operating System</a>
+<a href="multitasking-operating-system.html">Multitasking Operating System</a>
+<a href="distributed-operating-system.html">Distributed Operating System</a>
+<a href="fragmentation-in-operating-system.html">Fragmentation in Operating System</a>
+<a href="multithreading-models-in-operating-system.html">Multithreading Models in Operating system</a>
+<a href="operating-system-services.html">Operating system services</a>
+<a href="batch-operating-system.html">Batch Operating System</a>
+<a href="embedded-operating-system.html">Embedded Operating System</a>
+<a href="time-sharing-vs-real-time-operating-system.html">Time-Sharing vs Real-Time Operating System</a>
+<a href="multi-user-operating-system.html">Multi-User Operating System</a>
+<a href="memory-management-operating-system.html">Memory Management</a>
+<a href="monolithic-structure-of-operating-system.html">Monolithic Structure of Operating System</a>
+<a href="ms-dos-operating-system.html">MS-DOS Operating System</a>
+<a href="spooling-in-operating-system.html">Spooling in Operating System</a>
+<a href="network-operating-system-vs-distributed-operating-system.html">Network Operating System vs Distributed Operating System</a>
+<a href="operating-system-vs-application-software.html">Operating system vs Application software</a>
+<a href="system-software-vs-operating-system.html">System Software vs Operating System</a>
+<a href="real-time-operating-system.html">Real-Time operating system</a>
+<a href="booting-in-operating-system.html">Booting in Operating System</a>
+<a href="layered-structure-of-operating-system.html">Layered Structure of Operating System</a>
+<a href="multiprogramming-vs-time-sharing-operating-system.html">Multiprogramming vs. Time Sharing Operating System</a>
+<a href="distributed-file-system.html">Distributed File System</a>
+<a href="multiprogramming-operating-system.html">Multiprogramming Operating System</a>
+<a href="server-operating-system.html">Server Operating System</a>
+<a href="32-bit-vs-64-bit-operating-system.html">32 bit vs 64 bit Operating System</a>
+<a href="single-user-operating-system.html">Single User Operating System</a>
+<a href="process-vs-program.html">Process vs Program</a>
+<a href="operating-system-security.html">Operating System Security</a>
+<a href="components-of-operating-system.html">Components of Operating System</a>
+<a href="gui-operating-system.html">GUI Operating System</a>
+<a href="android-operating-system.html">Android Operating System</a>
+<a href="buffering-in-operating-system.html">Buffering in Operating System</a>
+<a href="device-driver-in-operating-system.html">Device Driver in Operating System</a>
+<a href="best-operating-system-for-hacking.html">Best Operating System for Hacking</a>
+<a href="clustered-operating-system.html">Clustered Operating System</a>
+<a href="android-vs-windows-os.html">Android vs Windows OS</a>
+<a href="scheduler-vs-dispatcher.html">Scheduler vs Dispatcher</a>
+<a href="deadlock-vs-starvation.html">Deadlock vs Starvation</a>
+<a href="semaphore-vs-monitor.html">Semaphore vs Monitor</a>
+<a href="boot-block-and-bad-block-in-operating-system.html">Boot Block and Bad Block in Operating System</a>
+<a href="hard-and-soft-real-time-operating-system.html">Hard and Soft Real-Time Operating System</a>
+<a href="concurrency-in-operating-system.html">Concurrency in Operating System</a>
+<a href="microkernel-in-operating-system.html">Microkernel in Operating System</a>
+<a href="protection-in-operating-system.html">Protection in Operating System</a>
+<a href="benefits-of-multithreading.html">Benefits of Multithreading</a>
+<a href="host-vs-guest-operating-system.html">Host vs Guest Operating System</a>
+<a href="livelock-in-operating-system.html">Livelock in Operating System</a>
+<a href="dual-mode-operations-in-operating-system.html">Dual Mode Operations in Operating System</a>
+<a href="what-is-access-token-in-operating-system.html">What is Access Token in Operating System</a>
+<a href="deadlock-detection-in-distributed-systems.html">Deadlock Detection in Distributed Systems</a>
+<a href="cui-vs-gui.html">CUI vs GUI</a>
+<a href="monolithic-vs-layered-operating-system.html">Monolithic vs layered Operating System</a>
+<a href="mutex-vs-semaphore.html">Mutex vs Semaphore</a>
+<a href="what-is-interleaved-memory.html">What is Interleaved Memory</a>
+<a href="trap-vs-interrupt-in-operating-system.html">Trap vs Interrupt in Operating System</a>
+<a href="open-source-operating-system.html">Open-Source Operating System</a>
+<a href="multiple-processors-scheduling-in-operating-system.html">Multiple Processors Scheduling in Operating System</a>
+<a href="starvation-and-aging-in-operating-systems.html">Starvation and Aging in Operating Systems</a>
+<a href="best-android-operating-system-for-pc.html">Best Android Operating System for PC</a>
+<a href="device-management-in-operating-system.html">Device Management in Operating System</a>
+<a href="disk-controller-in-operating-system.html">Disk Controller in Operating System</a>
+<a href="views-of-operating-system.html">Views of Operating System</a>
+<a href="tasks-in-real-time-systems.html">Tasks in Real-Time Systems</a>
+<a href="what-is-rpc-in-operating-system.html">What is RPC in Operating System</a>
+<a href="c-scan-vs-sstf-disk-scheduling-algorithm.html">C-SCAN vs SSTF Disk Scheduling Algorithm</a>
+<a href="look-vs-c-look-disk-scheduling-algorithm.html">Look vs C-Look Disk Scheduling Algorithm</a>
+<a href="scan-vs-c-scan-disk-scheduling-algorithm.html">SCAN vs C-SCAN Disk Scheduling Algorithm</a>
+<a href="scan-vs-fcfs-disk-scheduling-algorithm.html">SCAN vs FCFS Disk Scheduling Algorithm</a>
+<a href="lamports-bakery-algorithm.html">Lamport's Bakery Algorithm</a>
+<a href="basic-disk-vs-dynamic-disk.html">Basic Disk vs Dynamic Disk</a>
+<a href="what-is-zombie-process.html">What is Zombie Process</a>
+<a href="fcfs-vs-sstf-disk-scheduling-algorithm.html">FCFS vs SSTF Disk Scheduling Algorithm</a>
+<a href="lru-vs-lfu-page-replacement-algorithm.html">LRU vs LFU Page Replacement Algorithm</a>
+<a href="sstf-vs-c-look-disk-scheduling-algorithm.html">SSTF vs C-LOOK Disk Scheduling Algorithm</a>
+<a href="c-look-vs-c-scan-disk-scheduling-algorithm.html">C-LOOK vs C-SCAN Disk Scheduling Algorithm</a>
+<a href="rotational-latency-vs-disk-access-time-in-disk-scheduling.html">Rotational Latency vs Disk Access Time in Disk Scheduling</a>
+<a href="sstf-vs-look-disk-scheduling-algorithm.html">SSTF vs LOOK Disk Scheduling Algorithm</a>
+<a href="virtual-vs-physical-address.html">Virtual vs Physical Address</a>
+<a href="address-binding-in-operating-system.html">Address binding in Operating System</a>
+<a href="preemptive-vs-non-preemptive-scheduling.html">Preemptive vs Non-Preemptive Scheduling</a>
+<a href="properties-of-operating-system.html">Properties of Operating System</a>
+<a href="what-is-processor-affinity.html">What is Processor Affinity</a>
+<a href="seek-time-vs-disk-access-time-in-disk-scheduling.html">Seek Time vs Disk Access Time in Disk Scheduling</a>
+<a href="seek-time-vs-transfer-time-in-disk-scheduling.html">Seek Time vs Transfer Time in Disk Scheduling</a>
+<a href="page-vs-block-in-operating-system.html">Page vs Block in Operating System</a>
+<a href="virtual-memory-vs-job-pool.html">Virtual Memory vs Job Pool</a>
+<a href="what-is-memory-ballooning.html">What is Memory Ballooning</a>
+<a href="embedded-operating-system-vs-desktop-operating-system.html">Embedded OS vs Desktop OS</a>
+<a href="microkernel-vs-monolithic-kernel.html">Microkernel vs Monolithic Kernel</a>
+<a href="spinlock-vs-semaphore.html">Spinlock vs Semaphore</a>
+<a href="what-are-demand-paging-and-pre-paging.html">What are Demand Paging and Pre-paging</a>
+<a href="what-is-interrupt-in-os.html">What is Interrupt in OS</a>
+<a href="swapping-vs-context-switching.html">Swapping vs Context Switching</a>
+<a href="system-call-vs-library-call.html">System Call vs Library Call</a>
+<a href="ubuntu-vs-kubuntu.html">Ubuntu vs Kubuntu</a>
+<a href="routine-vs-process.html">Routine vs Process</a>
+<a href="overlays-in-memory-management.html">Overlays in Memory Management</a>
+<a href="fork-vs-exec.html">fork() vs exec()</a>
+<a href="latency-vs-jitter.html">Latency vs Jitter</a>
+<a href="process-contention-scope-vs-system-contention-scope.html">Process Contention Scope vs System Contention Scope</a>
+<a href="implement-threads-in-user-space.html">Implement Threads in User Space</a>
+<a href="isr-vs-function-call.html">ISR vs Function Call</a>
+<a href="posix-threads-in-os.html">POSIX Threads in OS</a>
+<a href="best-portable-operating-system.html">Best Portable Operating System</a>
+<a href="time-sharing-vs-distributed-operating-system.html">Time-Sharing vs Distributed Operating System</a>
+<a href="unix-vs-windows-operating-system.html">UNIX vs Windows Operating System</a>
+<a href="swap-space-management-in-operating-system.html">Swap-Space Management in Operating System</a>
+<a href="user-view-vs-hardware-view-vs-system-view-in-operating-system.html">User View vs Hardware View vs System View in Operating System</a>
+<a href="internal-structure-of-unix-file-system.html">Internal Structure of UNIX File system</a>
+<a href="best-operating-system-for-programming.html">Best Operating System for Programming</a>
+<a href="disk-attachment-in-operating-system.html">Disk Attachment in Operating System</a>
+<a href="multiprocessor-and-multicore-system-in-operating-system.html">Multiprocessor and Multicore System in Operating System</a>
+<a href="resource-deadlocks-vs-communication-deadlocks-in-distributed-systems.html">Resource Deadlocks vs Communication Deadlocks in Distributed Systems</a>
+<a href="what-is-buddy-system.html">What is Buddy System</a>
+<a href="why-must-user-threads-be-mapped-to-kernel-thread.html">Why must User Threads be mapped to Kernel Thread</a>
+<a href="best-secure-operating-system.html">Best Secure Operating System</a>
+<a href="best-unix-operating-system.html">Best UNIX Operating System</a>
+<a href="what-is-hashed-page-table-in-operating-system.html">What is Hashed Page Table in Operating System</a>
+<a href="what-is-uefi-and-how-it-differ-from-bios.html">What is UEFI and How It Differ from BIOS</a>
+<a href="macos-vs-openbsd.html">MacOS vs OpenBSD</a>
+<a href="disk-operating-system-commands.html">Disk Operating System Commands</a>
+<a href="ipc-through-shared-memory.html">IPC through Shared Memory</a>
+<a href="ipc-using-message-queues.html">IPC using Message Queues</a>
+<a href="causes-of-operating-system-failure.html">Causes of Operating System Failure</a>
+<a href="iot-operating-systems.html">IoT Operating Systems</a>
+<a href="what-is-vse-operating-system.html">What is VSE Operating System</a>
+<a href="allocation-of-frames-in-os.html">Allocation of Frames in OS</a>
+<a href="cooperating-process-in-operating-system.html">Cooperating Process in OS</a>
+<a href="page-fault-handling-in-operating-system.html">Page Fault Handling in OS</a>
+<a href="client-operating-system-vs-server-operating-system.html">Client OS vs Server OS</a>
+<a href="long-term-scheduler-vs-short-term-scheduler.html">long term Scheduler vs short term Scheduler</a>
+<a href="best-cloud-operating-systems.html">Best Cloud Operating Systems</a>
+<a href="firmware-vs-operating-system.html">Firmware vs Operating System</a>
+<a href="linux-vs-solaris.html">Linux vs Solaris</a>
+<a href="mobile-operating-system-vs-desktop-operating-system.html">Mobile OS vs Desktop OS</a>
+<a href="freebsd-operating-system.html">FreeBSD Operating System</a>
+<a href="tails-operating-system.html">Tails Operating System</a>
+<a href="best-real-time-operating-system.html">Best Real-Time Operating System</a>
+<a href="disk-management-in-operating-system.html">Disk Management in Operating System</a>
+<a href="best-books-for-operating-system.html">Best books for Operating System</a>
+<a href="implementation-of-access-matrix-in-the-operating-system.html">Implementation of Access matrix in the operating system</a>
+<a href="kaios-operating-system.html">KaiOS Operating System</a>
+<a href="best-alternative-operating-system.html">Best Alternative Operating System</a>
+<a href="operating-system-hardening.html">Operating System Hardening</a>
+<a href="best-courses-for-the-operating-system.html">Best courses for the operating system</a>
+<a href="business-operating-system.html">Business Operating System</a>
+<a href="bsd-based-operating-system.html">BSD Based Operating System</a>
+<a href="processor-vs-operating-system.html">Processor vs Operating System</a>
+<a href="standalone-vs-network-operating-system.html">Standalone vs Network Operating System</a>
+<a href="5-state-process-model-in-operating-system.html">5 State Process Model in Operating System</a>
+<a href="best-operating-system-for-gaming.html">Best operating system for gaming</a>
+<a href="two-state-process-model-in-operating-system.html">Two State Process Model in Operating System</a>
+<a href="best-book-for-linux-operating-system.html">Best Book for Linux Operating System</a>
+<a href="facts-about-android-operating-system.html">Facts about Android Operating System</a>
+<a href="facts-about-windows-operating-system.html">Facts about Windows Operating System</a>
+<a href="best-operating-system-for-netbook.html">Best Operating System for Netbook</a>
+<a href="best-alternative-operating-system-for-android.html">Best Alternative Operating System for Android</a>
+<a href="best-operating-system-for-chromebook.html">Best Operating System for Chromebook</a>
+<a href="design-approaches-in-operating-system.html">Design approaches in Operating System</a>
+<a href="best-32-bit-linux-operating-system.html">Best 32 bit Linux Operating System</a>
+<a href="android-vs-linux.html">Android vs Linux</a>
+<a href="physical-vs-logical-file-systems-in-os.html">physical vs logical file systems</a>
+<a href="shared-memory-vs-message-passing-in-operating-system.html">Shared Memory vs Message Passing</a>
+<a href="best-ubuntu-based-linux-distros.html">Best Ubuntu-based Linux Distros</a>
+<a href="dos-vs-unix.html">DOS vs UNIX</a>
+<a href="file-models-in-distributed-operating-system.html">File Models in Distributed Operating System</a>
+<a href="aix-operating-system-commands.html">AIX OS Commands</a>
+<a href="features-of-blackberry-10-os.html">Features of Blackberry 10 OS</a>
+<a href="contiguous-and-non-contiguous-memory-allocation-in-operating-system.html">Contiguous and Non-Contiguous Memory Allocation in Operating System</a>
+<a href="aix-vs-linux-operating-system.html">AIX vs Linux OS</a>
+<a href="parallel-computing-vs-distributed-computing.html">Parallel Computing vs Distributed Computing</a>
+<a href="multilevel-queue-scheduling-in-operating-system.html">Multilevel Queue Scheduling in Operating System</a>
+<a href="best-ssd-for-operating-system.html">Best SSD for Operating System</a>
+<a href="interesting-facts-about-the-ios-operating-system.html">Interesting Facts about the iOS Operating System</a>
+<a href="best-terminal-operating-system.html">Best Terminal Operating Systems</a>
+<a href="batch-operating-system-vs-multiprogramming-operating-system.html">Batch OS vs Multiprogramming OS</a>
+<a href="real-time-operating-system-vs-general-purpose-operating-system.html">Real-Time os vs general-purpose os</a>
+<a href="static-and-dynamic-loading-in-operating-system.html">Static and Dynamic Loading in Operating System</a>
+<a href="arch-linux-operating-system.html">Arch Linux Operating System</a>
+<a href="kylin-operating-system.html">Kylin Operating System</a>
+<a href="parrot-operating-system.html">Parrot Operating System</a>
+<a href="hp-ux-operating-system.html">HP-UX Operating System</a>
+<a href="tizen-operating-system.html">Tizen Operating System</a>
+<a href="vxworks-operating-system.html">VxWorks Operating System</a>
+<a href="ecos-operating-system.html">eCos Operating System</a>
+<a href="haiku-operating-system.html">Haiku Operating System</a>
+<a href="knoppix-operating-system.html">Knoppix Operating System</a>
+<a href="puppy-linux-operating-system.html">Puppy Linux Operating System</a>
+<a href="alios-operating-system.html">AliOS Operating System</a>
+<a href="gentoo-linux-operating-system.html">Gentoo Linux Operating System</a>
+<a href="skyos-operating-system.html">Skyos Operating System</a>
+<a href="best-operating-system-for-raspberry-pi.html">Best Operating System for Raspberry Pi</a>
+<a href="gos-operating-system.html">gOS Operating System</a>
+<a href="edubuntu-operating-system.html">Edubuntu OS</a>
+<a href="harmony-operating-system.html">Harmony OS</a>
+<a href="irix-operating-system.html">IRIX OS</a>
+<a href="security-vs-protection-in-operating-system.html">Security vs Protection</a>
+<a href="cold-booting-vs-warm-booting-in-operating-system.html">Cold booting vs Warm booting in OS</a>
+<a href="fat32-vs-ntfs-in-operating-system.html">FAT32 vs NTFS in OS</a>
+<a href="paging-vs-swapping-in-operating-system.html">Paging vs Swapping in OS</a>
+<a href="symmetric-and-asymmetric-multiprocessing-in-operating-system.html">Symmetric vs Asymmetric Multiprocessing in OS</a>
+<a href="buffering-vs-caching-in-operating-system.html">Difference between Buffering and Caching in Operating System</a>
+<a href="interrupt-vs-polling-in-operating-system.html">Difference between Interrupt and Polling in Operating System</a>
+<a href="multitasking-vs-multithreading-in-operating-system.html">Difference between Multitasking and Multithreading in Operating System</a>
+<a href="system-call-vs-system-program-in-operating-system.html">Difference between System call and System Program in Operating System</a>
+<a href="deadlock-prevention-vs-deadlock-avoidance-in-operating-system.html">Deadlock Prevention vs Deadlock Avoidance in OS</a>
+<a href="fork-vs-vfork.html">fork() vs vfork()</a>
+<a href="loosely-coupled-vs-tightly-coupled-multiprocessor-system.html">Coupled vs Tightly Coupled Multiprocessor System</a>
+<a href="maskable-vs-non-maskable-interrupts.html">Maskable vs Non-Maskable Interrupts</a>
+<a href="oracle-linux-vs-red-hat-enterprise-linux.html">Oracle Linux vs Red Hat Enterprise Linux</a>
+<a href="preemptive-vs-non-preemptive-kernel.html">Preemptive and Non-Preemptive Kernel</a>
+<a href="centos-vs-red-hat-enterprise-linux-os.html">Difference between CentOS and Red Hat Enterprise Linux OS</a>
+<a href="kubuntu-vs-debian-operating-system.html">Difference between Kubuntu and Debian Operating System</a>
+<a href="preemptive-vs-cooperative-multitasking.html">Difference between Preemptive and Cooperative Multitasking</a>
+<a href="spinlock-vs-mutex-in-operating-system.html">Difference between Spinlock and Mutex in Operating System</a>
+<a href="cinnamon-vs-mate.html">Difference between Cinnamon and MATE</a>
+<a href="device-driver-vs-device-controller-in-operating-system.html">Difference between Device Driver and Device Controller in Operating System</a>
+<a href="full-virtualization-vs-paravirtualization-in-operating-system.html">Difference between Full Virtualization and Paravirtualization in Operating System</a>
+<a href="grub-vs-lilo-in-operating-system.html">Difference between GRUB and LILO in the operating system</a>
+<a href="virtualbox-vs-vmware.html">Difference between Virtualbox and VMware</a>
+<a href="what-is-a-distributed-shared-memory.html">What is a distributed shared memory? And its advantages</a>
+<a href="aix-vs-solaris-operating-system.html">Difference between AIX and Solaris Operating System</a>
+<a href="concurrency-vs-parallelism-in-operating-system.html">Difference between Concurrency and Parallelism in Operating System</a>
+<a href="qnx-vs-vxworks-operating-system.html">Difference between QNX and VxWorks Operating System</a>
+<a href="user-level-vs-kernel-level-threads-in-operating-system.html">Difference between User level and Kernel level threads in Operating System</a>
+<a href="nucleus-operating-system.html">Nucleus Operating System</a>
+<a href="input-output-hardware-and-input-output-controller.html">Input/Output Hardware and Input/Output Controller</a>
+<a href="privileged-and-non-privileged-instructions-in-operating-system.html">Privileged and Non-Privileged Instructions in Operating System</a>
+<a href="cpu-scheduling-algorithms-in-operating-systems.html">CPU Scheduling Algorithms in Operating Systems</a>
+<a href="mass-storage-structure-in-operating-systems.html">Mass Storage Structure in Operating Systems</a>
+<a href="n-process-peterson-algorithm.html">N-Process Peterson Algorithm</a>
+<a href="xv6-operating-system-adding-a-new-system-call.html">Xv6 Operating System - Adding a New System Call</a>
+<a href="non-contiguous-memory-allocation-in-operating-system.html">Non-Contiguous Memory Allocation in Operating System</a>
+<a href="types-of-linux-os.html">Types of Linux OS</a>
+<a href="operating-system-structure.html">Operating System Structure</a>
+<a href="operating-system-examples.html">Operating System Examples</a>
+<a href="what-is-starvation-in-operating-system.html">What is Starvation in Operating System</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="operating-system-mcq.html">Operating System MCQ</a>
+<a href="operating-system-mcq-part-2.html">OS MCQ Part-2</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="os-indexed-allocation.html">next &rarr;</a>
+<a class="next" href="os-linked-list-allocation.html">&larr; prev</a>
+</div>
+<h1 class="h1">File Allocation Table</h1>
+<p>The main disadvantage of linked list allocation is that the Random access to a particular block is not provided. In order to access a block, we need to access all its previous blocks.</p>
+<p>File Allocation Table overcomes this drawback of linked list allocation. In this scheme, a file allocation table is maintained, which gathers all the disk block links. The table has one entry for each disk block and is indexed by block number.</p>
+<p>File allocation table needs to be cached in order to reduce the number of head seeks. Now the head doesn't need to traverse all the disk blocks in order to access one successive block.</p>
+<p>It simply accesses the file allocation table, read the desired block entry from there and access that block. This is the way by which the random access is accomplished by using FAT. It is used by MS-DOS and pre-NT Windows versions.</p>
+<br>
+<img src="https://static.javatpoint.com/operating-system/images/os-file-allocation-table.png" alt="os file allocation table" />
+<br>
+<h2 class="h2">Advantages</h2>
+<ol class="points">
+<li>Uses the whole disk block for data.</li>
+<li>A bad disk block doesn't cause all successive blocks lost.</li>
+<li>Random access is provided although its not too fast.</li>
+<li>Only FAT needs to be traversed in each file operation.</li>
+</ol>
+<h2 class="h2">Disadvantages</h2>
+<ol class="points">
+<li>Each Disk block needs a FAT entry.</li>
+<li>FAT size may be very big depending upon the number of FAT entries.</li>
+<li>Number of FAT entries can be reduced by increasing the block size but it will also increase Internal Fragmentation.</li>
+</ol>
+<br>
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="os-indexed-allocation.html">Indexed Allocation</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="os-linked-list-allocation.html">&larr; prev</a>
+<a style="float:right" class="next" href="os-indexed-allocation.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="8ee8ebebeaecefede5cee4eff8effafee1e7e0faa0ede1e3">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/os-file-allocation-table"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/os-file-allocation-table"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/os-file-allocation-table"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+ <p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+ </div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+ <p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="204852604a41564154504f494e540e434f4d">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="88e0fac8e2e9fee9fcf8e7e1e6fca6ebe7e5a6">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/os-file-allocation-table by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:32:31 GMT -->
+</html> 

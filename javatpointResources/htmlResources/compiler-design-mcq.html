@@ -1,0 +1,1601 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/compiler-design-mcq by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:18:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Compiler Design MCQ - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Compiler Design MCQ - javatpoint" /><meta property="og:description" content="Compiler Design MCQ with introduction, Phases, Passes, Bootstrapping, Optimization of DFA, Finite State machine, Formal Grammar, BNF Notation, YACC, Derivation, Parse Tree, Ambiguity, Syntax directed Translation, slr 1 parsing etc." />
+<meta name="keywords" content="compiler tutorial, introduction, Phases, Passes, Bootstrapping, Optimization of DFA, Finite State machine, Formal Grammar, BNF Notation, YACC, Derivation, Parse Tree, Ambiguity, Syntax directed Translation, slr-1-parsing" /><meta name="description" content="Compiler Design MCQ with introduction, Phases, Passes, Bootstrapping, Optimization of DFA, Finite State machine, Formal Grammar, BNF Notation, YACC, Derivation, Parse Tree, Ambiguity, Syntax directed Translation, slr 1 parsing etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="compiler-design-mcq.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Compiler Design MCQ - javatpoint" /><meta name="twitter:description" property="og:description" content="Compiler Design MCQ with introduction, Phases, Passes, Bootstrapping, Optimization of DFA, Finite State machine, Formal Grammar, BNF Notation, YACC, Derivation, Parse Tree, Ambiguity, Syntax directed Translation, slr 1 parsing etc." /><meta property="og:url" content="compiler-design-mcq.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="compiler-tutorial.html" class="selected">Compiler</a></li>
+<li><a href="data-structure-tutorial.html">Data Structure</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="cpp-tutorial.html">C++</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="ajax-tutorial.html">Ajax</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="cloud-computing-tutorial.html">Cloud</a></li>
+<li><a href="design-patterns-in-java.html">Design Pattern</a></li>
+<li><a href="examaccess.html">Quiz</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+<li><a href="comment.html">Comment</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Compiler Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="compiler-tutorial.html">Compiler Tutorial</a>
+<a href="compiler-introduction.html">Compiler Introduction</a>
+<a href="compiler-phases.html">Compiler Phases</a>
+<a href="compiler-passes.html">Compiler Passes</a>
+<a href="bootstrapping.html">Bootstrapping</a>
+<a href="finite-state-machine.html">Finite State machine</a>
+<a href="regular-expression.html">Regular expression</a>
+<a href="optimization-of-dfa.html">Optimization of DFA</a>
+<a href="lex.html">LEX</a>
+<a href="formal-grammar.html">Formal Grammar</a>
+<a href="https://www.javatpoint.com/bnf-notation">BNF Notation</a>
+<a href="yacc.html">YACC</a>
+<a href="context-free-grammar.html">Context free Grammars</a>
+<a href="capabilities-of-cfg.html">Capabilities of CFG</a>
+<a href="derivation.html">Derivation</a>
+<a href="parse-tree.html">Parse Tree</a>
+<a href="ambiguity.html">Ambiguity</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Basic Parsing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="parser.html">Parser</a>
+<a href="shift-reduce-parsing.html">Shift Reduce Parsing</a>
+<a href="operator-precedence-parsing.html">Operator Precedence</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Predictive Parsers</span></h2>
+</div>
+<div class="leftmenu">
+<a href="lr-parser.html">LR parser</a>
+<a href="canonical-collection-of-lr-0-items.html">LR(0) Items</a>
+<a href="slr-1-parsing.html">SLR(1) Parsing</a>
+<a href="clr-1-parsing.html">CLR(1) Parsing</a>
+<a href="lalr-1-parsing.html">LALR(1) Parsing</a>
+<a href="automatic-parser-generator.html">Parser Generator</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SDT</span></h2>
+</div>
+<div class="leftmenu">
+<a href="syntax-directed-translation.html">Syntax Directed Translation</a>
+<a href="syntax-directed-translation-scheme.html">SDT Translation scheme</a>
+<a href="implementation-of-syntax-directed-translation.html">SDT Implementation</a>
+</div>
+<div class="leftmenu">
+<a href="intermediate-code.html">Intermediate Code</a>
+<a href="postfix-notation.html">Postfix Notation</a>
+<a href="parse-tree-and-syntax-tree.html">Parse and syntax trees</a>
+<a href="three-address-code.html">Three address code</a>
+<a href="quadruples.html">Quadruples</a>
+<a href="triples.html">Triples</a>
+<a href="translation-of-assignment-statements.html">Assignment statements</a>
+<a href="boolean-expressions.html">Boolean expressions</a>
+<a href="statements-that-alter-the-flow-of-control.html">Flow altering statements</a>
+<a href="postfix-translation.html">Postfix translation</a>
+<a href="array-references-in-arithmetic-expressions.html">Array references</a>
+<a href="procedures-call.html">Procedures call</a>
+<a href="declarations.html">Declarations</a>
+<a href="case-statements.html">Case Statements</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Symbol Tables</span></h2>
+</div>
+<div class="leftmenu">
+<a href="symbol-table.html">Symbol Table</a>
+<a href="data-structure-for-symbol-table.html">DS for symbols tables</a>
+<a href="representing-scope-information.html">Scope Information</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Administration</span></h2>
+</div>
+<div class="leftmenu">
+<a href="storage-organization.html">Storage Organization</a>
+<a href="activation-record.html">Activation Record</a>
+<a href="storage-allocation.html">Storage Allocation</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Error Detection</span></h2>
+</div>
+<div class="leftmenu">
+<a href="lexical-error.html">Lexical Error</a>
+<a href="syntax-error.html">Syntax Error</a>
+<a href="semantic-error.html">Semantic Error</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Code Generation</span></h2>
+</div>
+<div class="leftmenu">
+<a href="code-generation.html">Code Generation</a>
+<a href="design-issues.html">Design Issues</a>
+<a href="target-machine.html">Target Machine</a>
+<a href="run-time-storage-management.html">Run Time Storage</a>
+<a href="basic-block.html">Basic Block</a>
+<a href="flow-graph.html">Flow Graph</a>
+<a href="optimization-of-basic-blocks.html">Block Optimization</a>
+<a href="code-generator.html">Code Generator</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Code Optimization</span></h2>
+</div>
+<div class="leftmenu">
+<a href="machine-independent-optimization.html">Machine Independent</a>
+<a href="loop-optimization.html">Loop optimization</a>
+<a href="dag-representation-for-basic-blocks.html">DAG Representation</a>
+<a href="global-data-flow-analysis.html">Data-Flow Analysis</a>
+<a href="the-phases-of-a-compiler-lexical-analysis.html">The Phases of a compiler-Lexical Analysis</a>
+<a href="eliminating-ambiguity-of-a-context-free-grammar.html">Eliminating Ambiguity of a Context-Free Grammar</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Compiler Design MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="compiler-design-mcq.html">Compiler Design MCQ</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="compiler-tutorial.html">next &rarr;</a>
+<a class="next" href="compiler-tutorial.html">&larr; prev</a>
+</div>
+<h1 class="h1">Compiler Design MCQ</h1>
+<p class="pq">1) Users write the programs in which language?</p>
+<ol class="pointsa">
+<li>Low-level Language</li>
+<li>High-Level Language</li>
+<li>Decimal-Format</li>
+<li>Middle-Level Language</li>
+</ol>
+<button class="showanswer" onclick="showhide(1)"><span id="btntext1">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(1)"><span id="btntext1">Workspace</span></button>
+<div id="workspace1"></div>
+<div class="testanswer" id="answer1">
+<p><strong>Answer:</strong> b. High-Level Language</p>
+<p><strong>Explanation:</strong> Users write the program in a high-level language because it is easier to use, understand and remember. </p>
+</div>
+<hr />
+<p class="pq">2) Which computer program accepts the high-level language and converts it into assembly language?</p>
+<ol class="pointsa">
+<li>Interpreter</li>
+<li>Linker</li>
+<li>Assembler</li>
+<li>Compiler</li>
+</ol>
+<button class="showanswer" onclick="showhide(2)"><span id="btntext2">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(2)"><span id="btntext2">Workspace</span></button>
+<div id="workspace2"></div>
+<div class="testanswer" id="answer2">
+<p><strong>Answer:</strong> d. Compiler </p>
+<p><strong>Explanation:</strong> Compiler is a computer program that accepts the code written in a high-level language and converts that code into the assembly language. </p>
+</div>
+<hr />
+<p class="pq">3) Does the compiler program translate the whole source code in one step?</p>
+<ol class="pointsa">
+<li>No</li>
+<li>Depends on the Compiler</li>
+<li>Don't Know</li>
+<li>Yes</li>
+</ol>
+<button class="showanswer" onclick="showhide(3)"><span id="btntext3">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(3)"><span id="btntext3">Workspace</span></button>
+<div id="workspace3"></div>
+<div class="testanswer" id="answer3">
+<p><strong>Answer:</strong> d. Yes</p>
+<p><strong>Explanation:</strong> The compiler is that program which translates the whole high-level code into the machine code at once. </p>
+</div>
+<hr />
+<p class="pq">4) Which of the following file is an output of the assembler?</p>
+<ol class="pointsa">
+<li>Program file</li>
+<li>Object file</li>
+<li>Data File</li>
+<li>Task File</li>
+</ol>
+<button class="showanswer" onclick="showhide(4)"><span id="btntext4">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(4)"><span id="btntext4">Workspace</span></button>
+<div id="workspace4"></div>
+<div class="testanswer" id="answer4">
+<p><strong>Answer:</strong> b. Object File</p>
+<p><strong>Explanation:</strong> The object file contains the object code, which is an output of an assembler. </p>
+</div>
+<hr />
+<p class="pq">5) Which tool is used for grouping of characters in tokens in the compiler? </p>
+<ol class="pointsa">
+<li>Parser</li>
+<li>Code optimizer</li>
+<li>Code generator</li>
+<li>Scanner</li>
+</ol>
+<button class="showanswer" onclick="showhide(5)"><span id="btntext5">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(5)"><span id="btntext5">Workspace</span></button>
+<div id="workspace5"></div>
+<div class="testanswer" id="answer5">
+<p><strong>Answer:</strong> d. Scanner</p>
+<p><strong>Explanation:</strong> Scanner is a subroutine which is called by the compiler program. The scanner combines the characters and implements them to produce tokens.</p>
+</div>
+<hr />
+<p class="pq">6) What is the linker?</p>
+<ol class="pointsa">
+<li>It is always used before the program execution.</li>
+<li>It is required to create the load module.</li>
+<li>It is the same as the loader</li>
+<li>None of the above</li>
+</ol>
+<button class="showanswer" onclick="showhide(6)"><span id="btntext6">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(6)"><span id="btntext6">Workspace</span></button>
+<div id="workspace6"></div>
+<div class="testanswer" id="answer6">
+<p><strong>Answer:</strong> b. It is required to create the load module.</p>
+<p><strong>Explanation:</strong> Linker is a program in the compiler which is required to create a load module. </p>
+</div>
+<hr />
+<p class="pq">7) Parsing is categorized into how many types?</p>
+<ol class="pointsa">
+<li>three types</li>
+<li>four types</li>
+<li>two types</li>
+<li>five types</li>
+</ol>
+<button class="showanswer" onclick="showhide(7)"><span id="btntext7">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(7)"><span id="btntext7">Workspace</span></button>
+<div id="workspace7"></div>
+<div class="testanswer" id="answer7">
+<p><strong>Answer:</strong> c. two types</p>
+<p><strong>Explanation:</strong> In the compiler design, the parser is mainly categorized into top-down parsing and bottom-up parsing.</p>
+</div>
+<hr />
+<p class="pq">8) In which parsing, the parser constructs the parse tree from the start symbol and transforms it into the input symbol. </p>
+<ol class="pointsa">
+<li>Bottom-up parsing</li>
+<li>Top-down parsing</li>
+<li>None of the above</li>
+<li>Both a and b</li>
+</ol>
+<button class="showanswer" onclick="showhide(8)"><span id="btntext8">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(8)"><span id="btntext8">Workspace</span></button>
+<div id="workspace8"></div>
+<div class="testanswer" id="answer8">
+<p><strong>Answer:</strong> b. Top-Down Parsing</p>
+<p><strong>Explanation:</strong> Top-down parsing is a technique which constructs the parse tree from the start symbol and transforms it to the input symbol. This type of parsing is also referred to as predictive or recursive parsing. </p>
+</div>
+<hr />
+<p class="pq">9) Which derivation is generated by the top-down parser?</p>
+<ol class="pointsa">
+<li>Right-most derivation in reverse</li>
+<li>Left-most derivation in reverse</li>
+<li>Right-most derivation</li>
+<li>Left-most derivation</li>
+</ol>
+<button class="showanswer" onclick="showhide(9)"><span id="btntext9">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(9)"><span id="btntext9">Workspace</span></button>
+<div id="workspace9"></div>
+<div class="testanswer" id="answer9">
+<p><strong>Answer:</strong> d. Left-most derivation</p>
+<p><strong>Explanation:</strong> Top-down parser generates the left-most derivation. It constructs the parse tree from left to right and constructs the left-most derivation of the specified sentence.</p>
+</div>
+<hr />
+<p class="pq">10) Which derivation is generated by the bottom-up parser?</p>
+<ol class="pointsa">
+<li>Right-most derivation in reverse</li>
+<li>Left-most derivation in reverse</li>
+<li>Right-most derivation</li>
+<li>Left-most derivation</li>
+</ol>
+<button class="showanswer" onclick="showhide(10)"><span id="btntext10">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(10)"><span id="btntext10">Workspace</span></button>
+<div id="workspace10"></div>
+<div class="testanswer" id="answer10">
+<p><strong>Answer:</strong> a. Right-most derivation in reverse.</p>
+<p><strong>Explanation:</strong> Bottom-up parser generates the right-most derivation in reverse. It constructs the parse tree from the input string to the root and tries to construct the right-most derivation of the specified string backward. </p>
+</div>
+<hr />
+<p class="pq">11) Which parser is most powerful in the following parsers?</p>
+<ol class="pointsa">
+<li>Operator Precedence</li>
+<li>SLR</li>
+<li>Canonical LR</li>
+<li>LALR</li>
+</ol>
+<button class="showanswer" onclick="showhide(11)"><span id="btntext11">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(11)"><span id="btntext11">Workspace</span></button>
+<div id="workspace11"></div>
+<div class="testanswer" id="answer11">
+<p><strong>Answer:</strong> c. Canonical LR </p>
+<p><strong>Explanation:</strong> Canonical LR (CLR) is the most powerful parser than LALR and SLR. </p>
+</div>
+<hr />
+<p class="pq">12) The output of the lexical analyzer is _______</p>
+<ol class="pointsa">
+<li>string character</li>
+<li>a syntax tree</li>
+<li>a set of RE</li>
+<li>a set of tokens</li>
+</ol>
+<button class="showanswer" onclick="showhide(12)"><span id="btntext12">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(12)"><span id="btntext12">Workspace</span></button>
+<div id="workspace12"></div>
+<div class="testanswer" id="answer12">
+<p><strong>Answer:</strong> d. a set of tokens</p>
+<p><strong>Explanation:</strong> Lexical analyzer gives the set of tokens as output. The set of tokens contains keywords, separators, literals, identifiers, and operators.</p>
+</div>
+<hr />
+<p class="pq">13) From the following grammars, which describes the lexical syntax?</p>
+<ol class="pointsa">
+<li>Lexical Grammar</li>
+<li>Context-free Grammar</li>
+<li>Syntactic Grammar</li>
+<li>Regular Grammar</li>
+</ol>
+<button class="showanswer" onclick="showhide(13)"><span id="btntext13">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(13)"><span id="btntext13">Workspace</span></button>
+<div id="workspace13"></div>
+<div class="testanswer" id="answer13">
+<p><strong>Answer:</strong> a. Lexical Grammar </p>
+<p><strong>Explanation:</strong> Lexical grammar is a type of grammar which specifies the syntax of tokens.</p>
+</div>
+<hr />
+<p class="pq">14) Which grammar gives multiple parse trees for the same string?</p>
+<ol class="pointsa">
+<li>Unambiguous</li>
+<li>Regular</li>
+<li>Ambiguous</li>
+<li>All of the above</li>
+</ol>
+<button class="showanswer" onclick="showhide(14)"><span id="btntext14">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(14)"><span id="btntext14">Workspace</span></button>
+<div id="workspace14"></div>
+<div class="testanswer" id="answer14">
+<p><strong>Answer:</strong> c. Ambiguous</p>
+<p><strong>Explanation:</strong> Ambiguous grammar is a context-free grammar which gives more than one leftmost or rightmost derivation for the same specified sentence. </p>
+</div>
+<hr />
+<p class="pq">15) In Compiler lexical analyzer is used for?</p>
+<ol class="pointsa">
+<li>removing comments</li>
+<li>removing whitespace</li>
+<li>breaking the syntaxes in the set of tokens</li>
+<li>All of the mentioned</li>
+</ol>
+<button class="showanswer" onclick="showhide(15)"><span id="btntext15">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(15)"><span id="btntext15">Workspace</span></button>
+<div id="workspace15"></div>
+<div class="testanswer" id="answer15">
+<p><strong>Answer:</strong> d. All of the mentioned </p>
+<p><strong>Explanation:</strong> Lexical analyzer is used in the compiler for removing the Whitespace and comments. It is also used in breaking the syntaxes into the set of tokens.</p>
+</div>
+<hr />
+<p class="pq">16) Which is considered as the sequence of characters in a token?</p>
+<ol class="pointsa">
+<li>Mexeme</li>
+<li>Lexeme</li>
+<li>Texeme</li>
+<li>Pattern</li>
+</ol>
+<button class="showanswer" onclick="showhide(16)"><span id="btntext16">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(16)"><span id="btntext16">Workspace</span></button>
+<div id="workspace16"></div>
+<div class="testanswer" id="answer16">
+<p><strong>Answer:</strong> b. Lexeme</p>
+<p><strong>Explanation:</strong> Lexemes are the string of alphanumeric characters in a single token. In the source program, lexemes are characters which are identified by the pattern for a token.</p>
+</div>
+<hr />
+<p class="pq">17) Which part of the compiler highly used the grammar concept?</p>
+<ol class="pointsa">
+<li>Code optimization</li>
+<li>Code generation</li>
+<li>Parser</li>
+<li>Lexical Analysis</li>
+</ol>
+<button class="showanswer" onclick="showhide(17)"><span id="btntext17">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(17)"><span id="btntext17">Workspace</span></button>
+<div id="workspace17"></div>
+<div class="testanswer" id="answer17">
+<p><strong>Answer:</strong> c. Parser</p>
+<p><strong>Explanation:</strong> The concept of grammar is much used in the parser phase of the compiler.</p>
+<p>The parser phase is next to the lexical analysis phase in the compiler. Parser generated the parse tree using the predefined grammar. The parser has two different techniques for creating a different parse tree.</p>
+</div>
+<hr />
+<p class="pq">18) Which phase of the compiler checks the grammar of the programming? </p>
+<ol class="pointsa">
+<li>Code Optimization</li>
+<li>Semantic Analysis</li>
+<li>Code Generation</li>
+<li>Syntax Analysis</li>
+</ol>
+<button class="showanswer" onclick="showhide(18)"><span id="btntext18">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(18)"><span id="btntext18">Workspace</span></button>
+<div id="workspace18"></div>
+<div class="testanswer" id="answer18">
+<p><strong>Answer:</strong> d. Syntax Analysis</p>
+<p><strong>Explanation:</strong> Syntax Analysis is the 2nd phase of the compiler, which checks the given input string is the correct syntax of the programming language. </p>
+</div>
+<hr />
+<p class="pq">19) Which of the following component is important for semantic analysis?</p>
+<ol class="pointsa">
+<li>Yacc</li>
+<li>Lex</li>
+<li>Symbol Table</li>
+<li>Type Checking</li>
+</ol>
+<button class="showanswer" onclick="showhide(19)"><span id="btntext19">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(19)"><span id="btntext19">Workspace</span></button>
+<div id="workspace19"></div>
+<div class="testanswer" id="answer19">
+<p><strong>Answer:</strong> d. Type checking </p>
+<p><strong>Explanation:</strong> In the semantic analysis, type checking is an important component because it verifies the program's operations from the semantic conventions. </p>
+</div>
+<hr />
+<p class="pq">20) Which phase of the compiler is also known as Scanner? </p>
+<ol class="pointsa">
+<li>Syntax Analysis</li>
+<li>Lexical Analysis</li>
+<li>Semantic Analysis</li>
+<li>Code generation</li>
+</ol>
+<button class="showanswer" onclick="showhide(20)"><span id="btntext20">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(20)"><span id="btntext20">Workspace</span></button>
+<div id="workspace20"></div>
+<div class="testanswer" id="answer20">
+<p><strong>Answer:</strong> b. Lexical Analysis</p>
+<p><strong>Explanation:</strong> The first part of the compiler (lexical analysis) is also known as a scanner. It scans the characters from the source program and implements them to produce tokens.</p>
+</div>
+<hr />
+<p class="pq">21) Which phase of the compiler is also known as Parser?</p>
+<ol class="pointsa">
+<li>Code Optimization</li>
+<li>Semantic Analysis</li>
+<li>Syntax Analysis</li>
+<li>Lexical Analysis</li>
+</ol>
+<button class="showanswer" onclick="showhide(21)"><span id="btntext21">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(21)"><span id="btntext21">Workspace</span></button>
+<div id="workspace21"></div>
+<div class="testanswer" id="answer21">
+<p><strong>Answer:</strong> c. Syntax Analysis</p>
+<p><strong>Explanation:</strong> The phase of the compiler next to the lexical analysis phase is also known as Parser.</p>
+<p>Syntax analysis or parser accepts the tokens produced by the lexical analysis and gives the parse tree in the output.</p>
+</div>
+<hr />
+<p class="pq">22) Which of the following parser is a top-down parser?</p>
+<ol class="pointsa">
+<li>An LALR parser</li>
+<li>A LR parser</li>
+<li>Operator precedence parser</li>
+<li>Recursive descent parser</li>
+</ol>
+<button class="showanswer" onclick="showhide(22)"><span id="btntext22">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(22)"><span id="btntext22">Workspace</span></button>
+<div id="workspace22"></div>
+<div class="testanswer" id="answer22">
+<p><strong>Answer:</strong> d. Recursive descent parser</p>
+<p><strong>Explanation:</strong> Recursive descent parser is a type of top-down parser which generates the parse tree from top to bottom and reads the input string from left to right.</p>
+</div>
+<hr />
+<p class="pq">23) Keywords are recognized in a compiler during -</p>
+<ol class="pointsa">
+<li>the code generation</li>
+<li>the data flow analysis</li>
+<li>the lexical analysis of the program</li>
+<li>the program parsing</li>
+</ol>
+<button class="showanswer" onclick="showhide(23)"><span id="btntext23">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(23)"><span id="btntext23">Workspace</span></button>
+<div id="workspace23"></div>
+<div class="testanswer" id="answer23">
+<p><strong>Answer:</strong> c. the lexical analysis of the program</p>
+<p><strong>Explanation:</strong> Keywords are firstly recognized during the lexical analysis of the program in the compiler. </p>
+</div>
+<hr />
+<p class="pq">24) Leaf nodes in a parse tree indicate?</p>
+<ol class="pointsa">
+<li>sub-terminals</li>
+<li>half-terminals</li>
+<li>non-terminals</li>
+<li>terminals</li>
+</ol>
+<button class="showanswer" onclick="showhide(24)"><span id="btntext24">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(24)"><span id="btntext24">Workspace</span></button>
+<div id="workspace24"></div>
+<div class="testanswer" id="answer24">
+<p><strong>Answer:</strong> d. terminals.</p>
+<p><strong>Explanation:</strong> All the leaf nodes in the parse tree indicate the terminals. And all the interior nodes indicate non-terminals.</p>
+</div>
+<hr />
+<p class="pq">25) Which graph describes the basic block and successor relationship?</p>
+<ol class="pointsa">
+<li>Control graph</li>
+<li>DAG</li>
+<li>Flow graph</li>
+<li>Hamilton graph</li>
+</ol>
+<button class="showanswer" onclick="showhide(25)"><span id="btntext25">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(25)"><span id="btntext25">Workspace</span></button>
+<div id="workspace25"></div>
+<div class="testanswer" id="answer25">
+<p><strong>Answer:</strong> c. Flow graph</p>
+<p><strong>Explanation:</strong> A flow graph is a graph of the compiler which describes the basic blocks and how the program control is passed between the blocks.</p>
+</div>
+<hr />
+<p class="pq">26) Which language is accepted by the push-down automata?</p>
+<ol class="pointsa">
+<li>Type 0 language</li>
+<li>Type 1 language</li>
+<li>Type 2 language</li>
+<li>Type 3 language</li>
+</ol>
+<button class="showanswer" onclick="showhide(26)"><span id="btntext26">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(26)"><span id="btntext26">Workspace</span></button>
+<div id="workspace26"></div>
+<div class="testanswer" id="answer26">
+<p><strong>Answer:</strong> c. Type 2 language</p>
+<p><strong>Explanation:</strong> According to the Chomsky hierarchy, push down automata accepts the Type 2 language, which is used for context-free language. </p>
+</div>
+<hr />
+<p class="pq">27) The most general phase of structured grammar is?</p>
+<ol class="pointsa">
+<li>Context-sensitive grammar</li>
+<li>Context-free grammar</li>
+<li>Regular grammar</li>
+<li>All of these</li>
+</ol>
+<button class="showanswer" onclick="showhide(27)"><span id="btntext27">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(27)"><span id="btntext27">Workspace</span></button>
+<div id="workspace27"></div>
+<div class="testanswer" id="answer27">
+<p><strong>Answer:</strong> a. Context Sensitive Grammar</p>
+<p><strong>Explanation:</strong> Context-sensitive grammar is the most general phase of structured grammar because, in this grammar, the left-hand side and the right side contain the terminals or non-terminals. </p>
+</div>
+<hr />
+<p class="pq">28) In the compiler, the function of using intermediate code is:</p>
+<ol class="pointsa">
+<li>to improve the register allocation</li>
+<li>to increase the error reporting &amp; recovery.</li>
+<li>to make semantic analysis easier.</li>
+<li>to increase the chances of re-using the machine-independent code optimizer in other compilers.</li>
+</ol>
+<button class="showanswer" onclick="showhide(28)"><span id="btntext28">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(28)"><span id="btntext28">Workspace</span></button>
+<div id="workspace28"></div>
+<div class="testanswer" id="answer28">
+<p><strong>Answer:</strong> d. to increase the chances of re-using the machine-independent code optimizer in other compilers.</p>
+<p><strong>Explanation:</strong> After semantic analysis, the intermediate code increases the chances of reusing the machine-independent code optimizer in other compilers.</p>
+</div>
+<hr />
+<p class="pq">29) In how many types of optimization can be divided?</p>
+<ol class="pointsa">
+<li>two types</li>
+<li>three types</li>
+<li>four types</li>
+<li>five types</li>
+</ol>
+<button class="showanswer" onclick="showhide(29)"><span id="btntext29">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(29)"><span id="btntext29">Workspace</span></button>
+<div id="workspace29"></div>
+<div class="testanswer" id="answer29">
+<p><strong>Answer:</strong> a. two types</p>
+<p><strong>Explanation:</strong> The code optimization technique is divided into machine-dependent and machine-independent types.</p>
+</div>
+<hr />
+<p class="pq">30) The value of which variable is updated inside the loop by a loop-invariant value?</p>
+<ol class="pointsa">
+<li>loop</li>
+<li>strength</li>
+<li>induction</li>
+<li>invariable</li>
+</ol>
+<button class="showanswer" onclick="showhide(30)"><span id="btntext30">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(30)"><span id="btntext30">Workspace</span></button>
+<div id="workspace30"></div>
+<div class="testanswer" id="answer30">
+<p><strong>Answer:</strong> c. induction </p>
+<p><strong>Explanation:</strong> The value of the induction variable is updated inside the loop by a loop-invariant value. </p>
+</div>
+<hr />
+<p class="pq">31) Which compiler runs on one machine and generates code for multiple machines?</p>
+<ol class="pointsa">
+<li>Multipass compiler</li>
+<li>Cross compiler</li>
+<li>Optimizing compiler</li>
+<li>Onepass compiler</li>
+</ol>
+<button class="showanswer" onclick="showhide(31)"><span id="btntext31">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(31)"><span id="btntext31">Workspace</span></button>
+<div id="workspace31"></div>
+<div class="testanswer" id="answer31">
+<p><strong>Answer:</strong> b. Cross compiler</p>
+<p><strong>Explanation:</strong> Cross compiler is a compiler which runs on one machine and generates code for more than one machine. </p>
+</div>
+<hr />
+<p class="pq">32) Which of the following is not a characteristic of the compiler?</p>
+<ol class="pointsa">
+<li>More execution time</li>
+<li>Debugging process is slow</li>
+<li>The execution takes place after the removal of all syntax errors</li>
+<li>Firstly scans the entire program and then transforms it into machine-understandable code</li>
+</ol>
+<button class="showanswer" onclick="showhide(32)"><span id="btntext32">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(32)"><span id="btntext32">Workspace</span></button>
+<div id="workspace32"></div>
+<div class="testanswer" id="answer32">
+<p><strong>Answer:</strong> a. More execution time </p>
+<p><strong>Explanation:</strong> The compiler does not take more time to execute. So, more execution time is not a characteristic of the compiler. </p>
+</div>
+<hr />
+<p class="pq">33) Which phenomenon happens when the non-terminal on the left side is repeated as the first symbol on the right side?</p>
+<ol class="pointsa">
+<li>Left-most derivation</li>
+<li>Left recursion</li>
+<li>Left factoring</li>
+<li>Left parsing</li>
+</ol>
+<button class="showanswer" onclick="showhide(33)"><span id="btntext33">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(33)"><span id="btntext33">Workspace</span></button>
+<div id="workspace33"></div>
+<div class="testanswer" id="answer33">
+<p><strong>Answer:</strong> b. Left recursion</p>
+<p><strong>Explanation:</strong> Left recursion is the process in which non-terminal on the left side of the production is the same on the right side as the leftmost symbol.</p>
+</div>
+<hr />
+<p class="pq">34) In which derivation the right-most non-terminal symbol is replaced at each step?</p>
+<ol class="pointsa">
+<li>Right look ahead</li>
+<li>Right claim</li>
+<li>Rightmost</li>
+<li>Right non-terminal</li>
+</ol>
+<button class="showanswer" onclick="showhide(34)"><span id="btntext34">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(34)"><span id="btntext34">Workspace</span></button>
+<div id="workspace34"></div>
+<div class="testanswer" id="answer34">
+<p><strong>Answer:</strong> c. Rightmost </p>
+<p><strong>Explanation:</strong> The rightmost derivation is that derivation of context-free grammar, which replaces the rightmost non-terminal symbol at each step. </p>
+</div>
+<hr />
+<p class="pq">35) In which derivation the leftmost non-terminal symbol is replaced at each step?</p>
+<ol class="pointsa">
+<li>Left recursion</li>
+<li>Left non-terminal</li>
+<li>Left pushdown</li>
+<li>Leftmost</li>
+</ol>
+<button class="showanswer" onclick="showhide(35)"><span id="btntext35">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(35)"><span id="btntext35">Workspace</span></button>
+<div id="workspace35"></div>
+<div class="testanswer" id="answer35">
+<p><strong>Answer:</strong> d. Leftmost</p>
+<p><strong>Explanation:</strong> The leftmost derivation is that derivation of context-free grammar which replaces the leftmost non-terminal symbol at each step.</p>
+</div>
+<hr />
+<p class="pq">36) The compiler can detect what type of errors?</p>
+<ol class="pointsa">
+<li>neither logical nor grammatical error</li>
+<li>logical errors only</li>
+<li>grammatical errors only</li>
+<li>both grammatical and logical errors</li>
+</ol>
+<button class="showanswer" onclick="showhide(36)"><span id="btntext36">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(36)"><span id="btntext36">Workspace</span></button>
+<div id="workspace36"></div>
+<div class="testanswer" id="answer36">
+<p><strong>Answer:</strong> c. grammatical errors only. </p>
+<p><strong>Explanation:</strong> Compiler is a computer program that detects grammatical errors, not logical errors. </p>
+</div>
+<hr />
+<p class="pq">37) Which symbol is not related to context-free grammar?</p>
+<ol class="pointsa">
+<li>End symbol</li>
+<li>Start symbol</li>
+<li>Non-terminal symbol</li>
+<li>Terminal symbol</li>
+</ol>
+<button class="showanswer" onclick="showhide(37)"><span id="btntext37">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(37)"><span id="btntext37">Workspace</span></button>
+<div id="workspace37"></div>
+<div class="testanswer" id="answer37">
+<p><strong>Answer:</strong> a. End symbol </p>
+<p><strong>Explanation:</strong> Context-free grammar is that grammar which consists of the start symbol, set of terminals, set of non-terminal symbols and the set of productions.</p>
+</div>
+<hr />
+<p class="pq">38) Which method merges the multiple loops into the single one?</p>
+<ol class="pointsa">
+<li>Constant Folding</li>
+<li>Loop rolling</li>
+<li>Loop fusion or jamming</li>
+<li>None of the above</li>
+</ol>
+<button class="showanswer" onclick="showhide(38)"><span id="btntext38">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(38)"><span id="btntext38">Workspace</span></button>
+<div id="workspace38"></div>
+<div class="testanswer" id="answer38">
+<p><strong>Answer:</strong> c. Loop fusion or Loop jamming</p>
+<p><strong>Explanation:</strong> Loop fusion is an optimization technique which merges the multiple bodies of loops into a single body. This programming technique may reduce the runtime performance of the program. </p>
+</div>
+<hr />
+<p class="pq">39) Which parser is known as the shift-reduce parser?</p>
+<ol class="pointsa">
+<li>Bottom-up parser</li>
+<li>Top-down parser</li>
+<li>Both Top-down and bottom-up</li>
+<li>None of the Above</li>
+</ol>
+<button class="showanswer" onclick="showhide(39)"><span id="btntext39">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(39)"><span id="btntext39">Workspace</span></button>
+<div id="workspace39"></div>
+<div class="testanswer" id="answer39">
+<p><strong>Answer:</strong> a. Bottom-up parser </p>
+<p><strong>Explanation:</strong> Bottom-up parser in the compiler is also called the shift-reduce parser.</p>
+</div>
+<hr />
+<p class="pq">40) Which of the following tree is the pictorial identification of the derivation?</p>
+<ol class="pointsa">
+<li>The oct tree</li>
+<li>The parse tree</li>
+<li>The binary tree</li>
+<li>None of the above</li>
+</ol>
+<button class="showanswer" onclick="showhide(40)"><span id="btntext40">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(40)"><span id="btntext40">Workspace</span></button>
+<div id="workspace40"></div>
+<div class="testanswer" id="answer40">
+<p><strong>Answer:</strong> b. The parse tree</p>
+<p><strong>Explanation:</strong> The tree which represents the syntactic structure of the string is known as the parse tree. It also indicates the terminal, start symbol, and non-terminal symbols.</p>
+</div>
+<hr />
+<p class="pq">41) The full form of YACC is:</p>
+<ol class="pointsa">
+<li>Yet Another Computer Computer</li>
+<li>Yet Another Computer Compiler</li>
+<li>Yet Another Compiler Computer</li>
+<li>Yet Another Compiler Compiler</li>
+</ol>
+<button class="showanswer" onclick="showhide(41)"><span id="btntext41">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(41)"><span id="btntext41">Workspace</span></button>
+<div id="workspace41"></div>
+<div class="testanswer" id="answer41">
+<p><strong>Answer:</strong> d. Yet Another Compiler Compiler</p>
+<p><strong>Explanation:</strong> The full form of YACC is Yet Another Compiler Compiler, which produces the LALR (1) grammar parser. </p>
+</div>
+<hr />
+<p class="pq">42) What type of conflicts can occur in the shift-reduce parsing?</p>
+<ol class="pointsa">
+<li>reduce/reduce</li>
+<li>shift/reduce</li>
+<li>Both shift/reduce and reduce/reduce</li>
+<li>None of the above</li>
+</ol>
+<button class="showanswer" onclick="showhide(42)"><span id="btntext42">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(42)"><span id="btntext42">Workspace</span></button>
+<div id="workspace42"></div>
+<div class="testanswer" id="answer42">
+<p><strong>Answer:</strong> b. Shift/reduce</p>
+<p><strong>Explanation:</strong> None</p>
+</div>
+<hr />
+<p class="pq">43) Which of the following grammar can be translated into DFAs?</p>
+<ol class="pointsa">
+<li>Generic Grammar</li>
+<li>Left Linear Grammar</li>
+<li>Right Liner Grammar</li>
+<li>All of the above</li>
+</ol>
+<button class="showanswer" onclick="showhide(43)"><span id="btntext43">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(43)"><span id="btntext43">Workspace</span></button>
+<div id="workspace43"></div>
+<div class="testanswer" id="answer43">
+<p><strong>Answer:</strong> c. Right Linear Grammar</p>
+<p><strong>Explanation:</strong> A right linear grammar is that grammar which contains all the non-terminals on the right-hand side at the right ends. This grammar can be simply converted into the DFA. </p>
+</div>
+<hr />
+<p class="pq">44) Which algorithm invokes a function GETREG()?</p>
+<ol class="pointsa">
+<li>Code motion algorithm</li>
+<li>Code optimization algorithm</li>
+<li>Intermediate Code</li>
+<li>Code generation algorithm</li>
+</ol>
+<button class="showanswer" onclick="showhide(44)"><span id="btntext44">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(44)"><span id="btntext44">Workspace</span></button>
+<div id="workspace44"></div>
+<div class="testanswer" id="answer44">
+<p><strong>Answer:</strong> d. Code generation algorithm</p>
+<p><strong>Explanation:</strong> Code generation algorithm invokes the GETREG() function to check the status of available registers and the location where the result should be stored. This function also selects the registers for every memory location.</p>
+</div>
+<hr />
+<p class="pq">45) FORTRAN programming language is a _______</p>
+<ol class="pointsa">
+<li>Turing language</li>
+<li>Context-sensitive language</li>
+<li>Context-free language</li>
+<li>Regular language</li>
+</ol>
+<button class="showanswer" onclick="showhide(45)"><span id="btntext45">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(45)"><span id="btntext45">Workspace</span></button>
+<div id="workspace45"></div>
+<div class="testanswer" id="answer45">
+<p><strong>Answer:</strong> b. Context-sensitive language. </p>
+<p><strong>Explanation:</strong> Context-sensitive languages are those languages which are defined by context-sensitive grammar. </p>
+</div>
+<hr />
+<p class="pq">46) The execution time of the code depends on?</p>
+<ol class="pointsa">
+<li>the usage of machine idioms</li>
+<li>the way the registers are used</li>
+<li>the orders in which the computations are performed</li>
+<li>All of the mentioned</li>
+</ol>
+<button class="showanswer" onclick="showhide(46)"><span id="btntext46">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(46)"><span id="btntext46">Workspace</span></button>
+<div id="workspace46"></div>
+<div class="testanswer" id="answer46">
+<p><strong>Answer:</strong> d. All of the mentioned</p>
+<p><strong>Explanation:</strong> None</p>
+</div>
+<hr />
+<p class="pq">47) Which optimization technique is used to reduce the multiple jumps?</p>
+<ol class="pointsa">
+<li>Latter optimization technique</li>
+<li>Peephole optimization technique</li>
+<li>Local optimization technique</li>
+<li>Code optimization technique</li>
+</ol>
+<button class="showanswer" onclick="showhide(47)"><span id="btntext47">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(47)"><span id="btntext47">Workspace</span></button>
+<div id="workspace47"></div>
+<div class="testanswer" id="answer47">
+<p><strong>Answer:</strong> b. Peephole optimization technique</p>
+<p><strong>Explanation:</strong> The peephole optimization technique is used to reduce the memory footprint and the size of code. It is also used to improve the program performance.</p>
+</div>
+<hr />
+<p class="pq">48) Which of the following term is used to keep track of the location where the current values of the name are stored?</p>
+<ol class="pointsa">
+<li>Register descriptor</li>
+<li>Address descriptor</li>
+<li>Allocation descriptor</li>
+<li>Flag register</li>
+</ol>
+<button class="showanswer" onclick="showhide(48)"><span id="btntext48">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(48)"><span id="btntext48">Workspace</span></button>
+<div id="workspace48"></div>
+<div class="testanswer" id="answer48">
+<p><strong>Answer:</strong> b. Address descriptor</p>
+<p><strong>Explanation:</strong> The address descriptor is a descriptor of the code generator technique, which keeps track of the memory location. </p>
+</div>
+<hr />
+<p class="pq">49) Which of the following are labeled by operator symbol?</p>
+<ol class="pointsa">
+<li>Root</li>
+<li>Interior nodes</li>
+<li>Leaves</li>
+<li>Nodes</li>
+</ol>
+<button class="showanswer" onclick="showhide(49)"><span id="btntext49">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(49)"><span id="btntext49">Workspace</span></button>
+<div id="workspace49"></div>
+<div class="testanswer" id="answer49">
+<p><strong>Answer:</strong> b. Interior nodes</p>
+<p><strong>Explanation:</strong> In the compiler, interior nodes are specified by the operator symbol.</p>
+</div>
+<hr />
+<p class="pq">50) DAG is an abbreviation of?</p>
+<ol class="pointsa">
+<li>Detecting Acyclic Graph</li>
+<li>Data Acyclic Graph</li>
+<li>Dynamic Acyclic Graph</li>
+<li>Directed Acyclic Graph</li>
+</ol>
+<button class="showanswer" onclick="showhide(50)"><span id="btntext50">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(50)"><span id="btntext50">Workspace</span></button>
+<div id="workspace50"></div>
+<div class="testanswer" id="answer50">
+<p><strong>Answer:</strong> d. Directed Acyclic Graph </p>
+<p><strong>Explanation:</strong> DAG is a Directed Acyclic Graph, which is constructed using three address code for optimizing the basic blocks. </p>
+</div>
+<hr />
+<p class="pq">51) Which of the following is used in various stages or phases of the compiler?</p>
+<ol class="pointsa">
+<li>Records</li>
+<li>Program</li>
+<li>Symbol Table</li>
+<li>Table</li>
+</ol>
+<button class="showanswer" onclick="showhide(51)"><span id="btntext51">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(51)"><span id="btntext51">Workspace</span></button>
+<div id="workspace51"></div>
+<div class="testanswer" id="answer51">
+<p><strong>Answer:</strong> c. Symbol Table</p>
+<p><strong>Explanation:</strong> A symbol table is simply a table which is created and maintained by the compiler and used in various phases of the compiler. </p>
+</div>
+<hr />
+<p class="pq">52) Which of the following structure has four fields?</p>
+<ol class="pointsa">
+<li>Parse tree</li>
+<li>Triples</li>
+<li>Indirect Triples</li>
+<li>Quadruples</li>
+</ol>
+<button class="showanswer" onclick="showhide(52)"><span id="btntext52">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(52)"><span id="btntext52">Workspace</span></button>
+<div id="workspace52"></div>
+<div class="testanswer" id="answer52">
+<p><strong>Answer:</strong> d. Quadruples</p>
+<p><strong>Explanation:</strong> Quadruples are a record structure in a compiler with four fields for implementing the three address code.</p>
+</div>
+<hr />
+<p class="pq">53) In which of the following tree, the leaf indicates the operand, and the interior node represents the operator. </p>
+<ol class="pointsa">
+<li>Syntax tree</li>
+<li>Parser tree</li>
+<li>Structured tree</li>
+<li>Sematic tree</li>
+</ol>
+<button class="showanswer" onclick="showhide(53)"><span id="btntext53">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(53)"><span id="btntext53">Workspace</span></button>
+<div id="workspace53"></div>
+<div class="testanswer" id="answer53">
+<p><strong>Answer:</strong> a. Syntax tree</p>
+<p><strong>Explanation:</strong> Syntax tree is a tree in the compiler which represents operands by leaf and operator by interior nodes.</p>
+</div>
+<hr />
+<p class="pq">54) Which statement is an abstract form of intermediate code? </p>
+<ol class="pointsa">
+<li>3- address</li>
+<li>2-address</li>
+<li>address</li>
+<li>Intermediate code</li>
+</ol>
+<button class="showanswer" onclick="showhide(54)"><span id="btntext54">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(54)"><span id="btntext54">Workspace</span></button>
+<div id="workspace54"></div>
+<div class="testanswer" id="answer54">
+<p><strong>Answer:</strong> a. 3-address</p>
+<p><strong>Explanation:</strong> None</p>
+</div>
+<hr />
+<p class="pq">55) Which mapping is described by the implementation of the syntax-directed translator? </p>
+<ol class="pointsa">
+<li>Parse table</li>
+<li>Input</li>
+<li>Output</li>
+<li>Input-Output</li>
+</ol>
+<button class="showanswer" onclick="showhide(55)"><span id="btntext55">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(55)"><span id="btntext55">Workspace</span></button>
+<div id="workspace55"></div>
+<div class="testanswer" id="answer55">
+<p><strong>Answer:</strong> d. Input-Output</p>
+<p><strong>Explanation:</strong> Input-Output is a mapping which is described by the implementation of the syntax-directed translator (SDT).</p>
+</div>
+<hr />
+<p class="pq">56) Which of the following function is called the canonical collection of LR(0) item. </p>
+<ol class="pointsa">
+<li>FIRST</li>
+<li>GOTO</li>
+<li>COMPUTE</li>
+<li>FOLLOW</li>
+</ol>
+<button class="showanswer" onclick="showhide(56)"><span id="btntext56">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(56)"><span id="btntext56">Workspace</span></button>
+<div id="workspace56"></div>
+<div class="testanswer" id="answer56">
+<p><strong>Answer:</strong> b. GOTO</p>
+<p><strong>Explanation:</strong> GOTO is a function that is called for defining the DFA. And, it is called the canonical collection of LR(0) item.</p>
+</div>
+<hr />
+<p class="pq">57) Which of the following option is not a function of the shift-reduce parser? </p>
+<ol class="pointsa">
+<li>Reduce</li>
+<li>Accept</li>
+<li>Go</li>
+<li>Shift</li>
+</ol>
+<button class="showanswer" onclick="showhide(57)"><span id="btntext57">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(57)"><span id="btntext57">Workspace</span></button>
+<div id="workspace57"></div>
+<div class="testanswer" id="answer57">
+<p><strong>Answer:</strong> c. Go</p>
+<p><strong>Explanation:</strong> The shift-reduce parser contains only shift, reduce, error and accept action. That's why Go is not a function of the shift-reduce parser. </p>
+</div>
+<hr />
+<p class="pq">58) Which of the following grammar has no two adjacent non-terminals?</p>
+<ol class="pointsa">
+<li>Irregular grammar</li>
+<li>Regular grammar</li>
+<li>Operator</li>
+<li>Precedence grammar</li>
+</ol>
+<button class="showanswer" onclick="showhide(58)"><span id="btntext58">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(58)"><span id="btntext58">Workspace</span></button>
+<div id="workspace58"></div>
+<div class="testanswer" id="answer58">
+<p><strong>Answer:</strong> c. Operator</p>
+<p><strong>Explanation:</strong> Operator grammar is the grammar that does not contain two adjacent non-terminals on the right side of the production. It is that grammar that defines the mathematical operators.</p>
+</div>
+<hr />
+<p class="pq">59) DFA is an abbreviation of. </p>
+<ol class="pointsa">
+<li>Non Deterministic Finite set Automata</li>
+<li>Deterministic Finite Automata</li>
+<li>Non Deterministic Finite Automata</li>
+<li>Deterministic Finite set Automata</li>
+</ol>
+<button class="showanswer" onclick="showhide(59)"><span id="btntext59">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(59)"><span id="btntext59">Workspace</span></button>
+<div id="workspace59"></div>
+<div class="testanswer" id="answer59">
+<p><strong>Answer:</strong> b. Deterministic Finite Automata</p>
+<p><strong>Explanation:</strong> The full form of DFA is Deterministic Finite Automata. It is also known as Deterministic Finite Acceptor. The automata read only one symbol from the input string at a time.</p>
+</div>
+<hr />
+<p class="pq">60) NFA is an abbreviation of. </p>
+<ol class="pointsa">
+<li>Non Deterministic Finite set Automata</li>
+<li>Deterministic Finite Automata</li>
+<li>Non Deterministic Finite Automata</li>
+<li>Deterministic Finite set Automata</li>
+</ol>
+<button class="showanswer" onclick="showhide(60)"><span id="btntext60">Show Answer</span></button>
+<button class="workspace" onclick="showworkspace(60)"><span id="btntext60">Workspace</span></button>
+<div id="workspace60"></div>
+<div class="testanswer" id="answer60">
+<p><strong>Answer:</strong> c. Non Deterministic Finite Automata</p>
+<p><strong>Explanation:</strong> The full form of NFA is Non-Deterministic Finite Automata. It is also known as a Non-Deterministic Finite State-machine. An Automaton gives more than one possible transition of the same state.</p>
+</div>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="compiler-tutorial.html">Compiler Design Tutorial</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="compiler-tutorial.html">&larr; prev</a>
+<a style="float:right" class="next" href="compiler-tutorial.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="caacafafaea8aba9a18aa0abbcabbebaa5a3a4bee4a9a5a7">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/compiler-design-mcq"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/compiler-design-mcq"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/compiler-design-mcq"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+ <p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+  <p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+  <p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="761e04361c1700170206191f18025815191b">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="dab2a89ab0bbacbbaeaab5b3b4aef4b9b5b7f4">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/compiler-design-mcq by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:18:16 GMT -->
+</html> 

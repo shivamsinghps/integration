@@ -1,0 +1,1215 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/tensorflow-working-of-style-transferring by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:09:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>TensorFlow | Working of Style Transferring - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="TensorFlow | Working of Style Transferring - Javatpoint" /><meta property="og:description" content="TensorFlow | Working of Style Transferring with TensorFlow Tutorial, TensorFlow Introduction, TensorFlow Installation, What is TensorFlow, TensorFlow Overview, TensorFlow Architecture, Installation of TensorFlow through conda, Installation of TensorFlow through pip etc." />
+<meta name="keywords" content="tensorflow tutorial, tensorflow, tensorflow introduction, tensorflow installation, what is tensorflow, tensorflow overview, tensorflow architecture, installation of tensorflow through conda, installation of tensorflow through pip, pros and cons of tensorflow, advantages of tensorflow, disadvantages of tensorflow" /><meta name="description" content="TensorFlow | Working of Style Transferring with TensorFlow Tutorial, TensorFlow Introduction, TensorFlow Installation, What is TensorFlow, TensorFlow Overview, TensorFlow Architecture, Installation of TensorFlow through conda, Installation of TensorFlow through pip etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="tensorflow-working-of-style-transferring.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="TensorFlow | Working of Style Transferring - Javatpoint" /><meta name="twitter:description" property="og:description" content="TensorFlow | Working of Style Transferring with TensorFlow Tutorial, TensorFlow Introduction, TensorFlow Installation, What is TensorFlow, TensorFlow Overview, TensorFlow Architecture, Installation of TensorFlow through conda, Installation of TensorFlow through pip etc." /><meta property="og:url" content="tensorflow-working-of-style-transferring.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="tensorflow.html" class="selected">TensorFlow</a></li>
+<li><a href="python-tutorial.html">Python</a></li>
+<li><a href="artificial-intelligence-ai.html">AI</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="cloud-computing.html">Cloud Computing</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="servlet-tutorial.html">Servlet</a></li>
+<li><a href="jsp-tutorial.html">JSP</a></li>
+<li><a href="struts-2-tutorial.html">Struts2</a></li>
+<li><a href="spring-tutorial.html">Spring</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">TensorFlow Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow.html">TensorFlow Tutorial</a>
+<a href="tensorflow-introduction.html">What is Tensorflow</a>
+<a href="installation-of-tensorflow-through-pip.html">Installation Through pip</a>
+<a href="installation-of-tensorflow-through-conda.html">Installation Through conda</a>
+<a href="tensorflow-architecture.html">Architecture of TensorFlow</a>
+<a href="advantage-and-disadvantage-of-tensorflow.html">Advantage &amp; Disadvantage</a>
+<a href="tensorflow-playground.html">TensorFlow Playground</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">TensorFlow Basics</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-basics.html">TensorFlow Basics</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">TensorFlow Perceptron</span></h2>
+</div>
+<div class="leftmenu">
+<a href="single-layer-perceptron-in-tensorflow.html">Single Layer Perceptron</a>
+<a href="hidden-layer-perceptron-in-tensorflow.html">Hidden Layer Perceptron</a>
+<a href="multi-layer-perceptron-in-tensorflow.html">Multi-layer Perceptron</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">ANN in TensorFlow</span></h2>
+</div>
+<div class="leftmenu">
+<a href="what-is-machine-learning-in-tensorflow.html">What is Machine Learning</a>
+<a href="artificial-neural-network-in-tensorflow.html">Artificial Neural Network</a>
+<a href="implementation-of-neural-network-in-tensorflow.html">Implementation of Neural Network</a>
+<a href="classification-of-neural-network-in-tensorflow.html">Classification of Neural Network</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linear Regression</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linear-regression-in-tensorflow.html">Linear Regression</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">CNN in TensorFlow</span></h2>
+</div>
+<div class="leftmenu">
+<a href="convolutional-neural-network-in-tensorflow.html">CNN Introduction</a>
+<a href="working-of-convolutional-neural-network-tensorflow.html">Working of CNN</a>
+<a href="training-of-cnn-in-tensorflow.html">Training of CNN</a>
+<a href="tensorflow-mnist-dataset-in-cnn.html">MNIST Dataset in CNN</a>
+<a href="cifar-10-and-cifar-100-dataset-in-tensorflow.html">CIFAR-10 &amp; CIFAR-100 Dataset</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">RNN in TensorFlow</span></h2>
+</div>
+<div class="leftmenu">
+<a href="recurrent-neural-network-in-tensorflow.html">RNN Introduction</a>
+<a href="working-of-rnn-in-tensorflow.html">Working of RNN</a>
+<a href="tensorflow-time-series-in-rnn.html">RNN Time Series</a>
+<a href="long-short-term-memory-rnn-in-tensorflow.html">LSTM RNN in Tensorflow</a>
+<a href="training-of-rnn-in-tensorflow.html">Training of RNN</a>
+<a href="tensorflow-types-of-rnn.html">Types of RNN</a>
+<a href="tensorflow-cnn-vs-rnn.html">CNN vs RNN</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Style Transferring</span></h2>
+</div>
+<div class="leftmenu">
+<a href="style-transferring-in-tensorflow.html">Style Transferring in TensorFlow</a>
+<a href="tensorflow-gram-matrix.html">Gram Matrix in Style Transferring</a>
+<a href="tensorflow-process-of-style-transferring.html">Process of Style Transferring</a>
+<a href="tensorflow-working-of-style-transferring.html">Working of Style Transferring</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">TensorBoard</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-tensorboard.html">TensorBoard</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-vs-pytorch.html">TensorFlow vs PyTorch</a>
+<a href="tensorflow-vs-keras.html">TensorFlow vs Keras</a>
+<a href="tensorflow-vs-theano.html">TensorFlow vs Theano</a>
+<a href="tensorflow-vs-caffe.html">TensorFlow vs Caffe</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Object Detection</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-object-detection.html">Object Detection</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">TensorFlow Debugging</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-debugging.html">TensorFlow Debugging</a>
+<a href="fixing-problem-in-tensorflow-debugging.html">Fixing Problem</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Miscellaneous Topics</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-forming-graphs.html">Forming Graphs</a>
+<a href="tensorflow-audio-recognition.html">Audio Recognition</a>
+<a href="tensorflow-apis.html">Tensorflow APIs</a>
+<a href="tensorflow-security.html">Tensorflow Security</a>
+<a href="tensorflow-single-and-multiple-gpu.html">Tensorflow Single and Multiple GPU</a>
+<a href="tensorflow-mobile.html">Tensorflow Mobile</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="tensorflow-tensorboard.html">next &rarr;</a>
+<a class="next" href="tensorflow-process-of-style-transferring.html">&larr; prev</a>
+</div>
+<h1 class="h1">Working of Style Transferring</h1>
+<p>Neural style transfer is the optimization technique used to take two images- <strong>a content image</strong> and <strong>a style reference</strong> image and blend them, so the output image looks like the content image, but it "<strong>painted</strong>" in the style of the style reference image.</p>
+<h2 class="h2">Import and configure the modules</h2>
+<p><strong>Open Google colab</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+from __future__ import absolute_import, division, print_function, unicode_literals
+</textarea></div>
+<br>
+<div class="codeblock"><textarea name="code" class="java">
+try:
+# %tensorflow_version only exists in Colab.
+%tensorflow_version 2.x
+except Exception:
+pass
+import tensorflow as tf
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>TensorFlow 2.x selected.
+</pre></div>
+<br>
+<div class="codeblock"><textarea name="code" class="java">
+import IPython.display as display
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+mpl.rcParams['figure.figsize'] = (12,12)
+mpl.rcParams['axes.grid'] = False
+import numpy as np
+import time
+import functools
+
+content_path = tf.keras.utils.get_file('nature.jpg','https://www.eadegallery.co.nz/wp-content/uploads/2019/03/626a6823-af82-432a-8d3d-d8295b1a9aed-l.jpg')
+style_path = tf.keras.utils.get_file('cloud.jpg','https://i.pinimg.com/originals/11/91/4f/11914f29c6d3e9828cc5f5c2fd64cfdc.jpg')
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Downloading data from https://www.eadegallery.co.nz/wp-content/uploads/2019/03/626a6823-af82-432a-8d3d-d8295b1a9aed-l.jpg
+1122304/1117520 [==============================] - 1s 1us/step
+Downloading data from https://i.pinimg.com/originals/11/91/4f/11914f29c6d3e9828cc5f5c2fd64cfdc.jpg
+      49152/43511 [=================================] - 0s 0us/step5. def 
+</pre></div>
+<p>Check the greatest measurement to <strong>512</strong> pixels.</p>
+<div class="codeblock"><textarea name="code" class="java">
+load_img(path_to_img):
+max_dim = 512
+img = tf.io.read_file(path_to_img)
+img = tf.image.decode_image(img, channels=3)
+img = tf.image.convert_image_dtype(img, tf.float32)
+shape = tf.cast(tf.shape(img)[:-1], tf.float32)
+long_dim = max(shape)
+scale = max_dim / long_dim
+new_shape = tf.cast(shape * scale, tf.int32)
+img = tf.image.resize(img, new_shape)
+img = img[tf.newaxis, :]
+return img
+</textarea></div>
+<h2 class="h2">Creating a function to show the image</h2>
+<div class="codeblock"><textarea name="code" class="java">
+def imshow(image, title=None):
+ if len(image.shape) > 3:
+ image = tf.squeeze(image, axis=0)
+
+plt.imshow(image)
+if title:
+plt.title(title)
+</textarea></div>
+<br>
+<div class="codeblock"><textarea name="code" class="java">
+content_image = load_img(content_path)
+style_image = load_img(style_path)
+plt.subplot(1, 2, 1)
+imshow(content_image, 'Content Image')
+plt.subplot(1, 2, 2)
+imshow(style_image, 'Style Image')
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring.png" alt="Working of Style Transferring" />
+<br>
+<div class="codeblock"><textarea name="code" class="java">
+x = tf.keras.applications.vgg19.preprocess_input(content_image*255)
+x = tf.image.resize(x, (224, 224))
+vgg = tf.keras.applications.VGG19(include_top=True, weights='imagenet')
+prediction_probabilities = vgg(x)
+prediction_probabilities.shape
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Downloading data from https://github.com/fchollet/deep-learning-    models/releases/download/v0.1/vgg19_weights_tf_dim_ordering_tf_kernels.h5
+
+574717952/574710816 [==============================] - 8s 0us/step
+TensorShape([1, 1000])
+</pre></div>
+<br>
+<div class="codeblock"><textarea name="code" class="java">
+predicted_top_5 = tf.keras.applications.vgg19.decode_predictions(prediction_probabilities.numpy())[0]
+[(class_name, prob) for (number, class_name, prob) in predicted_top_5]
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Downloading data from https://storage.googleapis.com/download.tensorflow.org/data/imagenet_class_index.json
+40960/35363 [==================================] - 0s 0us/step
+[('mobile_home', 0.7314594),
+ ('picket_fence', 0.119986326),
+ ('greenhouse', 0.026051044),
+ ('thatch', 0.023595566),
+ ('boathouse', 0.014751049)]
+</pre></div>
+<h2 class="h2">Define style and content representations</h2>
+<p>Use the middle layers of the model to the content and style representation of the image. Starting from the input layer, the first few layer activation represent low-level represent like edges and textures.</p>
+<p>For the input image, try to match the similar style and content target representation at the intermediate layers.</p>
+<p>Load the <strong>VGG19</strong> and run it on our image to ensure it used correctly here. </p>
+<div class="codeblock"><textarea name="code" class="java">
+vgg = tf.keras.applications.VGG19(include_top=False, weights='imagenet')
+print()
+for layer in vgg.layers:
+print(layer.name)
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Download data from https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg19_weights_tf_dim_ordering_tf_kernels_notop.h5
+80142336/80134624 [==============================] - 2s 0us/step
+
+input_2
+block1_conv1
+block1_conv2
+block1_pool
+block2_conv1
+block2_conv2
+block2_pool
+block3_conv1
+block3_conv2
+block3_conv3
+block3_conv4
+block3_pool
+block4_conv1
+block4_conv2
+block4_conv3
+block4_conv4
+block4_pool
+block5_conv1
+block5_conv2
+block5_conv3
+block5_conv4
+block5_pool
+</pre></div>
+<br>
+<div class="codeblock"><textarea name="code" class="java">
+# Content layer
+content_layers = ['block5_conv2'] 
+
+# Style layer of interest
+style_layers = ['block1_conv1',
+                'block2_conv1',
+                'block3_conv1', 
+                'block4_conv1', 
+                'block5_conv1']
+
+num_content_layers = len(content_layers)
+num_style_layers = len(style_layers)
+</textarea></div>
+<h2 class="h2">Intermediate layers for style and content</h2>
+<p>At the high level, to a network to perform image classification, it understands the image and requires taking the image as the pixels and building an internal illustration that converts the raw image pixels into a complex features present within the image.</p>
+<p>This is also a reason why the convolutional neural networks can generalize well: they can capture the deviating and defining features within classes (e.g., <strong>cats vs. dogs</strong>) that are agnostic where the image is fed into the model and output arrangement label, the model deliver as a complex feature extractor. By accessing intermediate layers of the model, we're able to describe the style and content of input images.</p>
+<h3 class="h3">Build the model</h3>
+<p>The network in <strong>tf.keras.applications</strong> are defined, so we can easily extract the intermediate layer values using the <strong>Keras</strong> functional API.</p>
+<p>To define any model using the functional API, specify the inputs and outputs:</p>
+<p><strong>model= Model(inputs, outputs)</strong></p>
+<p>The given function builds a VGG19 model that returns a list of intermediate layer.</p>
+<div class="codeblock"><textarea name="code" class="java">
+def vgg_layers(layer_names):
+""" Creating a vgg model that returns a list of intermediate output values."""
+# Load our model. Load pretrained VGG, trained on imagenet data
+vgg = tf.keras.applications.VGG19(include_top=False, weights='imagenet')
+vgg.trainable = False
+outputs = [vgg.get_layer(name).output for name in layer_names]
+model = tf.keras.Model([vgg.input], outputs)
+return model
+</textarea></div>
+<br>
+<div class="codeblock"><textarea name="code" class="java">
+style_extractor = vgg_layers(style_layers)
+style_outputs = style_extractor(style_image*255)
+#Look at the statistics of each layer's output
+for name, output in zip(style_layers, style_outputs):
+  print(name)
+  print("  shape: ", output.numpy().shape)
+  print("  min: ", output.numpy().min())
+  print("  max: ", output.numpy().max())
+  print("  mean: ", output.numpy().mean())
+  print()
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>block1_conv1
+  shape:  (1, 427, 512, 64)
+  min:  0.0
+  max:  763.51953
+  mean:  25.987665
+
+block2_conv1
+  shape:  (1, 213, 256, 128)
+  min:  0.0
+  max:  3484.3037
+  mean:  134.27835
+
+block3_conv1
+  shape:  (1, 106, 128, 256)
+  min:  0.0
+  max:  7291.078
+  mean:  143.77878
+
+block4_conv1
+  shape:  (1, 53, 64, 512)
+  min:  0.0
+  max:  13492.799
+  mean:  530.00244
+
+block5_conv1
+  shape:  (1, 26, 32, 512)
+  min:  0.0
+  max:  2881.529
+  mean:  40.596397
+</pre></div>
+<h2 class="h2">Gram matrix:</h2>
+<h3 class="h3">Calculating style</h3>
+<p>The content of the image is represented by the values of the common features of the map.</p>
+<p>Calculate a <strong>Gram Matrix</strong>, which includes this information by taking the output product over all locations. </p>
+<p>The <strong>Gram matrix</strong> can be calculated for a particular layer as:</p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring2.png" alt="Working of Style Transferring" />
+<p>This is implemented concisely using the <strong>tf.linalg.einsum</strong> function:</p>
+<div class="codeblock"><textarea name="code" class="java">
+def gram_matrix(input_tensor):
+result = tf.linalg.einsum('bijc,bijd->bcd', input_tensor, input_tensor)
+input_shape = tf.shape(input_tensor)
+  num_locations = tf.cast(input_shape[1]*input_shape[2], tf.float32)
+  return result/(num_locations)
+</textarea></div>
+<h3 class="h3">Extracting the style and content of image</h3>
+<p>Building the model that returns the content and style tensor.</p>
+<div class="codeblock"><textarea name="code" class="java">
+class StyleContentModel(tf.keras.models.Model):
+def __init__(self, style_layers, content_layers):
+super(StyleContentModel, self).__init__()
+self.vgg =  vgg_layers(style_layers + content_layers)
+self.style_layers = style_layers
+self.content_layers = content_layers
+self.num_style_layers = len(style_layers)
+self.vgg.trainable = False
+def call(self, inputs):
+"Expects float input in [0,1]"
+    inputs = inputs*255.0
+    preprocessed_input = tf.keras.applications.vgg19.preprocess_input(inputs)
+    outputs = self.vgg(preprocessed_input)
+    style_outputs, content_outputs = (outputs[:self.num_style_layers],outputs[self.num_style_layers:])
+style_outputs = [gram_matrix(style_output)
+ for style_output in style_outputs]
+
+    content_dict = {content_name:value for content_name, value in zip(self.content_layers, content_outputs)}
+style_dict = {style_name:value
+                  for style_name, value
+                  in zip(self.style_layers, style_outputs)}
+return {'content':content_dict, 'style':style_dict}
+</textarea></div>
+<p>When called on the image, this model returns the gram matrix (<strong>style</strong>) of the <strong>style_layers</strong> and content of the <strong>content_layers</strong>:</p>
+<div class="codeblock"><textarea name="code" class="java">
+extractor = StyleContentModel(style_layers, content_layers)
+results = extractor(tf.constant(content_image))
+style_results = results['style']
+print('Styles:')
+for name, output in sorted(results['style'].items()):
+  print("  ", name)
+  print("    shape: ", output.numpy().shape)
+  print("    min: ", output.numpy().min())
+  print("    max: ", output.numpy().max())
+  print("    mean: ", output.numpy().mean())
+  print()
+print("Contents:")
+for name, output in sorted(results['content'].items()):
+  print("  ", name)
+  print("    shape: ", output.numpy().shape)
+  print("    min: ", output.numpy().min())
+  print("    max: ", output.numpy().max())
+  print("    mean: ", output.numpy().mean())
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Styles:
+   block1_conv1
+    shape:  (1, 64, 64)
+    min:  0.0055228453
+    max:  28014.557
+    mean:  263.79025
+
+   block2_conv1
+    shape:  (1, 128, 128)
+    min:  0.0
+    max:  61479.496
+    mean:  9100.949
+
+   block3_conv1
+    shape:  (1, 256, 256)
+    min:  0.0
+    max:  545623.44
+    mean:  7660.976
+
+   block4_conv1
+    shape:  (1, 512, 512)
+    min:  0.0
+    max:  4320502.0
+    mean:  134288.84
+
+   block5_conv1
+    shape:  (1, 512, 512)
+    min:  0.0
+    max:  110005.37
+    mean:  1487.0381
+
+Contents:
+   block5_conv2
+    shape:  (1, 26, 32, 512)
+    min:  0.0
+    max:  2410.8796
+    mean:  13.764149
+</pre></div>
+<h2 class="h2">Run gradient descent</h2>
+<p>With this style and content extractor, we implement the style transfer algorithm. Do this by evaluating the mean square error in our image's output relative to each target, then take the weighted sum of the losses.</p>
+<p>Set our <strong>style</strong> and <strong>content</strong> target values:</p>
+<div class="codeblock"><textarea name="code" class="java">
+style_targets = extractor(style_image)['style']
+content_targets = extractor(content_image)['content']
+</textarea></div>
+<p>Define a <strong>tf.Variable</strong> to contain the image to hold. Initialize it with the help of content image (the <strong>tf.Variable</strong> be the same shape as the content image):</p>
+<div class="codeblock"><textarea name="code" class="java">
+image = tf.Variable(content_image)
+</textarea></div>
+<p>This is a floating image, define a function to keep the pixel value between <strong>0</strong> and <strong>1</strong>:</p>
+<div class="codeblock"><textarea name="code" class="java">
+def clip_0_1(image):
+return tf.clip_by_value(image, clip_value_min=0.0, clip_value_max=1.0)
+</textarea></div>
+<p>Create the optimizer. The paper recommends <strong>LBFGS</strong>:</p>
+<div class="codeblock"><textarea name="code" class="java">
+opt = tf.optimizers.Adam(learning_rate=0.02, beta_1=0.99, epsilon=1e-1)
+</textarea></div>
+<p>To optimizing it, use a weight combination of the two losses to get the total loss:</p>
+<div class="codeblock"><textarea name="code" class="java">
+style_weight=1e-2
+content_weight=1e4
+</textarea></div>
+<br>
+<div class="codeblock"><textarea name="code" class="java">
+def style_content_loss(outputs):
+    style_outputs = outputs['style']
+    content_outputs = outputs['content']
+    style_loss = tf.add_n([tf.reduce_mean((style_outputs[name]-style_targets[name])**2) 
+                           for name in style_outputs.keys()])
+    style_loss *= style_weight / num_style_layers
+
+    content_loss = tf.add_n([tf.reduce_mean((content_outputs[name]-content_targets[name])**2) 
+for name in content_outputs.keys()])
+    content_loss *= content_weight / num_content_layers
+    loss = style_loss + content_loss
+    return loss
+</textarea></div>
+<p>Use the function <strong>tf.GradientTape</strong> to update the image.</p>
+<div class="codeblock"><textarea name="code" class="java">
+@tf.function()
+def train_step(image):
+  with tf.GradientTape() as tape:
+ outputs = extractor(image)
+ loss = style_content_loss(outputs)
+grad = tape.gradient(loss, image)
+opt.apply_gradients([(grad, image)])
+  image.assign(clip_0_1(image))
+</textarea></div>
+<p>Run below steps to test:</p>
+<div class="codeblock"><textarea name="code" class="java">
+train_step (image)
+train_step (image)
+train_step (image)
+plt.imshow(image.read_value()[0])
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring3.png" alt="Working of Style Transferring" />
+<h2 class="h2">Transforming the image</h2>
+<p>Performing a longer optimization in this step:</p>
+<div class="codeblock"><textarea name="code" class="java">
+import time
+start = time.time()
+
+epochs = 10
+steps_per_epoch = 100
+step = 0
+for n in range(epochs):
+  for m in range(steps_per_epoch):
+    step += 1
+    train_step(image)
+    print(".", end='')
+  display.clear_output(wait=True)
+  imshow(image.read_value())
+  plt.title("Train step: {}".format(step))
+plt.show()
+end = time.time()
+print("Total time: {:.1f}".format(end-start))
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring4.png" alt="Working of Style Transferring" />
+<br>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring5.png" alt="Working of Style Transferring" />
+<br>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring6.png" alt="Working of Style Transferring" />
+<br>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring7.png" alt="Working of Style Transferring" />
+<br>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring8.png" alt="Working of Style Transferring" />
+<br>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring9.png" alt="Working of Style Transferring" />
+<br>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring10.png" alt="Working of Style Transferring" />
+<br>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring11.png" alt="Working of Style Transferring" />
+<br>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring12.png" alt="Working of Style Transferring" />
+<br>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring13.png" alt="Working of Style Transferring" />
+<h2 class="h2">Total variation loss</h2>
+<div class="codeblock"><textarea name="code" class="java">
+def high_pass_x_y(image):
+  x_var = image[:,:,1:,:] - image[:,:,:-1,:]
+  y_var = image[:,1:,:,:] - image[:,:-1,:,:]
+   return x_var, y_var
+</textarea></div>
+<br>
+<div class="codeblock"><textarea name="code" class="java">
+x_deltas, y_deltas = high_pass_x_y(content_image)
+plt.figure(figsize=(14,10))
+plt.subplot(2,2,1)
+imshow(clip_0_1(2*y_deltas+0.5), "Horizontal Deltas: Original")
+plt.subplot(2,2,2)
+imshow(clip_0_1(2*x_deltas+0.5), "Vertical Deltas: Original")
+x_deltas, y_deltas = high_pass_x_y(image)
+plt.subplot(2,2,3)
+imshow(clip_0_1(2*y_deltas+0.5), "Horizontal Deltas: Styled")
+plt.subplot(2,2,4)
+imshow(clip_0_1(2*x_deltas+0.5), "Vertical Deltas: Styled")
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring14.png" alt="Working of Style Transferring" />
+<br>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring15.png" alt="Working of Style Transferring" />
+<p>This shows how the high frequency component have increased.</p>
+<p>This high frequency component is an edge-detector. We get same output from the edge detector, from the given example:</p>
+<div class="codeblock"><textarea name="code" class="java">
+plt.figure(figsize=(14,10))
+sobel = tf.image.sobel_edges(content_image)
+plt.subplot(1,2,1)
+imshow(clip_0_1(sobel [...,0]/4+0.5), "Horizontal Sobel-edges")
+plt.subplot(1,2,2)
+imshow(clip_0_1(sobel[...,1]/4+0.5), "Vertical Sobel-edges")
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring16.png" alt="Working of Style Transferring" />
+<p>The regularization loss associated with this is sum of the square of the value:</p>
+<div class="codeblock"><textarea name="code" class="java">
+def total_variation_loss(image):
+  x_deltas, y_deltas = high_pass_x_y(image)
+  return tf.reduce_sum(tf.abs(x_deltas)) + tf.reduce_sum(tf.abs(y_deltas))
+</textarea></div>
+<br>
+<div class="codeblock"><textarea name="code" class="java">
+total_variation_loss(image).numpy()
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>99172.59
+</pre></div>
+<p>That demonstrate what it does. But there's no need to implement it ourselves, it includes a standard implementation:</p>
+<div class="codeblock"><textarea name="code" class="java">
+tf.image.total_variation(image).numpy()
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>array([99172.59], dtype=float32)
+</pre></div>
+<h2 class="h2">Re-running the optimization function</h2>
+<p>Pick the weight for the function <strong>total_variation_loss</strong>:</p>
+<div class="codeblock"><textarea name="code" class="java">
+total_variation_weight=30
+</textarea></div>
+<p>Now, <strong>train_step</strong> function:</p>
+<div class="codeblock"><textarea name="code" class="java">
+@tf.function()
+def train_step(image):
+with tf.GradientTape() as tape:
+outputs = extractor(image)
+loss = style_content_loss(outputs)
+loss += total_variation_weight*tf.image.total_variation(image)
+grad = tape.gradient(loss, image)
+opt.apply_gradients([(grad, image)])
+image.assign(clip_0_1(image))
+</textarea></div>
+<p>Reinitializing the optimization variable:</p>
+<div class="codeblock"><textarea name="code" class="java">
+image = tf.Variable(content_image)
+</textarea></div>
+<p>And run the optimization:</p>
+<div class="codeblock"><textarea name="code" class="java">
+import time
+start = time.time()
+
+epochs = 10
+steps_per_epoch = 100
+
+step = 0
+for n in range(epochs):
+  for m in range(steps_per_epoch):
+    step += 1
+    train_step(image)
+print(".", end='')
+  display.clear_output(wait=True)
+  display.display(tensor_to_image(image))
+  print("Train step: {}".format(step))
+end = time.time()
+print("Total time: {:.1f}".format(end-start))
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/tensorflow-working-of-style-transferring17.png" alt="Working of Style Transferring" />
+<h2 class="h2">finally save the result:</h2>
+<div class="codeblock"><textarea name="code" class="java">
+file_name = 'styletransfer.png'
+tensor_to_image(image). save(file_name)
+try: from google. colab import files
+except ImportError:
+pass
+else:
+  files.download(file_name)
+</textarea></div>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="tensorflow-tensorboard.html">TensorBoard</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="tensorflow-process-of-style-transferring.html">&larr; prev</a>
+<a style="float:right" class="next" href="tensorflow-tensorboard.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="8ceae9e9e8eeedefe7cce6edfaedf8fce3e5e2f8a2efe3e1">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/tensorflow-working-of-style-transferring"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/tensorflow-working-of-style-transferring"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/tensorflow-working-of-style-transferring"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+ </a>
+ <a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+  <a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+ <a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="7c140e3c161d0a1d080c13151208521f1311">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6c041e2c060d1a0d181c03050218420f030142">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/tensorflow-working-of-style-transferring by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:09:35 GMT -->
+</html> 

@@ -1,0 +1,948 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/classful-vs-classless-addressing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:34:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Classful vs Classless addressing: What's the Difference? - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Classful vs Classless addressing: What's the Difference? - javatpoint" /><meta property="og:description" content="Classful vs Classless addressing with Tutorial, features, types of computer network, components, Intranet, Uses Of Computer Network, Hub, Software and Hardware, etc." />
+<meta name="keywords" content="computer network tutorial, routing, introduction, features, types of computer network, file sharing, components, cables and connectors, router, intranet, modem, uses of computer network, hub, software and hardware, security, client server network, disadvantages, advantages, lan, pan, man, wan" /><meta name="description" content="Classful vs Classless addressing with Tutorial, features, types of computer network, components, Intranet, Uses Of Computer Network, Hub, Software and Hardware, etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="classful-vs-classless-addressing.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Classful vs Classless addressing: What's the Difference? - javatpoint" /><meta name="twitter:description" property="og:description" content="Classful vs Classless addressing with Tutorial, features, types of computer network, components, Intranet, Uses Of Computer Network, Hub, Software and Hardware, etc." /><meta property="og:url" content="classful-vs-classless-addressing.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="computer-network-tutorial.html" class="selected">Computer Network</a></li>
+<li><a href="dbms-tutorial.html">DBMS</a></li>
+<li><a href="data-structure-tutorial.html">DS</a></li>
+<li><a href="daa-tutorial.html">DAA</a></li>
+<li><a href="operating-system.html">Operating Systems</a></li>
+<li><a href="computer-fundamentals-tutorial.html">Computer Fundamentals</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="python-tutorial.html">Python</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Computer Network</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-tutorial.html">Tutorial</a>
+<a href="computer-network-introduction.html">Introduction</a>
+<a href="computer-network-features.html">Features</a>
+<a href="computer-network-architecture.html">Architecture</a>
+
+<a href="computer-network-components.html">Components</a>
+<a href="types-of-computer-network.html">Computer Network Types</a>
+<a href="computer-network-topologies.html">Topologies</a>
+<a href="computer-network-transmission-modes.html">Transmission Modes</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Models</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-models.html">Models</a>
+<a href="osi-model.html">OSI Model</a>
+<a href="computer-network-tcp-ip-model.html">TCP/IP Model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Physical Layer</span></h2>
+</div>
+<div class="leftmenu">
+
+<a href="computer-network-digital-transmission.html">Digital Transmission</a>
+
+<a href="transmission-media.html">Transmission Media</a>
+<a href="guided-transmission-media.html">Guided Media</a>
+<a href="unguided-transmission-media.html">UnGuided Media</a>
+<a href="multiplexing-in-computer-network.html">Multiplexing</a>
+<a href="computer-network-switching.html">Switching</a>
+<a href="computer-network-switching-modes.html">Switching Modes</a>
+<a href="computer-network-switching-techniques.html">Switching Techniques</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Data Link layer</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-link-layer.html">Data Link layer</a>
+<a href="computer-network-error-detection.html">Error Detection</a>
+<a href="computer-network-error-correction.html">Error Correction</a>
+<a href="data-link-controls.html">Data Link Controls</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Network Layer</span></h2>
+</div>
+<div class="leftmenu">
+<a href="network-layer.html">Network Layer</a>
+<a href="network-addressing.html">Network Addressing</a>
+<a href="computer-network-routing.html">Routing</a>
+<a href="network-layer-protocols.html">Network Layer Protocols</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Routing Algorithm</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-routing-algorithm.html">Routing Algorithm</a>
+<a href="distance-vector-routing-algorithm.html">Distance Vector</a>
+<a href="link-state-routing-algorithm.html">Link State Routing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Transport Layer</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-transport-layer.html">Transport Layer</a>
+<a href="computer-network-transport-layer-protocols.html">Transport Layer Protocols</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Application Layer</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-application-layer.html">Application Layer</a>
+<a href="computer-network-client-and-server-model.html">Client &amp; Server Model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Application Protocols</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-dns.html">DNS</a>
+<a href="computer-network-ftp.html">FTP</a>
+<a href="computer-network-telnet.html">Telnet</a>
+<a href="simple-mail-transfer-protocol.html">SMTP</a>
+<a href="simple-network-management-protocol.html">SNMP</a>
+<a href="computer-network-http.html">HTTP</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Network Security</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-security.html">Security</a>
+<a href="computer-network-privacy.html">Privacy</a>
+<a href="computer-network-digital-signature.html">Digital Signature</a>
+<a href="computer-network-pgp.html">PGP</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="router.html">What is Router</a>
+<a href="osi-vs-tcp-ip.html">OSI vs TCP/IP</a>
+<a href="tcp-vs-udp.html">TCP vs UDP</a>
+<a href="tcp.html">TCP</a>
+<a href="tcp-port.html">TCP Port</a>
+<a href="ipv4-vs-ipv6.html">IPv4 vs IPv6</a>
+<a href="arp-packet-format.html">ARP Packet Format</a>
+<a href="arp-table.html">ARP Table</a>
+<a href="working-of-arp.html">Working of ARP</a>
+<a href="ftp-client.html">FTP Client</a>
+<a href="ftp-commands.html">FTP Commands</a>
+<a href="ftp-server.html">FTP Server</a>
+<a href="i2c-protocol.html">I2P Protocol</a>
+<a href="sliding-window-protocol.html">Sliding Window Protocol</a>
+<a href="snmp.html">SNMP</a>
+<a href="spi-protocol.html">SPI Protocol</a>
+<a href="ip.html">IP</a>
+<a href="arp-commands.html">ARP Commands</a>
+<a href="arp-request.html">ARP Request</a>
+<a href="address-resolution-protocol.html">ARP - Address Resolution Protocol</a>
+<a href="address-resolution-protocol-and-its-types.html">ARP and its types</a>
+<a href="tcp-retransmission.html">TCP Retransmission</a>
+<a href="can-protocol.html">CAN Protocol</a>
+<a href="http-status-codes.html">HTTP Status Codes</a>
+<a href="http-vs-https.html">HTTP vs HTTPS</a>
+<a href="rip-protocol.html">RIP Protocol</a>
+<a href="udp-protocol.html">UDP Protocol</a>
+<a href="icmp-protocol.html">ICMP Protocol</a>
+<a href="mqtt-protocol.html">MQTT Protocol</a>
+<a href="ospf-protocol.html">OSPF Protocol</a>
+<a href="stop-and-wait-protocol.html">Stop &amp; Wait Protocol</a>
+<a href="imap-protocol.html">IMAP Protocol</a>
+<a href="pop-protocol.html">POP Protocol</a>
+<a href="cifs.html">CIFS</a>
+<a href="das.html">DAS</a>
+<a href="dimm.html">DIMM</a>
+<a href="iscsi.html">iSCSI</a>
+<a href="nas.html">NAS</a>
+<a href="nfs.html">NFS</a>
+<a href="nvme.html">NVMe</a>
+<a href="san.html">SAN</a>
+<a href="border-gateway-protocol.html">BGP</a>
+<a href="go-back-n-arq.html">Go-Back-N ARQ</a>
+<a href="rj-cable.html">RJ Cable</a>
+<a href="connection-oriented-vs-connectionless-service.html">Connection-Oriented vs Connectionless Service</a>
+<a href="cdma-vs-gsm.html">CDMA vs GSM</a>
+<a href="what-is-mac-address.html">What is MAC Address</a>
+<a href="modem-vs-router.html">Modem vs Router</a>
+<a href="switch-vs-router.html">Switch vs Router</a>
+<a href="usb-2-0-vs-usb-3-0.html">USB 2.0 vs USB 3.0</a>
+<a href="csma-ca-vs-csma-cd.html">CSMA CA vs CSMA CD</a>
+<a href="multiple-access-protocols.html">Multiple Access Protocols</a>
+<a href="uri-vs-url.html">URI vs URL</a>
+<a href="imap-vs-pop3.html">IMAP vs. POP3</a>
+<a href="ssh-meaning.html">SSH Meaning</a>
+<a href="utp-vs-stp.html">UTP vs STP</a>
+<a href="status-code-400.html">Status Code 400</a>
+<a href="mime-protocol.html">MIME Protocol</a>
+<a href="ip-address.html">IP address</a>
+<a href="what-is-a-proxy-server-and-how-does-it-work.html">What is a proxy server and how does it work</a>
+<a href="how-to-set-up-and-use-a-proxy-server.html">How to set up and use a proxy server</a>
+<a href="what-is-network-security.html">What is network security</a>
+<a href="www-is-based-on-which-model.html">WWW is based on which model</a>
+<a href="proxy-server-list.html">Proxy Server List</a>
+<a href="fundamentals-of-computer-networking.html">Fundamentals of Computer Networking</a>
+<a href="ip-address-format-and-table.html">IP Address Format and Table</a>
+<a href="bus-topology-vs-ring-topology.html">Bus topology vs Ring topology</a>
+<a href="bus-topology-vs-star-topology.html">Bus topology vs Star topology</a>
+<a href="circuit-switching-vs-packet-switching.html">Circuit Switching vs Packet switching</a>
+<a href="star-vs-ring-topology.html">star vs ring topology</a>
+<a href="router-vs-bridge.html">Router vs Bridge</a>
+<a href="tcp-connection-termination.html">TCP Connection Termination</a>
+<a href="image-steganography.html">Image Steganography</a>
+<a href="network-neutrality.html">Network Neutrality</a>
+<a href="onion-routing.html">Onion Routing</a>
+<a href="adaptive-security-appliance-features.html">ASA features</a>
+<a href="relabel-to-front-algorithm.html">Relabel-to-front Algorithm</a>
+<a href="types-of-server-virtualization-in-computer-network.html">Types of Server Virtualization in Computer Network</a>
+<a href="access-lists.html">Access Lists (ACL)</a>
+<a href="digital-subscriber-line.html">Digital Subscriber Line (DSL)</a>
+<a href="operating-system-based-virtualization.html">Operating system based Virtualization</a>
+<a href="context-based-access-control.html">Context based Access Control (CBAC)</a>
+<a href="cristians-algorithm.html">Cristian's Algorithm</a>
+<a href="service-set-identifier-in-computer-network.html">Service Set Identifier (SSID) in Computer Network</a>
+<a href="voice-over-internet-protocol.html">Voice over Internet Protocol (VoIP)</a>
+<a href="challenge-response-authentication-mechanism.html">Challenge Response Authentication Mechanism (CRAM)</a>
+<a href="extended-access-list.html">Extended Access List</a>
+<a href="li-fi-vs-wi-fi.html">Li-fi vs. Wi-fi</a>
+<a href="reflexive-access-list.html">Reflexive Access List</a>
+<a href="synchronous-optical-network.html">Synchronous Optical Network (SONET)</a>
+<a href="wifi-protected-access.html">Wifi protected access (WPA)</a>
+<a href="wifi-protected-setup.html">Wifi Protected Setup (WPS)</a>
+<a href="standard-access-list.html">Standard Access List</a>
+<a href="time-access-list.html">Time Access List</a>
+<a href="what-is-3d-internet.html">What is 3D Internet</a>
+<a href="4g-mobile-communication-technology.html">4G Mobile Communication Technology</a>
+<a href="types-of-wireless-transmission-media.html">Types of Wireless Transmission Media</a>
+<a href="best-computer-networking-courses.html">Best Computer Networking Courses</a>
+<a href="data-representation-in-computer-network.html">Data Representation</a>
+<a href="network-criteria.html">Network Criteria</a>
+<a href="classful-vs-classless-addressing.html">Classful vs Classless addressing</a>
+<a href="bootp-vs-rarp-in-computer-networking.html">Difference between BOOTP and RARP in Computer Networking</a>
+<a href="what-is-agp.html">What is AGP (Accelerated Graphics Port)</a>
+<a href="advantages-and-disadvantages-of-satellite-communication.html">Advantages and Disadvantages of Satellite Communication</a>
+<a href="external-ip-address.html">External IP Address</a>
+<a href="asynchronous-transfer-mode-in-computer-network.html">Asynchronous Transfer Mode (ATM) in Computer Network</a>
+<a href="types-of-authentication-protocols.html">Types of Authentication Protocols</a>
+<a href="what-is-a-cisco-packet-tracer.html">What is a CISCO Packet Tracer</a>
+<a href="how-does-bootp-work.html">How does BOOTP work</a>
+<a href="subnetting-in-computer-networks.html">Subnetting in Computer Networks</a>
+<a href="mesh-topology-advantages-and-disadvantages.html">Mesh Topology Advantages and Disadvantages</a>
+<a href="ring-topology-advantages-and-disadvantages.html">Ring Topology Advantages and Disadvantages</a>
+<a href="star-topology-advantages-and-disadvantages.html">Star Topology Advantages and Disadvantages</a>
+<a href="tree-topology-advantages-and-disadvantages.html">Tree Topology Advantages and Disadvantages</a>
+<a href="zigbee-technology-the-smart-home-protocol.html">Zigbee Technology-The smart home protocol</a>
+<a href="network-layer-in-osi-model.html">Network Layer in OSI Model</a>
+<a href="physical-layer-in-osi-model.html">Physical Layer in OSI Model</a>
+<a href="data-link-layer-in-osi-model.html">Data Link Layer in OSI Model</a>
+<a href="internet-explorer-shortcut-keys.html">Internet explorer shortcut keys</a>
+<a href="network-layer-security-ssl-protocols.html">Network Layer Security | SSL Protocols</a>
+<a href="presentation-layer-in-osi-model.html">Presentation Layer in OSI Model</a>
+<a href="session-layer-in-osi-model.html">Session Layer in OSI Model</a>
+<a href="subnet-mask.html">SUBNET MASK</a>
+<a href="transport-layer-security-secure-socket-layer-ssl-and-ssl-architecture.html">Transport Layer Security | Secure Socket Layer (SSL) and SSL Architecture</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-mcq.html">Computer Network MCQ</a>
+<a href="computer-network-mcq-part2.html">Computer Network MCQ Part2</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="networking-interview-questions.html">Networking Questions</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="bootp-vs-rarp-in-computer-networking.html">next &rarr;</a>
+<a class="next" href="network-criteria.html">&larr; prev</a>
+</div>
+<h1 class="h1">Classful vs Classless addressing</h1>
+<p>IPV4 Addresses, Classful Addressing, Classless Addressing, and the difference between Classful and Classless addressing are discussed in this article.</p>
+<p>Let's first discuss about IPV4 addresses</p>
+<h2 class="h2">IPV4 ADDRESSES</h2>
+<p>The IP address, often known as the Internet address, is the unique identifier used in the IP layer of the TCP/IP protocol suite to identify each device's connection to the Internet. A host's or router's connection to the Internet is defined by its 32-bit IPv4 address, which is unique and used worldwide. The IP address, not the host or router, is what identifies the connection because it could change if the device is relocated to a different network.</p>
+<p>Since each address specifies a single and exclusive connection to the Internet, IPv4 addresses are distinctive. A device has two IPv4 addresses if it has two networks connecting to the Internet through it. Because every host that wishes to connect to the Internet must use the IPv4 addressing scheme, IPv4 addresses are considered universal.</p>
+<h2 class="h2">Hierarchy in Addressing</h2>
+<p>The addressing system is hierarchical in every type of communication network that requires delivery, including phone and postal networks. </p>
+<p>Although it is separated into two parts, a 32-bit IPv4 address is also hierarchical. The network is defined by the first component of the address, known as the <strong>prefix</strong>, and the node is defined by the second component, known as the <strong>suffix</strong> (connection of a device to the Internet). A 32-bit IPv4 address's prefix and suffix are shown in the given figure. The lengths of the prefix and suffix are n bits and (32 - n) bits, respectively.</p>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/classful-vs-classless-addressing.png" alt="Classful vs Classless addressing" />
+<p>Prefixes can have variable or fixed lengths. The IPv4 network identification was initially intended to be a fixed-length prefix. <strong><em>Classful </em>addressing</strong> is the term used to describe this outmoded system<strong><em>. The brand-new addressing method, known as classless addressing, makes use of a variable-length network prefix.</em></strong> Prior to focusing on classless addressing, we briefly explore classful addressing.</p>
+<h3 class="h3">1. CLASSFUL ADDRESSING</h3>
+<p>An IPv4 address originally had a fixed-length prefix, but three fixed-length prefixes (n = 8, n = 16, and n = 24) were created in order to support both small and big networks. As shown in the figure below, the entire address space was partitioned into five classes (classes A, B, C, D, and E). Classful addressing is the term used to describe this system. Despite being a thing of the past, classful addressing aids in the comprehension of classless addressing, which is covered in the later section.</p>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/classful-vs-classless-addressing2.png" alt="Classful vs Classless addressing" />
+<p><strong>CLASS A</strong> - Despite the fact that the network length is 8 bits, we can only use seven bits for the network identifier since the first bit, which is 0 and determines the class, is part of the length. This indicates that only 2<sup>7</sup> = 128 networks can have a class A address globally.</p>
+<ul class="points">
+<li>Net ID = 8bits long and Host ID = 24 bits long</li>
+<li>Method to identify class A addresses:
+<ul class="points">
+<li>The first bit is reserved to 0 in binary</li>
+<li>Range of the first octet is [0, 127] in dotted decimal</li>
+</ul>
+</li>
+<li>Total number of connections in Class A = 2<sup>31</sup> (2, 14, 74, 83, 648)</li>
+<li>There are 2<sup>7</sup> - 2 = 126 networks in the Class A network.
+<ul class="points">
+<li>There are 2 fewer networks available overall since IP Address 0.0.0.0 is set aside for broadcasting needs. For usage as a loopback address while testing software, the IP address 127.0.0.1 is set aside.</li>
+<li>Hence, the range of the first octet becomes [1, 126]</li>
+</ul>
+</li>
+<li>Total number of Host IDs in Class A = 2<sup>24</sup> - 2 [1, 67, 77, 214]
+<ul class="points">
+<li>There are 2 fewer hosts that can be established across all classes due to the two reserved IP addresses, where all of the host ID bits are either zero or one.</li>
+<li>The Network ID for the network is represented when all of the Host ID bits are set to 0.</li>
+<li>The Broadcast Address is represented when all of the Host ID bits are set to 1.</li>
+</ul>
+</li>
+<li>Organizations needing very large networks, like Indian Railways, employ class A.</li>
+</ul>
+<p><strong>CLASS B</strong> - Despite the fact that the first two bits of class B's network, which are 10 in binary or we can write it as (10)<sub>2</sub>, determine the class, we can only use 14 bits as the network identification, as class B's network length is 16 bits. As a result, only 2<sup>14</sup> = 16,384 networks in the entire world are capable of using a class B address.</p>
+<ul class="points">
+<li>Length of Net Id = 16 bits and length of Host ID 16 bits.</li>
+<li>Method to identify Class B networks:
+<ul class="points">
+<li>First two bits are reserved to 10 in binary notation</li>
+<li>The Range of the first octet is [128, 191] in dotted decimal notation</li>
+</ul>
+</li>
+<li>Total number of connections in the class B network is 2<sup>30</sup> = 1, 07, 37, 41, 824</li>
+<li>Total number of networks available in class B is 2<sup>14</sup> = 16, 384</li>
+<li>Total number of hosts that can be configured in Class B = 2<sup>16</sup> - 2 = 165, 534</li>
+<li>Organizations needing medium-sized networks typically utilize class B.</li>
+</ul>
+<p><strong>CLASS C</strong> - All addresses that begin with the number (110)<sub>2</sub> fall under class C. Class C networks are 24 bits long, but since the class is defined by three bits, the network identifier can only be 21 bits long. As a result, 2<sup>21</sup> = 2, 097, 152 networks worldwide are capable of using a class C address.</p>
+<ul class="points">
+<li>The length of the Net Id and the Host Id = 24 bits and 16 bits respectively.</li>
+<li>Method to identify Class C networks:
+<ul class="points">
+<li>First three bits are reserved for 110 in binary notation or (110)<sub>2</sub>.</li>
+<li>The range of the first octet is [192, 223] in dotted decimal notation.</li>
+</ul>
+</li>
+<li>Total number of connections in Class C = 2<sup>29</sup> = 53, 68, 70, 912.</li>
+<li>Total number of networks available in Class C = 2<sup>24</sup> = 20, 97, 152.</li>
+<li>Total number of hosts that can be configured in every network in Class C = 2<sup>8</sup> - 2 = 254.</li>
+<li>Organizations needing small to medium-sized networks typically choose class C.</li>
+</ul>
+<p><strong><em>Quick Quiz</em></strong> - <em>The maximum number of networks that can use Class C addresses in the IPv4 addressing format is __________</em></p>
+<ol class="points">
+<li>2<sup>14</sup></li>
+<li>2<sup>7</sup></li>
+<li>2<sup>21</sup></li>
+<li>2<sup>24</sup></li>
+</ol>
+<p><strong>Ans. (c)</strong></p>
+<p><strong>CLASS D</strong> - Prefix and suffix categories do not exist for Class D. It is employed for multicast addresses.</p>
+<ul class="points">
+<li>There is no concept of Host ID and Net ID</li>
+<li>Method to identify Class D network:
+<ul class="points">
+<li>The first four bits are reserved to 1110 in binary notation or (1110)<sub>2</sub></li>
+<li>The range of the first octet is [224, 239] in dotted decimal notation</li>
+</ul>
+</li>
+<li>Total number of IP addresses available is 2<sup>28</sup> = 26, 84, 35, 456</li>
+<li>Because data is not intended for a specific host, Class D is set aside for multicasting, which eliminates the requirement to extract the host address from the IP address.</li>
+</ul>
+<p><strong>CLASS E</strong> - All binary addresses with the prefix 1111 fall under class E. Class E, like Class D, does not have a prefix or a suffix and is used as a reserve.</p>
+<ul class="points">
+<li>Like in Class D, there is also no concept of Host ID and Net ID.</li>
+<li>Method to identify Class E networks:
+<ul class="points">
+<li>The first four bits are reserved to 1111 in binary notation or (1111)</li>
+<li>The range of the first octet is [240, 255] in dotted decimal notation.</li>
+</ul>
+</li>
+<li>Total number of IP addresses available is 2<sup>28</sup> = 26,84,35,456.</li>
+<li>Class E is set aside for hypothetical or experimental uses.</li>
+</ul>
+<h3 class="h3">2. CLASSLESS ADDRESSING</h3>
+<p>The address depletion issue was not fully resolved by classful addressing's subnetting and supernetting techniques. As the Internet expanded, it became obvious that a bigger address space was required as a long-term fix. However, the expanded address space necessitates that IP addresses should be longer as well, necessitating a change in IP packet syntax. The short-term solution, which uses the same address space but modifies the distribution of addresses to deliver a fair amount to each business, was developed despite the fact that the long-term solution, known as IPv6, has already been developed. <strong><em>Classless addressing is the temporary fix, which nevertheless makes use of IPv4 addresses.</em></strong> In order to make up for address depletion, the class privilege was taken out of the distribution.</p>
+<p>The entire address space is partitioned into blocks of varying lengths with classless addressing. An address's prefix designates the block (network); its suffix designates the node (device). We are capable of having a block of 20, 21, 22 ,..., 232 addresses, theoretically. One of the limitations is that a block of addresses must have a power of two addresses. One address block may be given to an organization. The given figure demonstrates the non-overlapping block segmentation of the entire address space.</p>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/classful-vs-classless-addressing3.png" alt="Classful vs Classless addressing" />
+<p>In contrast to classful addressing, classless addressing allows for varying prefix lengths. Prefix lengths that vary from 0 to 32 are possible. The length of the prefix has an inverse relationship with network size. A smaller network has a large prefix; a larger one has a small prefix.</p>
+<p>We must stress that classful addressing is just as easily adaptable to the concept of classless addressing. Consider an address in class A as a classless address with a prefix length of 8. Class B addresses can be viewed as classless addresses with the prefix 16 and so on. Putting it another way, <strong><em>classless addressing is a specific instance of classful addressing.</em></strong></p>
+<p><strong><em>Prefix Length - Slash Notation</em></strong></p>
+<p>In classless addressing, the first issue that needs to be resolved is how to determine the prefix length if an address is provided. We must individually provide the prefix length because it is not a property of the address. The address is inserted in this scenario, followed by a slash, and the prefix length, n. Slash notation is the colloquial name for the notation, while classless interdomain routing, or CIDR (pronounced cider) method, is the official name. An address in classless addressing can thus be expressed as illustrated in the figure below.</p>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/classful-vs-classless-addressing4.png" alt="Classful vs Classless addressing" />
+<p>To put it another way, we must also provide the prefix length in classless addressing because an address does not automatically define the block or network to which it belongs.</p>
+<p><strong><em>Extracting Information from an Address</em></strong></p>
+<p>With respect to any given address in the block, we typically like to know three things: the number of addresses in the block, the start address in the block, and the last address. These three pieces of information, which are depicted in the picture below, are simple to locate because the prefix length, n, is known.</p>
+<ul class="points">
+<li>The block has N = 232n addresses, according to the calculation.</li>
+<li>The n leftmost bits are kept, and the (32 - n) rightmost bits are all set to zeroes to determine the first address.</li>
+<li>The n leftmost bits are kept, while the (32 - n) rightmost bits are all set to 1s to determine the last address.</li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/classful-vs-classless-addressing5.png" alt="Classful vs Classless addressing" />
+<p><strong><em>For Example</em></strong> - The address 167.199.170.82/27 is a classless address. The following is where we can find the aforementioned three pieces of data. In the network, there are 2<sup>32-n</sup> = 2<sup>5</sup> = 32 addresses in all.</p>
+<p>The first 27 bits are kept while the remaining bits are converted to 0s to determine the first address.</p>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/classful-vs-classless-addressing6.png" alt="Classful vs Classless addressing" />
+<p>Keeping the first 27 bits and turning the remaining bits to 1s will allow you to determine the last address.</p>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/classful-vs-classless-addressing7.png" alt="Classful vs Classless addressing" />
+<p><strong><em>Quick Quiz</em></strong> - <em>In the network 200.10.11.144/27, the fourth octet (in decimal) of the last IP address of the network, which can be assigned to a host is _____ (GATE 2015, 2 Marks)</em></p>
+<p><strong>Ans.</strong></p>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/classful-vs-classless-addressing8.png" alt="Classful vs Classless addressing" />
+<p>Here, the maximum possible value of the last octet is 159 in decimal. Hence, the fourth octet of the last IP address, which can be assigned to a host is 10011110 in binary or 158 in decimal. Hence<strong><em>, the answer to the question is 158</em></strong>.</p>
+<h2 class="h2">Difference Between Classful and Classless Addressing</h2>
+<ol class="points">
+<li>IP addresses are divided into five groups using the classful addressing approach when they are assigned. In order to prevent the depletion of IP addresses, classless addressing is used. It is a method of IP address allocation that will eventually replace classful addressing.</li>
+<li>A further distinction is the usefulness of classful and classless addressing. Comparatively speaking, classless addressing is more beneficial and useful than classful addressing.</li>
+<li>In classful addressing, the network ID and host ID are adjusted according to the classes. However, the distinction between network ID and host ID does not exist with classless addressing. This opens up the possibility of making yet another contrast between both addressing.</li>
+</ol>
+<h2 class="h2">CONCLUSION</h2>
+<p>IP addressing includes two types: classful and classless. Classless addressing offers a more effective method of allocating IP addresses than classful addressing, which is the main difference between the two. To put it briefly, classless addressing prevents the issue of IP address exhaustion that can occur with classful addressing.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="bootp-vs-rarp-in-computer-networking.html">Difference between BOOTP and RARP in Computer Networking</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="network-criteria.html">&larr; prev</a>
+<a style="float:right" class="next" href="bootp-vs-rarp-in-computer-networking.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="234546464741424048634942554257534c4a4d570d404c4e">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/classful-vs-classless-addressing"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/classful-vs-classless-addressing"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/classful-vs-classless-addressing"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+  <a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+  <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="5b33291b313a2d3a2f2b3432352f75383436">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="39514b7953584f584d495650574d175a565417">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/classful-vs-classless-addressing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:34:12 GMT -->
+</html> 

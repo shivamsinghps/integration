@@ -1,0 +1,1055 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/get-and-post-methods-in-php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 12:53:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Get and Post Methods in PHP - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Get and Post Methods in PHP - javatpoint" /><meta property="og:description" content="Get and Post Methods in PHP with examples, php file, php session, php date, php array, php form, functions, time, xml, ajax, php mysql, regex, string, oop, addslashes(), addcslashes() etc." />
+<meta name="keywords" content="php, tutorial, example, file, session, date, array, functions, time, xml, ajax, mysql, mysql, regex, string, oops, chop(), bin2hex(), addslashes(), addcslashes()" /><meta name="description" content="Get and Post Methods in PHP with examples, php file, php session, php date, php array, php form, functions, time, xml, ajax, php mysql, regex, string, oop, addslashes(), addcslashes() etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="get-and-post-methods-in-php.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Get and Post Methods in PHP - javatpoint" /><meta name="twitter:description" property="og:description" content="Get and Post Methods in PHP with examples, php file, php session, php date, php array, php form, functions, time, xml, ajax, php mysql, regex, string, oop, addslashes(), addcslashes() etc." /><meta property="og:url" content="get-and-post-methods-in-php.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu"><ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="php-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/php.png" alt="php" /> PHP</a></li>
+<li><a href="mysql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/mysql.png" alt="mysql" /> MySQL</a></li>
+<li><a href="laravel.html"><img src="https://static.javatpoint.com/images/icon/laravel.png" alt="laravel" /> Laravel</a></li>
+<li><a href="wordpress-tutorial.html"><img src="https://static.javatpoint.com/images/icon/wordpress.png" alt="wordpress" /> WordPress</a></li>
+<li><a href="magento-2.html"><img src="https://static.javatpoint.com/images/icon/magento2.png" alt="magento-2" /> Magento 2</a></li>
+<li><a href="codeigniter-tutorial.html"><img src="https://static.javatpoint.com/images/icon/codeigniter.png" alt="codeigniter" /> CodeIgniter</a></li>
+<li><a href="yii-tutorial.html"><img src="https://static.javatpoint.com/images/icon/yii.png" alt="yii" /> YII</a></li>
+<li><a href="html-tutorial.html"><img src="https://static.javatpoint.com/images/icon/html.png" alt="html" /> HTML</a></li>
+<li><a href="css-tutorial.html"><img src="https://static.javatpoint.com/images/icon/css.png" alt="CSS" /> CSS</a></li>
+<li><a href="javascript-tutorial.html"><img src="https://static.javatpoint.com/images/icon/js.png" alt="javascript" /> JavaScript</a></li>
+<li><a href="jquery-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jquery.png" alt="jQuery" /> jQuery</a></li>
+<li><a href="python-tutorial.html"><img src="https://static.javatpoint.com/images/icon/python.png" alt="python" /> Python</a></li>
+<li><a href="java-tutorial.html"><img src="https://static.javatpoint.com/images/icon/java.png" alt="java" /> Java</a></li>
+<li><a href="sql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/sql.png" alt="sql" /> SQL</a></li>
+<li><a href="php-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="php interview questions" /> Interview Q</a></li>
+</ul><br style="clear: left" /></div> </div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-tutorial.html"><span>PHP Tutorial</span></a>
+<a href="install-php.html">Install PHP</a>
+<a href="run-php-code-in-xampp.html">PHP Code</a>
+<a href="php-echo.html">PHP Echo</a>
+<a href="php-print.html">PHP Print</a>
+<a href="php-echo-and-print-statements.html">PHP Echo vs Print</a>
+<a href="php-variables.html">PHP Variable</a>
+<a href="php-variable-scope.html">PHP Variable Scope</a>
+<a href="php-dollar-doubledollar.html">PHP $ and $$</a>
+<a href="php-constants.html">PHP Constants</a>
+<a href="php-magic-constants.html">PHP Magic Constants</a>
+<a href="php-data-types.html">PHP Data Types</a>
+<a href="php-operators.html">PHP Operators</a>
+<a href="php-comments.html">PHP Comments</a>
+</div>
+
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Control Statement</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-if-else.html"><span>PHP If else</span></a>
+<a href="php-switch.html"><span>PHP Switch</span></a>
+<a href="php-for-loop.html"><span>PHP For Loop</span></a>
+<a href="php-foreach-loop.html">PHP foreach loop</a>
+<a href="php-while-loop.html"><span>PHP While Loop</span></a>
+<a href="php-do-while-loop.html"><span>PHP Do While Loop</span></a>
+<a href="php-break.html"><span>PHP Break</span></a>
+<a href="php-continue.html"><span>PHP Continue</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP Programs</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-programs.html"><span>20 PHP Programs</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP Functions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-functions.html"><span>PHP Functions</span></a>
+<a href="php-parameterized-function.html"><span>Parameterized Function</span></a>
+<a href="php-call-by-value.html"><span>PHP Call By Value</span></a>
+<a href="php-call-by-reference.html"><span>PHP Call By Reference</span></a>
+<a href="php-default-argument-values-function.html"><span>PHP Default Arguments</span></a>
+<a href="php-variable-length-argument-function.html"><span>PHP Variable Arguments</span></a>
+<a href="php-recursive-function.html"><span>PHP Recursive Function</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP Arrays</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-array.html"><span>PHP Array</span></a>
+<a href="php-indexed-array.html"><span>PHP Indexed Array</span></a>
+<a href="php-associative-array.html"><span>PHP Associative Array</span></a>
+<a href="php-multidimensional-array.html"><span>Multidimensional Array</span></a>
+<a href="php-array-functions.html"><span>PHP Array Functions</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP Strings</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-string.html"><span>PHP String</span></a>
+<a href="php-string-functions.html"><span>PHP String Functions</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP Math</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-math.html"><span>PHP Math Functions</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP Form</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-form.html"><span>PHP Form: Get Post</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP Include</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-include-file.html"><span>PHP include &amp; require</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">State Management</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-cookie.html"><span>PHP Cookie</span></a>
+<a href="php-session.html"><span>PHP Session</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP File</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-file.html"><span>PHP File Handling</span></a>
+<a href="php-open-file.html"><span>PHP Open File</span></a>
+<a href="php-read-file.html"><span>PHP Read File</span></a>
+<a href="php-write-file.html"><span>PHP Write File</span></a>
+<a href="php-append-to-file.html"><span>PHP Append File</span></a>
+<a href="php-delete-file.html"><span>PHP Delete File</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Upload Download</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-file-upload.html"><span>PHP File Upload</span></a>
+<a href="php-download-file.html"><span>PHP Download File</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-require_once.html">require_once</a>
+<a href="php-include_once.html">include_once</a>
+<a href="php-mvc-architecture.html">MVC Architecture</a>
+<a href="php-vs-javascript.html">PHP vs. JavaScript</a>
+<a href="php-vs-html.html">PHP vs. HTML</a>
+<a href="php-vs-node-js.html">PHP vs. Node.js</a>
+<a href="php-vs-python.html">PHP vs Python</a>
+<a href="phpstorm.html">PhpStorm</a>
+<a href="php-pdo.html">PHP PDO</a>
+<a href="top-10-php-frameworks.html">Top 10 PHP frameworks</a>
+<a href="phpmyadmin.html">phpMyAdmin</a>
+<a href="how-to-count-all-elements-in-an-array-in-php.html">Count All Array Elements</a>
+<a href="how-to-create-newline-in-php.html">Create Newline</a>
+<a href="how-to-get-current-page-url-in-php.html">Get Current Page URL</a>
+<a href="how-to-remove-first-element-from-an-array-in-php.html">Remove First Element from Array</a>
+<a href="how-to-remove-last-element-from-an-array-in-php.html">Remove Last Element from Array</a>
+<a href="how-to-change-date-format-in-php.html">Change Date Format</a>
+<a href="how-to-get-the-ip-address-in-php.html">Get IP Address</a>
+<a href="php-mysql-login-system.html">PHP MySql Login System</a>
+<a href="php-var_dump-function.html">var_dump() function</a>
+<a href="php-regular-expressions.html">PHP Regular Expressions</a>
+<a href="php-preg_match-function.html">preg_match() function</a>
+<a href="php-preg_replace-function.html">preg_replace() function</a>
+<a href="php-isset-function.html">isset() function</a>
+<a href="php-print_r-function.html">print_r() function</a>
+<a href="types-of-errors-in-php.html">Types of Errors in PHP</a>
+<a href="how-to-display-all-errors-in-php.html">Display All Errors</a>
+<a href="php-error_reporting.html">PHP error_reporting</a>
+<a href="php-header.html">PHP header()</a>
+<a href="php-unset-function.html">PHP unset() function</a>
+<a href="get-and-post-methods-in-php.html">Get &amp; Post Methods</a>
+<a href="form-validation-in-php.html">Form Validation</a>
+<a href="exception-handling-in-php.html">Exception Handling in PHP</a>
+<a href="php-try-catch.html">PHP try-catch</a>
+<a href="php-pagination.html">PHP Pagination</a>
+<a href="what-is-a-website.html">What is a Website</a>
+<a href="how-to-make-a-website.html">How to make a website</a>
+<a href="how-to-cite-a-website-in-apa-format.html">How to cite a website in APA format</a>
+<a href="how-to-cite-a-website-in-mla-format.html">How to cite a website in MLA format</a>
+<a href="how-to-download-video-from-the-website.html">How to download video from the website</a>
+<a href="php-array_push.html">PHP array_push</a>
+<a href="php-break-vs-continue.html">break vs continue in PHP</a>
+<a href="how-to-install-composer-on-windows.html">How to Install Composer on Windows</a>
+<a href="phpmyadmin-login.html">PHPMyAdmin Login</a>
+<a href="php-alert.html">PHP alert</a>
+<a href="creation-of-custom-php-ini-file-in-cpanel.html">Creation of custom php.ini file in CPanel</a>
+<a href="downgrade-php-7-4-to-7-3-ubuntu.html">Downgrade php 7.4 to 7.3 Ubuntu</a>
+<a href="multiple-file-upload-using-dropzone-js-in-php.html">Multiple File Upload using Dropzone JS in PHP</a>
+<a href="php-dropzone-file-upload-on-button-click.html">PHP Dropzone File Upload on Button Click</a>
+<a href="php-find-value-in-an-array.html">PHP find value in an array</a>
+<a href="php-codeigniter-3-ajax-pagination-using-jquery.html">PHP Codeigniter 3 Ajax Pagination using Jquery</a>
+<a href="how-to-convert-array-into-string-in-php.html">How to Convert array into string in PHP</a>
+<a href="php-codeigniter-3-create-dynamic-tree-view-using-bootstrap-treeview-js.html">PHP Codeigniter 3 Create Dynamic Tree View using Bootstrap Treeview JS</a>
+<a href="crud-operation-using-php-and-mongodb.html">CRUD Operation using PHP &amp; Mongodb</a>
+<a href="php-ajax-multiple-image-upload.html">PHP Ajax Multiple Image Upload</a>
+<a href="php-multidimensional-array-search-by-value.html">PHP Multidimensional Array Search By Value</a>
+<a href="php-urlencode-function.html">PHP urlencode() Function</a>
+<a href="image-gallery-crud-using-php-mysql.html">Image Gallery CRUD using PHP MySQL</a>
+<a href="how-to-get-selected-option-value-in-php.html">How to get selected option value in PHP</a>
+<a href="array-to-string-conversion-in-php.html">Array to string conversion in PHP</a>
+<a href="php-contact-form.html">PHP Contact Form</a>
+<a href="php-string-concatenation.html">PHP string Concatenation</a>
+<a href="php-laravel-5-6-rest-api-with-passport.html">PHP Laravel 5.6 - Rest API with Passport</a>
+<a href="php-compare-dates.html">PHP compare dates</a>
+<a href="php-registration-form.html">PHP Registration Form</a>
+<a href="php-ternary-operator.html">PHP ternary operator</a>
+<a href="php-basename-function.html">PHP basename() Function</a>
+<a href="why-do-we-need-interfaces-in-php.html">Why do we need Interfaces in PHP</a>
+<a href="file_put_contents-function-in-php.html">file_put_contents() Function in PHP</a>
+<a href="is_array-function-in-php.html">Is_array() Function in PHP</a>
+<a href="how-to-use-php-serialize-and-unserialize-function.html">How to Use PHP Serialize() and Unserialize() Function</a>
+<a href="php-unset-vs-unlink-function.html">PHP Unset() vs Unlink() Function</a>
+<a href="php-5-vs-php-7.html">PHP 5 vs PHP 7</a>
+<a href="php-imagearc-function.html">PHP Imagearc() Function</a>
+<a href="php-imagecharup-function.html">PHP Imagecharup() Function</a>
+<a href="php-imagecolortransparent-function.html">PHP Imagecolortransparent() Function</a>
+<a href="php-imagechar-function.html">PHP Imagechar() Function</a>
+<a href="php-imagecreate-function.html">PHP Imagecreate() Function</a>
+<a href="php-imagecolorallocate-function.html">PHP Imagecolorallocate() Function</a>
+<a href="php-image-createtruecolor-function.html">PHP Image createtruecolor( ) Function</a>
+<a href="php-imagestring-function.html">PHP Imagestring() Function</a>
+<a href="php-classes.html">PHP Classes</a>
+<a href="father-of-php.html">Father of PHP</a>
+<a href="get-vs-post-method-in-php.html">get vs post method in PHP</a>
+<a href="php-append-to-array.html">PHP append to array</a>
+<a href="fpassthru-function-in-php.html">fpassthru() Function in PHP</a>
+<a href="imagick-borderimage-method-in-php.html">Imagick::borderImage() method in PHP</a>
+<a href="imagick-rotateimage-function.html">Imagick rotateImage() Function</a>
+<a href="imagick-transposeimage-function.html">Imagick transposeImage() Function</a>
+<a href="php-projects.html">PHP Projects</a>
+<a href="imagick-floodfillpaintimage-function.html">Imagick floodFillPaintImage() Function</a>
+<a href="imagick-charcoalimage-php.html">Imagick::charcoalImage() PHP</a>
+<a href="imagick-adaptiveblurimage-function.html">Imagick adaptiveBlurImage() Function</a>
+<a href="imagick-addimage-function.html">Imagick addImage() Function</a>
+<a href="imagick-addnoiseimage-function.html">Imagick addNoiseImage() Function</a>
+<a href="php-type-casting-and-conversion-of-an-object-to-an-object-of-other-class.html">PHP Type Casting and Conversion of an Object to an Object of other class</a>
+<a href="php-pear.html">PHP PEAR</a>
+<a href="php-str_contains.html">PHP STR_CONTAINS()</a>
+<a href="multiple-inheritance-in-php.html">Multiple Inheritance in PHP</a>
+<a href="what-is-a-php-developer.html">What is a PHP Developer</a>
+<a href="php-ob_start-function.html">PHP ob_start() Function</a>
+<a href="php-beautifier.html">PHP Beautifier</a>
+<a href="php-imagepolygon-function.html">PHP imagepolygon() Function</a>
+<a href="free-php-web-hosting.html">Free PHP Web Hosting</a>
+<a href="php-adminer.html">PHP Adminer</a>
+<a href="polymorphism-in-php.html">Polymorphism in PHP</a>
+<a href="php-empty-function.html">PHP empty() Function</a>
+<a href="what-is-php-fpm.html">What is PHP-FPM</a>
+<a href="php-static-variables.html">PHP STATIC VARIABLES</a>
+<a href="php-ide-and-code-editor-software.html">PHP IDE and Code Editor Software</a>
+<a href="php-file_get_contents-function.html">PHP file_get_contents() Function</a>
+<a href="php-sleep-function.html">PHP sleep() Function</a>
+<a href="php-server.html">PHP server</a>
+<a href="php-gmp-functions-detail-reference.html">PHP GMP Functions Detail Reference</a>
+<a href="php-gmp_abs-function.html">PHP gmp_abs() Function</a>
+<a href="php-gmp_add-function.html">PHP gmp_add() Function</a>
+<a href="php-gmp_and-function.html">PHP gmp_and()Functions</a>
+<a href="php-gmp-gmp_clrbit-function.html">PHP GMP gmp_clrbit() Function</a>
+<a href="php-gmp-gmp_cmp-function.html">PHP GMP gmp_cmp() Function</a>
+<a href="php-gmp-gmp_com-function.html">PHP GMP gmp_com() Function</a>
+<a href="php-gmp_div_q-function.html">PHP gmp_div_q() Function</a>
+<a href="php-gmp_div_qr-function.html">PHP gmp_div_qr() Function</a>
+<a href="php-gmp_or-function.html">PHP gmp_or() function</a>
+<a href="php-gmp_divexact-function.html">PHP gmp_divexact() Function</a>
+<a href="php-gmp_export-function.html">PHP gmp_export() Function</a>
+<a href="php-gmp_fact-function.html">PHP gmp_fact() Function</a>
+<a href="php-gmp_gcd-function.html">PHP gmp_gcd() Function</a>
+<a href="php-gmp_import-function.html">PHP gmp_import() Function</a>
+<a href="php-gmp_intval-function.html">PHP gmp_intval() Function</a>
+<a href="php-gmp_invert-function.html">PHP gmp_invert() Function</a>
+<a href="php-gmp_jacobi-function.html">PHP gmp_jacobi() Function</a>
+<a href="php-gmp_legendre-function.html">PHP gmp_legendre() Function</a>
+<a href="php-gmp_mod-function.html">PHP gmp_mod() Function</a>
+<a href="php-gmp_prob_prime-function.html">PHP gmp_prob_prime() function</a>
+<a href="php-gmp_random_bits-function.html">PHP gmp_random_bits() function</a>
+<a href="php-gmp_random_range-function.html">PHP gmp_random_range() function</a>
+<a href="php-gmp_root-function.html">PHP gmp_root() function</a>
+<a href="php-gmp_rootrem-function.html">PHP gmp_rootrem() function</a>
+<a href="php-gmp_random_seed-function.html">PHP gmp_random_seed() function</a>
+<a href="php-gmp_scan0-function.html">PHP gmp_scan0() function</a>
+<a href="php-gmp_scan1-function.html">PHP gmp_scan1() function</a>
+<a href="php-gmp_setbit-function.html">PHP gmp_setbit() function</a>
+<a href="php-gmp-gmp_testbit-function.html">PHP GMP gmp_testbit() Function</a>
+<a href="php-gmp_random-function.html">PHP gmp_random() function</a>
+<a href="php-gmp_xor-function.html">PHP gmp_xor() function</a>
+<a href="how-to-create-html-table-with-a-while-loop-in-php.html">How to create html table with a while loop in PHP</a>
+<a href="how-to-encrypt-or-decrypt-a-string-in-php.html">How to Encrypt or Decrypt a String in PHP</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP Mail</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-mail.html"><span>PHP Mail</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP MySQLi</span></h2>
+</div>
+<div class="leftmenu">
+
+<a href="php-mysql-connect.html"><span>MySQLi CONNECT</span></a>
+<a href="php-mysql-create.html"><span>MySQLi CREATE DB</span></a>
+<a href="php-mysql-create-table.html"><span>MySQLi CREATE Table</span></a>
+<a href="php-mysql-insert.html"><span>MySQLi INSERT</span></a>
+<a href="php-mysql-update.html"><span>MySQLi UPDATE</span></a>
+<a href="php-mysql-delete.html"><span>MySQLi DELETE</span></a>
+<a href="php-mysql-select.html"><span>MySQLi SELECT</span></a>
+<a href="php-mysql-order-by.html"><span>MySQLi Order by</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP JSON</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-json-example.html"><span>PHP JSON Example</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP OOPs Concepts</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-oops-concepts.html">OOPs Concepts</a>
+<a href="php-oops-abstract-class.html">OOPs Abstract Class</a>
+<a href="php-oops-abstraction.html">OOPs Abstraction</a>
+<a href="php-oops-access-specifiers.html">OOPs Access Specifiers</a>
+<a href="php-oops-const-keyword.html">OOPs Const Keyword</a>
+<a href="php-oops-constructor.html">OOPs Constructor</a>
+<a href="php-oops-destructor.html">OOPs Destructor</a>
+<a href="php-oops-difference-between-abstract-class-and-interface.html">Abstract vs Class vs Interface</a>
+<a href="php-oops-encapsulation.html">Encapsulation</a>
+<a href="php-oops-final-keyword.html">Final Keyword</a>
+<a href="php-oops-functions.html">OOPs Functions</a>
+<a href="php-oops-inheritance.html">OOPs Inheritance</a>
+<a href="php-oops-interface.html">OOPs Interface</a>
+<a href="php-oops-overloading.html">OOPs Overloading</a>
+<a href="php-oops-type-hinting.html">OOPs Type Hinting</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP Topics</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-compound-types.html">Compound Types</a>
+<a href="php-float.html">PHP Float</a>
+<a href="php-integer.html">PHP Integer</a>
+<a href="php-is_null-function.html">is_null() Function</a>
+<a href="php-variable-handling-is_float-function.html"></a>
+<a href="php-variable-handling-is_int-function.html"></a>
+<a href="php-boolean.html">PHP Boolean</a>
+<a href="php-variable-handling-is_bool-function.html"></a>
+<a href="php-special-types.html">Special Types</a>
+<a href="php-inheritance-task.html">Inheritance Task</a>
+<a href="php-special-types.html">Special Types</a>
+<a href="https://www.javatpoint.com/php-encryption">PHP Encryption</a>
+<a href="php-two-way-encryption.html">Two-way Encryption</a>
+<a href="php-heredoc-syntax.html">Heredoc Syntax</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PHP MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/php-mcq">PHP MCQ</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Related Tutorials</span></h2>
+</div>
+<div class="leftmenu">
+<a href="mysql-tutorial.html"><span>MySQL Tutorial</span></a>
+<a href="wordpress-tutorial.html"><span>WordPress Tutorial</span></a>
+<a href="codeigniter-tutorial.html"><span>CodeIgniter Tutorial</span></a>
+<a href="yii-tutorial.html"><span>YII Tutorial</span></a>
+<a href="laravel.html"><span>Laravel Tutorial</span></a>
+<a href="magento-2.html"><span>Magento 2 Tutorial</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="php-interview-questions.html"><span>PHP Interview</span></a>
+<a href="wordpress-interview-questions.html"><span>WordPress Interview</span></a>
+<a href="joomla-interview-questions.html"><span>Joomla Interview</span></a>
+<a href="drupal-interview-questions-and-answers.html"><span>Drupal Interview</span></a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="form-validation-in-php.html">next &rarr;</a>
+<a class="next" href="php-unset-function.html">&larr; prev</a>
+</div>
+<h1 class="h1">Get and Post Methods in PHP</h1>
+<p>PHP provides two methods through which a client (browser) can send information to the server. These methods are given below, and discussed in detail:</p>
+<ol class="points">
+<li>GET method</li>
+<li>POST method</li>
+</ol>
+<p>Get and Post methods are the <a href="http-full-form.html">HTTP</a> request methods used inside the <em>&lt;form&gt;</em> tag to send form data to the server.</p>
+<p><a href="http-tutorial.html">HTTP</a> protocol enables the communication between the client and the server where a browser can be the client, and an application running on a computer system that hosts your website can be the server.</p>
+<h2 class="h2">GET method</h2>
+<p>The <strong>GET</strong> method is used to submit the <a href="html-form.html">HTML form</a> data. This data is collected by the predefined <strong>$_GET variable</strong> for processing.</p>
+<p>The information sent from an <a href="html-tutorial.html">HTML</a> form using the GET method is visible to everyone in the browser's address bar, which means that all the variable names and their values will be displayed in the URL. Therefore, the get method is not secured to send sensitive information.</p>
+<p><strong>For Example</strong></p>
+<div class="codeblock"><textarea name="code" class="php">
+localhost/gettest.php?username=Harry&bloodgroup=AB+
+</textarea></div>
+<p>The <strong>bold</strong> part in the above <a href="url-full-form.html">URL</a> is the variables name and <em>italic</em> part contains the values for their corresponding variable.</p>
+<h4 class="n">Note that only a limited amount of information can be sent using the GET method.</h4>
+<p>With the help of an example, let's understand how the GET method works-</p>
+<h3 class="h3">Example</h3>
+<p>The below code will display an HTML form containing two input fields and a submit button. In this HTML form, we used the method = "get" to submit the form data.</p>
+<p class="filename">file: test1.html</p>
+<div class="codeblock"><textarea name="code" class="php">
+&lt;html&gt;
+   &lt;body&gt;
+   
+      &lt;form action = "gettest.php" method = "GET"&gt;
+         Username: &lt;input type = "text" name = "username" /&gt; &lt;br&gt;
+         Blood Group: &lt;input type = "text" name = "bloodgroup" /&gt; &lt;br&gt;
+         &lt;input type = "submit" /&gt;
+      &lt;/form&gt;
+      
+   &lt;/body&gt;
+&lt;/html&gt;
+</textarea></div>
+<br>
+<img src="https://static.javatpoint.com/phppages/images/get-and-post-methods-in-php1.png" alt="Get and Post Methods in PHP" />
+<p>Create gettest.php file, which will accept the data sent by HTML form.</p>
+<p class="filename">file: gettest.php</p>
+<div class="codeblock"><textarea name="code" class="php">
+&lt;html&gt;
+   &lt;body&gt;
+   
+      Welcome &lt;?php echo $_GET["username"]; ?&gt; &lt;/br&gt;
+      Your blood group is: &lt;?php echo $_GET["bloodgroup"]; ?&gt;
+
+   &lt;/body&gt;
+&lt;/html&gt;
+</textarea></div>
+<p>When the user will click on <strong>Submit</strong> button after filling the form, the URL sent to the server could look something like this:</p>
+<p><strong><em>localhost/gettest.php?username=Harry&amp;bloodgroup=AB-</em></strong></p>
+<p>The output will look like the below output:</p>
+<div class="codeblock3"><pre>Welcome Harry
+Your blood group is: AB-
+</pre></div>
+<h3 class="h3">Advantages of GET method (method = "get")</h3>
+<ul class="points">
+<li>You can bookmark the page with the specific query string because the data sent by the GET method is displayed in URL.</li>
+<li>GET requests can be cached.</li>
+<li>GET requests are always remained in the browser history.</li>
+</ul>
+<h3 class="h3">Disadvantages of GET Method</h3>
+<ul class="points">
+<li>The GET method should not be used while sending any sensitive information.</li>
+<li>A limited amount of data can be sent using method = "get". This limit should not exceed 2048 characters.</li>
+<li>For security reasons, never use the GET method to send highly sensitive information like username and password, because it shows them in the URL.</li>
+<li>The GET method cannot be used to send binary data (such as images or word documents) to the server.</li>
+</ul>
+<h2 class="h2">POST method</h2>
+<p>Similar to the GET method, the <strong>POST</strong> method is also used to submit the HTML form data. But the data submitted by this method is collected by the predefined superglobal variable <strong>$_POST</strong> instead of $_GET.</p>
+<p>Unlike the GET method, it does not have a limit on the amount of information to be sent. The information sent from an HTML form using the POST method is not visible to anyone.</p>
+<p><strong>For Example</strong></p>
+<div class="codeblock"><textarea name="code" class="php">
+localhost/posttest.php
+</textarea></div>
+<h4 class="n">Note that the "post" method is more secure than the "get" method because the data sent using the POST method is not visible to user.</h4>
+<p>With the help of an example, let's understand how the POST method works-</p>
+<h3 class="h3">Example</h3>
+<p>The below code will display an HTML form containing two input fields and a submit button. In this HTML form, we used the method = "post" to submit the form data.</p>
+<p class="filename">file: test2.html</p>
+<div class="codeblock"><textarea name="code" class="php">
+&lt;html&gt;
+   &lt;body&gt;
+   
+      &lt;form action = "posttest.php" method = "post"&gt;
+         Username: &lt;input type = "text" name = "username" /&gt; &lt;br&gt;
+         Blood Group: &lt;input type = "text" name = "bloodgroup" /&gt; &lt;br&gt;
+         &lt;input type = "submit" /&gt;
+      &lt;/form&gt;
+      
+   &lt;/body&gt;
+&lt;/html&gt;
+</textarea></div>
+<br>
+<img src="https://static.javatpoint.com/phppages/images/get-and-post-methods-in-php2.png" alt="Get and Post Methods in PHP" />
+<p>Now create <strong>posttest.php</strong> file to accept the data sent by HTML form.</p>
+<p class="filename">file: posttest.php</p>
+<div class="codeblock"><textarea name="code" class="php">
+&lt;html&gt;
+   &lt;body&gt;
+   
+      Welcome &lt;?php echo $_POST["username"]; ?&gt; &lt;/br&gt;
+      Your blood group is: &lt;?php echo $_POST["bloodgroup"]; ?&gt;
+
+   &lt;/body&gt;
+&lt;/html&gt;
+</textarea></div>
+<p>When the user will click on <strong>Submit</strong> button after filling the form, the URL sent to the server could look something like this:</p>
+<p><strong><em>localhost/posttest.php</em></strong></p>
+<p>The output will look like the below output:</p>
+<div class="codeblock3"><pre>Welcome Harry
+Your blood group is: O+ 
+</pre></div>
+<h3 class="h3">Advantages of POST method (method = "post")</h3>
+<ul class="points">
+<li>The POST method is useful for sending any sensitive information because the information sent using the POST method is not visible to anyone.</li>
+<li>There is no limitation on size of data to be sent using the POST Method. You can send a large amount of information using this method.</li>
+<li>Binary and ASCII data can also be sent using the POST method.</li>
+<li>Data security depends on the HTTP protocol because the information sent using the POST method goes through the HTTP header. By using secure HTTP, you can ensure that your data is safe.</li>
+</ul>
+<h3 class="h3">Disadvantages of POST Method</h3>
+<ul class="points">
+<li>POST requests do not cache.</li>
+<li>POST requests never remain in the browser history.</li>
+<li>It is not possible to bookmark the page because the variables are not displayed in URL.</li>
+</ul>
+<h2 class="h2">$_REQUEST variable</h2>
+<p>The <strong>$_REQUEST</strong> variable is a <strong>superglobal variable</strong>, which can hold the content of both $_GET and $_POST variable. In other words, the <a href="php-tutorial.html">PHP</a> $_REQUEST variable is used to collect the form data sent by either GET or POST methods. It can also collect the data for $_COOKIE variable because it is not a method-specific variable.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="form-validation-in-php.html">Form Validation in PHP</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="php-unset-function.html">&larr; prev</a>
+<a style="float:right" class="next" href="form-validation-in-php.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="3e585b5b5a5c5f5d557e545f485f4a4e5157504a105d5153">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/get-and-post-methods-in-php"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/get-and-post-methods-in-php"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/get-and-post-methods-in-php"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+  </div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+ <p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+ </div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+ </div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="fc948ebc969d8a9d888c93959288d29f9391">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="09617b4963687f687d796660677d276a666427">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/get-and-post-methods-in-php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 12:53:31 GMT -->
+</html> 

@@ -1,0 +1,2245 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/python-strings by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 10:29:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Python Strings - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Python Strings - javatpoint" /><meta property="og:description" content="python strings - A simple and easy to learn tutorial on various python topics such as loops, strings, lists, dictionary, tuples, date, time, files, functions, modules, methods and exceptions." />
+<meta name="keywords" content="python, tutorial, strings, examples, programs, language, loops, strings, lists, dictionary, tuples, date, time, files, functions, modules, methods, exceptions" /><meta name="description" content="python strings - A simple and easy to learn tutorial on various python topics such as loops, strings, lists, dictionary, tuples, date, time, files, functions, modules, methods and exceptions." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="python-strings.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Python Strings - javatpoint" /><meta name="twitter:description" property="og:description" content="python strings - A simple and easy to learn tutorial on various python topics such as loops, strings, lists, dictionary, tuples, date, time, files, functions, modules, methods and exceptions." /><meta property="og:url" content="python-strings.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()"><div id=cf_alert_div><style>#cf_alert_div{margin:0 0 5px;padding:0;position:relative;top:0;left:0;display:block;z-index:99999;background-color:#f7f7f8;box-shadow:0 5px 5px rgba(0,0,0,.25)}#cf_alert_div a,#cf_alert_div a:visited{text-decoration:none;color:#276d9b;font-weight:600}#cf_alert_div strong{font-weight:600}#cf_alert_div table{width:100%}#cf_alert_div table td{vertical-align:middle}#cf_alert_div p{margin:0;padding:0;max-width:1100px}#cf_alert_div .wrapper{padding:0;margin:0;text-align:left;font-family:-apple-system,system-ui,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,helvetica neue,Arial,sans-serif;font-weight:400;font-style:normal;font-size:12px;padding:16px 3.334%}#cf_alert_div .wrapper td.refresh{text-align:center;min-width:140px}#cf_alert_div .wrapper td.refresh a{display:inline-block;padding:8px 24px;border:1.5px solid #276d9b;border-radius:5px;margin-right:20px}#cf_alert_div .wrapper td.content{position:relative;padding-right:25px;color:#1d1f20;font-size:14px;max-width:900px}#cf_alert_div .wrapper .x{position:absolute;top:0;right:-12.5px;height:25px;width:25px;cursor:pointer}#cf_alert_div .wrapper .x .line{display:block;height:15px;width:3px;position:absolute;top:5px;left:11px;background:#4e5255}#cf_alert_div .wrapper .x .line:first-of-type{transform:rotate(135deg)}#cf_alert_div .wrapper .x .line:last-of-type{transform:rotate(45deg)}</style><div class=wrapper><table><tr><td class=refresh><a href=# onclick="document.cookie='cf_use_ob%3d0%3bpath%3d/index.html';window.location.reload();return false;">Refresh</a><noscript style="margin:10px 0 10px 0;padding:0;font:12px Helvetica,Arial,sans-serif;color:#404040;display:block">(Enable JavaScript first.)</noscript></td><td class=content><p>This website <strong>www.javatpoint.com/python-strings</strong> is currently offline. <a href=https://www.cloudflare.com/always-online/ target=_blank>Cloudflare's Always Online&trade;</a> shows a snapshot of this web page from the <a href=https://archive.org/web/ target=_blank>Internet Archive's Wayback Machine</a>. To check for the live version, click <strong>Refresh</strong>.</p><a class=x href="javascript:void(null);" onclick="document.getElementById('cf_alert_div').style.display='none';"><span class=line></span> <span class=line></span></a></td></tr></table></div></div>
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="python-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/python.png" alt="python" /> Python</a></li>
+<li><a href="python-if-else.html"><img src="https://static.javatpoint.com/images/icon/if-else.png" alt="If Else" /> If Else</a></li>
+<li><a href="python-for-loop.html"><img src="https://static.javatpoint.com/images/icon/forloop.png" alt="For Loop" /> For Loop</a></li>
+<li><a href="python-functions.html"><img src="https://static.javatpoint.com/images/icon/function.png" alt="Function" /> Function</a></li>
+<li><a href="python-arrays.html"><img src="https://static.javatpoint.com/images/icon/array.png" alt="Array" /> Array</a></li>
+<li><a href="python-strings.html"><img src="https://static.javatpoint.com/images/icon/string.png" alt="String" /> String</a></li>
+<li><a href="python-regex.html"><img src="https://static.javatpoint.com/images/icon/regex.png" alt="Regex" /> Regex</a></li>
+<li><a href="python-lists.html"><img src="https://static.javatpoint.com/images/icon/list.png" alt="List" /> List</a></li>
+<li><a href="python-set.html"><img src="https://static.javatpoint.com/images/icon/set.png" alt="Set" /> Set</a></li>
+<li><a href="python-tuples.html"><img src="https://static.javatpoint.com/images/icon/tuple.png" alt="Tuple" /> Tuple</a></li>
+<li><a href="python-dictionary.html"><img src="https://static.javatpoint.com/images/icon/dictionary.png" alt="Dictionary" /> Dictionary</a></li>
+<li><a href="python-programs.html"><img src="https://static.javatpoint.com/images/icon/programs.png" alt="Programs" /> Programs</a></li>
+<li><a href="numpy-tutorial.html"><img src="https://static.javatpoint.com/images/icon/numpy.png" alt="Numpy" /> Numpy</a></li>
+<li><a href="https://www.javatpoint.com/python-interview-questions"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="interview questions" /> Interview Questions</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="python-tutorial.html">Python Tutorial</a>
+<a href="python-features.html">Python Features</a>
+<a href="python-history.html">Python History</a>
+<a href="python-applications.html">Python Applications</a>
+<a href="how-to-install-python.html">Python Install</a>
+<a href="python-example.html">Python Example</a>
+<a href="python-variables.html">Python Variables</a>
+<a href="python-data-types.html">Python Data Types</a>
+<a href="python-keywords.html">Python Keywords</a>
+<a href="python-literals.html">Python Literals</a>
+<a href="python-operators.html">Python Operators</a>
+<a href="python-comments.html">Python Comments</a>
+<a href="python-if-else.html">Python If else</a>
+<a href="python-loops.html">Python Loops</a>
+<a href="python-for-loop.html">Python For Loop</a>
+<a href="https://www.javatpoint.com/python-while-loop">Python While Loop</a>
+<a href="python-break.html">Python Break</a>
+<a href="python-continue.html">Python Continue</a>
+<a href="python-pass.html">Python Pass</a>
+<a href="python-strings.html"><span>Python Strings</span></a>
+<a href="python-lists.html"><span>Python Lists</span></a>
+<a href="python-tuples.html"><span>Python Tuples</span></a>
+<a href="python-list-vs-tuple.html">Python List Vs Tuple</a>
+<a href="python-set.html"><span>Python Sets</span></a>
+<a href="python-dictionary.html"><span>Python Dictionary</span></a>
+<a href="python-functions.html"><span>Python Functions</span></a>
+<a href="python-built-in-functions.html"><span>Python Built-in Functions</span></a>
+<a href="python-lambda-functions.html"><span>Python Lambda Functions</span></a>
+<a href="python-files-io.html"><span>Python Files I/O</span></a>
+<a href="python-modules.html"><span>Python Modules</span></a>
+<a href="python-exception-handling.html"><span>Python Exceptions</span></a>
+<a href="python-date.html"><span>Python Date</span></a>
+<a href="python-regex.html">Python Regex</a>
+<a href="python-sending-email.html">Python Sending Email</a>
+<a href="python-read-csv-file.html">Read CSV File</a>
+<a href="python-write-csv-file.html">Write CSV File</a>
+<a href="python-read-excel-file.html">Read Excel File</a>
+<a href="python-write-excel-file.html">Write Excel File</a>
+<a href="python-assert-keyword.html">Python Assert</a>
+<a href="python-list-comprehension.html">Python List Comprehension</a>
+<a href="python-collection-module.html">Python Collection Module</a>
+<a href="python-math-module.html">Python Math Module</a>
+<a href="python-os-module.html">Python OS Module</a>
+<a href="python-random-module.html">Python Random Module</a>
+<a href="python-statistics-module.html">Python Statistics Module</a>
+<a href="python-sys-module.html">Python Sys Module</a>
+<a href="python-ides.html">Python IDEs</a>
+<a href="python-arrays.html">Python Arrays</a>
+<a href="python-command-line-arguments.html">Command Line Arguments</a>
+<a href="python-magic-method.html">Python Magic Method</a>
+<a href="python-stack-and-queue.html">Python Stack &amp; Queue</a>
+<a href="pyspark-mllib.html">PySpark MLlib</a>
+<a href="python-decorator.html">Python Decorator</a>
+<a href="python-generators.html">Python Generators</a>
+<a href="https://www.javatpoint.com/web-scraping-using-python">Web Scraping Using Python</a>
+<a href="https://www.javatpoint.com/python-json">Python JSON</a>
+<a href="https://www.javatpoint.com/python-itertools">Python Itertools</a>
+<a href="python-multiprocessing.html">Python Multiprocessing</a>
+<a href="https://www.javatpoint.com/how-to-calculate-distance-between-two-points-using-geopy">How to Calculate Distance between Two Points using GEOPY</a>
+<a href="https://www.javatpoint.com/gmail-api-in-python">Gmail API in Python</a>
+<a href="https://www.javatpoint.com/how-to-plot-the-google-map-using-folium-package-in-python">How to Plot the Google Map using folium package in Python</a>
+<a href="https://www.javatpoint.com/grid-search-in-python">Grid Search in Python</a>
+<a href="https://www.javatpoint.com/python-high-order-function">Python High Order Function</a>
+<a href="https://www.javatpoint.com/nsetools-in-python">nsetools in Python</a>
+<a href="python-program-to-find-the-nth-fibonacci-number.html">Python program to find the nth Fibonacci Number</a>
+<a href="python-opencv-object-detection.html">Python OpenCV object detection</a>
+<a href="https://www.javatpoint.com/python-simpleimputer-module">Python SimpleImputer module</a>
+<a href="https://www.javatpoint.com/second-largest-number-in-python">Second Largest Number in Python</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python OOPs</span></h2>
+</div>
+<div class="leftmenu">
+<a href="python-oops-concepts.html">Python OOPs Concepts</a>
+<a href="python-objects-classes.html">Python Object Class</a>
+<a href="https://www.javatpoint.com/python-constructors">Python Constructors</a>
+<a href="inheritance-in-python.html">Python Inheritance</a>
+<a href="https://www.javatpoint.com/abstraction-in-python">Abstraction in Python</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python MySQL</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/python-mysql-environment-setup">Environment Setup</a>
+<a href="https://www.javatpoint.com/python-mysql-database-connection">Database Connection</a>
+<a href="https://www.javatpoint.com/python-mysql-creating-new-database">Creating New Database</a>
+<a href="https://www.javatpoint.com/python-mysql-creating-tables">Creating Tables</a>
+<a href="https://www.javatpoint.com/python-mysql-insert-operation">Insert Operation</a>
+<a href="https://www.javatpoint.com/python-mysql-read-operation">Read Operation</a>
+<a href="https://www.javatpoint.com/python-mysql-update-operation">Update Operation</a>
+<a href="https://www.javatpoint.com/python-mysql-join-operation">Join Operation</a>
+<a href="https://www.javatpoint.com/python-mysql-performing-transactions">Performing Transactions</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python MongoDB</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/python-mongodb">Python MongoDB</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python SQLite</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/python-sqlite">Python SQLite</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/how-to-install-python-in-windows">How to install Python in Windows</a>
+<a href="how-to-reverse-a-string-in-python.html">How to reverse a string in Python</a>
+<a href="https://www.javatpoint.com/how-to-read-csv-file-in-python">How to read CSV file in Python</a>
+<a href="https://www.javatpoint.com/how-to-run-python-program">How to run Python Program</a>
+<a href="https://www.javatpoint.com/how-to-take-input-in-python">How to take input in Python</a>
+<a href="https://www.javatpoint.com/how-to-convert-list-to-string-in-python">How to convert list to string in Python</a>
+<a href="https://www.javatpoint.com/how-to-append-element-in-the-list">How to append element in the list</a>
+<a href="https://www.javatpoint.com/how-to-compare-two-lists-in-python">How to compare two lists in Python</a>
+<a href="https://www.javatpoint.com/how-to-convert-int-to-string-in-python">How to convert int to string in Python</a>
+<a href="https://www.javatpoint.com/how-to-create-a-dictionary-in-python">How to create a dictionary in Python</a>
+<a href="https://www.javatpoint.com/how-to-create-a-virtual-environment-in-python">How to create a virtual environment in Python</a>
+<a href="https://www.javatpoint.com/how-to-declare-a-variable-in-python">How to declare a variable in Python</a>
+<a href="https://www.javatpoint.com/how-to-install-matplotlib-in-python">How to install matplotlib in Python</a>
+<a href="https://www.javatpoint.com/how-to-install-opencv-in-python">How to install OpenCV in Python</a>
+<a href="https://www.javatpoint.com/how-to-print-in-same-line-in-python">How to print in same line in Python</a>
+<a href="https://www.javatpoint.com/how-to-read-json-file-in-python">How to read JSON file in Python</a>
+<a href="https://www.javatpoint.com/how-to-read-a-text-file-in-python">How to read a text file in Python</a>
+<a href="https://www.javatpoint.com/how-to-use-for-loop-in-python">How to use for loop in Python</a>
+<a href="https://www.javatpoint.com/is-python-scripting-language">Is Python scripting language</a>
+<a href="https://www.javatpoint.com/how-long-does-it-take-to-learn-python">How long does it take to learn Python</a>
+<a href="https://www.javatpoint.com/how-to-concatenate-two-strings-in-python">How to concatenate two strings in Python</a>
+<a href="https://www.javatpoint.com/how-to-connect-database-in-python">How to connect Database in Python</a>
+<a href="https://www.javatpoint.com/how-to-convert-list-to-dictionary-in-python">How to convert list to dictionary in Python</a>
+<a href="https://www.javatpoint.com/how-to-declare-a-global-variable-in-python">How to declare a global variable in Python</a>
+<a href="how-to-reverse-a-number-in-python.html">How to reverse a number in Python</a>
+<a href="https://www.javatpoint.com/what-is-an-object-in-python">What is an object in Python</a>
+<a href="https://www.javatpoint.com/which-is-the-fastest-implementation-of-python">Which is the fastest implementation of Python</a>
+<a href="https://www.javatpoint.com/how-to-clear-python-shell">How to clear Python shell</a>
+<a href="https://www.javatpoint.com/how-to-create-a-dataframes-in-python">How to create a DataFrames in Python</a>
+<a href="how-to-develop-a-game-in-python.html">How to develop a game in Python</a>
+<a href="https://www.javatpoint.com/how-to-install-tkinter-in-python">How to install Tkinter in Python</a>
+<a href="https://www.javatpoint.com/how-to-plot-a-graph-in-python">How to plot a graph in Python</a>
+<a href="how-to-print-pattern-in-python.html">How to print pattern in Python</a>
+<a href="https://www.javatpoint.com/how-to-remove-an-element-from-a-list-in-python">How to remove an element from a list in Python</a>
+<a href="https://www.javatpoint.com/how-to-round-number-in-python">How to Round number in Python</a>
+<a href="https://www.javatpoint.com/how-to-sort-a-dictionary-in-python">How to sort a dictionary in Python</a>
+<a href="https://www.javatpoint.com/strong-number-in-python">Strong Number in Python</a>
+<a href="https://www.javatpoint.com/how-to-convert-text-to-speech-in-python">How to Convert Text to Speech in Python </a>
+<a href="https://www.javatpoint.com/bubble-sort-in-python">Bubble Sort in Python</a>
+<a href="https://www.javatpoint.com/logging-in-python">Logging in Python</a>
+<a href="https://www.javatpoint.com/insertion-sort-in-python">Insertion Sort in Python</a>
+<a href="https://www.javatpoint.com/binary-search-in-python">Binary Search in Python</a>
+<a href="linear-search-in-python.html">Linear Search in Python</a>
+<a href="https://www.javatpoint.com/python-vs-scala">Python vs Scala</a>
+<a href="https://www.javatpoint.com/queue-in-python">Queue in Python</a>
+<a href="https://www.javatpoint.com/stack-in-python">Stack in Python</a>
+<a href="https://www.javatpoint.com/heap-sort-in-python">Heap Sort in Python</a>
+<a href="https://www.javatpoint.com/palindrome-program-in-python">Palindrome program in python</a>
+<a href="https://www.javatpoint.com/program-of-cumulative-sum-in-python">Program of Cumulative sum in python</a>
+<a href="https://www.javatpoint.com/merge-sort-in-python">Merge Sort in Python</a>
+<a href="https://www.javatpoint.com/python-matrix">Python Matrix</a>
+<a href="https://www.javatpoint.com/python-unit-testing">Python Unit Testing</a>
+<a href="https://www.javatpoint.com/python-forensics-and-virtualization">Forensics &amp; Virtualization</a>
+<a href="https://www.javatpoint.com/best-books-to-learn-python">Best Books to Learn Python</a>
+<a href="https://www.javatpoint.com/best-books-to-learn-django-for-beginners-and-advance-programmers">Best Books to Learn Django</a>
+<a href="https://www.javatpoint.com/gcd-of-two-number-in-python">GCD of two number in python</a>
+<a href="https://www.javatpoint.com/python-program-to-generate-a-random-string">Python Program to generate a Random String</a>
+<a href="https://www.javatpoint.com/how-to-one-hot-encode-sequence-data-in-python">How to One Hot Encode Sequence Data in Python</a>
+<a href="https://www.javatpoint.com/how-to-write-square-root-in-python">How to write square root in Python</a>
+<a href="https://www.javatpoint.com/pointer-in-python">Pointer in Python</a>
+<a href="https://www.javatpoint.com/python-2d-array">Python 2D array</a>
+<a href="https://www.javatpoint.com/python-memory-management">Python Memory Management</a>
+<a href="https://www.javatpoint.com/python-libraries-for-data-visualization">Python Libraries for Data Visualization</a>
+<a href="https://www.javatpoint.com/how-to-call-a-function-in-python">How to call a function in Python</a>
+<a href="https://www.javatpoint.com/git-modules-in-python">Git Modules in Python</a>
+<a href="https://www.javatpoint.com/top-python-frameworks-for-gaming">Top Python Frameworks for Gaming</a>
+<a href="https://www.javatpoint.com/python-audio-modules">Python Audio Modules</a>
+<a href="https://www.javatpoint.com/wikipedia-module-in-python">Wikipedia Module in Python</a>
+<a href="python-random-randrange.html">Python random randrange()</a>
+<a href="permutation-and-combination-in-python.html">Permutation and Combination in Python</a>
+<a href="https://www.javatpoint.com/getopt-module-in-python">Getopt module in Python</a>
+<a href="https://www.javatpoint.com/merge-two-dictionaries-in-python">Merge two Dictionaries in Python</a>
+<a href="https://www.javatpoint.com/multithreading-in-python-3">Multithreading in Python 3</a>
+<a href="https://www.javatpoint.com/static-in-python">Static in Python</a>
+<a href="https://www.javatpoint.com/how-to-get-the-current-date-in-python">How to get the current date in Python</a>
+<a href="https://www.javatpoint.com/argparse-in-python">argparse in Python</a>
+<a href="https://www.javatpoint.com/python-tqdm-module">Python tqdm Module</a>
+<a href="https://www.javatpoint.com/caesar-cipher-in-python">Caesar Cipher in Python</a>
+<a href="https://www.javatpoint.com/tokenizer-in-python">Tokenizer in Python</a>
+<a href="https://www.javatpoint.com/how-to-add-two-lists-in-python">How to add two lists in Python</a>
+<a href="https://www.javatpoint.com/shallow-copy-and-deep-copy-in-python">Shallow Copy and Deep Copy in Python</a>
+<a href="https://www.javatpoint.com/atom-python">Atom Python</a>
+<a href="https://www.javatpoint.com/contains-in-python">Contains in Python</a>
+<a href="https://www.javatpoint.com/label-encoding-in-python">Label Encoding in Python</a>
+<a href="https://www.javatpoint.com/django-vs-node-js">Django vs. Node JS</a>
+<a href="https://www.javatpoint.com/python-frameworks">Python Frameworks</a>
+<a href="https://www.javatpoint.com/how-to-create-a-vector-in-python-using-numpy">How to create a vector in Python using NumPy</a>
+<a href="https://www.javatpoint.com/pickle-module-of-python">Pickle Module of Python</a>
+<a href="https://www.javatpoint.com/how-to-convert-bytes-to-string-in-python">How to convert Bytes to string in Python</a>
+<a href="https://www.javatpoint.com/python-program-to-find-anagram">Python Program to Find Anagram</a>
+<a href="https://www.javatpoint.com/how-to-convert-list-to-set">How to convert List to Set</a>
+<a href="https://www.javatpoint.com/python-vs-javascript">Python vs JavaScript</a>
+<a href="https://www.javatpoint.com/python-holidays-module">Python Holidays Module</a>
+<a href="https://www.javatpoint.com/fuzzywuzzy-python-library">FuzzyWuzzy Python Library</a>
+<a href="https://www.javatpoint.com/dask-python">Dask Python</a>
+<a href="https://www.javatpoint.com/dask-python-part-2">Dask Python (Part 2)</a>
+<a href="https://www.javatpoint.com/mode-in-python">Mode in Python</a>
+<a href="https://www.javatpoint.com/menu-driven-programs-in-python">Menu-Driven Programs in Python</a>
+<a href="https://www.javatpoint.com/python-array-vs-list">Python Array vs. List</a>
+<a href="what-is-duck-typing-in-python.html">What is duck typing in Python</a>
+<a href="pep-8-in-python.html">PEP 8 in Python</a>
+<a href="https://www.javatpoint.com/python-user-groups">Python User Groups</a>
+<a href="https://www.javatpoint.com/basic-commands-in-python">Basic Commands in Python</a>
+<a href="https://www.javatpoint.com/f-string-in-python">F String in Python</a>
+<a href="https://www.javatpoint.com/how-brython-works">How Brython Works</a>
+<a href="https://www.javatpoint.com/how-to-use-brython-in-the-browser">How to use Brython in the Browser</a>
+<a href="https://www.javatpoint.com/arima-model-in-python">Arima Model in Python</a>
+<a href="https://www.javatpoint.com/python-modulus-operator">Python Modulus Operator</a>
+<a href="https://www.javatpoint.com/matlab-vs-python">MATLAB vs. Python</a>
+<a href="method-resolution-order-in-python.html">Method Resolution Order in Python</a>
+<a href="https://www.javatpoint.com/monkey-patching-in-python">Monkey Patching in Python</a>
+<a href="https://www.javatpoint.com/python__call__method">Python __call__ method</a>
+<a href="https://www.javatpoint.com/python-heapq-module">Python heapq module</a>
+<a href="https://www.javatpoint.com/python-substring">Python Substring</a>
+<a href="https://www.javatpoint.com/project-ideas-for-python-beginners">Project ideas for Python Beginners</a>
+<a href="https://www.javatpoint.com/python-faker">Python Faker</a>
+<a href="https://www.javatpoint.com/fizz-buzz-program-in-python">Fizz-Buzz Program in Python</a>
+<a href="https://www.javatpoint.com/tabula-python">Tabula Python</a>
+<a href="https://www.javatpoint.com/python-program-to-print-prime-factor-of-given-number">Python Program to Print Prime Factor of Given Number</a>
+<a href="https://www.javatpoint.com/python-program-to-print-pascal-triangle">Python Program to Print Pascal Triangle</a>
+<a href="https://www.javatpoint.com/namedtuple-in-python">NamedTuple in Python</a>
+<a href="https://www.javatpoint.com/ordereddict-in-python">OrderedDict in Python</a>
+<a href="https://www.javatpoint.com/t-test-in-python">T-Test in Python</a>
+<a href="https://www.javatpoint.com/python-return-statement">Python return statement</a>
+<a href="https://www.javatpoint.com/getter-and-setter-in-python">Getter and Setter in Python</a>
+<a href="https://www.javatpoint.com/enum-class-in-python">Enum class in Python</a>
+<a href="https://www.javatpoint.com/destructors-in-python">Destructors in Python</a>
+<a href="https://www.javatpoint.com/curve-fit-in-python">Curve Fit in Python</a>
+<a href="https://www.javatpoint.com/converting-csv-to-json-in-python">Converting CSV to JSON in Python</a>
+<a href="https://www.javatpoint.com/underscore-in-python">Underscore (_) in Python</a>
+<a href="https://www.javatpoint.com/set-vs-list-in-python">Set vs List in Python</a>
+<a href="https://www.javatpoint.com/locating-and-executing-modules-in-python">Locating and Executing Modules</a>
+<a href="https://www.javatpoint.com/flatten-list-in-python">Flatten List in Python</a>
+<a href="https://www.javatpoint.com/pair-plot-in-python">Pair Plot in Python</a>
+<a href="https://www.javatpoint.com/data-hiding-in-python">Data Hiding in Python</a>
+<a href="https://www.javatpoint.com/python-program-to-find-intersection-of-two-lists">Python Program to Find Intersection of Two Lists</a>
+<a href="how-to-create-requirements-txt-file-in-python.html">How to Create Requirements.txt File in Python</a>
+<a href="https://www.javatpoint.com/tic-tac-toe-in-python">Tic-Tac-Toe in Python</a>
+<a href="https://www.javatpoint.com/python-asynchronous-programming-asyncio-and-await">Python Asynchronous Programming - asyncio and await</a>
+<a href="https://www.javatpoint.com/python-main-function">Python main() function</a>
+<a href="https://www.javatpoint.com/strftime-function-in-python">strftime() function in Python</a>
+<a href="https://www.javatpoint.com/verbose-flag-in-python-regex">Verbose Flag in Python Regex</a>
+<a href="https://www.javatpoint.com/python-ast-module">Python AST Module</a>
+<a href="https://www.javatpoint.com/python-requests-module-http-request">Python Requests Module - HTTP Request</a>
+<a href="https://www.javatpoint.com/shutil-module-in-python">Shutil Module in Python</a>
+<a href="https://www.javatpoint.com/python-epoch-to-datetime">Python epoch to Datetime</a>
+<a href="https://www.javatpoint.com/python-del-statement">Python del Statement</a>
+<a href="https://www.javatpoint.com/looping-technique-in-python">Looping technique in Python</a>
+<a href="https://www.javatpoint.com/metaprogramming-with-metaclasses-in-python">Metaprogramming with Metaclasses in Python</a>
+<a href="https://www.javatpoint.com/precision-handling-in-python">Precision Handling in Python</a>
+<a href="https://www.javatpoint.com/python-join-list">Python Join List</a>
+<a href="https://www.javatpoint.com/strip-function-in-python">strip() function in Python</a>
+<a href="https://www.javatpoint.com/gradient-descent-algorithm">Gradient Descent Algorithm</a>
+<a href="prettytable-in-python.html">Prettytable in Python</a>
+<a href="https://www.javatpoint.com/sentiment-analysis-in-python">Sentiment Analysis in Python</a>
+<a href="https://www.javatpoint.com/convert-python-list-to-numpy-arrays">Convert Python List to NumPy Arrays</a>
+<a href="https://www.javatpoint.com/traceback-in-python">Traceback in Python</a>
+<a href="https://www.javatpoint.com/time-clock-method-in-python">Time clock() Method in Python</a>
+<a href="https://www.javatpoint.com/deque-in-python">Deque in Python</a>
+<a href="https://www.javatpoint.com/dictionary-comprehension-in-python">Dictionary Comprehension in Python</a>
+<a href="https://www.javatpoint.com/python-data-analytics">Python Data Analytics</a>
+<a href="https://www.javatpoint.com/python-seek-method">Python seek() Method</a>
+<a href="https://www.javatpoint.com/ternary-operator-in-python">Ternary Operator in Python</a>
+<a href="how-to-calculate-area-of-circle-using-python.html">How to Calculate the Area of the Circle using Python</a>
+<a href="https://www.javatpoint.com/how-to-write-in-text-file-using-python">How to Write in Text File using Python</a>
+<a href="https://www.javatpoint.com/python-keyerror">Python KeyError</a>
+<a href="https://www.javatpoint.com/python-super-function">Python super() Function</a>
+<a href="https://www.javatpoint.com/max-function-in-python">max() function in Python</a>
+<a href="https://www.javatpoint.com/fraction-module-in-python">Fraction Module in Python</a>
+<a href="https://www.javatpoint.com/popular-python-framework-to-build-api">Popular Python Framework to Build API</a>
+<a href="https://www.javatpoint.com/how-to-check-python-version">How to Check Python version</a>
+<a href="https://www.javatpoint.com/python-s-string-formatting">Python %s - String Formatting</a>
+<a href="https://www.javatpoint.com/python-seaborn-library">Python seaborn Library</a>
+<a href="https://www.javatpoint.com/countplot-in-python">Countplot in Python</a>
+<a href="https://www.javatpoint.com/range-vs-xrange-python">range() Vs. Xrange() Python</a>
+<a href="https://www.javatpoint.com/wordcloud-package-in-python">Wordcloud Package in Python</a>
+<a href="https://www.javatpoint.com/convert-dataframe-into-list">Convert dataframe into list</a>
+<a href="https://www.javatpoint.com/anova-test-in-python">ANOVA Test in Python</a>
+<a href="https://www.javatpoint.com/python-program-to-find-compound-interest">Python program to find compound interest</a>
+<a href="https://www.javatpoint.com/ansible-in-python">Ansible in Python</a>
+<a href="https://www.javatpoint.com/python-important-tips-and-tricks">Python Important Tips and Tricks</a>
+<a href="https://www.javatpoint.com/python-coroutines">Python Coroutines</a>
+<a href="https://www.javatpoint.com/double-underscores-in-python">Double Underscores in Python</a>
+<a href="https://www.javatpoint.com/re-search-vs-re-findall-in-python-regex">re.search() VS re.findall() in Python Regex</a>
+<a href="https://www.javatpoint.com/how-to-install-statsmodels-in-python">How to install statsmodels in Python</a>
+<a href="https://www.javatpoint.com/cos-in-python">Cos in Python</a>
+<a href="https://www.javatpoint.com/vif-in-python">vif in Python</a>
+<a href="https://www.javatpoint.com/__add__-in-python">__add__ Method in Python</a>
+<a href="https://www.javatpoint.com/ethical-hacking-with-python">Ethical Hacking with Python</a>
+<a href="https://www.javatpoint.com/class-variable-vs-instance">Class Variable vs Instance</a>
+<a href="https://www.javatpoint.com/perfect-number-in-python">Perfect Number in Python</a>
+<a href="https://www.javatpoint.com/eol-in-python">EOL in Python</a>
+<a href="https://www.javatpoint.com/python-program-to-convert-hexadecimal-string-to-decimal-string">Python Program to convert Hexadecimal String to Decimal String</a>
+<a href="https://www.javatpoint.com/different-methods-in-python-for-swapping-two-numbers-without-using-third-variable">Different Methods in Python for Swapping Two Numbers without using third variable</a>
+<a href="https://www.javatpoint.com/how-to-change-plot-size-in-matplotlib">How to Change Plot Size in Matplotlib</a>
+<a href="https://www.javatpoint.com/how-to-get-zip-code-in-python">How to Get the Zip Code in Python</a>
+<a href="https://www.javatpoint.com/eel-in-python">Eel in Python</a>
+<a href="https://www.javatpoint.com/assignment-operators-in-python">Assignment Operators in Python</a>
+<a href="https://www.javatpoint.com/speech-recognition-python">Speech Recognition python</a>
+<a href="https://www.javatpoint.com/yield-vs-return-in-python">Yield vs Return in Python</a>
+<a href="https://www.javatpoint.com/graphene-python">Graphene Python</a>
+<a href="https://www.javatpoint.com/name-mangling-in-python">Name Mangling in Python</a>
+<a href="https://www.javatpoint.com/python-combination-without-itertools">Python combination without itertools</a>
+<a href="https://www.javatpoint.com/python-comprehensions">Python Comprehensions</a>
+<a href="https://www.javatpoint.com/Influxdb-in-python">InfluxDB in Python</a>
+<a href="https://www.javatpoint.com/kafka-in-python">Kafka Tutorial in Python</a>
+<a href="https://www.javatpoint.com/augmented-assignment-expressions-in-python">Augmented Assignment Expressions in Python</a>
+<a href="https://www.javatpoint.com/python-x-y-software">Python (x,y) Software</a>
+<a href="https://www.javatpoint.com/python-event-driven-programming">Python Event-Driven programming</a>
+<a href="https://www.javatpoint.com/python-semaphore">Python Semaphore</a>
+<a href="https://www.javatpoint.com/python-sorted-reverse">Python sorted reverse</a>
+<a href="https://www.javatpoint.com/automorphic-number-in-python">Automorphic Number in Python</a>
+<a href="https://www.javatpoint.com/sizeof-in-python">sizeof in Python</a>
+<a href="https://www.javatpoint.com/python-program-for-accepting-the-strings-which-contains-all-vowels">Python Program for accepting the strings which contains all vowels</a>
+<a href="https://www.javatpoint.com/class-based-views-vs-function-based-views">Class-based views vs Function-Based Views</a>
+<a href="https://www.javatpoint.com/how-to-handle-cookies-in-django">How to handle cookies in Django</a>
+<a href="https://www.javatpoint.com/agg-function-in-python">agg() function in Python</a>
+<a href="https://www.javatpoint.com/amicable-numbers-in-python">Amicable Numbers in Python</a>
+<a href="https://www.javatpoint.com/context-manager-in-python">Context Manager in Python</a>
+<a href="https://www.javatpoint.com/create-bmi-calculator-using-python">Create BMI Calculator using Python</a>
+<a href="https://www.javatpoint.com/string-to-binary-in-python">String to Binary in Python</a>
+<a href="https://www.javatpoint.com/what-is-script-mode-in-python">What is script mode in Python</a>
+<a href="https://www.javatpoint.com/best-python-libraries-for-machine-learning">Best Python libraries for Machine Learning</a>
+<a href="https://www.javatpoint.com/python-program-to-display-calendar-of-given-year">Python Program to Display Calendar of Given Year</a>
+<a href="https://www.javatpoint.com/how-to-open-url-in-python">How to open URL in Python</a>
+<a href="https://www.javatpoint.com/broken-pipe-error-in-python">Broken Pipe Error in Python</a>
+<a href="https://www.javatpoint.com/code-template-for-creating-objects-in-python">Code Template for Creating Objects in Python</a>
+<a href="https://www.javatpoint.com/python-program-to-calculate-the-best-time-to-buy-and-sell-stock">Python program to calculate the best time to buy and sell stock</a>
+<a href="https://www.javatpoint.com/tuple-to-string-in-python">Tuple to String in Python</a>
+<a href="https://www.javatpoint.com/kadanes-algorithm-in-python">Kadane's Algorithm in Python</a>
+<a href="https://www.javatpoint.com/loggers-in-django">Loggers in Django</a>
+<a href="https://www.javatpoint.com/weather-app-in-django">Weather App in Django</a>
+<a href="https://www.javatpoint.com/missing-data-conundrum-exploration-and-imputation-techniques">Missing Data Conundrum: Exploration and Imputation Techniques</a>
+<a href="https://www.javatpoint.com/different-methods-of-array-rotation-in-python">Different Methods of Array Rotation in Python</a>
+<a href="https://www.javatpoint.com/what-is-operator-overloading-in-python">What is Operator Overloading in Python</a>
+<a href="https://www.javatpoint.com/defaultdict-in-python">Defaultdict in Python</a>
+<a href="https://www.javatpoint.com/operator-module-in-python">Operator Module in Python</a>
+<a href="https://www.javatpoint.com/spinner-widget-in-kivy-library-of-python">Spinner Widget in the kivy Library of Python</a>
+<a href="https://www.javatpoint.com/number-plate-recognition-using-python">Number Plate Recognition using Python</a>
+<a href="https://www.javatpoint.com/obfuscating-a-python-program">Obfuscating a Python program</a>
+<a href="https://www.javatpoint.com/convert-string-to-dictionary-in-python">Convert string to dictionary in Python</a>
+<a href="https://www.javatpoint.com/convert-string-to-json-in-python">Convert string to JSON in Python</a>
+<a href="https://www.javatpoint.com/dbscan-algorithm-in-python">DBSCAN algorithm in Python</a>
+<a href="https://www.javatpoint.com/how-to-write-a-code-for-printing-python-exception-errorhierarchy">How to Write a Code for Printing the Python Exception/Error Hierarchy</a>
+<a href="https://www.javatpoint.com/principal-component-analysis-with-python">Principal Component Analysis (PCA) with Python</a>
+<a href="https://www.javatpoint.com/python-program-to-find-number-of-days-between-two-given-dates">Python Program to Find Number of Days Between Two Given Dates</a>
+<a href="https://www.javatpoint.com/object-recognition-using-python">Object Recognition using Python</a>
+<a href="https://www.javatpoint.com/python-vlc-module">Python VLC module</a>
+<a href="https://www.javatpoint.com/set-to-list-in-python">Set to list in Python</a>
+<a href="https://www.javatpoint.com/string-to-int-in-python">String to int in Python</a>
+<a href="https://www.javatpoint.com/internet-of-things-with-python">Internet of Things with Python</a>
+<a href="https://www.javatpoint.com/python-pysftp-module">Python pysftp module</a>
+<a href="https://www.javatpoint.com/amazing-hacks-of-python">Amazing hacks of Python</a>
+<a href="average-of-list-in-python.html">Average of list in Python</a>
+<a href="https://www.javatpoint.com/check-installed-modules-in-python">Check Installed Modules in Python</a>
+<a href="https://www.javatpoint.com/choice-in-python">choice() in Python</a>
+<a href="https://www.javatpoint.com/convert-list-to-dataframe-in-python">Convert List to dataframe in Python</a>
+<a href="https://www.javatpoint.com/convert-string-to-float-in-python">Convert String to Float in Python</a>
+<a href="https://www.javatpoint.com/decorators-with-parameters-in-python">Decorators with Parameters in Python</a>
+<a href="https://www.javatpoint.com/dynamic-typing-in-python">Dynamic Typing in Python</a>
+<a href="https://www.javatpoint.com/fabs-in-python">Fabs in Python</a>
+<a href="https://www.javatpoint.com/how-to-remove-decimal-in-python">How to Remove Decimal in Python</a>
+<a href="https://www.javatpoint.com/python-closure">Python Closure</a>
+<a href="https://www.javatpoint.com/python-glob-module">Python Glob Module</a>
+<a href="https://www.javatpoint.com/writing-a-python-module">Writing a Python Module</a>
+<a href="https://www.javatpoint.com/modules-vs-packages-in-python">Modules vs Packages in Python</a>
+<a href="https://www.javatpoint.com/snmp-module-in-python">SNMP module in Python</a>
+<a href="average-of-list-in-python.html">Average of list in Python</a>
+<a href="https://www.javatpoint.com/append-vs-extend-vs-insert-in-python">Append vs Extend vs Insert in Python</a>
+<a href="https://www.javatpoint.com/how-to-remove-duplicates-from-a-list-in-python">How to Remove Duplicates from a list in Python</a>
+<a href="https://www.javatpoint.com/remove-multiple-characters-from-a-string-in-python">Remove Multiple Characters from a String in Python</a>
+<a href="https://www.javatpoint.com/shuffle-in-python">Shuffle in Python</a>
+<a href="https://www.javatpoint.com/floor-and-ceil-functions-in-python">floor() and ceil() Functions in Python</a>
+<a href="https://www.javatpoint.com/sqrt-math-function-of-python">sqrt(): Math Function of Python</a>
+<a href="https://www.javatpoint.com/python-yfinance-module">Python yfinance Module</a>
+<a href="https://www.javatpoint.com/difflib-module-in-python">Difflib module in Python</a>
+<a href="https://www.javatpoint.com/convert-the-column-type-from-string-to-datetime-format-in-pandas-dataframe">Convert the Column Type from String to Datetime Format in Pandas DataFrame</a>
+<a href="https://www.javatpoint.com/python-wxpython-module">Python wxPython Module</a>
+<a href="https://www.javatpoint.com/random-uniform-python">Random Uniform Python</a>
+<a href="https://www.javatpoint.com/relational-operators-in-python">Relational Operators in Python</a>
+<a href="https://www.javatpoint.com/string-to-list-in-python">String to List in Python</a>
+<a href="https://www.javatpoint.com/chatbot-in-python">Chatbot in Python</a>
+<a href="https://www.javatpoint.com/how-to-convert-float-to-int-in-python">How to Convert float to int in Python</a>
+<a href="https://www.javatpoint.com/multiply-all-elements-in-list-of-python">Multiply All Elements in list of Python</a>
+<a href="https://www.javatpoint.com/module-vs-function-in-python">module vs function in Python</a>
+<a href="https://www.javatpoint.com/reverse-a-tuple-in-python">Reverse a tuple in Python</a>
+<a href="https://www.javatpoint.com/tuple-to-dictionary-in-python">Tuple to Dictionary in Python</a>
+<a href="https://www.javatpoint.com/datetime-timedelta-function-of-python">datetime.timedelta() Function of Python</a>
+<a href="https://www.javatpoint.com/python-bio-module">Python Bio Module</a>
+<a href="https://www.javatpoint.com/python-dash-module">Python Dash Module</a>
+<a href="https://www.javatpoint.com/how-to-select-rows-in-pandas-dataframe-based-on-conditions">How to Select rows in Pandas DataFrame Based on Conditions</a>
+<a href="https://www.javatpoint.com/typecasting-in-python">Typecasting in Python</a>
+<a href="https://www.javatpoint.com/dateutil-module-in-python">Dateutil module in Python</a>
+<a href="https://www.javatpoint.com/getpass-module-in-python">Getpass module in Python</a>
+<a href="https://www.javatpoint.com/python-wand-library">Python Wand library</a>
+<a href="generate-a-qr-code-using-python.html">Generate a QR Code using Python</a>
+<a href="https://www.javatpoint.com/best-python-pdf-library">Best Python PDF Library</a>
+<a href="https://www.javatpoint.com/python-cachetools-module">Python Cachetools Module</a>
+<a href="https://www.javatpoint.com/python-cmdparser-module">Python Cmdparser Module</a>
+<a href="python-dash-module.html">Python Dash module</a>
+<a href="https://www.javatpoint.com/python-emoji-module">Python Emoji Module</a>
+<a href="https://www.javatpoint.com/python-nmap-module">Python Nmap Module</a>
+<a href="https://www.javatpoint.com/python-pylab-module">Python PyLab Module</a>
+<a href="https://www.javatpoint.com/working-with-pdf-files-in-python">Working with PDF files in Python</a>
+<a href="https://www.javatpoint.com/pdf-handling-in-python">PDF Handling in Python</a>
+<a href="https://www.javatpoint.com/manipulating-pdf-using-python">Manipulating PDF using Python</a>
+<a href="https://www.javatpoint.com/list-all-functions-from-a-python-module">List All Functions from a Python Module</a>
+<a href="https://www.javatpoint.com/python-list-of-dictionaries">Python list of Dictionaries</a>
+<a href="https://www.javatpoint.com/python-shelve-module">Python Shelve Module</a>
+<a href="https://www.javatpoint.com/creating-interactive-pdf-forms-using-python">Creating Interactive PDF forms using Python</a>
+<a href="https://www.javatpoint.com/python-newspaper-module">Python Newspaper Module</a>
+<a href="https://www.javatpoint.com/how-to-connect-wi-fi-using-python">How to Connect Wi-Fi using Python</a>
+<a href="https://www.javatpoint.com/best-python-libraries-used-for-ethical-hacking">Best Python Libraries used for Ethical Hacking</a>
+<a href="https://www.javatpoint.com/windows-system-administration-management-using-python">Windows System Administration Management using Python</a>
+<a href="https://www.javatpoint.com/indentation-error-in-python">Indentation Error in Python</a>
+<a href="https://www.javatpoint.com/python-imaplib-module">Python imaplib Module</a>
+<a href="https://www.javatpoint.com/python-lxml-module">Python lxml Module</a>
+<a href="https://www.javatpoint.com/python-mayavi-module">Python MayaVi Module</a>
+<a href="https://www.javatpoint.com/python-os-listdir-method">Python os.listdir() method</a>
+<a href="https://www.javatpoint.com/python-modules-for-automation">Python Modules for Automation</a>
+<a href="https://www.javatpoint.com/data-visualization-in-python-using-bokeh-library">Data Visualization in Python using Bokeh Library</a>
+<a href="https://www.javatpoint.com/how-to-plot-glyphs-over-a-google-map-by-using-bokeh-library-in-python">How to Plot glyphs over a Google Map by using Bokeh Library in Python</a>
+<a href="https://www.javatpoint.com/how-to-plot-a-pie-chart-using-bokeh-library-in-python">How to Plot a Pie Chart using Bokeh Library in Python</a>
+<a href="https://www.javatpoint.com/how-to-read-contents-of-pdf-using-ocr-in-python">How to Read Contents of PDF using OCR in Python</a>
+<a href="https://www.javatpoint.com/grammar-and-spell-checker-in-python">Grammar and Spell Checker in Python</a>
+<a href="https://www.javatpoint.com/converting-html-to-pdf-files-using-python">Converting HTML to PDF files using Python</a>
+<a href="https://www.javatpoint.com/readlines-in-python">Readlines in Python</a>
+<a href="https://www.javatpoint.com/how-to-plot-multiple-lines-on-a-graph-using-bokeh-in-python">How to Plot Multiple Lines on a Graph Using Bokeh in Python</a>
+<a href="https://www.javatpoint.com/bokeh-plotting-figure-circle_x-function-in-python">bokeh.plotting.figure.circle_x() Function in Python</a>
+<a href="https://www.javatpoint.com/bokeh-plotting-figure-diamond_cross-function-in-python">bokeh.plotting.figure.diamond_cross() Function in Python</a>
+<a href="https://www.javatpoint.com/how-to-plot-rays-on-a-graph-using-bokeh-in-python">How to Plot Rays on a Graph using Bokeh in Python</a>
+<a href="https://www.javatpoint.com/image-steganography-using-python">Image Steganography using Python</a>
+<a href="https://www.javatpoint.com/inconsistent-use-of-tabs-and-spaces-in-indentation">Inconsistent use of tabs and spaces in indentation</a>
+<a href="https://www.javatpoint.com/how-to-plot-multiple-plots-using-bokeh-in-python">How to Plot Multiple Plots using Bokeh in Python</a>
+<a href="https://www.javatpoint.com/how-to-make-an-area-plot-in-python-using-bokeh">How to Make an Area Plot in Python using Bokeh</a>
+<a href="https://www.javatpoint.com/python-chempy-module">Python ChemPy Module</a>
+<a href="https://www.javatpoint.com/python-memory-profiler-module">Python memory-profiler Module</a>
+<a href="https://www.javatpoint.com/python-phonenumbers-module">Python Phonenumbers Module</a>
+<a href="https://www.javatpoint.com/python-platform-module">Python Platform Module</a>
+<a href="https://www.javatpoint.com/typeerror-string-indices-must-be-an-integer">TypeError string indices must be an integer</a>
+<a href="https://www.javatpoint.com/time-series-forecasting-with-prophet-in-python">Time Series Forecasting with Prophet in Python</a>
+<a href="https://www.javatpoint.com/python-pexpect-module">Python Pexpect Module</a>
+<a href="https://www.javatpoint.com/python-optparse-module">Python Optparse Module</a>
+<a href="https://www.javatpoint.com/int-object-is-not-iterable">int object is not iterable</a>.
+<a href="https://www.javatpoint.com/python-peewee-library">Python Peewee Library</a>
+<a href="https://www.javatpoint.com/some-cryptocurrency-libraries-for-python">Some Cryptocurrency Libraries for Python</a>
+<a href="https://www.javatpoint.com/building-a-blockchain-using-python">Building a Blockchain using Python</a>
+<a href="https://www.javatpoint.com/huffman-coding-using-python">Huffman Coding using Python</a>
+<a href="https://www.javatpoint.com/nested-dictionary-in-python">Nested Dictionary in Python</a>
+<a href="https://www.javatpoint.com/collections-userstring-in-python">Collections.UserString in Python</a>
+<a href="https://www.javatpoint.com/how-to-customize-legends-with-matplotlib">How to Customize Legends with Matplotlib</a>
+<a href="https://www.javatpoint.com/matplotlib-legend-in-subplot">Matplotlib legend in subplot</a>
+<a href="https://www.javatpoint.com/morphological-operations-in-image-processing-in-python">Morphological Operations in Image Processing in Python</a>
+<a href="https://www.javatpoint.com/role-of-python-in-artificial-intelligence">Role of Python in Artificial Intelligence</a>
+<a href="https://www.javatpoint.com/python-instagramy-module">Python Instagramy Module</a>
+<a href="https://www.javatpoint.com/python-pprint-module">Python pprint Module</a>
+<a href="https://www.javatpoint.com/python-primepy-module">Python PrimePy Module</a>
+<a href="https://www.javatpoint.com/android-development-using-python">Android Development using Python</a>
+<a href="https://www.javatpoint.com/python-fbchat-library">Python fbchat library</a>
+<a href="https://www.javatpoint.com/artificial-intelligence-in-cybersecurity-pitting-algorithms-vs-algorithms">Artificial Intelligence in Cybersecurity: Pitting Algorithms vs Algorithms</a>
+<a href="understanding-recognition-pattern-of-artificial-intelligence.html">Understanding The Recognition Pattern of Artificial Intelligence</a>
+<a href="https://www.javatpoint.com/when-and-how-to-leverage-lambda-architecture-in-big-data">When and How to Leverage Lambda Architecture in Big Data</a>
+<a href="https://www.javatpoint.com/why-should-we-learn-python-for-data-science">Why Should We Learn Python for Data Science</a>
+<a href="https://www.javatpoint.com/how-to-change-legend-position-in-matplotlib">How to Change the "legend" Position in Matplotlib</a>
+<a href="https://www.javatpoint.com/how-to-check-if-element-exists-in-list-in-python">How to Check if Element Exists in List in Python</a>
+<a href="https://www.javatpoint.com/how-to-check-spellings-of-given-words-using-enchant-in-python">How to Check Spellings of Given Words using Enchant in Python</a>
+<a href="https://www.javatpoint.com/python-program-to-count-number-of-matching-characters-in-a-pair-of-string">Python Program to Count the Number of Matching Characters in a Pair of String</a>
+<a href="https://www.javatpoint.com/ping-pong-game-using-turtle-in-python">Ping Pong Game Using Turtle in Python</a>
+<a href="https://www.javatpoint.com/python-function-to-display-clendar">Python Function to Display Calendar</a>
+<a href="https://www.javatpoint.com/python-program-for-calculating-sum-of-squares-of-first-n-natural-numbers">Python Program for Calculating the Sum of Squares of First n Natural Numbers</a>
+<a href="https://www.javatpoint.com/python-program-for-how-to-check-if-a-given-number-is-fibonacci-number-or-not">Python Program for How to Check if a Given Number is Fibonacci Number or Not</a>
+<a href="https://www.javatpoint.com/randint-function-in-python">randint() Function in Python</a>
+<a href="https://www.javatpoint.com/visualize-tiff-file-using-matplotlib-and-gdal-in-python">Visualize Tiff File using Matplotlib and GDAL in Python</a>
+<a href="https://www.javatpoint.com/rarfile-module-in-python">rarfile module in Python</a>
+<a href="https://www.javatpoint.com/stemming-words-using-python">Stemming Words using Python</a>
+<a href="https://www.javatpoint.com/python-program-for-word-guessing-game">Python Program for Word Guessing Game</a>
+<a href="https://www.javatpoint.com/blockchain-in-healthcare-innovations-and-opportunities">Blockchain in Healthcare: Innovations &amp; Opportunities</a>
+<a href="https://www.javatpoint.com/snake-game-in-python-using-turtle-module">Snake Game in Python using Turtle Module</a>
+<a href="https://www.javatpoint.com/how-to-find-armstrong-numbers-between-two-given-integers">How to Find Armstrong Numbers between two given Integers</a>
+<a href="celery-tutorial-using-python.html">Celery Tutorial Using Python</a>
+<a href="https://www.javatpoint.com/rsme-root-mean-square-error-in-python">RSME - Root Mean Square Error in Python</a>
+<a href="https://www.javatpoint.com/building-a-twitter-bot-using-python">Building a Twitter Bot using Python</a>
+<a href="https://www.javatpoint.com/python-progressbar-module">Python Progressbar Module</a>
+<a href="https://www.javatpoint.com/python-pronouncing-module">Python Pronouncing Module</a>
+<a href="https://www.javatpoint.com/python-pyautogui-module">Python PyAutoGUI Module</a>
+<a href="https://www.javatpoint.com/python-pyperclip-module">Python Pyperclip Module</a>
+<a href="https://www.javatpoint.com/how-to-generate-uuid-in-python">How to Generate UUID in Python</a>
+<a href="https://www.javatpoint.com/python-top-10-libraries-to-learn-in-2022">Python Top 10 Libraries to Learn in 2022</a>
+<a href="https://www.javatpoint.com/reading-netcdf-data-using-python">Reading NetCDF Data using Python</a>
+<a href="https://www.javatpoint.com/reprlib-module-in-python">The reprlib module in Python</a>
+<a href="https://www.javatpoint.com/how-to-take-multiple-input-from-user-in-python">How to take Multiple Input from User in Python</a>
+<a href="https://www.javatpoint.com/python-zlib-library">Python zlib Library</a>
+<a href="https://www.javatpoint.com/python-queue-module">Python Queue Module</a>
+<a href="https://www.javatpoint.com/python-yaml-parser">Python YAML Parser</a>
+<a href="https://www.javatpoint.com/effective-root-searching-algorithms-in-python">Effective Root Searching Algorithms in Python</a>
+<a href="https://www.javatpoint.com/python-bz2-module">Python Bz2 Module</a>
+<a href="https://www.javatpoint.com/python-ipaddress-module">Python IPaddress Module</a>
+<a href="https://www.javatpoint.com/python-pylint-module">Python PyLint Module</a>
+<a href="https://www.javatpoint.com/how-to-process-xml-in-python">How to Process XML in Python</a>
+<a href="https://www.javatpoint.com/bisect-algorithm-functions-in-python">Bisect Algorithm Functions in Python</a>
+<a href="https://www.javatpoint.com/creating-and-updating-powerpoint-presentation-using-python">Creating and Updating PowerPoint Presentation using Python</a>
+<a href="https://www.javatpoint.com/how-to-change-the-size-of-figure-drawn-with-matplotlib">How to change the size of figure drawn with matplotlib</a>
+<a href="https://www.javatpoint.com/keyboard-module-in-python">Keyboard Module in Python</a>
+<a href="https://www.javatpoint.com/python-pyfiglet-module">Python Pyfiglet Module</a>
+<a href="https://www.javatpoint.com/creating-an-mcq-quiz-game-in-python">Creating an MCQ Quiz Game in Python</a>
+<a href="https://www.javatpoint.com/statistic-with-python">Statistic with Python</a>
+<a href="https://www.javatpoint.com/what-is-gil-in-python-global-interpreter-lock">What is GIL in Python</a>
+<a href="https://www.javatpoint.com/basic-python-for-java-developers">Basic Python for Java Developers</a>
+<a href="https://www.javatpoint.com/how-to-download-youtube-videos-using-python-scripts">How to Download YouTube Videos Using Python Scripts</a>
+<a href="https://www.javatpoint.com/traffic-flow-simulation-in-python">Traffic Flow Simulation in Python</a>
+<a href="https://www.javatpoint.com/how-to-merge-and-sort-two-lists-in-python">How to Merge and Sort Two Lists in Python</a>
+<a href="https://www.javatpoint.com/metacharacters-in-python">Metacharacters in Python</a>
+<a href="https://www.javatpoint.com/write-python-program-to-print-all-possible-combination-of-integers">Write the Python Program to Print All Possible Combination of Integers</a>
+<a href="https://www.javatpoint.com/modulo-string-formatting-in-python">Modulo String Formatting in Python</a>
+<a href="https://www.javatpoint.com/counters-in-python">Counters in Python</a>
+<a href="https://www.javatpoint.com/python-pyautogui-library">Python pyautogui Library</a>
+<a href="https://www.javatpoint.com/how-to-draw-the-mandelbrot-set-in-python">How to Draw the Mandelbrot Set in Python</a>
+<a href="https://www.javatpoint.com/python-dbm-module">Python Dbm Module</a>
+<a href="https://www.javatpoint.com/webcam-motion-detector-in-python">Webcam Motion Detector in Python</a>
+<a href="https://www.javatpoint.com/graphql-implementation-in-django">GraphQL Implementation in Django</a>
+<a href="https://www.javatpoint.com/how-to-implement-protobuf-in-python">How to Implement Protobuf in Python</a>
+<a href="https://www.javatpoint.com/pyqt-library-in-python">PyQt library in Python</a>
+<a href="https://www.javatpoint.com/how-to-prettify-data-structures-with-pretty-print-in-python">How to Prettify Data Structures with Pretty Print in Python</a>
+<a href="https://www.javatpoint.com/encrypt-a-password-in-python-using-bcrypt">Encrypt a Password in Python Using bcrypt</a>
+<a href="https://www.javatpoint.com/pyramid-framework-in-python">Pyramid Framework in Python</a>
+<a href="https://www.javatpoint.com/building-a-telegram-bot-using-python">Building a Telegram bot using Python</a>
+<a href="https://www.javatpoint.com/web2py-framework-in-python">Web2py Framework in Python</a>
+<a href="https://www.javatpoint.com/python-os-chdir-method">Python os.chdir() Method</a>
+<a href="https://www.javatpoint.com/balancing-parentheses-in-python">Balancing Parentheses in Python</a>
+<a href="https://www.javatpoint.com/how-to-provide-multiple-constructors-in-python-classes">How to Provide Multiple Constructors in Python Classes</a>
+<a href="https://www.javatpoint.com/profiling-the-python-code">Profiling the Python code</a>
+<a href="https://www.javatpoint.com/build-a-dice-rolling-application-with-python">Build a Dice-Rolling Application with Python</a>
+<a href="https://www.javatpoint.com/email-module-in-python">Email module in Python</a>
+<a href="https://www.javatpoint.com/essential-recursion-programs-in-python">Essential Recursion Programs in Python</a>
+<a href="https://www.javatpoint.com/how-to-design-hashset-in-python">How to Design Hashset in Python</a>
+<a href="https://www.javatpoint.com/how-to-extract-youtube-data-in-python">How to Extract YouTube Data in Python</a>
+<a href="https://www.javatpoint.com/how-to-solve-stock-span-problem-using-python">How to Solve Stock Span Problem Using Python</a>
+<a href="https://www.javatpoint.com/selection-sort-in-python">Selection Sort in Python</a>
+<a href="https://www.javatpoint.com/info-function-in-python">info() Function in Python</a>
+<a href="https://www.javatpoint.com/python-solution-of-two-sum-problem-of-given-list">Two Sum Problem: Python Solution of Two sum problem of Given List</a>
+<a href="https://www.javatpoint.com/write-a-python-program-to-check-a-list-contains-duplicate-element">Write a Python Program to Check a List Contains Duplicate Element</a>
+<a href="https://www.javatpoint.com/write-python-program-to-search-an-element-in-sorted-array">Write Python Program to Search an Element in Sorted Array</a>
+<a href="https://www.javatpoint.com/pathlib-module-in-python">Pathlib module in Python</a>
+<a href="https://www.javatpoint.com/create-a-real-time-voice-translator-using-python">Create a Real Time Voice Translator using Python</a>
+<a href="https://www.javatpoint.com/how-to-sort-tuple-in-python">How to Sort Tuple in Python</a>
+<a href="https://www.javatpoint.com/advantages-of-python-that-made-it-so-popular-and-its-major-applications">Advantages of Python that made it so Popular and its Major Applications</a>
+<a href="https://www.javatpoint.com/library-in-python">Library in Python</a>
+<a href="https://www.javatpoint.com/packages-of-data-visualization-in-python">Packages of Data Visualization in Python</a>
+<a href="https://www.javatpoint.com/python-pympler-library">Python pympler library</a>
+<a href="https://www.javatpoint.com/snakeviz-library-in-python">SnakeViz library in Python</a>
+<a href="https://www.javatpoint.com/materialized-view-vs-view">Materialized View vs View</a>
+<a href="https://www.javatpoint.com/namespace-in-python">Namespace in Python</a>
+<a href="https://www.javatpoint.com/python-program-to-return-the-sign-of-the-product-of-an-array">Python Program to return the Sign of the product of an Array</a>
+<a href="https://www.javatpoint.com/fabric-module-in-python">Fabric Module in Python</a>
+<a href="https://www.javatpoint.com/tracemalloc-module-in-python">Tracemalloc module in Python</a>
+<a href="split-sub-subn-functions-of-re-module-in-python.html">Split, Sub, Subn functions of re module in python</a>
+<a href="https://www.javatpoint.com/robot-framework-in-python">Robot Framework in Python</a>
+<a href="https://www.javatpoint.com/understanding-robotics-with-python">Understanding Robotics with Python</a>
+<a href="https://www.javatpoint.com/gzip-module-in-python">Gzip module in Python</a>
+<a href="https://www.javatpoint.com/guppy-heapy-in-python">guppy/heapy in Python</a>
+<a href="https://www.javatpoint.com/microservices-in-python">Microservices in Python</a>
+<a href="https://www.javatpoint.com/functools-module-in-python">Functools Module in Python</a>
+<a href="https://www.javatpoint.com/plotting-google-map-using-gmplot-package-in-python">Plotting Google Map using gmplot package in Python</a>
+<a href="https://www.javatpoint.com/monitoring-devices-using-python">Monitoring Devices using Python</a>
+<a href="https://www.javatpoint.com/webbrowser-module-in-python">Webbrowser module in Python</a>
+<a href="https://www.javatpoint.com/binary-search-using-recursion-in-python">Binary Search using Recursion in Python</a>
+<a href="https://www.javatpoint.com/c-vs-cpp-vs-python-vs-java">C vs C++ vs Python vs Java</a>
+<a href="https://www.javatpoint.com/how-to-check-version-of-python">How to Check Version of Python</a>
+<a href="python-list-comprehension.html">Python List Comprehension</a>
+<a href="https://www.javatpoint.com/convert-roman-number-to-decimal-integer">Convert Roman Number to Decimal (Integer) | Write Python Program to Convert Roman to Integer</a>
+<a href="https://www.javatpoint.com/create-rest-api-using-django-rest-framework">Create REST API using Django REST Framework | Django REST Framework Tutorial</a>
+<a href="https://www.javatpoint.com/memoization-using-decorators-in-python">Memoization using Decorators in Python</a>
+<a href="https://www.javatpoint.com/python-for-network-engineering">Python for Network Engineering</a>
+<a href="https://www.javatpoint.com/and-vs-and-in-python">'and' vs '&' in Python</a>
+<a href="https://www.javatpoint.com/cryptography-package-in-python">Cryptography package in Python</a>
+<a href="https://www.javatpoint.com/hangman-game-in-python">Hangman Game in Python</a>
+<a href="https://www.javatpoint.com/implementation-of-linear-regression-using-python">Implementation of Linear Regression using Python</a>
+<a href="https://www.javatpoint.com/nested-decorators-in-python">Nested Decorators in Python</a>
+<a href="python-program-to-find-difference-between-two-strings.html">Python Program to Find Difference between Two Strings</a>
+<a href="https://www.javatpoint.com/python-urllib-library">Python urllib Library</a>
+<a href="https://www.javatpoint.com/fiona-module-in-python">Fiona module in Python</a>
+<a href="https://www.javatpoint.com/firebase-module-in-python">Firebase module in python</a>
+<a href="https://www.javatpoint.com/python-for-kids">Python For Kids</a>
+<a href="https://www.javatpoint.com/floor-division-in-python">Floor Division in Python</a>
+<a href="https://www.javatpoint.com/top-10-best-coursera-python-courses">Top 10 Best Coursera Python Courses</a>
+<a href="https://www.javatpoint.com/top-python-for-network-engineering-libraries">Top Python for Network Engineering Libraries</a>
+<a href="https://www.javatpoint.com/how-does-tokenizing-text-sentence-words-works">How does Tokenizing Text, Sentence, Words Works</a>
+<a href="https://www.javatpoint.com/how-to-import-datasets-using-sklearn-in-pybrain">How to Import Datasets using sklearn in PyBrain</a>
+<a href="https://www.javatpoint.com/part-of-speech-tagging-using-textblob">Part of Speech Tagging using TextBlob</a>
+<a href="https://www.javatpoint.com/python-for-kids-resources-for-python-learning-path">Python for Kids: Resources for Python Learning Path</a>
+<a href="https://www.javatpoint.com/xgboost-ml-model-in-python">XGBoost ML Model in Python</a>
+<a href="https://www.javatpoint.com/simple-flames-game-in-python">Simple FLAMES game in Python</a>
+<a href="https://www.javatpoint.com/alarm-clock-with-gui-in-python">Alarm Clock with GUI in Python</a>
+<a href="https://www.javatpoint.com/rock-paper-scissors-game-in-python">Rock Paper Scissors Game in Python</a>
+<a href="https://www.javatpoint.com/check-if-a-given-linked-list-is-circular-linked-list">Check if a Given Linked List is Circular Linked List</a>
+<a href="https://www.javatpoint.com/reverse-linked-list-in-python">Reverse the Linked List in Python</a>
+<a href="https://www.javatpoint.com/flatten-vs-ravel-numpy-functions">Flatten() vs Ravel() Numpy Functions</a>
+<a href="https://www.javatpoint.com/learning-vector-quantization">Learning Vector Quantization</a>
+<a href="https://www.javatpoint.com/lemmatization-and-tokenize-with-textblob">Lemmatization and Tokenize with TextBlob</a>
+<a href="https://www.javatpoint.com/how-to-round-numbers-in-python">How to Round Numbers in Python</a>
+<a href="https://www.javatpoint.com/precedence-and-associativity-of-operators-in-python">Precedence and Associativity of Operators in Python</a>
+<a href="https://www.javatpoint.com/python-unofficial-libraries">Python unofficial libraries</a>
+<a href="https://www.javatpoint.com/12-best-python-projects-for-class-12">12 Best Python Projects for Class 12</a>
+<a href="https://www.javatpoint.com/desktop-notifier-in-python">Desktop Notifier in Python</a>
+<a href="https://www.javatpoint.com/how-to-handle-time-zones-in-python">How to handle Time zones in Python</a>
+<a href="https://www.javatpoint.com/python-secret-module">Python Secret Module</a>
+<a href="https://www.javatpoint.com/make-notepad-using-tkinter">Make Notepad using Tkinter</a>
+<a href="https://www.javatpoint.com/camelcase-in-python">Camelcase in Python</a>
+<a href="https://www.javatpoint.com/difference-between-python-and-scala">Difference between Python and Scala</a>
+<a href="https://www.javatpoint.com/how-to-use-cbind-in-python">How to Use Cbind in Python</a>
+<a href="https://www.javatpoint.com/python-asserts">Python Asserts</a>
+<a href="https://www.javatpoint.com/python-bitwise-operators">Python Bitwise Operators</a>
+<a href="https://www.javatpoint.com/python-time-asctime-method">Python Time asctime() Method</a>
+<a href="https://www.javatpoint.com/q-learning-in-python">Q-Learning in Python</a>
+<a href="https://www.javatpoint.com/combinatoric-iterators-in-python">Combinatoric Iterators in Python</a>
+<a href="class-method-vs-static-method-vs-instance-method.html">Class Method vs Static Method vs Instance Method</a>
+<a href="https://www.javatpoint.com/free-python-ebooks">Free Python eBooks</a>
+<a href="https://www.javatpoint.com/eight-amazing-ideas-of-python-tkinter-projects">Eight Amazing Ideas of Python Tkinter Projects</a>
+<a href="https://www.javatpoint.com/creating-a-keylogger-using-python">Creating a Keylogger using Python</a>
+<a href="https://www.javatpoint.com/quandl-package-in-python">Quandl package in Python</a>
+<a href="https://www.javatpoint.com/implementing-apriori-algorithm-in-python">Implementing Apriori Algorithm in Python</a>
+<a href="https://www.javatpoint.com/sentiment-analysis-using-vader">Sentiment Analysis using VADER</a>
+<a href="https://www.javatpoint.com/break-statement-in-python">Break Statement in Python</a>
+<a href="https://www.javatpoint.com/handling-imbalanced-data-in-python-with-smote-algorithm-and-near-miss-algorithm">Handling Imbalanced Data in Python with SMOTE Algorithm and Near Miss Algorithm</a>
+<a href="https://www.javatpoint.com/gui-calculator-using-python">GUI Calculator using Python</a>
+<a href="https://www.javatpoint.com/sympy-module-in-python">Sympy module in python</a>
+<a href="https://www.javatpoint.com/smote-python">Smote Python</a>
+<a href="https://www.javatpoint.com/breadth-first-search-in-python">Breadth-First Search in Python</a>
+<a href="https://www.javatpoint.com/python-graphviz-dot-language">Python Graphviz: DOT Language</a>
+<a href="https://www.javatpoint.com/how-to-visualize-a-neural-network-in-python-using-graphviz">How to Visualize a Neural Network in Python using Graphviz</a>
+<a href="https://www.javatpoint.com/python-graphviz">Python Graphviz</a>
+<a href="https://www.javatpoint.com/compound-interest-gui-calculator-using-python">Compound Interest GUI Calculator using Python</a>
+<a href="https://www.javatpoint.com/rank-based-percentile-gui-calculator-in-python">Rank-based Percentile GUI Calculator in Python</a>
+<a href="https://www.javatpoint.com/url-shortner-in-python">URL shortner in Python</a>
+<a href="https://www.javatpoint.com/automate-instagram-messages-using-python">Automate Instagram Messages using Python</a>
+<a href="https://www.javatpoint.com/python-simplehttpserver-module">Python SimpleHTTPServer Module</a>
+<a href="standard-gui-unit-converter-in-python.html">Standard GUI Unit Converter in Python</a>
+<a href="https://www.javatpoint.com/python-paramiko-module">Python Paramiko Module</a>
+<a href="https://www.javatpoint.com/dispatch-decorators-in-python">Dispatch Decorators in Python</a>
+<a href="https://www.javatpoint.com/introspection-in-python">Introspection in Python</a>
+<a href="https://www.javatpoint.com/class-decorator-in-python">Class Decorator in Python</a>
+<a href="https://www.javatpoint.com/customizing-parser-behaviour-python-module-configparser">Customizing Parser Behaviour Python Module 'configparser'</a>
+<a href="https://www.javatpoint.com/pythons-module-configparser">Python's Module Configparser</a>
+<a href="https://www.javatpoint.com/gui-calendar-using-tkinter-in-python">GUI Calendar using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/python-program-to-rotate-an-image">Python Program to Rotate an Image</a>
+<a href="https://www.javatpoint.com/validate-the-ip-address-in-python">Validate the IP Address in Python</a>
+<a href="https://www.javatpoint.com/program-to-print-diagonal-elements-of-the-given-2d-matrix">Write a Program to Print the Diagonal Elements of the Given 2D Matrix</a>
+<a href="https://www.javatpoint.com/encapsulation-in-python">Encapsulation in Python</a>
+<a href="https://www.javatpoint.com/polymorphism-in-python">Polymorphism in Python</a>
+<a href="https://www.javatpoint.com/stringio-module-in-python">StringIO Module in Python</a>
+<a href="https://www.javatpoint.com/10-python-image-manipulation-tools">10 Python Image Manipulation Tools</a>
+<a href="https://www.javatpoint.com/how-to-insert-current_timestamp-into-postgres-via-python">How to insert current_timestamp into Postgres via Python</a>
+<a href="https://www.javatpoint.com/how-to-perform-a-one-way-anova-in-python">How to Perform a One-Way ANOVA in Python</a>
+<a href="types-of-inheritance-python.html">Types of inheritance Python</a>
+<a href="https://www.javatpoint.com/python-for-mechanical-engineers">Python For Mechanical Engineers</a>
+<a href="https://www.javatpoint.com/python-module-xxhash">Python Module xxHash</a>
+<a href="https://www.javatpoint.com/escape-sequences-in-python">Escape Sequences in Python</a>
+<a href="https://www.javatpoint.com/python-null-statement">PYTHON NULL STATEMENT</a>
+<a href="https://www.javatpoint.com/python-and-operator">Python AND Operator</a>
+<a href="https://www.javatpoint.com/python-or-operator">Python OR Operator</a>
+<a href="https://www.javatpoint.com/python-bitwise-xor-operator">Python Bitwise XOR Operator</a>
+<a href="https://www.javatpoint.com/python-new-line">Python New Line</a>
+<a href="https://www.javatpoint.com/__init__-in-python">__init__ in python</a>
+<a href="https://www.javatpoint.com/__dict__-in-python">__dict__ in Python</a>
+<a href="https://www.javatpoint.com/simple-to-do-list-gui-application-in-python">Simple To-Do List GUI Application in Python</a>
+<a href="https://www.javatpoint.com/automate-software-testing-with-python">Automate Software Testing with Python</a>
+<a href="https://www.javatpoint.com/automate-the-google-search-using-python">Automate the Google search using Python</a>
+<a href="https://www.javatpoint.com/__name__-in-python">__name__ in Python</a>
+<a href="https://www.javatpoint.com/_name_-_main_-in-python">_name_ _main_ in Python</a>
+<a href="https://www.javatpoint.com/8-puzzle-problem-in-python">8 Puzzle problem in Python</a>
+<a href="accuracy_score-in-sklearn.html">accuracy_score in Sklearn</a>
+<a href="https://www.javatpoint.com/python-vs-julia">Python vs. Julia</a>
+<a href="https://www.javatpoint.com/python-crontab-module">Python Crontab Module</a>
+<a href="https://www.javatpoint.com/python-execute-shell-command">Python Execute Shell Command</a>
+<a href="https://www.javatpoint.com/file-explorer-using-tkinter-in-python">File Explorer using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/automated-trading-in-python">Automated Trading in Python</a>
+<a href="https://www.javatpoint.com/python-automation-project-ideas">Python Automation Project Ideas</a>
+<a href="https://www.javatpoint.com/k-means-1d-clustering-in-python">K-means 1D clustering in Python</a>
+<a href="https://www.javatpoint.com/adding-a-key-value-pair-to-a-dictionary-in-python">Adding a key:value pair to a dictionary in Python</a>
+<a href="fit-transform-and-fit_transform-methods-in-python.html">fit(), transform() and fit_transform() Methods in Python</a>
+<a href="https://www.javatpoint.com/python-for-finance">Python For Finance</a>
+<a href="https://www.javatpoint.com/librosa-library-in-python">Librosa Library in Python</a>
+<a href="https://www.javatpoint.com/python-artificial-pntelligence-projects-for-beginners">Python Artificial Intelligence Projects for Beginners</a>
+<a href="https://www.javatpoint.com/age-calculator-using-tkinter-in-python">Age Calculator using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/how-to-iterate-a-dictionary-in-python">How to Iterate a Dictionary in Python</a>
+<a href="https://www.javatpoint.com/how-to-iterate-through-a-list-in-python">How to Iterate through a List in Python</a>
+<a href="https://www.javatpoint.com/how-to-learn-python-online">How to Learn Python Online</a>
+<a href="https://www.javatpoint.com/cross-validation-in-sklearn">Cross-Validation in Sklearn</a>
+<a href="https://www.javatpoint.com/popular-python-libraries-for-finance-industry">Popular Python Libraries for Finance Industry</a>
+<a href="https://www.javatpoint.com/famous-python-certification-courses-for-finance">Famous Python Certification, Courses for Finance</a>
+<a href="accuracy_score-in-sklearn.html">Accuracy_Score in Sklearn</a>
+<a href="https://www.javatpoint.com/k-fold-cross-validation-in-sklearn">K-Fold Cross-Validation in Sklearn</a>
+<a href="python-projects-on-ml-applications-in-finance.html">Python Projects on ML Applications in Finance</a>
+<a href="https://www.javatpoint.com/digital-clock-using-tkinter-in-python">Digital Clock using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/plot-correlation-matrix-in-python">Plot Correlation Matrix in Python</a>
+<a href="https://www.javatpoint.com/euclidian-distance-using-numpy">Euclidian Distance using NumPy</a>
+<a href="https://www.javatpoint.com/how-to-parse-json-in-python">How to Parse JSON in Python</a>
+<a href="https://www.javatpoint.com/how-to-make-the-first-column-an-index-in-python">How to Make the First Column an Index in Python</a>
+<a href="https://www.javatpoint.com/how-to-make-an-app-in-python">How to Make an App in Python</a>
+<a href="https://www.javatpoint.com/morse-code-translator-in-python">Morse Code Translator In Python</a>
+<a href="https://www.javatpoint.com/python-locust-module">Python Locust Module</a>
+<a href="https://www.javatpoint.com/python-time-module">Python Time Module</a>
+<a href="https://www.javatpoint.com/sklearn-linear-regression-example">Sklearn Linear Regression Example</a>
+<a href="https://www.javatpoint.com/python-timeit-module">Python Timeit Module</a>
+<a href="https://www.javatpoint.com/qr-code-using-python">QR code using python</a>
+<a href="https://www.javatpoint.com/flipping-tiles-using-python">Flipping Tiles (Memory game) using Python</a>
+<a href="https://www.javatpoint.com/python-curl">Python Curl</a>
+<a href="https://www.javatpoint.com/examples-of-python-curl">Examples of Python Curl</a>
+<a href="https://www.javatpoint.com/sklearn-model-selection">Sklearn Model Selection</a>
+<a href="https://www.javatpoint.com/standardscaler-in-sklearn">StandardScaler in Sklearn</a>
+<a href="https://www.javatpoint.com/filter-list-in-python">Filter List in Python</a>
+<a href="https://www.javatpoint.com/python-projects-in-networking">Python Projects in Networking</a>
+<a href="https://www.javatpoint.com/python-networkx">Python NetworkX</a>
+<a href="https://www.javatpoint.com/sklearn-logistic-regression">Sklearn Logistic Regression</a>
+<a href="https://www.javatpoint.com/what-is-sklearn-in-python">What is Sklearn in Python</a>
+<a href="https://www.javatpoint.com/tkinter-application-to-switch-between-different-page-frames-in-python">Tkinter Application to Switch Between Different Page Frames in Python</a>
+<a href="https://www.javatpoint.com/append-pair-to-dictionary">Append (key: value) Pair to Dictionary</a>
+<a href="https://www.javatpoint.com/any-in-python">any() in Python</a>
+<a href="https://www.javatpoint.com/arguments-and-parameters-in-python">Arguments and Parameters in Python</a>
+<a href="https://www.javatpoint.com/attributes-meaning-in-python">Attributes Meaning in Python</a>
+<a href="https://www.javatpoint.com/data-structures-and-algorithms-in-python-set-1">Data Structures and Algorithms in Python | Set 1</a>
+<a href="https://www.javatpoint.com/gaussian-elimination-in-python">Gaussian Elimination in Python</a>
+<a href="https://www.javatpoint.com/learn-python-from-best-youtube-channels-in-2022">Learn Python from Best YouTube Channels in 2022</a>
+<a href="https://www.javatpoint.com/sklearn-clustering">Sklearn Clustering</a>
+<a href="https://www.javatpoint.com/sklearn-tutorial">Sklearn Tutorial</a>
+<a href="https://www.javatpoint.com/what-is-sleeping-time-in-python">What Is Sleeping Time in Python</a>
+<a href="https://www.javatpoint.com/python-word2vec">Python Word2Vec</a>
+<a href="https://www.javatpoint.com/creating-the-gui-marksheet-using-tkinter-in-python">Creating the GUI Marksheet using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/colour-game-using-tkinter-in-python">A Colour game using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/simple-flames-game-using-tkinter-in-python">Simple FLAMES game using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/youtube-video-downloader-using-python-tkinter">YouTube Video Downloader using Python Tkinter</a>
+<a href="https://www.javatpoint.com/find-key-from-value-in-dictionary">Find Key from Value in Dictionary</a>
+<a href="https://www.javatpoint.com/sklearn-regression-models">Sklearn Regression Models</a>
+<a href="https://www.javatpoint.com/covid-19-data-representation-app-using-tkinter-in-python">COVID-19 Data Representation app using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/image-viewer-app-using-tkinter-in-python">Image Viewer App Using Tkinter in Python</a>
+<a href="simple-registration-form-using-tkinter-in-python.html">Simple registration form using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/python-string-equals">Python String equals</a>
+<a href="control-statements-in-python.html">Control Statements in Python</a>
+<a href="how-to-plot-histogram-in-python.html">How to Plot Histogram in Python</a>
+<a href="https://www.javatpoint.com/how-to-plot-multiple-linear-regression-in-python">How to Plot Multiple Linear Regression in Python</a>
+<a href="https://www.javatpoint.com/physics-calculations-in-python">Physics Calculations in Python</a>
+<a href="https://www.javatpoint.com/solve-physics-computational-problems-using-python">Solve Physics Computational Problems Using Python</a>
+<a href="https://www.javatpoint.com/screen-rotation-gui-using-python-tkinter">Screen Rotation GUI Using Python Tkinter</a>
+<a href="https://www.javatpoint.com/application-to-search-installed-applications-using-tkinter-in-python">Application to Search Installed Applications using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/spell-corrector-gui-using-tkinter-in-python">Spell Corrector GUI using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/data-structures-and-algorithms-in-python">Data Structures and Algorithms in Python</a>
+<a href="https://www.javatpoint.com/gui-to-shut-down-restart-and-log-off-the-computer-using-tkinter-in-python">GUI to Shut Down, Restart, and Log off the computer using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/gui-to-extract-lyrics-from-a-song-using-tkinter-in-python">GUI to extract Lyrics from a song Using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/sentiment-detector-gui-using-tkinter-in-python">Sentiment Detector GUI using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/python-sleep-function">Python sleep() Function</a>
+<a href="https://www.javatpoint.com/diabetes-prediction-using-machine-learning">Diabetes Prediction Using Machine Learning</a>
+<a href="https://www.javatpoint.com/first-unique-character-in-a-string-python">First Unique Character in a String Python</a>
+<a href="https://www.javatpoint.com/using-python-create-own-movies-recommendation-engine">Using Python Create Own Movies Recommendation Engine</a>
+<a href="https://www.javatpoint.com/find-hotel-price-using-the-hotel-price-comparison-api-using-python">Find Hotel Price Using the Hotel Price Comparison API using Python</a>
+<a href="https://www.javatpoint.com/get-started-with-rabbitmq-and-python">Get Started with RabbitMQ and Python</a>
+<a href="https://www.javatpoint.com/how-to-send-push-notification-in-python">How to Send Push Notification in Python</a>
+<a href="https://www.javatpoint.com/how-to-use-redis-with-python">How to Use Redis with Python</a>
+<a href="https://www.javatpoint.com/advance-concepts-of-python-for-python-developer">Advance Concepts of Python for Python Developer</a>
+<a href="https://www.javatpoint.com/pycricbuzz-library-cricket-api-for-python">Pycricbuzz Library - Cricket API for Python</a>
+<a href="https://www.javatpoint.com/write-the-python-program-to-combine-two-dictionary-values-for-common-keys">Write the Python Program to Combine Two Dictionary Values for Common Keys</a>
+<a href="https://www.javatpoint.com/apache-airflow-in-python">Apache Airflow in Python</a>
+<a href="https://www.javatpoint.com/currying-in-python">Currying in Python</a>
+<a href="https://www.javatpoint.com/how-to-find-the-users-location-using-geolocation-api">How to Find the User's Location using Geolocation API</a>
+<a href="https://www.javatpoint.com/lru-cache-in-python">LRU Cache in Python</a>
+<a href="https://www.javatpoint.com/python-list-comprehension-vs-generator-expression">Python List Comprehension vs Generator Expression</a>
+<a href="https://www.javatpoint.com/python-output-formatting">Python Output Formatting</a>
+<a href="https://www.javatpoint.com/python-property-decorator">Python Property Decorator</a>
+<a href="https://www.javatpoint.com/dfs-in-python">DFS (Depth First Search) in Python</a>
+<a href="https://www.javatpoint.com/fast-api-a-framework-to-create-apis">Fast API Tutorial: A Framework to Create APIs</a>
+<a href="https://www.javatpoint.com/mirror-character-of-a-string-in-python">Mirror Character of a String in Python</a>
+<a href="https://www.javatpoint.com/python-imdbpy-a-library-for-movies">Python IMDbPY - A library for Movies</a>
+<a href="https://www.javatpoint.com/python-packing-and-unpacking-arguments-in-python">Python Packing and Unpacking Arguments in Python</a>
+<a href="https://www.javatpoint.com/python-pdb">Python pdb Tutorial - Python pdb</a>
+<a href="https://www.javatpoint.com/python-program-to-move-all-the-zeros-to-the-end-of-array">Python Program to Move all the zeros to the end of Array</a>
+<a href="https://www.javatpoint.com/regular-dictionary-vs-ordered-dictionary-in-python">Regular Dictionary vs Ordered Dictionary in Python</a>
+<a href="https://www.javatpoint.com/topology-sorting-in-python">Topology Sorting in Python</a>
+<a href="https://www.javatpoint.com/tqdm-integration-with-pandas">Tqdm Integration with Pandas</a>
+<a href="https://www.javatpoint.com/bisect-module-in-python">Bisect Module in Python</a>
+<a href="https://www.javatpoint.com/boruvkas-algorithm-minimum-spanning-trees">Boruvka's Algorithm - Minimum Spanning Trees</a>
+<a href="https://www.javatpoint.com/property-vs-attributes-in-python">Difference between Property and Attributes in Python</a>
+<a href="https://www.javatpoint.com/draw-great-indian-flag-using-python-code">Draw Great Indian Flag using Python Code</a>
+<a href="https://www.javatpoint.com/find-all-triplets-with-zero-sum-in-python">Find all triplets with Zero Sum in Python</a>
+<a href="https://www.javatpoint.com/generate-html-using-tinyhtml-module-in-python">Generate HTML using tinyhtml Module in Python</a>
+<a href="https://www.javatpoint.com/google-search-packages-using-python">Google Search Packages using Python</a>
+<a href="https://www.javatpoint.com/kmp-algorithm-implementation-of-kmp-algorithm-using-python">KMP Algorithm - Implementation of KMP Algorithm using Python</a>
+<a href="https://www.javatpoint.com/new-features-in-python-3_10">New Features in Python 3.10</a>
+<a href="https://www.javatpoint.com/types-of-constant-in-python">Types of Constant in Python</a>
+<a href="https://www.javatpoint.com/python-program-to-sort-an-odd-even-sort-or-odd-even-transposition-sort">Write a Python Program to Sort an Odd-Even sort or Odd even transposition Sort</a>
+<a href="https://www.javatpoint.com/python-program-to-print-the-doubly-linked-list-in-reverse-order">Write the Python Program to Print the Doubly Linked List in Reverse Order</a>
+<a href="https://www.javatpoint.com/application-to-get-live-usd-inr-rate-using-tkinter-in-python">Application to get live USD - INR rate using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/create-the-first-gui-application-using-pyqt5-in-python">Create the First GUI Application using PyQt5 in Python</a>
+<a href="https://www.javatpoint.com/simple-gui-calculator-using-pyqt5-in-python">Simple GUI calculator using PyQt5 in Python</a>
+<a href="https://www.javatpoint.com/best-resources-to-learn-numpy-and-pandas">Best Resources to Learn NumPy and Pandas</a>
+<a href="https://www.javatpoint.com/decision-tree-in-python-sklearn">Decision Tree in Python Sklearn</a>
+<a href="https://www.javatpoint.com/python-books-for-data-structures-and-algorithms">Python Books for Data Structures and Algorithms</a>
+<a href="https://www.javatpoint.com/python-tkinter-top-level-widget">Python Tkinter-Top level Widget</a>
+<a href="https://www.javatpoint.com/remove-first-character-from-string-in-python">Remove First Character from String in Python</a>
+<a href="https://www.javatpoint.com/loan-calculator-using-pyqt5-in-python">Loan Calculator using PyQt5 in Python</a>
+<a href="https://www.javatpoint.com/flappy-bird-game-using-pygame-in-python">Flappy Bird Game using PyGame in Python</a>
+<a href="https://www.javatpoint.com/rank-based-percentile-gui-calculator-using-pyqt5-in-python">Rank-Based Percentile GUI Calculator using PyQt5 in Python</a>
+<a href="https://www.javatpoint.com/3d-scatter-plotting-in-python-using-matplotlib">3D Scatter Plotting in Python using Matplotlib</a>
+<a href="https://www.javatpoint.com/function-annotations-in-python">Function Annotations in Python</a>
+<a href="https://www.javatpoint.com/numpy-3d-matrix-multiplication">Numpy-3d Matrix Multiplication</a>
+<a href="https://www.javatpoint.com/os_path_abspath-method-in-python">os.path.abspath() method in Python</a>
+<a href="https://www.javatpoint.com/emerging-advance-python-projects-2022">Emerging Advance Python Projects 2022</a>
+<a href="https://www.javatpoint.com/how-to-check-nan-values-in-pandas">How to Check Nan Values in Pandas</a>
+<a href="https://www.javatpoint.com/how-to-combine-two-dataframe-in-python-pandas">How to combine two dataframe in Python - Pandas</a>
+<a href="https://www.javatpoint.com/how-to-make-a-python-auto-clicker">How to make a Python auto clicker</a>
+<a href="https://www.javatpoint.com/age-calculator-using-pyqt5-in-python">Age Calculator using PyQt5 in Python</a>
+<a href="https://www.javatpoint.com/create-a-table-using-pyqt5-in-python">Create a Table using PyQt5 in Python</a>
+<a href="https://www.javatpoint.com/create-a-gui-calendar-using-pyqt5-in-python">Create a GUI Calendar using PyQt5 in Python</a>
+<a href="https://www.javatpoint.com/snake-game-using-pygame-in-python">Snake Game using PyGame in Python</a>
+<a href="https://www.javatpoint.com/return-two-values-from-a-function-in-python">Return two values from a function in Python</a>
+<a href="complete-roadmap-to-learn-python.html">Complete roadmap to learn Python</a>
+<a href="tree-view-widgets-and-tree-view-scrollbar-in-tkinter-python.html">Tree view widgets and Tree view scrollbar in Tkinter-Python</a>
+<a href="aes-ctr-python.html">AES CTR Python</a>
+<a href="https://www.javatpoint.com/curdir-python">Curdir Python</a>
+<a href="fastnlmeansdenoising-in-python.html">FastNlMeansDenoising in Python</a>
+<a href="python-email-utils.html">Python Email.utils</a>
+<a href="https://www.javatpoint.com/python-win32-process">Python Win32 Process</a>
+<a href="https://www.javatpoint.com/data-science-projects-in-python-with-proper-project-description">Data Science Projects in Python with Proper Project Description</a>
+<a href="https://www.javatpoint.com/how-to-practice-python-programming">How to Practice Python Programming</a>
+<a href="https://www.javatpoint.com/hypothesis-testing-python">Hypothesis Testing Python</a>
+<a href="https://www.javatpoint.com/args-and-kwargs-in-python">**args and **kwargs in Python</a>
+<a href="https://www.javatpoint.com/__file__-in-python">__file__ (A Special Variable) in Python</a>
+<a href="https://www.javatpoint.com/__future__-module-in-python">__future__ module in Python</a>
+<a href="https://www.javatpoint.com/applying-lambda-functions-to-pandas-dataframe">Applying Lambda functions to Pandas Dataframe</a>
+<a href="https://www.javatpoint.com/box-plot-in-python-using-matplotlib">Box Plot in Python using Matplotlib</a>
+<a href="https://www.javatpoint.com/box-cox-transformation-in-python">Box-Cox Transformation in Python</a>
+<a href="https://www.javatpoint.com/assertionerror-in-python">AssertionError in Python</a>
+<a href="https://www.javatpoint.com/find-key-with-maximum-value-in-dictionary">Find Key with Maximum Value in Dictionary</a>
+<a href="https://www.javatpoint.com/project-in-python-breast-cancer-classification-with-deep-learning">Project in Python - Breast Cancer Classification with Deep Learning</a>
+<a href="https://www.javatpoint.com/colour-game-using-pyqt5-in-python">Colour game using PyQt5 in Python</a>
+<a href="https://www.javatpoint.com/digital-clock-using-pyqt5-in-python">Digital clock using PyQt5 in Python</a>
+<a href="https://www.javatpoint.com/countdown-timer-using-pyqt5-in-python">Countdown Timer using PyQt5 in Python</a>
+<a href="https://www.javatpoint.com/gui-to-shut-down-restart-and-log-off-computer-using-tkinter-in-python">GUI to Shut Down, Restart, and Log off the computer using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/simple-flames-game-using-pyqt5-in-python">Simple FLAMES game using PyQt5 in Python</a>
+<a href="tree-view-widgets-and-tree-view-scrollbar-in-tkinter-python.html">Tree view widgets and Tree view scrollbar in Tkinter-Python</a>
+<a href="https://www.javatpoint.com/__getitem__-in-python">__getitem__() in Python</a>
+<a href="https://www.javatpoint.com/get-and-post-requests-using-python">GET and POST Requests using Python</a>
+<a href="https://www.javatpoint.com/attributeerror-in-python">AttributeError in Python</a>
+<a href="https://www.javatpoint.com/matplotlib_figure_figure_add_subplot-in-python">Matplotlib.figure.Figure.add_subplot() in Python</a>
+<a href="https://www.javatpoint.com/python-bit-functions-on-int">Python bit functions on int(bit_length,to_bytes and from_bytes)</a>
+<a href="https://www.javatpoint.com/check-if-string-has-character-in-python">Check if String has Character in Python</a>
+<a href="https://www.javatpoint.com/how-to-get-2-decimal-places-in-python">How to Get 2 Decimal Places in Python</a>
+<a href="https://www.javatpoint.com/how-to-get-index-of-element-in-list-python">How to Get Index of Element in List Python</a>
+<a href="https://www.javatpoint.com/nested-tuples-in-python">Nested Tuples in Python</a>
+<a href="https://www.javatpoint.com/gui-assistant-using-wolfram-alpha-api-in-python">GUI Assistant using Wolfram Alpha API in Python</a>
+<a href="https://www.javatpoint.com/signal-processing-hands-on-in-python">Signal Processing Hands-on in Python</a>
+<a href="https://www.javatpoint.com/scatter-plot-pandas-in-python">Scatter() plot pandas in Python</a>
+<a href="https://www.javatpoint.com/scatter-plot-matplotlib-in-python">Scatter() plot matplotlib in Python</a>
+<a href="https://www.javatpoint.com/data-analysis-project-ideas-in-python">Data Analysis Project Ideas in Python</a>
+<a href="https://www.javatpoint.com/building-a-notepad-using-pyqt5-and-python">Building a Notepad using PyQt5 and Python</a>
+<a href="https://www.javatpoint.com/simple-registration-form-using-pyqt5-in-python">Simple Registration form using PyQt5 in Python</a>
+<a href="https://www.javatpoint.com/conditional-expressions-in-python">Conditional Expressions in Python</a>
+<a href="https://www.javatpoint.com/how-to-print-a-list-without-brackets-in-python">How to Print a List Without Brackets in Python</a>
+<a href="https://www.javatpoint.com/how-to-rename-column-names-in-python">How to Rename Column Names in Python</a>
+<a href="https://www.javatpoint.com/looping-through-dataframe-in-python">Looping Through DataFrame in Python</a>
+<a href="https://www.javatpoint.com/music-recommendation-system-python-project-with-source-code">Music Recommendation System Python Project with Source Code</a>
+<a href="https://www.javatpoint.com/python-counter-add">Python counter add</a>
+<a href="https://www.javatpoint.com/python-project-with-source-code-profile-finder-in-github">Python Project with Source Code - Profile Finder in GitHub</a>
+<a href="https://www.javatpoint.com/python-algorithms">Python Algorithms</a>
+<a href="https://www.javatpoint.com/python-descriptors">Python descriptors</a>
+<a href="https://www.javatpoint.com/python-false">Python false</a>
+<a href="https://www.javatpoint.com/python-front-end-framework">Python front end framework</a>
+<a href="https://www.javatpoint.com/python-javascript-browser">Python javascript browser</a>
+<a href="https://www.javatpoint.com/python-linter">Python linter</a>
+<a href="https://www.javatpoint.com/tokens-and-character-set-in-python">Tokens and Character Set in Python</a>
+<a href="https://www.javatpoint.com/web-development-project-in-python">Web Development Project in Python</a>
+<a href="https://www.javatpoint.com/why-python-is-so-popular">Why Python is so Popular</a>
+<a href="https://www.javatpoint.com/companies-that-use-python">Companies that Use Python</a>
+<a href="https://www.javatpoint.com/how-to-learn-python-faster">How to Learn Python Faster</a>
+<a href="https://www.javatpoint.com/legb-rule-in-python">Legb Rule in Python</a>
+<a href="https://www.javatpoint.com/python-discord-bot">Python Discord Bot</a>
+<a href="https://www.javatpoint.com/python-documentation-best-practices">Python Documentation Best Practices</a>
+<a href="https://www.javatpoint.com/python-mobile-app-development">Python Mobile App Development</a>
+<a href="https://www.javatpoint.com/save-json-file-in-python">Save json File in Python</a>
+<a href="https://www.javatpoint.com/scratch-and-python-basics">Scratch and Python Basics</a>
+<a href="https://www.javatpoint.com/sentiment-analysis-using-nltk">Sentiment Analysis using NLTK</a>
+<a href="https://www.javatpoint.com/desktop-battery-notifier-using-python">Desktop Battery Notifier using Python</a>
+<a href="https://www.javatpoint.com/how-to-assign-list-item-to-dictionary">How to Assign List Item to Dictionary</a>
+<a href="https://www.javatpoint.com/how-to-compress-images-in-python">How to Compress Images in Python</a>
+<a href="https://www.javatpoint.com/how-to-concatenate-tuples-to-nested-tuples">How to Concatenate Tuples to Nested Tuples</a>
+<a href="https://www.javatpoint.com/how-to-create-a-simple-chatroom-in-python">How to Create a Simple Chatroom in Python</a>
+<a href="https://www.javatpoint.com/how-to-humanize-the-delorean-datetime-objects">How to Humanize the Delorean Datetime Objects</a>
+<a href="https://www.javatpoint.com/how-to-print-colored-text-in-python">How to Print Colored Text in Python</a>
+<a href="https://www.javatpoint.com/how-to-remove-single-quotes-from-strings-in-python">How to Remove Single Quotes from Strings in Python</a>
+<a href="https://www.javatpoint.com/pyscript">PyScript Tutorial | Run Python Script in the Web Browser</a>
+<a href="https://www.javatpoint.com/python-flashtext-module">Python FlashText Module</a>
+<a href="https://www.javatpoint.com/python-libraries-for-pdf-extraction">Python Libraries for PDF Extraction</a>
+<a href="https://www.javatpoint.com/reading-and-writing-lists-to-a-file-in-python">Reading and Writing Lists to a File in Python</a>
+<a href="https://www.javatpoint.com/image-viewer-application-using-pyqt5-in-python">Image Viewer Application using PyQt5 in Python</a>
+<a href="https://www.javatpoint.com/best-compilers-for-python">Best Compilers for Python</a>
+<a href="https://www.javatpoint.com/parse-error-python">Parse error python</a>
+<a href="https://www.javatpoint.com/pass-function-as-parameter-python">Pass function as parameter python</a>
+<a href="https://www.javatpoint.com/edge-computing-project-ideas-list-part-1">Edge Computing Project Ideas List Part- 1</a>
+<a href="https://www.javatpoint.com/numpy-operations">NumPy Operations</a>
+<a href="https://www.javatpoint.com/sklearn-ensemble">Sklearn Ensemble</a>
+<a href="https://www.javatpoint.com/parse-date-from-string-python">Parse date from string python</a>
+<a href="https://www.javatpoint.com/parse-timestamp-python">Parse timestamp python</a>
+<a href="https://www.javatpoint.com/parsing-data-in-python">Parsing data in python</a>
+<a href="https://www.javatpoint.com/parsing-tsv-python">Parsing tsv python</a>
+<a href="https://www.javatpoint.com/path-python-linux">Path python linux</a>
+<a href="https://www.javatpoint.com/edge-computing-project-ideas-list-part-2">Edge Computing Project Ideas List Part- 2</a>
+<a href="https://www.javatpoint.com/how-to-get-indices-of-all-occurrences-of-an-element-in-python">How to Get Indices of All Occurrences of an Element in Python</a>
+<a href="https://www.javatpoint.com/how-to-get-the-number-of-rows-and-columns-in-dataframe-python">How to Get the Number of Rows and Columns in Dataframe Python</a>
+<a href="https://www.javatpoint.com/python-coding-platform">Python Coding Platform</a>
+<a href="https://www.javatpoint.com/return-two-values-from-a-function-python">Return Two Values from a Function Python</a>
+<a href="https://www.javatpoint.com/best-apps-for-practicing-python-programming">Best Apps for Practicing Python Programming</a>
+<a href="https://www.javatpoint.com/ide-vs-code-editor">IDE vs Code Editor</a>
+<a href="https://www.javatpoint.com/pass-variable-to-dictionary-in-python">Pass variable to dictionary in Python</a>
+<a href="https://www.javatpoint.com/passing-an-array-to-a-function-python">Passing an array to a function python</a>
+<a href="https://www.javatpoint.com/patch-object-python">Patch.object python</a>
+<a href="https://www.javatpoint.com/pause-in-python-script">Pause in python script</a>
+<a href="https://www.javatpoint.com/best-python-interpreters-to-use-in-2023">Best Python Interpreters to Use in 2023</a>
+<a href="https://www.javatpoint.com/numpy-attributes">NumPy Attributes</a>
+<a href="https://www.javatpoint.com/expense-tracker-application-using-tkinter-in-python">Expense Tracker Application using Tkinter in Python</a>
+<a href="https://www.javatpoint.com/variable-scope-in-python">Variable Scope in Python</a>
+<a href="https://www.javatpoint.com/alphabet-in-python">Alphabet in Python</a>
+<a href="https://www.javatpoint.com/python-find-in-list">Python Find in List</a>
+<a href="https://www.javatpoint.com/python-infinity">Python Infinity</a>
+<a href="https://www.javatpoint.com/flask-authentication-in-python">Flask Authentication in Python</a>
+<a href="https://www.javatpoint.com/fourier-transform-python">Fourier Transform Python</a>
+<a href="https://www.javatpoint.com/idle-software-in-python">IDLE Software in Python</a>
+<a href="https://www.javatpoint.com/numpy-functions">NumPy Functions</a>
+<a href="https://www.javatpoint.com/apschedular-python-example">APSchedular Python Example</a>
+<a href="https://www.javatpoint.com/oserror-python">Oserror Python</a>
+<a href="https://www.javatpoint.com/empty-tuple-python">Empty Tuple Python</a>
+<a href="https://www.javatpoint.com/plot-line-in-python">Plot Line in Python</a>
+<a href="https://www.javatpoint.com/python-mutable-data-types">Python Mutable Data Types</a>
+<a href="https://www.javatpoint.com/python-mutable-vs-immutable-data-types">Python Mutable vs. Immutable Data Types</a>
+<a href="https://www.javatpoint.com/python-variance-function">Python Variance Function</a>
+<a href="https://www.javatpoint.com/fashion-recommendation-project-using-python">Fashion Recommendation Project using Python</a>
+<a href="https://www.javatpoint.com/social-progress-index-analysis-project-in-python">Social Progress Index Analysis Project in Python</a>
+<a href="https://www.javatpoint.com/advance-bar-graph-in-python">Advance Bar Graph in Python</a>
+<a href="https://www.javatpoint.com/advantages-of-python-over-other-languages">Advantages Of Python Over Other Languages</a>
+<a href="different-methods-to-clear-list-in-python.html">Different Methods To Clear List In Python</a>
+<a href="password-validation-in-python.html">Password Validation in Python</a>
+<a href="common-structure-of-python-compound-statements.html">Common Structure of Python Compound Statements</a>
+<a href="weather-api-python.html">Weather API Python</a>
+<a href="get-image-data-in-python.html">Get Image Data in Python</a>
+<a href="ipython-display.html">IPython Display</a>
+<a href="joint-plot-in-python.html">Joint Plot in Python</a>
+<a href="not-operator-in-python.html">"Not" Operator in Python</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python Tkinter (GUI)</span></h2>
+</div>
+<div class="leftmenu">
+<a href="python-tkinter.html">Python Tkinter</a>
+<a href="python-tkinter-button.html">Tkinter Button</a>
+<a href="python-tkinter-canvas.html">Tkinter Canvas</a>
+<a href="python-tkinter-checkbutton.html">Tkinter Checkbutton</a>
+<a href="python-tkinter-entry.html">Tkinter Entry</a>
+<a href="python-tkinter-frame.html">Tkinter Frame</a>
+<a href="python-tkinter-label.html">Tkinter Label</a>
+<a href="python-tkinter-listbox.html">Tkinter Listbox</a>
+<a href="python-tkinter-menubutton.html">Tkinter Menubutton</a>
+<a href="python-tkinter-menu.html">Tkinter Menu</a>
+<a href="python-tkinter-message.html">Tkinter Message</a>
+<a href="python-tkinter-radiobutton.html">Tkinter Radiobutton</a>
+<a href="python-tkinter-scale.html">Tkinter Scale</a>
+<a href="python-tkinter-scrollbar.html">Tkinter Scrollbar</a>
+<a href="python-tkinter-text.html">Tkinter Text</a>
+<a href="python-tkinter-toplevel.html">Tkinter Toplevel</a>
+<a href="python-tkinter-spinbox.html">Tkinter Spinbox</a>
+<a href="python-tkinter-panedwindow.html">Tkinter PanedWindow</a>
+<a href="python-tkinter-labelframe.html">Tkinter LabelFrame</a>
+<a href="python-tkinter-messagebox.html">Tkinter MessageBox</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python Web Blocker</span></h2>
+</div>
+<div class="leftmenu">
+<a href="python-website-blocker.html">Introduction</a>
+<a href="python-website-blocker-building-python-script.html">Building Python Script</a>
+<a href="python-website-blocker-script-deployment-on-linux.html">Script Deployment on Linux</a>
+<a href="python-website-blocker-script-deployment-on-windows.html">Script Deployment on Windows</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="python-mcq.html">Python MCQ</a>
+<a href="python-mcq-part-2.html">Python MCQ Part 2</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Related Tutorials</span></h2>
+</div>
+<div class="leftmenu">
+<a href="numpy-tutorial.html"><span>NumPy Tutorial</span></a>
+<a href="django-tutorial.html"><span>Django Tutorial</span></a>
+<a href="flask-tutorial.html"><span>Flask Tutorial</span></a>
+<a href="python-pandas.html"><span>Pandas Tutorial</span></a>
+<a href="pytorch.html"><span>Pytorch Tutorial</span></a>
+<a href="pygame.html"><span>Pygame Tutorial</span></a>
+<a href="matplotlib.html"><span>Matplotlib Tutorial</span></a>
+<a href="opencv.html"><span>OpenCV Tutorial</span></a>
+<a href="python-openpyxl.html"><span>Openpyxl Tutorial</span></a>
+<a href="python-cgi-programming.html">Python CGI</a>
+<a href="python-design-pattern.html"><span>Python Design Pattern</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Python Programs</span></h2>
+</div>
+<div class="leftmenu">
+<a href="python-programs.html"><span>Python Programs</span></a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="python-lists.html">next &rarr;</a>
+<a class="next" href="python-numbers.html">&larr; prev</a>
+</div>
+<h1 class="h1">Python String</h1>
+<p>Till now, we have discussed numbers as the standard data-types in Python. In this section of the tutorial, we will discuss the most popular data type in Python, i.e., string.</p>
+<p>Python string is the collection of the characters surrounded by single quotes, double quotes, or triple quotes. The computer does not understand the characters; internally, it stores manipulated character as the combination of the 0's and 1's.</p>
+<p>Each character is encoded in the ASCII or Unicode character. So we can say that Python strings are also called the collection of Unicode characters.</p>
+<p>In Python, strings can be created by enclosing the character or the sequence of characters in the quotes. Python allows us to use single quotes, double quotes, or triple quotes to create the string.</p>
+<p>Consider the following example in Python to create a string.</p>
+<h3 class="h3">Syntax:</h3>
+<div class="codeblock"><textarea name="code" class="python">
+str = "Hi Python !"  
+</textarea></div>
+<p>Here, if we check the type of the variable <strong>str</strong> using a Python script</p>
+<div class="codeblock"><textarea name="code" class="python">
+print(type(str)), then it will print a string (str).  
+</textarea></div>
+<p>In Python, strings are treated as the sequence of characters, which means that Python doesn't support the character data-type; instead, a single character written as 'p' is treated as the string of length 1.</p>
+<h2 class="h2">Creating String in Python</h2>
+<p>We can create a string by enclosing the characters in single-quotes or double- quotes. Python also provides triple-quotes to represent the string, but it is generally used for multiline string or <strong>docstrings</strong>.</p>
+<div class="codeblock"><textarea name="code" class="python">
+#Using single quotes
+str1 = 'Hello Python'
+print(str1)
+#Using double quotes
+str2 = "Hello Python"
+print(str2)
+
+#Using triple quotes
+str3 = '''Triple quotes are generally used for 
+    represent the multiline or
+    docstring''' 
+print(str3)
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Hello Python
+Hello Python
+Triple quotes are generally used for 
+    represent the multiline or
+    docstring
+</pre></div>
+<h2 class="h2">Strings indexing and splitting</h2>
+<p>Like other languages, the indexing of the Python strings starts from 0. For example, The string "HELLO" is indexed as given in the below figure.</p>
+<img src="https://static.javatpoint.com/python/images/strings-indexing-and-splitting.png" alt="Python String" />
+<p>Consider the following example:</p>
+<div class="codeblock"><textarea name="code" class="python">
+str = "HELLO"
+print(str[0])
+print(str[1])
+print(str[2])
+print(str[3])
+print(str[4])
+# It returns the IndexError because 6th index doesn't exist
+print(str[6])
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>H
+E
+L
+L
+O
+IndexError: string index out of range
+</pre></div>
+<p>As shown in Python, the slice operator [] is used to access the individual characters of the string. However, we can use the : (colon) operator in Python to access the substring from the given string. Consider the following example.</p>
+<img src="https://static.javatpoint.com/python/images/strings-indexing-and-splitting2.png" alt="Python String" />
+<p>Here, we must notice that the upper range given in the slice operator is always exclusive i.e., if str = 'HELLO' is given, then str[1:3] will always include str[1] = 'E', str[2] = 'L' and nothing else.</p>
+<p>Consider the following example:</p>
+<div class="codeblock"><textarea name="code" class="python">
+# Given String
+str = "JAVATPOINT"
+# Start Oth index to end
+print(str[0:])
+# Starts 1th index to 4th index
+print(str[1:5])
+# Starts 2nd index to 3rd index
+print(str[2:4])
+# Starts 0th to 2nd index
+print(str[:3])
+#Starts 4th to 6th index
+print(str[4:7])
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>JAVATPOINT
+AVAT
+VA
+JAV
+TPO
+</pre></div>
+<p>We can do the negative slicing in the string; it starts from the rightmost character, which is indicated as -1. The second rightmost index indicates -2, and so on. Consider the following image.</p>
+<img src="https://static.javatpoint.com/python/images/strings-indexing-and-splitting3.png" alt="Python String" />
+<p>Consider the following example</p>
+<div class="codeblock"><textarea name="code" class="python">
+str = 'JAVATPOINT'
+print(str[-1])
+print(str[-3])
+print(str[-2:])
+print(str[-4:-1])
+print(str[-7:-2])
+# Reversing the given string
+print(str[::-1])
+print(str[-12])
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>T
+I
+NT
+OIN
+ATPOI
+TNIOPTAVAJ
+IndexError: string index out of range
+</pre></div>
+<h2 class="h2">Reassigning Strings</h2>
+<p>Updating the content of the strings is as easy as assigning it to a new string. The string object doesn't support item assignment i.e., A string can only be replaced with new string since its content cannot be partially replaced. Strings are immutable in Python.</p>
+<p>Consider the following example.</p>
+<h3 class="h3">Example 1</h3>
+<div class="codeblock"><textarea name="code" class="python">
+str = "HELLO"  
+str[0] = "h"  
+print(str)  
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Traceback (most recent call last):
+  File "12.py", line 2, in &lt;module&gt;
+    str[0] = "h";
+TypeError: 'str' object does not support item assignment
+</pre></div>
+<p>However, in example 1, the string <strong>str</strong> can be assigned completely to a new content as specified in the following example.</p>
+<h3 class="h3">Example 2</h3>
+<div class="codeblock"><textarea name="code" class="python">
+str = "HELLO"  
+print(str)  
+str = "hello"  
+print(str)  
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>HELLO
+hello  
+</pre></div>
+<h2 class="h2">Deleting the String</h2>
+<p>As we know that strings are immutable. We cannot delete or remove the characters from the string.&nbsp; But we can delete the entire string using the <strong>del</strong> keyword.</p>
+<div class="codeblock"><textarea name="code" class="python">
+str = "JAVATPOINT"
+del str[1]
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>TypeError: 'str' object doesn't support item deletion
+</pre></div>
+<p>Now we are deleting entire string.</p>
+<div class="codeblock"><textarea name="code" class="python">
+str1 = "JAVATPOINT"
+del str1
+print(str1)
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>NameError: name 'str1' is not defined
+</pre></div>
+<h2 class="h2">String Operators</h2>
+<table class="alt">
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>+</td>
+<td>It is known as concatenation operator used to join the strings given either side of the operator. </td>
+</tr>
+<tr>
+<td>*</td>
+<td>It is known as repetition operator. It concatenates the multiple copies of the same string. </td>
+</tr>
+<tr>
+<td>[]</td>
+<td>It is known as slice operator. It is used to access the sub-strings of a particular string. </td>
+</tr>
+<tr>
+<td>[:]</td>
+<td>It is known as range slice operator. It is used to access the characters from the specified range. </td>
+</tr>
+<tr>
+<td>in</td>
+<td>It is known as membership operator. It returns if a particular sub-string is present in the specified string. </td>
+</tr>
+<tr>
+<td>not in </td>
+<td>It is also a membership operator and does the exact reverse of in. It returns true if a particular substring is not present in the specified string. </td>
+</tr>
+<tr>
+<td>r/R</td>
+<td>It is used to specify the raw string. Raw strings are used in the cases where we need to print the actual meaning of escape characters such as "C://python". To define any string as a raw string, the character r or R is followed by the string. </td>
+</tr>
+<tr>
+<td>%</td>
+<td>It is used to perform string formatting. It makes use of the format specifiers used in C programming like %d or %f to map their values in python. We will discuss how formatting is done in python. </td>
+</tr>
+</table>
+<h3 class="h3">Example</h3>
+<p>Consider the following example to understand the real use of Python operators.</p>
+<div class="codeblock"><textarea name="code" class="python">
+str = "Hello"   
+str1 = " world"  
+print(str*3) # prints HelloHelloHello  
+print(str+str1)# prints Hello world   
+print(str[4]) # prints o              
+print(str[2:4]); # prints ll                  
+print('w' in str) # prints false as w is not present in str  
+print('wo' not in str1) # prints false as wo is present in str1.   
+print(r'C://python37') # prints C://python37 as it is written  
+print("The string str : %s"%(str)) # prints The string str : Hello   
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>HelloHelloHello
+Hello world
+o
+ll
+False
+False
+C://python37
+The string str : Hello
+</pre></div>
+<h2 class="h2">Python String Formatting</h2>
+<h3 class="h3">Escape Sequence</h3>
+<p>Let's suppose we need to write the text as - They said, "Hello what's going on?"- the given statement can be written in single quotes or double quotes but it will raise the <strong>SyntaxError</strong> as it contains both single and double-quotes.</p>
+<h2 class="h3">Example </h2>
+<p>Consider the following example to understand the real use of Python operators. </p>
+<div class="codeblock"><textarea name="code" class="python">
+str = "They said, "Hello what's going on?""
+print(str)
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>SyntaxError: invalid syntax
+</pre></div>
+<p>We can use the triple quotes to accomplish this problem but Python provides the escape sequence.</p>
+<p>The backslash(/) symbol denotes the escape sequence. The backslash can be followed by a special character and it interpreted differently. The single quotes inside the string must be escaped. We can apply the same as in the double quotes.</p>
+<h3 class="h3">Example -</h3>
+<div class="codeblock"><textarea name="code" class="python">
+# using triple quotes
+print('''They said, "What's there?"''')
+
+# escaping single quotes
+print('They said, "What\'s going on?"')
+
+# escaping double quotes
+print("They said, \"What's going on?\"")
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>They said, "What's there?"
+They said, "What's going on?"
+They said, "What's going on?"
+</pre></div>
+<p>The list of an escape sequence is given below:</p>
+<table class="alt">
+<tr>
+<th>Sr.</th>
+<th>Escape Sequence</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+<tr>
+<td>1.</td>
+<td>\newline</td>
+<td>It ignores the new line.</td>
+<td><pre>print("Python1 \
+Python2 \
+Python3")</pre>
+<strong>Output:</strong>
+<pre>Python1 Python2 Python3</pre></td>
+</tr>
+<tr>
+<td>2.</td>
+<td>\\</td>
+<td>Backslash</td>
+<td><pre>print("\\")</pre>
+<strong>Output:</strong>
+<pre>\</pre></td>
+</tr>
+<tr>
+<td>3.</td>
+<td>\'</td>
+<td>Single Quotes</td>
+<td><pre>print('\'')</pre>
+<strong>Output:</strong>
+<pre>'</pre></td>
+</tr>
+<tr>
+<td>4.</td>
+<td>\\''</td>
+<td>Double Quotes</td>
+<td><pre>print("\"")</pre>
+<strong>Output:</strong>
+<pre>"</pre></td>
+</tr>
+<tr>
+<td>5.</td>
+<td>\a</td>
+<td>ASCII Bell</td>
+<td><pre>print("\a")</pre></td>
+</tr>
+<tr>
+<td>6.</td>
+<td>\b</td>
+<td>ASCII Backspace(BS)</td>
+<td><pre>print("Hello \b World")</pre>
+<strong>Output:</strong>
+<pre>Hello World</pre></pre></td>
+</tr>
+<tr>
+<td>7.</td>
+<td>\f</td>
+<td>ASCII Formfeed</td>
+<td><pre>print("Hello \f World!")
+Hello  World!</pre></td>
+</tr>
+<tr>
+<td>8.</td>
+<td>\n</td>
+<td>ASCII Linefeed</td>
+<td><pre>print("Hello \n World!")</pre>
+<strong>Output:</strong>
+<pre>Hello
+ World!</pre></td>
+</tr>
+<tr>
+<td>9.</td>
+<td>\r</td>
+<td>ASCII Carriege Return(CR)</td>
+<td><pre>print("Hello \r World!")</pre>
+<strong>Output:</strong>
+<pre>World!</pre></td>
+</tr>
+<tr>
+<td>10.</td>
+<td>\t</td>
+<td>ASCII Horizontal Tab</td>
+<td><pre>print("Hello \t World!")</pre>
+<strong>Output:</strong>
+<pre>Hello 	 World!</pre></pre></td>
+</tr>
+<tr>
+<td>11.</td>
+<td>\v</td>
+<td>ASCII Vertical Tab</td>
+<td><pre>print("Hello \v World!")</pre>
+<strong>Output:</strong>
+<pre>Hello 
+ World!</pre></td>
+</tr>
+<tr>
+<td>12.</td>
+<td>\ooo</td>
+<td>Character with octal value</td>
+<td><pre>print("\110\145\154\154\157")<pre><strong>Output:</strong>
+<pre>Hello</pre></td>
+</tr>
+<tr>
+	<td>13</td>
+	<td>\xHH</td>
+	<td>Character with hex value.</td>
+	<td><pre>print("\x48\x65\x6c\x6c\x6f")</pre>
+<strong>Output:</strong>
+<pre>Hello</pre></td>
+</tr>
+</table>
+<p>Here is the simple example of escape sequence.</p>
+<div class="codeblock"><textarea name="code" class="python">
+print("C:\\Users\\DEVANSH SHARMA\\Python32\\Lib")
+print("This is the \n multiline quotes")
+print("This is \x48\x45\x58 representation")
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>C:\Users\DEVANSH SHARMA\Python32\Lib
+This is the 
+ multiline quotes
+This is HEX representation
+</pre></div>
+<p>We can ignore the escape sequence from the given string by using the raw string. We can do this by writing <strong>r</strong> or <strong>R</strong> in front of the string. Consider the following example.</p>
+<div class="codeblock"><textarea name="code" class="python">
+print(r"C:\\Users\\DEVANSH SHARMA\\Python32")
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>C:\\Users\\DEVANSH SHARMA\\Python32
+</pre></div>
+<h2 class="h2">The format() method</h2>
+<p>The <strong>format()</strong> method is the most flexible and useful method in formatting strings. The curly braces {} are used as the placeholder in the string and replaced by the <strong>format()</strong> method argument. Let's have a look at the given an example:</p>
+<div class="codeblock"><textarea name="code" class="python">
+# Using Curly braces
+print("{} and {} both are the best friend".format("Devansh","Abhishek"))
+
+#Positional Argument
+print("{1} and {0} best players ".format("Virat","Rohit"))
+
+#Keyword Argument
+print("{a},{b},{c}".format(a = "James", b = "Peter", c = "Ricky"))
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Devansh and Abhishek both are the best friend
+Rohit and Virat best players 
+James,Peter,Ricky 
+</pre></div>
+<h2 class="h2">Python String Formatting Using % Operator</h2>
+<p>Python allows us to use the format specifiers used in C's printf statement. The format specifiers in Python are treated in the same way as they are treated in C. However, Python provides an additional operator %, which is used as an interface between the format specifiers and their values. In other words, we can say that it binds the format specifiers to the values.</p>
+<p>Consider the following example.</p>
+<div class="codeblock"><textarea name="code" class="python">
+Integer = 10;  
+Float = 1.290  
+String = "Devansh"  
+print("Hi I am Integer ... My value is %d\nHi I am float ... My value is %f\nHi I am string ... My value is %s"%(Integer,Float,String))  
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Hi I am Integer ... My value is 10
+Hi I am float ... My value is 1.290000
+Hi I am string ... My value is Devansh
+</pre></div>
+<hr />
+
+<h2 class="h2">Python String functions</h2>
+<p>Python provides various in-built functions that are used for string handling. Many String fun</p>
+<table class="alt">
+<tr>
+	<th>Method </th>
+	<th>Description</th>
+</tr>
+<tr>
+	<td><a href="python-string-capitalize-method.html">capitalize()</a></td>
+	<td>It capitalizes the first character of the String. This function is deprecated in python3</td>
+</tr>
+<tr>
+	<td><a href="python-string-casefold-method.html">casefold()</a></td>
+	<td>It returns a version of s suitable for case-less comparisons. </td>
+</tr>
+<tr>
+	<td><a href="python-string-center-method.html">center(width ,fillchar)</a></td>
+	<td>It returns a space padded string with the original string centred with equal number of left and right spaces. </td>
+</tr>
+<tr>
+	<td><a href="python-string-count-method.html">count(string,begin,end)</a></td>
+	<td>It counts the number of occurrences of a substring in a String between begin and end index.</td>
+</tr>
+<tr>
+	<td>decode(encoding = 'UTF8', errors = 'strict')</td>
+	<td>Decodes the string using codec registered for encoding. </td>
+</tr>
+<tr>
+	<td><a href="python-string-encode-method.html">encode()</a></td>
+	<td>Encode S using the codec registered for encoding. Default encoding is 'utf-8'. </td>
+</tr>
+<tr>
+	<td><a href="python-string-endswith-method.html">endswith(suffix ,begin=0,end=len(string))</a></td>
+	<td>It returns a Boolean value if the string terminates with given suffix between begin and end.</td>
+</tr>
+<tr>
+	<td><a href="python-string-expandtabs-method.html">expandtabs(tabsize = 8)</a></td>
+	<td>It defines tabs in string to multiple spaces. The default space value is 8.</td>
+</tr>
+<tr>
+	<td><a href="python-string-find-method.html">find(substring ,beginIndex, endIndex)</a></td>
+	<td>It returns the index value of the string where substring is found between begin index and end index.</td>
+</tr>
+<tr>
+	<td><a href="python-string-format-method.html">format(value)</a></td>
+	<td>It returns a formatted version of S, using the passed value. </td>
+</tr>
+<tr>
+	<td><a href="python-string-index-method.html">index(subsring, beginIndex, endIndex)</a></td>
+	<td>It throws an exception if string is not found. It works same as find() method.</td>
+</tr>
+<tr>
+	<td><a href="python-string-isalnum-method.html">isalnum()</a></td>
+	<td>It returns true if the characters in the string are alphanumeric i.e., alphabets or numbers and there is at least 1 character. Otherwise, it returns false.</td>
+</tr>
+<tr>
+	<td><a href="python-string-isalpha-method.html">isalpha()</a></td>
+	<td>It returns true if all the characters are alphabets and there is at least one character, otherwise False.</td>
+</tr>
+<tr>
+	<td><a href="python-string-isdecimal-method.html">isdecimal()</a></td>
+	<td>It returns true if all the characters of the string are decimals. </td>
+</tr>
+<tr>
+	<td><a href="python-string-isdigit-method.html">isdigit()</a></td>
+	<td>It returns true if all the characters are digits and there is at least one character, otherwise False.</td>
+</tr>
+<tr>
+	<td><a href="python-string-isidentifier-method.html">isidentifier()<a /></td>
+	<td>It returns true if the string is the valid identifier. </td>
+</tr>
+<tr>
+	<td><a href="python-string-islower-method.html">islower()</a></td>
+	<td>It returns true if the characters of a string are in lower case, otherwise false.</td>
+</tr>
+<tr>
+	<td><a href="python-string-isnumeric-method.html">isnumeric()</a></td>
+	<td>It returns true if the string contains only numeric characters. </td>
+</tr>
+<tr>
+	<td><a href="python-string-isprintable-method.html">isprintable()</a></td>
+	<td>It returns true if all the characters of s are printable or s is empty, false otherwise. </td>
+</tr>
+<tr>
+	<td><a href="python-string-isupper-method.html">isupper()</a></td>
+	<td>It returns false if characters of a string are in Upper case, otherwise False.</td>
+</tr>
+<tr>
+	<td><a href="python-string-isspace-method.html">isspace()</a></td>
+	<td>It returns true if the characters of a string are white-space, otherwise false.</td>
+</tr>
+<tr>
+	<td><a href="python-string-istitle-method.html">istitle()</a></td>
+	<td>It returns true if the string is titled properly and false otherwise. A title string is the one in which the first character is upper-case whereas the other characters are lower-case. </td>
+</tr>
+<tr>
+	<td><a href="python-string-isupper-method.html">isupper()</a></td>
+	<td>It returns true if all the characters of the string(if exists) is true otherwise it returns false. </td>
+</tr>
+<tr>
+	<td><a href="python-string-join-method.html">join(seq)</a></td>
+	<td>It merges the strings representation of the given sequence. </td>
+</tr>
+<tr>
+	<td>len(string)</td>
+	<td>It returns the length of a string.</td>
+</tr>
+<tr>
+	<td><a href="python-string-ljust-method.html">ljust(width[,fillchar])</a></td>
+	<td>It returns the space padded strings with the original string left justified to the given width. </td>
+</tr>
+<tr>
+	<td><a href="python-string-lower-method.html">lower()</a></td>
+	<td>It converts all the characters of a string to Lower case.</td>
+</tr>
+<tr>
+	<td><a href="python-string-lstrip-method.html">lstrip()</a></td>
+	<td>It removes all leading whitespaces of a string and can also be used to remove particular character from leading.</td>
+</tr>
+<tr>
+	<td><a href="python-string-partition-method.html">partition()</a></td>
+	<td>It searches for the separator sep in S, and returns the part before it, the separator itself, and the part after it.  If the separator is not found, return S and two empty strings.</td>
+</tr>
+<tr>
+	<td>maketrans()</td>
+	<td>It returns a translation table to be used in translate function. </td>
+</tr>
+<tr>
+	<td><a href="python-string-replace-method.html">replace(old,new[,count]) </a></td>
+	<td>It replaces the old sequence of characters with the new sequence. The max characters are replaced if max is given. </td>
+</tr>
+<tr>
+	<td><a href="python-string-rfind-method.html">rfind(str,beg=0,end=len(str))</a></td>
+	<td>It is similar to find but it traverses the string in backward direction. </td>
+</tr>
+<tr>
+	<td><a href="python-string-rindex-method.html">rindex(str,beg=0,end=len(str))</a> </td>
+	<td>It is same as index but it traverses the string in backward direction. </td>
+</tr>
+<tr>
+	<td><a href="python-string-rjust-method.html">rjust(width,[,fillchar])</a></td>
+	<td>Returns a space padded string having original string right justified to the number of characters specified. </td>
+</tr>
+<tr>
+	<td><a href="python-string-rstrip-method.html">rstrip()</a></td>
+	<td>It removes all trailing whitespace of a string and can also be used to remove particular character from trailing.</td>
+</tr>
+<tr>
+	<td><a href="python-string-rsplit-method.html">rsplit(sep=None, maxsplit = -1)</a></td>
+	<td>It is same as split() but it processes the string from the backward direction. It returns the list of words in the string. If Separator is not specified then the string splits according to the white-space. </td>
+</tr>
+<tr>
+	<td><a href="python-string-split-method.html">split(str,num=string.count(str)) </a></td>
+	<td>Splits the string according to the delimiter str. The string splits according to the space if the delimiter is not provided. It returns the list of substring concatenated with the delimiter.    </td>
+</tr>
+<tr>
+	<td><a href="python-string-splitlines-method.html">splitlines(num=string.count('\n'))</a></td>
+	<td>It returns the list of strings at each line with newline removed. </td>
+</tr>
+<tr>
+	<td><a href="python-string-startswith-method.html">startswith(str,beg=0,end=len(str))</a> </td>
+	<td>It returns a Boolean value if the string starts with given str between begin and end. </td>
+</tr>
+<tr>
+	<td>strip([chars]) </td>
+	<td>It is used to perform lstrip() and rstrip() on the string. </td>
+</tr>
+<tr>
+	<td><a href="python-string-swapcase-method.html">swapcase()</a></td>
+	<td>It inverts case of all characters in a string.</td>
+</tr>
+<tr>
+	<td>title() </td>
+	<td>It is used to convert the string into the title-case i.e., The string <strong>meEruT</strong> will be converted to Meerut.  </td>
+</tr>
+<tr>
+	<td><a href="python-string-translate-method.html">translate(table,deletechars = '')</a></td>
+	<td>It translates the string according to the translation table passed in the function . </td>
+</tr>
+<tr>
+	<td><a href="python-string-upper-method.html">upper()</a></td>
+	<td>It converts all the characters of a string to Upper Case.</td>
+</tr>
+<tr>
+	<td><a href="python-string-zfill-method.html">zfill(width)</a></td>
+	<td>Returns original string leftpadded with zeros to a total of width characters; intended for numbers, zfill() retains any sign given (less one zero).</td>
+</tr>
+<tr>
+	<td><a href="python-string-rpartition-method.html">rpartition()</a></td>
+	<td></td>
+</table>
+
+
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="python-lists.html">Python Lists</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="python-numbers.html">&larr; prev</a>
+<a style="float:right" class="next" href="python-lists.html">next &rarr;</a>
+</div>
+
+<br /><br />
+</td></tr>
+</table>
+</div>
+ 
+
+
+
+
+<hr class="hrhomebox" />
+
+               <div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+               <span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+               </div>
+               <hr class="hrhomebox" />
+
+
+ 
+
+<h3 class="h3">Feedback</h3>
+<ul class="points">     
+<li>Send your Feedback to <span class="__cf_email__" data-cfemail="ddbbb8b8b9bfbcbeb69db7bcabbca9adb2b4b3a9f3beb2b0">[email&#160;protected]</span></li>
+</ul>
+<hr class="hrhomebox" />
+ 
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/python-strings"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/python-strings"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/python-strings"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+<hr class="hrhomebox" />
+ 
+ 
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+
+                        <a href="splunk.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+                                <p>Splunk</p>
+                            </div>
+                        </a>
+                        <a href="spss.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+                                <p>SPSS</p>
+                            </div>
+                        </a>
+                        <a href="swagger.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+                                <p>Swagger</p>
+                            </div>
+                        </a>
+                        <a href="t-sql.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+                                <p>Transact-SQL</p>
+                            </div>
+                        </a>
+                        <a href="tumblr.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+                                <p>Tumblr</p>
+                            </div>
+                        </a>
+
+                        <a href="reactjs-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+                                <p>ReactJS</p>
+                            </div>
+                        </a>
+                        <a href="regex.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+                                <p>Regex</p>
+                            </div>
+                        </a>
+                        <a href="reinforcement-learning.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+                                <p>Reinforcement Learning</p>
+                            </div>
+                        </a>
+                        <a href="r-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+                                <p>R Programming</p>
+                            </div>
+                        </a>
+                        <a href="rxjs.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+                                <p>RxJS</p>
+                            </div>
+                        </a>
+
+                        <a href="react-native-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+                                <p>React Native</p>
+                            </div>
+                        </a>
+                        <a href="python-design-pattern.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+                                <p>Python Design Patterns</p>
+                            </div>
+                        </a>
+                        <a href="python-pillow.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+                                <p>Python Pillow</p>
+                            </div>
+                        </a>
+                        <a href="python-turtle-programming.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+                                <p>Python Turtle</p>
+                            </div>
+                        </a>
+
+                        <a href="keras.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+                                <p>Keras</p>
+                            </div>
+                        </a>
+
+</div> 
+</fieldset> 
+<hr class="hrhomebox" />
+  
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent"> 
+ 
+                        <a href="aptitude/quantitative.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+                                <p>Aptitude</p>
+                            </div>
+                        </a>
+                        <a href="reasoning.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+                                <p>Reasoning</p>
+                            </div>
+                        </a>
+                        <a href="verbal-ability.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+                                <p>Verbal Ability</p>
+                            </div>
+                        </a>
+                        <a href="interview-questions-and-answers.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+                                <p>Interview Questions</p>
+                            </div>
+                        </a>
+                        <a href="company-interview-questions-and-recruitment-process.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+                                <p>Company Questions</p>
+                            </div> 
+                        </a> 
+
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+  
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+
+                        <a href="artificial-intelligence-ai.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+                                <p>Artificial Intelligence</p>
+                            </div> 
+                        </a> 
+                        <a href="aws-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+                                <p>AWS</p>
+                            </div>
+                        </a>
+                        <a href="selenium-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+                                <p>Selenium</p>
+                            </div>
+                        </a> 
+                        <a href="cloud-computing.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+                                <p>Cloud Computing</p>
+                            </div>
+                        </a>
+                        <a href="hadoop-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+                                <p>Hadoop</p>
+                            </div>
+                        </a>
+                        <a href="reactjs-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+                                <p>ReactJS</p>
+                            </div> 
+                        </a>  
+                        <a href="data-science.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+                                <p>Data Science</p>
+                            </div> 
+                        </a>  
+                        <a href="angular-7-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+                                <p>Angular 7</p>
+                            </div> 
+                        </a>  
+                        <a href="blockchain-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+                                <p>Blockchain</p>
+                            </div>  
+                        </a> 
+                        <a href="git.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+                                <p>Git</p>
+                            </div> 
+                        </a> 
+                          <a href="machine-learning.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+                                <p>Machine Learning</p> 
+                            </div>     
+                        </a> 
+                          <a href="devops.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+                                <p>DevOps</p> 
+                            </div>    
+                        </a> 
+ 
+</div>
+ </fieldset>
+<hr class="hrhomebox" />
+
+
+                    <fieldset class="gra1">
+                    <h2 class="h3">B.Tech / MCA</h2>
+                    <div class="firsthomecontent">
+                        <a href="dbms-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+                                <p>DBMS</p>
+                            </div>
+                        </a>
+                        <a href="data-structure-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+                                <p>Data Structures</p>
+                            </div>
+                        </a> 
+                        <a href="daa-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+                                <p>DAA</p>
+                            </div>
+                        </a>
+                        <a href="operating-system.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+                                <p>Operating System</p>
+                            </div>
+                        </a>
+                        <a href="computer-network-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+                                <p>Computer Network</p>
+                            </div>
+                        </a>
+                        <a href="compiler-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+                                <p>Compiler Design</p>
+                            </div>
+                        </a>
+                        <a href="computer-organization-and-architecture-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+                                <p>Computer Organization</p>
+                            </div>
+                        </a>
+                        <a href="discrete-mathematics-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+                                <p>Discrete Mathematics</p>
+                            </div>
+                        </a>
+                        <a href="ethical-hacking.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+                                <p>Ethical Hacking</p>
+                            </div>
+                        </a>
+                        <a href="computer-graphics-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+                                <p>Computer Graphics</p>
+                            </div> 
+                        </a>
+                        <a href="software-engineering.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+                                <p>Software Engineering</p>
+                            </div> 
+                        </a> 
+
+                        <a href="html-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+                                <p>Web Technology</p>
+                            </div>
+                        </a>
+                        <a href="cyber-security-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+                                <p>Cyber Security</p>
+                            </div>
+                        </a>
+                        <a href="automata-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+                                <p>Automata</p>
+                            </div> 
+                        </a>
+                        
+                        <a href="c-programming-language-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+                                <p>C Programming</p>
+                            </div>
+                        </a>
+                        <a href="cpp-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+                                <p>C++</p>
+                            </div>
+                        </a>
+                        <a href="java-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+                                <p>Java</p>
+                            </div>
+                        </a>
+                        <a href="net-framework.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+                                <p>.Net</p>
+                            </div>
+                        </a>
+                        <a href="python-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+                                <p>Python</p>
+                            </div>
+                        </a>
+
+                        <a href="programs-list.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+                                <p>Programs</p>
+                            </div>
+                        </a>
+                        <a href="control-system-tutorial.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+                                <p>Control System</p>
+                            </div>
+                        </a>
+                        <a href="data-mining.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+                                <p>Data Mining</p> 
+                            </div>    
+                        </a> 
+                        <a href="data-warehouse.html">
+                            <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+                                <p>Data Warehouse</p>
+                            </div> 
+                        </a> 
+
+
+                  </div>
+                </fieldset>
+ 
+</div>
+
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+
+<div id="right">
+
+
+
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+	<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+ 
+
+<br /><br />
+</div>
+
+
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+
+</div>
+<br />
+
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <span class="__cf_email__" data-cfemail="3b53497b515a4d5a4f4b5452554f15585456">[email&#160;protected]</span>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <span class="__cf_email__" data-cfemail="94fce6d4fef5e2">[email&#160;protected]</span>atpoint.com. <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+  
+
+</div></div>  
+
+
+
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/python-strings by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 10:47:19 GMT -->
+</html> 

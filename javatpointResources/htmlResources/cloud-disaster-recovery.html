@@ -1,0 +1,733 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/cloud-disaster-recovery by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 18:03:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Cloud disaster recovery - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Cloud disaster recovery - Javatpoint" /><meta property="og:description" content="Cloud disaster recovery with blog, what is quora, what is yandex, contact page, duckduckgo search engine, search engine journal, facebook, google chrome, firefox etc." />
+<meta name="keywords" content="java tutorial, features, history, blog, what is quora, what is yandex, contact page, duckduckgo search engine, seo, search engine journal" /><meta name="description" content="Cloud disaster recovery with blog, what is quora, what is yandex, contact page, duckduckgo search engine, search engine journal, facebook, google chrome, firefox etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="cloud-disaster-recovery.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Cloud disaster recovery - Javatpoint" /><meta name="twitter:description" property="og:description" content="Cloud disaster recovery with blog, what is quora, what is yandex, contact page, duckduckgo search engine, search engine journal, facebook, google chrome, firefox etc." /><meta property="og:url" content="cloud-disaster-recovery.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="blog-files.html" class="selected">Blog</a></li>
+<li><a href="python-tutorial.html">Python</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="xml-tutorial.html">XML</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="embedded-system-tutorial.html">Embedded System</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="examaccess.html">Quiz</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+<li><a href="comment.html">Comment</a></li>
+<li><a href="forum.html">Forum</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Blog</span></h2>
+</div>
+<div class="leftmenu">
+<a href="blog-files.html">Blog Files</a>
+</div>
+
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="how-to-check-security-add-ins-in-chrome.html">next &rarr;</a>
+<a class="next" href="react-select.html">&larr; prev</a>
+</div>
+<h1 class="h1">What is Cloud disaster recovery?</h1>
+<p>Cloud-based backup and retrieval capabilities help you to back-up and reestablish business-critical directories if they are breached. Thanks to its high adaptability, cloud technologies allow efficient disaster recovery, irrespective of the task's nature or ferocity. Data is kept in a virtual storage environment designed for increased accessibility. The program is accessible on availability, enabling companies of various sizes to customize Disaster Recovery (DR) solutions to their existing requirements.</p>
+<p>Cloud disaster recovery (CDR) is simple to configure and maintain, as opposed to conventional alternatives. Companies no longer ought to waste a lot of time transmitting data backups from their in-house databases or hard drive to restore after a tragedy. Cloud optimizes these procedures, decisions correctly, and information retrieval.</p>
+<p>Cloud Disaster Recovery (CDR) is based on a sustainable program that provides you recover safety functions fully from a catastrophe and offers remote access to a computer device in a protected virtual world.</p>
+<p>When it comes to content DRs, maintaining a supplementary data center can be expensive and time taking. CDR (Cloud disaster recovery) has altered it all in the conventional DR (Disaster recovery) by removing the requirement for a centralized system and drastically reducing leisure time. Information technology (IT) departments can now use the cloud's benefits to twist and refuse instantly. This leads to faster recovery periods at a fraction of the price.</p>
+<h2 class="h2">Always be primed for appropriate information security</h2>
+<img src="https://static.javatpoint.com/blog/images/cloud-disaster-recovery.png" alt="Cloud disaster recovery" />
+<p>As corporations keep adding system and software apps and services to their day-to-day procedures, the associated privacy concerns significantly raise. Crises can happen at any point and maintain a company decimated by huge information loss. When you recognize what it can charge, it is evident why it makes good sense to establish an information restore and retrieval plan.</p>
+<p>Disaster recovery data shows that 98 percent of the surveyed companies signify that a couple of hours of leisure time can charge their corporation more than $100,000. Any quantity of rest time can cost the organization 10 of thousands to hundreds and thousands of person-hour workers expended recovering or redeploying missed productivity.</p>
+<p>An 8-hour leisure time screen can pay up to $20k for a small business and tens of millions for large companies in certain instances.</p>
+<p>Given the estimates, it is apparent why every second of assistance or structure disruption counts data and the real benefit of containing a crisis management plan.</p>
+<h2 class="h2">How is cloud disaster management working?</h2>
+<p>Cloud disaster recovery is taking a very differentiated perspective from classical DR (Disaster recovery). Rather than stacking data centers with Operating system technology and fixing the final configuration used in manufacturing, cloud disaster recovery captures the whole server, including the OS, apps, fixes, and information, into a separate software package or virtual environment.</p>
+<p>The virtual server is then replicated or supported to an off-site server farm or rolled to a remote server in mins. While the virtual server is not hardware-dependent, the OS, apps, flaws, and information can be moved from one to another data center much quicker than conventional DR methodologies.</p>
+<h2 class="h2">How could Rackware assist you?</h2>
+<p>Rackware evolves cloud management technology that helps businesses relocate implementations, offer additional disaster recovery and fallback, and cloud storage management.</p>
+<p>The RackWare Management Module (RMM) offers Information systems adaptability to companies by streamlining disaster recovery and fallback to any server. Several of the features are discussed as follows:</p>
+<img src="https://static.javatpoint.com/blog/images/cloud-disaster-recovery2.png" alt="Cloud disaster recovery" />
+<ul class="points">
+<li><strong>Single framework</strong></li>
+</ul>
+<p>It is a single centralized solution that enables replication, sync, integration, cloud-based disaster healing.</p>
+<ul class="points">
+<li><strong>Widely compatible</strong></li>
+</ul>
+<p>It endorses all physical, digital, and web environments, Hyper-v and cloud atheist load.</p>
+<ul class="points">
+<li><strong>Endorses all apps</strong></li>
+</ul>
+<p>It promotes all apps, their information, and setup without rewriting any implementations.</p>
+<ul class="points">
+<li><strong>Prevent lock-in</strong></li>
+</ul>
+<p>Rackware decreases the risk and seller bolt assistance for physical-cloud, data center, and even cloud-physical restore and tragedy retrieval irrespective of supplier.</p>
+<ul class="points">
+<li><strong>Automatic disaster recovery testing</strong></li>
+</ul>
+<p>Trying down disaster recovery testing helps the company decrease time and labor costs by up to 80 percent from auto DR statistical techniques.</p>
+<ul class="points">
+<li><strong>Personalize the RTO/RPO</strong></li>
+</ul>
+<p>Provides flexibility to personalize RPO, RTO, and expense priorities as per business requirements through various pre-provisioned or adaptive methods.</p>
+<ul class="points">
+<li><strong>Dynamic provisioning</strong></li>
+</ul>
+<p>Dynamic procurement considerably reduces the cost of providing Disaster recovery event servers rather than pre-provisioning: this does not use computed assets until failure occurs.</p>
+<ul class="points">
+<li><strong>Selective synchronization</strong></li>
+</ul>
+<p>Selective sync enables a set of policies, security, and priorities of mission-critical applications and file systems.</p>
+<h2 class="h2">Selecting a Cloud disaster recovery provider</h2>
+<p>When choosing a cloud disaster recovery provider, six factors must be considered: reliability, location, security, compliance, and scalability.</p>
+<p>First, a company must perceive the physical distance and throughput of the CDR vendor; placing the disaster recovery too close raises the risk of a given virtual disaster, but putting the DR too far aside enhances frequency and network traffic, making it more challenging to obtain DR material. When the DR information is available from multiple international business places, the area can be rugged. After that, recognize the dependability of the cloud DR provider. Only the cloud has leisure time, and system failure during rehabilitation can be equivalently devastating for the industry.</p>
+<h2 class="h2">Cloud disaster recovery methodologies</h2>
+<p>Recognize the cloud disaster recovery providing scalability. It must be protecting specific information, apps, and other assets while also accommodating added resources as required and providing sufficient efficiency as other international customers utilize the facilities. Recognize the disaster recovery content's security needs and ensure that the vendor can offer authentication, VPNs (virtual private networks), cryptography, and other toolkits are required to protect it's vital resources.</p>
+<p>Ultimately, suggest how the DR system should be designed. There are three basic DR strategies: warm, cold, and hot. These concepts are vaguely connected to how easily a structure can be healed.</p>
+<img src="https://static.javatpoint.com/blog/images/cloud-disaster-recovery3.png" alt="Cloud disaster recovery" />
+<ul class="points">
+<li><strong>Warm disaster recovery</strong></li>
+</ul>
+<p>Warm disaster recovery is a reserve strategy in which copy data and systems are stored with a cloud DR vendor and regularly updated with services and information in the prior data center. However, the redundant assets aren't doing anything. When a disaster happens, the warm DR can be implemented to capability approach from the DR vendor, which is usually as simple as beginning a Virtual machine and rerouting Domain names and traffic to the DR assets. Although recovery times might be pretty limited, the secured tasks must still experience some leisure time.</p>
+<ul class="points">
+<li><strong>Cold disaster recovery</strong></li>
+</ul>
+<p>Cold disaster recovery usually entails storing information or VMware virtual (VM) pictures. These resources are generally inaccessible unless added work is performed, such as retrieving the stored data or filling up the picture into a Virtual machine. Cold DR is typically the easiest (often just memory) and absolute cheapest method. Still, it requires a long time to regain, leaving the organization with the most leisure time in the event of a disaster.</p>
+<ul class="points">
+<li><strong>Hot disaster recovery</strong></li>
+</ul>
+<p>Hot disaster recovery is traditionally described as a real-time simultaneous implementation of information and tasks that run concurrently. Both the primary and backup data centers execute a specific tasks and information in sync, with both websites communicating a fraction of the entire data packets. When a disaster happens, the residual pages continue to handle things without interruption. Consumers should be unaware of the disturbance. Although there is no time for rest with hot DR, it is the most complex and expensive methodology.</p>
+<h2 class="h2">Advantages of Cloud disaster recovery</h2>
+<p>When compared to more conventional disaster recovery strategies, cloud DR offers so many significant advantages. They are defined below.</p>
+<ul class="points">
+<li><strong>Choices for pay-as-you-go</strong></li>
+</ul>
+<p>Companies that implemented do-it-yourself (DIY) disaster recovery facilities incurred substantial cash expenses, whereas participating maintained colocation vendors for off-site DR systems management entail lengthy licensing agreements. The pay-as-you-go framework of cloud providers allows companies to charge a repeated subscription fee only for the utilized programs and infrastructure. The transactions modify as assets are added or erased.</p>
+<ul class="points">
+<li><strong>Scalability and adaptability</strong></li>
+</ul>
+<p>Classical disaster recovery methodologies were typically implemented in locally or remotely cloud services, frequently enforced capability and usability constraints. The company had to purchase the servers, storing, networking devices, and productivity tools required for Disaster recovery and layout, measure, and build the system required to manage DR activities - significantly more if the DR was guided to a secondary server farm. It was traditionally a significant capital and repetitive expenditure for the company.</p>
+<ul class="points">
+<li><strong>High dependability and geographical redundancy</strong></li>
+</ul>
+<p>A global footprint is an essential requirement of a cloud service, guaranteeing multiple systems to support customers across significant international geostrategic areas. Cloud providers use this to accomplish better durability and guarantee duplication. Companies can easily use geo-duplication to position disaster recovery assets in some other place-or even several regions-to enhance accessibility. The classic off-site disaster recovery situation is a natural formation of the cloud.</p>
+<ul class="points">
+<li><strong>Testing is simple, and restoration is quick</strong> </li>
+</ul>
+<p>Cloud workforces frequently run as virtual machines (VMs), making it simple to duplicate Virtual machine picture files to in-house sample data centers to verify workforce accessibility without disrupting production workloads. Furthermore, corporations can choose high bandwidth and rapid disk I/O (input/output) alternatives to maximize transmission speeds is required to address restoration time objective requirements (RTO). Data transfer from cloud services, on the other hand, incur expenses, so tests should be done with those information transfer-cloud data entry and exit-costs in opinion.</p>
+<h2 class="h2">Traditional disaster recovery vs. Cloud disaster recovery</h2>
+<p>Cloud-based disaster recovery systems and DRaaS promotions can grant cost savings, adaptability and scalability, geo-duplication, and speedy response. However, cloud disaster recovery may not be relevant for all companies or situations. Recognize some of the scenarios in which more classical DR methodologies may be advantageous, if not critical, to the corporation.</p>
+<ul class="points">
+<li><strong>Prerequisites for compliance</strong></li>
+</ul>
+<p>Cloud providers are becoming more permissible for innovation use in areas where well-organized regulatory oversight is needed, such as Health Insurance Portability and Accountability Act (HIPAA) and Payment Card Industry Data Security Standard (PCI DSS). After all, some companies may still face restrictions when handling confidential material outside of an instant server farm-or in any asset or facilities that is not directly under the company's control, such as a third-party facility like a public cloud platform.</p>
+<ul class="points">
+<li><strong>Lack of connectivity</strong></li>
+</ul>
+<p>Cloud resources and services rely on vast area network (WAN) communication worldwide. Even though speedy updating/synchronization and speedy recovery require a dependable, high-bandwidth connection, disaster recovery uses incidents that emphasize on interconnection. Even though credible, high-bandwidth accomplishment is famous in most cities and suburban areas worldwide, it is far from global.</p>
+<ul class="points">
+<li><strong>Optimum recovery</strong></li>
+</ul>
+<p>Clouds provide powerful benefits, but customers are restricted to the equipment, architectural design, and toolkits that the cloud service provider delivers. The vendor and the service-level agreement (SLA)limit cloud disaster recovery. In many instances, the cloud DR vendor's recovery point objective (RPO) and recovery time objective (RTO) may not be appropriate for the foundation's disaster recovery requirements - or the level of service may not be assured. By purchasing the DR framework, a company can design and implement a customized DR architecture that best meets DR performance standards.</p>
+<ul class="points">
+<li><strong>Make use of existing investments</strong></li>
+</ul>
+<p>DR requirements have existed much longer than cloud computing, and prestige DR implementations, particularly in larger enterprises or where expenses are still being expensed, may be more difficult to replace by modern cloud disaster recovery offerings. A company that also owns the company, data centers, storage, and other assets may be reluctant to relinquish them. In these situations, the company can move more slowly and carefully to cloud disaster recovery, methodically attaching workforces to the cloud DR vendor as a means of regular innovation refresh instead of spending the next round of wealth.</p>
+<h2 class="h2">Developing a cloud-based disaster recovery strategy</h2>
+<p>Creating a cloud DR plan is extremely similar to creating a more typical cultural or off-site contingency plan. The utilization of cloud services and DRaaS to sustain a practical evaluation distinguishes cloud DR from more conventional DR methodologies. For instance, instead of backing up a major information source to measure the variation in another local computer, cloud-based disaster recovery would store this information set to a cloud network, including an Amazon S3 (Simple Storage Service) container. As a result, cloud disaster recovery does not alter the fundamental requirements for stages to execute DR but instead offers a new sequence of efficient tools and technologies for DR objectives.</p>
+<p>There are three main parts: Implementation, analysis, and testing.</p>
+<img src="https://static.javatpoint.com/blog/images/cloud-disaster-recovery4.png" alt="Cloud disaster recovery" />
+<ul class="points">
+<li><strong>Analysis</strong></li>
+</ul>
+<p>Any disaster recovery plan must begin with a comprehensive risk evaluation and performance measurement, which analyzes the existing IT facilities and business processes and recognizes the potential disasters that an organization is facing. The purpose is to identify possible security flaws and catastrophes, such as intrusion security flaws and fraud, as well as natural disasters and storms, and then assess whether another IT technology is prepared to meet those obstacles.</p>
+<p>An analysis can assist management in achieving the most complicated industry functions and IT aspects and predicting the prospective economic repercussions of a disaster event. RPOs and RTOs for facilities and tasks can also be determined using analysis.</p>
+<ul class="points">
+<li><strong>Implementation</strong></li>
+</ul>
+<p>Traditionally, the analysis is characterized by a structural requirement that specifics for preparedness, prevention, recovery, and response. The initiative required to reduce potential threats and remove weaknesses is referred to as preventive measures. This could include social manipulation training for employees, and usual operating system (OS) updates to retain stability and security. Readiness entails highlighting the appropriate response - who can do what in the case of a catastrophe. This is primarily a paperwork issue. Response describes the techniques and products to be used in the event of a disaster. This is resiliency combined with the execution of correlating innovations, such as restoring a data set or a Virtual server machine backed up to the cloud. Recovery describes the achievements circumstances for the reaction and moves to help counteract any potential investment destruction.</p>
+<ul class="points">
+<li><strong>Testing</strong></li>
+</ul>
+<p>Ultimately, any disaster recovery plan must be screened and reviewed regularly to make sure that IT employees are capable of accurately implementing proper recovery efforts and that recovery occurs within an appropriate format for the corporate. Testing has identified discrepancies or inaccuracies in execution, help organizations to accurate and notify their disaster recovery plan well before actual tragedy strikes.</p>
+<h2 class="h2">Cloud disaster recovery service and vendors</h2>
+<p>Cloud DR is, at its core, a type of off-site disaster recovery. An off-site model enables companies to protect against occurrences within their local infrastructure (fire, theft, flood, etc.) and either regain the assets to the local infrastructure or keep operating the wide deployment from the DR vendor. As a result, a plethora of vendors have appeared to include off-site DR ability.</p>
+<p>The most obvious route for cloud disaster recovery is via significant public cloud providers. Amazon Web Services (AWS) provides the CloudEndure Disaster Recovery facility, Azure offers Azure Site Healing, and GCP (Google Cloud Platform) provides Cloud Storage and Continuous Disk alternatives for safeguarding valuable data.</p>
+<p>Entrepreneurship disaster recovery facilities can be designed for all three significant cloud providers.</p>
+<p>Aside from public clouds, a plethora of devoted disaster recovery vendors now provide DRaaS goods, effectively getting access to devoted clouds for DR assignments.</p>
+<p>Among the top DRaaS venders are:</p>
+<ul class="points">
+<li>Iland</li>
+<li>Expedient</li>
+<li>IBM DRaaS</li>
+<li>Sungard AS</li>
+<li>TierPoint</li>
+<li>Bluelock</li>
+<li>Recovery Point Systems</li>
+</ul>
+<p>Furthermore, more generic backup vendors are now providing DRaaS, such as:</p>
+<ul class="points">
+<li>Acronis</li>
+<li>Carbonite</li>
+<li>Zerto</li>
+<li>Databarracks</li>
+<li>Arcserve UDP</li>
+<li>Unitrends</li>
+<li>Datto</li>
+</ul>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="how-to-check-security-add-ins-in-chrome.html">How to check security add-ins in chrome</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="react-select.html">&larr; prev</a>
+<a style="float:right" class="next" href="how-to-check-security-add-ins-in-chrome.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="54323131303635373f143e35223520243b3d3a207a373b39">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/cloud-disaster-recovery"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/cloud-disaster-recovery"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/cloud-disaster-recovery"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+ </a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="335b41735952455247435c5a5d471d505c5e">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="5e362c1e343f283f2a2e3137302a703d313370">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/cloud-disaster-recovery by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 18:03:03 GMT -->
+</html> 

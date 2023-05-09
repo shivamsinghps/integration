@@ -1,0 +1,987 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/monkey-testing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:39:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Monkey Testing - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Monkey Testing - javatpoint" /><meta property="og:description" content="Monkey Testing with introduction, software development life cycle, design, development, quality assurance, methods, black box testing, white box testing, etc." />
+<meta name="keywords" content="software testing tutorial, software testing introduction, software development life cycle, design, development, testing, overview, quality assurance, quality control, assurance versus, methods, black box testing, white box testing, alpha testing vs beta testing, gray box testing, visual testing, manual testing, system testing, unit testing, system testing, functional testing, non-functional testing, alpha testing, beta testing, security testing, test plan, test case, estimation techniques, defects" /><meta name="description" content="Monkey Testing with introduction, software development life cycle, design, development, quality assurance, methods, black box testing, white box testing, etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="monkey-testing.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Monkey Testing - javatpoint" /><meta name="twitter:description" property="og:description" content="Monkey Testing with introduction, software development life cycle, design, development, quality assurance, methods, black box testing, white box testing, etc." /><meta property="og:url" content="monkey-testing.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="software-testing-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/testing.png" alt="software testing" /> Software Testing</a></li>
+<li><a href="selenium-tutorial.html"><img src="https://static.javatpoint.com/images/icon/selenium.png" alt="selenium" /> Selenium</a></li>
+<li><a href="appium.html"><img src="https://static.javatpoint.com/images/icon/appium.png" alt="appium" /> Appium</a></li>
+<li><a href="jmeter-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jmeter.png" alt="jmeter" /> JMeter</a></li>
+<li><a href="junit-tutorial.html"><img src="https://static.javatpoint.com/images/icon/junit.png" alt="junit" /> JUnit</a></li>
+<li><a href="postman.html"><img src="https://static.javatpoint.com/images/icon/postman.png" alt="postman" /> Postman</a></li>
+<li><a href="jira-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jira.png" alt="jira" /> Jira</a></li>
+<li><a href="testng-tutorial.html"><img src="https://static.javatpoint.com/images/icon/testng.png" alt="testng" /> TestNG</a></li>
+<li><a href="soapui.html"><img src="https://static.javatpoint.com/images/icon/soapui.png" alt="soapui" /> SoapUI</a></li>
+<li><a href="uipath.html"><img src="https://static.javatpoint.com/images/icon/uipath.png" alt="uipath" /> UIPath</a></li>
+<li><a href="rpa.html"><img src="https://static.javatpoint.com/images/icon/rpa.png" alt="rpa" /> RPA</a></li>
+<li><a href="quality-assurance.html"><img src="https://static.javatpoint.com/images/icon/qa.png" alt="qa" /> QA</a></li>
+<li><a href="selenium-python.html"><img src="https://static.javatpoint.com/images/icon/selenium-python.png" alt="selenium python" /> Selenium Python</a></li>
+<li><a href="software-testing-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="manual testing interview questions" /> Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-tutorial.html">Tutorial</a>
+<a href="software-testing-principles.html">Software Testing Principles</a>
+<a href="software-development-life-cycle.html">Software Development Life Cycle</a>
+<a href="software-testing-life-cycle.html">Software Testing Life Cycle</a>
+<a href="types-of-software-testing.html">Types of Software Testing</a>
+<a href="levels-of-testing.html">Levels of Testing</a>
+<a href="test-maturity-model.html">Test Maturity Model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SDLC models</span></h2>
+</div>
+<div class="leftmenu">
+<a href="waterfall-model.html">Waterfall model</a>
+<a href="spiral-model.html">Spiral Model</a>
+<a href="hybrid-model.html">Hybrid Model</a>
+<a href="prototype-model.html">Prototype Model</a>
+<a href="v-model.html">V-model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="manual-testing.html">Manual Testing</a>
+<a href="automation-testing.html">Automation Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Manual</span></h2>
+</div>
+<div class="leftmenu">
+<a href="white-box-testing.html">White Box Testing</a>
+<a href="black-box-testing.html">Black Box Testing</a>
+<a href="grey-box-testing.html">Grey Box Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">White Box Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-flow-testing-in-white-box-testing.html">Data Flow Testing</a>
+<a href="control-flow-testing-in-white-box-testing.html">Control Flow Testing</a>
+<a href="branch-coverage-testing-in-white-box-testing.html">Branch Coverage Testing</a>
+<a href="statement-coverage-testing-in-white-box-testing.html">Statement Coverage Testing</a>
+<a href="decision-coverage-testing-in-white-box-testing.html">Decision Coverage Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Black Box Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="decision-table-technique-in-black-box-testing.html">Decision Table</a>
+<a href="all-pairs-testing-technique-in-black-box-testing.html">All-pair Testing</a>
+<a href="cause-and-effect-graph-technique-in-black-box-testing.html">Cause-Effect Testing</a>
+<a href="state-transition-technique-in-black-box-testing.html">State Transition</a>
+<a href="use-case-technique-in-black-box-testing.html">Use Case</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Black Box</span></h2>
+</div>
+<div class="leftmenu">
+<a href="functional-testing.html">Functional Testing</a>
+<a href="non-functional-testing.html">Non-Functional Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Functional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="unit-testing.html">Unit Testing</a>
+<a href="integration-testing.html">Integration Testing</a>
+<a href="system-testing.html">System Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Non-functional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="performance-testing.html">Performance Testing</a>
+<a href="usability-testing.html">Usability Testing</a>
+<a href="compatibility-testing.html">Compatibility Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Test case development</span></h2>
+</div>
+<div class="leftmenu">
+<a href="testing-documentation.html">Testing Documentation</a>
+<a href="test-scenario.html">Test Scenario</a>
+<a href="test-case.html">Test Case</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Testing Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="error-guessing-technique-in-black-box-testing.html">Error Guessing</a>
+<a href="equivalence-partitioning-technique-in-black-box-testing.html">Equivalence Portioning</a>
+<a href="boundary-value-analysis-in-black-box-testing.html">Boundary Value analysis</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Test Management</span></h2>
+</div>
+<div class="leftmenu">
+<a href="test-plan.html">Test Plan</a>
+<a href="test-case-review-process.html">Test case review process</a>
+<a href="traceability-matrix.html">Requirement Traceability Matrix</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Defect Tracking</span></h2>
+</div>
+<div class="leftmenu">
+<a href="bug-in-software-testing.html">Bug in Software Testing</a>
+<a href="software-testing-bug-life-cycle.html">Bug Life cycle</a>
+<a href="severity-and-priority-in-testing.html">Severity &amp; Priority</a>
+<a href="test-environment.html">Test Environment</a>
+<a href="defect-management-process.html">Defect Management Process</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Other types of Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="regression-testing.html">Regression Testing</a>
+<a href="smoke-testing.html">Smoke Testing</a>
+<a href="sanity-testing.html">Sanity Testing</a>
+<a href="static-testing.html">Static Testing</a>
+<a href="dynamic-testing.html">Dynamic Testing</a>
+<a href="load-testing.html">Load Testing</a>
+<a href="stress-testing.html">Stress Testing</a>
+<a href="recovery-testing.html">Recovery testing</a>
+<a href="exploratory-testing.html">Exploratory Testing</a>
+<a href="visual-testing.html">Visual Testing</a>
+<a href="acceptance-testing.html">Acceptance Testing</a>
+<a href="alpha-testing.html">Alpha Testing</a>
+<a href="beta-testing.html">Beta Testing</a>
+<a href="database-testing.html">Database Testing</a>
+<a href="mainframe-testing.html">Mainframe Testing</a>
+<a href="adhoc-testing.html">Adhoc Testing</a>
+<a href="globalization-testing.html">Globalization Testing</a>
+<a href="mutation-testing.html">Mutation Testing</a>
+<a href="security-testing.html">Security Testing</a>
+<a href="accessibility-testing.html">Accessibility Testing</a>
+<a href="structural-testing.html">Structural Testing</a>
+<a href="volume-testing.html">Volume Testing</a>
+<a href="scalability-testing.html">Scalability Testing</a>
+<a href="stability-testing.html">Stability Testing</a>
+<a href="spike-testing.html">Spike Testing</a>
+<a href="negative-testing.html">Negative Testing</a>
+<a href="positive-testing.html">Positive Testing</a>
+<a href="endurance-testing.html">Endurance Testing</a>
+<a href="reliability-testing.html">Reliability Testing</a>
+<a href="monkey-testing.html">Monkey Testing</a>
+<a href="agile-testing.html">Agile Testing</a>
+<a href="component-testing.html">Component Testing</a>
+<a href="gui-testing.html">GUI Testing</a>
+<a href="test-strategy.html">Test Strategy</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing Tools</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-tools.html">Software testing tools</a>
+<a href="test-management-tool.html">Test management tools</a>
+<a href="defect-or-bug-tracking-tool.html">Defect/Bug tracking tools</a>
+<a href="automation-testing-tool.html">Automation testing tools</a>
+<a href="performance-testing-tools.html">Performance testing tools</a>
+<a href="cross-browser-testing-tools.html">Cross-browser testing tools</a>
+<a href="integration-testing-tools.html">Integration testing tools</a>
+<a href="unit-testing-tools.html">Unit testing tools</a>
+<a href="mobile-testing-tools.html">Mobile Testing Tools</a>
+<a href="gui-testing-tools.html">GUI testing tools</a>
+<a href="security-testing-tools.html">Security testing tools</a>
+<a href="penetration-testing-tools.html">Penetration Testing Tools</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="automation-testing-vs-manual-testing.html">Automation Testing vs Manual Testing</a>
+<a href="load-testing-vs-stress-testing.html">Load Testing vs Stress Testing</a>
+<a href="smoke-testing-vs-sanity-testing.html">Smoke Testing vs Sanity Testing</a>
+<a href="system-testing-vs-acceptance-testing.html">System Testing vs Acceptance Testing</a>
+<a href="difference-between-quality-assurance-and-quality-control.html">Quality Assurance vs Quality Control</a>
+<a href="static-testing-vs-dynamic-testing.html">Static Testing vs Dynamic Testing</a>
+<a href="verification-and-validation-testing.html">Verification vs Validation Testing</a>
+<a href="alpha-testing-vs-beta-testing.html">Alpha Testing vs Beta Testing</a>
+<a href="black-box-testing-vs-white-box-testing-vs-grey-box-testing.html">Black Box vs. White Box vs. Grey Box Testing</a>
+<a href="globalization-testing-vs-localization-testing.html">Globalization Testing vs Localization Testing</a>
+<a href="test-case-vs-test-scenarios.html">Test Case vs Test Scenarios</a>
+<a href="test-plan-vs-test-strategy.html">Test Plan vs Test Strategy</a>
+<a href="boundary-value-analysis-vs-equivalence-partitioning.html">Boundary value analysis vs Equivalence partitioning</a>
+<a href="sdlc-vs-stlc.html">SDLC vs STLC</a>
+<a href="bug-vs-defect-vs-error-vs-fault-vs-failure.html">Bug vs Defect vs Error vs Fault vs Failure</a>
+<a href="testing-vs-debugging.html">Testing vs Debugging</a>
+<a href="frontend-testing-vs-backend-testing.html">Frontend Testing vs Backend Testing</a>
+<a href="hld-vs-lld.html">HLD vs LLD</a>
+<a href="brs-vs-srs.html">BRS vs SRS</a>
+<a href="positive-testing-vs-negative-testing.html">Positive Testing vs Negative Testing</a>
+<a href="top-down-vs-bottom-up-integration-testing.html">Top-Down vs Bottom-Up Integration Testing</a>
+<a href="use-case-vs-test-case.html">Use Case vs Test Case</a>
+<a href="monkey-testing-vs-gorilla-testing.html">Monkey Testing VS Gorilla Testing</a>
+<a href="stubs-vs-drivers.html">Stubs vs Drivers</a>
+<a href="component-testing-vs-unit-testing.html">Component Testing vs Unit Testing</a>
+<a href="software-testing-vs-embedded-testing.html">Software Testing vs Embedded Testing</a>
+<a href="gui-testing-vs-usability-testing.html">GUI Testing vs Usability Testing</a>
+<a href="sdet-vs-tester.html">SDET vs Tester</a>
+<a href="desktop-application-testing-vs-client-server-application-testing-vs-web-application-testing.html">Desktop Application testing vs Client-Server Application Testing vs Web Application Testing</a>
+<a href="active-testing.html">Active Testing</a>
+<a href="what-is-an-api.html">What is an API</a>
+<a href="automation-testing.html">Automation Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-mcq.html">Software Testing MCQ</a>
+<a href="software-testing-mcq-part-2.html">Software Testing MCQ Part 2</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-interview-questions.html">Software Testing Interview</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="agile-testing.html">next &rarr;</a>
+<a class="next" href="reliability-testing.html">&larr; prev</a>
+</div>
+<h1 class="h1">Monkey Testing</h1>
+<p>In <strong>Software Development Life Cycle (SDLC)</strong>, the testing phase plays a crucial role in order to help test engineers to establish the quality, performance, consistency, efficiency, and security of the product, together before and after its release.</p>
+<p>As we know that the testing process is the best way to identify the <strong>bugs and defects</strong> in the particular software and control them immediately, they are detected by the team of test engineers.</p>
+<p>In this tutorial, we are going to understand the following topic of the particular type of software testing, namely <strong>Monkey testing</strong>.</p>
+<ul class="points">
+<li><strong>Introduction to Monkey Testing</strong></li>
+<li><strong>The attribute of Monkey Testing</strong></li>
+<li><strong>Usage of Monkey Testing</strong></li>
+<li><strong>Types of Monkey Testing</strong></li>
+<li><strong>Smart Monkey Testing vs Dumb Monkey Testing</strong> </li>
+<li><strong>Monkey testing vs Adhoc testing</strong></li>
+<li><strong>Advantages of monkey testing</strong></li>
+<li><strong>Disadvantages of monkey testing</strong></li>
+</ul>
+<h2 class="h2">Introduction to Monkey Testing</h2>
+<p>One of the unique types of <a href="software-testing-tutorial.html">software testing</a> is <strong>Monkey Testing</strong>. It was firstly introduced in the book <strong><em>The Art of Software Testing</em></strong> which is written by <strong>Glenford J. Myers</strong> in <strong>1979</strong>.</p>
+<p>It is a software testing technique where the user checks the application by giving random inputs; that's why it is also known as <strong>Random testing</strong>.</p>
+<p>If we don't have enough time to write and perform the tests, we will implement the <strong>monkey testing.</strong></p>
+<p>It is also known as <strong>stochastic testing</strong>, and best suited for desktop, web, as well as mobile applications. It is a time and effort-saving process if we are using random testing or monkey testing inputs.</p>
+<p>Monkey testing is usually executed as random, automated unit tests, and provides us the benefits of efficiently assessing software reliability from test results.</p>
+<p>The monkey testing is primarily implemented automatically where the user inserts any random invalid input and tests its performance.</p>
+<p>If we are performing load and stress testing, <strong>Monkey testing</strong> works very well, or we can it is a very good approach.</p>
+<p>The data created or developed from random testing can be additionally used to approximate product consistency. On the other hand, various testing approaches cannot be used in this way to approximate the software consistency.</p>
+<p>It is trendy among test engineers as they used this testing to test applications by providing random inputs and checking their behavior.</p>
+<p>To detect the bugs and errors in the software application by using tentative performances is the primary intent of executing the monkey testing.</p>
+<h2 class="h2">Features of Monkey Testing</h2>
+<p>Subsequently, <strong>Monkey Testing</strong> includes testing the software or application by giving some random data and detecting whether the system fails or not.</p>
+<p>The key intent of executing the monkey testing is to identify the defects and errors in the software and make sure that the system does not crash once the entire development on the software product is done.</p>
+<p><strong>Some of the significant features of monkey testing or random testing are as follows:</strong></p>
+<ul class="points">
+<li>While performing the monkey testing, there is no specification.</li>
+<li>It is an instinctive test that is performed without any precise test in mind.</li>
+<li>Monkey testing is implemented when the defects are not detected in regular intervals.</li>
+<li>The monkey testing is used to list the system's dependability and performance.</li>
+<li>The time and energy devoted in monkey testing are comparatively less than actual test efforts.</li>
+<li>The implementation of monkey testing makes sure the reliability and efficiency of the system.</li>
+</ul>
+<h2 class="h2">Usage of Monkey Testing</h2>
+<ul class="points">
+<li>Monkey testing can be used for database testing by beginning a transaction and inserting some random data.</li>
+<li>It can also be tested with the help of hardware or, more preferably, software to imitate the activities of a monkeys who are inserting the random data.</li>
+<li>To test the application for OWASP issues, we can use the pre-compiled and random data.</li>
+</ul>
+<h2 class="h2">Types of Monkey Testing</h2>
+<p>According to its way of execution, <strong>Monkey Testing</strong> is divided into various types. To get a quick idea of it we can see in the below images:</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/monkey-testing.png" alt="Monkey Testing" />
+<ul class="points">
+<li><strong>Dumb Monkey Testing</strong></li>
+<li><strong>Smart Monkey Testing</strong></li>
+<li><strong>Brilliant Monkey Testing</strong></li>
+</ul>
+<p>Now, let us see them one by one for our better understanding:</p>
+<h3 class="h3">Dumb Monkey Testing</h3>
+<p>The first type of monkey testing is <strong>Dumb Monkey testing</strong>. It is the easiest and direct type of monkey testing that does not know their or system's abilities or the application's flow. </p>
+<p>In this testing, we can identify fewer bugs than the smart monkeys but can naively discover significant bugs that are hard to find.</p>
+<p>In this, the <strong>test Manager or lead</strong> appoints a test engineer who does not have the knowledge of particular module of an application in order test the product.</p>
+<p>Even those test engineers do not have any idea whether the given inputs are valid or invalid. That is why dumb monkey testing is also known as <strong>Ignorant monkeys</strong>.</p>
+<p>In other words, we can say that the dumb monkey does not aware of the work flow or data being sustained to the application or the system.</p>
+<p>The test engineer is asked to test the application automatically and enter random data where the test engineer feels suitable.</p>
+<p>The following features can acknowledge a dumb monkey:</p>
+<ul class="points">
+<li>The test engineer's behaviour may be like a user who does not have a technical knowledgebut is trying to use the application.</li>
+<li>The test engineer can test the application according to their understanding and enter data that is invalid.</li>
+<li>When the test engineer does not have any idea about the application.</li>
+<li>To see if it performs as expected we can note down the application's behaviour.</li>
+<li>The tester doesn't know that the inputs whether its valid or invalid.</li>
+<li>When the tester doesn't have much knowledge about the user interface and functionality.</li>
+</ul>
+<h3 class="h3">Smart Monkey Testing</h3>
+<p>The next type of monkey testing is <strong>Smart Monkey testing</strong>, wherein the <strong>test engineer is entirely attentive of the system or the application.</strong></p>
+<p>Additionally, the testing team knows the functionality of the exact product and consequently gives inputs, which are suitable and valid that helps to execute tests on the product.</p>
+<p>Furthermore, the smart monkey tests are aware of where the pages of the application will redirect to.</p>
+<p>In smart monkey testing, the test engineer is focused on surpassing the application, and if they identify an error, they are smart enough to report a bug. Also, smart testing is an excellent choice to perform <strong>load testing and stress testing</strong>.</p>
+<p>In other words, we can say that the test engineer has a piece of specific knowledge about the system, its objective, and functionality, and the test engineer navigates through the system and provides valid inputs in order to execute the testing.</p>
+<h3 class="h3">Brilliant Monkey Testing</h3>
+<p>The last and third type of monkey testing is brilliant monkey testing. In this type of monkey testing, the test engineer has a good knowledge of the system.</p>
+<p>This type of testing can also identify some bugs, which might be found in the software in the future.</p>
+<p>Furthermore, the test engineer knows about the pattern of using the product, and henceforth, they can perform testing from the user's viewpoint.</p>
+<p>In other words, we can say that brilliant monkey testing is one step ahead of smart monkey testing.</p>
+<p>In this, the test engineer or a team of test engineers is assigned for the task, as they have complete knowledge about the particular software domain and its features.</p>
+<h2 class="h2">Difference between Smart Monkey Testing and Dumb Monkey Testing</h2>
+<p>Let us see some significant comparisons between <strong>Smart Monkey Testing and Dumb Monkey Testing</strong> in the below table.</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/monkey-testing2.png" alt="Monkey Testing" />
+<br>
+<table class="alt">
+<tr>
+<th>S.NO.</th>
+<th>Smart Monkey Testing</th>
+<th>Dumb Monkey Testing</th>
+</tr>
+<tr>
+<td><strong>1.</strong></td>
+<td>In this, the smart monkeys are aware of the system's workflow, which means where the product is and where it will be managed.</td>
+<td>In this, the dumb monkeys are not aware of the workflow of the system.</td>
+</tr>
+<tr>
+<td><strong>2.</strong></td>
+<td>In smart monkey testing, they have some working ideas about the software product.</td>
+<td>In dumb monkeys, they do not have any knowledge related to the system and its feature.</td>
+</tr>
+<tr>
+<td><strong>3.</strong></td>
+<td>In this, the smart monkeys can report a bug on detected errors or defects.</td>
+<td>Compared to the smart monkey testing, it finds lesser bugs but may discover bugs that are difficult to detect, even by the smart monkeys.</td>
+</tr>
+<tr>
+<td><strong>4.</strong></td>
+<td>In smart monkey testing, the tester can understand the competencies of the system together with its strength.</td>
+<td>In dumb monkey testing, the tester is not able to establish the system's abilities.</td>
+</tr>
+<tr>
+<td><strong>5.</strong></td>
+<td>In smart monkey testing, the smart monkeys are well aware of inputs sustained to the system. That means they understand the valid and invalid types of input.</td>
+<td>In dumb monkeys, the dumb monkeys are not aware of the input type and provide a valid or invalid system.</td>
+</tr>
+</table>
+<h2 class="h2">Is Monkey Testing being similar as Gorilla Testing and Fuzz Testing?</h2>
+<ul class="points">
+<li>As we know, the <strong>gorilla testing</strong> is pre-planned whereas the monkey testing is very much Adhoc in nature, and as compared to gorilla testing, we must be muddled many times.</li>
+<li>If we compared fuzz testing with both gorilla testing and monkey testing are very much different to each other.</li>
+<li>The concern about fuzz testing with the randomly selected data input, while monkey testing deals with the random actions to execute the testing.</li>
+<li>Hence, we can conclude that <strong>Monkey testing</strong> is different from other types of testing procedures, which serve different purposes. We can select the appropriate type of testing as per our requirement, whether it is <strong>monkey testing, gorilla testing, and fuzz testing.</strong></li>
+</ul>
+<h4 class="n">Note: Some people find monkey and Adhoc testing as a similar type of testing technique, which is incorrect because ad-hoc testing is performed without any planning or documentation work.</h4>
+<p>To clarify the above statement, we can the difference between monkey and Adhoc testing.</p>
+<h2 class="h2">Monkey Testing vs Adhoc Testing</h2>
+<p>Let see some significant difference between monkey testing and <a href="adhoc-testing.html">Adhoc testing</a> in the below table:</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/monkey-testing3.png" alt="Monkey Testing" />
+<br>
+<table class="alt">
+<tr>
+<th>S.NO.</th>
+<th>Monkey Testing</th>
+<th>Adhoc Testing</th>
+</tr>
+<tr>
+<td><strong>1.</strong></td>
+<td>It is performed randomly with no explicitly predefined test cases.</strong></td>
+<td>It is performed against the client's requirements.</td>
+</tr>
+<tr>
+<td><strong>2.</strong></td>
+<td>It can be implemented by anybody, even individuals who are not aware with computers or the application.</strong></td>
+<td>It can be executed by a developer as well as the test engineer who has a good knowledge of the application.</td>
+</tr>
+<tr>
+<td><strong>3.</strong></td>
+<td>The primary objective of implementing the monkey Testing is to execute the test randomly with random or invalid data to check if the application is failed or not.</strong></td>
+<td>Adhoc testing aims to check whether the system crashes the application or finds a defect by randomly using the application.</td>
+</tr>
+<tr>
+<td><strong>4.</strong></td>
+<td>In monkey testing, we can use the test cases since it is random.</strong></td>
+<td>Adhoc testing is also performed randomly but does not depends on or use Test Cases.</td>
+</tr>
+<tr>
+<td><strong>5.</strong></td>
+<td>In monkey testing, the test engineer may not know what the system is all about, and its objective.</strong></td>
+<td>In Adhoc testing, the test engineer must understand the system extensively before executing the testing process.</td>
+</tr>
+</table>
+<h2 class="h2">Benefits and Drawbacks of Monkey Testing</h2>
+<p>It is a software testing procedure that analysis the test scenarios, which are random and Adhoc. Despite giving various benefits to the end-users and test engineers, monkey testing has numerous drawbacks, which can suppress its positive abilities.</p>
+<p>Hence, there are some of the essential advantages along with the disadvantages of monkey testing are as discussed below:</p>
+<h3 class="h3">Advantages of Monkey Testing</h3>
+<p>Following are some of the significant benefits of monkey testing:</p>
+<ul class="points">
+<li>There is no need for a skilled testing engineer in order to perform the monkey testing.</li>
+<li>Monkey testing is very cost-effective.</li>
+<li>Individual can quickly classify bugs with the help of this testing, which may significantly impact the software's efficiency and performance.</li>
+<li>To test the reliability of the software, it is an excellent approach.</li>
+<li>The monkey testing technique is easy to set up and implement.</li>
+<li>New bugs can be identified during the monkey tests; they would not have been discovered throughout the traditional testing.</li>
+<li>It is the best approach in order to execute the stress testing and load testing in an Adhoc manner.</li>
+</ul>
+<h3 class="h3">Disadvantages of Monkey Testing</h3>
+<p>Following are the drawbacks of Monkey testing:</p>
+<ul class="points">
+<li>Evaluate the unexpected issues identified during the monkey testing makes this process very difficult and time-consuming.</li>
+<li>In monkey testing, the identified bugs can be out of scope or out of business needs.</li>
+<li>The test engineer cannot assure the accuracy of test cases as they have difficulty to define the exact test scenarios.</li>
+<li>The implementation of monkey testing may consume lots of time before classify a bug as it does not have any predefined tests.</li>
+<li>It is done randomly; that's why test case coverage can't be specific.</li>
+</ul>
+<h2 class="h2">Overview</h2>
+<p><strong>In this tutorial, we have learned that Monkey Testing</strong> is a type of software testing that is relatively new and popular among software test engineers and very beneficial in some testing areas.</p>
+<p>Monkey testing is knowingly different from <strong>Gorilla testing</strong> and <strong>Adhoc Testing.</strong></p>
+<p>Monkey testing is divided into three types of testing is <strong>Dumb monkey testing, Smart monkey testing, and Brilliant Monkey testing.</strong></p>
+<p>In Monkey testing, the users entering the random inputs and then implementing the testing to check its performance and to know whether the system or application fails or not.</p>
+<p>Furthermore, monkey testing is an automated test conducted by a team of test engineers without any detailed test in mind.</p>
+<p>And at last, we can say that Monkey testing is the easiest way of checking the quality of software features and the performance of the software; because of this quality, monkey testing is also known as random testing.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="agile-testing.html">Agile Testing</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="reliability-testing.html">&larr; prev</a>
+<a style="float:right" class="next" href="agile-testing.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="422427272620232129022823342336322d2b2c366c212d2f">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/monkey-testing"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/monkey-testing"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/monkey-testing"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+ </a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+ <a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="8ae2f8cae0ebfcebfefae5e3e4fea4e9e5e7">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="8fe7fdcfe5eef9eefbffe0e6e1fba1ece0e2a1">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/monkey-testing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:39:44 GMT -->
+</html> 

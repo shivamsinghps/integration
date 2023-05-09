@@ -1,0 +1,772 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/keras-kohonen-self-organizing-maps by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:02:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Kohonen Self-Organizing Maps - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Kohonen Self-Organizing Maps - Javatpoint" /><meta property="og:description" content="Kohonen Self-Organizing Maps with What is Keras, Keras Backend, Models, Functional API, Pooling Layers, Merge Layers, Sequence Preprocessing, Metrics, Optimizers, Backend, Visualization etc." />
+<meta name="keywords" content="keras tutorial, keras, what is keras, keras backend, keras models, keras functional api, core layer, pooling layers, merge layers, sequence preprocessing, metrics, optimizers, backend, visualization" /><meta name="description" content="Kohonen Self-Organizing Maps with What is Keras, Keras Backend, Models, Functional API, Pooling Layers, Merge Layers, Sequence Preprocessing, Metrics, Optimizers, Backend, Visualization etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="keras-kohonen-self-organizing-maps.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Kohonen Self-Organizing Maps - Javatpoint" /><meta name="twitter:description" property="og:description" content="Kohonen Self-Organizing Maps with What is Keras, Keras Backend, Models, Functional API, Pooling Layers, Merge Layers, Sequence Preprocessing, Metrics, Optimizers, Backend, Visualization etc." /><meta property="og:url" content="keras-kohonen-self-organizing-maps.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="keras.html" class="selected">Keras</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="xhtml-tutorial.html">XHTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="xml-tutorial.html">XML</a></li>
+<li><a href="json-tutorial.html">JSON</a></li>
+<li><a href="comment.html">Comment</a></li>
+<li><a href="forum.html">Forum</a></li>
+<li><a href="training.html">Training</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Keras Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="keras.html">Keras Tutorial</a>
+<a href="https://www.javatpoint.com/installation-of-keras-library-in-anaconda">Installation of Keras library in Anaconda</a>
+<a href="keras-backends.html">Keras Backends</a>
+<a href="keras-models.html">Keras Models</a>
+<a href="keras-layers.html">Keras layers</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Keras Models</span></h2>
+</div>
+<div class="leftmenu">
+<a href="keras-the-model-class.html">Keras Model class</a>
+<a href="keras-sequential-class.html">Keras Sequential class</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Keras Layers</span></h2>
+</div>
+<div class="leftmenu">
+<a href="keras-core-layers.html">Keras Core Layers</a>
+<a href="keras-convolutional-layers.html">Convolutional Layer</a>
+<a href="pooling-layers.html">Pooling Layers</a>
+<a href="keras-locally-connected-layers.html">Locally-Connected layers</a>
+<a href="keras-recurrent-layers.html">Recurrent Layers</a>
+<a href="keras-embedding.html">Embedding Layers</a>
+<a href="keras-merge-layers.html">Keras Merge Layers</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Deep Learning Library</span></h2>
+</div>
+<div class="leftmenu">
+<a href="deep-learning.html">Deep Learning</a>
+<a href="https://www.javatpoint.com/keras-artificial-neural-networks">Artificial Neural Network</a>
+<a href="keras-convolutional-neural-network.html">Convolutional Neural Network</a>
+<a href="keras-recurrent-neural-networks.html">Recurrent Neural Network</a>
+<a href="keras-kohonen-self-organizing-maps.html">Self-Organizing Maps</a>
+<a href="keras-mega-case-study.html">Mega Case Study</a>
+<a href="keras-restricted-boltzmann-machine.html">Restricted Boltzmann Machine</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="keras-mega-case-study.html">next &rarr;</a>
+<a class="next" href="keras-recurrent-neural-networks.html">&larr; prev</a>
+</div>
+<h1 class="h1">Kohonen Self-Organizing Maps</h1>
+<p>The self-organizing maps were invented in the <strong>1980s</strong> by <strong>Teuvo Kohone</strong>n, which are sometimes called the <strong>Kohonen maps</strong>. Since they have a special property that efficiently creates spatially organized "inner illustrations" for the input data's several features, thus it is utilized for reducing the dimensionality. The topological relationship amid the data points is optimally preserved by the mapping.</p>
+<p>Consider Figure 1. given below and try to understand the basic structure of the self-organizing map network. It has an array that constitutes neurons or cells, which are set out on a rectangular or hexagonal sheet. Here the cells are denoted as the single index <strong>i</strong>, such that the input vector <strong>X(t)= [ x<sub>1</sub>(t), x<sub>2</sub>(t), ..., x<sub>n</sub>(t)]<sup>T </sup>&isin; R<sup>n</sup></strong> is connected parallelly to all the cells, through different weight vectors <strong>m<sub>i</sub>(t) = [ m<sub>il</sub>(t), m<sub>i2</sub>(t) ..., m<sub>in</sub>(t) &isin; R<sup>n</sup></strong> that are further adapted as per the input data set all through the self-organizing learning procedure.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/keras-kohonen-self-organizing-maps.png" alt="Kohonen Self-Organizing Maps" />
+<p>Firstly, we initialize the <strong>m<sub>i</sub>(0)'s</strong> with some small random values at the time of procedure learning, and then we repeatedly present the data, which has to be analyzed as an input vector either in the original order or some random order. Each time we present an input <strong>X(t)</strong>, we come across the best-matching cell <strong>c</strong> among all the cells, which is defined as below;</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/keras-kohonen-self-organizing-maps2.png" alt="Kohonen Self-Organizing Maps" />
+<p>where <strong>||. ||</strong> represents the Euclidean distance or measurement of some other distance. We have defined a neighborhood <strong>N<sub>c </sub>(t)</strong> around the cell as a range of lateral interaction, which has been demonstrated in the above figure. The basic weight-learning or weight adapting process is ruled by the following equation:</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/keras-kohonen-self-organizing-maps3.png" alt="Kohonen Self-Organizing Maps" />
+<p>Here, <strong>0 &lt;&alpha;(f) &lt; 1</strong> relates to a scalar factor, which is responsible for controlling the learning rate that must decrease with time so as to get good performance. As a result of lateral interaction, the network tends out to be spatially "organized" after adequate self-learning steps as per the input data set's structure. The cells also get tuned to some particular input vectors or groups of them, where each cell is responsible for responding only to some specific patterns within the input pattern set. Lastly, the cell locations of those cells that respond to different inputs incline to be well-organized according to the topological relations amid the pattern inside the input set. In this way, it helps in optimal preserving of topological relationships in the original data space on the neural map, which is why it is known as <strong>Self-Organizing Map</strong> as it makes the network quite powerful in certain applications.</p>
+<h2 class="h2">Self-organizing Map Analysis</h2>
+<p>Let us assume if cell <strong>i</strong> acknowledges the input vector <strong>X</strong>; then we call cell i or its location on the map just like an image of the input vector X. Every pattern vector in the input set has only one image on the neural map, but one cell can be the image of many vectors. In the case, if a lattice is placed over a plane, and we incorporate it for representing a neural map, then, in that case, one square corresponds to one neuron followed by writing a number of the input pattern, whose image is represented by the cell existing in the corresponding square and we get a map as shown in Figure 2. The map portrays the distribution of the input patterns images over the neural map, which is why it is termed as SOM density map or SOM image distribution map.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/keras-kohonen-self-organizing-maps4.png" alt="Kohonen Self-Organizing Maps" />
+<p>Every time there occurs groupings or clustering within the original pattern set, SOM will preserve it and showcase on the SOM density map, which is nothing, but the consequence of lateral competition. Closer patterns residing in the original space will "crowd" their images in some place on the map, and since the cells amid two or more image-crowded places are influenced by both the adjacent clusters, they will incline to respond to none of them. They will be imitated as some "<strong>plateaus</strong>" representing the clusters within the dataset that are separated by some "<strong>valleys</strong>", which corresponds to the classification lines on the SOM density map. Consider Figure 2 to have a better understanding of this phenomenon. The classification lines are drawn by dotted lines in the figure.</p>
+<p>This is the basis on which we do cluster analysis through the self-organizing map. We analyze the data for "training" the SOM, and then after undergoing "learning", the clusters are portrayed on the SOM density map.</p>
+<p>Following are some of its advantages:</p>
+<ul class="points">
+<li>We are not required to specify the number of clusters before the completion of the algorithm because the correct number will be directly shown by the result itself. On the contrary, most of the traditional clustering algorithms necessitate the user to select the number of clusters he wishes to get in the result, or he thinks there should be before implementing the algorithms, and as a result of which different choices may lead to very different results. In cases where we have some prior knowledge about the data distribution (e.g., the data may be high-dimensional), we may have an advantage of SOM clustering.</li>
+<li>When there exist no clustering relations inside the original data set, then the SOM clustering method degenerates gracefully into a general data analysis method, which in the case of the traditional methods ends up resulting in some clusters. It will only make unbelievable results. But in the case of the SOM algorithm, there is no such problem. It will not contain any plateaus and valleys on the map when there are no obvious clustering relations within the original space. Hence it avoids unreasonable, arbitrary classifications. Besides, we can also inspect the relations between the input patterns in relation to the location of their images on the map.</li>
+<li>It can be noted that in the basic SOM learning procedure, initially, the neighborhood size is kept quite large, and we let it shrink with time as it makes cells more specifically tuned to different patterns. In order to achieve a more accurate result, it requires some fine-tuning procedure. Since our SOMA is a new application of the SOM network, it has a different purpose than that of the traditional algorithm, which is why it is believed not to shrink the neighborhood too much, for the desire of better results of the clusters.</li>
+</ul>
+<h2 class="h2">Building a SOM</h2>
+<p>We are going to implement our first <strong>unsupervised</strong> deep learning model, i.e., <strong>Self-Organizing Maps</strong>, to solve a new kind of business problem, which is <strong>Fraud detection</strong>. So, in order to understand the business problem before starting with its implementation, let's suppose that we are a deep learning scientist working for a bank, and we are given a dataset that contains information of customers from this bank applying for an advanced credit card.</p>
+<p>Basically, this information is the data that customers had to provide when filling the application form. And our mission is to detect potential fraud within these applications, which means by the end of this mission, we have to give the explicit list of the customer who potentially cheated.</p>
+<p>So, our goal is very explicit. We have to return something, i.e., the list of potential fraudulent customers, we will not make a supervised deep learning model and try to predict if each customer potentially cheated or not with a dependent variable that has binary values. Instead, we will build an unsupervised deep learning model, which means we will identify some patterns in a high dimensional dataset full of nonlinear relationships, and one of them will be the potential frauds.</p>
+<p>We will start by importing the essential libraries in the same way as we did in our previous topics so that we can move on to implementing the model.</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Importing the libraries
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+</textarea></div>
+<p>Next, we will import the "<strong>Credit_Card_Applications.csv</strong>" dataset. We have taken our dataset from <strong>the UCI Machine Learning Repository</strong>, which is called Statlog Australian Credit Approval Dataset, and you can simply get by clicking on http://archive.ics.uci.edu/ml/datasets/statlog+(australian+credit+approval).</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Importing the dataset
+dataset = pd.read_csv('Credit_Card_Applications.csv')
+</textarea></div>
+<p>After importing the dataset, we will go to the variable explorer and open it. </p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/keras-kohonen-self-organizing-maps5.png" alt="Kohonen Self-Organizing Maps" />
+<p>From the above image, the first thing we need to understand is that here the columns are the attributes, i.e., the information of the customers and the lines are the customers. Earlier, when we said that the unsupervised deep learning model is going to identify some patterns, which are the customers. These customers are the inputs of our neural network, which are going to be mapped to a new output space. In between the input space and the output space, we have a neural network composed of neurons, each neuron being initialized as a vector of weights that is the same as the vector of the customer, i.e., a vector of 15 elements, because we have the customer Id plus 14 attributes and so, for each observation point or each customer, the output of this customer will be the neuron, which is the closest to the customer. And this neuron is called the <strong>winning node</strong> for each customer, which is the most similar neuron to the customer.</p>
+<p>Next, we will use the neighborhood function like <strong>the Gaussian Neighbourhood function</strong> to update the weight of the neighbors of the winning node to move them closer to the point. We have to repeatedly do this for all the customers in the input space, and each time we repeat it, the output space decreases, followed by losing the dimensionality. It reduces the dimensions little by little. And then, it reaches a point where the neighborhood or output space stops decreasing, which is the moment where we obtain our self-organizing map in two-dimension with all the winning nodes that were eventually identified. It helps us in getting closer to the frauds because, indeed, when we think about frauds, we think about the outliers due to the fact that fraud is defined by something, which is far from general rules.</p>
+<p>The general rules are those rules, which must be respected when applying to the credit card. So, the frauds are actually the outlying neurons in the two-dimensional self-organizing maps because the outline neurons are far from the majority of neurons that follow the rules. Therefore, to detect the outline neurons in the SOM, we need the <strong>Mean Interneuron Distance</strong>, which means in our self-organizing map for each neuron, we are going to compute the mean of the Euclidean distance between one neuron and its neighborhood, such that we have to define the neighborhood manually.</p>
+<p>But we define a neighborhood for each neuron, and we compute the mean of the Euclidean distance between the neuron that we picked and all the neurons in the neighborhood, which we defined as if doing so we will be able to detect the outliers because outliers will be far from all the neurons in its neighborhood. After that, we will use an <strong>inverse mapping</strong> function to identify which customers originally in the input space are associated with the winning node, which is an outlier.</p>
+<p>So, here we have solved our mystery, we will start with its implementation part. We will first undergo the splitting of our dataset into two subsets, the sets that contain all the variables from customer ID to attribute number 14, i.e., <strong>A14</strong>, and the class, which is the variable that tells if Yes or No the application of the customer was approved. Therefore, <strong>0</strong> relates to <strong>No,</strong> the application was not approved, whereas <strong>1</strong> means <strong>Yes,</strong> the application was approved. Here we need to separate all these variables and the variable class, so that on the self-organizing map we can clearly distinguish between the customers who haven't approved their application and the customers who got approval because only then it will be useful as for example if we want to detect in priority, the fraudulent customers who got their applications approved that would actually make more sense.</p>
+<p>After importing the dataset, we will create those two subsets for which we will call a variable <strong>X</strong>, making it equal to <strong>dataset.iloc</strong> to get the indexes of the observations we want to include in <strong>X</strong>. So, we will start with indexed lines, and since we want all the lines because we want all the customers, we will use the <strong>:</strong> here and then as we want all the columns except the last one, we will use <strong>:-1</strong>. And then, as usual, we will use <strong>.values</strong> for the fact that it will return all the observations indexed by these indexes here.</p>
+<div class="codeblock"><textarea name="code" class="java">
+X = dataset.iloc[:, :-1].values
+</textarea></div>
+<p>Next, we will create the last column, and for that, we will call it <strong>y</strong>. Since we are going to take the last column, so we only need to replace <strong>:-1</strong> by <strong>-1</strong>, and the rest code remain the same as we did for the X variable.</p>
+<div class="codeblock"><textarea name="code" class="java">
+y = dataset.iloc[:, -1].values
+</textarea></div>
+<p>After executing the above two lines of code, X and Y will get created, which we can check on the variable explorer pane. From the image given below, we can clearly see that <strong>X</strong> contains all the variables except the last one. However, <strong>y</strong> contains the last variable that tells if Yes or No, the application was approved.</p>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/keras-kohonen-self-organizing-maps6.png" alt="Kohonen Self-Organizing Maps" />
+<h4 class="n">Note: Here we split our datasets into x and y, but we did not do that because we were doing some supervised learning, we are not trying to make a model that will predict 0 or 1 in the end. We are just going to make the distinction in the end between the customers who were approved and the customers who weren't approved.</h4>
+<p>Since we are training our self-organizing map, we will only use X because we are doing some unsupervised deep learning, and with that, we mean no independent variable is being considered.</p>
+<p>Next, we will do <strong>feature scaling</strong> because it is compulsory for deep learning as there are high computations to make and we are going to start with a high dimensional dataset with lots of nonlinear relationships, so it will be much easier for our deep learning model to be trained if the features are scaled.</p>
+<p>We are actually going to do the same as we did for the Recurrent Neural Networks. We will use <strong>the normalization</strong>, which means we will get all our features between <strong>0</strong> and <strong>1</strong>. So, we will start by importing the <strong>MinMaxScaler</strong> from <strong>sklearn.preprocessing</strong>. Then we will create an object <strong>sc</strong> of <strong>MinMaxScaler</strong> class, and inside the class, we will pass <strong>feature_range</strong> parameter that specifies the range of our scales in between <strong>0</strong> and <strong>1</strong>, which is termed as normalization. Next, we will fit <strong>sc</strong> object to <strong>X</strong> so that sc gets all the information of X like the minimum and maximum, all the information that it needs to apply normalization to X. So, we will first fit the object to X, and then we will need to transform X, i.e., to apply normalization to X. Therefore, we will use the <strong>sc.fit_transform</strong> method that we will apply to <strong>X</strong>.</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Feature Scaling
+from sklearn.preprocessing import MinMaxScaler
+sc = MinMaxScaler(feature_range = (0, 1))
+X = sc.fit_transform(X)
+</textarea></div>
+<p>After executing the above code, we can see from the below image that X is all normalized, we can indeed check all the values are between 0 and 1.</p>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/keras-kohonen-self-organizing-maps7.png" alt="Kohonen Self-Organizing Maps" />
+<p>So, we just completed our data-pre-processing phase, and now we are ready to train our SOM model. To train our model, we have the following two options:</p>
+<ol class="points">
+<li>The first option is to implement the SOM from scratch.</li>
+<li>The second option is to use a code or class made by another developer, exactly like when we use scikit learning made by another developer, except that here, the self-organizing maps doesn't have an implementation in scikit learning.</li>
+</ol>
+<p>So, we will take it from another developer, which totally depends on what is available online and if some good implementations of SOM were made by developers. Fortunately, one such excellent implementation of SOM is <strong>Minisom 1.0</strong>, which is developed by <strong>Giuseppe Vettigili</strong>, and it is a <a href="numpy-tutorial.html"><strong>NumPy</strong></a> based implementation of self-organizing maps. The license is <strong>Creative Commons by 3.0</strong>, which means we can share, adapt as well as do whatever we want to do with the code, so we can totally use it to build our SOM.</p>
+<p>To start with training the SOM model, we will first import the MiniSom keeping in mind that in our working directory folder in file explorer, we get the minisom.py, which is the implementation of the self-organizing map itself made by the developer. We will import the class called <strong>MiniSom</strong> from the minisom python file. Next, we will create an object of this class, which is going to be the self-organizing map itself that is going to be trained on <strong>X</strong> as we are doing some unsupervised learning, i.e., we are trained to identify some patterns inside the independent variables contained in X, and we don't use the information of the dependent variable. We don't consider the information in y.</p>
+<p>Since the object is the self-organizing map itself, so we will call it <strong>som,</strong> and then we will call the class <strong>MiniSom,</strong> and we will pass the following parameters inside it.</p>
+<ul class="points">
+<li>The first parameter is <strong>x</strong> and <strong>y</strong>, which are, of course, the dimension of the grid to the self-organizing map. So, here the choice is arbitrary, we can choose whatever we want for our self-organizing map. Since we don't have that many observations in our dataset, so we will just make 10 by 10 grid. Therefore, we are going to input <strong>x=10</strong> and <strong>y=10</strong>.</li>
+<li>The next parameter is the <strong>input_len</strong>, which corresponds to the number of features we have in our dataset, not in the original dataset but in X because we are training the som object on X that contains 14 attributes plus customer ID as it will help in identifying the potential cheaters. So, the input length will be 14+1= <strong>15</strong>.</li>
+<li>The third parameter is <strong>sigma</strong>, which is the radius of the different neighborhoods in the grid. So, we will keep its default value, i.e., <strong>1</strong>.</li>
+<li>At last, we have the <strong>learning_rate</strong> parameter, which is the hyperparameter that decides by how much weights are updated during each iteration. So, the higher the learning_rate, the faster will be the convergence, and if the learning_rate is lower, the longer the SOM will take time to be built. So, we will again keep the default value, which is <strong>5</strong>.</li>
+</ul>
+<p>After this, we will train our <strong>som</strong> object on <strong>X</strong>, but before that, we will first initialize the weights, which we will do with the help of <strong>random_weights_init</strong> method and inside the method, we will input <strong>X</strong>. Then we will use the <strong>train_random</strong> method to train the som on X. Inside the method, we will pass two arguments; one is the data, i.e., <strong>X</strong> and the other is <strong>num_iteration</strong>, which is the number of iterations. Here we are trying with <strong>100</strong> iterations as it will be enough for our dataset.</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Training the SOM
+from minisom import MiniSom
+som = MiniSom(x = 10, y = 10, input_len = 15, sigma = 1.0, learning_rate = 0.5)
+som.random_weights_init(X)
+som.train_random(data = X, num_iteration = 100)
+</textarea></div>
+<p>So, we have just trained our model, and now we are ready to visualize the results, i.e., to plot the self-organizing maps itself where we can clearly see the 2-dimensional grid that will contain all the final winning nodes, and for each of these winning nodes, we will get the Mean Interneuron Distance. The MID for each of a specific winning node is the mean of the distances of all the neurons around the winning node inside a neighborhood that we defined sigma, which is the radius of the neighborhood. So, higher the MID, more the winning node is an outlier, i.e., frauds because, for each neuron, we will get the MID for which we simply need to take the winning nodes that have the highest MID.</p>
+<p>In order to start building the map, we will need some specific functions to do this as we will not be using matplotlib because the plot that we are about to make is actually quite specific. We are not going to plot a classic graph like a histogram or curve, but we are building a self-organizing map, and therefore in some way, we are going to make it from scratch.</p>
+<p>So, the functions we will use, we will import from the <strong>pylab</strong>, and these functions are <strong>bone, pcolor, colorbar, plot</strong>, and <strong>show</strong>. Next, we will start making the map for which we will first need to initialize the figure, i.e., the window that will contain the map, and to do this, we will use the <strong>bone()</strong> function.</p>
+<p>In the next step, we will put the different wining nodes on the map, which we will do by adding the information of the Mean Interneuron Distance on the map for all the winning nodes that are identified by the SOM. Here we will not add the figures of all these MID instead we will use different colors corresponding to the different range values of the MID and to do this, we will use <strong>pcolor</strong> function inside of which we will add all the values of the MID for all the winning nodes of our SOM. In order to get these mean distances, we have some specific method, i.e., Distance Map method and in fact, this distance map method will return all the MID in one matrix followed by taking the transpose of the matrix to get the things in the right order for the pcolor function that will be done by using <strong>som.distance_map().T</strong>. Next, we will add the colorbar that will exactly give us legends of all these colors.</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Visualizing the results
+from pylab import bone, pcolor, colorbar, plot, show
+bone()
+pcolor(som.distance_map().T)
+colorbar()
+</textarea></div>
+<br>
+<img src="https://static.javatpoint.com/tutorial/keras/images/keras-kohonen-self-organizing-maps8.png" alt="Kohonen Self-Organizing Maps" />
+<p>From the above image, we can see that we have the legends on the right side of the image, which is the range values of the MID. But these are the normalized values that were scaled from <strong>0</strong> to <strong>1</strong>. therefore, we can clearly see the <strong>highest</strong> MID's correspond to the <strong>white</strong> color, and the <strong>smallest</strong> MID's corresponds to the <strong>dark</strong> color. So, based on what we discussed earlier, we already know where the frauds are because they are identified by the outlying winning nodes that are far from the general rules. It can be seen that all the majority of dark colors are close to each other because their MID is pretty low, which means all the winning nodes in the neighborhood of one winning node are close to the winning node at the center, which therefore creates the clusters of the winning node.</p>
+<p>Since the winning node has the large MID's, so they are outliers and accordingly potential frauds. In the next step, we will get the explicit list of customers by just proceeding to the inverse mapping of the winning node to see which customers are associated with that particular winning node. But we can do better than this map as we can add some markers to make the distinction between the customers who got approval and the customers who didn't get the approval because the customer who cheated and got approval are more relevant target to fraud detection than the customers who didn't get approval and cheated. Therefore, it would be good to see where the customers are in the self-organizing map.</p>
+<p>So, in the next step, we will add markers everywhere to tell for each of these winning nodes if the customer who is associated with these winning nodes got approval or not. We will create two markers; some red circles corresponding to the customers who didn't get approval and some green squares that relate to the customers who got approval. To create a marker, we will first create a new variable called <strong>markers,</strong> and then a vector of two elements corresponding to the two markers, i.e., the first one is the circle that is quoted by <strong>"o"</strong> and the other one is the square, which is quoted by <strong>"s"</strong>. Next, we will color these markers for which we will again create a variable named as <strong>colors</strong> followed by creating a vector of two elements; the first one is the red color quoted by <strong>"r"</strong> and the green color quoted by <strong>"g"</strong>.</p>
+<p>After this we will loop over all the customers and for each customer, we are going to get the winning node and depending on whether the customer got approval or not, we will color this winning node by the red circle if the customer didn't get the approval and a green square if the customer got approval. Here we will use a for loop that needs two looping variables, i.e., <strong>i</strong> and <strong>x</strong>, such that i is the different values of all the indexes of our customer database, which simply means it is going to take values from 0,1,2,..689 and x is going to be different vectors of the customer.</p>
+<p>So, for x and i, we will add <strong>in enumerate</strong>, and inside the enumerate, we will add <strong>X</strong> followed by entering into the loop. Inside the loop, we will first get the winning node for the first customer because, at the beginning of this loop, we start with the first customer for which to get its winning node. To get the winning node, we will start with <strong>w</strong>, and then we will take our object <strong>som</strong>, followed by taking <strong>the winner</strong> method. Next, we will pass <strong>X</strong> in the winner method as it will get us the winning node of the customer X.</p>
+<p>After getting the winning node, we will <strong>plot</strong> the colored marker on it. Then in plot function, we will specify the coordinates of the marker, and for that, we would like to place the marker at the center of the winning node. Since each winning node is represented by a square in the self-organizing map as we saw earlier, so we want to put the marker at the center of the square. Therefore the coordinates of the winning nodes are <strong>w[0]</strong> corresponds to <strong>X</strong> coordinates, and <strong>w[1]</strong> relates to <strong>y</strong> coordinates of the lower-left corner of the square. But we want to put at the center of the square, so we will add <strong>w[0] + 0.5</strong> to put it in the middle of the horizontal base of the square and <strong>w[1] + 0.5</strong> to put it at the center of the square.</p>
+<p>In order to know whether the marker is going to be a red circle or a green square, we will take the <strong>markers</strong> vector, which we created earlier and then we will pass <strong>y[i]</strong> inside the vector because <strong>i</strong> is the index of the customer, so y[i] is the value of the dependent variable for the customer, i.e., <strong>0</strong> if the customer didn't get the approval and <strong>1</strong> if the customer got the approval. Therefore, it can be concluded that if the customer didn't get the approval, then <strong>y[i]</strong> will be equal to <strong>0</strong>, and so will be the <strong>markers[y[i]]</strong>, i.e., a <strong>circle</strong>. Similarly, if the customer got approval, then <strong>y[i]</strong> and <strong>markers[y[i]]</strong> will become equal to <strong>1</strong>, corresponding to a <strong>square</strong>. Next, we will add the colors in the same way, by taking our colors vector, i.e., colors and then we will take [y[i]] as it contains the information whether the customer got the approval of not, such that depending on the value of [y[i]], we will get a red, if the customer didn't get approval and green if the customer got approval.</p>
+<p>But in fact, we will give colors[y[i]] to the marker, however, in the markers, we can color the inside of the marker and the edge of the marker. Here we are going to color the edge of the marker, so we will make <strong>markeredgecolor</strong> equal to <strong>colors[y[i]],</strong> and for the inside of the marker, we will not color it because we can have two markers for the same winning node and therefore, we will make <strong>markerfacecolor</strong> equals to <strong>None</strong>. Lastly, we will add <strong>markersize</strong> because otherwise, we will get too small markers, and we want to be able to see the markers, so we will make it equal to <strong>10</strong>. Eventually, we will do the same for the size of the edges; therefore, we will add <strong>markeredgewidth</strong> followed by setting it equal to <strong>2</strong>. Now when we look at our self-organizing map, we will see it will actually look much better because not only we will see the differed Mean Interneuron Distances for all the winning node, but besides we will see the customer associated to the winning node are customers who got approval or not and to check it, we will add <strong>show()</strong> to show the graph.</p>
+<div class="codeblock"><textarea name="code" class="java">
+markers = ['o', 's']
+colors = ['r', 'g']
+for i, x in enumerate(X):
+    w = som.winner(x)
+    plot(w[0] + 0.5,
+         w[1] + 0.5,
+         markers[y[i]],
+         markeredgecolor = colors[y[i]],
+         markerfacecolor = 'None',
+         markersize = 10,
+         markeredgewidth = 2)
+show()
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/keras-kohonen-self-organizing-maps9.png" alt="Kohonen Self-Organizing Maps" />
+<p>From the above image, we can see that we have the Mean Interneuron Distances as well as we get the information about whether the customers got approval or not for each of the winning nodes. For example, if we look at red circles, we can see that customers associated with that particular winning node didn't get the approval. However, if we look at green squares, we can see that the customers associating with it got the approval.</p>
+<p>Now, if we look at the outliers, then they are the winning nodes, where the Mean Interneuron Distances are almost equal to 1, indicating a high risk for the customers associating to those winning nodes. Basically, in that particular case, we see that we have both the cases, i.e., some customers got the approval, and some didn't get the approval because we get a green square as well as a red circle. So, now we have to catch the potential cheaters in the winning nodes but in priority those who got approval because it's of course much more relevant to the bank to catch the cheaters who got away with this.</p>
+<p>Here we are done with the map, it's quite good, and now we will use this map to catch these potential cheaters. We will use a dictionary, which we can obtain by using a method available in <strong>minisom.py</strong> as it contains all the different mappings from the winning nodes to the customer. Basically, we will first get all these mappings, and then we will use the coordinates of our outliers winning nodes that we identified, the white ones as it will give us the list of customers. Since we already identified two outlying winning nodes, well we will have to use the concatenate function to concatenate the two lists of customers, so that we can have a whole list of potential cheaters.</p>
+<p>We will start by introducing a snew variable <strong>mapping</strong> followed by using a method that will return the dictionary of all mappings from the winning nodes to the customers. Since it is a method, so we need to take our object <strong>som</strong>, and then we will add dot followed by adding the <strong>win_map</strong> method. Inside the method, we will simply input X, which is not the whole data, but only that data on which our SOM was trained.</p>
+<div class="codeblock"><textarea name="code" class="java">
+# Finding the frauds
+mappings = som.win_map(X)
+</textarea></div>
+<p>Upon execution of the above code, we will have the following output.</p>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/keras-kohonen-self-organizing-maps10.png" alt="Kohonen Self-Organizing Maps" />
+<p>As we already said, <strong>mappings</strong> is actually a dictionary, and if we click on it, we will get all the mappings for all the different winning nodes in our SOM. Here the key is the coordinates of the winning nodes, and if we talk about the coordinates <strong>(0,0)</strong>, we will see there are <strong>6</strong> customers associated with that particular winning node, and we can actually see the list by clicking on the corresponding value, which is shown as below.</p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/keras-kohonen-self-organizing-maps11.png" alt="Kohonen Self-Organizing Maps" />
+<p>From the above image, each line corresponds to one customer that is associated with the winning node of coordinate (0,0).</p>
+<p>After this, we create a new variable called <strong>frauds</strong>, and then we will again go back to our map to get coordinated of the outlying winning node because these are the winning nodes that correspond to the customer, which we are looking for. So, we will execute it again, and then we will take <strong>the mappings</strong> dictionary. Inside the brackets of the dictionary, we will input the coordinates of the first outlying nodes, i.e. <strong>(1,1)</strong> as it will give us the list of the customers associated to this outlying winning node followed by adding the coordinates of second outlying winning nodes <strong>(4,1)</strong>, which corresponds to very high MID. Here is one thing which is very important to keep in mind, i.e., whenever we input two lists that we are willing to concatenate into one same argument, we just need to put our two mappings into a new pair of parenthesis, and after that, we add the other argument, i.e., <strong>axis</strong>, which is a compulsory argument because that is how you specify if you want to concatenate vertically or horizontally. Since we are concatenating the horizontal vectors of customers as well as we want to put this second list of customer vectors below the first list of customer vectors, so we will concatenate along the vertical axis for which the default value is <strong>0</strong>.</p>
+<p>Eventually, we are all set to get the whole list of cheaters, so let execute the following code.</p>
+<div class="codeblock"><textarea name="code" class="java">
+frauds = np.concatenate((mappings[(1,1)], mappings[(4,1)]), axis = 0)
+</textarea></div>
+<br>
+<img src="https://static.javatpoint.com/tutorial/keras/images/keras-kohonen-self-organizing-maps12.png" alt="Kohonen Self-Organizing Maps" />
+<p>From the above image, we can see the list of customers who potentially cheated. We can see that the values are still scaled, so the only this left to do is to inverse the scaling, and to do that, we have an inverse scaling method that inverses this mapping.</p>
+<p>So, we will again start by taking the <strong>frauds</strong> list followed by using the <strong>inverse_transform</strong> method that will inverse this scaling. Since we applied the feature scaling with sc object that we created from the MinMaxScaler class, so we will take our object <strong>sc</strong>, and then we will use <strong>the inverse_transform</strong> method, and inside this method, we will enter the list of our frauds.</p>
+<div class="codeblock"><textarea name="code" class="java">
+frauds = sc.inverse_transform(frauds)
+</textarea></div>
+<p>When we run the above code, we get the list of frauds with the original real values, which as follows. </p>
+<img src="https://static.javatpoint.com/tutorial/keras/images/keras-kohonen-self-organizing-maps13.png" alt="Kohonen Self-Organizing Maps" />
+<p>From the above image, it can be seen that we have the <strong>customer ID</strong> that we can use to find the potential cheaters. So, here we completed our job by giving the list of potential cheaters to the bank. Further, the analyst will investigate the list of potential cheaters for which he will probably get the values of <strong>y</strong> for all these customer IDs to take in priority the ones that got approved to revise the application and then by investigating deeper, and they will find out if the customer really cheated somehow.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="keras-mega-case-study.html">Mega Case Study</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="keras-recurrent-neural-networks.html">&larr; prev</a>
+<a style="float:right" class="next" href="keras-mega-case-study.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="7f191a1a1b1d1e1c143f151e091e0b0f1016110b511c1012">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/keras-kohonen-self-organizing-maps"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/keras-kohonen-self-organizing-maps"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/keras-kohonen-self-organizing-maps"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+ </div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+ </div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f59d87b59f94839481859a9c9b81db969a98">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="19716b5973786f786d697670776d377a767437">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/keras-kohonen-self-organizing-maps by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:02:13 GMT -->
+</html> 

@@ -1,0 +1,1118 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/constructor-overloading-in-cpp by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:01:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Constructor overloading in C++ - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Constructor overloading in C++ - javatpoint" /><meta property="og:description" content="Constructor overloading in C++ with C++ tutorial for beginners and professionals, if-else, switch, break, continue, object and class, exception, static, structs, inheritance, aggregation etc." />
+<meta name="keywords" content="C++, tutorial, beginners, professionals, introduction, if-else, switch, break, continue, comments, arrays, templates, object and class, exception" /><meta name="description" content="Constructor overloading in C++ with C++ tutorial for beginners and professionals, if-else, switch, break, continue, object and class, exception, static, structs, inheritance, aggregation etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="constructor-overloading-in-cpp.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Constructor overloading in C++ - javatpoint" /><meta name="twitter:description" property="og:description" content="Constructor overloading in C++ with C++ tutorial for beginners and professionals, if-else, switch, break, continue, object and class, exception, static, structs, inheritance, aggregation etc." /><meta property="og:url" content="constructor-overloading-in-cpp.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="cpp-tutorial.html" class="selected">C++</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="php-tutorial.html">PHP</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="xml-tutorial.html">XML</a></li>
+<li><a href="json-tutorial.html">JSON</a></li>
+<li><a href="ajax-tutorial.html">Ajax</a></li>
+<li><a href="nodejs-tutorial.html">Node.js</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-tutorial.html">C++ Tutorial</a>
+<a href="c-vs-cpp.html">C vs C++</a>
+<a href="cpp-history.html">C++ History</a>
+<a href="cpp-features.html">C++ Features</a>
+<a href="cpp-installation.html">C++ Installation </a>
+<a href="cpp-program.html">C++ Program</a>
+<a href="cpp-basic-input-output.html">C++ cout, cin, endl</a>
+<a href="cpp-variable.html">C++ Variable</a>
+<a href="cpp-data-types.html">C++ Data types</a>
+<a href="cpp-keywords.html">C++ Keywords</a>
+<a href="cpp-operators.html">C++ Operators</a>
+<a href="cpp-identifiers.html">C++ Identifiers</a>
+<a href="cpp-expression.html">C++ Expression</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Control Statement</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-if-else.html">C++ if-else</a>
+<a href="cpp-switch.html">C++ switch</a>
+<a href="cpp-for-loop.html">C++ For Loop</a>
+<a href="cpp-while-loop.html">C++ While Loop</a>
+<a href="cpp-do-while-loop.html">C++ Do-While Loop</a>
+<a href="cpp-break-statement.html">C++ Break Statement</a>
+<a href="cpp-continue-statement.html">C++ Continue Statement</a>
+<a href="cpp-goto-statement.html">C++ Goto Statement</a>
+<a href="cpp-comments.html">C++ Comments</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Functions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-functions.html">C++ Functions</a>
+<a href="call-by-value-and-call-by-reference-in-cpp.html">Call by value & reference</a>
+<a href="cpp-recursion.html">C++ Recursion</a>
+<a href="cpp-storage-classes.html">C++ Storage Classes</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Arrays</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-arrays.html">C++ Arrays</a>
+<a href="cpp-passing-array-to-function.html">C++ Array to Function</a>
+<a href="cpp-multidimensional-array.html">Multidimensional Arrays</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Pointers</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-pointers.html">C++ Pointers</a>
+<a href="sizeof-operator-in-cpp.html">sizeof() operator in C++</a>
+<a href="cpp-array-of-pointers.html">C++ Array of Pointers</a>
+<a href="cpp-void-pointer.html">C++ Void Pointer</a>
+<a href="cpp-references.html">C++ References</a>
+<a href="cpp-reference-vs-pointer.html">Reference vs Pointer</a>
+<a href="function-pointer-in-cpp.html">Function Pointer in C++</a>
+<a href="cpp-memory-management.html">C++ Memory Management</a>
+<a href="malloc-vs-new-in-cpp.html">malloc() vs new in C++</a>
+<a href="free-vs-delete-in-cpp.html">free vs delete in C++</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Object Class</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-oops-concepts.html">C++ OOPs Concepts</a>
+<a href="cpp-object-and-class.html">C++ Object Class</a>
+<a href="cpp-constructor.html">C++ Constructor</a>
+<a href="cpp-copy-constructor.html">C++ Copy Constructor</a>
+<a href="cpp-destructor.html">C++ Destructor</a>
+<a href="cpp-this-pointer.html">C++ this Pointer</a>
+<a href="cpp-static.html">C++ static</a>
+<a href="cpp-structs.html">C++ Structs</a>
+<a href="cpp-enumeration.html">C++ Enumeration</a>
+<a href="cpp-friend-function.html">C++ Friend Function</a>
+<a href="cpp-math-functions.html">C++ Math Functions</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Inheritance</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-inheritance.html">C++ Inheritance</a>
+<a href="cpp-aggregation.html">C++ Aggregation</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Polymorphism</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-polymorphism.html">C++ Polymorphism</a>
+<a href="cpp-overloading.html">C++ Overloading</a>
+<a href="cpp-function-overriding.html">C++ Overriding</a>
+<a href="cpp-virtual-function.html">C++ Virtual Function</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Abstraction</span></h2>
+</div>
+<div class="leftmenu">
+<a href="interfaces-in-cpp.html">C++ Interfaces</a>
+<a href="data-abstraction-in-cpp.html">C++ Data Abstraction</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Namespaces</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-namespaces.html">C++ Namespaces</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Strings</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-strings.html">C++ Strings</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Exceptions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-exception-handling.html">C++ Exception Handling</a>
+<a href="cpp-try-catch.html">C++ try/catch</a>
+<a href="cpp-user-defined-exceptions.html">C++ User-Defined</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Templates</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-templates.html">C++ Templates</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Signal Handling</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-signal-handling.html">C++ Signal Handling</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ File & Stream</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-files-and-streams.html">C++ File & Stream</a>
+<a href="cpp-getline.html">C++ getline()</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-vs-csharp.html">C++ vs C#</a>
+<a href="cpp-int-to-string.html">C++ int to string</a>
+<a href="cpp-vs-python.html">C++ vs Python</a>
+<a href="structure-vs-class-in-cpp.html">Structure vs Class in C++</a>
+<a href="virtual-destructor-in-cpp.html">Virtual Destructor in C++</a>
+<a href="constructor-vs-destructor-in-cpp.html">Constructor vs Destructor in C++</a>
+<a href="bit-manipulation-cpp.html">Bit manipulation C++</a>
+<a href="what-is-a-reference-variable.html">What is a reference variable</a>
+<a href="friend-function-in-cpp.html">Friend Function in C++</a>
+<a href="snake-code-in-cpp.html">Snake Code in C++</a>
+<a href="inline-function-in-cpp.html">Inline function in C++</a>
+<a href="virtual-function-vs-pure-virtual-function-in-cpp.html">Virtual function vs Pure virtual function in C++</a>
+<a href="how-to-split-strings-in-cpp.html">How to Split strings in C++</a>
+<a href="range-based-for-loop-in-cpp.html">Range-based for loop in C++</a>
+<a href="type-conversion-in-cpp.html">Type Conversion in C++</a>
+<a href="lcm-of-two-numbers-in-cpp.html">LCM of two numbers in C++</a>
+<a href="https://www.javatpoint.com/convert-string-to-integer-in-cpp">Convert string to integer in C++</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ STL Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-stl-components.html">C++ STL Components</a>
+<a href="cpp-vector.html">C++ Vector</a>
+<a href="initialize-vector-in-cpp.html">Initialize Vector in C++</a>
+<a href="post/cpp-deque.html">C++ Deque</a>
+<a href="post/cpp-list.html">C++ List</a>
+<a href="cpp-set.html">C++ Set</a>
+<a href="cpp-stack.html">C++ Stack</a>
+<a href="cpp-queue.html">C++ Queue</a>
+<a href="priority-queue-in-cpp.html">C++ Priority Queue</a>
+<a href="post/cpp-map.html">C++ Map</a>
+<a href="post/cpp-multimap.html">C++ Multimap</a>
+<a href="post/cpp-map.html">C++ Map</a>
+<a href="https://www.javatpoint.com/post/cpp-bitset">C++ Bitset</a>
+<a href="cpp-algorithm.html">C++ Algorithm</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Iterators</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-iterators.html">C++ Iterators</a>
+<a href="cpp-bidirectional-iterator.html">C++ Bidirectional Iterator</a>
+<a href="cpp-forward-iterator.html">C++ Forward Iterator</a>
+<a href="cpp-input-iterator.html">C++ Input Iterator</a>
+<a href="cpp-output-iterator.html">C++ Output Iterator</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C++ Programs</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-programs.html">C++Programs</a>
+<a href="fibonacci-series-in-cpp.html"><span>Fibonacci Series</span></a>
+<a href="prime-number-program-in-cpp.html"><span>Prime Number</span></a>
+<a href="palindrome-program-in-cpp.html"><span>Palindrome Number</span></a>
+<a href="factorial-program-in-cpp.html"><span>Factorial</span></a>
+<a href="armstrong-number-in-cpp.html"><span>Armstrong Number</span></a>
+<a href="sum-of-digits-program-in-cpp.html"><span>Sum of digits</span></a>
+<a href="cpp-program-to-reverse-number.html"><span>Reverse Number</span></a>
+<a href="cpp-program-to-swap-two-numbers-without-third-variable.html"><span>Swap Number</span></a>
+<a href="matrix-multiplication-in-cpp.html"><span>Matrix Multiplication</span></a>
+<a href="cpp-program-to-convert-decimal-to-binary.html"><span>Decimal to Binary</span></a>
+<a href="cpp-program-to-convert-number-in-characters.html"><span>Number in Characters</span></a>
+<a href="cpp-program-to-print-alphabet-triangle.html"><span>Alphabet Triangle</span></a>
+<a href="cpp-program-to-print-number-triangle.html"><span>Number Triangle</span></a>
+<a href="cpp-program-to-generate-fibonacci-triangle.html"><span>Fibonacci Triangle</span></a>
+<a href="char-array-to-string-in-cpp.html">Char array to string in C++</a>
+<a href="calculator-program-in-cpp.html">Calculator Program in C++</a>
+<a href="program-to-convert-infix-to-postfix-expression-in-cpp-using-the-stack-data-structure.html">Program to convert infix to postfix expression in C++ using the Stack Data Structure</a>
+<a href="cpp-program-to-merge-two-unsorted-arrays.html">C++ program to merge two unsorted arrays</a>
+<a href="https://www.javatpoint.com/cpp-coin-change-program">C++ coin change program</a>
+<a href="cpp-program-to-add-two-complex-numbers-using-class.html">C++ program to add two complex numbers using class</a>
+<a href="cpp-program-to-find-the-gcd-of-two-numbers.html">C++ program to find the GCD of two numbers</a>
+<a href="cpp-program-to-find-greatest-of-four-numbers.html">C++ program to find greatest of four numbers</a>
+<a href="delete-operator-in-cpp.html">Delete Operator in C++</a>
+<a href="how-to-concatenate-two-strings-in-cpp.html">How to concatenate two strings in c++</a>
+<a href="upcasting-and-downcasting-in-cpp.html">Upcasting and Downcasting in C++</a>
+<a href="cpp-dijkstra-algorithm-using-priority-queue.html">C++ Dijkstra Algorithm using the priority queue</a>
+<a href="constructor-overloading-in-cpp.html">Constructor overloading in C++</a>
+<a href="default-arguments-in-cpp.html">Default arguments in C++</a>
+<a href="dynamic-binding-in-cpp.html">Dynamic binding in C++</a>
+<a href="dynamic-memory-allocation-in-cpp.html">Dynamic memory allocation in C++</a>
+<a href="fast-input-and-output-in-cpp.html">Fast input and output in C++</a>
+<a href="hierarchical-inheritance-in-cpp.html">Hierarchical inheritance in C++</a>
+<a href="hybrid-inheritance-in-cpp.html">Hybrid inheritance in C++</a>
+<a href="multiple-inheritance-in-cpp.html">Multiple Inheritance in C++</a>
+<a href="cpp-bitwise-xor-operator.html">C++ Bitwise XOR Operator</a>
+<a href="different-ways-to-compare-strings-in-cpp.html">Different Ways to Compare Strings in C++</a>
+<a href="reverse-an-array-in-cpp.html">Reverse an Array in C++</a>
+<a href="cpp-date-and-time.html">C++ date and time</a>
+<a href="copy-elision-in-cpp.html">Copy elision in C++</a>
+<a href="array-of-sets-in-cpp.html">Array of sets in C++</a>
+<a href="smart-pointers-in-cpp.html">Smart pointers in C++</a>
+<a href="types-of-polymorphism-in-cpp.html">Types of polymorphism in C++</a>
+<a href="implementing-the-sets-without-cpp-stl-containers.html">Implementing the sets without C++ STL containers</a>
+<a href="scope-resolution-operator-in-cpp.html">Scope Resolution Operator in C++</a>
+<a href="static-member-function-in-cpp.html">Static Member Function in C++</a>
+<a href="const-keyword-in-cpp.html">Const keyword in C++</a>
+<a href="memset-in-cpp.html">Memset in C++</a>
+<a href="type-casting-in-cpp.html">Type Casting in C++</a>
+<a href="binary-operator-overloading-in-cpp.html">Binary Operator Overloading in C++</a>
+<a href="binary-search-in-cpp.html">Binary Search in C++</a>
+<a href="inheritance-in-cpp-vs-java.html">Inheritance in C++ vs JAVA</a>
+<a href="static-keyword-in-cpp-and-java.html">Static Keyword in C++ and JAVA</a>
+<a href="exception-handling-in-cpp-and-java.html">Exception Handling in C++ and JAVA</a>
+<a href="foreach-in-cpp-and-java.html">Foreach in C++ and JAVA</a>
+<a href="cpp-templates-vs-java-generics.html">C++ templates vs. Java generics</a>
+<a href="similarities-and-differences-in-cpp-and-java.html">Similarities and Differences in C++ and JAVA</a>
+<a href="default-virtual-behaviour-in-cpp-and-java.html">Default Virtual Behaviour in C++ and JAVA</a>
+<a href="cpp-hashing-programme-with-chaining.html">C++ hashing programme with chaining</a>
+<a href="largest-subset-whose-all-elements-are-fibonacci-numbers.html">Largest subset whose all elements are Fibonacci numbers</a>
+<a href="opaque-pointer.html">Opaque Pointer</a>
+<a href="pointers-such-as-dangling-void-null-and-wild.html">Pointers such as Dangling, Void, Null, and Wild</a>
+<a href="when-do-we-pass-arguments-by-reference-or-pointer.html">When do we pass arguments by reference or pointer</a>
+<a href="find-member-function-in-vector-in-cpp.html">Find Member Function in Vector in C++</a>
+<a href="smart-pointer.html">Smart Pointer</a>
+<a href="currency-converter-in-cpp.html">Currency Converter in C++</a>
+<a href="find-max-in-array-function-cpp.html">Find max in Array Function C++</a>
+<a href="stopwatch-in-cpp.html">Stopwatch in C++</a>
+<a href="student-data-management-in-cpp.html">Student Data Management in C++</a>
+<a href="tic-tac-toe-in-cpp.html">Tic-Tac-Toe in C++</a>
+<a href="credit-card-validator-in-cpp.html">Credit Card Validator in C++</a>
+<a href="hotel-management-in-cpp.html">Hotel Management in C++</a>
+<a href="pacman-game-in-cpp.html">Pacman Game in C++</a>
+<a href="billing-management-system-in-cpp.html">Billing Management System in C++</a>
+<a href="4-dimensional-array-in-c-or-cpp.html">4-Dimensional Array in C/C++</a>
+<a href="https://www.javatpoint.com/accumulate-and-partial_sum-in-cpp-stl-numeric-header">accumulate() and partial_sum() in C++ STL : Numeric header</a>
+<a href="arrays-of-vectors-in-cpp-stl.html">Arrays of Vectors in C++ STL</a>
+<a href="catching-base-and-derived-classes-as-exceptions-in-cpp-and-java.html">Catching Base and Derived Classes as Exceptions in C++ and Java</a>
+<a href="forward-list-in-cpp-manipulating-functions.html">Forward List in C++ Manipulating Functions</a>
+<a href="assertions-in-c-cpp.html">Assertions in C/C++</a>
+<a href="list-back-function-in-cpp-stl.html">List back() function in C++ STL</a>
+<a href="type-inference-in-cpp-auto-and-decltype.html">Type Inference in C++ (auto and decltype)</a>
+<a href="attributes-in-cpp.html">Attributes in C++</a>
+<a href="bigint-in-cpp-with-examples.html">BigInt (Big Integers) in C++ with Examples</a>
+<a href="2d-vector-in-cpp-with-user-defined-size.html">2D Vector in C++ with User Defined Size</a>
+<a href="declare-a-c-cpp-function-returning-pointer-to-array-of-integer-pointers.html">Declare a C/C++ Function Returning Pointer to Array of Integer Pointers</a>
+<a href="jump-statements-in-cpp.html">Jump Statements in C++</a>
+<a href="maximum-number-of-edges-to-be-added-to-a-tree-so-that-it-stays-a-bipartite-graph.html">Maximum Number of Edges to be Added to a Tree so that it stays a Bipartite Graph</a>
+<a href="modulus-of-two-float-or-double-numbers.html">Modulus of two Float or Double Numbers</a>
+<a href="top-10-cpp-project-ideas-for-beginners.html">Top 10 C++ Project Ideas for Beginners</a>
+<a href="cpp-class-member-functions.html">C++ Class Member Functions</a>
+<a href="cpp-program-for-find-k-pairs-with-smallest-sums-in-two-arrays.html">C++ Program for Find k pairs with Smallest Sums in Two Arrays</a>
+<a href="check-if-bits-in-range-l-to-r-of-two-numbers-are-complement-of-each-other-or-not.html">Check if bits in Range L to R of Two Numbers are Complement of Each other or Not</a>
+<a href="university-management-system-in-cpp.html">University Management System in C++</a>
+<a href="advantage-and-disadvantage-friend-function-cpp.html">Advantage and Disadvantage Friend Function C++</a>
+<a href="cpp-pre-processors.html">C++ Pre-processors</a>
+<a href="difference-between-circular-queue-and-priority-queue.html">Difference between Circular Queue and Priority Queue</a>
+<a href="forward_list-cbefore_begin-in-cpp-stl.html">forward_list::cbefore_begin() in C++ STL</a>
+<a href="heap-in-cpp-stl.html">Heap in C++ STL | make_heap(), push_heap(),pop_heap(), sort_heap(), is_heap, is_heap_until()</a>
+<a href="how-does-void-differ-in-c-and-cpp.html">How does 'void*' differ in C and C++</a>
+<a href="initialise-an-array-of-objects-with-parameterised-constructors-in-cpp.html">Initialise an Array of objects with Parameterised Constructors in C++</a>
+<a href="list-push_front-and-list-push_back-in-cpp-stl.html">list::push_front() and list::push_back() in C++ STL</a>
+<a href="maximize-the-cost-of-repeated-removal-of-string-p-or-its-reverse-from-the-string-s.html">Maximize the Cost of Repeated Removal of String P or its Reverse from the String S</a>
+<a href="canteen-management-system-in-cpp.html">Canteen Management System in C++</a>
+<a href="declare-a-c-cpp-function-returning-pointer-to-array-of-integer-pointers.html">Declare a C/C++ Function Returning Pointer to Array of Integer Pointers</a>
+<a href="https://www.javatpoint.com/name-mangling-and-extern-c-in-cpp">Name Mangling and Extern C in C++</a>
+<a href="different-compilers-for-cpp.html">Different Compilers for C++</a>
+<a href="diamond-problem-in-cpp.html">Diamond Problem in C++</a>
+<a href="function-prototype-in-cpp.html">Function Prototype in C++</a>
+<a href="generic-programming-in-cpp.html">Generic Programming in C++</a>
+<a href="school-fee-enquiry-system-in-cpp.html">School Fee Enquiry System in C++</a>
+<a href="vector-pair-in-cpp.html">Vector Pair in C++</a>
+<a href="what-is-a-token-in-cpp.html">What is a Token in C++</a>
+<a href="what-is-include-iostream-in-cpp.html">What is include iostream in C++</a>
+<a href="cpp-using-vs-typedef.html">C++ 'Using' vs 'Typedef'</a>
+<a href="execute-both-if-and-else-statements-in-c-cpp-simultaneously.html">Execute both if and else Statements in C/C++ Simultaneously</a>
+<a href="how-to-compile-32-bit-program-on-64-bit-gcc-in-c-and-cpp.html">How to Compile 32-bit Program on 64-bit GCC in C and C++</a>
+<a href="how-to-create-and-use-unique-ptr-instances.html">How to Create and Use ''unique_ptr'' Instances</a>
+<a href="level-order-traversal-in-spiral-form.html">Level Order Traversal in Spiral form</a>
+<a href="problem-with-scanf-when-there-is-fgets-gets-scanf-after-it.html">Problem with scanf() when there is fgets()/gets()/scanf() After it</a>
+<a href="bfs-code-in-cpp.html">BFS Code in C++</a>
+<a href="https://www.javatpoint.com/create-linked-list-in-cpp">Create Linked List In C++</a>
+<a href="function-overloading-in-cpp.html">Function Overloading in C++</a>
+<a href="std-minmax-and-std-minmax_element-in-cpp-stl.html">std::minmax() and std::minmax_element() in C++ STL</a>
+<a href="multimap-emplace_hint-function-in-cpp-stl.html">multimap::emplace_hint() Function in C++ STL</a>
+<a href="multimap-find-in-cpp-stl.html">Multimap find() in C++ STL</a>
+<a href="multiple-comparisons-in-a-cpp-priority-queue.html">Multiple Comparisons in a C++ Priority Queue</a>
+<a href="name-mangling-and-extern-c-in-cpp-concept.html">Name Mangling and Extern C in C++ Concept</a>
+<a href="parameterised-constructor-in-cpp.html">Parameterised Constructor in C++</a>
+<a href="remove-duplicates-from-sorted-array-in-cpp.html">Remove Duplicates from Sorted Array in C++</a>
+<a href="returning-multiple-values-from-a-function-using-tuple-and-pair-in-cpp.html">Returning Multiple Values from a Function using Tuple and Pair in C++</a>
+<a href="scope-resolution-operator-vs-this-pointer.html">Scope Resolution Operator vs this Pointer</a>
+<a href="set-a-variable-without-using-arithmetic-relational-or-conditional-operator.html">Set a variable without using Arithmetic, Relational or Conditional Operator</a>
+<a href="cpp-program-to-sort-an-array-in-descending-order.html">C++ Program To Sort An Array In Descending Order</a>
+<a href="timsort-implementation-using-cpp.html">Timsort Implementation Using C++</a>
+<a href="what-happens-when-we-exceed-valid-range-of-built-in-data-types-in-cpp.html">What Happens When We Exceed Valid Range of Built-in Data Types in C++</a>
+<a href="naked-function-calls-in-cpp.html">Naked Function Calls in C++</a>
+<a href="operator-overloading-in-cpp.html">What is operator overloading in C++</a>
+<a href="simple-car-racing-game-code-in-cpp.html">Simple Car Racing Game Code in C++</a>
+<a href="sjf-cpu-scheduling-program-in-cpp.html">SJF CPU Scheduling Program in C++</a>
+<a href="virtual-functions-and-runtime-polymorphism.html">Virtual functions and runtime polymorphism</a>
+<a href="abstract-class-in-cpp.html">What is an abstract class in C++</a>
+<a href="function-overloading-in-cpp.html">What is function overloading in C++</a>
+<a href="add-in-vector-cpp-language.html">Add in Vector C++ Language</a>
+<a href="default-arguments-and-virtual-function.html">Default arguments and virtual function</a>
+<a href="private-inheritance-in-cpp.html">Private Inheritance in C++</a>
+<a href="socket-programming-in-c-or-cpp.html">Socket Programming in C/C++</a>
+<a href="multithreading-in-cpp-with-examples.html">Multithreading in C++ with Examples</a>
+<a href="static-object-in-cpp.html">Static Object in C++</a>
+<a href="what-is-runtime-type-information.html">What is runtime type information</a>
+<a href="operator-overloading-in-cpp.html">Operator Overloading in C++</a>
+<a href="add-two-array-in-cpp.html">Add two Array in C++</a>
+<a href="calling-conventions-in-cpp.html">Calling Conventions in C++</a>
+<a href="hashset-in-cpp.html">HASHSET IN C++</a>
+<a href="how-many-children-does-a-binary-tree-have.html">How many Children does a Binary Tree have</a>
+<a href="how-to-create-and-use-ccomptr-and-ccomqiptr-instances.html">How to Create and use CComPtr and CComQIPtr Instances</a>
+<a href="naming-conventions-in-cpp.html">Naming Conventions in C++</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-mcq.html">C++ MCQ</a>
+<a href="cpp-mcq-part-2.html">C++ MCQ Part 2</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Question</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cpp-interview-questions.html">Interview Question</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="default-arguments-in-cpp.html">next &rarr;</a>
+<a class="next" href="cpp-dijkstra-algorithm-using-priority-queue.html">&larr; prev</a>
+</div>
+<h1 class="h1">Constructor overloading in C++</h1> 
+<p>Constructor is a member function of a class that is used to initialize the objects of the class. Constructors do not have any return type and are automatically called when the object is created.</p>
+<h2 class="h2">Characteristics of constructors</h2>
+<ul class="points">
+<li>The name of the constructor is the same as the class name</li>
+<li>No return type is there for constructors</li>
+<li>Called automatically when the object is created</li>
+<li>Always placed in the public scope of the class</li>
+<li>If a constructor is not created, the default constructor is created automatically and initializes the data member as zero</li>
+<li>Declaration of constructor name is case-sensitive</li>
+<li>A constructor is not implicitly inherited</li>
+</ul>
+<h2 class="h2">Types of constructors</h2>
+<p>There are three types of constructors -</p>
+<ul class="points">
+<li><strong>Default constructor -</strong> A default constructor is one that does not have function parameters. It is used to initialize data members with a value. The default constructor is called when the object is created.</li>
+</ul>
+<p><strong>Code</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include <iostream>
+using namespace std;
+class construct // create a class construct
+{
+public:
+	int a, b; // initialise two data members 
+	construct() // this is how default constructor is created 
+	{
+	    // We can also assign both values to zero 
+		a = 10; // intialise a with some value 
+		b = 20; // initialise b with some value
+	}
+};
+int main()
+{	
+	construct c; // creating an object of construct calls defualt constructor
+	cout<< "a:" <<c.a<<endl
+		<< "b:" <<c.b; // print a and b 
+	return 1;
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>a:10
+b:20 
+</pre></div>
+<ul class="points">
+<li><strong>Parameterized constructor -</strong> A non-parameterized constructor does have the constructor arguments and the value passed in the argument is initialized to its data members. Parameterized constructors are used in constructor overloading.</li>
+</ul>
+<p><strong>Code</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include <iostream>
+using namespace std;
+class Point // create point class
+    {
+private:
+int x, y; // the two data members of class Point
+public:
+Point(int x1, int y1) // create paramterised Constructor and initialise data member
+    {
+        x = x1; // x1 is now intialised to x
+        y = y1; // y1 is now intialised to y
+    }
+intgetX()
+    {
+return x; // to get the value of x
+    }
+intgetY()
+    {
+return y; // to get the value of y
+    }
+};
+int main()
+{
+    Point p1(10, 15); // created object for paramterised constructor
+
+cout<< "p1.x = " << p1.getX() << ", p1.y = " << p1.getY(); // print x and y
+
+return 0;
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>p1.x = 10, p1.y = 15   
+</pre></div>
+<p><strong>Explanation</strong></p>
+<p>Create a class point with two data members x and y. A parameterized constructor is created with the points x1 and y1 as parameters and the value of x and y are assigned using x1 and y1. In the main function, we create a parameterized constructor with the values (10, 15). Using the getter functions, we get the values of the data members.</p>
+<ul class="points">
+<li><strong>Copy constructor -</strong> Copy constructor initializes an object using another object of the same class.</li>
+</ul>
+<p><strong>Syntax</strong></p>
+<p><strong>class_name(constclassname&old_object).</strong></p>
+<p><strong>Code</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include <iostream>
+using namespace std;
+class Point // create point class
+    {
+private:
+int x, y; // data members of the class
+public:
+Point(int x1, int y1)
+    {
+        x = x1;
+        y = y1;
+    } // parameterised constructor
+
+    // Copy constructor
+Point(const Point& p1) // initialisation according to syntax
+    {
+        x = p1.x;
+        y = p1.y;
+    }
+intgetX() { return x; } // return value of x
+intgetY() { return y; } // return valur of y
+};
+int main()
+{
+    Point p1(10, 15); // call parameterised constructor
+    Point p2 = p1; // call Copy constructor
+    //  use getter and setter to print x and y
+cout<< "p1.x = " << p1.getX() << ", p1.y = " << p1.getY();
+cout<< "\np2.x = " << p2.getX() << ", p2.y = " << p2.getY();
+return 0;
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>p1.x = 10, p1.y = 15
+p2.x = 10, p2.y = 15 
+</pre></div>
+<h2 class="h2">Constructor overloading in C++</h2>
+<p>As there is a concept of function overloading, similarly constructor overloading is applied. When we overload a constructor more than a purpose it is called constructor overloading.</p>
+<p>The declaration is the same as the class name but as they are constructors, there is no return type.</p>
+<p>The criteria to overload a constructor is to differ the number of arguments or the type of arguments.</p>
+<p><strong>Code</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+// C++ program to demonstrate constructor overloading
+#include <iostream>
+using namespace std;
+class Person { // create person class
+private:
+int age; // data member
+public:
+    // 1. Constructor with no arguments
+Person()
+    {
+age = 20; // when object is created the age will be 20
+    }
+    // 2. Constructor with an argument
+Person(int a)
+{ // when parameterised Constructor is called with a value the
+        // age passed will be initialised
+age = a;
+    }
+intgetAge()
+{ // getter to return the age
+return age;
+    }
+};
+int main()
+{
+    Person person1, person2(45); // called the object of person class in differnt way
+
+cout<< "Person1 Age = " << person1.getAge() <<endl;
+cout<< "Person2 Age = " << person2.getAge() <<endl;
+return 0;
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>Person1 Age = 20
+Person2 Age = 45    
+</pre></div>
+<p><strong>Explanation</strong></p>
+<p>In the above program, we have created a class <strong>Person</strong> with one data member(age). There are two constructors in the class that are overloaded. We have overloaded the second constructor by providing one argument and making it parameterized.</p>
+<p>So, in the main function when the object person1 is created, it calls the non-parameterized constructor and when person2 is created, it calls the parameterized constructor and performs the required operation of initializing the age. Hence, when object person1 age is printed it gives 20 that was set by default and person2 age gives 45 as it was passed by the object to the parameterized constructor.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="default-arguments-in-cpp.html">Default arguments in C++</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="cpp-dijkstra-algorithm-using-priority-queue.html">&larr; prev</a>
+<a style="float:right" class="next" href="default-arguments-in-cpp.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0f696a6a6b6d6e6c644f656e796e7b7f6066617b216c6062">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/constructor-overloading-in-cpp"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/constructor-overloading-in-cpp"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/constructor-overloading-in-cpp"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+ </div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+ <p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="81e9f3c1ebe0f7e0f5f1eee8eff5afe2eeec">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f9918bb993988f988d899690978dd79a9694d7">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/constructor-overloading-in-cpp by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:01:10 GMT -->
+</html> 

@@ -1,0 +1,1420 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/ubuntu-crontab by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 18:10:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Ubuntu Crontab - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Ubuntu Crontab - javatpoint" /><meta property="og:description" content="Ubuntu Crontab with examples on files, directories, permission, backup, ls, man, pwd, cd, linux, linux introduction, chmod, man, shell, pipes, filters, regex, vi etc." />
+<meta name="keywords" content="linux, tutorial, beginners, professionals, introduction, example, command, file, directory, permission, backup, ls, man, pwd, cd, chmod, man, shell, pipes, filters, regex, vi" /><meta name="description" content="Ubuntu Crontab with examples on files, directories, permission, backup, ls, man, pwd, cd, linux, linux introduction, chmod, man, shell, pipes, filters, regex, vi etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="ubuntu-crontab.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Ubuntu Crontab - javatpoint" /><meta name="twitter:description" property="og:description" content="Ubuntu Crontab with examples on files, directories, permission, backup, ls, man, pwd, cd, linux, linux introduction, chmod, man, shell, pipes, filters, regex, vi etc." /><meta property="og:url" content="ubuntu-crontab.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="linux-tutorial.html" class="selected">Linux</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="python-tutorial.html">Python</a></li>
+<li><a href="shell-scripting-tutorial.html">Shell Scripting</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="xml-tutorial.html">XML</a></li>
+<li><a href="ajax-tutorial.html">Ajax</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-tutorial.html"><span>Linux Tutorial</span></a>
+<a href="what-is-linux.html"><span>What is Linux</span></a>
+<a href="advantages-of-linux.html">Advantages of Linux</a>
+<a href="linux-history.html"><span>Linux History</span></a>
+<a href="linux-features.html"><span>Linux Features</span></a>
+<a href="linux-bash.html">Linux Bash</a>
+<a href="unix-vs-linux.html" class="l1">Unix vs Linux</a>
+<a href="linux-vs-windows.html">Linux vs Windows</a>
+<a href="linux-distributions.html"><span>Linux Distributions</span></a>
+<a href="linux-licensing.html"><span>Linux Licensing</span></a>
+<a href="linux-set-environment-variable.html">Set Environment Variable</a>
+<a href="linux-set-command.html">Linux Set Command</a>
+<a href="linux-export-command.html">Linux export Command</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux Directories</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-directories.html">Linux Directories</a>
+<a href="linux-home-directory.html">Linux Home Directory</a>
+<a href="linux-pwd.html">Linux pwd</a>
+<a href="linux-cd.html">Linux cd</a>
+<a href="linux-absolute-relative-paths.html">Linux Absolute Relative</a>
+<a href="linux-path-completion.html">Linux Path Completion</a>
+<a href="linux-ls.html">Linux ls</a>
+<a href="linux-mkdir.html">Linux mkdir</a>
+<a href="linux-rmdir.html">Linux rmdir</a>
+<a href="rename-folder-in-linux.html">Rename Folder in Linux</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux Commands</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-commands-list.html">Linux commands List</a>
+<a href="linux-commands.html">Commands with Example</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux Users</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-users.html">Linux Users</a>
+<a href="linux-create-user.html">Linux Create User</a>
+<a href="linux-su-commands.html">Local su Commands</a>
+<a href="linux-user-management.html">Linux User Management</a>
+<a href="linux-user-password.html">User Password</a>
+<a href="linux-groups.html">Local Groups</a>
+<a href="linux-add-user-to-group.html">Add User to Group</a>
+<a href="linux-id-command.html">Linux id Command</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux Files</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-files.html">Linux Files</a>
+<a href="linux-file-system.html">Linux File System</a>
+<a href="linux-create-file.html">Linux Create File</a>
+<a href="linux-file.html">Linux file</a>
+<a href="linux-touch.html">Linux touch</a>
+<a href="linux-rm.html">Linux rm</a>
+<a href="linux-cp.html">Linux cp</a>
+<a href="linux-mv.html">Linux mv</a>
+<a href="linux-rename.html">Linux rename</a>
+<a href="linux-install-command.html">Linux install Command</a>
+<a href="linux-read-command.html">Linux read Command</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux File Contents</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-file-contents.html">Linux File Contents</a>
+<a href="open-file-in-linux.html">Open File in Linux</a>
+<a href="linux-edit-file.html">Linux Edit File</a>
+<a href="linux-which-command.html">Linux which command</a>
+<a href="linux-head.html">Linux head</a>
+<a href="linux-tail.html">Linux tail</a>
+<a href="linux-cat.html">Linux cat</a>
+<a href="linux-tac.html">Linux tac</a>
+<a href="linux-more.html">Linux more</a>
+<a href="linux-less.html">Linux less</a>
+<a href="linux-strings-command.html">Linux strings command</a>
+<a href="linux-print.html">Linux Print</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux Process</span></h2>
+</div>
+<div class="leftmenu">
+<a href="kill-process-linux.html">Kill Process Linux</a>
+<a href="linux-terminating.html">Linux terminating</a>
+<a href="linux-kill.html">1) Linux kill</a>
+<a href="linux-killall.html">2) Linux killall</a>
+<a href="linux-pkill.html">3) Linux pkill</a>
+<a href="linux-xkill.html">4) Linux xkill</a>
+<a href="linux-nohup-command.html">Nohup Command</a>
+<a href="linux-at-command.html">Linux at command</a>
+<a href="linux-exit-command.html">Linux exit command</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux File Hierarchy</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-file-hierarchy-system.html">Linux File Hierarchy</a>
+<a href="linux-fhs-binary-directories.html">Binary Directories</a>
+<a href="linux-fhs-configuration-directory.html">Configuration Directories</a>
+<a href="linux-fhs-data-directory.html">Data Directories</a>
+<a href="linux-fhs-memory-directory.html">Memory Directories</a>
+<a href="linux-unix-system-resources.html">Usr Directory</a>
+<a href="linux-fhs-variable-directory.html">var Directory</a>
+<a href="linux-fhs-non-standard-directories.html">Non-standard directories</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux Filters</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-filters.html" class="l1">Linux Filters</a>
+<a href="linux-cat-filters.html" class="l1">Linux cat</a>
+<a href="linux-cut.html" class="l1">Linux cut</a>
+<a href="linux-grep.html" class="l1">Linux grep</a>
+<a href="linux-comm.html" class="l1">Linux comm</a>
+<a href="linux-sed.html" class="l1">Linux sed</a>
+<a href="linux-tee.html" class="l1">Linux tee</a>
+<a href="linux-tr.html" class="l1">Linux tr</a>
+<a href="linux-uniq.html" class="l1">Linux uniq</a>
+<a href="linux-wc.html" class="l1">Linux wc</a>
+<a href="linux-od.html" class="l1">Linux od</a>
+<a href="linux-sort.html" class="l1">Linux sort</a>
+<a href="linux-gzip.html" class="l1">Linux gzip</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">AWK Command</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-awk-command.html">Linux AWK Command</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Programming with Linux</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-make-command.html">Linux make command</a>
+<a href="gcc-linux.html">GCC Linux</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux I/O Redirection</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-input-output-redirection.html">Linux I/O Redirection</a>
+<a href="linux-input-redirection.html">Linux Input Redirection</a>
+<a href="linux-output-redirection.html">Linux Output Redirection</a>
+<a href="linux-error-redirection.html">Linux Error Redirection</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux Unix Tools</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-basic-unix-tools.html">Linux Unix Tools</a>
+<a href="linux-find.html">Linux Find</a>
+<a href="linux-locate.html">Linux Locate</a>
+<a href="linux-date.html">Linux Date</a>
+<a href="linux-cal.html">Linux Cal</a>
+<a href="linux-sleep.html">Linux Sleep</a>
+<a href="linux-time.html">Linux Time</a>
+<a href="linux-zcat-zmore.html">Linux zcat/zmore</a>
+<a href="linux-bzip2-bunzip2.html">Linux bzip2 / bunzip2</a>
+<a href="linux-bzcat-bzmore.html">Linux bzcat / bzmore</a>
+<a href="linux-df.html">Linux df</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux Regex</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-expr-command.html">Linux expr command</a>
+<a href="linux-regular-expression.html"><span>Linux RegEx</span></a>
+<a href="linux-grep-regular-expressions.html"><span>Linux Grep RegEx</span></a>
+<a href="linux-rename-regular-expression.html"><span>Linux rename RegEx</span></a>
+<a href="linux-sed-regular-expression.html"><span>Linux Sed RegEx</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">File Security</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-file-ownership.html">Linux File OwnerShip</a>
+<a href="linux-chgrp-command.html">Linux chgrp Command</a>
+<a href="linux-file-permissions.html">Linux File Permission</a>
+<a href="linux-chmod-command.html">Linux chmod Command</a>
+<a href="linux-chown-command.html">Linux chown command</a>
+<a href="linux-advanced-file-permission.html">Linux Advance Permission</a>
+<a href="linux-file-links.html">Linux File Links</a>
+<a href="linux-inodes.html">1) Linux Inodes</a>
+<a href="linux-file-links-directories.html">2) Linux Link Directories</a>
+<a href="linux-hard-links.html">3) Linux Hard links</a>
+<a href="linux-symbolic-links.html">4) Linux Soft links</a>
+<a href="linux-removing-links.html">5) Linux Remove link</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Shell Commands</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-shell-commands.html">Linux Shell Commands</a>
+<a href="linux-aliases.html">Linux Aliases</a>
+<a href="linux-arguments.html">Linux Arguments</a>
+<a href="linux-displaying-shell.html">Linux Displaying Shell</a>
+<a href="linux-control-operators.html">Linux Control Operators</a>
+<a href="linux-semicolon.html">1) Semicolon</a>
+<a href="linux-ampersand.html">2) Ampersand</a>
+<a href="linux-dollar-question-mark.html">3) Dollar Question Mark</a>
+<a href="linux-double-ampersand.html">4) Double Ampersand</a>
+<a href="linux-double-vertical-bar.html">5) Double Vertical Bar</a>
+<a href="linux-combining-and-or-operators.html">6) Combining && and ||</a>
+<a href="linux-pound-sign.html">7) Pound Sign</a>
+<a href="linux-escaping-special-characters.html">8) ESC</a>
+<a href="linux-file-globbing.html">Linux File Globbing</a>
+<a href="linux-shell-embedding.html">Linux Shell Embedding</a>
+<a href="linux-shell-history.html">Linux Shell History</a>
+<a href="linux-history-command.html">Linux history Command</a>
+<a href="linux-shell-history-commands.html">Linux History Commands</a>
+<a href="linux-history-size.html">Linux Histroy Size</a>
+<a href="linux-bang-bang.html">Linux Bang Bang</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux Networking</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-networking-commands.html">Linux Networking</a>
+<a href="linux-ifconfig.html">1) Linux ifconfig</a>
+<a href="linux-ip.html">2) Linux ip</a>
+<a href="linux-telnet-command.html">Linux telnet Command</a>
+<a href="ssh-linux.html">SSH Linux</a>
+<a href="linux-mail-command.html">Linux mail Command</a>
+<a href="linux-traceroute.html">3) Linux traceroute</a>
+<a href="linux-tracepath.html">4) Linux tracepath</a>
+<a href="linux-ping.html">5) Linux ping</a>
+<a href="linux-netstat.html">6) Linux netstat</a>
+<a href="linux-ss.html">7) Linux ss</a>
+<a href="linux-dig.html">8) Linux dig</a>
+<a href="linux-nslookup.html">9) Linux nslookup</a>
+<a href="linux-route.html">10) Linux route</a>
+<a href="linux-host.html">11) Linux host</a>
+<a href="linux-arp.html">12) Linux arp</a>
+<a href="linux-iwconfig.html">13) Linux iwconfig</a>
+<a href="linux-hostname.html">14) Linux hostname</a>
+<a href="linux-curl-and-wget.html">15) Linux curl & wget</a>
+<a href="linux-curl-command.html">Linux Curl Command</a>
+<a href="linux-mtr.html">16) Linux mtr</a>
+<a href="linux-whois.html">17) Linux whois</a>
+<a href="linux-ifplugstatus.html">18) Linux ifplugstatus</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="chkconfig-command-in-linux.html">chkconfig command in Linux</a>
+<a href="how-to-change-user-password-in-linux.html">How to change user password in Linux</a>
+<a href="linux-awk-command-usage.html">Awk Command Usage</a>
+<a href="how-to-unzip-files-in-linux.html">How to unzip files in Linux</a>
+<a href="linux-chroot-command.html">Linux chroot Command</a>
+<a href="linux-watch-command.html">Linux Watch Command</a>
+<a href="ubuntu-vs-kali-linux.html">Ubuntu Vs. Kali Linux</a>
+<a href="clear-cache-linux.html">Clear cache Linux</a>
+<a href="linux-7-qc-tools.html">7 QC Tools</a>
+<a href="linux-process-memory-usage.html">Linux Process Memory Usage</a>
+<a href="linux-tree-command.html">Linux Tree Command</a>
+<a href="wine-linux.html">Wine Linux</a>
+<a href="linux-commands-to-check-disk-space.html">Linux Commands to Check Disk Space</a>
+<a href="manjaro-vs-ubuntu.html">Manjaro Vs. Ubuntu</a>
+<a href="architecture-of-linux.html">Architecture of Linux</a>
+<a href="linux-lite.html">Linux Lite</a>
+<a href="linux-shell.html">Linux Shell</a>
+<a href="linux-meaning.html">Linux Meaning</a>
+<a href="linux-foundation.html">Linux Foundation</a>
+<a href="linux-list-directories.html">Linux List Directories</a>
+<a href="linux-shortcuts.html">Linux Shortcuts</a>
+<a href="best-linux-distro.html">Best Linux Distro</a>
+<a href="who-command-in-linux.html">Who command in Linux</a>
+<a href="linux-server.html">Linux Server</a>
+<a href="debian-vs-ubuntu.html">Debian vs Ubuntu</a>
+<a href="types-of-files-in-unix.html">Types of Files in Unix</a>
+<a href="linux-daemon.html">Linux Daemon</a>
+<a href="linux-zip-command.html">Linux Zip Command</a>
+<a href="cpu-utilization-in-linux.html">CPU Utilization in Linux</a>
+<a href="linux-terminal.html">Linux Terminal</a>
+<a href="linux-sudo.html">Linux sudo</a>
+<a href="basic-linux-commands.html">Basic Linux Commands</a>
+<a href="how-to-check-ram-in-linux.html">How to Check RAM in Linux</a>
+<a href="linux-list-users.html">Linux List Users</a>
+<a href="kill-command-in-linux.html">Kill command</a>
+<a href="tar-command-in-linux.html">Tar command</a>
+<a href="linux-find-file.html">Linux Find File</a>
+<a href="echo-command.html">Echo command</a>
+<a href="linux-change-or-set-password.html">Linux Change or set Password</a>
+<a href="ssh-command.html">SSH Command</a>
+<a href="what-is-sshd-in-linux.html">What is sshd in Linux</a>
+<a href="linux-screen-command.html">Linux Screen Command</a>
+<a href="linux-check-disk-space.html">Linux Check Disk Space</a>
+<a href="run-command-in-linux.html">Run command in Linux</a>
+<a href="linux-memory-management.html">Linux Memory Management</a>
+<a href="linux-reboot-command.html">Linux Reboot Command</a>
+<a href="how-to-inspect-memory-in-linux.html">How to Inspect the Memory in Linux</a>
+<a href="ubuntu-gnome.html">Ubuntu GNOME</a>
+<a href="how-to-check-open-ports-in-linux.html">How to check open ports in Linux</a>
+<a href="linux-vs-ubuntu.html">Linux vs Ubuntu</a>
+<a href="ping-command-in-linux.html">Ping command in Linux</a>
+<a href="linux-source-command.html">Linux Source Command</a>
+<a href="linux-terminal-shortcuts.html">Linux Terminal Shortcuts</a>
+<a href="find-ip-address-in-linux.html">Find IP Address in Linux</a>
+<a href="linux-date-command.html">Linux date Command</a>
+<a href="linux-hosts-file.html">Linux hosts (file)</a>
+<a href="unix-operating-system.html">UNIX operating system</a>
+<a href="linux-dpkg-command.html">Linux dpkg command</a>
+<a href="latest-kernel-linux-version.html">Latest Kernel Linux Version</a>
+<a href="linux-package-manager.html">Linux Package Manager</a>
+<a href="linux-proc.html">Linux proc</a>
+<a href="linux-task-manager.html">Linux Task Manager</a>
+<a href="linux-signals.html">Linux Signals</a>
+<a href="parrot-os-vs-kali-linux.html">Parrot OS vs. Kali Linux</a>
+<a href="ubuntu-features.html">Ubuntu Features</a>
+<a href="linux-iso.html">Linux ISO</a>
+<a href="putty-command-in-linux.html">Putty Command in Linux</a>
+<a href="check-os-version-in-linux.html">Check OS Version in Linux</a>
+<a href="linux-change-timezone.html">Linux Change Timezone</a>
+<a href="linux-load-average.html">Linux Load Average</a>
+<a href="linux-firewall.html">Linux Firewall</a>
+<a href="rpm-command-in-linux.html">RPM Command in Linux</a>
+<a href="cron-command.html">Cron Command</a>
+<a href="linux-change-hostname.html">Linux Change Hostname</a>
+<a href="ubuntu-disable-firewall.html">Ubuntu Disable Firewall</a>
+<a href="latest-release-of-ubuntu.html">Latest Release of Ubuntu</a>
+<a href="ubuntu-logo.html">Ubuntu Logo</a>
+<a href="ubuntu-mate.html">Ubuntu MATE</a>
+<a href="ubuntu-nvidia-drivers.html">Ubuntu Nvidia Drivers</a>
+<a href="zoom-ubuntu.html">Zoom Ubuntu</a>
+<a href="install-tar-gz-ubuntu.html">Install tar.gz Ubuntu</a>
+<a href="ubuntu-screen-recorder.html">Ubuntu Screen Recorder</a>
+<a href="ubuntu-server.html">Ubuntu Server</a>
+<a href="ubuntu-wallpaper.html">Ubuntu Wallpaper</a>
+<a href="xvideoservicethief-ubuntu-linux-free.html">xVideoServiceThief Ubuntu Linux Free</a>
+<a href="restart-apache-ubuntu.html">Restart Apache Ubuntu</a>
+<a href="ubuntu-20-04-lts.html">Ubuntu 20.04 LTS</a>
+<a href="ubuntu-bootable-usb.html">Ubuntu Bootable USB</a>
+<a href="ubuntu-desktop.html">Ubuntu Desktop</a>
+<a href="ubuntu-font.html">Ubuntu Font</a>
+<a href="x-videoservicethief-ubuntu-18-command.html">X videoservicethief Ubuntu 18 command</a>
+<a href="ubuntu-games.html">Ubuntu Games</a>
+<a href="ubuntu-update-command.html">Ubuntu Update Command</a>
+<a href="ubuntu-lts.html">Ubuntu LTS</a>
+<a href="vscode-for-ubuntu.html">vscode for Ubuntu</a>
+<a href="android-studio-ubuntu.html">Android Studio Ubuntu</a>
+<a href="anydesk-ubuntu.html">AnyDesk Ubuntu</a>
+<a href="ask-ubuntu.html">Ask Ubuntu</a>
+<a href="boot-repair-ubuntu.html">Boot Repair Ubuntu</a>
+<a href="install-aws-cli-ubuntu.html">Install AWS CLI Ubuntu</a>
+<a href="install-nvm-ubuntu.html">Install NVM Ubuntu</a>
+<a href="install-jdk-ubuntu.html">Install JDK Ubuntu</a>
+<a href="install-rvm-ubuntu.html">Install RVM Ubuntu</a>
+<a href="install-skype-ubuntu.html">Install Skype Ubuntu</a>
+<a href="ubuntu-budgie.html">Ubuntu Budgie</a>
+<a href="ubuntu-software-center.html">Ubuntu Software Center</a>
+<a href="ubuntu-theme.html">Ubuntu Theme</a>
+<a href="ubuntu-vpn.html">Ubuntu VPN</a>
+<a href="update-firefox-ubuntu.html">Update Firefox Ubuntu</a>
+<a href="update-node-version-ubuntu.html">Update Node Version Ubuntu</a>
+<a href="whatsapp-ubuntu.html">Whatsapp Ubuntu</a>
+<a href="install-pip-in-ubuntu.html">Install pip in Ubuntu</a>
+<a href="restart-mysql-ubuntu.html">Restart MySQL Ubuntu</a>
+<a href="sticky-notes-for-ubuntu.html">Sticky Notes for Ubuntu</a>
+<a href="teamviewer-download-ubuntu.html">TeamViewer Download Ubuntu</a>
+<a href="ubuntu-forgot-password.html">Ubuntu Forgot Password</a>
+<a href="ubuntu-torrent.html">Ubuntu Torrent</a>
+<a href="adobe-reader-ubuntu.html">Adobe Reader Ubuntu</a>
+<a href="docker-ubuntu-image.html">Docker Ubuntu Image</a>
+<a href="uninstall-chrome-ubuntu.html">Uninstall Chrome Ubuntu</a>
+<a href="install-ffmpeg-ubuntu.html">Install FFmpeg Ubuntu</a>
+<a href="install-firefox-ubuntu.html">Install Firefox Ubuntu</a>
+<a href="install-maven-in-ubuntu.html">Install Maven in Ubuntu</a>
+<a href="install-opencv-in-ubuntu.html">Install OpenCV in Ubuntu</a>
+<a href="installing-wordpress-in-ubuntu-20-04.html">Installing WordPress in Ubuntu 20.04</a>
+<a href="hard-link-vs-soft-links.html">Hard Link vs Soft Links</a>
+<a href="microsoft-teams-for-ubuntu.html">Microsoft Teams for Ubuntu</a>
+<a href="mysql-workbench-ubuntu.html">MySQL Workbench Ubuntu</a>
+<a href="snipping-tool-ubuntu.html">Snipping Tool Ubuntu</a>
+<a href="ubuntu-pdf-editor.html">Ubuntu PDF Editor</a>
+<a href="ubuntu-video-editor.html">Ubuntu Video Editor</a>
+<a href="ubuntu-raspberry-pi.html">Ubuntu Raspberry Pi</a>
+<a href="interesting-facts-about-linux-operating-system.html">Interesting Facts about Linux Operating System</a>
+<a href="bluestacks-ubuntu.html">BlueStacks Ubuntu</a>
+<a href="gparted-ubuntu.html">Gparted Ubuntu</a>
+<a href="idm-for-ubuntu.html">IDM for Ubuntu</a>
+<a href="filezilla-ubuntu.html">Filezilla Ubuntu</a>
+<a href="initramfs-ubuntu.html">Initramfs Ubuntu</a>
+<a href="itunes-ubuntu.html">iTunes Ubuntu</a>
+<a href="ms-office-ubuntu.html">MS Office Ubuntu</a>
+<a href="paint-ubuntu.html">Paint Ubuntu</a>
+<a href="photoshop-ubuntu.html">Photoshop Ubuntu</a>
+<a href="telegram-for-ubuntu.html">Telegram for Ubuntu</a>
+<a href="ubuntu-phone.html">Ubuntu Phone</a>
+<a href="ubuntu-apps.html">Ubuntu Apps</a>
+<a href="ubuntu-14-04-lts.html">Ubuntu 14.04 LTS</a>
+<a href="ubuntu-video-player.html">Ubuntu Video Player</a>
+<a href="ubuntu-kylin.html">Ubuntu Kylin</a>
+<a href="ubuntu-remote-desktop.html">Ubuntu Remote Desktop</a>
+<a href="install-kubectl-on-ubuntu.html">Install Kubectl on Ubuntu</a>
+<a href="tlp-ubuntu.html">TLP Ubuntu</a>
+<a href="update-ubuntu-terminal.html">Update Ubuntu Terminal</a>
+<a href="no-wi-fi-adapter-found-on-ubuntu-18-04.html">No Wi-Fi Adapter Found on Ubuntu 18.04</a>
+<a href="openvpn-ubuntu.html">OpenVPN Ubuntu</a>
+<a href="segmentation-fault-core-dumped-ubuntu.html">Segmentation Fault Core Dumped Ubuntu</a>
+<a href="spotify-ubuntu.html">Spotify Ubuntu</a>
+<a href="steam-ubuntu.html">Steam Ubuntu</a>
+<a href="ubuntu-antivirus.html">Ubuntu Antivirus</a>
+<a href="ubuntu-image-editor.html">Ubuntu Image Editor</a>
+<a href="ubuntu-partition.html">Ubuntu Partition</a>
+<a href="ubuntu-show-hidden-files.html">Ubuntu Show Hidden Files</a>
+<a href="ubuntu-super-key.html">Ubuntu Super Key</a>
+<a href="ubuntu-termux.html">Ubuntu Termux</a>
+<a href="ubuntu-unity.html">Ubuntu Unity</a>
+<a href="ubuntu-wsl.html">Ubuntu WSL</a>
+<a href="unetbootin-ubuntu.html">Unetbootin Ubuntu</a>
+<a href="virtualbox-full-screen-ubuntu.html">VirtualBox Full Screen Ubuntu</a>
+<a href="what-is-ubuntu-used-for.html">What is Ubuntu used for</a>
+<a href="anaconda-for-ubuntu.html">Anaconda for Ubuntu</a>
+<a href="ubuntu-snap.html">Ubuntu Snap</a>
+<a href="check-mysql-version-ubuntu.html">Check MySQL Version Ubuntu</a>
+<a href="extract-rar-file-in-ubuntu.html">Extract RAR File in Ubuntu</a>
+<a href="forticlient-ubuntu.html">Forticlient Ubuntu</a>
+<a href="github-desktop-for-ubuntu.html">GitHub Desktop for Ubuntu</a>
+<a href="install-yarn-ubuntu.html">Install Yarn Ubuntu</a>
+<a href="install-python3-ubuntu.html">Install Python3 Ubuntu</a>
+<a href="install-yum-ubuntu.html">Install yum Ubuntu</a>
+<a href="vnc-viewer-ubuntu.html">VNC Viewer Ubuntu</a>
+<a href="ubuntu-ipconfig.html">Ubuntu ipconfig</a>
+<a href="ubuntu-packages.html">Ubuntu Packages</a>
+<a href="cisco-webex-ubuntu.html">Cisco Webex Ubuntu</a>
+<a href="ubuntu-recovery-mode.html">Ubuntu Recovery Mode</a>
+<a href="woeusb-ubuntu.html">WoeUSB Ubuntu</a>
+<a href="citrix-receiver-ubuntu.html">Citrix Receiver Ubuntu</a>
+<a href="customize-ubuntu.html">Customize Ubuntu</a>
+<a href="dell-ubuntu-laptop.html">Dell Ubuntu Laptop</a>
+<a href="google-drive-ubuntu.html">Google Drive Ubuntu</a>
+<a href="install-imagemagick-ubuntu.html">Install ImageMagick Ubuntu</a>
+<a href="install-latex-ubuntu.html">Install Latex Ubuntu</a>
+<a href="install-vm-tools-in-ubuntu.html">Install VM Tools in Ubuntu</a>
+<a href="nautilus-ubuntu.html">Nautilus Ubuntu</a>
+<a href="pgadmin-ubuntu.html">pgAdmin Ubuntu</a>
+<a href="pgadmin-4-ubuntu.html">pgAdmin 4 Ubuntu</a>
+<a href="restart-network-manager-ubuntu.html">Restart Network Manager Ubuntu</a>
+<a href="simple-screen-recorder-ubuntu.html">Simple Screen Recorder Ubuntu</a>
+<a href="sourcetree-ubuntu.html">Sourcetree Ubuntu</a>
+<a href="ubuntu-bionic.html">Ubuntu Bionic</a>
+<a href="ubuntu-build-essential.html">Ubuntu Build Essential</a>
+<a href="ubuntu-cleaner.html">Ubuntu Cleaner</a>
+<a href="ubuntu-mac-theme.html">Ubuntu Mac Theme</a>
+<a href="ubuntu-one.html">Ubuntu One</a>
+<a href="ubuntu-online-compiler.html">Ubuntu Online Compiler</a>
+<a href="ubuntu-philosophy.html">Ubuntu Philosophy</a>
+<a href="ubuntu-server-vs-desktop.html">Ubuntu Server vs. Desktop</a>
+<a href="ubuntu-vnc-server.html">Ubuntu VNC Server</a>
+<a href="unable-to-locate-package-ubuntu.html">Unable to Locate Package Ubuntu</a>
+<a href="virtual-host-ubuntu.html">Virtual Host Ubuntu</a>
+<a href="grub-customizer-ubuntu.html">Grub Customizer Ubuntu</a>
+<a href="how-to-check-system-configuration-in-ubuntu.html">How to Check System Configuration in Ubuntu</a>
+<a href="install-httpd-ubuntu.html">Install httpd Ubuntu</a>
+<a href="install-java-11-ubuntu.html">Install Java 11 Ubuntu</a>
+<a href="install-virtualenv-ubuntu.html">Install Virtualenv Ubuntu</a>
+<a href="safari-ubuntu.html">Safari Ubuntu</a>
+<a href="ubuntu-dock.html">Ubuntu Dock</a>
+<a href="ubuntu-epub-reader.html">Ubuntu EPUB Reader</a>
+<a href="ubuntu-hangs.html">Ubuntu Hangs</a>
+<a href="ubuntu-repository.html">Ubuntu Repository</a>
+<a href="ubuntu-sources-list.html">Ubuntu Sources List</a>
+<a href="chmod-777-ubuntu.html">Chmod 777 Ubuntu</a>
+<a href="dev-cpp-for-ubuntu.html">Dev-C++ for Ubuntu</a>
+<a href="evernote-ubuntu.html">Evernote Ubuntu</a>
+<a href="how-to-install-tor-browser-in-ubuntu.html">How to Install Tor Browser in Ubuntu</a>
+<a href="install-brave-browser-ubuntu.html">Install Brave Browser Ubuntu</a>
+<a href="install-moodle-ubuntu.html">Install Moodle Ubuntu</a>
+<a href="install-nmap-ubuntu.html">Install Nmap Ubuntu</a>
+<a href="install-opengl-ubuntu.html">Install OpenGL Ubuntu</a>
+<a href="lets-encrypt-ubuntu.html">Let's Encrypt Ubuntu</a>
+<a href="how-to-remove-directory-in-linux.html">How to Remove Directory in Linux</a>
+<a href="scp-command-in-linux.html">SCP Command in Linux/Unix with Examples</a>
+<a href="linux-kernel.html">What is the Linux Kernel</a>
+<a href="crontab-linux.html">Crontab Linux</a>
+<a href="how-to-find-a-file-in-linux-from-command-line.html">How to Find a File in Linux from Command Line</a>
+<a href="linux-boot-process-step-by-step-explained.html">Linux Boot Process Step-by-Step Explained</a>
+<a href="basic-unix-commands.html">Basic Unix Commands</a>
+<a href="types-of-linux-operating-system.html">Types of Linux Operating System</a>
+<a href="linux-mint.html">Linux Mint</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux Editors</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-text-editors.html">Linux Text Editors</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux vi Editor</span></h2>
+</div>
+<div class="leftmenu">
+<a href="vi-editor.html">Vi Editor</a>
+<a href="linux-vi-switch.html">1) switch</a>
+<a href="linux-vi-move.html">2) move</a>
+<a href="linux-vi-jump.html">3) jump</a>
+<a href="linux-vi-delete.html">4) delete</a>
+<a href="linux-vi-undo-and-repeat.html">5) undo and repeat</a>
+<a href="linux-vi-cut-copy-paste.html">6) cut, copy, paste</a>
+<a href="linux-vi-cut-copy-paste-blocks.html">7) cut, copy, paste blocks</a>
+<a href="linux-vi-start-and-end.html">8) Start and end</a>
+<a href="linux-vi-joining.html">9) Joining</a>
+<a href="linux-vi-word.html">10) word</a>
+<a href="linux-vi-searhing.html">11) Search</a>
+<a href="linux-vi-replace-all.html">12) Replace all</a>
+<a href="linux-vi-text-buffers.html">13) Text Buffers</a>
+<a href="linux-vi-abbreviations.html">14) Abbreviations</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux System Admin</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-system-admin-commands.html">Linux Admin Commands</a>
+<a href="linux-uptime.html">Linux uptime</a>
+<a href="linux-service.html">Linux service</a>
+<a href="linux-pmap.html"> Linux pmap</a>
+<a href="linux-wget.html"> Linux wget command</a>
+<a href="linux-ftp-and-sftp.html">Linux ftp or sftp</a>
+<a href="linux-free-command.html">Linux free Command</a>
+<a href="linux-top.html">Linux top</a>
+<a href="linux-last.html">Linux last</a>
+<a href="linux-ps.html">Linux ps</a>
+<a href="linux-shutdown.html">Linux shutdown</a>
+<a href="linux-info.html">Linux info</a>
+<a href="linux-env.html">Linux env</a>
+<a href="linux-du.html">Linux du</a>
+<a href="linux-init.html">Linux init</a>
+<a href="linux-nano-editor.html">Linux Nano Editor</a>
+<a href="linux-shred.html"> Linux shred</a>
+<a href="linux-mount.html">Linux mount</a>
+<a href="linux-route.html">Linux route</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linux Man Pages</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-man.html">Linux man</a>
+<a href="linux-man-a.html">Linux man -a</a>
+<a href="linux-man-aw.html">Linux man -aw</a>
+<a href="linux-man-f.html">Linux man -f</a>
+<a href="linux-man-k.html">Linux man -k(apropos)</a>
+<a href="linux-man-whereis.html">Linux man whereis</a>
+<a href="whatis-command-in-linux.html">Whatis command in Linux</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Error Codes</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linux-error-codes.html">Linux Error Codes</a>
+</div>
+<div class="leftmenu2">
+<a href="linux-interview-questions.html"><span>Linux Interview</span></a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="ubuntu-desktop-environments.html">next &rarr;</a>
+<a class="next" href="ubuntu-change-username.html">&larr; prev</a>
+</div>
+<h1 class="h1">Ubuntu Crontab</h1>
+<p>Sometimes, we don't wish a process to execute at a default time set via the operating system, but we wish to set the time for the process to execute ourselves. To do it, we apply the <strong><em>cron</em></strong> <strong><em>daemon</em></strong> in Ubuntu which implements in a similar style as the task scheduler in the Windows operating system. We can describe the time at which the process like a backup or maintenance job should be run using the cron daemon. This way, we can automate the tasks to execute later without the manual interventions.</p>
+<p>In this article, we will explain how we can do it with Crontab on Ubuntu.</p>
+<h2 class="h2">Introduction to Crontab</h2>
+<p>A <strong><em>crontab</em></strong> is a command list that is used to execute on a regular schedule and also the command name used for managing that list. It stands for <strong><em>"cron table"</em></strong> due to it applies the cron job scheduler tasks.</p>
+<p>Cron itself is titled after <strong><em>"Cronos"</em></strong>, which is a <strong><em>Greek</em></strong> term for time. It is a system process that will perform several tasks automatically for us according to the set schedule. A schedule is known as crontab which is the name of a program used for editing that schedule.</p>
+<p>In other words, crontab is a program used for installing, uninstalling, or listing the tables used for driving the cron daemon within the <strong><em>Vixie Cron</em></strong>. The cron file includes instructions to a cron daemon of the normal form: <strong><em>"execute this command on this date at this time"</em></strong>. All users can have their crontab, and hence these are files inside the /var directory, and they aren't intended to be directly edited. A crontab file is a config file that represents shell commands to execute for a particular schedule periodically.</p>
+<p>If the option, i.e., <strong><em>-u</em></strong> is given, it describes the username whose crontab is to be pulled. Crontab considers 'your' crontab, i.e., the person crontab running the command if the option isn't given.</p>
+<h4 class="n">Note: su can complicate crontab, and if we are executing in su, we should always apply the -u option for the sake of safety. Cron file is used for installing a new crontab from a few standard input or named files if the '-' pseudo-file name is given.</h4>
+<h2 class="h2">Format of Linux Crontab:</h2>
+<div class="codeblock"><textarea name="code" class="xml">
+MIN HOUR DOM MON DOW CMD
+</textarea></div>
+<h3 class="h3">Syntax of Crontab:</h3>
+<p>Some of the important fields, their description, and permitted values are mentioned below:</p>
+<ul class="points">
+<li>MIN (Minute Field)- 0-59</li>
+<li>HOUR (Hour Field)- 0-23</li>
+<li>DOM (Day of Month)- 1-31</li>
+<li>MON (Month Field)- 1-12</li>
+<li>DOW (Day of Week)- 0-6</li>
+<li>CMD (Command)- command to be run.</li>
+</ul>
+<h3 class="h3">Describing more than one value inside a field</h3>
+<ul class="points">
+<li>The operator i.e., an asterisk (*) describes every possible value for any field.<br>
+<strong>For example</strong>, every day or every hour.</li>
+<li>The operator, i.e., comma (,) describes a value list.<br>
+<strong>For example</strong>, "1,3,4,7,8".</li>
+<li>The operator, i.e., dash (-) describes a value range.<br>
+<strong>For example</strong>, "1-6" which is the same as "1,2,3,4,5,6".</li>
+<li>The operator, i.e., slash (/) can be used for skipping a given value number.<br>
+<strong>For example</strong>, "*/3" inside the field of hour time is the same as "0,3,6,9,12,15,18,21"; "*" describe 'every hour' but the "/3" defines only the 1st, 4th, 7th,.... and such values provided by "*" are applied.</li>
+</ul>
+<h2 class="h2">Crontab Tags</h2>
+<p>Some of the tags and their description are as follows:</p>
+<ul class="points">
+<li><strong>-h, --hash</strong><br>
+It describes the hash to apply for password hashing. This tag is only related to the action, i.e., <strong><em>create</em></strong>. The hash string is approved to <strong><em>libgcrypt</em></strong>, so every hash is supported which is accepted by <strong><em>gcrypt</em></strong>.</li>
+<li><strong>-c, --cipher</strong><br>
+It sets the string of cipher specification. It is usually <strong><em>"aes-cbc-plain"</em></strong>. It applies "aes-plain" for pre-2.6.10 kernels because they do not understand the new strings of cipher spec. It also applies <strong><em>"aes-cbc-essiv-:sha256"</em></strong> for using ESSIV.</li>
+<li><strong>-y, --verify-passphrase</strong><br>
+It twice queries for passwords. It is useful if creating a mapping for the very first time or if executing <strong><em>luksFormat</em></strong>.</li>
+<li><strong>-d, --key-file</strong><br>
+It applies files as the key material. The key material imported in key files by -d option with LUKS that are always used to exist passphrase. If we wish to set a fresh key by a key file, we need to apply a positional arg to <strong><em>luksAddKey</em></strong> or <strong><em>luksFormat</em></strong>.</li>
+<li><strong>-s, --key-size</strong><br>
+It sets the size of the key in bits. It is usually 128, 192, or 256. It can be used for luksFormat or create, all other actions of LUKS will avoid this flag because the key size is described by the partition header.</li>
+<li><strong>-b, --size</strong><br>
+It forces the size of an underlying device inside the sectors.</li>
+<li><strong>-o, --offset</strong><br>
+It starts offset inside the backend device.</li>
+<li><strong>-p, --skip</strong><br>
+It determines how many sectors of data (encrypted) to skip in the starting. It is different from the option, i.e., <strong><em>offset</em></strong>.</li>
+<li><strong>--readonly</strong><br>
+It sets up the read only mapping.</li>
+<li><strong>-i, --iter-time</strong><br>
+It specifies several microseconds for spending with PBKDF2 password processing. It is only related to the key setting operations of LUKS as <strong><em>luksAddKey</em></strong> or <strong><em>luksFormat</em></strong>.</li>
+<li><strong>-q, --batch-mode</strong><br>
+This option doesn't ask for confirmation. It is only related to luksFormat.</li>
+<li><strong>-t, --timeout</strong><br>
+It specifies seconds for waiting before timeout. It is related every time any password is asked such as luksAddKey, luksFormat, luksOpen, or create.</li>
+<li><strong>--align-payload=value</strong><br>
+It specifies align payload at a value boundary of 512-byte sectors. It is related to luksFormat. If our block device lives on the RAID, it is helpful for aligning the file system at the complete striped boundaries so it can get the benefit of the geometry of the RAID. The payload is by default aligned at the 8-sector boundary.</li>
+<li><strong>--version</strong><br>
+It displays the version.</li>
+</ul>
+<h2 class="h2">Crontab Actions</h2>
+<p>It can create a mapping using &lt;name&gt; backed with a device. It has several options such as --readonly, --skip, --offset, --key-size, --key-file, --verify-passphrase, --cipher, --hash, etc. Some of the crontab Actions and their description are as follows:</p>
+<ul class="points">
+<li><strong>remove&lt;name&gt;:</strong> It can remove a previous mapping &lt;name&gt; and it has no option.</li>
+<li><strong>status&lt;name&gt;:</strong> It can report the mapping &lt;name&gt; status. It also has no option</li>
+<li><strong>reload&lt;name&gt;:</strong> It changes an enabled mapping &lt;name&gt;. It has similar options like create.</li>
+<li><strong>resize&lt;name&gt;:</strong> It can resize an enabled mapping &lt;name&gt;. The --size option must be included in this action.</li>
+</ul>
+<h2 class="h2">Task Scheduling Using Crontab in Ubuntu</h2>
+<p>We need to proceed below to do it.</p>
+<ul class="points">
+<li>First of all, we need to launch the terminal window by pressing the shortcut keys, i.e., <strong><em>Ctrl+T</em></strong>, pressing the terminal icon positioned on the taskbar, or finding the terminal within the search bar and clicking on the <strong><em>enter</em></strong></li>
+<li>Now, we need to enter the crontab command inside the terminal window and click on the enter button for opening the crontab file.<br>
+The command is as follows:</li>
+<li>The terminal window will ask us to choose an editor for opening this file as soon as we will click on the enter button.</li>
+<li>Select the second option and click on the enter button to choose the nano editor due to it's always good for opening system files using the nano editor.</li>
+<li>We will find that our terminal window has modified itself into a nano editor screen and our crontab file has opened in the editor the moment we will press the enter button. The screen will be displayed as follows:</li>
+<li>We can scroll down this file by using the down and up arrow keys. Every line specified in this file that begins with a <strong><em>'#'</em></strong> indicates a comment. If we wish to include a new task for getting scheduled at our described time, then we should write it without any <strong><em>#</em></strong></li>
+<li>For instance, if you wish to execute a backup of every user account at 5:00 a.m. every week, then we should enter the following command:<br>
+<em>0 5 * * 1 tar -zcf /var/backups/home.tgz /home/</em><br>
+The result will be as follows:
+<ul class="points">
+<li>Once we have done including our tasks, we just need to click on the <strong><em>Ctrl+O</em></strong> shortcut keys to save our crontab file inside the nano editor. It will display the changed status in the top right corner and will prompt us for the name of a file to write. We just need to click on the enter button to choose default.</li>
+<li>We will be returned to our regular nano editor screen after pressing the enter button. Now, we just need to click on the <strong><em>Ctrl+X</em></strong> shortcut keys to exit from the nano editor after saving our files.</li>
+<li>As soon as our nano editor will close, we will be directed to our original command line window. Here, we will see find the message, i.e., <strong><em>"crontab: installing new crontab"</em></strong> which is a representation to tell that our crontab file was successfully saved.<br>
+The message will be shown as follows:</li>
+<li>Now, every user account will face a backup at 5:00 a.m. every week once we are done with it.</li>
+</ul></li>
+</ul>
+<h2 class="h2">Common uses of cron</h2>
+<p>The cron service can be used for scheduling many obvious things like regular backups that appear daily at 2:00 a.m. It can also be used for less obvious things. Some of the primary uses of cron are as follows:</p>
+<p>The system times (the operating system time) on several computers are set with the NTP (Network Time Protocol). It doesn't set the hardware time while NTP can set the time of the system which can drift. Cron is used for setting the hardware time according to the system time.</p>
+<p>There is also a <strong><em>Bash</em></strong> program available that makes a new <strong><em>"message of the day"</em></strong> (or MOTD) on all computers. It includes information like disk usage that must be current to be useful. Various system services and processes like <strong><em>RootKit Hunter</em></strong>, <strong><em>logrotate</em></strong>, and, <strong><em>Logwatch</em></strong> apply the cron service to everyday run programs and scheduled tasks.</p>
+<h4 class="n">Note: The crond daemon is a background service that activates the functionality of cron.</h4>
+<p>The crown service inspects for files inside the /etc/anacrontab file and the /etc/cron.d and /var/spool/cron directories. The contents of these files specify crown jobs that are to be executed at many intervals. The individual files of user cron are positioned inside the /var/spool/cron directory, and system applications and services generally add the files of cron job in the directory, i.e., /etc/cron.d.</p>
+<h3 class="h3">Scheduling Tips</h3>
+<p>Sometimes the crontab files look rather random. Cron job scheduling can be challenging especially when the jobs increase. The crond service thinks that the host system executes every time. It means that if the system is turned off at a time when cron jobs were set up to execute, they will not execute until the time they're scheduled. It might cause issues if they are demanding cron jobs. They are fortunately another option to run jobs at ordinary intervals, i.e., <strong><em>anacron</em></strong>.</p>
+<h2 class="h2">Crontab Options</h2>
+<p>Some of the important crontab options are listed and mentioned below:</p>
+<ul class="points">
+<li>We can use the -e option for installing and updating jobs in crontab:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+$ crontab -e
+</textarea></div>
+<ul class="points">
+<li>We can use the -l option for listing the entries of crontab:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+$ crontab -l
+</textarea></div>
+<ul class="points">
+<li>We can use the -r option for uninstalling the job from crontab:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+$ crontab -r
+</textarea></div>
+<ul class="points">
+<li>We can use the -i option for confirming job uninstallation in crontab:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+$ crontab -i -r
+</textarea></div>
+<ul class="points">
+<li>We can use the -s option for adding SELINUX security to the crontab file:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+$ crontab -s
+</textarea></div>
+<ul class="points">
+<li>We can use the -u option and mention the username for editing crontab of other users:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+$ crontab -u username -e
+</textarea></div>
+<ul class="points">
+<li>We can use the following option for listing crontab entries of other users:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+$ crontab -u username -l
+</textarea></div>
+<h3 class="h3">Examples</h3>
+<p>A few examples of Crontab are discussed below:</p>
+<ul class="points">
+<li>To execute /usr/bin/sample.sh every day at 12:59 and supress the result:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+59 12 * * * simon /usr/bin/sample.sh &gt; /dev/null 2&gt;&amp;1
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh at 9pm (21:00) everyday:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+0 21 * * * sample.sh 1&gt;/dev/null 2&gt;&amp;1
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh at 1am (01:00) every Tuesday to Saturday:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+0 1 * * 2-7 sample.sh 1&gt;/dev/null 2&gt;&amp;1
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh at 07:00, 9:30, 13:30, and 15:30:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+30 07,09,13,15 * * * sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh daily at 02:00 a.m.:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+0 2 * * * sample.sh (It is widely used for file and database backups on a daily basis.)
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh two times in a day at 5pm and 5am:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+0 5,17 * * * sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh every single minute:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+* * * * * sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh at 5pm every Sunday:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+0 17 * * sun sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh every 10 minutes:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+*/10 * * * * sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh on some selected months:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+* * * jan,may,aug * sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh on some selected days:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+0 17 * * sun,fri sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh every month's first Sunday:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+0 2 * * [ $(date +%d) -le 07 ] &amp;&amp; sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh every 4 hours:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+0 */4 * * * sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh every 30 seconds:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+* * * * * sample.sh
+* * * * * sleep 30; sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh every Monday and Sunday:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+0 4,17 * * sun,mon sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute more than one job with single icon:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+* * * * * sample1.sh; sample2.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh hourly:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+@hourly sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh daily:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+@daily sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh weekly:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+@weekly sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh monthly:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+@monthly sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh yearly:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+@yearly sample.sh
+</textarea></div>
+<ul class="points">
+<li>To execute sample.sh to system reboot:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+@reboot sample.sh
+</textarea></div>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="ubuntu-desktop-environments.html">Ubuntu Desktop Environments</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="ubuntu-change-username.html">&larr; prev</a>
+<a style="float:right" class="next" href="ubuntu-desktop-environments.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="afc9cacacbcdceccc4efc5ced9cedbdfc0c6c1db81ccc0c2">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/ubuntu-crontab"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/ubuntu-crontab"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/ubuntu-crontab"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+ </a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+ </div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+ </a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+ </a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="2a42586a404b5c4b5e5a4543445e04494547">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="402832002a21362134302f292e346e232f2d6e">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/ubuntu-crontab by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 18:10:05 GMT -->
+</html> 

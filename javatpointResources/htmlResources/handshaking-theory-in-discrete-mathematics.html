@@ -1,0 +1,919 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/handshaking-theory-in-discrete-mathematics by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:04:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Handshaking Theory in Discrete mathematics - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Handshaking Theory in Discrete mathematics - javatpoint" /><meta property="og:description" content="Handshaking Theory in Discrete mathematics with introduction, sets theory, types of sets, set operations, algebra of sets, multisets, induction, relations, functions and algorithms etc." />
+<meta name="keywords" content="discrete mathematics, tutorial, dms, introduction, sets, sets theory, types of sets, set operations, algebra of sets, multisets, mathematical induction, relations, functions and algorithms, recursively, logic and propositional calculus, techniques of counting, probability, graphs" /><meta name="description" content="Handshaking Theory in Discrete mathematics with introduction, sets theory, types of sets, set operations, algebra of sets, multisets, induction, relations, functions and algorithms etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="handshaking-theory-in-discrete-mathematics.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Handshaking Theory in Discrete mathematics - javatpoint" /><meta name="twitter:description" property="og:description" content="Handshaking Theory in Discrete mathematics with introduction, sets theory, types of sets, set operations, algebra of sets, multisets, induction, relations, functions and algorithms etc." /><meta property="og:url" content="handshaking-theory-in-discrete-mathematics.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="dbms-tutorial.html">DBMS</a></li>
+<li><a href="data-structure-tutorial.html">DS</a></li>
+<li><a href="discrete-mathematics-tutorial.html" class="selected">DMS</a></li>
+<li><a href="daa-tutorial.html">DAA</a></li>
+<li><a href="graph-theory.html">Graph Theory</a></li>
+<li><a href="control-system-tutorial.html">Control System</a></li>
+<li><a href="aptitude/quantitative.html">Aptitude</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="kotlin-tutorial.html">Kotlin</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Discrete Mathematics</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-tutorial.html">Discrete Mathematics</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Sets Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/sets-introduction">Sets Introduction</a>
+<a href="types-of-sets.html">Types of Sets</a>
+<a href="sets-operations.html">Sets Operations</a>
+<a href="algebra-of-sets.html">Algebra of Sets</a>
+<a href="multisets.html">Multisets</a>
+<a href="inclusion-exclusion-principle.html">Inclusion-Exclusion Principle</a>
+<a href="mathematical-induction.html">Mathematical Induction</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Relations</span></h2>
+</div>
+<div class="leftmenu">
+<a href="binary-relation.html">Binary Relation</a>
+<a href="representation-of-relations.html">Representation of Relations</a>
+<a href="composition-of-relations.html">Composition of Relations</a>
+<a href="types-of-relations.html">Types of Relations</a>
+<a href="closure-properties-of-relations.html">Closure Properties of Relations</a>
+<a href="equivalence-relations.html">Equivalence Relations</a>
+<a href="partial-ordering-relations.html">Partial Ordering Relations</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Functions &amp; Algorithms</span></h2>
+</div>
+<div class="leftmenu">
+<a href="functions.html">Functions</a>
+<a href="types-of-functions.html">Types of Functions</a>
+<a href="identity-functions.html">Identity Functions</a>
+<a href="compositions-of-functions.html">Composition of Functions</a>
+<a href="mathematical-functions.html">Mathematical Functions</a>
+<a href="algorithms-and-functions.html">Algorithms &amp; Functions</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Logic &amp; Propositional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="propositions-and-compound-statements.html">Propositions &amp; Compound Statements</a>
+<a href="basic-logical-operations.html">Basic Logical Operations</a>
+<a href="conditional-and-biconditional-statements.html">Conditional &amp; Biconditional Statements</a>
+<a href="tautologies-and-contradiction.html">Tautologies &amp; Contradictions</a>
+<a href="predicate-logic.html">Predicate Logic</a>
+<a href="normal-forms.html">Normal Forms</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Counting Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="basic-counting-principles.html">Basic Counting Principles</a>
+<a href="permutation-and-combinations.html">Permutations &amp; Combinations</a>
+<a href="pigeonhole-principle.html">Pigeonhole Principle</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Recurrence Relations</span></h2>
+</div>
+<div class="leftmenu">
+<a href="recurrence-relations.html">Recurrence Relations</a>
+<a href="linear-recurrence-relations-with-constant-coefficients.html">Linear Recurrence Relations with Constant Coefficients</a>
+<a href="particular-solution.html">Particular Solution</a>
+<a href="total-solution.html">Total Solution</a>
+<a href="https://www.javatpoint.com/generating-functions">Generating Functions</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Probability Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="probability.html">Probability</a>
+<a href="addition-theorem.html">Addition Theorem</a>
+<a href="multiplication-theorem.html">Multiplication Theorem</a>
+<a href="conditional-probability.html">Conditional Probability</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Graph Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="introduction-of-graphs.html">Introduction of Graphs</a>
+<a href="types-of-graphs.html">Types of Graphs</a>
+<a href="representation-of-graphs.html">Representation of Graphs</a>
+<a href="isomorphic-and-homeomorphic-graphs.html">Isomorphic and Homeomorphic Graphs</a>
+<a href="regular-and-bipartite-graphs.html">Regular and Bipartite Graphs</a>
+<a href="planar-and-non-planar-graphs.html">Planar and Non-Planar Graphs</a>
+<a href="discrete-mathematics-dijkstras-algorithm.html">Dijkstra's Algorithm</a>
+<a href="discrete-mathematics-travelling-salesman-problem.html">Travelling Salesman Problem</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Binary Trees</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-introduction-of-trees.html">Introduction of Trees</a>
+<a href="discrete-mathematics-binary-trees.html">Binary Trees</a>
+<a href="discrete-mathematics-traversing-binary-trees.html">Traversing Binary Trees</a>
+<a href="discrete-mathematics-binary-search-trees.html">Binary Search Trees</a>
+<a href="discrete-mathematics-minimum-spanning-tree.html">Minimum Spanning Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Operator &amp; Postulates</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-binary-operation.html">Binary Operation</a>
+<a href="discrete-mathematics-properties-of-binary-operations.html">Property of Binary Operations</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Group Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-semigroup.html">SemiGroup</a>
+<a href="discrete-mathematics-group.html">Group</a>
+<a href="discrete-mathematics-subgroup.html">SubGroup</a>
+<a href="discrete-mathematics-normal-subgroup.html">Normal Subgroup</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Ordered Sets &amp; Lattices</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-partially-ordered-sets.html">Partially Ordered Sets</a>
+<a href="discrete-mathematics-hasse-diagrams.html">Hasse Diagrams</a>
+<a href="discrete-mathematics-lattices.html">Lattices</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Boolean Algebra</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-boolean-algebra.html">Boolean Algebra</a>
+<a href="discrete-mathematics-boolean-expression.html">Boolean Expression</a>
+<a href="discrete-mathematics-canonical-forms.html">Canonical Forms</a>
+<a href="discrete-mathematics-logic-gates-and-circuits.html">Logic Gates &amp; Circuits</a>
+<a href="discrete-mathematics-karnaugh-maps.html">Karnaugh Maps</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="proof-of-de-morgans-law.html">Proof of De Morgan's Law</a>
+<a href="discrete-mathematics-for-computer-science.html">Discrete mathematics for Computer Science</a>
+<a href="abelian-groups-in-discrete-mathematics.html">Abelian Groups in Discrete Mathematics</a>
+<a href="applications-of-discrete-mathematics-in-computer-science.html">Applications of Discrete Mathematics in Computer Science</a>
+<a href="rings-in-discrete-mathematics.html">Rings in Discrete Mathematics</a>
+<a href="order-of-group-in-discrete-mathematics.html">Order of Group in Discrete Mathematics</a>
+<a href="principle-of-duality-in-discrete-mathematics.html">Principle of Duality in Discrete Mathematics</a>
+<a href="atomic-propositions-in-discrete-mathematics.html">Atomic Propositions in Discrete Mathematics</a>
+<a href="applications-of-tree-in-discrete-mathematics.html">Applications of Tree in Discrete Mathematics</a>
+<a href="quantifiers-in-discrete-mathematics.html">Quantifiers</a>
+<a href="algebraic-structure-in-discrete-mathematics.html">Algebraic Structure</a>
+<a href="counting-principle.html">Counting principle</a>
+<a href="bijective-function-in-discrete-mathematics.html">Bijective Function in Discrete Mathematics</a>
+<a href="multinomial-theorem.html">Multinomial Theorem</a>
+<a href="lagranges-mean-value-theorem.html">Lagrange's Mean Value Theorem</a>
+<a href="cauchys-mean-value-theorem.html">Cauchy's Mean Value Theorem</a>
+<a href="rolles-mean-value-theorem.html">Rolle's Mean Value Theorem</a>
+<a href="semantic-difference-between-set-and-type.html">Semantic difference between Set and Type</a>
+<a href="application-of-group-theory-in-discrete-mathematics.html">Application of Group Theory in Discrete Mathematics</a>
+<a href="directed-and-undirected-graph-in-discrete-mathematics.html">Directed and Undirected graph in Discrete Mathematics</a>
+<a href="bayes-formula-for-conditional-probability.html">Bayes Formula for Conditional probability</a>
+<a href="function-vs-relation-in-discrete-mathematics.html">Difference between Function and Relation in Discrete Mathematics</a>
+<a href="recursive-functions-in-discrete-mathematics.html">Recursive functions in discrete mathematics</a>
+<a href="arguments-in-discrete-mathematics.html">Arguments in Discrete Mathematics</a>
+<a href="elementary-matrix-in-discrete-mathematics.html">Elementary Matrix in Discrete Mathematics</a>
+<a href="hypergeometric-distribution-in-discrete-mathematics.html">Hypergeometric Distribution in Discrete Mathematics</a>
+<a href="regular-grammar-in-discrete-mathematics.html">Regular Grammar in Discrete Mathematics</a>
+<a href="prime-number-in-discrete-mathematics.html">Prime Number in Discrete Mathematics</a>
+<a href="peano-axioms-number-system-discrete-mathematics.html">Peano Axioms Number System Discrete Mathematics</a>
+<a href="problems-of-monomorphism-and-epimorphism-in-discrete-mathematics.html">Problems of Monomorphism and Epimorphism in Discrete mathematics</a>
+<a href="properties-of-set-in-discrete-mathematics.html">Properties of Set in Discrete mathematics</a>
+<a href="principal-ideal-domain-in-discrete-mathematics.html">Principal Ideal Domain in Discrete mathematics</a>
+<a href="probable-error-formula-for-discrete-mathematics.html">Probable error formula for discrete mathematics</a>
+<a href="hypergraph-and-its-representation-in-discrete-mathematics.html">HyperGraph & its Representation in Discrete Mathematics</a>
+<a href="hashing-function-in-discrete-mathematics.html">Hashing Function in Discrete mathematics</a>
+<a href="doolittle-algorithm-lu-decomposition.html">Doolittle Algorithm: LU Decomposition</a>
+<a href="rsa-encryption-in-discrete-mathematics.html">RSA Encryption in Discrete Mathematics</a>
+<a href="introduction-to-mojette-transform.html">Introduction to Mojette Transform</a>
+<a href="negation-in-discrete-mathematics.html">Negation in Discrete mathematics</a>
+<a href="hamiltonian-graph-in-discrete-mathematics.html">Hamiltonian Graph in Discrete mathematics</a>
+<a href="relationship-between-number-of-nodes-and-height-of-binary-tree.html">Relationship between number of nodes and height of binary tree</a>
+<a href="independent-events-in-probability.html">Independent events in Probability</a>
+<a href="repeated-trials-in-probability.html">Repeated Trials in probability</a>
+<a href="betweenness-centrality.html">Betweenness Centrality</a>
+<a href="inference-theory-in-discrete-mathematics.html">Inference theory in discrete mathematics</a>
+<a href="https://www.javatpoint.com/tautology-in-discrete-mathematics">Tautology in Discrete Mathematics</a>
+<a href="walks-trails-path-circuit-and-cycle-in-discrete-mathematics.html">Walks, Trails, Path, Circuit and Cycle in Discrete mathematics</a>
+<a href="associative-law-in-discrete-mathematics.html">Associative Law in Discrete Mathematics</a>
+<a href="conjunction-in-discrete-mathematics.html">Conjunction in Discrete Mathematics</a>
+<a href="distributive-law-of-multiplication.html">Distributive Law of Multiplication</a>
+<a href="proof-by-contradiction-in-discrete-mathematics.html">Proof by Contradiction in Discrete mathematics</a>
+<a href="chromatic-number-of-graphs-graph-coloring-in-graph-theory.html">Chromatic Number of graphs</a>
+<a href="how-to-find-chromatic-number-graph-coloring-algorithm.html">How to find Chromatic Number</a>
+<a href="chromatic-polynomial-in-discrete-mathematics.html">Chromatic Polynomial in Discrete mathematics</a>
+<a href="identity-function-in-discrete-mathematics.html">Identity Function in Discrete mathematics</a>
+<a href="injective-function-in-discrete-mathematics.html">Injective Function in Discrete mathematics</a>
+<a href="many-to-one-function-in-discrete-mathematics.html">Many to one function in Discrete Mathematics</a>
+<a href="surjective-function-in-discrete-mathematics.html">Surjective Function in Discrete Mathematics</a>
+<a href="inverse-function-in-discrete-mathematics.html">Inverse Function in Discrete mathematics</a>
+<a href="sampling-and-inference.html">Sampling and Inference</a>
+<a href="constant-function-in-discrete-mathematics.html">Constant Function in Discrete Mathematics</a>
+<a href="graphing-functions-in-discrete-mathematics.html">Graphing Functions in Discrete mathematics</a>
+<a href="continuous-functions-in-discrete-mathematics.html">Continuous Functions in Discrete mathematics</a>
+<a href="linear-function-in-discrete-mathematics.html">Linear Function in Discrete mathematics</a>
+<a href="complement-of-graph-in-discrete-mathematics.html">Complement of Graph in Discrete mathematics</a>
+<a href="graph-isomorphism-in-discrete-mathematics.html">Graph isomorphism in Discrete Mathematics</a>
+<a href="euler-graph-in-discrete-mathematics.html">Euler Graph in Discrete Mathematics</a>
+<a href="planer-graph-in-discrete-mathematics.html">Planer Graph in Discrete Mathematics</a>
+<a href="bipartite-graph-in-discrete-mathematics.html">Bipartite Graph in Discrete mathematics</a>
+<a href="handshaking-theory-in-discrete-mathematics.html">Handshaking Theory in Discrete mathematics</a>
+<a href="konigsberg-bridge-problem-in-discrete-mathematics.html">Konigsberg Bridge Problem in Discrete mathematics</a>
+<a href="what-is-incidence-matrix-in-discrete-mathematics.html">What is Incidence matrix in Discrete mathematics</a>
+<a href="implication-in-discrete-mathematics.html">Implication in Discrete mathematics</a>
+<a href="incident-coloring-in-discrete-mathematics.html">Incident coloring in Discrete mathematics</a>
+<a href="biconditional-statement-in-discrete-mathematics.html">Biconditional Statement in Discrete Mathematics</a>
+<a href="in-degree-and-out-degree-in-discrete-mathematics.html">In-degree and Out-degree in discrete mathematics</a>
+<a href="law-of-logical-equivalence-in-discrete-mathematics.html">Law of Logical Equivalence in Discrete Mathematics</a>
+<a href="graph-theory-in-discrete-mathematics.html">Graph theory in Discrete Mathematics</a>
+<a href="discrete-infinite-groups.html">Discrete Infinite Groups</a>
+<a href="independent-set-in-discrete-mathematics.html">Independent set in discrete mathematics</a>
+<a href="inverse-of-a-matrix-in-discrete-mathematics.html">Inverse of a Matrix in Discrete mathematics</a>
+<a href="inverse-property-in-discrete-mathematics.html">Inverse property in Discrete mathematics</a>
+<a href="irrational-number-in-discrete-mathematics.html">Irrational Number in Discrete mathematics</a>
+<a href="linear-graph-in-discrete-mathematics.html">Linear Graph in Discrete Mathematics</a>
+<a href="linear-equations-vs-non-linear-equations.html">Difference between the Linear equations and Non-linear equations</a>
+<a href="lagrange-theorem-in-discrete-mathematics.html">Lagrange Theorem in Discrete mathematics</a>
+<a href="linear-equations-in-discrete-mathematics.html">Linear Equations in Discrete mathematics</a>
+<a href="limitation-and-propositional-logic-and-predicates.html">Limitation and Propositional Logic and Predicates</a>
+<a href="non-linear-function-in-discrete-mathematics.html">Non-linear Function in Discrete mathematics</a>
+<a href="lexicographic-orders.html">Lexicographic Orders</a>
+<a href="graph-measurements-in-discrete-mathematics.html">Graph Measurements in Discrete Mathematics</a>
+<a href="language-and-grammar-in-discrete-mathematics.html">Language and Grammar in Discrete mathematics</a>
+<a href="logical-connectives-in-discrete-mathematics.html">Logical Connectives in Discrete mathematics</a>
+<a href="propositional-logic-in-discrete-mathematics.html">Propositional Logic in Discrete mathematics</a>
+<a href="conditional-and-bi-conditional-connectivity.html">Conditional and Bi-conditional connectivity</a>
+<a href="problems-based-on-converse-inverse-and-contrapositive.html">Problems based on Converse, inverse and Contrapositive</a>
+<a href="nature-of-propositions-in-discrete-mathematics.html">Nature of Propositions in Discrete mathematics</a>
+<a href="pdnf-and-pcnf-in-discrete-mathematics.html">PDNF and PCNF in Discrete Mathematics</a>
+<a href="linear-correlation-in-discrete-mathematics.html">Linear Correlation in Discrete mathematics</a>
+<a href="equivalence-of-formula-in-discrete-mathematics.html">Equivalence of Formula in Discrete mathematics</a>
+<a href="discrete-time-signals-in-discrete-mathematics.html">Discrete time signals in Discrete Mathematics</a>
+<a href="m-array-tree-in-discrete-mathematics.html">M-array Tree in Discrete Mathematics</a>
+<a href="matrix-in-discrete-mathematics.html">Matrix in Discrete mathematics</a>
+<a href="type-of-matrices-in-discrete-mathematics.html">Type of matrices in Discrete mathematics</a>
+<a href="column-matrix-in-discrete-mathematics.html">Column matrix in discrete mathematics</a>
+<a href="zero-matrix-in-discrete-mathematics.html">Zero matrix in Discrete mathematics</a>
+<a href="rectangular-matrix-in-discrete-mathematics.html">Rectangular matrix in Discrete mathematics</a>
+<a href="row-matrix-in-discrete-mathematics.html">Row matrix in Discrete mathematics</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DMS MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-mcq.html">Discrete Matehmatics MCQ</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="konigsberg-bridge-problem-in-discrete-mathematics.html">next &rarr;</a>
+<a class="next" href="bipartite-graph-in-discrete-mathematics.html">&larr; prev</a>
+</div>
+<h1 class="h1">Handshaking Theory in Discrete mathematics</h1>
+<p>We can also call the handshaking theory as the Sum of degree theorem or Handshaking Lemma. The handshaking theory states that the sum of degree of all the vertices for a graph will be double the number of edges contained by that graph. The symbolic representation of handshaking theory is described as follows:</p>
+<p><strong>Here,</strong></p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/handshaking-theory-in-discrete-mathematics.png" alt="Handshaking Theory in Discrete mathematics" />
+<p>'d' is used to indicate the degree of the vertex.</p>
+<p>'v' is used to indicate the vertex.</p>
+<p>'e' is used to indicate the edges.</p>
+<h3 class="h3">Handshaking Theorem:</h3>
+<p>There are some conclusions in the handshaking theorem, which must be drawn, which are described as follows:</p>
+<p>In any graph:</p>
+<ul class="points">
+<li>There must be even numbers for the sum of degree of all the vertices.</li>
+<li>If there are odd degrees for all the vertices, then the sum of degree of these vertices must always remain even.</li>
+<li>If there are some vertices that have an odd degree, then the number of these vertices will be even. </li>
+</ul>
+<h3 class="h3">Examples of Handshaking theory</h3>
+<p>There are various examples of handshaking theory, and some of the examples are described as follows:</p>
+<p><strong>Example 1:</strong> Here, we have a graph that has the degree of each vertex as 4 and 24 edges. Now we will find out the number of vertices in this graph.</p>
+<p><strong>Solution:</strong> With the help of above graph, we have got the following details:</p>
+<p>Degree of each vertex = 24</p>
+<p>Number of edges = 24</p>
+<p>Now we will assume the number of vertices = n</p>
+<p>With the help of Handshaking theorem, we have the following things:</p>
+<p>Sum of a degree of all Vertices = 2 * Number of edges</p>
+<p>Now we will put the given values into the above handshaking formula:</p>
+<p>n*4 = 2*24</p>
+<p>n = 2*6</p>
+<p>n = 12</p>
+<p>Thus, in graph G, the number of vertices = 12.</p>
+<p><strong>Example 2:</strong> Here, we have a graph that has 21 edges, 3 vertices of degree 4, and all other vertices of degree 2. Now we will find out the total number of vertices in this graph.</p>
+<p><strong>Solution:</strong> With the help of above graph, we have got the following details:</p>
+<p>Number of Degree 4 vertices = 3</p>
+<p>Number of edges = 21</p>
+<p>All other vertices have degree 2</p>
+<p>Now we will assume the number of vertices = n</p>
+<p>With the help of Handshaking theorem, we have the following things:</p>
+<p>Sum of degree of all Vertices = 2 * Number of edges</p>
+<p>Now we will put the given values into the above handshaking formula:</p>
+<p>3*4 + (n-3) * 2 = 2*21</p>
+<p>12+2n-6 = 42</p>
+<p>2n = 42 - 6</p>
+<p>2n = 36</p>
+<p>n = 18</p>
+<p>Thus, in graph G, the total number of vertices = 18.</p>
+<p><strong>Example 3:</strong> Here, we have a graph that has 35 edges, 4 vertices of degree 5, 5 vertices of degree 4, and 4 vertices of degree 3. Now we will find out the number of vertices with degree 2 in this graph.</p>
+<p><strong>Solution:</strong> With the help of above graph, we have got the following details:</p>
+<p>Number of edges = 35</p>
+<p>Number of Degree 5 vertices = 4</p>
+<p>Number of degree 4 vertices = 5</p>
+<p>Number of degree 3 vertices = 4</p>
+<p>Now we will assume the number of degree 2 vertices = n</p>
+<p>With the help of Handshaking theorem, we have the following things:</p>
+<p>Sum of degree of all Vertices = 2 * Number of edges</p>
+<p>Now we will put the given values into the above handshaking formula:</p>
+<p>4*5 + 5*4 + 4*3 + n*2 = 2*35</p>
+<p>20 + 20 + 12 + 2n = 70</p>
+<p>52+2n = 70</p>
+<p>2n = 70-52</p>
+<p>2n = 18</p>
+<p>n = 9</p>
+<p>Thus, in graph G, number of degree 2 vertices = 9.</p>
+<p><strong>Example 4:</strong> Here, we have a graph that has 24 edges, and the degree of each vertex is k. Now we will find out the possible number of vertices from the given options.</p>
+<ol class="points">
+<li>15</li>
+<li>20</li>
+<li>8</li>
+<li>10</li>
+</ol>
+<p><strong>Solution:</strong> With the help of above graph, we have got the following details:</p>
+<p>Number of edges = 24</p>
+<p>Degree of each vertex = k</p>
+<p>Now we will assume the number of vertices = n</p>
+<p>With the help of Handshaking theorem, we have the following things:</p>
+<p>Sum of degree of all Vertices = 2 * Number of edges</p>
+<p>Now we will put the given values into the above handshaking formula:</p>
+<p>N*k = 2*24</p>
+<p>K = 48/n</p>
+<p>It is mandatory that a whole number is contained by the degree of any vertex.</p>
+<p>So we can use only those types of values of n in the above equation that provides us a whole value of k.</p>
+<p>Now, we will check the above given options by putting them in the place of n one by one like this:</p>
+<ul class="points">
+<li>For n = 15, we will get k = 3.2, which is not a whole number.</li>
+<li>For n = 20, we will get k = 2.4, which is not a whole number.</li>
+<li>For n = 8, we will get k = 6, which is a whole number, and it is allowed.</li>
+<li>For n = 10, we will get k = 4.8, which is not a whole number.</li>
+</ul>
+<p>Thus, the correct option is option C.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="konigsberg-bridge-problem-in-discrete-mathematics.html">Konigsberg Bridge Problem in Discrete mathematics</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="bipartite-graph-in-discrete-mathematics.html">&larr; prev</a>
+<a style="float:right" class="next" href="konigsberg-bridge-problem-in-discrete-mathematics.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="dfb9bababbbdbebcb49fb5bea9beabafb0b6b1abf1bcb0b2">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/handshaking-theory-in-discrete-mathematics"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/handshaking-theory-in-discrete-mathematics"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/handshaking-theory-in-discrete-mathematics"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+ </a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f19983b19b90879085819e989f85df929e9c">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="bdd5cffdd7dccbdcc9cdd2d4d3c993ded2d093">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/handshaking-theory-in-discrete-mathematics by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:04:17 GMT -->
+</html> 

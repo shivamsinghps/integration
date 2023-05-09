@@ -1,0 +1,908 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/external-memory-in-computer-organization by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:04:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>External memory in Computer Organization - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="External memory in Computer Organization - javatpoint" /><meta property="og:description" content="External memory in Computer Organization with introduction, evolution of computing devices, functional units of digital system, basic operational concepts, computer organization and design, store program control concept, von-neumann model, parallel processing, computer registers, control unit, etc." />
+<meta name="keywords" content="coa tutorial, computer organization and architecture tutorial, introduction, evolution of computing devices, functional units of digital system, basic operational concepts, computer organization and design, store program control concept, von-neumann model, memory unit, general purpose system, parallel processing, flynn classification of computers, ssid, simd, misd, computer registers, control unit" /><meta name="description" content="External memory in Computer Organization with introduction, evolution of computing devices, functional units of digital system, basic operational concepts, computer organization and design, store program control concept, von-neumann model, parallel processing, computer registers, control unit, etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="external-memory-in-computer-organization.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="External memory in Computer Organization - javatpoint" /><meta name="twitter:description" property="og:description" content="External memory in Computer Organization with introduction, evolution of computing devices, functional units of digital system, basic operational concepts, computer organization and design, store program control concept, von-neumann model, parallel processing, computer registers, control unit, etc." /><meta property="og:url" content="external-memory-in-computer-organization.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()"><div id=cf_alert_div><style>#cf_alert_div{margin:0 0 5px;padding:0;position:relative;top:0;left:0;display:block;z-index:99999;background-color:#f7f7f8;box-shadow:0 5px 5px rgba(0,0,0,.25)}#cf_alert_div a,#cf_alert_div a:visited{text-decoration:none;color:#276d9b;font-weight:600}#cf_alert_div strong{font-weight:600}#cf_alert_div table{width:100%}#cf_alert_div table td{vertical-align:middle}#cf_alert_div p{margin:0;padding:0;max-width:1100px}#cf_alert_div .wrapper{padding:0;margin:0;text-align:left;font-family:-apple-system,system-ui,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,helvetica neue,Arial,sans-serif;font-weight:400;font-style:normal;font-size:12px;padding:16px 3.334%}#cf_alert_div .wrapper td.refresh{text-align:center;min-width:140px}#cf_alert_div .wrapper td.refresh a{display:inline-block;padding:8px 24px;border:1.5px solid #276d9b;border-radius:5px;margin-right:20px}#cf_alert_div .wrapper td.content{position:relative;padding-right:25px;color:#1d1f20;font-size:14px;max-width:900px}#cf_alert_div .wrapper .x{position:absolute;top:0;right:-12.5px;height:25px;width:25px;cursor:pointer}#cf_alert_div .wrapper .x .line{display:block;height:15px;width:3px;position:absolute;top:5px;left:11px;background:#4e5255}#cf_alert_div .wrapper .x .line:first-of-type{transform:rotate(135deg)}#cf_alert_div .wrapper .x .line:last-of-type{transform:rotate(45deg)}</style><div class=wrapper><table><tr><td class=refresh><a href=# onclick="document.cookie='cf_use_ob%3d0%3bpath%3d/index.html';window.location.reload();return false;">Refresh</a><noscript style="margin:10px 0 10px 0;padding:0;font:12px Helvetica,Arial,sans-serif;color:#404040;display:block">(Enable JavaScript first.)</noscript></td><td class=content><p>This website <strong>www.javatpoint.com/external-memory-in-computer-organization</strong> is currently offline. <a href=https://www.cloudflare.com/always-online/ target=_blank>Cloudflare's Always Online&trade;</a> shows a snapshot of this web page from the <a href=https://archive.org/web/ target=_blank>Internet Archive's Wayback Machine</a>. To check for the live version, click <strong>Refresh</strong>.</p><a class=x href="javascript:void(null);" onclick="document.getElementById('cf_alert_div').style.display='none';"><span class=line></span> <span class=line></span></a></td></tr></table></div></div>
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="computer-organization-and-architecture-tutorial.html" class="selected">COA</a>
+<li><a href="computer-fundamentals-tutorial.html">Computer Fundamentals</a></li>
+<li><a href="computer-network-tutorial.html">Computer Network</a></li>
+<li><a href="control-system-tutorial.html">Control System</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">COA Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-organization-and-architecture-tutorial.html">COA Tutorial</a>
+<a href="computer-architecture-vs-computer-organization.html">CA VS CO</a>
+<a href="evolution-of-computing-devices.html">Evolution of Computing Devices</a>
+<a href="functional-units-of-digital-system.html">Functional units of Digital System</a>
+<a href="basic-operational-concepts.html">Basic Operational Concepts</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Basic CO and Design</span></h2>
+</div>
+<div class="leftmenu">
+<a href="general-system-architecture.html">General System Architecture</a>
+<a href="store-program-control-concept.html">Store Program Control Concept</a>
+<a href="flynns-classification-of-computers.html">Flynn's Classification of Computers</a>
+<a href="computer-registers.html">Computer Registers</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Computer Instructions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-instructions.html">Computer Instructions</a>
+<a href="design-of-control-unit.html">Design of Control Unit</a>
+<a href="instruction-cycle.html">Instruction Cycle</a>
+<a href="control-logic-gates.html">Control Logic Gates</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Digital Logic Circuits</span></h2>
+</div>
+<div class="leftmenu">
+<a href="digital-computers.html">Digital Computers</a>
+<a href="logic-gates.html">Logic Gates</a>
+<a href="boolean-algebra.html">Boolean Algebra</a>
+<a href="examples-of-boolean-algebra-simplification-using-logic-gates.html">Examples of Boolean algebra simplification</a>
+<a href="https://www.javatpoint.com/laws-of-boolean-algebra">Laws of Boolean Algebra</a>
+<a href="simplification-using-boolean-algebra.html">Simplification using Boolean Algebra</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Map Simplification</span></h2>
+</div>
+<div class="leftmenu">
+<a href="map-simplification.html">Map Simplification</a>
+<a href="examples-of-boolean-algebra-simplifications-using-the-map-method.html">Examples</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Combinational Circuits</span></h2>
+</div>
+<div class="leftmenu">
+<a href="combinational-circuits.html">Combinational Circuits</a>
+<a href="half-adder.html">Half - Adder</a>
+<a href="full-adder.html">Full - Adder</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Flip - Flops</span></h2>
+</div>
+<div class="leftmenu">
+<a href="s-r-flip-flop.html">S-R Flip-Flop</a>
+<a href="d-flip-flop.html">D Flip-Flop</a>
+<a href="j-k-flip-flop.html">JK Flip-Flop</a>
+<a href="t-flip-flop.html">T Flip-Flop</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Digital Components</span></h2>
+</div>
+<div class="leftmenu">
+<a href="integrated-circuits.html">Integrated Circuits</a>
+<a href="decoders.html">Decoders</a>
+<a href="encoders.html">Encoders</a>
+<a href="multiplexers.html">Multiplexers</a>
+<a href="https://www.javatpoint.com/de-multiplexers">De - multiplexers</a>
+<a href="registers.html">Registers</a>
+<a href="shift-registers.html">Shift Registers</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Register Transfer</span></h2>
+</div>
+<div class="leftmenu">
+<a href="coa-register-transfer-language.html">Register Transfer Language</a>
+<a href="coa-register-transfer.html">Register Transfer</a>
+<a href="coa-bus-and-memory-transfers.html">Bus and Memory Transfer</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Micro-Operations</span></h2>
+</div>
+<div class="leftmenu">
+<a href="coa-arithmetic-micro-operations.html">Arithmetic Micro-Operations</a>
+<a href="coa-binary-adder.html">Binary Adder</a>
+<a href="coa-binary-adder-subtractor.html">Binary Adder-Subtractor</a>
+<a href="coa-binary-incrementer.html">Binary Incrementer</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Memory Organization</span></h2>
+</div>
+<div class="leftmenu">
+<a href="coa-memory-hierarchy.html">Memory Hierarchy</a>
+<a href="coa-main-memory.html">Main Memory</a>
+<a href="coa-auxiliary-memory.html">Auxiliary Memory</a>
+<a href="coa-associative-memory.html">Associative Memory</a>
+<a href="coa-cache-memory.html">Cache Memory</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Pipeline</span></h2>
+</div>
+<div class="leftmenu">
+<a href="parallel-processing.html">Parallel Processing</a>
+<a href="pipelining.html">Pipelining</a>
+<a href="arithmetic-pipeline.html">Arithmetic Pipeline</a>
+<a href="instruction-pipeline.html">Instruction Pipeline</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="booths-multiplication-algorithm-in-coa.html">Booth's Multiplication Algorithm</a>
+<a href="branch-instruction-in-computer-organization.html">Branch Instruction in Computer Organization</a>
+<a href="data-representation-in-computer-organization.html">Data Representation in Computer Organization</a>
+<a href="alu-and-data-path-in-computer-organization.html">ALU and Data Path in Computer Organization</a>
+<a href="external-memory-in-computer-organization.html">External memory in Computer Organization</a>
+<a href="structured-computer-organization.html">Structured Computer Organization</a>
+<a href="types-of-register-in-computer-organization.html">Types of Register in Computer Organization</a>
+<a href="secondary-storage-devices-in-computer-organization.html">Secondary Storage Devices in Computer Organization</a>
+<a href="types-of-operands-in-computer-organization.html">Types of Operands in Computer Organization</a>
+<a href="serial-communication-in-computer-organization.html">Serial Communication in Computer organization</a>
+<a href="addressing-sequencing-in-computer-organization.html">Addressing Sequencing in Computer Organization</a>
+<a href="simplified-instructional-computer.html">Simplified Instructional Computer</a>
+<a href="arithmetic-instructions-in-avr-microcontroller.html">Arithmetic Instructions in AVR microcontroller</a>
+<a href="conventional-computing-vs-quantum-computing.html">Conventional Computing VS Quantum Computing</a>
+<a href="instruction-set-used-in-simplified-instructional-computer.html">Instruction set used in Simplified Instructional Computer</a>
+<a href="branch-instruction-in-avr-microcontroller.html">Branch Instruction in AVR microcontroller</a>
+<a href="conditional-branch-instruction-in-avr-microcontroller.html">Conditional Branch instruction in AVR Microcontroller</a>
+<a href="types-of-register-in-computer-organization.html">Types of Register in Computer Organization</a>
+<a href="https://www.javatpoint.com/data-transfer-instruction-in-avr-microcontroller">Data transfer instruction in AVR microcontroller</a>
+<a href="memory-based-vs-register-based-addressing-modes.html">Memory-based vs Register-based addressing modes</a>
+<a href="1s-complement-representation-vs-2s-complement-representation.html">1's complement Representation vs 2's complement Representation</a>
+<a href="call-instructions-and-stack-in-avr-microcontroller.html">CALL Instructions and Stack in AVR Microcontroller</a>
+<a href="call-vs-jump-instructions.html">Difference between Call and Jump Instructions</a>
+<a href="overflow-in-arithmetic-addition-in-binary-number-system.html">Overflow in Arithmetic Addition in Binary number System</a>
+<a href="horizontal-micro-programmed-vs-vertical-micro-programmed-control-unit.html">Horizontal Micro-programmed Vs. Vertical Micro-programmed Control Unit</a>
+<a href="hardwired-vs-micro-programmed-control-unit.html">Hardwired vs Micro-programmed Control Unit</a>
+<a href="non-restoring-division-algorithm-for-unsigned-integer.html">Non-Restoring Division Algorithm for Unsigned Integer</a>
+<a href="restoring-division-algorithm-for-unsigned-integer.html">Restoring Division Algorithm for Unsigned Integer</a>
+<a href="debugging-a-machine-level-program.html">Debugging a Machine-level Program</a>
+<a href="dependencies-and-data-hazard-in-pipeline-in-computer-organization.html">Dependencies and Data Hazard in pipeline in Computer Organization</a>
+<a href="execution-stages-and-throughput-in-pipeline.html">Execution, Stages and Throughput in Pipeline</a>
+<a href="types-of-pipeline-delay-and-stalling.html">Types of Pipeline Delay and Stalling</a>
+<a href="timing-diagram-of-mov-instruction.html">Timing Diagram of MOV Instruction</a>
+<a href="advantages-and-disadvantages-of-flash-memory.html">Advantages and Disadvantages of Flash Memory</a>
+<a href="importance-need-of-negative-feedback-in-amplifiers.html">Importance/Need of negative feedback in amplifiers</a>
+<a href="anti-aliasing-computer-graphics.html">Anti-Aliasing - Computer Graphics</a>
+<a href="bus-arbitration-in-computer-organization.html">Bus Arbitration in Computer Organization</a>
+<a href="convert-a-number-from-base-2-to-base-6.html">Convert a number from Base 2 (Binary) to Base 6</a>
+<a href="cache-coherence.html">Cache Coherence</a>
+<a href="ehci.html">EHCI</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="structured-computer-organization.html">next &rarr;</a>
+<a class="next" href="alu-and-data-path-in-computer-organization.html">&larr; prev</a>
+</div>
+<h1 class="h1">External memory in Computer Organization</h1>
+<p><strong>Eternal memory</strong> can also be known as secondary memory or backing store. It is used to store a huge amount of data because it has a huge capacity. At present, it can measure the data in hundreds of megabytes or even in gigabytes. The important property of external memory is that whenever the computer switches off, then stored information will not be lost. The external memory can be categorized into four parts:</p>
+<ol class="points">
+<li>Magnetic disk</li>
+<li>Raid</li>
+<li>Optical memory</li>
+<li>Magnetic Tape</li>
+</ol>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization1.png" alt="External memory in Computer Organization" />
+<h2 class="h2">Magnetic Disks</h2>
+<p>A disk is a type of circular platter constructed by a nonmagnetic material, which is known as a <strong>substrate.</strong> It is covered with a magnetic coating used to hold the information. The substrate is traditionally constructed by aluminium or aluminium alloy material. But recently, another material has been introduced, which is known as <strong>glass substrates.</strong> There are various benefits of glass substrates, which are described as follows:</p>
+<ul class="points">
+<li>It has the ability to increase disk reliability by improving the uniformity of a magnetic film surface.</li>
+<li>It is used to reduce the errors of read-write by doing a significant reduction in overall surface defects.</li>
+<li>It has better stiffness, which will help to reduce disk dynamics. It has the great ability that it can withstand against shock and damage.</li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization2.png" alt="External memory in Computer Organization" />
+<h3 class="h3">Magnetic Read and Write Memory</h3>
+<p>The most important component of external memory is still magnetic disks. Many systems, such as supercomputers, personal computers, and mainframes computers, contain both removable and fixed hard disks. We can conduct a coil named as the <strong>head</strong> so that we can recover the data on and later and then retrieve it from the disk. A lot of systems contain two heads that are <strong>read head</strong> and <strong>write head.</strong> While the operation of reading and writing, the platter is rotating while the head is stationary.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization3.png" alt="External memory in Computer Organization" />
+<p>If the electricity is flowing through the <strong>coil,</strong> the <strong>write mechanism</strong> will exploit the fact that the coil will generate a magnetic field. The write head will receive the electric pulses, and the below surface will record the resulting magnetic pattern. It will be recorded into different patterns for negative and positive currents. If the electricity is flowing through the <strong>coil,</strong> the <strong>read mechanism</strong> will exploit the fact that it will generate an electric current in the coil. When the disk's surface passes under the head, it will produce a current with the same polarity as the already recorded one.</p>
+<p>In this case, the structure of head is the same for reading and writing. Therefore, we can use the same head for both. These types of single heads can be used in older rigid disk systems and in floppy disk systems. A type of partially shielded magneto-resistive <strong>(MR)</strong> sensor consists in the <strong>read head.</strong> The electric resistance is contained in the MR material, which depends on the direction of magnetization of the medium moving under it.</p>
+<h3 class="h3">Data Organization and formatting</h3>
+<p>The head is known as a small device, which is able to read from or write to the portion of the platter rotating beneath it. The width of each track is the same as head. We have thousands of tracks per surface. The <strong>gaps</strong> are used to show the separation of adjacent tracks. This can prevent or minimize the error which is generated because of the interference of magnetic fields or misalignment of the head. The <strong>sectors</strong> are used to transfer the data from and to the disks.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization4.png" alt="External memory in Computer Organization" />
+<p>The fixed-length sectors will be used in the most contemporary systems with 512 bytes, which is nearly a universal sector size. Intersector gaps separate the adjacent sectors so that we can avoid imposing unreasonable precision requirements on the systems. At the same rate, we can scan the information with the help of rotating the disk at a fixed speed, which is called <strong>constant angular velocity (CAV).</strong></p>
+<p>There are various things in which disks can be divided. So it can divide into a series of concentric tracks and into a number of pie-shaped sectors. The CAV has an advantage in that the tracks and sectors are able to directly address the data with the help of CAV. The CAV also has a disadvantage in that the amount of data that is stored on the short inner tracks and the long outer tracks are the same.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization5.png" alt="External memory in Computer Organization" />
+<p>The modern hard disks introduce a technique to increase the density, which is called <strong>Multiple zone recording.</strong> Using this technique, the surface is able to divide into a number of concentric zones, which is typically equal to 16, which means 16 zones. The number of bits per track is constant within a zone. The zones which are closer to the centre have fewer amounts of bits or sectors as compared to the zones which are farther from the centre.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization6.png" alt="External memory in Computer Organization" />
+<h3 class="h3">Physical characteristics</h3>
+<p>If there is a fixed head disk, then it will contain one read-write head per track. All of these heads are mounted on a rigid arm, which has the ability to extend across all tracks. If there is a movable head disk, then it will contain only one read-write head. Here the head is also mounted on the arm. The head can position above any track. Due to this purpose, the arm can be retracted or extended.</p>
+<p>The disk drive always or permanently contains a non-removable disk. For example, in the personal computer, the <strong>hard disk</strong> can never be removed, or we can say that it is <strong>a non-removable disk.</strong> The <strong>removable disk</strong> is a type of disk that can be removed and replaced with other disks. Both sides of the platter contain the magnetizable coating for most of the disks, which will also be referred to as the double side. The single side disks are used in some less expensive disk systems.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization7.png" alt="External memory in Computer Organization" />
+<p>A movable head is employed by the multiple platter disks with one head of read-write per platter surface. Form the centre of the disk, all the heads contain the same distance and move together because all the heads are mechanically fixed. In the platter, a set of all tracks in the same relative position will be known as a <strong>cylinder.</strong></p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization8.png" alt="External memory in Computer Organization" />
+<p>This type of mechanism is mostly used in a <strong>floppy disk.</strong> This type of disk is the least expensive, small, also contains a flexible platter. The sealed drive assemblies are almost free of contaminants, and it contains the Winchester's heads. IBM uses the term Winchester as a code name and it was used for the 3340 disk model prior to its announcement in IBM. The workstations and personal computers commonly contain a built-in disk, which is known as <strong>Winchester disk.</strong> This disk is also referred to as a <strong>hard disk.</strong></p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization9.png" alt="External memory in Computer Organization" />
+<p>On a movable system, there will be a <strong>seek time</strong> which can be defined as the time taken to position the head at the track. There will also be a <strong>rotation latency</strong> or <strong>rotation delay,</strong> which can be defined as the time taken from the starting of the sector to reach the head. The time it takes to get into a position to write or read is known as access time which is equal to the sum of rotational delay and seeks time, if any.</p>
+<p>Once the head gets its position, we are able to perform the read or write operation as the sector moves under the head. This process can be called the data transfer portion of the operation, and the time taken while transferring the data will be known as the <strong>transfer time.</strong></p>
+<h2 class="h2">RAID</h2>
+<p>The RAID is also known as a <strong>redundant array of independent disks.</strong> It is a type of data virtualization technology, which is used to combine components of multiple disks into a logical unit so that they can improve the performance or create redundancy. If there are multiple disks/drives, it will allow the employment of various techniques such as disk mirroring, parity, and disk striping. We cannot consider RAID as a replacement for data backup. If RAID is going through the critical data, it will be backed up to a logical set of disks or other physical disks. When we make a connection with RAID, we will normally use the following terms:</p>
+<p><strong>Striping:</strong> In this, data will be split between more than one disk.</p>
+<p><strong>Mirroring:</strong> In this, data will mirror between more than one disk.</p>
+<p><strong>Parity:</strong> It can also be called checksum. It can be described as a calculated value, which is used to mathematically rebuild the data.</p>
+<p>Commonly RAID has 7 levels. In which levels 0, 1, and 3 are used for high transfer rates. Levels 4, 5, and 6 are used for high transaction rates. All the levels of RAID are described as follows:</p>
+<h3 class="h3">RAID 0</h3>
+<p><strong>RAID 0 </strong>can also be called <strong>disk striping.</strong> In the RAID 0 technique, data is evenly divided into two or more than two storage devices such as HDD or SDD. In this technique, we will organize the data in such as manner that users can faster read or write the files. Due to this process, the performance will speed up. If we have a large number of applications and enormous data, the best solution will be disk stripping. The setup of RAID 0 is very easy. It can also be called the most affordable type of redundant disk organization.</p>
+<p>However, this type of arrangement is unable to handle the fault or error, and we cannot use it to handle the critical data. This is because it writes the first block into the first disk, the second into the next disk, and so on. This process will be repeated until it hits all of the disks. Lastly, it will come back to the first disk. This means all the disks are working in parallel, so we are able to see the full performance of our disks.</p>
+<p>On the downside, there will be no redundancy, and that means if any disk <strong>fails,</strong> we will lose all our data across all disks. So RAID 0 provides us high performance and expanding storage, but it is actually less reliable as compare to a single disk.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization10.png" alt="External memory in Computer Organization" />
+<p><strong>Advantages of RAID 0</strong></p>
+<ul class="points">
+<li>In the read and write operations, it provides us with great performance.</li>
+<li>There will be no overhead because RAID 0 uses all the storage capacity.</li>
+<li>In RAID 0, we can easily implement the technology.</li>
+</ul>
+<p><strong>Disadvantages of RAID 0</strong></p>
+<ul class="points">
+<li>RAID 0 cannot be used in critical systems because it is unable to tolerate the fault.</li>
+<li>If one disk fails in RAID 0, then all the data of other disks are also lost.</li>
+</ul>
+<h3 class="h3">RAID 1</h3>
+<p><strong>RAID 1</strong> can also be called <strong>Mirroring.</strong> It will take all data from a disk and then write it into a second disk, which is parallel to the first disk. In RAID 1, there is very high redundancy because each disk contains the exact copy of data on another disk. It needs <strong>minimum two disks</strong> to work. The setup of RAID 1 provides protection against data loss, or we can say that it has the fault tolerance capacity. If one disk <strong>fails,</strong> then the copy of that disk provides the required data.</p>
+<p>Here, the systems can read the data from both disks simultaneously. Because of this feature, it will also be able to speed up the performance and availability. Still, the performance of write operation is unaffected. It takes more time as compared to the read operation because RAID 1 contains two disks writing in parallel, and the writing operation uses the capacity of one disk, and they have to write the same data twice. In RAID 1, the downside of the disks contains the high costs because one disk must build twice the capacity that's actually needed at this level.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization11.png" alt="External memory in Computer Organization" />
+<p><strong>Advantages of RAID 1</strong></p>
+<ul class="points">
+<li>As compare to the single disk, the RAID 1 provides an excellent read and write speed.</li>
+<li>It has the fault tolerance ability. If one disk fails, we don't need to build the data again, and we will just simply copy the data into the replacement disk.</li>
+<li>It is a very simple technology, and the implementation of RAID 1 is also very simple.</li>
+</ul>
+<p><strong>Disadvantages of RAID 1</strong></p>
+<ul class="points">
+<li>In RAID 1, the data has to be written twice. That's why effective storage capacity is only half of the total disk capacity, and it is the main disadvantage of RAID 1.</li>
+<li>RAID 1 is more expensive as compared to RAID 0 because it needs twice disks to mirror the data.</li>
+<li>The hot-swapping of failed disks are not always allowed by the software RAID 1. When we power down the computer through which failed disk is attacked, the failed disk can only be replaced.</li>
+<li>A lot of people simultaneously use the servers, and this power-down process may not be accepted by them. That's why these types of systems typically use hardware controllers because they support hot-swapping.</li>
+</ul>
+<h3 class="h3">RAID 2</h3>
+<p><strong>RAID 2</strong> can also be called <strong>Bit-level stripping.</strong> In RAID 2, we strip the bits across the disks in place of striping the blocks across the disks. At this level, we require two groups of disks. The first group of disks will be used to write the data, and the second group of disks will be used to write the error correction codes.</p>
+<p>In this level, we will use <strong>Hamming error correction code</strong> (ECC) and then use the redundancy disks to store the information of ECC code. Hamming code is a type of linear error correction code, which is able to detect up to (d - 1) bit errors and correct (d -1)/2-bit errors. Where d is a type of code word given by the minimum Hamming distance between all pairs. If d is greater than or equal to the Hamming distance between transmitted and received bit pattern, only then reliable communication will be possible. In contrast, a simple parity code is able to only detect an odd number of errors, and it cannot correct the error.</p>
+<p>When we write the data on disks, it will evaluate the ECC code (error correction code) for the data on the fly. After that, it will strip the data bits to the data disks, and finally, it will write the ECC code to the redundancy disks. When we read the data from the disks, it uses the redundancy disks to read the corresponding ECC code. Now it will verify whether the data is consistent. If needed, it will perform appropriate corrections on the fly.</p>
+<p>This process uses many disks. It will be configured in various disk configurations. Now this time, RAID 2 is not useful anymore because it is costly, and the implementation of RAID 2 in RAID controller is difficult. Now this time, ECC is also redundant because the hard disks are capable of doing the work of ECC themselves.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization12.png" alt="External memory in Computer Organization" />
+<p><strong>Advantages of RAID 2</strong></p>
+<ul class="points">
+<li>RAID 2 uses hamming code while error correction.</li>
+<li>It can store the parity with the help of one designated drive.</li>
+</ul>
+<p><strong>Disadvantages of RAID 2</strong></p>
+<ul class="points">
+<li>RAID 2 needs an extra drive for error detection.</li>
+<li>It contains an extra drive. That's why it is expensive and contains a complex structure.</li>
+</ul>
+<h3 class="h3">RAID 3</h3>
+<p><strong>RAID 3</strong> can also be called <strong>Byte level stripping.</strong> The working of RAID 3 is the same as RAID 0 as it uses byte-level stripping, but it also needs an extra disk in the array. RAID 3 is used to support a special type of processor in the parity code calculations, which can be called <strong>'parity disk'.</strong> In RAID 3, we strip the bytes across the disks in place of striping the blocks across the disks. At this level, we require multiple data disks and a dedicated disk so that we can store the parity. In the configuration process of RAID 3, the data will be divided into individual bytes, and then it will be saved on a disk. For each row of the data, the parity disk will be determined, and after that, it will be saved in the mentioned parity disk. If there is any <strong>failure,</strong> it has the ability to recover the data with the help of <strong>parity bytes</strong> that correspond with them and the appropriate calculation of remaining bytes.</p>
+<p>Although this level is rarely used in practice, but it has a lot of <strong>benefits</strong> that are if there is any damage of disk in the arrangement, it can resist. <strong>Secondly,</strong> it has a very high reading speed. Unfortunately, RAID 3 also has a lot of <strong>drawbacks. First,</strong> as compared to the read speed, the write speed is very slow because of its necessity for checksum calculating. (RAID hardware controllers are also unable to solve this problem). The <strong>second problem</strong> is that if there is any disk <strong>failure,</strong> then the whole system will work very slowly. RAID 3 has the ability to resist breakdown that means if any disk in the array fails, it will replace the damaged disk, but replacing process is very costly. The <strong>third problem</strong> is that we use the disk for calculating checksums, which is the bottleneck in the entire array performance.</p>
+<p>Though the above description, RAID 3 is unable to show a good, reliable and cheap solution. That's why RAID 3 is used rarely in practice. The systems which are based on RAID 3 are mostly used for the implementation purpose where very large files are referred by the small number of users.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization13.png" alt="External memory in Computer Organization" />
+<p><strong>Advantages of RAID 3</strong></p>
+<ul class="points">
+<li>RAID 3 provides high throughput to transfer the huge data.</li>
+<li>It solves RAID 2's main disadvantage that means it can be resistant to disk failure and breakdown.</li>
+</ul>
+<p><strong>Disadvantages of RAID 3</strong></p>
+<ul class="points">
+<li>If we only need to transfer a small file, the configuration may be too much.</li>
+<li>If there is any disk failure, then it will significantly decrease the throughput.</li>
+</ul>
+<h3 class="h3">RAID 4</h3>
+<p><strong>RAID 4</strong> can be known as <strong>Block-level striping.</strong> The working of RAID 4 is the same as RAID 3. The main difference between them is the process of sharing the data. They are divided into blocks such as 16, 32, 64, or 128 GB. Same as RAID 0, it will be written on the disk. For each row of written data, a parity disk is used to write any recorded block. That means this level uses block-level for striping data in place of byte-level striping. RAID 5 and RAID 4 has a lot of similarities, but RAID 4 confines all parity data to a single disk. So we can say that it does not use distributive parity.</p>
+<p>In RAID 4, we can complete implementation and configuration with the help of minimum <strong>three disks.</strong> RAID 4 also requires hardware support to perform the parity calculations. Due to this, we are able to recover data with the help of appropriate mathematical operations.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization14.png" alt="External memory in Computer Organization" />
+<p><strong>Advantages of RAID 4</strong></p>
+<ul class="points">
+<li>RAID 4 allows the block-level striping, which provides the facility to simultaneously send I/O requests.</li>
+<li>It provides a low storage overhead. If we add various disks, it will become more lowers.</li>
+<li>This level does not need a synchronized controller or spindles.</li>
+</ul>
+<p><strong>Disadvantages of RAID 4</strong></p>
+<ul class="points">
+<li>It contained the parity drives, which may lead to a bottleneck.</li>
+<li>If we try to perform a write operation simultaneously, the operation will be slower because the information of parity is written to one disk.</li>
+</ul>
+<h3 class="h3">RAID 5</h3>
+<p><strong>RAID 5</strong> can be called <strong>Stripping with parity.</strong> It uses the block level for data striping and also uses distributive parity. RAID 5 needs minimum three disks but can work up to 16 disks. It is the most secured RAID level. Parity is a type of raw binary data. RAID system calculates the values of parity and using these values, create a parity block. If any disk <strong>fails</strong> in the RAID system, it will use the parity block to recover striped data. Mostly RAID system with parity function uses the array to store the parity blocks in the disks. At this level, data blocks are striped across the drives. The parity checksum of all data blocks is written only on one drive. The parity checksum does not use a fixed drive, but they are spreading across all the drives. If the data of any data block has no longer available, with the help of parity data, the computer can recalculate the data. That means if there is any single drive <strong>failure,</strong> RAID 5 has the ability to resist against the failure of any disk in the array without access to data or losing the data.</p>
+<p>Although we can use RAID 5 in the software, but the recommended controller is a hardware controller. These controllers can improve their write performance by often using the extra cache memory. In this level, the performance of RAID 0 is combined with the redundancy of RAID 1, but in this process, it takes a huge amount of storage space that can be approx one-third of usable capacity. In the array, all the drives serve to write requests simultaneously. That's why this level increases the write performance. But the write implication can affect the performance of overall disk since we need to perform multiple steps and recalculation if we do minor changes in the stripes.</p>
+<p>In short, we can say that RAID 5 provides reliability and high performance. It has the ability to balance reads, and writes and also it is secure. RAID 5 stores the parity by using the space of entire disk, and it also reduces the aggregate amount of data users can save. RAID 5 is a type of excellent all-around system, which is used to provide decent performance and also combine efficient storage with excellent security. It is mainly used for the file and application server that contains a limited number of data drives.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization15.png" alt="External memory in Computer Organization" />
+<p><strong>Advantages of RAID 5</strong></p>
+<ul class="points">
+<li>In RAID 5, the write data transactions are slow because of the calculation of parity, while the read data transactions are very fast.</li>
+<li>If there is any disk failure in the RAID 5, we still have the power to access all the data no matter that the failed drive is being replaced and the data is rebuilt by the storage controller on a new disk.</li>
+</ul>
+<p><strong>Disadvantages of RAID 5</strong></p>
+<ul class="points">
+<li>If there is any disk failure, it will affect the throughput, but this process is still acceptable.</li>
+<li>RAID 5 is complex technology. Suppose there is a disk of 4TB in the array of various disks, and it fails. In this case, replacing and restoring the data of failed disk may take a day or more than that on the basis of the speed of the controller and the load on an array. At this time, if any disk goes bad, data will be lost forever.</li>
+</ul>
+<h3 class="h3">RAID 6</h3>
+<p><strong>RAID 6</strong> can also be called <strong>Striping with double parity.</strong> The working of RAID 5 is the same as RAID 6, and the difference between them is that the system stores an additional parity block on each desk in RAID 6. Due to this, a configuration will be enabled where before the array is unavailable, the two disks may be failed. It needs two different sets for parity calculations, and it has the ability to rebuild an array even if two drives simultaneously fail. RAID 6 needs minimum four disks, and it can withstand two disks that are dying simultaneously. The two disks will be used for the data, and the remaining two disks will be used for parity information. If there is a rise in the number of disks, it will increase the chances of multiple failures and also increase the complexity of rebuilding the disk set.</p>
+<p>As compared to the RAID 5, it offers higher redundancy and also increases the performance of read. If there is an intensive write operation, this level will also suffer from the same server performance overhead. This performance is depended on the architecture of RAID system, i.e., software or hardware. If the system performs high-performance parity calculation with the help of including processing software, and if it is located in the firmware, it will affect the performance.</p>
+<p>In RAID 6, the chances of two disks failure at the same time are very less. In the RAID 5 system, if any disk fails, it will take hours, days or more time to replace it with the new disk. At that time, if another disk fails, we will lose all of our data forever. But in RAID 6, the RAID array will even survive from the second failure.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization16.png" alt="External memory in Computer Organization" />
+<p><strong>Advantages of RAID 6</strong></p>
+<ul class="points">
+<li>In RAID 6, the read data transactions are very fast, just like the RAID 5.</li>
+<li>It is more secure than RAID 5 because if two disks fail, we are able to still access all our data even while the system is replaced with our failed disks.</li>
+</ul>
+<p><strong>Disadvantages of RAID 6</strong></p>
+<ul class="points">
+<li>In the RAID 6, we have to calculate the additional parity. That's why write data transactions in RAID 6 are slower than the RAID 5. It can be slower by 20% as compared to RAID 5.</li>
+<li>If there is any disk failure, then it will affect the throughput, but this process is still acceptable.</li>
+<li>RAID 6 is complex technology. If there is a disk failure in any RAID array, rebuilding an array can take a long time.</li>
+</ul>
+<h2 class="h2">Optical Memory</h2>
+<p>The optical memory was released in 1982, and Sony and Philips developed it. These memories perform their operations with the help of light beams, and it also needs option drive for the operations. We can use optical memory to store backup, audio, video, and also for caring data. The speed of a flash drive and the hard drive is faster as compared to the read/write speed. There are various examples of optical memory that are Compact disk (CD), Bluray Disk (BD), and Digital Versatile Disk (DVD).</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization17.png" alt="External memory in Computer Organization" />
+<h3 class="h3">Compact Disk (CD)</h3>
+<p>It is a type of digital audio system, which is used to store data. It is composed of circular plastic, in which <strong>aluminium alloy</strong> is used to coat the single side of plastic, which is used to store the data. It also contains an additional thin plastic covering, which is used to protect the data. CD will perform its operations with the help of a CD drive. The compact disk can be called the non-erasable disk. Here we use the laser beam to imprint the data on the disk. In the starting, the CDs are used to hold the 60 to 75 minutes of audio information that has the ability to store about 700MB of data. But now, it can store 60 minutes of audio information on a single side. Now many devices have been developed which contains low cost and high capacity as compared to the CD.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization18.png" alt="External memory in Computer Organization" />
+<p><strong>Types of Compact Disk</strong></p>
+<p><strong>CD-ROM:</strong></p>
+<p><strong>CD-ROM</strong> is also known as <strong>CD read-only memory.</strong> It is mainly used to store computer data. As we know earlier, the compact disks were used to store the video and audio data, but it uses the digital form to store the data, so we can also be used the compact disks to store the computer data.</p>
+<p>If there is some error in the audio and video appliance, it will ignore that error, and that error does not reflect in the produced video and audio. But if the computer data contains any error, then CD-ROM will not tolerate it, and that error will reflect in the produced data. At the time of indenting pills on the compact disks, it is impossible to prevent physical imperfection. So in order to detect and correct the error, we have to add some extra bits.</p>
+<p>The compact disk (CD) and compact disk read-only memory (CD-ROM) contain one spiral track, beginning from the track's centre and spiral out towards the outer edge. CD-ROM uses the blocks or sectors to store the data. On the basis of tracks, the number of sectors varies. The inner tracks of the compact disk contain fewer sectors, and the outer track of the compact disk contains more sectors. The length of the sectors at the inner edge and the outer edge of disk is the same.</p>
+<p>When the disk is rotating, the low power laser beam will be used to scan the sectors at the same rate. There can be a variation in the rotating speed of disk. If we are trying to access the sectors which are near to the centre of the disk, the disk will be rotated comparatively faster. If the sectors are present near the outer edge, the disk will be rotated slower as compared to the sectors near to centre of the disk.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization19.png" alt="External memory in Computer Organization" />
+<p><strong>CD-R:</strong></p>
+<p><strong>CD-R</strong> is also known as <strong>CD-Recordable.</strong> It is a type of write once read many, or we can say that it allows single time recording on a disk. It is used in these types of applications that require one or a small number of copies of a set of data. CD recordable composed of polycarbonate plastic substrate, coating of thin reflective metal, and a protective outer coating. Between the metal layers and the polycarbonate, there is a layer of organic <strong>polymer dye,</strong> which serves as a recording medium. With the help of dye, the reflectivity can be changed. When there is exposure to a specific frequency of light, the dye will be permanently transformed. The high-intensity laser is used to activate the dye. In the dye, marks are created by the laser that is used to mimic the reflective properties of lands (highest area) and pills (lower area) of the traditional CD.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization20.png" alt="External memory in Computer Organization" />
+<p><strong>CD-RW:</strong></p>
+<p><strong>CD-RW</strong> is also known as <strong>CD-Rewritable.</strong> It is a type of compact disk format which allow us to repeatedly recording on a disk. CD rewritable and CD recordable both are composed of the same material. So it is also composed of polycarbonate plastic substrate, coating of thin reflective metal, and a protective outer coating. The dye will be replaced by an <strong>alloy</strong> in the CD-RW. When the alloy is heated and cooled down, then it will show some interesting behavior.</p>
+<p>If there is a melting point and the alloy is heated above that point and cooled down, in this case, it will turn into a state which is known as the <strong>amorphous state,</strong> which is used to absorb light. If there is a case in which alloy is heated at 200o C and that temperature is maintained for a certain period, then a process known as <strong>annealing</strong> will occur, and it will turn alloy into the crystalline state.</p>
+<p>The area of non-crystalline and crystalline will be formed with the help of controlling the temperature of a laser. The crystalline area is used to reflect the laser, while the other area is used to absorb it. These differences will be registered as digital data. We can further use the annealing process to delete the stored data. There is an advantage of CR-RW over CD-R and CD-ROM, i.e., we can rewrite the CD-RW, and after that, we can use it as true secondary storage.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization21.png" alt="External memory in Computer Organization" />
+<h3 class="h3">Digital Versatile Disk (DVD)</h3>
+<p>The DVD (digital versatile disk) technology was first launched in 1996. The appearance of the CD (compact disk) and the DVD (digital versatile disk) has the same. The storage size is the main difference between CD and DVD. So the storage size of a DVD is much larger than the CD. While designing DVDs, there are several changes that are done in their design to make the storage larger.</p>
+<p>DVD uses the shorter wavelength of a laser beam to imprint the data than the CDs laser beam wavelength. With the help of a shorter laser beam wavelength, the lights are able to focus on a small spot. Pits of CDs are much larger than the pits of DVDs. The tracks on DVD is placed very close than the tracks on a CD. By doing all the changes in the design of a DVD, it has a 4.7GB storage size. We can more increase the storage capability by using the two-sided disk and two-layered disk.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization22.png" alt="External memory in Computer Organization" />
+<p><strong>Two Layered Disk</strong></p>
+<p>The first base of the two-layered disk is the same as CD that means it is also composed of circular plastic. But in this disk, we use <strong>translucent material</strong> rather than aluminium to cover the lands and pits of the first base. This material is able to solve the purpose of a reflector. The program of a translucent layer is doing in a way that it can store the data with the help of indenting pits onto it. The second layer of lands and pits contains the reflective material. In order to retrieve the binary pattern, when the laser beam is focused on the first layer, then sufficient light will be reflected by the translucent material, which will be captured by the detector. After that, the second layer will reflect a small light, and that light is a noise. That's why it will be cancelled by the detector.</p>
+<p>Similarly, the focus of a laser is on the second layer and wants to read it, the first layer will reflect a small light, and that light will be cancelled with the help of detector.</p>
+<p><strong>Two-Sided Disk</strong></p>
+<p>In a two-sided disk, the implementation of tracks will be applied on both sides of the DVDs. This structure is also known as two single-sided disks. These disks will be put together so that they can form a sandwich. But the topmost disk will be turned upside down.</p>
+<h3 class="h3">Blu-Ray DVD</h3>
+<p>A Blu-ray disk is a type of high capacity optical disk medium, which is used to store a huge amount of data and to record and playback high definition video. Blu-ray was designed to supersede the DVD. While a CD is able to store 700 MB of data and a DVD is able to store 4.7 GB of data, a single Blu-ray disk is able to store up to 25 GB of data. The dual-layer Blu-ray disks can hold 50 GB of data. That amount of storage is equivalent to 4 hours of HDTV. There is also a double-sided dual-layer DVD, which is commonly used and able to store 17 GB of data.</p>
+<p>Blu-ray disk uses the blue lasers, which help them to hold more information as compared to other optical media. The laser is actually known as 'blue-violet', but the developer rolls off the tongue to make 'Blue-violet-ray' a little earlier as 'Blu-ray'. The CDs and DVDs use the red laser, and their wavelength (650 nm) is greater than the blue-violet laser (405nm). With the help of a small wavelength, the laser can focus on a small area. In Blu-ray disks, we can use the same size, which is used by CD or DVD and store a large amount of data on a disk. Blu-ray is able to provide very high resolution as compared to the DVD. On the basis of standard definition, a DVD can provide a definition of 720x480 pixels. In contrast, the Blu-ray high definition contains 1920X1080 pixel resolution.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization23.png" alt="External memory in Computer Organization" />
+<h2 class="h2">Magnetic Tape</h2>
+<p>Reading and writing techniques in the tape system is the same as the disk system. In this, the medium is <strong>flexible polyester</strong> tape coated with a <strong>magnetizable material.</strong> The tape's data can be structured as a number of parallel tracks that will be run lengthwise. In this form, the recording of data can be called a <strong>parallel recording.</strong> Instead of the parallel recording, most of the modern system uses serial recording. The <strong>serial recording</strong> uses the sequence of bits along with each track to lay of the data. It is done with the help of a magnetic disk. In the serial recoding, the disk contains the physical record on the tape, which can be described as the data which are read and write in the contiguous blocks.</p>
+<p>The gaps are used to separate the blocks on the tape, which can also be known as <strong>inter-record gaps.</strong> With the disk, we format the tape so that we can assist in locating physical records. When the data are being recorded in the techniques of serial tape, we record the first set of bits along with the whole tape's length. When we reach the end of a tape, the head will be repositioned so that they can record a new track. This time, the tape will follow the opposite direction to again record its whole length. This process will be continued until the tape is full.</p>
+<img src="https://static.javatpoint.com/tutorial/coa/images/external-memory-in-computer-organization24.png" alt="External memory in Computer Organization" />
+<p>A tape drive can be accessed as a sequential access device. If the current position of the head is beyond the desired result, we have to rewind the tape at a certain distance and starting reading forward. During the operation of reading and writing only, the tape is in motion. The difference between tape and disk drive is that the disk drive can be referred to as a direct access device. A disk drive is able to get the desired result without sequentially reading all sectors on a disk. It has to only wait until the intervening sectors have arrived within one track. After that, it is able to successive access to any track.</p>
+<p>The magnetic tape can also be known as a type of second memory. It can also be used as the slowest speed and lowest cost member of the memory hierarchy. There is also a linear tape technology, which is a type of cartridge system. It was developed in late the 1990s. In the market, the LTO can be described as an alternative to various properties systems.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="structured-computer-organization.html">#</a></span>
+</div>
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="alu-and-data-path-in-computer-organization.html">&larr; prev</a>
+<a style="float:right" class="next" href="structured-computer-organization.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="bddbd8d8d9dfdcded6fdd7dccbdcc9cdd2d4d3c993ded2d0">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/external-memory-in-computer-organization"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/external-memory-in-computer-organization"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/external-memory-in-computer-organization"><img src="images/pinterest32.png" alt="pinterest" /></a>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="2a42586a404b5c4b5e5a4543445e04494547">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6e061c2e040f180f1a1e0107001a400d010340">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+</div></div>
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/external-memory-in-computer-organization by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:04:17 GMT -->
+</html> 

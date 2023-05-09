@@ -1,0 +1,2247 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/red-black-tree by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:07:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Red Black Tree (Data Structures) - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Red Black Tree (Data Structures) - javatpoint" /><meta property="og:description" content="Red Black Tree with Introduction, Asymptotic Analysis, Array, Pointer, Structure, Singly Linked List, Doubly Linked List, Circular Linked List, Binary Search, Linear Search, Sorting, Bucket Sort, Comb Sort, Shell Sort, Heap Sort, Merge Sort, Selection Sort, Counting Sort, Stack, Qene, Circular Quene, Graph, Tree, B Tree, B+ Tree, Avl Tree etc." />
+<meta name="keywords" content="data structure tutorial, introduction, asymptotic analysis, array, pointer, structure, singly linked list, doubly linked list, circular linked list, binary search, linear search, sorting, bucket sort, comb sort, shell sort, heap sort, merge sort, selection sort, counting sort, stack, quene, circular quene, graph, tree, b tree, b+ tree, avl tree" /><meta name="description" content="Red Black Tree with Introduction, Asymptotic Analysis, Array, Pointer, Structure, Singly Linked List, Doubly Linked List, Circular Linked List, Binary Search, Linear Search, Sorting, Bucket Sort, Comb Sort, Shell Sort, Heap Sort, Merge Sort, Selection Sort, Counting Sort, Stack, Qene, Circular Quene, Graph, Tree, B Tree, B+ Tree, Avl Tree etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="red-black-tree.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Red Black Tree (Data Structures) - javatpoint" /><meta name="twitter:description" property="og:description" content="Red Black Tree with Introduction, Asymptotic Analysis, Array, Pointer, Structure, Singly Linked List, Doubly Linked List, Circular Linked List, Binary Search, Linear Search, Sorting, Bucket Sort, Comb Sort, Shell Sort, Heap Sort, Merge Sort, Selection Sort, Counting Sort, Stack, Qene, Circular Quene, Graph, Tree, B Tree, B+ Tree, Avl Tree etc." /><meta property="og:url" content="red-black-tree.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="data-structure-tutorial.html" class="selected">Data Structure</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="cpp-tutorial.html">C++</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="ajax-tutorial.html">Ajax</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="cloud-computing.html">Cloud</a></li>
+<li><a href="design-patterns-in-java.html">Design Pattern</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-tutorial.html">DS Tutorial</a>
+<a href="data-structure-introduction.html">DS Introduction</a>
+<a href="data-structure-algorithm.html">DS Algorithm</a>
+<a href="data-structure-asymptotic-analysis.html">Asymptotic Analysis</a>
+<a href="data-structure-pointer.html">DS Pointer</a>
+<a href="data-structure-structure.html">DS Structure</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Array</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-array.html">DS Array</a>
+<a href="data-structure-2d-array.html">2D Array</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Linked List</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ds-linked-list.html">Linked List</a>
+<a href="ds-types-of-linked-list.html">Types of Linked List</a>
+<a href="singly-linked-list.html">Singly Linked List</a>
+<a href="doubly-linked-list.html">Doubly Linked List</a>
+<a href="circular-singly-linked-list.html">Circular Linked List</a>
+<a href="circular-doubly-linked-list.html">Circular Doubly List</a>
+<a href="skip-list-in-data-structure.html">Skip list in DS</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Stack</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-stack.html">DS Stack</a>
+<a href="ds-array-implementation-of-stack.html">Array Implementation</a>
+<a href="ds-linked-list-implementation-of-stack.html">Linked List Implementation</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Queue</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-queue.html">DS Queue</a>
+<a href="ds-types-of-queues.html">Types of Queues</a>
+<a href="array-representation-of-queue.html">Array Representation</a>
+<a href="linked-list-implementation-of-queue.html">Linked List Representation</a>
+<a href="circular-queue.html">Circular Queue</a>
+<a href="ds-deque.html">Deque</a>
+<a href="ds-priority-queue.html">Priority Queue</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Tree</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tree.html">DS Tree</a>
+<a href="binary-tree.html">Binary Tree</a>
+<a href="binary-search-tree.html">Binary Search Tree</a>
+<a href="avl-tree.html">AVL Tree</a>
+<a href="b-tree.html">B Tree</a>
+<a href="b-plus-tree.html">B+ Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Graph</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ds-graph.html">DS Graph</a>
+<a href="graph-representation.html">Graph Implementation</a>
+<a href="breadth-first-search-algorithm.html">BFS Algorithm</a>
+<a href="depth-first-search-algorithm.html">DFS Algorithm</a>
+<a href="spanning-tree.html">Spanning Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Searching</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linear-search.html">Linear Search</a>
+<a href="binary-search.html">Binary Search</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS Sorting</span></h2>
+</div>
+<div class="leftmenu">
+<a href="bubble-sort.html">Bubble Sort</a>
+<a href="bucket-sort.html">Bucket Sort</a>
+<a href="comb-sort.html">Comb Sort</a>
+<a href="counting-sort.html">Counting Sort</a>
+<a href="heap-sort.html">Heap Sort</a>
+<a href="insertion-sort.html">Insertion Sort</a>
+<a href="merge-sort.html">Merge Sort</a>
+<a href="quick-sort.html">Quick Sort</a>
+<a href="radix-sort.html">Radix Sort</a>
+<a href="selection-sort.html">Selection Sort</a>
+<a href="shell-sort.html">Shell Sort</a>
+<a href="bitonic-sort.html">Bitonic Sort</a>
+<a href="cocktail-sort.html">Cocktail Sort</a>
+<a href="cycle-sort.html">Cycle Sort</a>
+<a href="tim-sort.html">Tim Sort</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linear-vs-non-linear-data-structure.html">Linear vs non-linear</a>
+<a href="ds-array-vs-linked-list.html">Array vs linked list</a>
+<a href="https://www.javatpoint.com/ds-stack-vs-queue">Stack vs queue</a>
+<a href="ds-linear-vs-circular-queue.html">Linear vs Circular Queue</a>
+<a href="ds-linear-search-vs-binary-search.html">Linear Search vs Binary Search</a>
+<a href="singly-linked-list-vs-doubly-linked-list.html">Singly Linked List vs Doubly Linked List</a>
+<a href="https://www.javatpoint.com/binary-tree-vs-binary-search-tree">Binary vs Binary Search Tree</a>
+<a href="tree-vs-graph-data-structure.html">Tree vs Graph</a>
+<a href="binary-search-tree-vs-avl-tree.html">Binary Search tree vs AVL tree</a>
+<a href="red-black-tree-vs-avl-tree.html">Red Black Tree vs AVL tree</a>
+<a href="b-tree-vs-bplus-tree.html">B tree vs B+ tree</a>
+<a href="quick-sort-vs-merge-sort.html">Quick Sort vs Merge Sort</a>
+<a href="bfs-vs-dfs.html">BFS vs DFS</a>
+<a href="stack-vs-heap.html">Stack vs Heap</a>
+<a href="bubble-sort-vs-selection-sort.html">Bubble sort vs. Selection sort</a>
+<a href="ds-stack-vs-array.html">Stack vs Array</a>
+<a href="full-binary-tree-vs-complete-binary-tree.html">Full Binary Tree vs Complete Binary Tree</a>
+<a href="binary-tree-vs-b-tree.html">Binary Tree vs B Tree</a>
+<a href="primitive-vs-non-primitive-data-structure.html">Primitive vs non-primitive data structure</a>
+<a href="data-types-vs-data-structure.html">Data types vs data structure</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="trie-data-structure.html">Trie Data Structure</a>
+<a href="heap-data-structure.html">Heap Data Structure</a>
+<a href="splay-tree.html">Splay Tree</a>
+<a href="fundamental-of-the-data-structure.html">Fundamental of the DS</a>
+<a href="hash-table.html">Hash Table</a>
+<a href="preorder-traversal.html">Preorder Traversal</a>
+<a href="tree-traversal.html">Tree Traversal</a>
+<a href="implementation-of-queue-using-stacks.html">Implementation of Queue using Stacks</a>
+<a href="implementation-of-stack-using-queue.html">Implementation of Stack using Queue</a>
+<a href="binomial-heap.html">Binomial Heap</a>
+<a href="postorder-traversal.html">Postorder Traversal</a>
+<a href="sparse-matrix.html">Sparse Matrix</a>
+<a href="detect-loop-in-a-linked-list.html">Detect loop in a Linked list</a>
+<a href="inorder-traversal.html">Inorder Traversal</a>
+<a href="convert-infix-to-postfix-notation.html">Convert Infix to Postfix notation</a>
+<a href="convert-infix-to-prefix-notation.html">Convert infix to prefix notation</a>
+<a href="conversion-of-prefix-to-postfix-expression.html">Conversion of Prefix to Postfix expression</a>
+<a href="conversion-of-postfix-to-prefix-expression.html">Conversion of Postfix to Prefix expression</a>
+<a href="remove-loop-in-a-linked-list.html">Remove the loop in a Linked List</a>
+<a href="implement-two-stacks-in-an-array.html">Implement two stacks in an array</a>
+<a href="reverse-a-stack-using-recursion.html">Reverse a stack using recursion</a>
+<a href="detect-cycle-in-a-directed-graph.html">Detect cycle in a directed graph</a>
+<a href="optimal-binary-search-tree.html">Optimal Binary Search Tree</a>
+<a href="priority-queue-using-linked-list.html">Priority Queue using Linked list</a>
+<a href="balanced-binary-search-tree.html">Balanced Binary Search Tree</a>
+<a href="https://www.javatpoint.com/boundary-traversal-of-binary-tree">Boundary Traversal of Binary tree</a>
+<a href="diagonal-traversal-of-binary-tree.html">Diagonal Traversal of Binary Tree</a>
+<a href="vertical-traversal-of-a-binary-tree.html">Vertical Traversal of a Binary tree</a>
+<a href="graph-algorithms.html">Graph Algorithms</a>
+<a href="time-complexity-of-sorting-algorithms.html">Time Complexity of Sorting Algorithms</a>
+<a href="applications-of-stack-in-data-structure.html">Applications of Stack in Data Structure</a>
+<a href="dictionary-data-structure.html">Dictionary Data Structure</a>
+<a href="structured-data-and-unstructured-data.html">Structured Data and Unstructured Data</a>
+<a href="list-data-structure.html">List Data Structure</a>
+<a href="types-of-tree-in-data-structure.html">Types of Tree in Data Structure</a>
+<a href="abstract-data-type-in-data-structure.html">Abstract data type in data structure</a>
+<a href="disjoint-set-data-structure.html">Disjoint set data structure</a>
+<a href="dynamic-data-structure.html">Dynamic Data Structure</a>
+<a href="hash-function-in-data-structure.html">Hash Function in Data Structure</a>
+<a href="complete-binary-tree.html">Complete Binary Tree</a>
+<a href="threaded-binary-tree.html">Threaded Binary Tree</a>
+<a href="diameter-of-binary-tree.html">Diameter of Binary Tree</a>
+<a href="height-of-binary-tree.html">Height of Binary Tree</a>
+<a href="inorder-tree-traversal-without-stack.html">Inorder Tree Traversal without Stack</a>
+<a href="enumeration-of-binary-trees.html">Enumeration of Binary Trees</a>
+<a href="maximum-width-of-a-binary-tree.html">Maximum Width of a Binary Tree</a>
+<a href="types-of-graph-in-data-structure.html">Types of Graph in Data Structure</a>
+<a href="primitive-data-type.html">Primitive Data Type</a>
+<a href="semi-structured-data.html">Semi-Structured Data</a>
+<a href="advance-data-structures.html">Advance Data Structures</a>
+<a href="sort-an-array-of-0s-1s-and-2s.html">Sort an Array of 0's, 1's, and 2's</a>
+<a href="stock-span-problem.html">Stock Span Problem</a>
+<a href="implementation-of-deque-by-circular-array.html">Implementation of Deque by Circular Array</a>
+<a href="rotate-operation-in-linked-list.html">Rotate Operation in Linked List</a>
+<a href="subarray-with-given-sum.html">Subarray with given sum</a>
+<a href="self-organizing-list.html">Self-organizing List</a>
+<a href="unrolled-linked-list.html">Unrolled Linked List</a>
+<a href="types-of-sparse-matrices.html">Types of Sparse Matrices</a>
+<a href="application-of-linked-list.html">Application of Linked List</a>
+<a href="topological-sorting.html">Topological Sorting</a>
+<a href="ternary-search-tree.html">Ternary Search Tree</a>
+<a href="stock-span-problem.html">Stock Span Problem</a>
+<a href="https://www.javatpoint.com/treap-data-structure">Treap Data Structure</a>
+<a href="quicksort-on-doubly-linked-list.html">Quicksort on Doubly Linked List</a>
+<a href="inversion-count.html">Inversion count</a>
+<a href="expression-tree-in-data-structure.html">Expression tree in DS</a>
+<a href="garbage-collection-in-data-structure.html">Garbage Collection in DS</a>
+<a href="https://www.javatpoint.com/merge-sort-on-doubly-linked-list">Merge Sort on Doubly Linked List</a>
+<a href="sort-stack-using-recursion.html">Sort Stack using Recursion</a>
+<a href="lifo-approach-in-data-structure.html">LIFO Approach in data structure</a>
+<a href="big-O-notation-in-data-structure.html">Big O Notation in DS</a>
+<a href="binary-tree-traversal-in-data-structure.html">Binary Tree Traversal in DS</a>
+<a href="queue-operations-in-data-structure.html">Queue Operations in DS</a>
+<a href="what-is-a-non-linear-data-structure.html">What is a Non-Linear Data Structure</a>
+<a href="fifo-approach-in-data-structure.html">FIFO Approach in data structure</a>
+<a href="what-are-connected-graphs-in-data-structure.html">What are connected graphs in data structure</a>
+<a href="which-python-data-structure-is-immutable.html">Which Python data structure is immutable</a>
+<a href="which-data-structure-is-used-by-map.html">Which data structure is used by map</a>
+<a href="what-is-iteration-in-data-structure.html">What is iteration in data structure</a>
+<a href="what-are-linear-search-and-binary-search-in-data-structure.html">What are linear search and binary search in data structure</a>
+<a href="hash-table-vs-stl-map.html">Hash Table vs STL Map</a>
+<a href="recamans-sequence.html">Recaman's Sequence</a>
+<a href="maximum-area-rectangle-created-by-selecting-four-sides-from-an-array.html">Maximum area rectangle created by selecting four sides from an array</a>
+<a href="maximum-number-of-distinct-nodes-in-a-root-to-leaf-path.html">Maximum number of distinct nodes in a root-to-leaf path</a>
+<a href="hashing-open-addressing-for-collision-handling.html">Hashing - Open Addressing for Collision Handling</a>
+<a href="introduction-to-hashing.html">Introduction to Hashing</a>
+<a href="separate-chaining-for-collision-handling.html">Separate chaining for Collision Handling</a>
+<a href="check-if-a-given-array-contains-duplicate-elements-within-k-distance-from-each-other.html">Check if a given array contains duplicate elements within k distance from each other</a>
+<a href="given-an-array-a-and-a-number-x-check-for-pair-in-a-with-sum-as-x.html">Given an array A[] and a number x, check for pair in A[] with sum as x (aka Two Sum)</a>
+<a href="find-number-of-employees-under-every-manager.html">Find number of Employees Under every Manager</a>
+<a href="union-and-intersection-of-two-linked-lists.html">Union and Intersection of two Linked Lists</a>
+<a href="kth-largest-element-in-an-array.html">Kth Largest element in an array</a>
+<a href="sort-an-almost-sorted-k-sorted-or-nearly-sorted-array.html">Sort an almost-sorted, k-sorted or nearly-sorted array</a>
+<a href="fibonacci-heap.html">Fibonacci Heap</a>
+<a href="find-whether-an-array-is-subset-of-another-array.html">Find whether an array is subset of another array</a>
+<a href="print-a-binary-tree-in-vertical-order.html">Print a Binary Tree in Vertical Order</a>
+<a href="tournament-tree.html">Tournament Tree (Winner Tree)</a>
+<a href="https://www.javatpoint.com/lazy-propagation-in-segment-tree">Lazy Propagation in Segment Tree</a>
+<a href="segment-tree-range-minimum-query.html">Segment Tree - Range Minimum Query</a>
+<a href="segment-tree-sum-of-given-range.html">Segment Tree - Sum of given Range</a>
+<a href="2-3-trees-search-insertion-and-deletion.html">2-3 Trees (Search, Insertion, and Deletion)</a>
+<a href="print-kth-least-significant-bit-of-a-number.html">Print kth least significant bit of a number</a>
+<a href="add-two-numbers-represented-by-linked-lists.html">Add two numbers represented by linked lists</a>
+<a href="adding-one-to-the-number-represented-as-array-of-digits.html">Adding one to the number represented as array of digits</a>
+<a href="find-precedence-characters-form-a-given-sorted-dictionary.html">Find precedence characters form a given sorted dictionary</a>
+<a href="check-if-any-anagram-of-a-string-is-palindrome-or-not.html">Check if any anagram of a string is palindrome or not</a>
+<a href="minimum-insertions-to-form-a-palindrome.html">Minimum Insertions to form a Palindrome</a>
+<a href="allocate-minimum-number-of-pages.html">Allocate Minimum Number of Pages</a>
+<a href="assembly-line-scheduling.html">Assembly Line Scheduling</a>
+<a href="breadth-first-search-or-bfs-for-a-graph.html">Breadth First Search or BFS for a Graph</a>
+<a href="find-an-element-in-array-such-that-sum-of-the-left-array-is-equal-to-the-sum-of-the-right-array.html">Find an element in array such that sum of the left array is equal to the sum of the right array</a>
+<a href="bridges-in-a-graph.html">Bridges in a Graph</a>
+<a href="bubble-sort-in-javascript.html">Bubble Sort in JavaScript</a>
+<a href="burn-the-binary-tree-from-the-target-node.html">Burn the Binary tree from the Target node</a>
+<a href="lowest-common-ancestor-in-a-binary-search-tree.html">Lowest Common Ancestor in a Binary Search Tree</a>
+<a href="types-of-hash-functions-in-c.html">Types of Hash Functions in C</a>
+<a href="implement-dynamic-deque-using-templates-class-and-a-circular-array.html">Implement Dynamic Deque using Templates Class and a Circular Array</a>
+<a href="iterative-depth-first-traversal-of-graph.html">Iterative Depth First Traversal of Graph</a>
+<a href="linked-list-data-structure-in-cpp-with-illustration.html">Linked List Data Structure in C++ With Illustration</a>
+<a href="reverse-a-linked-list-in-groups-of-given-size.html">Reverse a Linked List in Groups of Given Size</a>
+<a href="reverse-alternate-k-nodes-in-a-singly-linked-list.html">Reverse Alternate K nodes in a Singly Linked List</a>
+<a href="when-should-i-use-a-list-vs-a-linkedlist.html">When should I use a List vs a LinkedList</a>
+<a href="why-is-deleting-in-a-singly-linked-list-O-1.html">Why is deleting in a Singly Linked List O(1)</a>
+<a href="construct-full-binary-tree-using-its-preorder-traversal-and-preorder-traversal-of-its-mirror-tree.html">Construct Full Binary Tree using its Preorder Traversal and Preorder Traversal of its Mirror Tree</a>
+<a href="find-relative-complement-of-two-sorted-arrays.html">Find Relative Complement of two Sorted Arrays</a>
+<a href="handshaking-lemma-and-interesting-tree-properties-dsa.html">Handshaking Lemma and Interesting Tree Properties -DSA</a>
+<a href="how-to-efficiently-implement-kstacks-in-a-single-array.html">How to Efficiently Implement kStacks in a Single Array</a>
+<a href="write-c-functions-that-modify-head-pointer-of-a-linked-list.html">Write C Functions that Modify Head Pointer of a Linked List</a>
+<a href="introduction-to-ant-colony-optimization.html">Introduction to Ant Colony Optimization</a>
+<a href="what-is-array.html">What is Array</a>
+<a href="practical-byzantine-fault-tolerance.html">The practical Byzantine Fault Tolerance (pBFT)</a>
+<a href="applications-of-queue-data-structure.html">Applications of Queue Data Structure</a>
+<a href="line-graph.html">Line Graph</a>
+<a href="symmetric-binary-tree.html">Symmetric Binary Tree</a>
+<a href="avl-tree-advantages.html">AVL Tree Advantages</a>
+<a href="avl-tree-time-complexity.html">AVL Tree Time Complexity</a>
+<a href="merge-two-binary-trees.html">Merge Two Binary Trees</a>
+<a href="stack-operations-in-data-structure.html">Stack Operations in Data Structure</a>
+<a href="self-balancing-binary-search-trees.html">Self-Balancing Binary Search Trees</a>
+<a href="sliding-window-maximum-maximum-of-all-subarrays-of-size-k.html">Sliding Window Maximum (Maximum of all Subarrays of size K)</a>
+<a href="avl-trees-operations.html">AVL Trees Operations</a>
+<a href="limitations-of-sack-in-data-structures.html">Limitations of Stack in Data Structures</a>
+<a href="representation-of-stack-in-data-structure.html">Representation of stack in data structure</a>
+<a href="advantages-of-threaded-binary-tree.html">Advantages of Threaded Binary Tree</a>
+<a href="serialize-and-deserialize-a-binary-tree.html">Serialize and Deserialize a Binary Tree</a>
+<a href="application-of-binary-tree.html">Application of Binary Tree</a>
+<a href="avl-tree-applications.html">AVL Tree Applications</a>
+<a href="b-tree-visualization.html">B Tree Visualization</a>
+<a href="properties-of-avl-trees.html">Properties of AVL Trees</a>
+<a href="push-and-pop-operation-in-stack-in-data-structure.html">Push and Pop Operation in Stack in Data Structure</a>
+<a href="binary-search-tree-implementation.html">Binary Search Tree Implementation</a>
+<a href="find-maximum-sum-by-replacing-the-subarray-in-given-range.html">Find Maximum Sum by Replacing the Subarray in Given Range</a>
+<a href="find-the-number-n-where-n-x-divisible-by-y-and-n-y-divisible-by-x.html">Find The Number N, Where (N+X) Divisible By Y And (N-Y) Divisible By X</a>
+<a href="find-values-of-p-and-q-satisfying-the-equation-n-p-2-q.html">Find Values of P and Q Satisfying the Equation N = P^2.Q</a>
+<a href="what-is-the-balance-factor-of-avl-tree.html">What is the Balance Factor of AVL Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DS MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-structure-mcq.html">Data Structure MCQ</a>
+<a href="advanced-data-structure-mcq.html">Advanced DS MCQ</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="ds-graph.html">next &rarr;</a>
+<a class="next" href="b-plus-tree.html">&larr; prev</a>
+</div>
+<h1 class="h1">Red-black tree in Data Structure</h1>
+<p><strong>The red-Black tree</strong> is a binary search tree. The prerequisite of the red-black tree is that we should know about the binary search tree. In a binary search tree, the values of the nodes in the left subtree should be less than the value of the root node, and the values of the nodes in the right subtree should be greater than the value of the root node.</p>
+<p>Each node in the Red-black tree contains an extra bit that represents a color to ensure that the tree is balanced during any operations performed on the tree like insertion, deletion, etc. In a <a href="binary-search-tree.html">binary search tree</a>, the searching, <a href="insertion-sort.html">insertion</a> and deletion take <strong>O(log2n)</strong> time in the average case, <strong>O(1)</strong> in the best case and <strong>O(n)</strong> in the worst case.</p>
+<p><strong>Let's understand the different scenarios of a binary search tree.</strong></p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree_1.png" alt="Red-black tree in Data Structure" />
+<p>In the above tree, if we want to search the 80. We will first compare 80 with the root node. 80 is greater than the root node, i.e., 10, so searching will be performed on the right subtree. Again, 80 is compared with 15; 80 is greater than 15, so we move to the right of the 15, i.e., 20. Now, we reach the leaf node 20, and 20 is not equal to 80. Therefore, it will show that the element is not found in the tree. After each operation, the search is divided into half. The above BST will take O(logn) time to search the element.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree_2.png" alt="Red-black tree in Data Structure" />
+<p>The above tree shows the right-skewed BST. If we want to search the 80 in the tree, we will compare 80 with all the nodes until we find the element or reach the leaf node. So, the above right-skewed BST will take <strong>O(N)</strong> time to search the element.</p>
+<p>In the above BST, the first one is the balanced BST, whereas the second one is the unbalanced BST. We conclude from the above two binary search trees that a balanced tree takes less time than an unbalanced tree for performing any operation on the tree.</p>
+<p>Therefore, we need a balanced tree, and the Red-Black tree is a self-balanced binary search tree. Now, the question arises that <strong><em>why do we require a Red-Black tree</em></strong> if AVL is also a height-balanced tree. The Red-Black tree is used because the AVL tree requires many rotations when the tree is large, whereas the Red-Black tree requires a maximum of two rotations to balance the tree. The main difference between the <a href="avl-tree.html">AVL tree</a> and the Red-Black tree is that the AVL tree is strictly balanced, while the Red-Black tree is not completely height-balanced. So, the AVL tree is more balanced than the Red-Black tree, but the Red-Black tree guarantees O(log2n) time for all operations like insertion, deletion, and searching.</p>
+<p>Insertion is easier in the AVL tree as the AVL tree is strictly balanced, whereas deletion and searching are easier in the Red-Black tree as the Red-Black tree requires fewer rotations.</p>
+<p>As the name suggests that the node is either colored in <strong>Red</strong> or <strong>Black</strong> color. Sometimes no rotation is required, and only recoloring is needed to balance the tree.</p>
+<h3 class="h3">Properties of Red-Black tree</h3>
+<ul class="points">
+<li>It is a self-balancing Binary Search tree. Here, self-balancing means that it balances the tree itself by either doing the rotations or recoloring the nodes.</li>
+<li>This tree data structure is named as a Red-Black tree as each node is either Red or Black in color. Every node stores one extra information known as a bit that represents the color of the node. For example, 0 bit denotes the black color while 1 bit denotes the red color of the node. Other information stored by the node is similar to the binary tree, i.e., data part, left pointer and right pointer.</li>
+<li>In the Red-Black tree, the root node is always black in color.</li>
+<li>In a binary tree, we consider those nodes as the leaf which have no child. In contrast, in the Red-Black tree, the nodes that have no child are considered the internal nodes and these nodes are connected to the NIL nodes that are always black in color. The NIL nodes are the leaf nodes in the Red-Black tree.</li>
+<li>If the node is Red, then its children should be in Black color. In other words, we can say that there should be no red-red parent-child relationship.</li>
+<li>Every path from a node to any of its descendant's NIL node should have same number of black nodes.</li>
+</ul>
+<h3 class="h3">Is every AVL tree can be a Red-Black tree?</h3>
+<p>Yes, every AVL tree can be a Red-Black tree if we color each node either by Red or Black color. But every Red-Black tree is not an AVL because the AVL tree is strictly height-balanced while the Red-Black tree is not completely height-balanced.</p>
+<h3 class="h3">Insertion in Red Black tree</h3>
+<p><strong>The following are some rules used to create the Red-Black tree:</strong></p>
+<ol class="points">
+<li>If the tree is empty, then we create a new node as a root node with the color black.</li>
+<li>If the tree is not empty, then we create a new node as a leaf node with a color red.</li>
+<li>If the parent of a new node is black, then exit.</li>
+<li>If the parent of a new node is Red, then we have to check the color of the parent's sibling of a new node.</li>
+</ol>
+<p>4a) If the color is Black, then we perform rotations and recoloring.</p>
+<p>4b) If the color is Red then we recolor the node. We will also check whether the parents' parent of a new node is the root node or not; if it is not a root node, we will recolor and recheck the node.</p>
+<p><strong>Let's understand the insertion in the Red-Black tree.</strong></p>
+<p><strong>10, 18, 7, 15, 16, 30, 25, 40, 60</strong></p>
+<p><strong>Step 1:</strong> Initially, the tree is empty, so we create a new node having value 10. This is the first node of the tree, so it would be the root node of the tree. As we already discussed, that root node must be black in color, which is shown below:</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree_3.png" alt="Red-black tree in Data Structure" />
+<p><strong>Step 2:</strong> The next node is 18. As 18 is greater than 10 so it will come at the right of 10 as shown below.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree_4.png" alt="Red-black tree in Data Structure" />
+<p>We know the second rule of the Red Black tree that if the tree is not empty then the newly created node will have the <strong>Red</strong> color. Therefore, node 18 has a Red color, as shown in the below figure:</p>
+<p>Now we verify the third rule of the Red-Black tree, i.e., the parent of the new node is black or not. In the above figure, the parent of the node is black in color; therefore, it is a Red-Black tree.</p>
+<p><strong>Step 3:</strong> Now, we create the new node having value 7 with Red color. As 7 is less than 10, so it will come at the left of 10 as shown below.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree_5.png" alt="Red-black tree in Data Structure" />
+<p>Now we verify the third rule of the Red-Black tree, i.e., the parent of the new node is black or not. As we can observe, the parent of the node 7 is black in color, and it obeys the Red-Black tree's properties.</p>
+<p><strong>Step 4:</strong> The next element is 15, and 15 is greater than 10, but less than 18, so the new node will be created at the left of node 18. The node 15 would be Red in color as the tree is not empty.</p>
+<p>The above tree violates the property of the Red-Black tree as it has Red-red parent-child relationship. Now we have to apply some rule to make a Red-Black tree. The rule 4 says that <strong><em>if the new node's parent is Red, then we have to check the color of the parent's sibling of a new node.</em></strong> The new node is node 15; the parent of the new node is node 18 and the sibling of the parent node is node 7. As the color of the parent's sibling is Red in color, so we apply the rule 4a. The rule 4a says that we have to recolor both the parent and parent's sibling node. So, both the nodes, i.e., 7 and 18, would be recolored as shown in the below figure.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree_6.png" alt="Red-black tree in Data Structure" />
+<p>We also have to check whether the parent's parent of the new node is the root node or not. As we can observe in the above figure, the parent's parent of a new node is the root node, so we do not need to recolor it.</p>
+<p><strong>Step 5:</strong> The next element is 16. As 16 is greater than 10 but less than 18 and greater than 15, so node 16 will come at the right of node 15. The tree is not empty; node 16 would be Red in color, as shown in the below figure:</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree_7.png" alt="Red-black tree in Data Structure" />
+<p>In the above figure, we can observe that it violates the property of the parent-child relationship as it has a red-red parent-child relationship. We have to apply some rules to make a Red-Black tree. Since the new node's parent is Red color, and the parent of the new node has no sibling, so rule <strong>4a</strong> will be applied. The rule <strong>4a</strong> says that some rotations and recoloring would be performed on the tree.</p>
+<p>Since node 16 is right of node 15 and the parent of node 15 is node 18. Node 15 is the left of node 18. Here we have <strong>an LR</strong> relationship, so we require to perform two rotations. First, we will perform left, and then we will perform the right rotation. The left rotation would be performed on nodes 15 and 16, where node 16 will move upward, and node 15 will move downward. Once the left rotation is performed, the tree looks like as shown in the below figure:</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree_8.png" alt="Red-black tree in Data Structure" />
+<p>In the above figure, we can observe that there is <strong>an LL</strong> relationship. The above tree has a Red-red conflict, so we perform the right rotation. When we perform the right rotation, the median element would be the root node. Once the right rotation is performed, node 16 would become the root node, and nodes 15 and 18 would be the left child and right child, respectively, as shown in the below figure.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree_9.png" alt="Red-black tree in Data Structure" />
+<p>After rotation, node 16 and node 18 would be recolored; the color of node 16 is red, so it will change to black, and the color of node 18 is black, so it will change to a red color as shown in the below figure:</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree10.png" alt="Red-black tree in Data Structure" />
+<p><strong>Step 6:</strong> The next element is 30. Node 30 is inserted at the right of node 18. As the tree is not empty, so the color of node 30 would be red.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree11.png" alt="Red-black tree in Data Structure" />
+<p>The color of the parent and parent's sibling of a new node is Red, so rule 4b is applied. In rule 4b, we have to do only recoloring, i.e., no rotations are required. The color of both the parent (node 18) and parent's sibling (node 15) would become black, as shown in the below image.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree12.png" alt="Red-black tree in Data Structure" />
+<p>We also have to check the parent's parent of the new node, whether it is a root node or not. The parent's parent of the new node, i.e., node 30 is node 16 and node 16 is not a root node, so we will recolor the node 16 and changes to the Red color. The parent of node 16 is node 10, and it is not in Red color, so there is no Red-red conflict.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree13.png" alt="Red-black tree in Data Structure" />
+<p><strong>Step 7:</strong> The next element is 25, which we have to insert in a tree. Since 25 is greater than 10, 16, 18 but less than 30; so, it will come at the left of node 30. As the tree is not empty, node 25 would be in Red color. Here Red-red conflict occurs as the parent of the newly created is Red color.</p>
+<p>Since there is no parent's sibling, so rule 4a is applied in which rotation, as well as recoloring, are performed. First, we will perform rotations. As the newly created node is at the left of its parent and the parent node is at the right of its parent, so the RL relationship is formed. Firstly, the right rotation is performed in which node 25 goes upwards, whereas node 30 goes downwards, as shown in the below figure.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree14.png" alt="Red-black tree in Data Structure" />
+<p>After the first rotation, there is an RR relationship, so left rotation is performed. After right rotation, the median element, i.e., 25 would be the root node; node 30 would be at the right of 25 and node 18 would be at the left of node 25.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree15.png" alt="Red-black tree in Data Structure" />
+<p>Now recoloring would be performed on nodes 25 and 18; node 25 becomes black in color, and node 18 becomes red in color.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree16.png" alt="Red-black tree in Data Structure" />
+<p><strong>Step 8:</strong> The next element is 40. Since 40 is greater than 10, 16, 18, 25, and 30, so node 40 will come at the right of node 30. As the tree is not empty, node 40 would be Red in color. There is a Red-red conflict between nodes 40 and 30, so rule 4b will be applied.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree17.png" alt="Red-black tree in Data Structure" />
+<p>As the color of parent and parent's sibling node of a new node is Red so recoloring would be performed. The color of both the nodes would become black, as shown in the below image.</p>
+<p>After recoloring, we also have to check the parent's parent of a new node, i.e., 25, which is not a root node, so recoloring would be performed, and the color of node 25 changes to Red.</p>
+<p>After recoloring, red-red conflict occurs between nodes 25 and 16. Now node 25 would be considered as the new node. Since the parent of node 25 is red in color, and the parent's sibling is black in color, rule 4a would be applied. Since 25 is at the right of the node 16 and 16 is at the right of its parent, so there is an RR relationship. In the RR relationship, left rotation is performed. After left rotation, the median element 16 would be the root node, as shown in the below figure.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree18.png" alt="Red-black tree in Data Structure" />
+<p>After rotation, recoloring is performed on nodes 16 and 10. The color of node 10 and node 16 changes to Red and Black, respectively as shown in the below figure.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree19.png" alt="Red-black tree in Data Structure" />
+<br>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree20.png" alt="Red-black tree in Data Structure" />
+<p><strong>Step 9:</strong> The next element is 60. Since 60 is greater than 16, 25, 30, and 40, so node 60 will come at the right of node 40. As the tree is not empty, the color of node 60 would be Red.</p>
+<p>As we can observe in the above tree that there is a Red-red conflict occurs. The parent node is Red in color, and there is no parent's sibling exists in the tree, so rule 4a would be applied. The first rotation would be performed. The RR relationship exists between the nodes, so left rotation would be performed.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree21.png" alt="Red-black tree in Data Structure" />
+<p>When left rotation is performed, node 40 will come upwards, and node 30 will come downwards, as shown in the below figure:</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree22.png" alt="Red-black tree in Data Structure" />
+<p>After rotation, the recoloring is performed on nodes 30 and 40. The color of node 30 would become Red, while the color of node 40 would become black.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree23.png" alt="Red-black tree in Data Structure" />
+<p>The above tree is a Red-Black tree as it follows all the Red-Black tree properties.</p>
+<h3 class="h3">Deletion in Red Back tree</h3>
+<p>Let's understand how we can delete the particular node from the Red-Black tree. The following are the rules used to delete the particular node from the tree:</p>
+<p><strong>Step 1:</strong> First, we perform BST rules for the deletion.</p>
+<p><strong>Step 2:</strong> </p>
+<p><strong>Case 1:</strong> if the node is Red, which is to be deleted, we simply delete it.</p>
+<p>Let's understand case 1 through an example.</p>
+<p>Suppose we want to delete node 30 from the tree, which is given below.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree24.png" alt="Red-black tree in Data Structure" />
+<p>Initially, we are having the address of the root node. First, we will apply BST to search the node. Since 30 is greater than 10 and 20, which means that 30 is the right child of node 20. Node 30 is a leaf node and Red in color, so it is simply deleted from the tree.</p>
+<p>If we want to delete the internal node that has one child. First, replace the value of the internal node with the value of the child node and then simply delete the child node.</p>
+<p><strong>Let's take another example in which we want to delete the internal node, i.e., node 20.</strong></p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree25.png" alt="Red-black tree in Data Structure" />
+<p>We cannot delete the internal node; we can only replace the value of that node with another value. Node 20 is at the right of the root node, and it is having only one child, node 30. So, node 20 is replaced with a value 30, but the color of the node would remain the same, i.e., Black. In the end, node 20 (leaf node) is deleted from the tree.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree26.png" alt="Red-black tree in Data Structure" />
+<br>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree27.png" alt="Red-black tree in Data Structure" />
+<p>If we want to delete the internal node that has two child nodes. In this case, we have to decide from which we have to replace the value of the internal node (either left subtree or right subtree). We have two ways:</p>
+<ul class="points">
+<li><strong>Inorder predecessor:</strong> We will replace with the largest value that exists in the left subtree.</li>
+<li><strong>Inorder successor:</strong> We will replace with the smallest value that exists in the right subtree.</li>
+</ul>
+<p>Suppose we want to delete node 30 from the tree, which is shown below:</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree28.png" alt="Red-black tree in Data Structure" />
+<p>Node 30 is at the right of the root node. In this case, we will use <strong>the inorder successor</strong>. The value 38 is the smallest value in the right subtree, so we will replace the value 30 with 38, but the node would remain the same, i.e., Red. After replacement, the leaf node, i.e., 30, would be deleted from the tree. Since node 30 is a leaf node and Red in color, we need to delete it (we do not have to perform any rotations or any recoloring).</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree29.png" alt="Red-black tree in Data Structure" />
+<p><strong>Case 2:</strong> If the root node is also double black, then simply remove the double black and make it a single black.</p>
+<p><strong>Case 3:</strong> If the double black's sibling is black and both its children are black.</p>
+<ul class="points">
+<li>Remove the double black node.</li>
+<li>Add the color of the node to the parent (P) node.</li>
+</ul>
+<ol class="points">
+<li>If the color of P is red then it becomes black.</li>
+<li>If the color of P is black, then it becomes double black.</li>
+</ol>
+<ul class="points">
+<li>The color of double black's sibling changes to red.</li>
+<li>If still double black situation arises, then we will apply other cases.</li>
+</ul>
+<p><strong>Let's understand this case through an example.</strong></p>
+<p>Suppose we want to delete node 15 in the below tree.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree30.png" alt="Red-black tree in Data Structure" />
+<p>We cannot simply delete node 15 from the tree as node 15 is Black in color. Node 15 has two children, which are nil. So, we replace the 15 value with a nil value. As node 15 and nil node are black in color, the node becomes double black after replacement, as shown in the below figure.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree31.png" alt="Red-black tree in Data Structure" />
+<p><strong><em>In the above tree, we can observe that the double black's sibling is black in color and its children are nil, which are also black.</em></strong> As the double black's sibling and its children have black so it cannot give its black color to neither of these. Now, the double black's parent node is Red so double black's node add its black color to its parent node. The color of the node 20 changes to black while the color of the nil node changes to a single black as shown in the below figure.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree32.png" alt="Red-black tree in Data Structure" />
+<p>After adding the color to its parent node, the color of the double black's sibling, i.e., node 30 changes to red as shown in the below figure.</p>
+<p>In the above tree, we can observe that there is no longer double black's problem exists, and it is also a Red-Black tree.</p>
+<p><strong>Case 4:</strong> If double black's sibling is Red.</p>
+<ul class="points">
+<li>Swap the color of its parent and its sibling.</li>
+<li>Rotate the parent node in the double black's direction.</li>
+<li>Reapply cases.</li>
+</ul>
+<p><strong>Let's understand this case through an example.</strong></p>
+<p>Suppose we want to delete node 15.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree33.png" alt="Red-black tree in Data Structure" />
+<p>Initially, the 15 is replaced with a nil value. After replacement, the node becomes double black. Since double black's sibling is Red so color of the node 20 changes to Red and the color of the node 30 changes to Black.</p>
+<p>Once the swapping of the color is completed, the rotation towards the double black would be performed. The node 30 will move upwards and the node 20 will move downwards as shown in the below figure.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree34.png" alt="Red-black tree in Data Structure" />
+<p>In the above tree, we can observe that double black situation still exists in the tree. It satisfies the case 3 in which double black's sibling is black as well as both its children are black. First, we remove the double black from the node and add the black color to its parent node. At the end, the color of the double black's sibling, i.e., node 25 changes to Red as shown in the below figure.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree35.png" alt="Red-black tree in Data Structure" />
+<p>In the above tree, we can observe that the double black situation has been resolved. It also satisfies the properties of the Red Black tree.</p>
+<p><strong>Case 5:</strong> If double black's sibling is black, sibling's child who is far from the double black is black, but near child to double black is red.</p>
+<ul class="points">
+<li>Swap the color of double black's sibling and the sibling child which is nearer to the double black node.</li>
+<li>Rotate the sibling in the opposite direction of the double black.</li>
+<li>Apply case 6</li>
+</ul>
+<p>Suppose we want to delete the node 1 in the below tree.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree36.png" alt="Red-black tree in Data Structure" />
+<p>First, we replace the value 1 with the nil value. The node becomes double black as both the nodes, i.e., 1 and nil are black. It satisfies the case 3 that implies <strong><em>if DB's sibling is black and both its children are black.</em></strong> First, we remove the double black of the nil node. Since the parent of DB is Black, so when the black color is added to the parent node then it becomes double black. After adding the color, the double black's sibling color changes to Red as shown below.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree37.png" alt="Red-black tree in Data Structure" />
+<p>We can observe in the above screenshot that the double black problem still exists in the tree. So, we will reapply the cases. We will apply case 5 because the sibling of node 5 is node 30, which is black in color, the child of node 30, which is far from node 5 is black, and the child of the node 30 which is near to node 5 is Red. In this case, first we will swap the color of node 30 and node 25 so the color of node 30 changes to Red and the color of node 25 changes to Black as shown below.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree38.png" alt="Red-black tree in Data Structure" />
+<p>Once the swapping of the color between the nodes is completed, we need to rotate the sibling in the opposite direction of the double black node. In this rotation, the node 30 moves downwards while the node 25 moves upwards as shown below.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree39.png" alt="Red-black tree in Data Structure" />
+<p>As we can observe in the above tree that double black situation still exists. So, we need to case 6. Let's first see what is case 6.</p>
+<p><strong>Case 6:</strong> If double black's sibling is black, far child is Red</p>
+<ul class="points">
+<li>Swap the color of Parent and its sibling node.</li>
+<li>Rotate the parent towards the Double black's direction</li>
+<li>Remove Double black</li>
+<li>Change the Red color to black.</li>
+</ul>
+<p>Now we will apply case 6 in the above example to solve the double black's situation.</p>
+<p>In the above example, the double black is node 5, and the sibling of node 5 is node 25, which is black in color. The far child of the double black node is node 30, which is Red in color as shown in the below figure:</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree40.png" alt="Red-black tree in Data Structure" />
+<p>First, we will swap the colors of Parent and its sibling. The parent of node 5 is node 10, and the sibling node is node 25. The colors of both the nodes are black, so there is no swapping would occur.</p>
+<p>In the second step, we need to rotate the parent in the double black's direction. After rotation, node 25 will move upwards, whereas node 10 will move downwards. Once the rotation is performed, the tree would like, as shown in the below figure:</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree41.png" alt="Red-black tree in Data Structure" />
+<p>In the next step, we will remove double black from node 5 and node 5 will give its black color to the far child, i.e., node 30. Therefore, the color of node 30 changes to black as shown in the below figure.</p>
+<img src="https://static.javatpoint.com/ds/images/red-black-tree42.png" alt="Red-black tree in Data Structure" />
+<p>Now let us implement the Red-black tree Data Structure in the java programming language.</p>
+<h3 class="h3">Java Code:</h3>
+<div class="codeblock"><textarea name="code" class="java">
+/*
+ *  A sample Java Program to Implement the Red-Black Tree Data Structure
+ */ 
+ // The Scanner class from the util is imported to take input from the user 
+ import java.util.Scanner;
+ 
+
+ // A class named Node_Red_Black_Tree is created whose each object will work as a Node of the Red-Black Tree
+ class Node_Red_Black_Tree
+ {    
+
+    // Each element of the Red Black tree node has four members.
+    // Out of these four members two variables are of Node_Red_Black_Tree class type named left_node_addr and right_node_addr storing the left and right nodes of the previous node 
+    Node_Red_Black_Tree left_node_addr, right_node_addr;
+    // The node_data Integer variable is used to store the data present in that particular node
+    int node_data;
+    // The node_data Integer variable is used to store the color of that particular node
+    int colour_of_node;
+ 
+     /* Constructor of Node_Red_Black_Tree class */
+     public Node_Red_Black_Tree(int thenode_data)
+     {
+         this( thenode_data, null, null );
+     } 
+     /* Constructor of Node_Red_Black_Tree class */
+     public Node_Red_Black_Tree(int thenode_data, Node_Red_Black_Tree lt, Node_Red_Black_Tree rt)
+     {
+         left_node_addr = lt;
+         right_node_addr = rt;
+         node_data = thenode_data;
+         colour_of_node = 1;
+     }    
+ }
+ 
+ // A class named Node_Red_Black_Tree is created whose each object will work as the Red-Black Tree
+ class Red_Black_Tree
+ {
+     private Node_Red_Black_Tree current_node;
+     private Node_Red_Black_Tree parent_node;
+     private Node_Red_Black_Tree grand_node;
+     private Node_Red_Black_Tree great_node;
+     private Node_Red_Black_Tree header_node;    
+     private static Node_Red_Black_Tree node_null;
+     
+     /* static block to initialize the data */
+     static 
+     {
+         node_null = new Node_Red_Black_Tree(0);
+         node_null.left_node_addr = node_null;
+         node_null.right_node_addr = node_null;
+     }
+     
+     // color coding
+     /* Black - 1  RED - 0 */
+     static final int BLACK = 1;    
+     static final int RED   = 0;
+ 
+     /* Constructor of the Red_Black_Tree class  */
+     public Red_Black_Tree(int negInf)
+     {
+         header_node = new Node_Red_Black_Tree(negInf);
+         header_node.left_node_addr = node_null;
+         header_node.right_node_addr = node_null;
+     }
+     /* Function to check if tree is empty */
+     public boolean isEmpty()
+     {
+         return header_node.right_node_addr == node_null;
+     }
+     /* Make the tree logically empty */
+     public void makeEmpty()
+     {
+         header_node.right_node_addr = node_null;
+     }
+     /* Function to insert item in the Red_Black_Tree class object */
+     public void insert(int item )
+     {
+         current_node = parent_node = grand_node = header_node;
+         node_null.node_data = item;
+         while (current_node.node_data != item)
+         {            
+             great_node = grand_node; 
+             grand_node = parent_node; 
+             parent_node = current_node;
+             current_node = item < current_node.node_data ? current_node.left_node_addr : current_node.right_node_addr;
+             // Check if two red children and fix if so            
+             if (current_node.left_node_addr.colour_of_node == RED && current_node.right_node_addr.colour_of_node == RED)
+                 handleReorient( item );
+         }
+         // Insertion fails if already present
+         if (current_node != node_null)
+             return;
+         current_node = new Node_Red_Black_Tree(item, node_null, node_null);
+         // Attach to parent_node
+         if (item < parent_node.node_data)
+             parent_node.left_node_addr = current_node;
+         else
+             parent_node.right_node_addr = current_node;        
+         handleReorient( item );
+     }
+     private void handleReorient(int item)
+     {
+         // Do the colour_of_node flip
+         current_node.colour_of_node = RED;
+         current_node.left_node_addr.colour_of_node = BLACK;
+         current_node.right_node_addr.colour_of_node = BLACK;
+ 
+         if (parent_node.colour_of_node == RED)   
+         {
+             // Have to rotate
+             grand_node.colour_of_node = RED;
+             if (item < grand_node.node_data != item < parent_node.node_data)
+                 parent_node = rotate( item, grand_node );  // Start dbl rotate
+             current_node = rotate(item, great_node );
+             current_node.colour_of_node = BLACK;
+         }
+         // Make root black
+         header_node.right_node_addr.colour_of_node = BLACK; 
+     }      
+     private Node_Red_Black_Tree rotate(int item, Node_Red_Black_Tree parent_node)
+     {
+         if(item < parent_node.node_data)
+             return parent_node.left_node_addr = item < parent_node.left_node_addr.node_data ? rotateWithleft_node_addrChild(parent_node.left_node_addr) : rotateWithright_node_addrChild(parent_node.left_node_addr) ;  
+         else
+             return parent_node.right_node_addr = item < parent_node.right_node_addr.node_data ? rotateWithleft_node_addrChild(parent_node.right_node_addr) : rotateWithright_node_addrChild(parent_node.right_node_addr);  
+     }
+     /* Rotate binary tree node with left_node_addr child */
+     private Node_Red_Black_Tree rotateWithleft_node_addrChild(Node_Red_Black_Tree k2)
+     {
+         Node_Red_Black_Tree k1 = k2.left_node_addr;
+         k2.left_node_addr = k1.right_node_addr;
+         k1.right_node_addr = k2;
+         return k1;
+     }
+     /* Rotate binary tree node with right_node_addr child */
+     private Node_Red_Black_Tree rotateWithright_node_addrChild(Node_Red_Black_Tree k1)
+     {
+         Node_Red_Black_Tree k2 = k1.right_node_addr;
+         k1.right_node_addr = k2.left_node_addr;
+         k2.left_node_addr = k1;
+         return k2;
+     }
+
+/* Functions to count number of nodes */
+     public int countNodes()
+     {
+         return countNodes(header_node.right_node_addr);
+     }
+     private int countNodes(Node_Red_Black_Tree r)
+     {
+         if (r == node_null)
+             return 0;
+         else
+         {
+             int l = 1;
+             l += countNodes(r.left_node_addr);
+             l += countNodes(r.right_node_addr);
+             return l;
+         }
+     }
+     /* Functions to search for an node_data */
+     public boolean search(int val)
+     {
+         return search(header_node.right_node_addr, val);
+     }
+     private boolean search(Node_Red_Black_Tree r, int val)
+     {
+         boolean found = false;
+         while ((r != node_null) && !found)
+         {
+             int rval = r.node_data;
+             if (val < rval)
+                 r = r.left_node_addr;
+             else if (val > rval)
+                 r = r.right_node_addr;
+             else
+             {
+                 found = true;
+                 break;
+             }
+             found = search(r, val);
+         }
+         return found;
+     }
+     /* Function for in order traversal of the Red_Black_Tree class object*/ 
+     public void inorder()
+     {
+         inorder(header_node.right_node_addr);
+     }
+     private void inorder(Node_Red_Black_Tree r)
+     {
+         if (r != node_null)
+         {
+             inorder(r.left_node_addr);
+             char c = 'B';
+             if (r.colour_of_node == 0)
+                 c = 'R';
+             System.out.print(r.node_data +""+c+" ");
+             inorder(r.right_node_addr);
+         }
+     }
+     /* Function for pre-order traversal of the Red_Black_Tree class object*/ 
+     public void preorder()
+     {
+         preorder(header_node.right_node_addr);
+     }
+     private void preorder(Node_Red_Black_Tree r)
+     {
+         if (r != node_null)
+         {
+             char c = 'B';
+             if (r.colour_of_node == 0)
+                 c = 'R';
+             System.out.print(r.node_data +""+c+" ");
+             preorder(r.left_node_addr);             
+             preorder(r.right_node_addr);
+         }
+     }
+     /* Function for post-order traversal of the Red_Black_Tree class object*/
+     public void postorder()
+     {
+         postorder(header_node.right_node_addr);
+     }
+     private void postorder(Node_Red_Black_Tree r)
+     {
+         if (r != node_null)
+         {
+             postorder(r.left_node_addr);             
+             postorder(r.right_node_addr);
+             char c = 'B';
+             if (r.colour_of_node == 0)
+                 c = 'R';
+             System.out.print(r.node_data +""+c+" ");
+         }
+     }     
+ }
+ 
+ /* Class Red_Black_Tree_Run */
+class Red_Black_Tree_Run
+ {
+     public static void main(String[] args)
+     {            
+        Scanner scannner_object = new Scanner(System.in);
+        /* Creating object of RedBlack Tree */
+        Red_Black_Tree red_black_tree_object = new Red_Black_Tree(Integer.MIN_VALUE); 
+        System.out.println("Red Black Tree Test\n");          
+        char ch;
+        /*  Perform tree operations  */
+        do    
+        {
+            System.out.println("\nThe options list for Red Black Tree::\n");
+            System.out.println("1. To add a new node in the Red-Black Tree");
+            System.out.println("2. To search the Red-Black Tree for a node");
+            System.out.println("3. To get node count of nodes in Red Black Tree");
+            System.out.println("4. To check if the Red_Black_Tree is Empty or not?");
+            System.out.println("5. To Clear the Red_Black_Tree.");
+ 
+            int option_list_choice = scannner_object.nextInt();            
+            switch (option_list_choice)
+            {
+            case 1 : 
+                System.out.println("Enter integer node_data to insert");
+                red_black_tree_object.insert( scannner_object.nextInt() );                     
+                break;                          
+            case 2 : 
+                System.out.println("Enter integer node_data to search");
+                System.out.println("Search result : "+ red_black_tree_object.search( scannner_object.nextInt() ));
+                break;                                          
+            case 3 : 
+                System.out.println("Nodes = "+ red_black_tree_object.countNodes());
+                break;     
+            case 4 : 
+                System.out.println("Empty status = "+ red_black_tree_object.isEmpty());
+                break;     
+            case 5 : 
+                System.out.println("\nTree Cleared");
+                red_black_tree_object.makeEmpty();
+                break;         
+            default : 
+                System.out.println("Wrong Entry \n ");
+                break;    
+            }
+            
+            System.out.print("\nRBT in Post-order: ");
+            red_black_tree_object.postorder();
+            System.out.print("\nRBT in Pre-order: ");
+            red_black_tree_object.preorder();
+            System.out.print("\nRBT in In-order: ");
+            red_black_tree_object.inorder(); 
+ 
+            System.out.println("\nWanna proceed further(Type y or n)? \n");
+            ch = scannner_object.next().charAt(0);                        
+        } while (ch == 'Y'|| ch == 'y');               
+     }
+ }
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Red Black Tree Test
+The options list for Red Black Tree::
+
+1. To add a new node in the Red-Black Tree
+2. To search the Red-Black Tree for a node
+3. To get node count of nodes in Red Black Tree
+4. To check if the Red_Black_Tree is Empty or not?
+5. To Clear the Red_Black_Tree.
+1
+Enter integer node_data to insert
+10
+
+RBT in Post-order: 10B 
+RBT in Pre-order: 10B 
+RBT in In-order: 10B 
+Wanna proceed further(Type y or n)? 
+
+y
+
+The options list for Red Black Tree::
+
+1. To add a new node in the Red-Black Tree
+2. To search the Red-Black Tree for a node
+3. To get node count of nodes in Red Black Tree
+4. To check if the Red_Black_Tree is Empty or not?
+5. To Clear the Red_Black_Tree.
+1
+Enter integer node_data to insert
+18
+
+RBT in Post-order: 18R 10B 
+RBT in Pre-order: 10B 18R 
+RBT in In-order: 10B 18R 
+Wanna proceed further(Type y or n)? 
+
+y
+
+The options list for Red Black Tree::
+
+1. To add a new node in the Red-Black Tree
+2. To search the Red-Black Tree for a node
+3. To get node count of nodes in Red Black Tree
+4. To check if the Red_Black_Tree is Empty or not?
+5. To Clear the Red_Black_Tree.
+1
+Enter integer node_data to insert
+45
+
+RBT in Post-order: 10R 45R 18B 
+RBT in Pre-order: 18B 10R 45R 
+RBT in In-order: 10R 18B 45R 
+Wanna proceed further(Type y or n)? 
+
+y
+
+The options list for Red Black Tree::
+
+1. To add a new node in the Red-Black Tree
+2. To search the Red-Black Tree for a node
+3. To get node count of nodes in Red Black Tree
+4. To check if the Red_Black_Tree is Empty or not?
+5. To Clear the Red_Black_Tree.
+1
+Enter integer node_data to insert
+33
+
+RBT in Post-order: 10B 33R 45B 18B 
+RBT in Pre-order: 18B 10B 45B 33R 
+RBT in In-order: 10B 18B 33R 45B 
+Wanna proceed further(Type y or n)? 
+
+y
+
+The options list for Red Black Tree::
+
+1. To add a new node in the Red-Black Tree
+2. To search the Red-Black Tree for a node
+3. To get node count of nodes in Red Black Tree
+4. To check if the Red_Black_Tree is Empty or not?
+5. To Clear the Red_Black_Tree.
+1
+Enter integer node_data to insert
+87
+
+RBT in Post-order: 10B 33R 87R 45B 18B 
+RBT in Pre-order: 18B 10B 45B 33R 87R 
+RBT in In-order: 10B 18B 33R 45B 87R 
+Wanna proceed further(Type y or n)? 
+
+y
+
+The options list for Red Black Tree::
+
+1. To add a new node in the Red-Black Tree
+2. To search the Red-Black Tree for a node
+3. To get node count of nodes in Red Black Tree
+4. To check if the Red_Black_Tree is Empty or not?
+5. To Clear the Red_Black_Tree.
+1
+Enter integer node_data to insert
+90
+
+RBT in Post-order: 10B 33B 90R 87B 45R 18B 
+RBT in Pre-order: 18B 10B 45R 33B 87B 90R 
+RBT in In-order: 10B 18B 33B 45R 87B 90R 
+Wanna proceed further(Type y or n)? 
+
+y
+
+The options list for Red Black Tree::
+
+1. To add a new node in the Red-Black Tree
+2. To search the Red-Black Tree for a node
+3. To get node count of nodes in Red Black Tree
+4. To check if the Red_Black_Tree is Empty or not?
+5. To Clear the Red_Black_Tree.
+1
+Enter integer node_data to insert
+31
+
+RBT in Post-order: 10B 31R 33B 90R 87B 45R 18B 
+RBT in Pre-order: 18B 10B 45R 33B 31R 87B 90R 
+RBT in In-order: 10B 18B 31R 33B 45R 87B 90R 
+Wanna proceed further(Type y or n)? 
+
+y
+
+The options list for Red Black Tree::
+
+1. To add a new node in the Red-Black Tree
+2. To search the Red-Black Tree for a node
+3. To get node count of nodes in Red Black Tree
+4. To check if the Red_Black_Tree is Empty or not?
+5. To Clear the Red_Black_Tree.
+1
+Enter integer node_data to insert
+77
+
+RBT in Post-order: 10B 31R 33B 77R 90R 87B 45R 18B 
+RBT in Pre-order: 18B 10B 45R 33B 31R 87B 77R 90R 
+RBT in In-order: 10B 18B 31R 33B 45R 77R 87B 90R 
+Wanna proceed further(Type y or n)? 
+
+y
+
+The options list for Red Black Tree::
+
+1. To add a new node in the Red-Black Tree
+2. To search the Red-Black Tree for a node
+3. To get node count of nodes in Red Black Tree
+4. To check if the Red_Black_Tree is Empty or not?
+5. To Clear the Red_Black_Tree.
+2
+Enter integer node_data to search
+18
+Search result: true
+
+RBT in Post-order: 10B 31R 33B 77R 90R 87B 45R 18B 
+RBT in Pre-order: 18B 10B 45R 33B 31R 87B 77R 90R 
+RBT in In-order: 10B 18B 31R 33B 45R 77R 87B 90R 
+Wanna proceed further(Type y or n)? 
+
+y
+
+The options list for Red Black Tree::
+
+1. To add a new node in the Red-Black Tree
+2. To search the Red-Black Tree for a node
+3. To get node count of nodes in Red Black Tree
+4. To check if the Red_Black_Tree is Empty or not?
+5. To Clear the Red_Black_Tree.
+3
+Nodes = 8
+
+RBT in Post-order: 10B 31R 33B 77R 90R 87B 45R 18B 
+RBT in Pre-order: 18B 10B 45R 33B 31R 87B 77R 90R 
+RBT in In-order: 10B 18B 31R 33B 45R 77R 87B 90R 
+Wanna proceed further(Type y or n)? 
+
+y
+
+The options list for Red Black Tree::
+
+1. To add a new node in the Red-Black Tree
+2. To search the Red-Black Tree for a node
+3. To get node count of nodes in Red Black Tree
+4. To check if the Red_Black_Tree is Empty or not?
+5. To Clear the Red_Black_Tree.
+4
+Empty status = false
+
+RBT in Post-order: 10B 31R 33B 77R 90R 87B 45R 18B 
+RBT in Pre-order: 18B 10B 45R 33B 31R 87B 77R 90R 
+RBT in In-order: 10B 18B 31R 33B 45R 77R 87B 90R 
+Wanna proceed further(Type y or n)? 
+
+y
+
+The options list for Red Black Tree::
+
+1. To add a new node in the Red-Black Tree
+2. To search the Red-Black Tree for a node
+3. To get node count of nodes in Red Black Tree
+4. To check if the Red_Black_Tree is Empty or not?
+5. To Clear the Red_Black_Tree.
+5
+
+Tree Cleared
+
+RBT in Post-order: 
+RBT in Pre-order: 
+RBT in In-order: 
+Wanna proceed further(Type y or n)? 
+
+y
+
+The options list for Red Black Tree::
+
+1. To add a new node in the Red-Black Tree
+2. To search the Red-Black Tree for a node
+3. To get node count of nodes in Red Black Tree
+4. To check if the Red_Black_Tree is Empty or not?
+5. To Clear the Red_Black_Tree.
+4
+Empty status = true
+
+RBT in Post-order: 
+RBT in Pre-order: 
+RBT in In-order: 
+Wanna proceed further(Type y or n)? 
+
+n
+</pre></div>
+<p>Now let us see a code in C++ language to implement RBT data structure.</p>
+<h3 class="h3">C++ Code:</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+#include<iostream>
+
+using namespace std;
+
+struct node_of_the_red_black_tree
+{
+       int key;
+       node_of_the_red_black_tree *parent;
+       char color;
+       node_of_the_red_black_tree *left;
+       node_of_the_red_black_tree *right;
+};
+class Red_Black_Tree
+{
+      node_of_the_red_black_tree *root;
+      node_of_the_red_black_tree *temp_node1;
+   public :
+      Red_Black_Tree()
+      {
+              temp_node1=NULL;
+              root=NULL;
+      }
+      void insert_a_node_to_rbt();
+      void insert_a_node_to_rbtfix(node_of_the_red_black_tree *);
+      void leftrotate_rbt_node(node_of_the_red_black_tree *);
+      void rightrotate_rbt_node(node_of_the_red_black_tree *);
+      void del_rbt_node();
+      node_of_the_red_black_tree* successor(node_of_the_red_black_tree *);
+      void del_rbt_nodefix(node_of_the_red_black_tree *);
+      void disp();
+      void display( node_of_the_red_black_tree *);
+      void search_rbt_node();
+};
+void Red_Black_Tree::insert_a_node_to_rbt()
+{
+     int init_value,i=0;
+     cout<<"\nKey value for the node_of_the_red_black_tree to insert_a_node_to_rbt in RBT: "; cin>>init_value;
+     node_of_the_red_black_tree *temp_node,*temp_node1;
+     node_of_the_red_black_tree *t=new node_of_the_red_black_tree;
+     t->key=init_value;
+     t->left=NULL;
+     t->right=NULL;
+     t->color='r';
+     temp_node=root;
+     temp_node1=NULL;
+     if(root==NULL)
+     {
+           root=t;
+           t->parent=NULL;
+     }
+     else
+     {
+         while(temp_node!=NULL)
+         {
+              temp_node1=temp_node;
+              if(temp_node->key<t->key)
+                  temp_node=temp_node->right;
+              else
+                  temp_node=temp_node->left;
+         }
+         t->parent=temp_node1;
+         if(temp_node1->key<t->key)
+              temp_node1->right=t;
+         else
+              temp_node1->left=t;
+     }
+     insert_a_node_to_rbtfix(t);
+}
+void Red_Black_Tree::insert_a_node_to_rbtfix(node_of_the_red_black_tree *t)
+{
+     node_of_the_red_black_tree *u;
+     if(root==t)
+     {
+         t->color='b';
+         return;
+     }
+     while(t->parent!=NULL&&t->parent->color=='r')
+     {
+           node_of_the_red_black_tree *g=t->parent->parent;
+           if(g->left==t->parent)
+           {
+                        if(g->right!=NULL)
+                        {
+                              u=g->right;
+                              if(u->color=='r')
+                              {
+                                   t->parent->color='b';
+                                   u->color='b';
+                                   g->color='r';
+                                   t=g;
+                              }
+                        }
+                        else
+                        {
+                            if(t->parent->right==t)
+                            {
+                                 t=t->parent;
+                                 leftrotate_rbt_node(t);
+                            }
+                            t->parent->color='b';
+                            g->color='r';
+                            rightrotate_rbt_node(g);
+                        }
+           }
+           else
+           {
+                        if(g->left!=NULL)
+                        {
+                             u=g->left;
+                             if(u->color=='r')
+                             {
+                                  t->parent->color='b';
+                                  u->color='b';
+                                  g->color='r';
+                                  t=g;
+                             }
+                        }
+                        else
+                        {
+                            if(t->parent->left==t)
+                            {
+                                   t=t->parent;
+                                   rightrotate_rbt_node(t);
+                            }
+                            t->parent->color='b';
+                            g->color='r';
+                            leftrotate_rbt_node(g);
+                        }
+           }
+           root->color='b';
+     }
+}
+
+void Red_Black_Tree::del_rbt_node()
+{
+     if(root==NULL)
+     {
+           cout<<"\nEmpty Tree." ;
+           return ;
+     }
+     int x;
+     cout<<"\nEnter the key of the node_of_the_red_black_tree to be del_rbt_nodeeted: "; cin>>x;
+     node_of_the_red_black_tree *temp_node;
+     temp_node=root;
+     node_of_the_red_black_tree *y=NULL;
+     node_of_the_red_black_tree *temp_node1=NULL;
+     int found=0;
+     while(temp_node!=NULL&&found==0)
+     {
+           if(temp_node->key==x)
+               found=1;
+           if(found==0)
+           {
+                 if(temp_node->key<x) temp_node=temp_node->right;
+                 else
+                    temp_node=temp_node->left;
+           }
+     }
+     if(found==0)
+     {
+            cout<<"\nElement Not Found.";
+            return ;
+     }
+     else
+     {
+         cout<<"\ndel_rbt_nodeeted Element: "<<temp_node->key;
+         cout<<"\nColour: "; if(temp_node->color=='b')
+     cout<<"Black\n";
+    else
+     cout<<"Red\n"; if(temp_node->parent!=NULL)
+               cout<<"\nParent: "<<temp_node->parent->key;
+         else
+               cout<<"\nno parent node_of_the_red_black_tree present "; if(temp_node->right!=NULL)
+               cout<<"\nRight Child: "<<temp_node->right->key;
+         else
+               cout<<"\nno right child node_of_the_red_black_tree present. "; if(temp_node->left!=NULL)
+               cout<<"\nLeft Child: "<<temp_node->left->key;
+         else
+               cout<<"\nno left child node_of_the_red_black_tree present.  ";
+         cout<<"\nnode_of_the_red_black_tree del_rbt_nodeeted."; if(temp_node->left==NULL||temp_node->right==NULL)
+              y=temp_node;
+         else
+              y=successor(temp_node);
+         if(y->left!=NULL)
+              temp_node1=y->left;
+         else
+         {
+              if(y->right!=NULL)
+                   temp_node1=y->right;
+              else
+                   temp_node1=NULL;
+         }
+         if(temp_node1!=NULL)
+              temp_node1->parent=y->parent;
+         if(y->parent==NULL)
+              root=temp_node1;
+         else
+         {
+             if(y==y->parent->left)
+                y->parent->left=temp_node1;
+             else
+                y->parent->right=temp_node1;
+         }
+         if(y!=temp_node)
+         {
+             temp_node->color=y->color;
+             temp_node->key=y->key;
+         }
+         if(y->color=='b')
+             del_rbt_nodefix(temp_node1);
+     }
+}
+
+void Red_Black_Tree::del_rbt_nodefix(node_of_the_red_black_tree *temp_node)
+{
+    node_of_the_red_black_tree *s;
+    while(temp_node!=root&&temp_node->color=='b')
+    {
+          if(temp_node->parent->left==temp_node)
+          {
+                  s=temp_node->parent->right;
+                  if(s->color=='r')
+                  {
+                         s->color='b';
+                         temp_node->parent->color='r';
+                         leftrotate_rbt_node(temp_node->parent);
+                         s=temp_node->parent->right;
+                  }
+                  if(s->right->color=='b'&&s->left->color=='b')
+                  {
+                         s->color='r';
+                         temp_node=temp_node->parent;
+                  }
+                  else
+                  {
+                      if(s->right->color=='b')
+                      {
+                             s->left->color=='b';
+                             s->color='r';
+                             rightrotate_rbt_node(s);
+                             s=temp_node->parent->right;
+                      }
+                      s->color=temp_node->parent->color;
+                      temp_node->parent->color='b';
+                      s->right->color='b';
+                      leftrotate_rbt_node(temp_node->parent);
+                      temp_node=root;
+                  }
+          }
+          else
+          {
+                  s=temp_node->parent->left;
+                  if(s->color=='r')
+                  {
+                        s->color='b';
+                        temp_node->parent->color='r';
+                        rightrotate_rbt_node(temp_node->parent);
+                        s=temp_node->parent->left;
+                  }
+                  if(s->left->color=='b'&&s->right->color=='b')
+                  {
+                        s->color='r';
+                        temp_node=temp_node->parent;
+                  }
+                  else
+                  {
+                        if(s->left->color=='b')
+                        {
+                              s->right->color='b';
+                              s->color='r';
+                              leftrotate_rbt_node(s);
+                              s=temp_node->parent->left;
+                        }
+                        s->color=temp_node->parent->color;
+                        temp_node->parent->color='b';
+                        s->left->color='b';
+                        rightrotate_rbt_node(temp_node->parent);
+                        temp_node=root;
+                  }
+          }
+       temp_node->color='b';
+       root->color='b';
+    }
+}
+
+void Red_Black_Tree::leftrotate_rbt_node(node_of_the_red_black_tree *temp_node)
+{
+     if(temp_node->right==NULL)
+           return ;
+     else
+     {
+           node_of_the_red_black_tree *y=temp_node->right;
+           if(y->left!=NULL)
+           {
+                  temp_node->right=y->left;
+                  y->left->parent=temp_node;
+           }
+           else
+                  temp_node->right=NULL;
+           if(temp_node->parent!=NULL)
+                y->parent=temp_node->parent;
+           if(temp_node->parent==NULL)
+                root=y;
+           else
+           {
+               if(temp_node==temp_node->parent->left)
+                       temp_node->parent->left=y;
+               else
+                       temp_node->parent->right=y;
+           }
+           y->left=temp_node;
+           temp_node->parent=y;
+     }
+}
+void Red_Black_Tree::rightrotate_rbt_node(node_of_the_red_black_tree *temp_node)
+{
+     if(temp_node->left==NULL)
+          return ;
+     else
+     {
+         node_of_the_red_black_tree *y=temp_node->left;
+         if(y->right!=NULL)
+         {
+                  temp_node->left=y->right;
+                  y->right->parent=temp_node;
+         }
+         else
+                 temp_node->left=NULL;
+         if(temp_node->parent!=NULL)
+                 y->parent=temp_node->parent;
+         if(temp_node->parent==NULL)
+               root=y;
+         else
+         {
+             if(temp_node==temp_node->parent->left)
+                   temp_node->parent->left=y;
+             else
+                   temp_node->parent->right=y;
+         }
+         y->right=temp_node;
+         temp_node->parent=y;
+     }
+}
+
+node_of_the_red_black_tree* Red_Black_Tree::successor(node_of_the_red_black_tree *temp_node)
+{
+      node_of_the_red_black_tree *y=NULL;
+     if(temp_node->left!=NULL)
+     {
+         y=temp_node->left;
+         while(y->right!=NULL)
+              y=y->right;
+     }
+     else
+     {
+         y=temp_node->right;
+         while(y->left!=NULL)
+              y=y->left;
+     }
+     return y;
+}
+
+void Red_Black_Tree::disp()
+{
+     display(root);
+}
+void Red_Black_Tree::display(node_of_the_red_black_tree *temp_node)
+{
+     if(root==NULL)
+     {
+          cout<<"\nEmpty Tree.";
+          return ;
+     }
+     if(temp_node!=NULL)
+     {
+                cout<<"\n\t node_of_the_red_black_tree: ";
+                cout<<"\n Key: "<<temp_node->key;
+                cout<<"\n Colour: "; if(temp_node->color=='b')
+     cout<<"Black";
+    else
+     cout<<"Red"; if(temp_node->parent!=NULL)
+                       cout<<"\n Parent: "<<temp_node->parent->key;
+                else
+                       cout<<"\n no parent node_of_the_red_black_tree present "; if(temp_node->right!=NULL)
+                       cout<<"\n Right Child: "<<temp_node->right->key;
+                else
+                       cout<<"\n no right child node_of_the_red_black_tree present. "; if(temp_node->left!=NULL)
+                       cout<<"\n Left Child: "<<temp_node->left->key;
+                else
+                       cout<<"\n no left child node_of_the_red_black_tree present.  ";
+                cout<<endl; if(temp_node->left)
+    {
+                 cout<<"\n\nLeft:\n"; display(temp_node->left);
+    }
+    /*else
+     cout<<"\nNo Left Child.\n";*/ if(temp_node->right)
+    {
+     cout<<"\n\nRight:\n"; display(temp_node->right);
+    }
+    /*else
+     cout<<"\nNo Right Child.\n"*/
+     }
+}
+void Red_Black_Tree::search_rbt_node()
+{
+     if(root==NULL)
+     {
+           cout<<"\nEmpty Tree\n" ;
+           return  ;
+     }
+     int x;
+     cout<<"\n Enter key of the node_of_the_red_black_tree to be search_rbt_nodeed: "; cin>>x;
+     node_of_the_red_black_tree *temp_node=root;
+     int found=0;
+     while(temp_node!=NULL&& found==0)
+     {
+            if(temp_node->key==x)
+                found=1;
+            if(found==0)
+            {
+                 if(temp_node->key<x) temp_node=temp_node->right;
+                 else
+                      temp_node=temp_node->left;
+            }
+     }
+     if(found==0)
+          cout<<"\nElement Not Found.";
+     else
+     {
+                cout<<"\n\t FOUND node_of_the_red_black_tree: ";
+                cout<<"\n Key: "<<temp_node->key;
+                cout<<"\n Colour: "; if(temp_node->color=='b')
+     cout<<"Black";
+    else
+     cout<<"Red"; if(temp_node->parent!=NULL)
+                       cout<<"\n Parent: "<<temp_node->parent->key;
+                else
+                       cout<<"\n no parent node_of_the_red_black_tree present"; if(temp_node->right!=NULL)
+                       cout<<"\n Right Child: "<<temp_node->right->key;
+                else
+                       cout<<"\n no right child node_of_the_red_black_tree present. "; if(temp_node->left!=NULL)
+                       cout<<"\n Left Child: "<<temp_node->left->key;
+                else
+                       cout<<"\n no left child node_of_the_red_black_tree present";
+                cout<<endl;
+
+     }
+}
+int main()
+{
+    int ch,y=0;
+    Red_Black_Tree obj;
+    do
+    {
+                cout<<"\nThe options list for Red Black Tree::" ;
+                cout<<"\n1. To add a new node_of_the_red_black_tree in the Red-Black Tree";
+                cout<<"\n2. To search_rbt_node the Red-Black Tree for a node_of_the_red_black_tree";
+                cout<<"\n3. To del_rbt_nodeete an existing Red-Black tree node_of_the_red_black_tree";
+                cout<<"\n4. To display all the node_of_the_red_black_trees of the Red-Black Tree ";
+                cout<<"\n5. To exit the code execution." ;
+                cout<<"\nInput: ";
+                cin>>ch;
+                switch(ch)
+                {
+                          case 1 : obj.insert_a_node_to_rbt();
+                                   cout<<"\nNew node_of_the_red_black_tree added.\n";
+                                   break;
+                          case 2 : 
+                                obj.search_rbt_node();
+                                   break;
+                          case 3 : 
+
+                                    obj.del_rbt_node();
+                                   break;
+                          case 4 : obj.disp();
+                                   break;
+                          case 5 : y=1;
+                                   break;
+                          default : cout<<"\nEnter a Valid Choice.";
+                }
+                cout<<endl;
+
+    }while(y!=1);
+    return 0;
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>The options list for Red Black Tree::
+1. To add a new node_of_the_red_black_tree in the Red-Black Tree
+2. To search_rbt_node the Red-Black Tree for a node_of_the_red_black_tree
+3. To del_rbt_nodeete an existing Red-Black tree node_of_the_red_black_tree
+4. To display all the node_of_the_red_black_trees of the Red-Black Tree 
+5. To exit the code execution.
+Input: 1
+
+Key value for the node_of_the_red_black_tree to insert_a_node_to_rbt in RBT: 12
+
+New node_of_the_red_black_tree added.
+
+
+The options list for Red Black Tree::
+1. To add a new node_of_the_red_black_tree in the Red-Black Tree
+2. To search_rbt_node the Red-Black Tree for a node_of_the_red_black_tree
+3. To del_rbt_nodeete an existing Red-Black tree node_of_the_red_black_tree
+4. To display all the node_of_the_red_black_trees of the Red-Black Tree 
+5. To exit the code execution.
+Input: 1
+
+Key value for the node_of_the_red_black_tree to insert_a_node_to_rbt in RBT: 45
+
+New node_of_the_red_black_tree added.
+
+
+The options list for Red Black Tree::
+1. To add a new node_of_the_red_black_tree in the Red-Black Tree
+2. To search_rbt_node the Red-Black Tree for a node_of_the_red_black_tree
+3. To del_rbt_nodeete an existing Red-Black tree node_of_the_red_black_tree
+4. To display all the node_of_the_red_black_trees of the Red-Black Tree 
+5. To exit the code execution.
+Input: 1
+
+Key value for the node_of_the_red_black_tree to insert_a_node_to_rbt in RBT: 23
+
+New node_of_the_red_black_tree added.
+
+
+The options list for Red Black Tree::
+1. To add a new node_of_the_red_black_tree in the Red-Black Tree
+2. To search_rbt_node the Red-Black Tree for a node_of_the_red_black_tree
+3. To del_rbt_nodeete an existing Red-Black tree node_of_the_red_black_tree
+4. To display all the node_of_the_red_black_trees of the Red-Black Tree 
+5. To exit the code execution.
+Input: 1
+
+Key value for the node_of_the_red_black_tree to insert_a_node_to_rbt in RBT: 98
+
+New node_of_the_red_black_tree added.
+
+
+The options list for Red Black Tree::
+1. To add a new node_of_the_red_black_tree in the Red-Black Tree
+2. To search_rbt_node the Red-Black Tree for a node_of_the_red_black_tree
+3. To del_rbt_nodeete an existing Red-Black tree node_of_the_red_black_tree
+4. To display all the node_of_the_red_black_trees of the Red-Black Tree 
+5. To exit the code execution.
+Input: 4
+
+     node_of_the_red_black_tree: 
+ Key: 23
+ Colour: Black
+ Parent: 12
+ Right Child: 45
+ Left Child: 12
+
+
+Left:
+
+     node_of_the_red_black_tree: 
+ Key: 12
+ Colour: Black
+ Parent: 23
+ no right child node_of_the_red_black_tree present. 
+ no left child node_of_the_red_black_tree present.  
+
+
+Right:
+
+     node_of_the_red_black_tree: 
+ Key: 45
+ Colour: Black
+ Parent: 23
+ Right Child: 98
+ no left child node_of_the_red_black_tree present.  
+
+
+Right:
+
+     node_of_the_red_black_tree: 
+ Key: 98
+ Colour: Red
+ Parent: 45
+ no right child node_of_the_red_black_tree present. 
+ no left child node_of_the_red_black_tree present.  
+
+
+The options list for Red Black Tree::
+1. To add a new node_of_the_red_black_tree in the Red-Black Tree
+2. To search_rbt_node the Red-Black Tree for a node_of_the_red_black_tree
+3. To del_rbt_nodeete an existing Red-Black tree node_of_the_red_black_tree
+4. To display all the node_of_the_red_black_trees of the Red-Black Tree 
+5. To exit the code execution.
+Input: 2
+
+ Enter key of the node_of_the_red_black_tree to be search_rbt_nodeed: 98
+
+     FOUND node_of_the_red_black_tree: 
+ Key: 98
+ Colour: Red
+ Parent: 45
+ no right child node_of_the_red_black_tree present. 
+ no left child node_of_the_red_black_tree present
+
+
+The options list for Red Black Tree::
+1. To add a new node_of_the_red_black_tree in the Red-Black Tree
+2. To search_rbt_node the Red-Black Tree for a node_of_the_red_black_tree
+3. To del_rbt_nodeete an existing Red-Black tree node_of_the_red_black_tree
+4. To display all the node_of_the_red_black_trees of the Red-Black Tree 
+5. To exit the code execution.
+Input: 3
+
+Enter the key of the node_of_the_red_black_tree to be del_rbt_nodeeted: 45
+
+del_rbt_nodeeted Element: 45
+Colour: Black
+
+Parent: 23
+Right Child: 98
+no left child node_of_the_red_black_tree present.  
+node_of_the_red_black_tree del_rbt_nodeeted.
+
+The options list for Red Black Tree::
+1. To add a new node_of_the_red_black_tree in the Red-Black Tree
+2. To search_rbt_node the Red-Black Tree for a node_of_the_red_black_tree
+3. To del_rbt_nodeete an existing Red-Black tree node_of_the_red_black_tree
+4. To display all the node_of_the_red_black_trees of the Red-Black Tree 
+5. To exit the code execution.
+Input: 4
+
+     node_of_the_red_black_tree: 
+ Key: 23
+ Colour: Black
+ Parent: 12
+ Right Child: 98
+ Left Child: 12
+
+
+Left:
+
+     node_of_the_red_black_tree: 
+ Key: 12
+ Colour: Black
+ Parent: 23
+ no right child node_of_the_red_black_tree present. 
+ no left child node_of_the_red_black_tree present.  
+
+
+Right:
+
+     node_of_the_red_black_tree: 
+ Key: 98
+ Colour: Red
+ Parent: 23
+ no right child node_of_the_red_black_tree present. 
+ no left child node_of_the_red_black_tree present.  
+
+
+The options list for Red Black Tree::
+1. To add a new node_of_the_red_black_tree in the Red-Black Tree
+2. To search_rbt_node the Red-Black Tree for a node_of_the_red_black_tree
+3. To del_rbt_nodeete an existing Red-Black tree node_of_the_red_black_tree
+4. To display all the node_of_the_red_black_trees of the Red-Black Tree 
+5. To exit the code execution.
+Input: 5
+</pre></div>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="ds-graph.html">DS Graph</a></span>
+</div>
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="b-plus-tree.html">&larr; prev</a>
+<a style="float:right" class="next" href="ds-graph.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="84e2e1e1e0e6e5e7efc4eee5f2e5f0f4ebedeaf0aae7ebe9">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/red-black-tree"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/red-black-tree"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/red-black-tree"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+ </a>
+ <a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+  </div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="3e564c7e545f485f4a4e5157504a105d5153">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e28a90a28883948396928d8b8c96cc818d8fcc">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/red-black-tree by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:07:28 GMT -->
+</html> 

@@ -1,0 +1,894 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/sql-server-replication by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 14:09:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SQL Server Replication - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="SQL Server Replication - javatpoint" /><meta property="og:description" content="SQL Server Replication with sql server, install visual studio, install sql server, architecture, management studio, data types, db operations, login database, create database, select database, drop database, create table, delete tabel, update table, min function, max function, sum function, sql operators, advance operator, clauses, create view, keys constraints and indexes, primary keys, foreign keys,indexes etc." />
+<meta name="keywords" content="sql server tutorials, sql server, install visual studio, install sql server, architecture, management studio, data types, db operations, login database, create database, select database, drop database, create table, delete tabel, update table, min function, max function, sum function, sql operators, advance operator, clauses, create view, keys constraints and indexes, primary keys, foreign keys,indexes etc." /><meta name="description" content="SQL Server Replication with sql server, install visual studio, install sql server, architecture, management studio, data types, db operations, login database, create database, select database, drop database, create table, delete tabel, update table, min function, max function, sum function, sql operators, advance operator, clauses, create view, keys constraints and indexes, primary keys, foreign keys,indexes etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="sql-server-replication.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="SQL Server Replication - javatpoint" /><meta name="twitter:description" property="og:description" content="SQL Server Replication with sql server, install visual studio, install sql server, architecture, management studio, data types, db operations, login database, create database, select database, drop database, create table, delete tabel, update table, min function, max function, sum function, sql operators, advance operator, clauses, create view, keys constraints and indexes, primary keys, foreign keys,indexes etc." /><meta property="og:url" content="sql-server-replication.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="sql-server-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/sqlserver.png" alt="sql server" /> SQL Server</a></li>
+<li><a href="c-sharp-tutorial.html"><img src="https://static.javatpoint.com/images/icon/csharp.png" alt="C#" /> C#</a></li>
+<li><a href="sql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/sql.png" alt="sql" /> SQL</a></li>
+<li><a href="pl-sql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/plsql.png" alt="plsql" /> PL/SQL</a></li>
+<li><a href="mysql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/mysql.png" alt="mysql" /> MySQL</a></li>
+<li><a href="mongodb-tutorial.html"><img src="https://static.javatpoint.com/images/icon/mongodb.png" alt="mongodb" /> MongoDB</a></li>
+<li><a href="postgresql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/postgresql.png" alt="postgresql" /> PostgreSQL</a></li>
+<li><a href="oracle-tutorial.html"><img src="https://static.javatpoint.com/images/icon/oracle.png" alt="oracle" /> Oracle</a></li>
+<li><a href="sqlite-tutorial.html"><img src="https://static.javatpoint.com/images/icon/sqlite.png" alt="sqlite" /> SQLite</a></li>
+<li><a href="cassandra-tutorial.html"><img src="https://static.javatpoint.com/images/icon/cassandra.png" alt="cassandra" /> Cassandra</a></li>
+<li><a href="dbms-tutorial.html"><img src="https://static.javatpoint.com/images/icon/dbms.png" alt="dbms" /> DBMS</a></li>
+<li><a href="python-tutorial.html"><img src="https://static.javatpoint.com/images/icon/python.png" alt="python" /> Python</a></li>
+<li><a href="java-tutorial.html"><img src="https://static.javatpoint.com/images/icon/java.png" alt="java" /> Java</a></li>
+<li><a href="sql-server-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="interview questions" /> Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Server Tutorials</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-server-tutorial.html">SQL Server Tutorials</a>
+<a href="install-visual-studio.html">Install Visual Studio</a>
+<a href="install-sql-server.html">Install SQL Server</a>
+
+<a href="sql-server-management-studio.html">SQL Server Management Studio</a>
+<a href="sql-server-datatypes.html">SQL Server Datatypes</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DB Operations</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-server-login-database.html">SQL Server Login Database</a>
+<a href="sql-server-create-database.html">SQL Server Create Database</a>
+<a href="sql-server-select-database.html">SQL Server Select Database</a>
+<a href="sql-server-drop-database.html">SQL Server DROP Database</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Server Database</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-server-create-table.html">SQL Server Create Table</a>
+<a href="sql-server-delete-table.html">SQL Server Delete Table</a>
+<a href="sql-server-insert-data.html">SQL Server Insert Data</a>
+<a href="sql-server-update-data.html">SQL Server Update Data</a>
+<a href="sql-server-delete-data.html">SQL Server Delete Data</a>
+<a href="sql-server-delete-top.html">SQL Server Delete TOP </a>
+<a href="sql-server-alter-table.html">SQL Server ALTER Table</a>
+<a href="view-in-sql-server.html">View in SQL Server</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Aggregate Function</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-server-min-function.html">SQL Server MIN Function</a>
+<a href="sql-server-max-function.html">SQL Server MAX Function</a>
+<a href="sql-server-sum-function.html">SQL Server SUM Function</a>
+<a href="sql-server-avg-function.html">SQL Server AVG Function</a>
+<a href="sql-server-count-function.html">SQL Server COUNT Function</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Server Operators</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-server-comparison-operator.html">SQL Server Comparison Operator</a>
+<a href="sql-server-union-operator.html">SQL Server UNION Operator</a>
+<a href="sql-server-intersect-operator.html">SQL Server INTERSECT Operator</a>
+<a href="sql-server-in-operator.html">SQL Server IN Operator</a>
+<a href="sql-server-not-operator.html">SQL Server NOT Operator </a>
+<a href="sql-server-between-operator.html">SQL Server BETWEEN Operator</a>
+<a href="sql-server-is-null-operator.html">SQL Server IS NULL Operator</a>
+<a href="sql-server-is-not-null-operator.html">SQL Server IS NOT NULL Operator </a>
+<a href="sql-server-like-operator.html">SQL Server LIKE Operator </a>
+<a href="sql-server-exit-operator.html">SQL Server EXIST Operator</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Server Clauses</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-server-distinct-clause.html">SQL Server DISTINCT Clause </a>
+<a href="sql-server-group-by-clause.html">SQL Server GROUP BY Clause </a>
+<a href="sql-server-where-clause.html">SQL Server WHERE Clause</a>
+<a href="sql-server-order-by.html">SQL Server ORDER BY</a>
+<a href="sql-server-having.html">SQL Server HAVING</a>
+<a href="sql-server-select.html">SQL Server SELECT</a>
+<a href="sql-server-grouping-sets.html">SQL Server GROUPING SETS</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Server Keys</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-server-primary-keys.html">SQL Server Primary Keys</a>
+<a href="sql-server-enable-primary-key.html">SQL Server Enable Primary Key</a>
+<a href="sql-server-disable-primary-key.html">SQL Server Disable Primary Key</a>
+<a href="sql-server-drop-primary-key.html">SQL Server Drop Primary Key</a>
+<a href="sql-server-foreign-keys.html">SQL Server SS Foreign Keys</a>
+<a href="sql-server-enable-foreign-key.html">SQL Server Enable Foreign Key</a>
+<a href="sql-server-disable-foreign-key.html">SQL Server Disable Foreign Key</a>
+<a href="sql-server-drop-foreign-key.html">SQL Server Drop Foreign Key</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Server Advance</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-server-create-view.html">SQL Server Create View</a>
+<a href="sql-server-backup-database.html">SQL Server Backup Database</a>
+<a href="sql-server-restore-a-database.html">SQL Server Restore Database</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Miscellaneous</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-server-substring.html">SQL Server Substring</a>
+<a href="common-table-expression-in-sql-server.html">CTE in SQL Server</a>
+<a href="cursor-in-sql-server.html">Cursor in SQL Server</a>
+<a href="index-in-sql-server.html">Index in SQL Server</a>
+<a href="sql-server-row-number.html">SQL Server Row Number</a>
+<a href="rename-columns-in-sql-server.html">Rename Columns in SQL Server</a>
+<a href="sql-server-case.html">SQL Server CASE</a>
+<a href="sql-server-joins.html">SQL Server JOINS</a>
+<a href="add-columns-in-sql-server.html">Add Columns in SQL Server</a>
+<a href="drop-column-in-sql-server.html">Drop Column in SQL Server</a>
+<a href="sql-server-describe-table.html">SQL Server Describe Table</a>
+<a href="sql-server-replace.html">SQL Server Replace</a>
+<a href="sql-server-coalesce.html">SQL Server COALESCE</a>
+<a href="sql-server-if-else.html">SQL Server IF ELSE</a>
+<a href="sql-server-isnull-function.html">SQL Server ISNULL Function</a>
+<a href="sql-server-temp-table.html">SQL Server Temp Table</a>
+<a href="stored-procedure-in-sql-server.html">Stored Procedure in SQL Server</a>
+<a href="triggers-in-sql-server.html">Triggers in SQL Server</a>
+<a href="sql-server-cast.html">SQL Server CAST</a>
+<a href="sql-server-convert.html">SQL Server CONVERT</a>
+<a href="sql-server-select-into.html">SQL Server SELECT INTO</a>
+<a href="sql-server-aggregate-functions.html">SQL Server Aggregate Functions</a>
+<a href="sql-server-insert-into-select.html">SQL Server INSERT INTO SELECT</a>
+<a href="sql-server-nullif.html">SQL Server NULLIF</a>
+<a href="sql-server-copy-tables.html">SQL Server Copy Tables</a>
+<a href="sql-server-rename-table.html">SQL Server Rename Table</a>
+<a href="sql-server-truncate-table.html">SQL Server Truncate Table</a>
+<a href="how-to-find-sql-server-version.html">How to find SQL Server Version</a>
+<a href="sql-server-charindex-function.html">SQL Server CHARINDEX() Function</a>
+<a href="table-variable-in-sql-server.html">Table Variable in SQL Server</a>
+<a href="rank-function-in-sql-server.html">RANK Function in SQL Server</a>
+<a href="sql-server-pivot.html">SQL Server PIVOT</a>
+<a href="eomonth-function-sql-server.html">EOMONTH Function in SQL Server</a>
+<a href="sql-server-alias.html">SQL Server Alias</a>
+<a href="sql-server-left-function.html">SQL Server Left Function</a>
+<a href="sql-server-sequence.html">SQL Server Sequence</a>
+<a href="sql-server-synonym.html">SQL Server Synonym</a>
+<a href="sql-server-datediff-function.html">SS DATEDIFF Function</a>
+<a href="sql-server-while-loop.html">SQL Server WHILE LOOP</a>
+<a href="find-and-delete-duplicates-from-a-table-in-sql-server.html">Find and Delete Duplicates From a Table in SQL Server</a>
+<a href="sql-server-current_timestamp-function.html">SQL Server CURRENT_TIMESTAMP Function</a>
+<a href="sql-server-dateadd-function.html">SQL Server DATEADD Function</a>
+<a href="sql-server-merge.html">SQL Server MERGE</a>
+<a href="sql-server-offset-fetch.html">SQL Server OFFSET FETCH</a>
+<a href="locks-in-sql-server.html">Locks in SQL Server</a>
+<a href="sql-server-rollup.html">SQL Server ROLLUP</a>
+<a href="sql-server-cross-join.html">SQL Server CROSS JOIN</a>
+<a href="sql-server-update-join.html">SQL SERVER UPDATE JOIN</a>
+<a href="sql-server-comments.html">SQL Server Comments</a>
+<a href="sql-server-identity.html">SQL Server IDENTITY</a>
+<a href="sql-server-concat-function.html">SQL Server CONCAT Function</a>
+<a href="sql-server-concat_ws-function.html">SQL Server CONCAT_WS Function</a>
+<a href="sql-server-replication.html">SQL Server Replication</a>
+<a href="sql-server-transaction.html">SQL Server Transaction</a>
+<a href="sql-server-constraints.html">SQL Server Constraints</a>
+<a href="sql-server-profiler.html">SQL Server PROFILER</a>
+<a href="sql-server-functions.html">SQL Server Functions</a>
+<a href="sql-server-window-functions.html">SQL Server Window Functions</a>
+<a href="sql-server-date-functions.html">SQL Server Date Functions</a>
+<a href="sql-server-mathematical-functions.html">SQL Server Mathematical Functions</a>
+<a href="sql-server-string-functions.html">SQL Server String Functions</a>
+<a href="sql-server-rename-database.html">SQL Server RENAME Database</a>
+<a href="sql-server-show-list-databases.html">SQL Server Show/List Databases</a>
+<a href="sql-server-stuff-function.html">SQL Server STUFF() Function</a>
+<a href="sql-server-collation.html">SQL Server Collation</a>
+<a href="sql-server-composite-key.html">SQL Server Composite Key</a>
+<a href="sql-server-unique-key.html">SQL Server Unique Key</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Services</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ssis.html">SSIS Tutorial</a>
+<a href="ssrs.html">SSRS Tutorial</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-server-interview-questions.html">SQL Server Interview </a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="sql-server-transaction.html">next &rarr;</a>
+<a class="next" href="sql-server-concat_ws-function.html">&larr; prev</a>
+</div>
+<h1 class="h1">SQL Server Replication</h1>
+<p>Replication in SQL Server is a <strong>technology for copying and distributing data and database objects from one database to another, as well as synchronizing the databases to ensure consistency and integrity of data.</strong> This technique distributes the selected part of the database, such as tables and views, unlike other replication techniques where the entire database is distributed. It allows using multiple copies of data at different locations simultaneously. It is also used to copy and synchronize data continually, or it can be scheduled to run at pre-defined intervals.</p>
+<h3 class="h3">Advantages of Replication</h3>
+<p>The following are the main benefits of using replication in SQL Server:</p>
+<ul class="points">
+<li>It reduces locking conflicts and enhances performance when several users work at separate locations.</li>
+<li>It is simple to maintain and improves the availability in comparison to other databases.</li>
+<li>It enables the website to function autonomously. Each site can put up its own rules and procedures to deal with its own copy of the data.</li>
+<li>It helps in bringing data closer to the user.</li>
+</ul>
+<h2 class="h2">SQL Server Replication Architecture</h2>
+<p>The replication technique in SQL Server is based on the <strong>"Publish and Subscribe"</strong> concept. The following diagram help to understand each entity or component of replication architecture:</p>
+<img src="https://static.javatpoint.com/sqlserver/images/sql-server-replication1.png" alt="SQL Server Replication" />
+<h3 class="h3">Article</h3>
+<p>It is the <strong>basic unit of replication technique that consists of tables, views, functions, and stored procedures.</strong> It can be scaled vertically or horizontally by using a filter option. It is possible to create several articles on the same object with some restrictions or limitations.</p>
+<p>We can use the <strong>New Publication Wizard</strong> to navigate an article. This wizard enables us to view the article's attributes and set permissions as needed. We can also set the properties at the time of publication creation, but these are simply read-only permissions.</p>
+<p>If we want to change the property of a publication after it is created, we must generate a new replication snapshot. If the publication contains one or more subscriptions, the modification requires the re-initialization of all subscriptions independently.</p>
+<p><strong>We can use the following SQL statements to list all articles that are published:</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+SELECT
+     Pub.[publication]    [PublicationName]
+    ,Art.[publisher_db]   [DatabaseName]
+    ,Art.[article]        [Article Name]
+    ,Art.[source_owner]   [Schema]
+    ,Art.[source_object]  [Object]
+FROM
+    [distribution].[dbo].[MSarticles]  Art
+    INNER JOIN [distribution].[dbo].[MSpublications] Pub
+        ON Art.[publication_id] = Pub.[publication_id]
+ORDER BY
+    Pub.[publication], Art.[article]
+</textarea></div>
+<p>If we want <strong>to fetch the article details in transactional or merge replication</strong> in a published database, we need to execute the below SQL statement:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+SELECT st.name [published object], st.schema_id, st.is_published , st.is_merge_published, is_schema_published  
+FROM sys.tables st WHERE st.is_published = 1 or st.is_merge_published = 1 or st.is_schema_published = 1  
+UNION  
+SELECT sp.name, sp.schema_id, 0, 0, sp.is_schema_published  
+FROM sys.procedures sp WHERE sp.is_schema_published = 1  
+UNION  
+SELECT sv.name, sv.schema_id, 0, 0, sv.is_schema_published  
+FROM sys.views sv WHERE sv.is_schema_published = 1;
+</textarea></div>
+<p>If we want <strong>to fetch the article information in a listed publisher,</strong> use the following SQL statement:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+DECLARE @publication AS sysname;
+SET @publication = N'PROD_HIST_Pub';
+USE MES_PROD_AP
+EXEC sp_helparticle
+  @publication = @publication;
+</textarea></div>
+<h3 class="h3">Publication</h3>
+<p>It's a <strong>logical collection of articles with a database that exists on a publisher.</strong> The publication enables us to define and configure article properties at a higher level so that the properties being inherited to all articles in the group. It indicates the final set of entities for a database. It is important for articles to distribute them independently.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+EXEC sp_helppublication; 
+</textarea></div>
+<h3 class="h3">Publisher database</h3>
+<p>It is a database that <strong>holds a list of objects</strong> that have been identified as replication articles. It can have one or more publications where each publisher creates many internal replication stored procedures together to define a data propagation method.</p>
+<h3 class="h3">Publisher</h3>
+<p>It indicates the source database where replication starts and makes data available for other servers configured for use in the replication process.</p>
+<h3 class="h3">Distributor</h3>
+<p>It is a <strong>storehouse for replication data associated with one or more publishers.</strong> Sometimes, the distributor acts as the publisher and distributor both. It is called "local distributer" in the context of the SQL Server replication, where a single server instance runs both publisher and distributor. It is called a "remote distributer" when distributed on a different server. Each publisher is associated with a distribution database and a distributor.</p>
+<p>It also identifies and stores replication status data and publication metadata. It sometimes acts as a queue for data moving from publisher to subscriber. It also tells subscribers who have subscribed to a publication that an article has changed based on the replication type.</p>
+<h3 class="h3">Distribution databases</h3>
+<p>The article detail, replication metadata, and data are all stored in this database. A distributor should have at least one distribution database, and in some cases, it may have multiple databases. We make sure that all publications defined by a single Publisher are distributed using the same database.</p>
+<p><strong>We can use the following statement to check whether a server is a distributor or not:</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+SELECT @@ServerName Servername, case when is_distributor=1 
+ then 'Yes' 
+ else 'No' 
+ end status 
+FROM sys.servers WHERE name='repl_distributor' AND data_source=@@servername; 
+</textarea></div>
+<p><strong>The below command checks whether the distribution database is installed or not:</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+SELECT name FROM sys.databases WHERE is_distributor = 1
+</textarea></div>
+<p>The following command <strong>checks whether the publisher uses this distributer or not:</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+EXEC sp_get_distributor
+</textarea></div>
+<p>The following command used for fetching the Distributor and Distribution database properties:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+EXEC sp_helpdistributor;  
+EXEC sp_helpdistributiondb;  
+EXEC sp_helpdistpublisher; 
+</textarea></div>
+<h3 class="h3">Subscriber</h3>
+<p>A subscriber is a <strong>database instance that receives replication data from a publication.</strong> Each subscriber can receive data from one or more publishers and publications. When there is only one subscriber, a single-subscriber model is implemented. When many subscribers are linked to a single publication, a multi-subscriber technique is implemented. Depending on the replication design and model, the subscriber can also send data modifications back to the publisher or republish the data to other subscribers.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+EXEC sp_helpsubscriberinfo;
+</textarea></div>
+<h3 class="h3">Subscriptions</h3>
+<p>The term "subscription" refers to a request for a copy of a publication to be sent to the Subscriber. The subscription specifies the publication data that must be obtained, as well as where and when it will be delivered. We can categorize the subscriptions into two forms Push and pull.</p>
+<ul class="points">
+<li><strong>Push subscription:</strong> It's a subscription in which the distributor sends updated data directly to the subscriber. There is no need to get a request from a subscriber.</li>
+<li><strong>Pull subscription:</strong> It's a subscription in which the subscriber checks the distributor for new modifications on a regular basis. If available, it updates the data in the subscription database itself.</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+EXEC sp_helpsubscription;
+</textarea></div>
+<h3 class="h3">Subscription database</h3>
+<p>It refers to a target database in the SQL Server replication technique.</p>
+<h2 class="h2">Replication Agents</h2>
+<p>Agents are the <strong>pre-defined set of standalone programs and events</strong> for performing a task associated with the data. They are configured to execute as scheduled jobs under SQL Server Agent by default. We can also start it from the command line or by an application using Replication Management Objects (RMO). We use the Replication Monitor and SQL Server Management Studio for monitoring and managing replication agents.</p>
+<p><strong>We can categorize the replication agents into five types as shown in the diagram:</strong></p>
+<img src="https://static.javatpoint.com/sqlserver/images/sql-server-replication2.png" alt="SQL Server Replication" />
+<h3 class="h3">Snapshot Agent</h3>
+<p>It's an executable program that helps in the creation of snapshot files, including schema, published articles, snapshots files, records, and database objects. It is used with all types of replication technology because it supplies the required data set for the initial data synchronization of the publication and subscription databases. The data is normally saved in a snapshot folder, and the synchronized jobs are kept in a distributed database.</p>
+<h3 class="h3">Distribution Agent</h3>
+<p>It is used only with transactional and snapshot replication. The initial replication snapshot is applied to the subscription database via this agent, and data updates are tracked and recorded in the distribution database before being applied to the subscription database. It can be used by the distributor to push subscriptions or by the subscriber to pull subscriptions.</p>
+<h3 class="h3">Log Reader Agent</h3>
+<p>It is only used in conjunction with transactional replication, which moves transactions from the publications database transaction log to the distribution database. Each database has its own Log Reader Agent, which runs on the distributor and can communicate with the Publisher.</p>
+<h3 class="h3">Merge Agent</h3>
+<p>It is used with the merge replication model. It, by default, uploads the subscriber modifications to the publisher and then downloads publisher updates to the subscriber. It is associated with each subscription, which communicates with both the publisher and the subscriber to keep them up to date. It runs at the distributor for push subscriptions and at the subscriber for the pull subscriptions. The synchronization is bi-directional in this case. A set of triggers that support the entire process handles data conflicts.</p>
+<h3 class="h3">Queue Reader Agent</h3>
+<p>The transactional replication used this agent along with the queued update option. Queue reader agent always runs at the distributer, and if any changes are found at the subscriber, it transfers them to the publisher. There is only one instance of Queue Reader Agent to handle all publications and publishers for an authorized distribution database.</p>
+<h2 class="h2">Replication Types</h2>
+<p>SQL Server categorizes the replication technique into three main types, which are depicted in the following diagram:</p>
+<img src="https://static.javatpoint.com/sqlserver/images/sql-server-replication3.png" alt="SQL Server Replication" />
+<h3 class="h3">Snapshot Replication</h3>
+<p>Snapshot replication is <strong>used for copying and distributing data</strong> exactly as it appeared when the database snapshot was taken. We can use this replication type when data is not modified frequently, or having a database replica older than the master database isn't important, or when a high number of changes are done in a short period of time. This method does not log the changes.</p>
+<p><strong>For example,</strong> suppose a single product company changes their items price once or twice a year. In that case, it is highly suggested to replicate the entire snapshot of data in this scenario.</p>
+<img src="https://static.javatpoint.com/sqlserver/images/sql-server-replication4.png" alt="SQL Server Replication" />
+<p><strong>How does snapshot replication work?</strong></p>
+<p>We can understand how snapshot replication works using the following points:</p>
+<ul class="points">
+<li>The snapshot agent is responsible for maintaining a link between the distributor and the publisher and creates new snapshots into the snapshot folder by setting locks.</li>
+<li>Next, they write a copy of the table schema for each article.</li>
+<li>It is copying data from the published table and publishing data to the snapshot folder in a <strong>.bcp file.</strong> Finally, it appends the rows and releases locks on published tables.</li>
+</ul>
+<p>In simple terms, snapshot replication does just what its name implies. Here the publisher takes a picture of the full database and shares it with subscribers. We use it in the following two main scenarios:</p>
+<ol class="points">
+<li>It is used for databases that do not change frequently.</li>
+<li>It serves as a baseline for establishing system replication, with future updates propagated by merge or transactional replication.</li>
+</ol>
+<p><strong>Transactional Replication</strong></p>
+<p>It provides a more flexible solution to databases that changes frequently. The replication agent keeps an eye on the publisher for database changes and sends them to the subscribers. These transmissions can be scheduled either periodically or on a regular basis. This makes it more complex in comparison to the snapshot replication. A snapshot is applied to the subscriber at the start of the transaction plication process, and then data is continually sent from a master database to a database replica after it is altered. One-way replication is commonly used with transactional replication.</p>
+<img src="https://static.javatpoint.com/sqlserver/images/sql-server-replication5.png" alt="SQL Server Replication" />
+<p><strong>Merge Replication</strong></p>
+<p>It is a bidirectional replication used in server-to-client environments for synchronizing data on several database servers when they can't be connected continuously. After establishing the connection, merge replication agents detect modifications and changes databases for synchronization and update their state. It is similar to transactional replication, but here publishers and subscribers make changes to the database individually. If there are any conflicts in the modifications, the agent checks the appropriate data using a pre-defined conflict resolution procedure. It is used rarely because it is the most complex among all replication types.</p>
+<img src="https://static.javatpoint.com/sqlserver/images/sql-server-replication6.png" alt="SQL Server Replication" />
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="sql-server-transaction.html">SQL Server Transaction</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="sql-server-concat_ws-function.html">&larr; prev</a>
+<a style="float:right" class="next" href="sql-server-transaction.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="cbadaeaeafa9aaa8a08ba1aabdaabfbba4a2a5bfe5a8a4a6">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/sql-server-replication"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/sql-server-replication"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/sql-server-replication"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+ <p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+ <p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="513923113b30273025213e383f257f323e3c">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6c041e2c060d1a0d181c03050218420f030142">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/sql-server-replication by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 14:09:20 GMT -->
+</html> 

@@ -1,0 +1,1504 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/plc by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 18:06:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>PLC Tutorial | Programmable Logic Controller - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="PLC Tutorial | Programmable Logic Controller - Javatpoint" /><meta property="og:description" content="PLC Tutorial | Programmable Logic Controller with what is plc, Types of PLC, How PLC Works, Architecture of PLC, How SMPS converts voltage, Programming device, PLC Cycle, What is a safety PLC etc." />
+<meta name="keywords" content="plc, plc tutorial, what is plc, types of plc, how plc works, architecture of plc, how smps converts voltage, programming device, plc cycle, what is a safety plc, what is automation, types of automation, applications of plc, criteria for selecting plc, siemens plc, plc protocols, plc manufacturers, plc programming" /><meta name="description" content="PLC Tutorial | Programmable Logic Controller with what is plc, Types of PLC, How PLC Works, Architecture of PLC, How SMPS converts voltage, Programming device, PLC Cycle, What is a safety PLC etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="plc.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="PLC Tutorial | Programmable Logic Controller - Javatpoint" /><meta name="twitter:description" property="og:description" content="PLC Tutorial | Programmable Logic Controller with what is plc, Types of PLC, How PLC Works, Architecture of PLC, How SMPS converts voltage, Programming device, PLC Cycle, What is a safety PLC etc." /><meta property="og:url" content="plc.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="plc.html" class="selected">PLC</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="dbms-tutorial.html">DBMS</a></li>
+<li><a href="artificial-intelligence-ai.html">AI</a></li>
+<li><a href="blockchain-tutorial.html">Blockchain</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="data-structure-tutorial.html">DS</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="examaccess.html">Quiz</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="comment.html">Comment</a></li>
+<li><a href="forum.html">Forum</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PLC Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="plc.html">PLC Tutorial</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<h1 class="h1">PLC: Programmable Logic Controller</h1>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-tutorial.jpg" class="imageright" alt="PLC Tutorial" />
+<p>PLC or Programmable Logic Controller is a computer control system for the Automation Industry. It is a special-purpose computer without a keyboard, hard drive, etc. PLC is one of the demanding skills of the Electrical industry. Most organizations require a candidate having knowledge of PLC. Here, we will discuss <strong>Automation, applications, types, programming, process, architecture</strong>, etc.</p>
+<p>In this tutorial, we will cover the following topic:</p>
+<ul class="points">
+<li><a href="#Whatis">What is PLC</a></li>
+<li><a href="#Why">Why PLC</a></li>
+<li><a href="#Types">Types of PLC</a></li>
+<li><a href="#Works">How PLC Works</a></li>
+<li><a href="#Architecture">Architecture of PLC</a></li>
+<li><a href="#SMPSconverts">How SMPS converts voltage?</a></li>
+<li><a href="#Programmingdevice">Programming device</a></li>
+<li><a href="#Cycle">PLC Cycle</a></li>
+<li><a href="#safety">What is a safety PLC?</a></li>
+<li><a href="#Automation">What is Automation?</a></li>
+<li><a href="#AutomationTypes">Types of Automation</a></li>
+<li><a href="#Applications">Applications of PLC</a></li>
+<li><a href="#Criteria">Criteria for Selecting PLC</a></li>
+<li><a href="#Siemens">Siemens PLC</a></li>
+<li><a href="#Protocols">PLC Protocols</a></li>
+<li><a href="#Manufacturers">PLC Manufacturers</a></li>
+<li><a href="#Programming">PLC Programming</a></li>
+<li><a href="#Symbols">Symbols used in Programming</a></li>
+<li><a href="#MemoryMapping">Memory Mapping in PLC</a></li>
+<li><a href="#MemoryAreas">Memory Areas</a></li>
+<li><a href="#OtherComponents">Other Components used in Programming</a></li>
+<li><a href="#Counters">Counters</a></li>
+<li><a href="#Comparators">Comparators</a></li>
+<li><a href="#Examples">Examples</a></li>
+<li><a href="#AutomationTools">Automation Tools</a></li>
+<li><a href="#PLCvsSCADA">PLC vs. SCADA</a></li>
+</ul>
+<hr />
+<h2 id="Whatis" class="h2">What is PLC?</h2>
+<p>PLC is a digital computer control system adapted to control the robotic devices and other manufacturing processes. It involves a basic study of <strong>Microcontrollers, digital circuits, and designing skills</strong>.</p>
+<p>It provides easy, flexible, high-reliability programmable controllers suitable for simple and harsh environments. It <strong>monitors the state of input devices, takes decisions, and controls the output devices.</strong> The applications include Robotics, water filling tanks, etc.</p>
+<p>PLC ranges from small devices with few Input/Outputs to large devices with thousand of Input/Outputs.</p>
+<p>Thus, PLC is all about:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/what-is-plc.png" alt="PLC Tutorial" />
+<hr />
+<h2 id="Why" class="h2">Why PLC?</h2>
+<p>PLC was initially created in the United States for the replacement of relay systems.</p>
+<p>The drawbacks of relays that make them unsuitable for the automotive industry are listed below:</p>
+<ul class="points">
+<li>The machine operation using relays logic was quite challenging and time-consuming. A change in the logic of the machine makes the process complicated.</li>
+<li>Relays also fail quickly compared to computer components.</li>
+<li>It requires more run downtime.</li>
+<li>Relay also consumes plentiful electricity, more space, and heat.</li>
+</ul>
+<p>Hence, to overcome such drawbacks, PLC was created.</p>
+<p>A PLC model has a simple appearance. The essential components of PLC are <strong>Input/output (I/O) modules, co-processor modules, CPU,</strong> and <strong>peripheral devices</strong>. The <a href="central-processing-unit.html">CPU</a> (Control Processing Unit) communicates with the Input/output. The I/O modules may be present near or farther away from the <a href="cpu-full-form.html">CPU</a>. Hence, PLC is not limited to one building. It includes calculation in the programming, which is used to calculate different parameters, such as SPC (<strong>Statistical Process Control</strong>).</p>
+<p>But for its operation, we need to program the Programmable Logic Controller. Most PLCs are controlled using the applications on the desktop/laptop. These applications communicate with the PLC using the communication medium, such as Ethernet or the proprietary communication bus. The selection of communication medium depends on the manufacturer. Most manufactures also rely on the <a href="usb-full-form.html">USB</a>.</p>
+<p>The specific logic is different for each programmer with different techniques of doing the same thing.</p>
+<hr />
+<h2 id="Types" class="h2">Types of PLC</h2>
+<p>There are three types of PLC, which are shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/types-of-plc.png" alt="PLC Tutorial" />
+<h3 class="h3">Modular PLC</h3>
+<p>In modular PLC, modular means adding modules. It allows us to expand the structure of PLC. It is useful when there are a large number of inputs and outputs. We can add more input and outputs by adding the modules in the PLC.</p>
+<p>It also has more memory and capability to store information.</p>
+<p>The example includes control processing lines in the manufacturing industry.</p>
+<p>Let's have a look at the Modular type PLC.</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/types-of-plc2.png" alt="PLC Tutorial" />
+<h3 class="h3">Rack PLC</h3>
+<p>The modules in the rack type PLC are arranged in the rows. The racks are placed inside the cabinets. The slots in the rack PLC communicate with each other connected by the standard network or bus.</p>
+<p>Let's have a look at the Rack PLC.</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/types-of-plc3.png" alt="PLC Tutorial" />
+<h3 class="h3">Compact PLC</h3>
+<p>The Input / Output (I/O) modules in the compact PLC are determined by the manufacturer of that PLC. It means that the I/O is fixed. But, the compact PLCs are used for small scale applications.</p>
+<p>Let's have a look at the compact PLC.</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/types-of-plc4.png" alt="PLC Tutorial" />
+<hr />
+<h2 id="Works" class="h2">How PLC Works</h2>
+<p>In simple words, PLC takes the input from the input devices, processes it based on the logic in the CPU, and controls the output devices based on that logic.</p>
+<p>PLC is lightweight and can operate without any electrical filtering or air conditioning.</p>
+<p>Let's discuss this in detail.</p>
+<p>The devices such as pushbutton, sensors are connected as the input devices, which can detect a change in the input signals in the PLC. The input signal passes through the barrier that converts the voltage into low voltage, such as 5V. The CPU monitors the state of the input. Based on the specified logic, CPU processes and produces the output signal. The barrier present at the output terminal prevents the PLC from external noise and converts the low voltage to high voltage to drive output devices. The output signal controls the output devices, such as motor, controllers, pilot lights, etc.</p>
+<hr />
+<h2 id="Architecture" class="h2">Architecture of PLC</h2>
+<p>The PLC hardware setup or architecture contains the hardware and software that is used to perform the control functions.</p>
+<p>Let's have a look at the architecture of the PLC.</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/architecture-of-plc.png" alt="PLC Tutorial" />
+<p>The components of the PLC are listed below:</p>
+<h3 class="h3">PS</h3>
+<p>PS stands for <strong>Power Supply</strong>. The power supply acts as a power source for the PLC system. It converts the high voltage into low voltage or DC, such as 120V AC to 24V DC.</p>
+<p>The Linear power supply is less complicated than the other modes of power supply.</p>
+<h3 class="h3">SMPS</h3>
+<p>It stands for <strong>Switch Mode Power Supply</strong>. <a href="smps-full-form.html">SMPS</a> is power conversion and a high-frequency power conversion device. It converts the voltage level into the specifically required voltage. SMPS uses solid stat switches to convert the AC supply into the smooth DC supply.</p>
+<p>SMPS is generally used for high power conversion from AC to DC. It also has high efficiency than PS.</p>
+<p>Let's discuss some differences between PS and SMPS. Consider the below table.</p>
+<table class="alt">
+<tr>
+<th>Category</th>
+<th>PS (Power Supply)</th>
+<th>SMPS (Switch Mode Power Supply)</th>
+</tr>
+<tr>
+<td><strong>Weight</strong></td>
+<td>Bulky</td>
+<td>Light in weight</td>
+</tr>
+<tr>
+<td><strong>Efficiency</strong></td>
+<td>Low efficiency between 20 % to 25%</td>
+<td>High efficiency between 60 % to 65%</td>
+</tr>
+<tr>
+<td><strong>Complexity</strong></td>
+<td>Less complex</td>
+<td>More complex</td>
+</tr>
+<tr>
+<td><strong>Response</strong></td>
+<td>Faster response</td>
+<td>Slower response</td>
+</tr>
+<tr>
+<td><strong>Uses</strong></td>
+<td>Radio frequency applications</td>
+<td>Mobile chargers, DC motors, etc.</td>
+</tr>
+</table>
+<p id="SMPSconverts"><strong>How SMPS converts voltage?</strong></p>
+<p>Let's consider the AC voltage of 224V. The process will convert 224V AC to 24V DC.</p>
+<p>Consider the block diagram given below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/how-smps-cconverts-voltage.png" alt="PLC Tutorial" />
+<p>It clearly explains the process of converting high voltage to low DC voltage.</p>
+<h3 class="h3">CPU</h3>
+<p>CPU or <strong>Central Processing Unit</strong> is present in the Central rack of the PLC. The data bus is used as a medium to send data between different elements in the PLC. It controls all functions, such as programmed instructions stored in the memory of PLC. It also controls logic, communications, and monitoring in the PLC. It is the unit of the PLC that contains a <a href="microcontroller.html">microcontroller</a> or <a href="microprocessor-tutorial.html">microprocessor</a>.</p>
+<p>The CPU executes the program when it is operated in the run mode.</p>
+<h3 class="h3">IM</h3>
+<p>IM or <strong>Interface Module</strong> is defined as an accurate, position sensing, and absolute device. It is commonly used with transducers to reduce noise in harsh environments.</p>
+<h3 id="Programmingdevice" class="h3">Programming device</h3>
+<p>We need to specify the required program into the processor's memory. The program is initially developed in the programming device. After that, the program is transferred to the memory unit of the PLC.</p>
+<h3 class="h3">CP</h3>
+<p>CP stands for <strong>Communication Process</strong>. The communication process in PLC includes a <strong>wiring system</strong> and a <strong>shared protocol</strong>. The wiring system is used to connect different components in PLC, whereas shared protocol allows any device to understand the bits and bytes in the communication process.</p>
+<h3 class="h3">MCB</h3>
+<p><a href="mcb-full-form.html">MCB</a> or <strong>Miniature Circuit Breaker</strong> acts as a safety device for the PLC. It automatically switches off the circuit if an overload or fault condition arises. MCB is commonly used instead of fuse I low voltage electrical network.</p>
+<h3 class="h3">Input Module</h3>
+<p>The input module of PLC detects the input devices' status, such as sensors, switches, push-buttons, etc.</p>
+<h3 class="h3">Output Module</h3>
+<p>The output module of PLC controls the output devices, such as motors, relays, lights, etc.</p>
+<h3 class="h3">Rack</h3>
+<p>The Rack usually acts as a holding device of PLC. It means that it holds everything together. We can add racks in the PLC to hold more modules. The racks are also available in a different size.</p>
+<h3 class="h3">Memory Unit</h3>
+<p>Memory Unit is the unit that stores programs, data, and information in the PLC.</p>
+<p>The PLC has two types of the memory unit, which are listed below:</p>
+<p><strong>Data memory:</strong> The data memory consists of the stored data from the Input/output modules of the PLC.</p>
+<p><strong>Program Memory:</strong> The program memory consists of the logic program or ladder logic program in the PLC.</p>
+<hr />
+<h2 id="Cycle" class="h2">PLC cycle</h2>
+<p>The PLC system is often expensive. The incorrect programming or design of PLC can result in loss of productivity. To save the time to design of PLC control applications, simulation software like PLCLogix are recommended. Such software saves time and also increases the safety associated with the PLC equipment.</p>
+<p>The PLC cycle is shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-cycle.png" alt="PLC Tutorial" />
+<p><strong>Know your process:</strong> We should know our process that we are starting with.</p>
+<p><strong>Circuit design:</strong> The design is the first part of any project. A project or model cannot be created without design.</p>
+<p><strong>Devices used:</strong> It is crucial to know the devices used in the project.</p>
+<p><strong>Programming:</strong> It is an essential part. The created model is programmed for implementation.</p>
+<p><strong>Testing or Simulation:</strong> At the final stage, the model is tested. Considerable time is spent on testing and simulation.</p>
+<p>The above steps are necessary to understand the operation of the PLC.</p>
+<h3 class="h3">Scan cycle of PLC</h3>
+<p>The PLC continuously scans the process because the inputs are random (can change any time). The scan cycle is divided into three parts, named <strong>Input scan, Output scan,</strong> and <strong>program execution</strong>.</p>
+<p><strong>Scan time:</strong> It is defined as the time taken by one cycle to go through the program. The time duration of a cycle is minimal, i.e., 1/1000th of a second. It can vary depending on the program.</p>
+<p>The lesser the scan time, the better and expensive will be the PLC.</p>
+<p>The Scan cycle is shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-cycle2.png" alt="PLC Tutorial" />
+<p><strong>Input Scan:</strong> The PLC solves the logic based on the specified inputs. The ON/OFF state of the input is saved in the data table in advance, avoiding sudden changes in the input. It also makes the process faster.</p>
+<p><strong>Program Execution:</strong> The control logic keeps the memory copy of the ladder logic program. It executes only one instruction at a time using that copy.</p>
+<p><strong>Output Scan:</strong> It updates the outputs after the scan process is completed. The values of the program are temporary. Based on such values, the Output is updated. After that, it self-checks for any fault and restarts the process.</p>
+<hr />
+<h2 id="safety" class="h2">What is a safety PLC?</h2>
+<p>The safety PLC is similar to the normal PLC with some extra safety features, such as redundancy. The safety PLC can also perform additional field device checking, such as snooping.</p>
+<p>The PLCs are part of the Automation System, which is related to Electrical engineering. A safety PLC is one of the important of any automated Industrial process. The <strong>sensors, PLC (logic solver)</strong>, and the <strong>control systems</strong> are considered the three parts of the SIS (Safety Instrumented System). SIS is termed as Safety Shutdown System.</p>
+<p>The SIS monitors a process and reacts by making a shutdown if any unsafe or risk condition arises. The role of safe PLCs is to guard the process against project/plant failures to prevent the environment from harsh risks. In any hazardous condition, safety place will place the plant in a safe condition.</p>
+<hr />
+<h2 id="Automation" class="h2">What is Automation?</h2>
+<p>Automation is defined as a process, system, procedure that reduces human efforts to a minimum. It is a mechanical device that operates and functions automatically without continuous input. The devices are created electronically.</p>
+<p>The scope of Automation is increasing like other technologies, such as Machine Learning and Artificial Intelligence. For example, <strong>aircraft, boilers, heat treating ovens, automatic machinery</strong>, etc.</p>
+<p>Let's discuss some features of Automation.</p>
+<ul class="points">
+<li>Automation has not only reduced human labor but also uses machinery for repetitive tasks.</li>
+<li>Industrial Automation has resulted in increased productivity, safety, better utilization of resources, improved production rate, and higher output.</li>
+<li>It has increased consistency.</li>
+<li>Time-saving procedure.</li>
+<li>Better reliability</li>
+<li>Reduced cost of operations.</li>
+<li>More safety and job security.</li>
+<li>PLC has replaced sequencers and timers.</li>
+<li>I/O Scanning</li>
+</ul>
+<p>The automation is categorized as Industrial and Non-Industrial Automation.</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-automation.png" alt="PLC Tutorial" />
+<h3 id="AutomationTypes" class="h3">Types of Automation</h3>
+<p>Let's have a quick look at the types of Automation.</p>
+<p>There are four types of Automation, which are listed below:</p>
+<ul class="points">
+<li>Fixed Automation</li>
+<li>Flexible Automation</li>
+<li>Programmable Automation</li>
+<li>Integrated Automation</li>
+</ul>
+<p><strong>Fixed Automation</strong></p>
+<p>Fixed automation has an open and logic-based programming system. But, it has a high production rate and high initial investment.</p>
+<p><strong>Flexible Automation</strong></p>
+<p>The flexible automation is quite flexible in dealing with the products having design variations.</p>
+<p><strong>Programmable Automation</strong></p>
+<p>It is a human-based system. Here, the new program is prepared and enters into the new equipment to create new products.</p>
+<p><strong>Integrated Automation</strong></p>
+<p>It is the combination of the above three automation (fixed, flexible, and programmable). It is an industrial control system that extends its technical services in the engineering domain.</p>
+<hr />
+<h2 id="Applications" class="h2">Applications of PLC</h2>
+<p>We generally use a desktop or laptop for programming.</p>
+<p>Some of the applications of PLC are listed below:</p>
+<ul class="points">
+<li>Controlling elevators</li>
+<li>Controlling traffic signals</li>
+<li>Washing machines</li>
+<li>Amusement rides</li>
+<li>Machinery control</li>
+<li>Bottle filling system</li>
+<li>Water tank level control</li>
+</ul>
+<h3 id="Criteria" class="h3">Criteria for selecting PLC</h3>
+<p>It is essential to select the best PLC.</p>
+<p>Let's discuss the criteria for selecting a PLC. We should select any PLC based on the following parameters:</p>
+<h3 class="h3">System Requirements</h3>
+<p>The required PLC should be compatible with the system requirements of our computer or laptop.</p>
+<p>We should always check the PLC model.</p>
+<h3 class="h3">Scan time</h3>
+<p>It is also an essential part of selecting any PLC. The PLC will less scan time is considered as the best PLC, but are costly. The variation of scan time depends on the number of inputs of the PLC.</p>
+<h3 class="h3">Communication</h3>
+<p>Communication means sharing information with other devices. The hardware cable can be twisted pair cables, radio modem, etc.</p>
+<h3 class="h3">Speed of Operation</h3>
+<p>It defines the operating speed of the control system of the PLC.</p>
+<h3 class="h3">Application Requirements</h3>
+<p>It determines the input and output requirements for the PLC system.</p>
+<h3 class="h3">Electrical Requirements</h3>
+<p>The Electrical requirements include the parameters, such as input voltage, control system's power, output current, and output voltage.</p>
+<h3 class="h3">I/Os</h3>
+<p>The I/O modules should be selected according to the required project needs. If we want to control the stepper motor, we can opt for a Rack PLC.</p>
+<h3 class="h3">Memory</h3>
+<p>We need first to check the required amount and size of the memory. The memory of the PLC is related to the number of I/O, the installation of the control program, etc.</p>
+<h3 class="h3">Software Requirements</h3>
+<p>The software requirements include compatible CPU, Communication and I/O ports, USB port, Ethernet port, user-specified port, etc.</p>
+<h3 class="h3">Physical Requirements</h3>
+<p>We should always consider the location of the PLC control system. We should place the PLC control system in IP-rated closure in the harsh environments. Other parameters, such as maintenance, accessibility, and troubleshooting, should also be kept in mind before selecting any PLC.</p>
+<hr />
+<h2 id="Siemens" class="h2">Siemens PLC</h2>
+<p>As discussed, Siemens PLC is the most common PLCs used all over the industries.</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/siemens-plc.png" alt="PLC Tutorial" />
+<p>The Siemens PLC are divided into three generations, which are given below:</p>
+<p>1<sup>st</sup> Generation - <strong>Micro</strong></p>
+<p>2<sup>nd</sup> Generation - <strong>Mini</strong></p>
+<p>3<sup>rd</sup> Generation - <strong>Nano</strong> or <strong>Rack PLC</strong></p>
+<p>The series of Siemens PLCs are listed below:</p>
+<ul class="points">
+<li>S7200</li>
+<li>S7300</li>
+<li>S7400</li>
+<li>S7400H</li>
+<li>S7400F</li>
+<li>S71200</li>
+<li>S71500</li>
+</ul>
+<p>S7400F PLC also has the feature of Fault Tolerance. We can select the product as per the requirement. S7200 is the cheapest available Siemens PLC. It is easy to start programming with the S7-200 PLC.</p>
+<h3 class="h3">SIMATIC STEP 7</h3>
+<p>Simatic step 7 is the powerful automation software tool, which includes the programming environments for Siemens PLCs. The Simatic Step 7 engineering software can be used for programming and configuring HMI Basic Panels.</p>
+<p>The supported programming languages in the STEP 7 software are ladder programming, Functional Block Diagram, and Structured text programming language.</p>
+<p>Today, the intelligent choice for automatic is the <strong>SIMATIC S7-1200</strong> controllers.</p>
+<p>Let's understand the advantages of S7-1200 controllers, which are listed below:</p>
+<ul class="points">
+<li>These PLCs are available in failsafe and standard versions.</li>
+<li>It comes with extended communication functions and improved data transfer.</li>
+<li>It allows the transfer of sensitive machine data.</li>
+<li>It supports predictive maintenance.</li>
+<li>It also supports data transfer with other controllers.</li>
+<li>It enables data storage.</li>
+</ul>
+<hr />
+<h2 id="Protocols" class="h2">PLC Protocols</h2>
+<p>PLCs communicate using the protocols. The protocols associated with the PLCs are listed below:</p>
+<p><strong>1. PPI</strong></p>
+<p>The <strong>PPI</strong> or <strong>Point to Point Interface</strong> Protocol is a communication protocol specially designed for S7-200 PLC. But, it is not directly opened by Siemens.</p>
+<p><strong>2. MPI</strong></p>
+<p>The <strong>MPI</strong> or <strong>Multi-Point Interface</strong> Protocol is an interface of the Siemens Company. The MPI is used to connect the devices, such as personal computers, etc. The speed of MPI ranges from 187.5 kBd (Kilo Baud) to 12 Mega Baud.</p>
+<p><strong>3. Profibus</strong></p>
+<p><strong>Process field Bus</strong> or <strong>Profibus</strong> uses a multi-drop single cable, which is used to connect the devices. It is often confused with the Profinet. It is easy to find faults in a single cable. The installation cost of the Profibus cable is also low.</p>
+<p><strong>4. Profinet</strong></p>
+<p>The <strong>Process filed net</strong> or Profinet is also used by Siemens like Profibus. The response time of Profinet is faster, which provides higher data collection.</p>
+<p><strong>5. Fiber Optics cable</strong></p>
+<p>The <strong>Fiber Optics</strong> cable supports high bandwidths level and high transmission capacity over long distances.</p>
+<p><strong>6. Ethernet cable</strong></p>
+<p>The Ethernet cable acts as a wired transmission intermediate between the devices. Ethernet cables are considered for wiring analog input and outputs in PLC. The Ethernet connection provides faster security and reliability than the wireless connection.</p>
+<p><strong>7. LAN Cable</strong></p>
+<p>The <a href="wireless-lan-introduction.html">LAN</a> cable provides the downloading and uploading capacity from the host computer to the PLC or vice versa. The common LAN applications include distributed control, etc.</p>
+<p><strong>8. Cat 5, Cat 6, and Cat 7</strong></p>
+<p>Here, Cat stands for <strong>Category</strong>. These are the common Ethernet standards that are widely used for transmission with reduced interference.</p>
+<p>The speed of Cat5 is upto 100Mbps.</p>
+<p>The speed of Cat6 is upto 10Gbps.</p>
+<p>The speed of Cat7 is upto 100Gbps. It is the latest cable, which is shielded.</p>
+<p><strong>Twisted Pair cables</strong></p>
+<p>It is a kind of wiring system in which two pairs of conductors of a single circuit are twisted together to improve the electromagnetic capability of the circuit.</p>
+<hr />
+<h2 id="Manufacturers" class="h2">PLC Manufacturers</h2>
+<p>The industries that make PLC are listed below:</p>
+<ul class="points">
+<li><strong>Siemens</strong><br>
+It is the German multinational company that manufactures PLC. It is well known and most used PLC all over the world.</li>
+<li><strong>Rockwell Automation</strong><br>
+It is an American company that also took over the Allen Bradley brand. It is the largest manufacturer of PLCs and well known in the United States.</li>
+<li><strong>ABB</strong><br>
+The ABB is a Swiss multinational company that provides PLCs within vast industries and applications.</li>
+<li><strong>Omron</strong><br>
+It is a Japan-based electronics company.</li>
+<li><strong>General Elastic</strong><br>
+It is an American based PLC company.</li>
+<li><strong>Delta</strong><br>
+It deals with all types of automation machines. It is a Taiwan- based PLC manufacturer.</li>
+<li><strong>Schneider</strong><br>
+The Schneider is a French-based PLCs manufacturer.</li>
+<li><a href="https://en.wikipedia.org/wiki/Mitsubishi" rel="nofollow" target="_blank"><strong>Mitsubishi</strong></a><br>
+It is a Japanese MNC group that manufactures PLC.</li>
+<li><strong>Koyo Electronics Corporation Limited</strong><br>
+It manufactures the DirectLogic PLC brand. It is a Japanese based industry.</li>
+</ul>
+<hr />
+<h2 id="Programming" class="h2">PLC Programming</h2>
+<p>PLC programming is a crucial task of implementing and designing control applications as per the user requirements. It is the set of instructions that can be in the graphical or textual form.</p>
+<p>Here, we will discuss the most commonly used method called Ladder diagram, which is a type of graphical method. The PLC works according to the specified program as soon as it is placed in the run mode.</p>
+<p>The programming is carried out in the PLC software. Here, we have discussed the software that is popularly used for Siemens PLC called SIMATIC STEP 7. We can easily download it from any browser. The function blocks in the programming include <strong>push-button, counters, timers, comparators,</strong> etc.</p>
+<h3 class="h3">Types</h3>
+<p>We have discussed that the control logic establishes the input and output of a PLC. The control logic of the PLC can be programmed using different programming languages.</p>
+<p>Out of all the programming languages, Ladder is the most common programming language used for PLC. So, we will discuss Ladder programming in detail.</p>
+<p>The initial version of IEC standard 61131-3 supports five basic programming languages called FBD, ST, IL, SFC, and Ladder. The standard-based programming language to program PLC is called the Ladder diagram. ST and IL are the textual programming language, while Ladder, FBD, and SFC are the graphical programming languages.</p>
+<p>. Let's discuss six types of programming language, which are listed below:</p>
+<p><strong>FBD (Function Block Diagram)</strong></p>
+<p>The functions in the FBD diagram are described as the set of elementary blocks. The variables (input and output) in the Function Block Diagram are connected to blocks by the lines.</p>
+<p><strong>ST (Structured Text)</strong></p>
+<p>The Structured Text is a block-structured language that is based on Pascal. It is a high-level language. It is also a text-based language.</p>
+<p><strong>IL (Instruction List)</strong></p>
+<p>The instruction List is a text-based and a low-level language.</p>
+<p><strong>SFC (Sequential Flow Chart)</strong></p>
+<p>The Sequential Flow charts are defined by the function of charts in a sequence. We can use it if the process can be divided into steps.</p>
+<p>Sample Program:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming.png" alt="PLC Tutorial" />
+<h3 class="h3">Ladder Logic</h3>
+<p>It is defined as a graphical programming language that uses symbolic notation for expressing the logical operations. We can program the PLC on any software using the ladder logic.</p>
+<p>Before beginning with the programming, let's discuss some basic concepts.</p>
+<h3 class="h3">Push Buttons</h3>
+<p>The pushbuttons are the simple buttons to control the machine or a process. We are required to push the button to change its electrical state from ON to OFF or vice-versa.</p>
+<p>Push buttons are further categorized as <strong>NO (Normally Open)</strong> and <strong>NC (Normally Closed)</strong>, as shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming2.png" alt="PLC Tutorial" />
+<p><strong>NC:</strong> The Normally Close is the default state of a circuit that makes electrical contact with the circuit. It means the circuit is in ON state.</p>
+<p><strong>NO:</strong> The Normally Open is the state of a circuit that makes no electrical contact with the circuit. It means the circuit is in the OFF state. It opens the terminal of the circuit to interrupt the flowing current.</p>
+<p>We will use pushbuttons for programming in PLC.</p>
+<h3 class="h3">Symbols used in Programming</h3>
+<p>Various symbols are used to create a ladder circuit for PLC programming. Let's consider some essential symbols. The symbols are shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming3.png" alt="PLC Tutorial" />
+<p>Let's first discuss the concept of NO and NC. We will also discuss the output of NO and NC buttons when the input is 0 or 1.</p>
+<p><strong>NO</strong></p>
+<p>The NO button turns NC when it is pressed. It means, when the input is 1, NO turns NC. It means the current can pass through.</p>
+<p>Consider the below image:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming4.png" alt="PLC Tutorial" />
+<p>It clearly shows that when the input is 0, NO remains NO. It turns NC when the input is 1.</p>
+<p><strong>NC</strong></p>
+<p>The NC button remains the same when the input is 0. It turns NO when the input is 1.</p>
+<p>Consider the below image:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming5.png" alt="PLC Tutorial" />
+<p>We can arrange NO and NC in parallel or series according to the requirements.</p>
+<p>Now, we will discuss the logic gates with their ladder diagram. The concept of using NO and NC in a ladder diagram will help us in building the circuits of PLC. The ladder diagram of Logic gates are discussed below:</p>
+<h3 class="h3">Logic Gates</h3>
+<p>We will discuss logic gates with their circuit using NO and NC buttons.</p>
+<p><strong>Basic Gates</strong></p>
+<p>The Basic Gates are <strong>AND, OR,</strong> and <strong>NOT</strong>.</p>
+<p>The truth table of OR and AND Gate is given below:</p>
+<table class="alt">
+<tr>
+<th>A</th>
+<th>B</th>
+<th>OR</th>
+<th>AND</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</table>
+<p>The truth table of NOT Gate is given below:</p>
+<table class="alt">
+<tr>
+<th>A</th>
+<th>NOT</th>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+</tr>
+</table>
+<p><strong>Ladder Diagram of AND Gate</strong></p>
+<p>The ladder diagram of AND Gate is given below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming6.png" alt="PLC Tutorial" />
+<p>Here, <strong>A</strong> and <strong>B</strong> are the <strong>inputs</strong>, while <strong>L</strong> is the <strong>lamp</strong>. The lamp will glow when the current flows through the circuit and reaches the lamp. Otherwise, the lamp will not glow.</p>
+<p>When A = 0 and B = 1, the circuit will appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming7.png" alt="PLC Tutorial" />
+<p>The lamp will not light because the starting button is OFF. The current will not flow.</p>
+<p>But, if A = 1 and B = 1, the circuit will appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming8.png" alt="PLC Tutorial" />
+<p>Here, the lamp will light. Hence, the condition of the AND gate is satisfied.</p>
+<p>Similarly, we will create a ladder diagram for all the gates using the same logic, as discussed above.</p>
+<p><strong>Ladder Diagram of OR Gate</strong></p>
+<p>The ladder diagram of OR Gate is given below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming9.png" alt="PLC Tutorial" />
+<p>When A = 0 and B = 1, the circuit will appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming10.png" alt="PLC Tutorial" />
+<p>When A = 1 and B = 1, the circuit will appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming11.png" alt="PLC Tutorial" />
+<p><strong>Ladder Diagram of NOT Gate</strong></p>
+<p>The ladder diagram of NOT gate is a simple NC.</p>
+<p>It will give output 1 if the input is 0 and vice versa.</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming12.png" alt="PLC Tutorial" />
+<p>If the input is 0, the circuit will appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming13.png" alt="PLC Tutorial" />
+<p>If the input is 1, the circuit will appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming14.png" alt="PLC Tutorial" />
+<p>The lamp will not light because NC will become NO.</p>
+<p><strong>Universal Gates</strong></p>
+<p>The Universal Gates are <strong>NAND</strong> and <strong>NOR</strong>.</p>
+<p>The truth table of NAND and NOR gate is given below:</p>
+<table class="alt">
+<tr>
+<th>A</th>
+<th>B</th>
+<th>NOR</th>
+<th>NAND</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</table>
+<p><strong>Ladder Diagram of NAND Gate</strong></p>
+<p>The ladder diagram of NAND Gate is given below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming15.png" alt="PLC Tutorial" />
+<p>When, A = 1 and B = 0, the circuit will appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming16.png" alt="PLC Tutorial" />
+<p>Here, the lamp will light.</p>
+<p>If A = 1 and B = 1, the lamp will not light because both NC will become NO.</p>
+<p>Hence, the condition is satisfied.</p>
+<p><strong>Ladder Diagram of NOR Gate</strong></p>
+<p>The ladder diagram of NOR Gate is given below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming17.png" alt="PLC Tutorial" />
+<p>When, A = 1 and B = 0, the circuit will appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming18.png" alt="PLC Tutorial" />
+<p>Here, the lamp will not light because the first NC will become NO.</p>
+<p>If A = 0 and B = 0, the lamp will light because both NC will remain the same.</p>
+<p>Hence, the condition is satisfied.</p>
+<p><strong>Exclusive Gates</strong></p>
+<p>The Exclusive Gates are <strong>XOR</strong> and <strong>XNOR</strong>.</p>
+<p>The truth table of EX-OR and Ex-NOR gate is given below:</p>
+<table class="alt">
+<tr>
+<th>A</th>
+<th>B</th>
+<th>XOR</th>
+<th>XNOR</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</table>
+<p><strong>For XOR</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+Y= (A&#10753;B)
+Y= (A' B+AB')
+</textarea></div>
+<p><strong>For XNOR</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+Y= (A&#10753;B)'
+Y= ((AB)'+AB)
+</textarea></div>
+<p><strong>Ladder Diagram of XOR Gate</strong></p>
+<p>The ladder diagram of XOR Gate is given below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming19.png" alt="PLC Tutorial" />
+<p>When A = 0 and B = 1, the circuit will appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming20.png" alt="PLC Tutorial" />
+<p>Here, the lamp will light.</p>
+<p>But, if A = 1 and B = 1, the circuit will appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming21.png" alt="PLC Tutorial" />
+<p>Here, the lamp will not light because both the NC of the circuit becomes NO.</p>
+<p>Hence, the condition is satisfied.</p>
+<p><strong>Ladder Diagram of XNOR Gate</strong></p>
+<p>The ladder diagram of XNOR Gate is given below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming22.png" alt="PLC Tutorial" />
+<p>When A = 0 and B = 1, the circuit will appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming23.png" alt="PLC Tutorial" />
+<p>The lamp will not light. The circuit is incomplete for the current to flow.</p>
+<p>But, if A = 1 and B = 1, the circuit will appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-programming24.png" alt="PLC Tutorial" />
+<p>Here, the lamp will light.</p>
+<p>Hence, the condition is satisfied.</p>
+<h3 id="MemoryMapping" class="h3">Memory Mapping in PLC</h3>
+<p>The memory mapping in PLC is discussed below:</p>
+<p>1 byte = 8 bits.</p>
+<p>1 bit = 0 or 1</p>
+<p>2 bytes = 2 x 8 = 16 bits = 1 word</p>
+<p>4 bits = nibble</p>
+<p>2 word = 32 bit = 4 byte = 8 nibble = 1 double word</p>
+<p>The memory is divided into program, words, and discrete registers.</p>
+<p><strong>Program:</strong> The program is created using functional blocks and symbols. The functional blocks, functions, and blocks can be programmed using five programming languages, as discussed above.</p>
+<p><strong>Words:</strong> 1 word = 16 bits.</p>
+<p><strong>Discrete Registers:</strong> The 1-bit registers that can be used as input are considered as discrete registers. The 16-bit registers that can be used as input are considered as Input register.</p>
+<p>Consider the partial memory map for the PLCs, which is shown in the below table:</p>
+<table class="alt">
+<tr>
+<th>File No.</th>
+<th>File type</th>
+<th>Addressing range</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Output Image</td>
+<td>O:0 to O:30</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Input</td>
+<td>Image	I:0 to I:30</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Status</td>
+<td>S:0 to S:n</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Binary</td>
+<td>B3:0 to B3:255</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Timers</td>
+<td>T4:0 to T4:255</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Counters</td>
+<td>C5:0 to C5:255</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Control</td>
+<td>R6:0 to R6:255</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Integer</td>
+<td>N7:0 to N7:255</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Floating-point</td>
+<td>F8:0 to F8:255</td>
+</tr>
+</table>
+<h3 id="MemoryAreas" class="h3">Memory Areas</h3>
+<p>The Memory areas in PLC are categorized as Load Memory, Work memory, and Retentive memory.</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/plc-memory-areas.png" alt="PLC Tutorial" />
+<p><strong>Load Memory</strong></p>
+<p>It is a type of non-volatile memory. It contains the memory and the data blocks, code blocks, and the configuration of the hardware.</p>
+<p><strong>Work Memory</strong></p>
+<p>It is a type of volatile memory. It contains the memory and the data blocks. The work memory is only used in the CPU operation, and cannot be extended.</p>
+<p><strong>Retentive Memory</strong></p>
+<p>It is a type of non-volatile memory. It saves a limited amount of data in case of a power failure. But, certain actions like <strong>memory reset</strong> and <strong>factory settings reset</strong> can cause the deletion of memory objects of the retentive memory.</p>
+<h3 id="OtherComponents" class="h3">Other Components used in Programming</h3>
+<p>Other components used in the programming are listed below:</p>
+<p><strong>Timers</strong></p>
+<p>The Timers in PLC provides the ON and OFF time delay like electronics relays. For example, a timer of 5s is placed in the ladder circuit. The output will be OFF/ON after duration of 5 seconds.</p>
+<p>The timers are categorized as ON timer, OFF timer, and Pulse timer.</p>
+<p><strong>ON Timer</strong></p>
+<p>The output in ON timer is turned ON after the specified delay. It is the most commonly used delay timer.</p>
+<p>The ON Timer is represented as the figure shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/other-components-used-in-programming.png" alt="PLC Tutorial" />
+<br>
+<img src="https://static.javatpoint.com/tutorial/plc/images/other-components-used-in-programming2.png" alt="PLC Tutorial" />
+<p>We can represent the time in two ways called seconds and milliseconds.</p>
+<p>For example,</p>
+<ol class="points">
+<li>T # 5S_200MS</li>
+<li>T#3S</li>
+</ol>
+<p>Where,</p>
+<p>S means seconds and MS means milliseconds</p>
+<p>The parameters in the ON timer are listed below:</p>
+<p><strong>Timer Number:</strong> file name</p>
+<p><strong>Time Base:</strong> Time shown as a base. Here, it is shown in seconds</p>
+<p><strong>Preset Value:</strong> specified delay time</p>
+<p><strong>Accumulated value:</strong> Value becomes 0 when the timer is reset. It starts the timer counting from 0.</p>
+<p>The output of the ladder diagram is turned ON when accumulated time becomes equal to the Preset time.</p>
+<p><strong>How ON timer works?</strong></p>
+<p>When the condition or the logic diagram becomes true, the timer starts counting. It counts until the specified delay time. For example, if the delay time is 10 seconds, the timer will count upto 10 seconds. The counting appears in the accumulated value section. As soon as the value of the accumulated section becomes equal to the Preset value (specified value), the logic operates (true) and turns the output ON.</p>
+<p>Consider the below graph:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/other-components-used-in-programming3.png" alt="PLC Tutorial" />
+<p><strong>OFF Timer</strong></p>
+<p>The output in the OFF timer is turned OFF after the specified delay. It is represented as the figure shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/other-components-used-in-programming4.png" alt="PLC Tutorial" />
+<br>
+<img src="https://static.javatpoint.com/tutorial/plc/images/other-components-used-in-programming5.png" alt="PLC Tutorial" />
+<p>The parameters in the OFF timer are similar to the parameters of the ON timer.</p>
+<p>The output of the ladder diagram is turned OFF when the accumulated time becomes equal to the Preset time.</p>
+<p><strong>How OFF timer works?</strong></p>
+<p>When the condition or the logic diagram becomes true, the timer starts accumulating. It counts until the accumulated value becomes equal as the specified present value. As soon as the value of the accumulated section becomes equal to the Preset value (specified value), the output becomes false and turns the output OFF.</p>
+<p>Consider the below graph:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/other-components-used-in-programming6.png" alt="PLC Tutorial" />
+<p><strong>S_PULSE Timer</strong></p>
+<p>The pulse timer is used to generate pulses. It generated pulses of the specified length.</p>
+<p>The pulse timer is shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/other-components-used-in-programming7.png" alt="PLC Tutorial" />
+<p>The parameters of the S_PULSE Timer are discussed below:</p>
+<p><strong>S:</strong> It means <strong>SET</strong>. It is defined as the trigger signal of the timer.</p>
+<p><strong>TV:</strong> It means the timer value stored in the timer. The time value is represented as <strong>S5T#TV</strong>, where TV is the specified time value.</p>
+<p>Let's consider an example:</p>
+<p><strong>S5T#10S</strong></p>
+<p>Here,</p>
+<p>10s is the time specified in seconds.</p>
+<p><strong>R:</strong> It means <strong>RESET</strong>. It is defined as the reset signal of the timer.</p>
+<p><strong>Q:</strong> It is the <strong>output</strong> of the Pulse timer.</p>
+<p><strong>BI:</strong> It represents the current time in the binary code.</p>
+<p><strong>BCD:</strong> It represents the current time in the binary coded decimal.</p>
+<p>The time is specified in the form of <strong>S5T#5s</strong>.</p>
+<p>Where,</p>
+<p>5s is the specified time in seconds.</p>
+<p>To set the time as 10 seconds, we will declare it as <strong>S5T#10s</strong>.</p>
+<p><strong>How does Pulse Timer work?</strong></p>
+<p>The set input (<strong>S</strong>) of the timer becomes active when it receives a positive pulse. The timer is in running state as long as the input is '1'. When the input changes its state from 0 to 1, the output is enabled. The timer keeps running until the accumulator value reaches the Preset value. We can read the accumulator value at the BI and BCD output of the Pulse timer.</p>
+<p>Consider the below graph:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/other-components-used-in-programming8.png" alt="PLC Tutorial" />
+<p><strong>S_ODT</strong></p>
+<p>Here, ODT stands for <strong>On Delay Timer</strong>. The timer runs as long as the input state of the signal is positive.</p>
+<p>The S-ODT timer is shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/other-components-used-in-programming9.png" alt="PLC Tutorial" />
+<p>The parameters of the S_ODT timers are similar to the S_PULSE timers.</p>
+<p><strong>S-ODTS</strong></p>
+<p>Here, ODTR stands for On Delay Timer. It is a type of Retentive On-delay timer.</p>
+<p>The timer starts when the SET state of the timer is positive. The timer restarts when there is a change in the state from 0 to 1.</p>
+<p>The S-ODTS timer is shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/other-components-used-in-programming10.png" alt="PLC Tutorial" />
+<p>Let's consider the graphs of S_PULSE, S_ODT, and S_ODTS timers, which are given below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/other-components-used-in-programming11.png" alt="PLC Tutorial" />
+<p>Here, TV represents the specified timer value.</p>
+<h3 id="Counters" class="h3">Counters</h3>
+<p>The counters are categorized as Step-up, Step-down, and Step-up-down.</p>
+<p><strong>Step-up Counter</strong></p>
+<p>The up-counter is used for counting up.</p>
+<p>The functional block of the up-counter will appear as the figure shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/counters.png" alt="PLC Tutorial" />
+<p>The parameters of the functional block are discussed below:</p>
+<p><strong>CU:</strong> It determines the input state of the counter.</p>
+<p><strong>R:</strong> It means <strong>RESET</strong>. It is defined as the reset signal of the counter.</p>
+<p><strong>PV:</strong> It is defined as the limit of the counter.</p>
+<p><strong>Q:</strong> It means Output.</p>
+<p><strong>CV:</strong> It is defined as the current counter value.</p>
+<p>The count value in the counter is represented as <strong>C # 10</strong>. The counter will count serially till 10 pulses.</p>
+<p><strong>How it works?</strong></p>
+<p>Each pulse on the input of the counter will increase its current value by 1. The output (Q) comes in the SET state when the current counter value is equal or greater than the counter limit.</p>
+<p>A pulse on the Reset (R) will reset the state of the counter. It means that the current counter value of the counter will become 0.</p>
+<p><strong>Step-down Counter</strong></p>
+<p>The down-counter is used for counting down.</p>
+<p>The functional block of the down-counter will appear as the figure shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/counters2.png" alt="PLC Tutorial" />
+<p>The parameters of the block are discussed below:</p>
+<p><strong>CD:</strong> It determines the input state of the down counter.</p>
+<p><strong>LD:</strong> It is called the load input.</p>
+<p><strong>PV:</strong> PV means the limit of the counter.</p>
+<p><strong>Q:</strong> It means Output.</p>
+<p><strong>CV:</strong> It is defined as the current counter value.</p>
+<p><strong>How does it work?</strong></p>
+<p>Each pulse on the input of the down-counter will decrease its current value by 1. It means that the counter value will decrement by 1. The output (Q) comes in the SET state when the current counter value is equal or less than 0.</p>
+<p>A pulse on the load input (LD) determines the counter limit value (PV). The value of the counter limit is further assigned to the CV (current counter value).</p>
+<p><strong>Step-up-down Counter</strong></p>
+<p>The up-down counter can be used for counting in both ways. We can set the up and down limit of the same number using the up-down counter.</p>
+<p>The functional block of the up-down counter will appear as the figure shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/counters3.png" alt="PLC Tutorial" />
+<p>The parameters of the block are discussed below:</p>
+<p><strong>CU:</strong> It determines the input state of the up counter.</p>
+<p><strong>CD:</strong> It determines the input state of the down counter.</p>
+<p><strong>R:</strong> It means <strong>RESET</strong>. It is defined as the reset signal of the counter.</p>
+<p><strong>LD:</strong> It is called the load input of the down counter.</p>
+<p><strong>PV:</strong> It is defined as the limit of the counter.</p>
+<p><strong>QU:</strong> It means Output of the Up counter.</p>
+<p><strong>QD:</strong> It means Output of the Down counter.</p>
+<p><strong>CV:</strong> It is defined as the current counter value.</p>
+<p><strong>How does it work?</strong></p>
+<p>Each pulse on the input of the up-counter will increase its current value by 1. Each pulse on the input of the down counter will decrease its current value by 1.</p>
+<p>The output (QU) comes in the SET state when the current counter value is greater or equal than the counter limit (PV). The output (QD) comes in the SET state when the current counter value is equal or less than 0.</p>
+<p>A pulse on the Reset (R) will reset the state of the counter. It means that the current counter value of the counter will become 0.</p>
+<p>A pulse on the load input (LD) determines the counter limit value (PV). The value of the counter limit is further assigned to the CV (current counter value).</p>
+<h3 id="Comparators" class="h3">Comparators</h3>
+<p>The comparators are used to compare two values. We can also compare physical quantities such as pressure, temperature, etc. using comparators.</p>
+<p>The types of values that can be compared using comparator are equal, greater than, less than, not equal, check the validity, and check invalidity.</p>
+<p>The value in comparators is represented as:</p>
+<p><strong>Equal comparator: CMP = = 1</strong></p>
+<p>Here, one is the value being compared to. It is used to determine if the first value is equal to a second value or not. Similarly, not equal is used to determine if the first value is not equal to the second value.</p>
+<p>The equal comparator is represented as the figure shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/comparators.png" alt="PLC Tutorial" />
+<p><strong>Greater or equal comparator: CMP &gt; = 1</strong></p>
+<p>It is used to determine if the first value is greater than or equal to the second value or not.</p>
+<p><strong>Less or equal comparator: CMP &lt; = 1</strong></p>
+<p>It is used to determine if the first value is less than or equal to the second value or not.</p>
+<p><strong>Less than comparator: CMP &lt; 1</strong></p>
+<p>It is used to determine if the first value is less than the second value or not.</p>
+<p><strong>Greater than comparator: CMP &gt;1</strong></p>
+<p>It is used to determine if the first value is less than the second value or not.</p>
+<p>Now, we have discussed about timers, comparators, counters, and pushbuttons.</p>
+<p>Let's implement these in the ladder diagram. It will make to clearly understand the concept of the ladder diagram and the components used in it.</p>
+<p>Consider the below examples.</p>
+<hr />
+<h2 id="Examples" class="h2">Examples</h2>
+<h3 class="h3">Example 1: We have three pushbuttons. If A, B, and C are pressed, the red LED goes ON. If A and B are pressed, the green LED goes ON. It means that only one LED is on at a time.</h3>
+<p>Solution:</p>
+<p><strong>Given:</strong> Here, there are two LEDs: green and red. At a time, one LED light. It can be either green or red.</p>
+<p>Push buttons: A, B, C</p>
+<p>We will create a ladder diagram based on the above logic.</p>
+<p>The ladder diagram is shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples.png" alt="PLC Tutorial" />
+<p>Here, we have inserted both NO and NC of the same button 'C' in the ladder diagram. When we press a NO button, it turns NC. When we press NC button, it turns NO.</p>
+<p>When we press the C button, we are pressing both the NO and NC of button C.</p>
+<p>Let's start.</p>
+<p><strong>Case 1:</strong> Press all A, B, and C buttons together.</p>
+<p>The circuit will now appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples2.png" alt="PLC Tutorial" />
+<p>Here, the red LED will light, as shown above.</p>
+<h4 class="n">Note: The above symbols are colored only for a better understanding.</h4>
+<p><strong>Case 2:</strong> Press only A and B button.</p>
+<p>NC always allows the current to pass through the circuit. It only becomes NO, when we press it.</p>
+<p>The circuit will now appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples3.png" alt="PLC Tutorial" />
+<p>Here, the green LED will light. Since, the C button was NC, it also allows the current to pass.</p>
+<h3 class="h3">Example 2: We have four push buttons. When A, B, and C are pressed, output goes ON. When C and D are pressed, the same output goes ON.</h3>
+<p>Solution:</p>
+<p><strong>Given:</strong> Here, there are four pushbuttons: A, B, C, and D.</p>
+<p>But here, we have only one output.</p>
+<p>We will create a ladder diagram based on the above logic.</p>
+<p>The ladder diagram is shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples4.png" alt="PLC Tutorial" />
+<p>Here, we have used NO (Normally Open) for all the four push buttons. If we want, we can also add NC for the D button in series with the three (A, B, C) push buttons. It will have no change in the output.</p>
+<p>Let's start.</p>
+<p><strong>Case 1:</strong> Press A, B, and C buttons.</p>
+<p>The circuit will now appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples5.png" alt="PLC Tutorial" />
+<p><strong>Case 2:</strong> Press C and D button.</p>
+<p>The circuit will now appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples6.png" alt="PLC Tutorial" />
+<p>Since A and B push buttons were off, the Output goes ON from the lower series of C and D buttons.</p>
+<h3 class="h3">Example 3: We have four inputs. Input 1 turns output 'A' ON. Input 1, 2, 3, and 4 turns output 'B' ON, while Input 1 and 2 turns ON output 'C' ON.</h3>
+<p>Solution:</p>
+<p><strong>Given:</strong> Here, there are four inputs (1, 2, 3, and 4) and three outputs (A, B, and C).</p>
+<p>We will create a ladder diagram based on the above logic.</p>
+<p>The ladder diagram is shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples7.png" alt="PLC Tutorial" />
+<p>Let's start.</p>
+<p><strong>Case 1:</strong> Press input 1.</p>
+<p>The circuit will now appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples8.png" alt="PLC Tutorial" />
+<p>Here, output A goes ON.</p>
+<p><strong>Case 2:</strong> Press all the inputs.</p>
+<p>The circuit will now appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples9.png" alt="PLC Tutorial" />
+<p>We have pressed all the four inputs (1, 2, 3, and 4). Here, output B goes ON.</p>
+<p>As input 2 on the first row and input 3 on the third row is NC. So, pressing them will block the current flow.</p>
+<p><strong>Case 3:</strong> Press input 1 and 2.</p>
+<p>The circuit will now appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples10.png" alt="PLC Tutorial" />
+<p>Input 3 is NC. So, it allows the current to reach Output C. Hence; output C goes ON.</p>
+<h3 class="h3">Example 4: We have three inputs and three LEDs as an output.</h3>
+<h3 class="h3">When we press button A and B, the red LED turns ON. When we press button A B, and C, the green LED turns ON. When we press button B and C, the yellow LED turns ON.</h3>
+<p>Solution:</p>
+<p><strong>Given:</strong> Here, there are three inputs (A, B, and C) and three outputs as LED (Red, Green, and the Yellow).</p>
+<p>We will create a ladder diagram based on the above logic.</p>
+<p>The ladder diagram is shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples11.png" alt="PLC Tutorial" />
+<p>Let's start.</p>
+<p><strong>Case 1:</strong> Pressing button A and B.</p>
+<p>The circuit will now appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples12.png" alt="PLC Tutorial" />
+<p>Here, red LED will light.</p>
+<p><strong>Case 2:</strong> Pressing all the buttons.</p>
+<p>The circuit will now appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples13.png" alt="PLC Tutorial" />
+<p>A is an NC button in the third row, which on pressing blocks the current flow. Hence, the Green LED will light.</p>
+<p>We can also insert NC of the B button instead of the A button in the third row. According to the question, we can set the NO and NC as per our choice. But, it should not have any adverse impact on the output.</p>
+<p><strong>Case 3:</strong> Pressing button B and C.</p>
+<p>The circuit will now appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples14.png" alt="PLC Tutorial" />
+<p>Now, we will discuss some examples of timers and counters.</p>
+<h3 class="h3">Example 4: There are two motors (1 and 2). Motor 1 becomes ON by pressing the start button. But, when the stop is pressed, it becomes OFF, and Motor 2 is ON for 10 seconds.</h3>
+<p>Solution:</p>
+<p><strong>Given:</strong> Here, there are two motors. There is the use of time duration in seconds. Hence, timers will be used.</p>
+<p>We will create a ladder diagram based on the above logic. The circuit implementation using the timers, etc. is quite difficult than normal circuits.</p>
+<p>Here, we will use the Pulse timer.</p>
+<p>We will draw the three ladder diagrams.</p>
+<p>The above process is explained step by step.</p>
+<p>Let's start.</p>
+<p><strong>Step 1: First ladder diagram</strong></p>
+<p>The first ladder diagram is shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples15.png" alt="PLC Tutorial" />
+<p>Here,</p>
+<p><strong>'Q 0.0'</strong> is the output of the first ladder. The output 'Q 0.0' parallel with the 'I 0.1' button acts as a <strong>buffer</strong> for the circuit.</p>
+<p><strong>'I 0.1'</strong> is the <strong>start</strong> button.</p>
+<p>The output of the circuit is considered as the output of Motor 1.</p>
+<p><strong>Working:</strong> When we press the start button, Motor 1 becomes ON.</p>
+<p>The circuit after pressing the start button will appear as the image shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples16.png" alt="PLC Tutorial" />
+<p><strong>Step 2: Second ladder diagram</strong></p>
+<p>The second ladder diagram is shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples17.png" alt="PLC Tutorial" />
+<p>Where,</p>
+<p><strong>'I 0.2'</strong> is the <strong>stop</strong> button.</p>
+<p><strong>Working:</strong> When we press the <strong>'I 0.2'</strong> button, it will turn on the output <strong>I 0.0</strong>, which is an NC for the first ladder diagram. The NC <strong>'I 0.0'</strong> is a pressed button, which will block the current flow in the first ladder diagram. It will further turn <strong>OFF the motor 1</strong>.</p>
+<p>The circuit after pressing the stop button will appear as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples18.png" alt="PLC Tutorial" />
+<p>The first ladder diagram appears as:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples19.png" alt="PLC Tutorial" /> 
+<p><strong>Step 3: Third ladder diagram</strong></p>
+<p>The third ladder diagram is shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples20.png" alt="PLC Tutorial" />
+<p>Q 0.1: Output of the <strong>Motor 2</strong>.</p>
+<p><strong>Working:</strong> When we press the <strong>'I 0.2'</strong> button, it will turn on pulse timer. The timer will go ON the output Q 0.1. The output will remain ON for the specified duration of <strong>10 seconds</strong>. When the counting in the accumulator becomes equal to the Preset value (10), timer stops.</p>
+<p>Hence, all the conditions are satisfied according to the question. Similarly, we can create the logic diagram for other questions as well.</p>
+<p><strong>Step 4: Full circuit</strong></p>
+<p>The full circuit with three ladder diagrams is shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/plc/images/examples21.png" alt="PLC Tutorial" />
+<h4 class="n">Note: If we want to ON any device after 10 seconds, we must use the S_ODT timer. </h4>
+<h3 id="AutomationTools" class="h3">Automation Tools</h3>
+<p>The Automation tools are <strong>ANN</strong> (Artificial Neural Network), <strong>DCS</strong> (Distributed Control System), <strong>HMI</strong> (Human Machine Interface), <strong>SCADA</strong> (Supervisory Control and Data Acquisition.), and <strong>PLC</strong> (Programmable Logic Controller).</p>
+<p>Let's discuss the main differences between PLC and SCADA.</p>
+<h2 class="h2">SCADA</h2>
+<p><strong>SCADA</strong> or <strong>Supervisory Control and Data Acquisition</strong> is a software used to control and monitor an industrial process accomplished by the PLC. It is generally used for high-level process management systems and analyzing real-time data.</p>
+<p>SCADA is mostly used in combination with the PLC, and other devices. The function of SCADA is to control the entire system, while the role of PLC is to act as controller points for specific assets. SCADA includes several components, due to which it possesses greater capability than PLC.</p>
+<p>PLC and SCADA are used in the automation industry, such as oil and gas, energy, waste control, transportation, water control, etc.</p>
+<h3 id="PLCvsSCADA" class="h3">PLC vs. SCADA</h3>
+<p>The differences between PLC and SCADA are listed below:</p>
+<table class="alt">
+<tr>
+<th>PLC</th>
+<th>SCADA</th>
+</tr>
+<tr>
+<td>It stands for Programmable Logic Controller.</td>
+<td>It stands for Supervisory Control and Data Acquisition.</td>
+</tr>
+<tr>
+<td>It comprises CPU, I/O modules, and the peripheral devices.</td>
+<td>It comprises of computers, GUI (Graphical User Interface), and networked data communications.</td>
+</tr>
+<tr>
+<td>It is <strong>hardware</strong>.</td>
+<td>It is <strong>software</strong>.</td>
+</tr>
+<tr>
+<td>It is a system that controls motors and complex machines.</td>
+<td>It is a system to run and monitor the plant processes.</td>
+</tr>
+<tr>
+<td>It is a hardware device that can be of various types, as per the requirements.</td>
+<td>It consists of several components that increase its capability.</td>
+</tr>
+</table>
+<hr />
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="781e1d1d1c1a191b133812190e190c081711160c561b1715">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/plc"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/plc"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/plc"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+ </div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="97ffe5d7fdf6e1f6e3e7f8fef9e3b9f4f8fa">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="523a20123833243326223d3b3c267c313d3f7c">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/plc by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 18:06:54 GMT -->
+</html> 

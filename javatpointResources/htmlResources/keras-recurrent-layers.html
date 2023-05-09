@@ -1,0 +1,988 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/keras-recurrent-layers by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:02:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Keras Recurrent Layers - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Keras Recurrent Layers - Javatpoint" /><meta property="og:description" content="Keras Recurrent Layers with What is Keras, Keras Backend, Models, Functional API, Pooling Layers, Merge Layers, Sequence Preprocessing, Metrics, Optimizers, Backend, Visualization etc." />
+<meta name="keywords" content="keras tutorial, keras, what is keras, keras backend, keras models, keras functional api, core layer, pooling layers, merge layers, sequence preprocessing, metrics, optimizers, backend, visualization" /><meta name="description" content="Keras Recurrent Layers with What is Keras, Keras Backend, Models, Functional API, Pooling Layers, Merge Layers, Sequence Preprocessing, Metrics, Optimizers, Backend, Visualization etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="keras-recurrent-layers.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Keras Recurrent Layers - Javatpoint" /><meta name="twitter:description" property="og:description" content="Keras Recurrent Layers with What is Keras, Keras Backend, Models, Functional API, Pooling Layers, Merge Layers, Sequence Preprocessing, Metrics, Optimizers, Backend, Visualization etc." /><meta property="og:url" content="keras-recurrent-layers.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="keras.html" class="selected">Keras</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="xhtml-tutorial.html">XHTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="xml-tutorial.html">XML</a></li>
+<li><a href="json-tutorial.html">JSON</a></li>
+<li><a href="comment.html">Comment</a></li>
+<li><a href="forum.html">Forum</a></li>
+<li><a href="training.html">Training</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Keras Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="keras.html">Keras Tutorial</a>
+<a href="https://www.javatpoint.com/installation-of-keras-library-in-anaconda">Installation of Keras library in Anaconda</a>
+<a href="keras-backends.html">Keras Backends</a>
+<a href="keras-models.html">Keras Models</a>
+<a href="keras-layers.html">Keras layers</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Keras Models</span></h2>
+</div>
+<div class="leftmenu">
+<a href="keras-the-model-class.html">Keras Model class</a>
+<a href="keras-sequential-class.html">Keras Sequential class</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Keras Layers</span></h2>
+</div>
+<div class="leftmenu">
+<a href="keras-core-layers.html">Keras Core Layers</a>
+<a href="keras-convolutional-layers.html">Convolutional Layer</a>
+<a href="pooling-layers.html">Pooling Layers</a>
+<a href="keras-locally-connected-layers.html">Locally-Connected layers</a>
+<a href="keras-recurrent-layers.html">Recurrent Layers</a>
+<a href="keras-embedding.html">Embedding Layers</a>
+<a href="keras-merge-layers.html">Keras Merge Layers</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Deep Learning Library</span></h2>
+</div>
+<div class="leftmenu">
+<a href="deep-learning.html">Deep Learning</a>
+<a href="https://www.javatpoint.com/keras-artificial-neural-networks">Artificial Neural Network</a>
+<a href="keras-convolutional-neural-network.html">Convolutional Neural Network</a>
+<a href="keras-recurrent-neural-networks.html">Recurrent Neural Network</a>
+<a href="keras-kohonen-self-organizing-maps.html">Self-Organizing Maps</a>
+<a href="keras-mega-case-study.html">Mega Case Study</a>
+<a href="keras-restricted-boltzmann-machine.html">Restricted Boltzmann Machine</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="https://www.javatpoint.com/installation-of-keras-library-in-anaconda">next &rarr;</a>
+<a class="next" href="keras-backends.html">&larr; prev</a>
+</div>
+<h1 class="h1">Recurrent Layers</h1>
+<h2 class="h2">RNN</h2>
+<div class="codeblock"><textarea name="code" class="java">
+keras.engine.base_layer.wrapped_fn()
+</textarea></div>
+<p>The RNN layer act as a base class for the recurrent layers.</p>
+<p><strong>Arguments</strong></p>
+<ul class="points">
+<li><strong>cell:</strong> It can be defined as an instance of RNN cell, which is a class that constitutes:
+<ul class="points">
+<li>A <strong>call(input_at_t, states_at_t)</strong> method that returns <strong>(output_at_t, states_at_t_plus_1).</strong> It may optionally take a <strong>constant</strong> argument, which is explained below more briefly in the section "Note on passing external constants".</li>
+<li>A <strong>state_size</strong> attribute can be simply defined as a single integer (state integer) or a list/tuple of integers (one size per state). In case of a single integer, it acts as a size of the recurrent state that is mandatory to be similar to the size of the output cell.</li>
+<li>An <strong>output_size</strong> attribute, which can be referred to as a single integer or a TensorShape that epitomizes the shape of output. In case of a backward-compatible reason when the attribute is unavailable for the cell, there may be a chance that the value may get inferred by its initial element on the <strong>state_size</strong>.</li>
+</ul>
+Also, there may be a possibility where the cell is a list of RNN cell instances; then, in that case, the cell gets stacked one after another in the RNN, leading to an efficient implementation of the stacked RNN.</li>
+<li><strong>return_sequences:</strong> It is a Boolean that depicts the last output to be returned either in the output sequence or the full sequence.</li>
+<li><strong>return_states:</strong> It is also Boolean that depicts for the last state if it should be returned in addition to the output.</li>
+<li><strong>go_backwards:</strong> It is Boolean, which is by default False. In case if it is set to True, then it backwardly processes the sequence of input and reverts back with the reversed sequence.</li>
+<li><strong>stateful:</strong> It is Boolean, which is by default False. If stateful is set to True, then for each sample in the batch at the i<sup>th </sup>index, the last state will be utilized as the initial state for the sample of the i<sup>th</sup> index in the following batch.</li>
+<li><strong>unroll:</strong> It is Boolean (False by default). If in case it is true, then either it will unroll the network, or it will utilize a symbolic loop. The RNN can speed up on unrolling even if it is memory-intensive as it is much more suitable for shorter sequences.</li>
+<li><strong>input_dim:</strong> It is an integer that depicts the dimensionality of the input. The input_shape argument will be utilized when this layer will be used as an initial layer in the model.</li>
+<li><strong>input_length:</strong> It describes the length of the input sequences, which is specified when it is constant. It is used when we first want to connect it to the <strong>Flatten</strong> and then to the <strong>Dense</strong> layers upstream as it helps to compute the output shape of the dense layer. If the recurrent layer is not the initial layer in the model, then you will have to specify the length of the input at the level of the first layer via <strong>input_shape</strong></li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>It is a 3D tensor of shape <strong>(batch_size, timesteps, input_dim)</strong>.</p>
+<p><strong>Output shape</strong></p>
+<ul class="points"> 
+<li>If the <strong>return_state</strong>: a list of tensors, then the first tensor will be the output and the remaining will be the last states, each of shape <strong>(batch_size, units)</strong> like for example; For RNN and GRU, the number of state of tensors is 1 and for LSTM is 2.</li>
+<li>If the <strong>return_sequence</strong>: 3D, then the shape of a tensor will be <strong>(batch_size, timesteps, units)</strong>, else if it is a 2D, then the shape will be <strong>(batch_size, units)</strong>.</li>
+</ul>
+<p><strong>Masking</strong> </p>
+<p>Masking is supported by this layer to input the data with several numbers of timesteps. The <strong>Embedding</strong> layer is utilized with the <strong>mask_zero</strong> parameter, which is set to <strong>True</strong>, for introducing masks to the data.</p>
+<p><strong>Note on using statefulness in RNNs</strong></p>
+<p>If you set the RNN layer as 'stateful', then it means states that are computed in a single batch for the samples are used again as initial states for the next batch samples. It means that one-to-one mapping is done in between the samples in distinct consecutive batches.</p>
+<p>For enabling statefulness, you need to specify <strong>stateful=True</strong> inside the constructor layer followed by specifying a fixed batch size for the model, which is done by passing if sequential model: <strong>batch_input_shape=(&hellip;)</strong> to the initial (first) layer in the model, else for any functional model consisting 1 or more Input layers: <strong>batch_shape=(&hellip;)</strong> to all the first layers in the model. The expected shape of inputs includes the batch size to be a tuple of integers, for example <strong>(32, 10, 100)</strong> and specify <strong>shuffle=False</strong> while calling fit().</p>
+<p>Also, you need to call <strong>.reset_states()</strong> either on a specified layer or on the entire model, if you are willing to reset the states of your model.</p>
+<p><strong>Note on specifying the initial states of RNNs</strong></p>
+<p>The initial state of RNN layers can be symbolically specified by calling them with <strong>initial_state</strong> keyword argument, such that its value must be a tensor or list of tensors depicting the initial states of the RNN layer.</p>
+<p>The initial state of RNN layers can be numerically specified by calling <strong>reset_states</strong> with <strong>states</strong> keyword argument, such that its value must either be a numpy array or a list of arrays depicting the initial states of the RNN layers.</p>
+<p><strong>Note on passing external constants to RNNs</strong></p>
+<p>The external constants can be pass on the cell by utilizing the <strong>constants</strong> keyword argument of <strong>RNN.__call__</strong> and <strong>RNN.call</strong> method for which it necessitates the <strong>cell.call</strong> method to accept the same keyword arguments <strong>constants</strong>. These constants are utilized for conditioning the cell transformation on additional static inputs (that does not change over time).</p>
+<p><strong>Example</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+# First, let's define an RNN Cell, as a layer subclass.
+
+class MinimalRNNCell(keras.layers.Layer):
+
+    def __init__(self, units, **kwargs):
+        self.units = units
+        self.state_size = units
+        super(MinimalRNNCell, self).__init__(**kwargs)
+
+    def build(self, input_shape):
+        self.kernel = self.add_weight(shape=(input_shape[-1], self.units),
+                                      initializer='uniform',
+                                      name='kernel')
+        self.recurrent_kernel = self.add_weight(
+            shape=(self.units, self.units),
+            initializer='uniform',
+            name='recurrent_kernel')
+        self.built = True
+
+    def call(self, inputs, states):
+        prev_output = states[0]
+        h = K.dot(inputs, self.kernel)
+        output = h + K.dot(prev_output, self.recurrent_kernel)
+        return output, [output]
+
+# Let's use this cell in a RNN layer:
+
+cell = MinimalRNNCell(32)
+x = keras.Input((None, 5))
+layer = RNN(cell)
+y = layer(x)
+
+# Here's how to use the cell to build a stacked RNN:
+
+cells = [MinimalRNNCell(32), MinimalRNNCell(64)]
+x = keras.Input((None, 5))
+layer = RNN(cells)
+y = layer(x)
+</textarea></div>
+<h2 class="h2">SimpleRNN</h2>
+<div class="codeblock"><textarea name="code" class="java">
+keras.layers.SimpleRNN(units, activation='tanh', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0, return_sequences=False, return_state=False, go_backwards=False, stateful=False, unroll=False)
+</textarea></div>
+<p>It is a fully connected layer whose output is sent back to the input.</p>
+<p><strong>Arguments&nbsp;</strong> </p>
+<ul class="points">
+<li><strong>units:</strong> It can be defined as a positive integer that represents the output space dimensionality.</li>
+<li><strong>activation:</strong> It is an activation function to be used, which is a hyperbolic tangent <strong>(tanh)</strong> by default. If <strong>None</strong> is passed then it means nothing has been applied (i.e. "linear" activation a(x) = x).</li>
+<li><strong>use_bias:</strong> It can be defined as a Boolean that depicts for the layer whether to use a bias vector or not.</li>
+<li><strong>kernel_initializer:</strong> It refers to an initializer for the <strong>kernel</strong> weights matrix that is utilized to linearly transform the inputs.</li>
+<li><strong>recurrent_initializer:</strong> It is an initializer for the <strong>recurrent_kernel</strong> weights matrix that is supposed to be used while linearly transforming the recurrent states.</li>
+<li><strong>bias_initializer:</strong> It indicates to an initializer used for bias vector.</li>
+<li><strong>kernel_regularizer:</strong> It refers to a regularizer function, which is implemented on the <strong>kernel</strong> weights matrix.</li>
+<li><strong>recurrent_regularizer:</strong> It refers to a regularizer function that is applied to the weight matrix of <strong>recurrent_kernel</strong>.</li>
+<li><strong>bias_regularizer:</strong> It is understood as a regularizer function, which is applied to a bias vector.</li>
+<li><strong>activity_regularizer:</strong> It is the regularizer function that is applied to the activation (output of the layer).</li>
+<li><strong>kernel_constraint:</strong> It can be defined as a constraint function applied to the <strong>kernel</strong> </li>
+<li><strong>bias_constraint:</strong> It can be defined as a constraint function that is executed on the bias vector.</li>
+<li><strong>recurrent_constraint:</strong> It can be defined as a constraint function that is applied to the <strong>recurrent_kernel</strong> weights matrix.</li>
+<li><strong>dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the input.</li>
+<li><strong>recurrent_dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the recurrent state.</li>
+<li><strong>return_sequences:</strong> It refers to a Boolean that depicts for the last output to be returned either in the output sequence or the full sequence.</li>
+<li><strong>return_states:</strong> It refers to a Boolean that depicts for the last state if it should be returned in addition to the output.</li>
+<li><strong>go_backwards:</strong> It refers to a Boolean, which is set to False by default. In case, if it is true, then it backwardly processes the input sequence and reverts back the reversed sequence.</li>
+<li><strong>stateful:</strong> It refers to a Boolean, which is by default False. If it is true, then for each sample in the batch at the i<sup>th </sup>index, the last state will be utilized as the initial state for the sample of the i<sup>th</sup> index in the following batch.</li>
+<li><strong>unroll:</strong> It is Boolean (False by default). If in case it is true, then either it will unroll the network, or it will utilize a symbolic loop. The RNN can speed up on unrolling even if it is memory-intensive as it is much more suitable for shorter sequences.</li>
+</ul>
+<h2 class="h2">GRU</h2>
+<div class="codeblock"><textarea name="code" class="java">
+keras.layers.GRU(units, activation='tanh', recurrent_activation='sigmoid', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0, implementation=2, return_sequences=False, return_state=False, go_backwards=False, stateful=False, unroll=False, reset_after=False)
+</textarea></div>
+<p>It is called as Gated Recurrent Unit and comes with two of its variants, such that the default one, based on 1406.1078v3, consists of a reset gate that is applied before matrix multiplication to the hidden states and the other one has the order reversed, based on original 1406.1078v1.</p>
+<p>The other version (second) is well-matched with CuDNNGRU (GPU-only) that permits CPU inference. Hence, it can be said that it encompasses distinct biases for <strong>kernel</strong> and <strong>recurrent_kernel</strong>, so it is better to use <strong>'reset_after'=True</strong> and <strong>recurrent_activation= 'sigmoid'</strong>.</p>
+<p><strong>Arguments</strong> </p>
+<ul class="points">
+<li><strong>units:</strong> It can be defined as a positive integer representing the output space dimensionality.</li>
+<li><strong>activation:</strong> It refers to an activation function to be used, which is a hyperbolic tangent <strong>(tanh)</strong> by default. If <strong>None</strong> is passed then it means nothing has been applied (i.e. "linear" activation a(x) = x).</li>
+<li><strong>recurrent_activation:</strong> It is an activation function that is utilized for the recurrent step and is by default, hard sigmoid <strong>(hard_sigmoid)</strong>. If <strong>None</strong> is passed then it means nothing has been applied (i.e. "linear" activation a(x) = x).</li>
+<li><strong>use_bias:</strong> It can be defined as a Boolean that depicts for the layer whether to use a bias vector or not.</li>
+<li><strong>kernel_initializer:</strong> It indicates an initializer for the <strong>kernel</strong> weights matrix that is utilized to linearly transform the inputs.</li>
+<li><strong>recurrent_initializer:</strong> It refers to an initializer for the <strong>recurrent_kernel</strong> weights matrix that is supposed to be used while linearly transforming the recurrent states.</li>
+<li><strong>bias_initializer:</strong> It can be defined as an initializer for a bias vector.</li>
+<li><strong>kernel_regularizer:</strong> It refers to a regularizer function, which is implemented on the <strong>kernel</strong> weights matrix.</li>
+<li><strong>recurrent_regularizer:</strong> It refers to a regularizer function that is applied to the <strong>recurrent_kernel</strong> weight matrix.</li>
+<li><strong>bias_regularizer:</strong> It refers to the regularizer function, which is executed on the bias vector.</li>
+<li><strong>activity_regularizer:</strong> It indicates the regularizer function that is applied to the activation (output of the layer).</li>
+<li><strong>kernel_constraint:</strong> It indicates the constraint function, which is being applied to the <strong>kernel</strong> </li>
+<li><strong>bias_constraint:</strong> It refers to a constraint function applied to the bias vector.</li>
+<li><strong>recurrent_constraint:</strong> It refers to the constraint function that is being implemented on the <strong>recurrent_kernel</strong> weights matrix.</li>
+<li><strong>dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the input.</li>
+<li><strong>recurrent_dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the recurrent state.</li>
+<li><strong>implementation:</strong> It is an implementation mode, which is either 1 or 2. In mode 1, operations will be structure as a large number of smaller dot products and additions, whereas in mode 2, it will batch them as a few large operations. These modes will showcase different performance profiles over distinct hardware and applications.</li>
+<li><strong>return_sequences:</strong> It refers to a Boolean that depicts for the last output to be returned either in the output sequence or the full sequence.</li>
+<li><strong>return_states:</strong> It also refers to a Boolean that depicts for the last state if it should be returned in addition to the output.</li>
+<li><strong>go_backwards:</strong> It refers to Boolean, which is by default False. In case, if it is true, then it backwardly processes the input sequence and reverts back the reversed sequence.</li>
+<li><strong>stateful:</strong> It can be defined as a Boolean, which is by default False. If it is True, then for each sample in the batch at the i<sup>th </sup>index, the last state will be utilized as the initial state for the sample of the i<sup>th</sup> index in the following batch.</li>
+<li><strong>unroll:</strong> It can be defined as a Boolean (False by default). If in case it is true, then either it will unroll the network, or it will utilize a symbolic loop. The RNN can speed up on unrolling even if it is memory-intensive as it is much more suitable for shorter sequences.</li>
+<li><strong>reset_after:</strong> It is a GRU convention that depicts if the reset gate will be applied before or after the matrix multiplication. False = "before" (default), True = "after" (CuDNN compatible).</li>
+</ul>
+<h2 class="h2">LSTM</h2>
+<div class="codeblock"><textarea name="code" class="java">
+keras.layers.LSTM(units, activation='tanh', recurrent_activation='sigmoid', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', unit_forget_bias=True, kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0, implementation=2, return_sequences=False, return_state=False, go_backwards=False, stateful=False, unroll=False)
+</textarea></div>
+<p>It is called Long Short-Term Memory, introduced by Hochreiter in 1997.</p>
+<p><strong>Arguments</strong> </p>
+<ul class="points">
+<li><strong>units:</strong> It refers to a positive integer that represents the output space dimensionality.</li>
+<li><strong>activation:</strong> It can be defined as an activation function to be used, which is a hyperbolic tangent <strong>(tanh)</strong> by default. If <strong>None</strong> is passed then it means nothing has been applied (i.e. "linear" activation a(x) = x).</li>
+<li><strong>recurrent_activation:</strong> It is an activation function that is utilized for the recurrent step and is by default, hard sigmoid <strong>(hard_sigmoid)</strong>. If <strong>None</strong> is passed then it means nothing has been applied (i.e. "linear" activation a(x) = x).</li>
+<li><strong>use_bias:</strong> It refers to Boolean that depicts for the layer whether to use a bias vector or not.</li>
+<li><strong>kernel_initializer:</strong> It refers to an initializer for the <strong>kernel</strong> weights matrix that is utilized to linearly transform the inputs.</li>
+<li><strong>recurrent_initializer:</strong> It refers to an initializer for the <strong>recurrent_kernel</strong> weights matrix that is supposed to be used while linearly transforming the recurrent states.</li>
+<li><strong>bias_initializer:</strong> It indicates an initializer for bias vector.</li>
+<li><strong>unit_forget_bias:</strong> It indicates a Boolean, and if set to True, 1 will be added to the bias of the forget gate at the initialization. Also, it will enforce the <strong>bias_initializer="zeros"</strong>.</li>
+<li><strong>kernel_regularizer:</strong> It refers to a regularizer function, which is being applied to the <strong>kernel</strong> weights matrix.</li>
+<li><strong>recurrent_regularizer:</strong> It refers to a regularizer function that is applied to the <strong>recurrent_kernel</strong> weight matrix.</li>
+<li><strong>bias_regularizer:</strong> It refers to the regularizer function, which is being implemented on the bias vector.</li>
+<li><strong>activity_regularizer:</strong> It refers to the regularizer function that is applied to the activation (output of the layer).</li>
+<li><strong>kernel_constraint:</strong> It refers to a constraint function executed on the <strong>kernel</strong> </li>
+<li><strong>bias_constraint:</strong> It refers to a constraint function, which is being applied to the bias vector.</li>
+<li><strong>recurrent_constraint:</strong> It is that constraint function that is applied to the <strong>recurrent_kernel</strong> weights matrix.</li>
+<li><strong>dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the input.</li>
+<li><strong>recurrent_dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the recurrent state.</li>
+<li><strong>implementation:</strong> It is an implementation mode, which is either 1 or 2. In mode 1, operations will be structure as a large number of smaller dot products and additions, whereas in mode 2, it will batch them as a few large operations. These modes will showcase different performance profiles over distinct hardware and applications.</li>
+<li><strong>return_sequences:</strong> It refers to a Boolean that depicts for the last output to be returned either in the output sequence or the full sequence.</li>
+<li><strong>return_states:</strong> It refers to also Boolean that depicts for the last state if it should be returned in addition to the output.</li>
+<li><strong>go_backwards:</strong> It can be defined as a Boolean, which is by default False. In case, if it is true, then it backwardly processes the input sequence and reverts back the reversed sequence.</li>
+<li><strong>stateful:</strong> It can be understood as Boolean, which is by default False. If it is True, then for each sample in the batch at the i<sup>th </sup>index, the last state will be utilized as the initial state for the sample of the i<sup>th</sup> index in the following batch.</li>
+<li><strong>unroll:</strong> It indicates to a Boolean (False by default). If in case it is true, then either it will unroll the network, or it will utilize a symbolic loop. The RNN can speed up on unrolling even if it is memory-intensive as it is much more suitable for shorter sequences.</li>
+</ul>
+<h2 class="h2">ConvLSTM2D</h2>
+<div class="codeblock"><textarea name="code" class="java">
+keras.layers.ConvLSTM2D(filters, kernel_size, strides=(1, 1), padding='valid', data_format=None, dilation_rate=(1, 1), activation='tanh', recurrent_activation='hard_sigmoid', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', unit_forget_bias=True, kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, return_sequences=False, go_backwards=False, stateful=False, dropout=0.0, recurrent_dropout=0.0)
+</textarea></div>
+<p>It is a Convolutional LSTM layer, which is the same as that of the LSTM layer, just the fact both the input and recurrent transformations are convolutional.</p>
+<p><strong>Arguments</strong> </p>
+<ul class="points">
+<li><strong>filter:</strong> It refers to an integer that signifies the output space dimensionality or a total number of output filters present in a convolution.</li>
+<li><strong>kernel_size:</strong> It can either be an integer or tuple/list of n integers that represents the dimensionality of the convolution window.</li>
+<li><strong>strides:</strong> It is either an integer or a tuple/list of n integers that represents the convolution strides. If we specify any stride value!=1, it relates to its incompatibility with specifying the <strong>dilation_rate</strong> value!=1.</li>
+<li><strong>padding:</strong> One of <strong>"valid"</strong> or <strong>"same"</strong> (case-sensitive).</li>
+<li><strong>data_format:</strong> It is a string of "channels_last" or "channels_first", which is the order of input dimensions. Here the <strong>"channels_last"</strong> relates to the input shape <strong>(batch, time, ..., channels)</strong>, and the <strong>"channels_first"</strong> relates to the input shape <strong>(batch, time, channels, ...)</strong>. It defaults to the <strong>image_data_format</strong> value that is found in Keras config at <strong>~/.keras/keras.json</strong>. If you cannot find it in that folder, then it is residing at "channels_last".</li>
+<li><strong>dilation_rate:</strong> It can be an integer or tuple/ list of n integers that relates to the dilation rate to be used for dilated convolution. If we specify any stride value!=1, it relates to its incompatibility with specifying the <strong>dilation_rate</strong> value!=1.</li>
+<li><strong>activation:</strong> It is an activation function to be used. When nothing is specified, then by defaults, it is a linear activation <strong>a(x)= x</strong>, or we can say no activation function is applied.</li>
+<li><strong>recurrent_activation:</strong> It is an activation function that is utilized for the recurrent step.</li>
+<li><strong>use_bias:</strong> It refers to a Boolean that defines for a layer, whether to use a bias vector or not.</li>
+<li><strong>kernel_initializer:</strong> It can be defined as an initializer for <strong>the kernel</strong> weights matrix.</li>
+<li><strong>recurrent_initializer:</strong> It can be understood as an initializer for the <strong>recurrent_kernel</strong> weights matrix that is supposed to be used while linearly transforming the recurrent states.</li>
+<li><strong>bias_initializer:</strong> It refers to an initializer used for bias vector.</li>
+<li><strong>unit_forget_bias:</strong> It can be defined as a Boolean, and if set to True, 1 will be added to the bias of the forget gate at the initialization. Also, it will enforce the <strong>bias_initializer="zeros"</strong>.</li>
+<li><strong>kernel_regularizer:</strong> It refers to a regularizer function, which is being implemented on the <strong>kernel</strong> weights matrix.</li>
+<li><strong>recurrent_regularizer:</strong> It refers to a regularizer function that is applied to the <strong>recurrent_kernel</strong> weight matrix.</li>
+<li><strong>bias_regularizer:</strong> It refers to the regularizer function, which is being applied to the bias vector.</li>
+<li><strong>activity_regularizer:</strong> It indicates the regularizer function that is applied to the activation (i.e., the output of the layer).</li>
+<li><strong>kernel_constraint:</strong> It refers to a constraint function applied to the kernel matrix.</li>
+<li><strong>recurrent_constraint:</strong> It is defined as a constraint function that is applied to the <strong>recurrent_kernel</strong> weights matrix.</li>
+<li><strong>bias_constraint:</strong> It indicates a constraint function applied to the bias vector.</li>
+<li><strong>return_sequences:</strong> It refers to a Boolean that depicts for the last output to be returned either in the output sequence or the full sequence.</li>
+<li><strong>go_backwards:</strong> It refers to a Boolean, which is set to False by default. In case, if it is true, then it backwardly processes the input sequence and reverts back the reversed sequence.</li>
+<li><strong>stateful:</strong> It indicates to a Boolean, which is by default False. If it is True, then for each sample in the batch at the i<sup>th </sup>index, the last state will be utilized as the initial state for the sample of the i<sup>th</sup> index in the following batch.</li>
+<li><strong>dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the input.</li>
+<li><strong>recurrent_dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the recurrent state.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>If the <strong>data_format</strong> is <strong>"channels_first"</strong>, then the input shape of 5D tensor is <strong>(samples, time, channels, rows, cols),</strong> else if <strong>data_format</strong> is <strong>"channels_last"</strong> the input shape of 5D tensor is <strong>(samples, time, rows, cols, channels).</strong></p>
+<p><strong>Output shape</strong></p>
+<ul class="points">
+<li>if <strong>return_sequences</strong>
+<ul class="points">
+<li>if the <strong>data_format</strong> is <strong>"channels_first"</strong>, the output shape of a 5D tensor will be <strong>(samples, time, filters, output_row, output_col)</strong>.</li>
+<li>if the <strong>data_format</strong> is <strong>"channels_last"</strong> the output shape of a 5D tensor will be <strong>(samples, time, output_row, output_col, filters)</strong>.</li>
+</ul></li>
+<li>else
+<ul class="points">
+<li>if the <strong>data_format</strong> is <strong>"channels_first"</strong>, the output shape of a 4D tensor will be <strong>(samples, filters, output_row, output_col)</strong>.</li>
+<li>if the <strong>data_format</strong> is <strong>"channels_last"</strong> the output shape of a 4D tensor will be <strong>(samples, output_row, output_col, filters)</strong>, where o_row and o_col depend on the filter and padding shape.</li>
+</ul></li>
+</ul>
+<p><strong>Raises</strong></p>
+<ul class="points">
+<li><strong>ValueError:</strong> It is raised in case of an invalid constructor argument.</li>
+</ul>
+<h2 class="h2">ConvLSTM2DCell</h2>
+<div class="codeblock"><textarea name="code" class="java">
+keras.layers.ConvLSTM2DCell(filters, kernel_size, strides=(1, 1), padding='valid', data_format=None, dilation_rate=(1, 1), activation='tanh', recurrent_activation='hard_sigmoid', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', unit_forget_bias=True, kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0)
+</textarea></div>
+<p>It is a cell class for the ConvLSTM2D layer.</p>
+<p><strong>Arguments</strong> </p>
+<ul class="points">
+<li><strong>filter:</strong> It refers to an integer that signifies the output space dimensionality or a total number of output filters present in a convolution.</li>
+<li><strong>kernel_size:</strong> It can either be an integer or tuple/list of n integers that represents the dimensionality of the convolution window.</li>
+<li><strong>strides:</strong> It can either be an integer or a tuple/list of n integers that represents the convolution strides. If we specify any stride value!=1, it relates to its incompatibility with specifying the <strong>dilation_rate</strong> value!=1.</li>
+<li><strong>padding:</strong> One of <strong>"valid"</strong> or <strong>"same"</strong> (case-sensitive).</li>
+<li><strong>data_format:</strong> It can be defined as a string of either <strong>"channels_last"</strong> or <strong>"channels_first"</strong>, which is the order of input dimensions. It defaults to the <strong>image_data_format</strong> value that is found in Keras config at <strong>~/.keras/keras.json</strong>. If you cannot find it in that folder, then it is residing at "channels_last".</li>
+<li><strong>dilation_rate:</strong> It can be an integer or tuple/ list of n integers that relates to the dilation rate to be used for dilated convolution. If we specify any stride value!=1, it relates to its incompatibility with specifying the <strong>dilation_rate</strong> value!=1.</li>
+<li><strong>activation:</strong> It refers to an activation function to be used. When nothing is specified, then by defaults, it is a linear activation <strong>a(x)= x</strong>, or we can say no activation function is applied.</li>
+<li><strong>recurrent_activation:</strong> It is an activation function that is utilized for the recurrent step.</li>
+<li><strong>use_bias:</strong> It can be defined as a Boolean that depicts for a layer whether to utilize the bias vector or not.</li>
+<li><strong>kernel_initializer:</strong> It refers to an initializer for the <strong>kernel</strong> weights matrix.</li>
+<li><strong>recurrent_initializer:</strong> It refers to an initializer for the <strong>recurrent_kernel</strong> weights matrix that is supposed to be used while linearly transforming the recurrent states.</li>
+<li><strong>bias_initializer:</strong> It can be defined as an initializer for a bias vector.</li>
+<li><strong>unit_forget_bias:</strong> It can be defined as Boolean, and if set to True, 1 will be added to the bias of the forget gate at the initialization. Also, it will enforce the <strong>bias_initializer="zeros"</strong>.</li>
+<li><strong>kernel_regularizer:</strong> It can be defined as a regularizer function, which is applied to the <strong>kernel</strong> weights matrix.</li>
+<li><strong>recurrent_regularizer:</strong> It can be defined as a regularizer function that is applied to the <strong>recurrent_kernel</strong> weight matrix.</li>
+<li><strong>bias_regularizer:</strong> It refers to a regularizer function, which is applied to a bias vector.</li>
+<li><strong>kernel_constraint:</strong> It refers to a constraint function applied to the kernel matrix.</li>
+<li><strong>recurrent_constraint:</strong> It refers to that constraint function, which is applied to the <strong>recurrent_kernel</strong> weights matrix.</li>
+<li><strong>bias_constraint:</strong> It can be defined as a constraint function, which is being applied to the bias vector.</li>
+<li><strong>dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the input.</li>
+<li><strong>recurrent_dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the recurrent state.</li>
+</ul>
+<h2 class="h2">SimpleRNNCell</h2>
+<div class="codeblock"><textarea name="code" class="java">
+keras.layers.SimpleRNNCell(units, activation='tanh', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0)
+</textarea></div>
+<p>It is a cell class for SimpleRNN.</p>
+<p><strong>Arguments</strong> </p>
+<ul class="points">
+<li><strong>units:</strong> A positive integer that represents the output space's dimensionality.</li>
+<li><strong>activation:</strong> It is an activation function to be used. When nothing is specified, then by defaults, it is a linear activation <strong>a(x) = x</strong>, or we can say no activation function is applied.</li>
+<li><strong>use_bias:</strong> It can be defined as Boolean that depicts for a layer whether to utilize the bias vector or not.</li>
+<li><strong>kernel_initializer:</strong> It refers to an initializer for <strong>the kernel</strong> weights matrix.</li>
+<li><strong>recurrent_initializer:</strong> It refers to an initializer for the <strong>recurrent_kernel</strong> weights matrix that is supposed to be used while linearly transforming the recurrent states.</li>
+<li><strong>bias_initializer:</strong> It indicates to an initializer for bias vector.</li>
+<li><strong>kernel_regularizer:</strong> It can be defined as a regularizer function, which is being implemented on the <strong>kernel</strong> weights matrix.</li>
+<li><strong>recurrent_regularizer:</strong> It can be defined as a regularizer function that is applied to the <strong>recurrent_kernel</strong> weight matrix.</li>
+<li><strong>bias_regularizer:</strong> It refers to the regularizer function, which is applied to the bias vector.</li>
+<li><strong>kernel_constraint:</strong> It refers to a constraint function applied to the kernel matrix.</li>
+<li><strong>recurrent_constraint:</strong> It can be defined as a constraint function that is being executed on the <strong>recurrent_kernel</strong> weights matrix.</li>
+<li><strong>bias_constraint:</strong> It is a constraint function applied to the bias vector.</li>
+<li><strong>dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the input.</li>
+<li><strong>recurrent_dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the recurrent state.</li>
+</ul>
+<h2 class="h2">GRUCell</h2>
+<div class="codeblock"><textarea name="code" class="java">
+keras.layers.GRUCell(units, activation='tanh', recurrent_activation='sigmoid', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0, implementation=2, reset_after=False)
+</textarea></div>
+<p>It is a cell class for the GRU layer.</p>
+<p><strong>Arguments</strong> </p>
+<ul class="points">
+<li><strong>units:</strong> It refers to a positive integer that represents the output space dimensionality.</li>
+<li><strong>activation:</strong> It can be understood as an activation function to be used, which is a hyperbolic tangent <strong>(tanh)</strong> by default. If <strong>None</strong> is passed then it means nothing has been applied (i.e. "linear" activation a(x) = x).</li>
+<li><strong>recurrent_activation:</strong> It can be defined as an activation function that is utilized for the recurrent step and is by default, hard sigmoid <strong>(hard_sigmoid)</strong>. If <strong>None</strong> is passed then it means nothing has been applied (i.e. "linear" activation a(x) = x).</li>
+<li><strong>use_bias:</strong> It refers to a Boolean that depicts for a layer whether to utilize bias vector or not.</li>
+<li><strong>kernel_initializer:</strong> It refers to an initializer for the <strong>kernel</strong> weights matrix that is utilized to linearly transform the inputs.</li>
+<li><strong>recurrent_initializer:</strong> It can be defined as an initializer for the <strong>recurrent_kernel</strong> weights matrix that is supposed to be used while linearly transforming the recurrent states.</li>
+<li><strong>bias_initializer:</strong> It refers to an initializer for bias vector.</li>
+<li><strong>kernel_regularizer:</strong> It can be defined as a regularizer function, which is applied to the <strong>kernel</strong> weights matrix.</li>
+<li><strong>recurrent_regularizer:</strong> It refers to a regularizer function that is applied to the <strong>recurrent_kernel</strong> weight matrix.</li>
+<li><strong>bias_regularizer:</strong> It is the regularizer function, which is applied to the bias vector.</li>
+<li><strong>kernel_constraint:</strong> It refers to a constraint function applied to the <strong>kernel</strong> </li>
+<li><strong>bias_constraint:</strong> It can be understood as a constraint function, which is being applied to the bias vector.</li>
+<li><strong>recurrent_constraint:</strong> It indicates to that constraint function which is applied to the <strong>recurrent_kernel</strong> weights matrix.</li>
+<li><strong>dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the input.</li>
+<li><strong>recurrent_dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the recurrent state.</li>
+<li><strong>implementation:</strong> It is an implementation mode, which is either 1 or 2. In mode 1, operations will be structure as a large number of smaller dot products and additions, whereas in mode 2, it will batch them as a few large operations. These modes will showcase different performance profiles over distinct hardware and applications.</li>
+<li><strong>reset_after:</strong> It is a GRU convention that depicts if the reset gate will be applied before or after the matrix multiplication. False = "before" (default), True = "after" (CuDNN compatible).</li>
+</ul>
+<h2 class="h2">LSTMCell</h2>
+<div class="codeblock"><textarea name="code" class="java">
+keras.layers.LSTMCell(units, activation='tanh', recurrent_activation='sigmoid', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', unit_forget_bias=True, kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0, implementation=2)
+</textarea></div>
+<p>It is referred to as cell class for the LSTM layer.</p>
+<p><strong>Arguments</strong> </p>
+<ul class="points">
+<li><strong>units:</strong> It refers to a positive integer that represents the output space dimensionality.</li>
+<li><strong>activation:</strong> It is an activation function to be used, which is a hyperbolic tangent <strong>(tanh)</strong> by default. If <strong>None</strong> is passed then it means nothing has been applied (i.e. "linear" activation a(x) = x).</li>
+<li><strong>recurrent_activation:</strong> It is an activation function that is utilized for the recurrent step and is by default, hard sigmoid <strong>(hard_sigmoid)</strong>. If <strong>None</strong> is passed then it means nothing has been applied (i.e. "linear" activation a(x) = x).</li>
+<li><strong>use_bias:</strong> It refers to a Boolean that depicts for a layer whether to make use of a bias vector or not.</li>
+<li><strong>kernel_initializer:</strong> It refers to an initializer for the <strong>kernel</strong> weights matrix that is utilized to linearly transform the inputs.</li>
+<li><strong>recurrent_initializer:</strong> It indicates to an initializer for the <strong>recurrent_kernel</strong> weights matrix that is supposed to be used while linearly transforming the recurrent states.</li>
+<li><strong>bias_initializer:</strong> It refers to an initializer for bias vector.</li>
+<li><strong>unit_forget_bias:</strong> It is Boolean, and if set to True, 1 will be added to the bias of the forget gate at the initialization. Also, it will enforce the <strong>bias_initializer="zeros"</strong>.</li>
+<li><strong>kernel_regularizer:</strong> It refers to a regularizer function, which is being applied to the <strong>kernel</strong> weights matrix.</li>
+<li><strong>recurrent_regularizer:</strong> It refers to a regularizer function that is being implemented on the <strong>recurrent_kernel</strong> weight matrix.</li>
+<li><strong>bias_regularizer:</strong> It refers to the regularizer function, which is applied to the bias vector.</li>
+<li><strong>kernel_constraint:</strong> It refers to a constraint function applied to the <strong>kernel</strong> </li>
+<li><strong>bias_constraint:</strong> It refers to a constraint function applied to the bias vector.</li>
+<li><strong>recurrent_constraint:</strong> It is that constraint function that is applied to the <strong>recurrent_kernel</strong> weights matrix.</li>
+<li><strong>dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the input.</li>
+<li><strong>recurrent_dropout:</strong> It is a float in between 0, and 1that depicts the total number of the fraction of units to be dropped to linearly transform the recurrent state.</li>
+<li><strong>implementation:</strong> It is an implementation mode, which is either 1 or 2. In mode 1, operations will be structure as a large number of smaller dot products and additions, whereas in mode 2, it will batch them as a few large operations. These modes will showcase different performance profiles over distinct hardware and applications.</li>
+</ul>
+<h2 class="h2">CuDNNGRU</h2>
+<div class="codeblock"><textarea name="code" class="java">
+keras.layers.CuDNNGRU(units, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, return_sequences=False, return_state=False, stateful=False)
+</textarea></div>
+<p>It is one of the fastest implementations of GRU that is backed by CuDNN, has been found to run only on GPU with a TensorFlow backend.</p>
+<p><strong>Arguments</strong> </p>
+<ul class="points">
+<li><strong>units:</strong> It refers to a positive integer that represents the output space dimensionality.</li>
+<li><strong>kernel_initializer:</strong> It can be defined as an initializer for the <strong>kernel</strong> weights matrix that is utilized to linearly transform the inputs.</li>
+<li><strong>recurrent_initializer:</strong> It can be defined as an initializer for the <strong>recurrent_kernel</strong> weights matrix that is supposed to be used while linearly transforming the recurrent states.</li>
+<li><strong>bias_initializer:</strong> It can be defined as an initializer for a bias vector.</li>
+<li><strong>kernel_regularizer:</strong> It refers to a regularizer function, which is applied to the <strong>kernel</strong> weights matrix.</li>
+<li><strong>recurrent_regularizer:</strong> It refers to a regularizer function that is applied to the <strong>recurrent_kernel</strong> weight matrix.</li>
+<li><strong>bias_regularizer:</strong> It refers to the regularizer function, which is applied to the bias vector.</li>
+<li><strong>activity_regularizer:</strong> It refers to the regularizer function that is applied to the activation (output of the layer).</li>
+<li><strong>kernel_constraint:</strong> It is a constraint function applied to the <strong>kernel</strong></li>
+<li><strong>bias_constraint:</strong> It is a constraint function applied to the bias vector.</li>
+<li><strong>recurrent_constraint:</strong> It is that constraint function that is applied to the <strong>recurrent_kernel</strong> weights matrix.</li>
+<li><strong>return_sequences:</strong> It is a Boolean that depicts the last output to be returned either in the output sequence or the full sequence.</li>
+<li><strong>return_states:</strong> It is also Boolean that depicts for the last state if it should be returned in addition to the output.</li>
+<li><strong>stateful:</strong> It is Boolean, which is by default False. If it is True, then for each sample in the batch at the i<sup>th </sup>index, the last state will be utilized as the initial state for the sample of the i<sup>th</sup> index in the following batch.</li>
+</ul>
+<h2 class="h2">CuDNNLSTM</h2>
+<div class="codeblock"><textarea name="code" class="java">
+keras.layers.CuDNNLSTM(units, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', unit_forget_bias=True, kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, return_sequences=False, return_state=False, stateful=False)
+</textarea></div>
+<p>It is the fastest implementation of LSTM that is backed by CuDNN, has been found to run only on GPU with a TensorFlow backend.</p>
+<p><strong>Arguments</strong> </p>
+<ul class="points">
+<li><strong>units:</strong> It is a positive integer that represents the output space dimensionality.</li>
+<li><strong>kernel_initializer:</strong> It is an initializer for <strong>the kernel</strong> weights matrix that is utilized to linearly transform the inputs.</li>
+<li><strong>recurrent_initializer:</strong> It is an initializer for the <strong>recurrent_kernel</strong> weights matrix that is supposed to be used while linearly transforming the recurrent states.</li>
+<li><strong>bias_initializer:</strong> It is an initializer for bias vector.</li>
+<li><strong>unit_forget_bias:</strong> It is Boolean, and if set to True, 1 will be added to the bias of the forget gate at the initialization. Also, it will enforce the <strong>bias_initializer="zeros"</strong>.</li>
+<li><strong>kernel_regularizer:</strong> It is a regularizer function, which is applied to the <strong>kernel</strong> weights matrix.</li>
+<li><strong>recurrent_regularizer:</strong> It is a regularizer function that is applied to the <strong>recurrent_kernel</strong> weight matrix.</li>
+<li><strong>bias_regularizer:</strong> It is the regularizer function, which is applied to the bias vector.</li>
+<li><strong>activity_regularizer:</strong> It is the regularizer function that is applied to the activation (output of the layer).</li>
+<li><strong>kernel_constraint:</strong> It is a constraint function applied to the <strong>kernel</strong></li>
+<li><strong>bias_constraint:</strong> It is a constraint function applied to the bias vector.</li>
+<li><strong>recurrent_constraint:</strong> It is that constraint function that is applied to the <strong>recurrent_kernel</strong> weights matrix.</li>
+<li><strong>return_sequences:</strong> It is a Boolean that depicts the last output to be returned either in the output sequence or the full sequence.</li>
+<li><strong>return_states:</strong> It is also Boolean that depicts for the last state if it should be returned in addition to the output.</li>
+</ul>
+<p><strong>stateful:</strong> It is Boolean, which is by default False. If it is True, then for each sample in the batch at the i<sup>th </sup>index, the last state will be utilized as the initial state for the sample of the i<sup>th</sup> index in the following batch.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="https://www.javatpoint.com/installation-of-keras-library-in-anaconda">Installation of Keras library in Anaconda</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="keras-backends.html">&larr; prev</a>
+<a style="float:right" class="next" href="https://www.javatpoint.com/installation-of-keras-library-in-anaconda">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a2c4c7c7c6c0c3c1c9e2c8c3d4c3d6d2cdcbccd68cc1cdcf">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/keras-recurrent-layers"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/keras-recurrent-layers"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/keras-recurrent-layers"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+ <a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+ </div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+  <a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+ <a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="38504a7852594e594c485751564c165b5755">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="bad2c8fad0dbccdbcecad5d3d4ce94d9d5d794">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/keras-recurrent-layers by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:02:13 GMT -->
+</html> 

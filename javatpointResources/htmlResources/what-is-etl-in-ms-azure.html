@@ -1,0 +1,795 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/what-is-etl-in-ms-azure by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:25:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>What is ETL in Ms Azure - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="What is ETL in Ms Azure - javatpoint" /><meta property="og:description" content="What is ETL in Ms Azure with What is Microsoft Azure, Cloud Computing, Storage Service, Storage Service, Storage Account, Storage Security, File Storage, Disk Storage, Network Service etc." />
+<meta name="keywords" content="microsoft azure tutorial, introduction, what is microsoft azure, cloud computing overview, azure portal, azure storage service, azure storage service, azure storage account, blob storage, creating a container, azure storage security, azure file storage, azure disk storage, azure network service, azure virtual network, azure network security, azure network interface, azure load balancer, azure vm storage, azure nackup" /><meta name="description" content="What is ETL in Ms Azure with What is Microsoft Azure, Cloud Computing, Storage Service, Storage Service, Storage Account, Storage Security, File Storage, Disk Storage, Network Service etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="what-is-etl-in-ms-azure.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="What is ETL in Ms Azure - javatpoint" /><meta name="twitter:description" property="og:description" content="What is ETL in Ms Azure with What is Microsoft Azure, Cloud Computing, Storage Service, Storage Service, Storage Account, Storage Security, File Storage, Disk Storage, Network Service etc." /><meta property="og:url" content="what-is-etl-in-ms-azure.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="introduction.html" class="selected">Microsoft Azure</a></li>
+<li><a href="data-structure-tutorial.html">IoT</a></li>
+<li><a href="computer-network-tutorial.html">Computer Network</a></li>
+<li><a href="control-system-tutorial.html">Control System</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="aptitude/quantitative.html">Aptitude</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="kotlin-tutorial.html">Kotlin</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="examaccess.html">Quiz</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+<li><a href="comment.html">Comment</a></li>
+<li><a href="forum.html">Forum</a></li>
+<li><a href="training.html">Training</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Microsoft Azure Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="microsoft-azure.html">Microsoft Azure Tutorial</a>
+<a href="introduction-to-cloud-computing.html">Cloud Computing Overview</a>
+<a href="azure-portal-overview.html">Azure Portal</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Azure Storage Service</span></h2>
+</div>
+<div class="leftmenu">
+<a href="azure-storage-building-blocks.html">Storage Service</a>
+<a href="azure-storage-account.html">Azure Storage Account</a>
+<a href="azure-blob-storage.html">Azure Blob Storage</a>
+<a href="azure-creating-container.html">Creating a Container</a>
+<a href="azure-storage-account-and-blob-service-configuration.html">Blob Configuration</a>
+<a href="azure-storage-security.html">Azure Storage Security</a>
+<a href="azure-file-storage-service.html">Azure File Storage</a>
+<a href="azure-table-and-queue-storage.html">Table &amp; Queue Storage</a>
+<a href="azure-disk-storage.html">Azure Disk Storage</a>
+<a href="azure-storage-monitoring.html">Storage Monitoring</a>
+<a href="azure-storage-resource-tool.html">Storage Resource Tools</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Network Services</span></h2>
+</div>
+<div class="leftmenu">
+<a href="azure-network-service.html">Azure Network Service</a>
+<a href="azure-virtual-network.html">Azure Virtual Network</a>
+<a href="azure-network-security.html">Azure Network Security</a>
+<a href="azure-network-interface.html">Azure Network Interface</a>
+<a href="azure-availability-zones-and-sets.html">Availability Zones &amp; Sets</a>
+<a href="azure-load-balancer.html">Azure Load Balancer</a>
+<a href="azure-vnet-connectivity.html">Azure VNet Connectivity</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Compute Services</span></h2>
+</div>
+<div class="leftmenu">
+<a href="azure-compute-service.html">Azure Compute Service</a>
+<a href="azure-virtual-machines.html">Azure Virtual Machines</a>
+<a href="azure-vm-storage.html">Azure VM Storage</a>
+<a href="azure-virtual-machine-scale-set-and-auto-scaling.html">Virtual Machine Scale Set</a>
+<a href="azure-backup.html">Azure Backup</a>
+<a href="azure-virtual-machine-security.html">Azure VM Security</a>
+<a href="azure-vm-monitoring.html">Azure VM Monitoring</a>
+<a href="azure-cloud-service.html">Azure Cloud Service</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">App Services</span></h2>
+</div>
+<div class="leftmenu">
+<a href="azure-app-services.html">Azure App Services</a>
+<a href="azure-web-app.html">Azure Web App</a>
+<a href="azure-mobile-app.html">Azure Mobile App</a>
+<a href="azure-notification-hub-and-mobile-engagement.html">Azure Notification Hub</a>
+<a href="azure-api-apps-and-api-management.html">Azure API Apps</a>
+<a href="azure-app-service-backup.html">App Service Backup</a>
+<a href="azure-app-service-security.html">App Service Security</a>
+<a href="azure-app-service-monitoring.html">App Service Monitoring</a>
+<a href="azure-content-delivery-network.html">Azure CDN</a>
+<a href="azure-media-service.html">Azure Media Service</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Database Service</span></h2>
+</div>
+<div class="leftmenu">
+<a href="azure-database-service.html">Azure Database service</a>
+<a href="azure-sql-database.html">Azure SQL Database</a>
+<a href="azure-sql-database-configuration.html">SQL Database Configuration</a>
+<a href="azure-sql-managed-instance.html">SQL Managed Instance</a>
+<a href="azure-cosmos-database.html">Azure COSMOS DB</a>
+<a href="azure-data-factory.html">Azure Data Factory</a>
+<a href="azure-sql-stretch-database-and-sql-data-warehouse.html">SQL Data Warehouse</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Azure DevOps</span></h2>
+</div>
+<div class="leftmenu">
+<a href="microsoft-azure-devops.html">Azure DevOps</a>
+<a href="azure-devops-repository.html">DevOps Repository</a>
+<a href="azure-devops-pipeline.html">DevOps Pipeline</a>
+<a href="what-is-cold-storage-in-ms-azure.html">What is Cold Storage in Ms Azure</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="what-is-ms-azure-functions.html">What is MS Azure Functions</a>
+<a href="what-is-etl-in-ms-azure.html">What is ETL</a>
+<a href="what-is-microsoft-azure-instance.html">What is Microsoft Azure Instance</a>
+<a href="what-is-databrick.html">What is Databrick</a>
+<a href="why-is-powershell-used.html">Why is PowerShell Used</a>
+<a href="what-is-a-notebook-in-ms-azure.html">What is a Notebook in Ms Azure</a>
+<a href="what-is-azure-resource-manager.html">What is Azure Resource Manager</a>
+<a href="what-is-a-container-group-in-microsoft-azure.html">What is a container group In Microsoft Azure</a>
+<a href="what-is-microsoft-azure-functions-premium-plan.html">What is Microsoft Azure Functions Premium plan</a>
+<a href="what-is-microsoft-azure-subscription.html">What is Microsoft Azure Subscription</a>
+<a href="what-is-azure-lighthouse.html">What is Azure Lighthouse</a>
+<a href="active-directory-identity-in-azure-and-access-management-operations.html">Active Directory Identity in Azure and access management operations</a>
+<a href="what-is-privileged-access-management-for-active-directory-domain-services-in-azure.html">What is Privileged Access Management for Active Directory Domain Services in Azure</a>
+<a href="azure-devops-server-vs-azure-devops-services.html">Difference between Azure DevOps Server and Azure DevOps Services</a>
+<a href="azure-fundamentals.html">Azure Fundamentals</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="microsoft-azure-interview-questions.html">Azure Interview</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="what-is-microsoft-azure-instance.html">next &rarr;</a>
+<a class="next" href="what-is-ms-azure-functions.html">&larr; prev</a>
+</div>
+<h1 class="h1">What is ETL?</h1>
+<p>"Extract, transform, and load" is the acronym for "extract, transform, and load."</p>
+<p>In data integration techniques, the ETL procedure is crucial. Businesses can use ETL to collect data from a variety of sources and combine it into a single, centralized location. Different sorts of data can also operate together with the help of ETL.</p>
+<h2 class="h2">Overview</h2>
+<p>An <a href="etl-testing.html">ETL</a> process gathers and refines many types of data before delivering it to a <a href="data-warehouse.html">data warehouse</a> like Redshift, <a href="microsoft-azure.html">Azure</a>, or BigQuery.</p>
+<p>Data can also be migrated between a variety of sources, destinations, and analytic tools using ETL. As a result, the ETL process is essential for generating business intelligence and carrying out larger data management initiatives.</p>
+<h2 class="h2">Functioning of ETL</h2>
+<p>The ETL consist of the 3 basic steps, they are Extract, Transform and Load. By performing these 3 steps we extract the data and after processing it we store it to a particular destination.</p>
+<h3 class="h3">Step 1: Extraction</h3>
+<p>Only a small percentage of businesses rely on a single data type or technology. To develop business information, most organizations manage data from a range of sources and employ a variety of data analysis methods. Data must be allowed to move freely between systems and apps in order for a complicated data strategy like this to work.</p>
+<p>Data must first be retrieved from its source before being relocated to a new location. In the very first stage of the ETL process, the structured and unstructured data are imported and merged into a single storage place or database. The extraction of the data can be done from a variety of source and by keeping them in their original form are-</p>
+<ul class="points">
+<li>Databases and legacy systems that already exist</li>
+<li>Environments in the cloud, hybrid, and on-premises</li>
+<li>Applications in sales and marketing</li>
+<li>Apps and mobile devices</li>
+<li>Data warehouses</li>
+<li>Data storage platforms</li>
+<li>Analytics tools</li>
+<li>CRM systems</li>
+</ul>
+<p>Although it is possible to extract data by hand, it is time-consuming and prone to errors. ETL tools automate the extraction process, resulting in a more dependable and efficient workflow.</p>
+<h3 class="h3">Step 2: Transformation</h3>
+<p>In this step we can also do the data validation. This will ensure that all the data that are being transformed as per the need is correct. We maintain the quality of the data during this ETL process. We can also use regulations to assist our organization in meeting its reporting obligations. There are various sub-processes in the data transformation process:</p>
+<ul class="points">
+<li>Cleansing - The data is checked for discrepancies and missing values.</li>
+<li>Standardization - The data set is formatted according to the formatting rules.</li>
+<li>Deduplication - Duplicate data is removed or destroyed.</li>
+<li>Verification - Anomolies are recognized and unusable data is discarded.</li>
+<li>Sorting - The information is categorized by type.</li>
+<li>Other tasks - To improve data quality, any additional/optional rules can be used.</li>
+</ul>
+<p>Transformation is widely regarded as the most crucial step in the ETL process. Data transformation increases data integrity and ensures that data is fully compliant and ready to use when it arrives at its new location.</p>
+<h3 class="h3">Step 3: Loading</h3>
+<p>Now in this step, the freshly transformed data is loaded into a new destination as the final step in the ETL process. Data can be loaded in bulk (full load) or at predetermined intervals (incremental load).</p>
+<p><strong>Full loading</strong> - Everything that comes off the transformation assembly line gets into new, unique entries in the data warehouse in an ETL full loading scenario. Though this may be advantageous for research purposes at times, complete loading results in data sets that increase exponentially and become difficult to manage.</p>
+<p><strong>Incremental loading</strong> - The Incremental loading process is a less comprehensive but more controllable technique. Incremental loading compares new data to what's already on hand, and only creates new records if new and unique data is discovered. This architecture enables business intelligence to be maintained and managed by smaller, less expensive data warehouses.</p>
+<h2 class="h2">ETL and business intelligence</h2>
+<p>Companies now have access to more data from more sources than ever before, making data strategies more complex than ever. ETL allows large amounts of data to be transformed into useful business intelligence.</p>
+<p>Consider the quantity of data a company has access to. The organization collects marketing, sales, logistics, and financial data in addition to data collected by sensors in the facility and machines on an assembly line.</p>
+<p>To be analyzed, all of that data must be removed, altered, and loaded into a new location. In this case we can use the ETL method in order to get the best out of our data by -</p>
+<h3 class="h3">Delivering a single point-of-view</h3>
+<p>Multiple data sets need time and coordination, which can lead to inefficiencies and delays. Databases and diverse types of data are combined into a single, cohesive view using ETL.</p>
+<h3 class="h3">Providing historical context</h3>
+<p>ETL helps a company to merge data from old platforms and apps with data from new platforms and applications. This creates a long-term picture of data, allowing older data sets to be compared to more recent ones.</p>
+<h3 class="h3">Improving efficiency and productivity</h3>
+<p>Hand-coded data migration is made easier with ETL Software. As a result, developers and their teams may focus more on innovation and less on the time-consuming chore of creating data-moving and formatting code.</p>
+<h2 class="h2">Building The Right ETL strategy for Migration of DATA</h2>
+<p>There are 2 different ways in which we can easily do the ETL process. The one way or other , both have their own requirement and costing. Businesses may delegate the development of their own ETL to their developers in various instances. However, this procedure is time-consuming, prone to delays, and costly.</p>
+<p>Most firms now use an ETL tool, in order to smoothly do there data integration process. ETL tools are noted for their speed, scalability, and cost-effectiveness, as well as their ability to integrate with larger data management techniques. ETL tools also come with a variety of data quality and governance features.</p>
+<p>We'll also need to decide whether an open-source product is appropriate for our company, as they often offer more freedom and assist users avoid vendor lock-in.</p>
+<p>Talend Data Fabric is a set of apps that connect all of our data, regardless of its source or destination.</p>
+<p>The data is gathered, cleansed, and processed in a standard place. Finally, the data is placed into a datastore and queried from there. Import data is processed by legacy ETL, which cleans it in place before storing it in a relational data engine.</p>
+<p>A wide range of Apache <a href="hadoop-tutorial.html">Hadoop</a> environment components are supported by Azure HDInsight for ETL at scale.</p>
+<p>The parts that follow go over each of the ETL steps and their components.</p>
+<h3 class="h3">Orchestration</h3>
+<p>Orchestration is used at every stage of the ETL pipeline. In HDInsight, ETL processes frequently entail the use of several separate products in tandem. Consider the following scenario:</p>
+<ul class="points">
+<li>We could clean a portion of the data with Apache Hive and another chunk with Apache Pig.</li>
+<li>We can use Azure Data Factory to load data from Azure Data Lake Store into Azure SQL Database.</li>
+</ul>
+<p>Orchestration is required to run the right job at the right time. It is very important part which must be taken care of.</p>
+<h3 class="h3">Apache Oozie</h3>
+<p>Apache Oozie is a Hadoop task management workflow coordination framework. Oozie is a Hadoop integration that operates within an HDInsight cluster.</p>
+<h3 class="h3">Azure Data Factory</h3>
+<p>In the guise of platform as a service, Azure Data Factory delivers orchestration capabilities (PaaS). Azure Data Factory is a data integration solution that runs in the cloud. It helps us to orchestrate and automate data transportation and transformation using data-driven workflows.</p>
+<h3 class="h3">Storage of input files and output files</h3>
+<p>Mostly the source data files are directly uploaded to Azure Storage or Azure Data Lake Storage which is one of the most easy method. Typically, the files are in a flat format, such as CSV or any other format which is supported in the Azure, although it supports a very vied variety of data formats.</p>
+<h3 class="h3">Azure Storage</h3>
+<p>Specific adaptation goals have been set for Azure Storage. When dealing with a large number of tiny files, Azure Storage scales best for most analytic nodes. Azure Storage provides the same speed regardless of file size as long as it stay within our account limitations. Terabytes of data can be stored with consistent performance.</p>
+<p>For storing web logs or sensor data, we can easily use a blob storage. The blob storages are available in a variety of shape and sizes, we can opt them out as per our needs.</p>
+<p>They can be dispersed among multiple servers easily, if we want to scale out access to many blobs. A single blob, on the other hand, is serviced by a single server.</p>
+<p>For blob storage, Azure Storage includes a WebHDFS API layer. All files can be accessed by the HDInsight for any type of cleansing process or any other process for which data is required from this storage. This is comparable to how Hadoop Distributed File System would be used by those services (HDFS).</p>
+<h3 class="h3">ADLS or Azure Data Lake Storage</h3>
+<p>The Azure Data Lake Storage is also abbreviated as ADLS. It is a managed, hyperscale analytics data store which is used to store the data. It's compatible with <a href="hdfs.html">HDFS</a> and follows a similar architectural approach. Data Lake Storage allows for infinite flexibility in terms of total capacity and file size.</p>
+<p><a href="azure-data-factory.html">Azure Data Factory</a> is typically used to feed data into Data Lake Storage. Data Lake Storage SDKs, the AdlCopy service, Apache DistCp, and Apache Sqoop are also options. The service we select is determined by the location of the data.</p>
+<p>Event ingestion via Azure Event Hubs or Apache Storm is suited for Data Lake Storage.</p>
+<h3 class="h3">Azure Synapse Analytics</h3>
+<p>To save prepared results, Azure Synapse Analytics is a good option.</p>
+<p>Azure Synapse Analytics is a relational database store designed specifically for analytical workloads. It uses partitioned tables to scale. Multiple nodes can be used to split tables. We need to choose the nodes according to our need at the time of the creation of the Azure Synapse Analytics. They can scale afterward, but this is an active process that may necessitate data movement.</p>
+<h3 class="h3">Apache HBase</h3>
+<p>In the Microsoft Azure we have a special functionality which is the Apache HBas, it is a key-value store which is present in the Azure HDInsight. It's a free, open-source <a href="nosql-databases.html">NoSQL database</a> based on Hadoop and inspired by Google BigTable. For vast volumes of unstructured and semi-structured data, <a href="hbase.html">HBase</a> enables performant random access and robust consistency.</p>
+<p>We don't have to define columns or data types before using HBase because it's a schemaless database. Data is organized by column family and stored in the rows of a table.</p>
+<p>In order to handle petabytes of data the open-source code scales linearly across thousands of nodes.</p>
+<p>HBase relies on distributed applications in the Hadoop environment to provide data redundancy, batch processing, and other functionalities.</p>
+<p>For future analysis, HBase is a useful place to save sensor and log data.</p>
+<h3 class="h3">Azure SQL databases</h3>
+<p>There are three PaaS relational databases available in Azure:</p>
+<ul class="points">
+<li>Azure SQL Database is a Microsoft SQL Server implementation.</li>
+<li>Oracle MySQL is implemented in Azure Database for MySQL.</li>
+<li>Microsoft Azure Database for PostgreSQL is a PostgreSQL implementation.</li>
+</ul>
+<p>To scale these items, add more CPU and memory. Premium disks can also be used with the items for improved I/O performance.</p>
+<h3 class="h3">Apache Sqoop</h3>
+<p>Apache Sqoop is a tool for moving data across structured, semi-structured, and unstructured data sources quickly and efficiently.</p>
+<p>Sqoop imports and exports data using MapReduce, which allows for parallel processing and fault tolerance.</p>
+<h3 class="h3">Apache Flume</h3>
+<p>Apache Flume is a service for rapidly collecting, aggregating, and transporting huge amounts of log data that is distributed, reliable, and available. Its adaptable architecture is built on the concept of streaming data flows. Flume has configurable reliability methods that make it robust and fault-tolerant. It offers a lot of failover and recovery features.</p>
+<p>Flume employs a straightforward extensible data model that enables online analytic applications.</p>
+<p>Azure HDInsight does not support Apache Flume. In order to transfer data to Azure Blob storage or Azure Data Lake Storage from an on-premises Hadoop installation the flume can be used to do the task easly.</p>
+<h3 class="h3">Transform</h3>
+<p>After the data has been stored in the desired location, it must be cleaned, combined, or prepared for a certain use pattern.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="what-is-microsoft-azure-instance.html">What is Microsoft Azure Instance</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="what-is-ms-azure-functions.html">&larr; prev</a>
+<a style="float:right" class="next" href="what-is-microsoft-azure-instance.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="5e383b3b3a3c3f3d351e343f283f2a2e3137302a703d3133">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/what-is-etl-in-ms-azure"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/what-is-etl-in-ms-azure"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/what-is-etl-in-ms-azure"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+  </div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+ </div> 
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+ <a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+ </a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="1a72685a707b6c7b6e6a7573746e34797577">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d8b0aa98b2b9aeb9aca8b7b1b6acf6bbb7b5f6">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/what-is-etl-in-ms-azure by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:25:44 GMT -->
+</html> 

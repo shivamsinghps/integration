@@ -1,0 +1,995 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/postgresql-exists-condition by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:54:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>PostgreSQL Exists Condition - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="PostgreSQL Exists Condition - javatpoint" /><meta property="og:description" content="PostgreSQL Exists Condition with examples database, table, create, select, insert, update, delete, join, function, index, clause, trigger, view, procedure etc." />
+<meta name="keywords" content="postgresql, tutorial, beginners, professionals, introduction, example, command, database, table, create, select, insert, update, delete, join, function, index, clause, trigger, view, procedure" /><meta name="description" content="PostgreSQL Exists Condition with examples database, table, create, select, insert, update, delete, join, function, index, clause, trigger, view, procedure etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="postgresql-exists-condition.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="PostgreSQL Exists Condition - javatpoint" /><meta name="twitter:description" property="og:description" content="PostgreSQL Exists Condition with examples database, table, create, select, insert, update, delete, join, function, index, clause, trigger, view, procedure etc." /><meta property="og:url" content="postgresql-exists-condition.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="postgresql-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/postgresql.png" alt="postgresql" /> PostgreSQL</a></li>
+<li><a href="sql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/sql.png" alt="sql" /> SQL</a></li>
+<li><a href="pl-sql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/plsql.png" alt="plsql" /> PL/SQL</a></li>
+<li><a href="mysql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/mysql.png" alt="mysql" /> MySQL</a></li>
+<li><a href="mongodb-tutorial.html"><img src="https://static.javatpoint.com/images/icon/mongodb.png" alt="mongodb" /> MongoDB</a></li>
+<li><a href="sql-server-tutorial.html"><img src="https://static.javatpoint.com/images/icon/sqlserver.png" alt="sql server" /> SQL Server</a></li>
+<li><a href="oracle-tutorial.html"><img src="https://static.javatpoint.com/images/icon/oracle.png" alt="oracle" /> Oracle</a></li>
+<li><a href="sqlite-tutorial.html"><img src="https://static.javatpoint.com/images/icon/sqlite.png" alt="sqlite" /> SQLite</a></li>
+<li><a href="cassandra-tutorial.html"><img src="https://static.javatpoint.com/images/icon/cassandra.png" alt="cassandra" /> Cassandra</a></li>
+<li><a href="dbms-tutorial.html"><img src="https://static.javatpoint.com/images/icon/dbms.png" alt="dbms" /> DBMS</a></li>
+<li><a href="python-tutorial.html"><img src="https://static.javatpoint.com/images/icon/python.png" alt="python" /> Python</a></li>
+<li><a href="java-tutorial.html"><img src="https://static.javatpoint.com/images/icon/java.png" alt="java" /> Java</a></li>
+<li><a href="aptitude/quantitative.html"><img src="https://static.javatpoint.com/images/icon/aptitude.png" alt="aptitude" /> Aptitude</a></li>
+<li><a href="sql-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="sql interview questions" /> Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-tutorial.html">PostgreSQL Tutorial</a>
+<a href="postgresql-syntax.html">PostgreSQL Syntax</a>
+<a href="install-postgresql.html">Install PostgreSQL</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Database</span></h2>
+</div>
+<div class="leftmenu">
+<a href="connect-to-a-postgresql-database-server.html">Connect to a PostgreSQL DB</a>
+<a href="postgresql-create-database.html">PostgreSQL Create DB</a>
+<a href="postgresql-select-database.html">PostgreSQL Select Database</a>
+<a href="postgresql-drop-database.html">PostgreSQL Drop DB</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Table</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-create-table.html">PostgreSQL Create Table</a>
+<a href="postgresql-drop-table.html">PostgreSQL Drop Table</a>
+<a href="postgresql-show-table.html">PostgreSQL Show Table</a>
+<a href="postgresql-describe-table.html">PostgreSQL Describe Table</a>
+<a href="postgresql-alter-table.html">PostgreSQL ALTER table</a>
+<a href="postgresql-add-columns.html">PostgreSQL ADD Column</a>
+<a href="postgresql-drop-column.html">PostgreSQL Drop column</a>
+<a href="postgresql-change-column-type.html">Change Column Type</a>
+<a href="postgresql-rename-column.html">PostgreSQL Rename Column</a>
+<a href="postgresql-truncate-table.html">PostgreSQL Truncate table</a>
+<a href="postgresql-temporary-table.html">PostgreSQL temporary table</a>
+<a href="postgresql-column-alias.html">PostgreSQL Column Alias</a>
+<a href="postgresql-sequence.html">PostgreSQL Sequence</a>
+<a href="postgresql-identity-column.html">Identity Column</a>
+<a href="postgresql-upsert.html">PostgreSQL Upsert</a>
+<a href="postgresql-subquery.html">PostgreSQL Subquery</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Data Types</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-datatypes.html">PostgreSQL Datatypes</a>
+<a href="postgresql-numeric.html">PostgreSQL Numeric</a>
+<a href="postgresql-character.html">PostgreSQL Character</a>
+<a href="postgresql-text.html">PostgreSQL Text</a>
+<a href="postgresql-varchar.html">PostgreSQL Varchar</a>
+<a href="postgresql-boolean.html">PostgreSQL Boolean</a>
+<a href="postgresql-integer.html">PostgreSQL Integer</a>
+<a href="postgresql-smalllint.html">PostgreSQL SMALLLINT</a>
+<a href="postgresql-bigint.html">PostgreSQL BIGINT</a>
+<a href="postgresql-serial.html">PostgreSQL Serial</a>
+<a href="postgresql-date.html">PostgreSQL Date</a>
+<a href="postgresql-time.html">PostgreSQL Time</a>
+<a href="postgresql-timestamp.html">PostgreSQL Timestamp</a>
+<a href="postgresql-interval.html">PostgreSQL Interval</a>
+<a href="postgresql-uuid.html">PostgreSQL UUID</a>
+<a href="postgresql-json.html">PostgreSQL JSON</a>
+<a href="postgresql-hstore.html">PostgreSQL hstore</a>
+<a href="postgresql-array.html">PostgreSQL Array</a>
+<a href="postgresql-user-defined-data-type.html">User-Defined data type</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Schema</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-schema.html" class="l1">PostgreSQL Schema</a>
+<a href="postgresql-create-schema.html">PostgreSQL Create Schema</a>
+<a href="postgresql-drop-schema.html">PostgreSQL Drop Schema</a>
+<a href="postgresql-alter-schema.html">PostgreSQL ALTER Schema</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Queries</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-insert.html">PostgreSQL Insert</a>
+<a href="postgresql-select.html">PostgreSQL Select</a>
+<a href="postgresql-update.html">PostgreSQL Update</a>
+<a href="postgresql-delete.html">PostgreSQL Delete</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Clause</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-where-clause.html">PostgreSQL Where</a>
+<a href="postgresql-order-by-clause.html">PostgreSQL Order By</a>
+<a href="postgresql-group-by-clause.html">PostgreSQL Group By</a>
+<a href="postgresql-having-clause.html">PostgreSQL Having</a>
+<a href="postgresql-distinct.html">PostgreSQL Distinct</a>
+<a href="postgresql-limit.html">PostgreSQL Limit</a>
+<a href="postgresql-fetch-clause.html">PostgreSQL Fetch</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Conditions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-condition.html">PostgreSQL Condition</a>
+<a href="postgresql-and-condition.html">PostgreSQL And</a>
+<a href="postgresql-or-condition.html">PostgreSQL Or</a>
+<a href="postgresql-and-or-condition.html">PostgreSQL And & Or</a>
+<a href="postgresql-not-condition.html">PostgreSQL Not</a>
+<a href="postgresql-like-condition.html">PostgreSQL Like</a>
+<a href="postgresql-in-condition.html">PostgreSQL In</a>
+<a href="postgresql-not-in-condition.html">PostgreSQL Not In</a>
+<a href="postgresql-between-condition.html">PostgreSQL Between</a>
+<a href="postgresql-exists-condition.html">PostgreSQL Exists</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Views</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-view.html">PostgreSQL View</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Join</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-join.html">PostgreSQL Join</a>
+<a href="postgresql-inner-join.html">PostgreSQL INNER Join</a>
+<a href="postgresql-left-join.html">PostgreSQL Left Join</a>
+<a href="postgresql-right-join.html">PostgreSQL Right Join</a>
+<a href="postgresql-full-join.html">PostgreSQL Full Join</a>
+<a href="postgresql-cross-join.html">PostgreSQL Cross Join</a>
+<a href="postgresql-self-join.html">PostgreSQL Self Join</a>
+<a href="postgresql-natural-join.html">PostgreSQL Natural Join</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Trigger</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-trigger.html">PostgreSQL Trigger</a>
+<a href="postgresql-create-trigger.html">Create Trigger</a>
+<a href="postgresql-drop-trigger.html">DROP trigger</a>
+<a href="postgresql-alter-trigger.html">ALTER trigger</a>
+<a href="postgresql-disable-trigger.html">DISABLE trigger</a>
+<a href="postgresql-enable-trigger.html">ENABLE trigger</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Indexes</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-indexes.html">PostgreSQL Indexes</a>
+<a href="postgresql-create-index.html">PostgreSQL Create Index</a>
+<a href="postgresql-drop-index.html">PostgreSQL Drop Index</a>
+<a href="postgresql-list-indexes.html">PostgreSQL List Indexes</a>
+<a href="postgresql-unique-index.html">PostgreSQL Unique Index</a>
+<a href="postgresql-index-on-expression.html">PostgreSQL Index on Expression</a>
+<a href="postgresql-partial-index.html">PostgreSQL Partial Index</a>
+<a href="postgresql-reindex.html">PostgreSQL Reindex</a>
+<a href="postgresql-multi-column-indexes.html">PostgreSQL Multi-column Indexes</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Database Constraints</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-constraints.html">PostgreSQL Constraints</a>
+<a href="postgresql-primary-key.html">PostgreSQL Primary key</a>
+<a href="postgresql-foreign-key.html">PostgreSQL Foreign Key</a>
+<a href="postgresql-unique-constraint.html">Unique Constraint</a>
+<a href="postgresql-check-constraint.html">Check Constraint</a>
+<a href="postgresql-not-null-constraint.html">Not-Null Constraint</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Advance</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-functions.html">PostgreSQL Functions</a>
+<a href="postgresql-alias.html">PostgreSQL Alias</a>
+<a href="postgresql-date-time.html">PostgreSQL Date &amp; Time</a>
+<a href="psql-commands.html">Psql commands</a>
+<a href="postgresql-union.html">PostgreSQL Union</a>
+<a href="postgresql-intersect.html">PostgreSQL Intersect</a>
+<a href="postgresql-except.html">PostgreSQL Except</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Advance</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-versions.html">PostgreSQL versions</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="mongodb-vs-postgresql.html">MongoDB vs PostgreSQL</a>
+<a href="postgresql-vs-sql-server.html">PostgreSQL vs SQL Server</a>
+<a href="postgresql-vs-mariadb.html">PostgreSQL vs MariaDB</a>
+<a href="postgresql-vs-oracle.html">PostgreSQL vs Oracle</a>
+<a href="postgresql-vs-sqlite.html">PostgreSQL vs SQLite</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-interview-questions.html">SQL Interview</a>
+<a href="pl-sql-interview-questions.html">PL/SQL Interview</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Quiz</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-quiz.html">SQL Quiz</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="postgresql-view.html">next &rarr;</a>
+<a class="next" href="postgresql-between-condition.html">&larr; prev</a>
+</div>
+<h1 class="h1">PostgreSQL Exists Condition</h1>
+<p>In this section, we are going to understand the working of <strong>PostgreSQL EXISTS Condition,</strong> which is used with the <strong>WHERE clause</strong> to evaluate the existing rows in a subquery. And we also see <strong>examples</strong> of <strong>EXISTS Condition</strong> with <strong>different queries</strong> such as <strong>INSERT, SELECT, NOT EXISTS, NULL, UPDATE, and DELETE.</strong></p>
+<h2 class="h2">Introduction of PostgreSQL EXISTS Condition</h2>
+<p>In <a href="postgresql-tutorial.html">PostgreSQL</a>, the <strong>EXISTS</strong> condition can combine with the <strong><a href="postgresql-select.html">SELECT</a>, <a href="postgresql-insert.html">INSERT</a>, <a href="postgresql-update.html">UPDATE</a>, and <a href="postgresql-delete.html">DELETE</a></strong> commands. In other words, we can say that the <strong>EXISTS</strong> condition is used to check for the presence of any data in a subquery, and returns <strong>true</strong> if the subquery returns several records.</p>
+<p>It is used to group with a subquery and test the existence of records in a subquery. The <strong>PostgreSQL EXISTS condition</strong> is a type of <strong>Boolean operator</strong> which returns the <strong>true or false</strong> result. In other words, we can say that:</p>
+<ul class="points">
+<li>If a subquery returns any record, the <strong>Exists condition</strong> will return a <strong>TRUE</strong> value, or else, it will return a <strong>FALSE</strong></li>
+<li>Here the <strong>TRUE</strong> value is always illustrated with <strong>numeric value 1</strong>, and the <strong>FALSE</strong> value is denoted as <strong>numeric value 0.</strong></li>
+</ul>
+<h3 class="h3">PostgreSQL EXISTS Condition Syntax</h3>
+<p>The syntax of the PostgreSQL <strong>EXISTS</strong> condition is as follows:</p>
+<div class="codeblock"><textarea name="code" class="java">
+WHERE EXISTS (subquery);
+</textarea></div>
+<p>The Exists condition takes an argument that is known as a <strong>Subquery</strong>. It is frequently used with the related subquery.</p>
+<p>The <strong>EXISTS condition's</strong> output rely on whether any row fetched by the subquery, and not on the row information. Hence, the columns which occur on the <strong>SELECT command</strong> of the subquery are not significant.</p>
+<p>In such cases, we will use the following syntax for the EXISTS condition:</p>
+<div class="codeblock"><textarea name="code" class="java">
+SELECT column1, column2&hellip;columnN
+FROM table1  
+WHERE [NOT] EXISTS (  
+    SELECT 1
+    FROM table2   
+    WHERE column2= table1.column1
+);  
+</textarea></div>
+<p>In the above syntax, we also used the <strong>NOT operator</strong> who helps us to contradicts the EXISTS condition. And it will return <strong>TRUE</strong> when the subquery does not return any row or else it will return <strong>FALSE</strong>.</p>
+<p>In the above syntax, we have used the following parameter:</p>
+<table class="alt">
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>Column1, Cloumn2&hellip;columnN</strong></td>
+<td>It is used to specify the column name which used in the particular table.</td>
+</tr>
+<tr>
+<td><strong>table_name</strong></td>
+<td>This parameter is used to define the table names from which we are going to perform the EXISTS condition.</td>
+</tr>
+<tr>
+<td><strong>Conditions</strong></td>
+<td>The condition parameter is used to search the specific value from the table.</td>
+</tr>
+<tr>
+<td><strong>Subquery</strong></td>
+<td>Generally, the SELECT command starts with the SELECT *, but PostgreSQL ignores it in a subquery.</td>
+</tr>
+</table>
+<p><strong>Note:</strong></p>
+<ul class="points">
+<li>Usually, the <strong>SELECT command</strong> begins with <strong>SELECT *</strong> rather than a <strong>column name or list of expressions</strong>. Here, we are using the <strong>SELECT 1</strong>in its place of <strong>SELECT *,</strong> which helps us to enhance the query's performance in PostgreSQL.</li>
+<li>Meanwhile, the subquery column result is not appropriate because here, only the rows returned matters.</li>
+<li>It will give the same output as PostgreSQL ignores the select list in the Subquery.</li>
+<li>The <strong>EXISTS condition</strong> will stop directly for additional processing after the matching output is identified.</li>
+<li>In PostgreSQL, the SQL commands we will use in the <strong>EXISTS condition</strong> are very ineffective. Therefore, in advance, the sub-query is RE-RUN for each row in the outer query's table.</li>
+<li>And we have more effective ways to write all the commands, which do not use the EXISTS condition.</li>
+</ul>
+<h3 class="h3">Examples of PostgreSQL EXISTS Condition</h3>
+<p>Let us see different examples to understand how the <strong>PostgreSQL EXISTS Condition</strong> works.</p>
+<p>Firstly, we will see one sample example of EXISTS condition to learn the working EXISTS operator in the <strong>PostgreSQL</strong>.</p>
+<p>For this, we are taking the <strong><em>Client</em></strong> and <strong><em>Client_details</em></strong> tables from the <strong>Javatpoint database</strong>.</p>
+<p>In the below example, we identify those <strong>Clients' information</strong> with at least one record from the <strong>client_details</strong> table where the <strong>client_salary</strong> is greater than <strong>30000.</strong></p>
+<p>The following command will return those clients information whose <strong>salary</strong> is more than <strong>30000</strong>:</p>
+<div class="codeblock"><textarea name="code" class="java">
+SELECT client_name, client_profession, 
+client_qualification, Client_salary
+FROM Client c
+WHERE EXISTS
+    (SELECT 1
+     FROM Client_details cd
+     WHERE cd.client_id = c.client_id
+     AND client_salary > 30000 )
+ORDER BY client_name, client_profession;
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After successful execution of the above command, we will get the following result:</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-exists-condition.png" alt="PostgreSQL Exists Condition" />
+<p>As we can see in the above screenshot, the subquery analysis the <strong><em>Client_details</em></strong> table to identify the following scenarios of every client's detail in the <strong><em>Client</em></strong> table.</p>
+<ul class="points">
+<li>If the <strong>client_id</strong> from the <strong><em>Client_details</em></strong> table, and <strong>client_id</strong> from <strong><em>Client</em></strong> table <strong>(cd.client_id = c.client_id)</strong> are equal.</li>
+<li>And the <strong>client_salary</strong> is greater than <strong>30000</strong> <strong>(client_salary &gt; 30000).</strong></li>
+</ul>
+<h3 class="h3">Example of PostgreSQL EXISTS condition with INSERT Command</h3>
+<p>We will display how to use the <strong>EXISTS condition</strong> with the <strong>INSERT</strong> command.</p>
+<p>For this, we are taking the <strong><em>employee, department,</em></strong> and <strong><em>Jobs</em></strong> tables from the <strong>Organization database</strong> to insert the records from one table to another table.</p>
+<p>In the following example, we are inserting the record into the <strong><em>department</em></strong> table from the <strong><em>employee</em></strong> table. We take the <strong>phone</strong> and <strong>address</strong> columns records from the <strong><em>employee</em></strong> table where the <strong>emp_id</strong> and <strong>job_id</strong> is equal in both tables.</p>
+<div class="codeblock"><textarea name="code" class="java">
+INSERT INTO department
+(phone, address)
+SELECT phone, address
+FROM employee
+WHERE EXISTS (SELECT 1 
+			 FROM Jobs
+			 where employee.emp_id= Jobs.Job_id);
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After executing the above command, we will get the below message window displaying that the value has been inserted successfully in the <strong><em>department</em></strong> table.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-exists-condition2.png" alt="PostgreSQL Exists Condition" />
+<p>To check whether the records have been inserted into the <strong><em>department</em></strong> table or not, we will use the <strong>SELECT</strong> command as follows:</p>
+<div class="codeblock"><textarea name="code" class="java">
+Select * from department;
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>On executing the above command, we will get the following output:</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-exists-condition3.png" alt="PostgreSQL Exists Condition" />
+<p>In the above screenshot, we can see that the <strong>PostgreSQL EXISTS condition</strong> inserted <strong>four records</strong> into the <strong><em>department</em></strong> table successfully.</p>
+<h3 class="h3">Example of PostgreSQL EXISTS condition with SELECT Command</h3>
+<p>In the below example, we will display how to use the <strong>EXISTS condition</strong> with the <strong>SELECT</strong> command with two conditions.</p>
+<p>We are taking the <strong><em>Client</em></strong> and <strong><em>Client_details</em></strong> table from the <strong>Javatpoint</strong> database to select all the records from the one table.</p>
+<p>We are using the <strong>EXISTS condition</strong> with <strong>WHERE clause</strong> as we can see the following command:</p>
+<div class="codeblock"><textarea name="code" class="java">
+SELECT *
+FROM Client
+WHERE EXISTS (SELECT 1
+              FROM Client_details
+              WHERE Client.client_id = client_details.client_id);
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After executing the above command, we will get the following output:</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-exists-condition4.png" alt="PostgreSQL Exists Condition" />
+<p>In the above <strong>Subquery</strong> statement, we have used the <strong>SELECT 1</strong>, which helps us to enhance the performance since the column output is not required in the <strong>Exists condition</strong> as only the presence of a returned row matters.</p>
+<p>As we can see in the above screenshot, the <strong>PostgreSQL EXISTS</strong> condition will return all the records from the <strong><em>Client</em></strong> table where at least one records in the <strong><em>Client_details</em></strong> table having a similar <strong>Client_id.</strong></p>
+<h3 class="h3">Example of PostgreSQL EXIST Condition using NOT EXISTS Condition</h3>
+<p>In PostgreSQL, we can also combine the <strong>NOT condition</strong> with the <strong>EXISTS</strong> condition.</p>
+<p>The PostgreSQL <strong>NOT Operator</strong> with <strong>EXISTS Condition</strong> is used to fetch those rows whose values do not match the list's values.</p>
+<h4 class="n">Note: The NOT condition contradicts the output of the EXISTS condition. As we know that the NOT condition is the exact opposite to the EXISTS condition, which implies that:</h4>
+<ul class="points">
+<li>If the subquery returns no row, the <strong>NOT EXISTS</strong>condition will return <strong>TRUE</strong>.</li>
+<li>Or if the subquery returns multiples rows, then the <strong>NOT EXISTS</strong>condition will return <strong>FALSE</strong>.</li>
+</ul>
+<p>For this, we are taking a similar table (<strong><em>Client and client_details</em></strong>) as the above example.</p>
+<p>The following example displays <strong>Not condition with EXISTS condition</strong> to fetch that client information, which does not exist in the <strong><em>Client_details</em></strong> table.</p>
+<div class="codeblock"><textarea name="code" class="java">
+SELECT *
+FROM Client
+WHERE NOT EXISTS (SELECT 1
+              FROM Client_details
+              WHERE Client.client_id = client_details.client_id);
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>On executing the above command, we will get the below output:</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-exists-condition5.png" alt="PostgreSQL Exists Condition" />
+<p>In the above example, the <strong>PostgreSQL EXISTS</strong> example will return all records from the <strong><em>Client</em></strong> table where there are no records in the <strong><em>client_details</em></strong> table for the given <strong>client_id.</strong></p>
+<h3 class="h3">Example of using the EXISTS condition with NULL</h3>
+<p>In PostgreSQL, we can also use the <strong>EXISTS condition</strong> with <strong>NULL</strong>.</p>
+<p>The PostgreSQL <strong>EXISTS Condition</strong> with NULL is used to get those rows where the subquery will return <strong>NULL</strong>, and the EXISTS condition will return <strong>TRUE</strong>.</p>
+<p>For this, we are taking the <strong><em>employee</em></strong> table from the <strong>Javatpoint</strong> database.</p>
+<p>Let us see the below example to understand how the <strong>Exists condition</strong> will work with <strong>NULL.</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+SELECT emp_fname, emp_lname
+FROM employee
+WHERE EXISTS (SELECT NULL)
+ORDER BY emp_fname, emp_lname;
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>On executing the above command, we will get the following output:</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-exists-condition6.png" alt="PostgreSQL Exists Condition" />
+<p>In the above example, the subquery statement returned <strong>NULL</strong>. Hence, the command will return all rows from the <strong><em>employee</em></strong> table.</p>
+<h3 class="h3">Example of PostgreSQL EXISTS Condition with UPDATE Command</h3>
+<p>In the below example, we will display how to use the <strong>EXISTS condition</strong> with the <strong>UPDATE</strong> command.</p>
+<p>For this, we are taking the <strong><em>Summer_fruits</em></strong> and <strong><em>Winter_fruits</em></strong> tables from the <strong>Javatpoint</strong> database.</p>
+<p>In the following command, the <strong>PostgreSQL EXISTS condition</strong> is used to update the <strong>Fruits_name</strong> column values in the <strong><em>summer_fruits</em></strong> table as of the <strong>winter_fruits_name</strong> column from the <strong><em>winter_fruits</em></strong> table where the <strong><em>winter_fruits'</em> wf_id</strong> column is equal to <strong><em>summer_fruits'</em> sf_id</strong> column.</p>
+<div class="codeblock"><textarea name="code" class="java">
+UPDATE summer_fruits
+SET Fruits_name=(SELECT winter_fruits.winter_fruits_name
+                     FROM winter_fruits
+                     WHERE winter_fruits.wf_id = summer_fruits.sf_id)
+WHERE EXISTS (SELECT 1
+              FROM winter_fruits
+              WHERE winter_fruits.wf_id = summer_fruits.sf_id);
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After executing the above command, we will get the below output, where we can see that the <strong><em>summer_fruits</em></strong> table has been updated successfully.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-exists-condition7.png" alt="PostgreSQL Exists Condition" />
+<p>We will now use the <strong>Select</strong> command to check whether the particular records have been updated or not in the <strong><em>summer_fruits</em></strong> table:</p>
+<div class="codeblock"><textarea name="code" class="java">
+SELECT * FROM summer_fruits;
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>On executing the above command, we will get the below result:</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-exists-condition8.png" alt="PostgreSQL Exists Condition" />
+<h3 class="h3">Example of PostgreSQL EXISTS condition with DELETE Command</h3>
+<p>In the below example, we will display how to use the <strong>EXISTS Condition</strong> with the <strong>DELETE</strong> command.</p>
+<p>In the below example, we will take the <strong><em>Course</em></strong> and <strong><em>Course_categories</em></strong> table from the <strong>JavatPoint</strong> Database for deleting the particular records from the table.</p>
+<p>In the following command, the <strong>PostgreSQL EXISTS</strong> Condition is used to delete all the records from the <strong><em>Course</em></strong> table where the <strong>course_id</strong> from <strong><em>Course</em></strong> table and <strong>course_category_id</strong> from the <strong><em>Course_categories</em></strong> table are equal.</p>
+<div class="codeblock"><textarea name="code" class="java">
+DELETE FROM Course
+WHERE EXISTS (SELECT 1
+       FROM Course_categories
+       WHERE Course.course_id = Course_categories.course_category_id);
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After executing the above command, we will get the below message window displaying that the records have been deleted successfully from the <strong><em>Course</em></strong> table.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-exists-condition9.png" alt="PostgreSQL Exists Condition" />
+<p>We will now use the <strong>Select</strong> command to check whether the particular records have been deleted or not in the <strong><em>Course</em></strong> table:</p>
+<div class="codeblock"><textarea name="code" class="java">
+SELECT * 
+FROM Course;
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After successfully executing the above command, we will get the following output:</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-exists-condition10.png" alt="PostgreSQL Exists Condition" />
+<h2 class="h2">Overview</h2>
+<p>In the <strong>PostgreSQL EXISTS Condition</strong> section, we have learned the following topics:</p>
+<p>The use of PostgreSQL <strong>EXISTS condition</strong> provides the advantages of <strong>EXISTS</strong> condition to assess rows existence in the subquery.</p>
+<ul class="points">
+<li>We have seen the sample example of <strong>EXISTS condition</strong> with a <strong>subquery</strong> to check whether the condition has been met once the subquery returns at least one row.</li>
+<li>We used the <strong>EXISTS Condition</strong> with <strong>INSERT command</strong> to insert the records from one table to another.</li>
+<li>We used the <strong>EXISTS Condition</strong> with the <strong>SELECT</strong> command to get the particular table records.</li>
+<li>We used the <strong>EXISTS Condition</strong> with the <strong>NOT Operator</strong> into the <strong>SELECT</strong> command to fetch the not exists records from the particular table.</li>
+<li>We used the <strong>EXISTS Condition</strong> with the <strong>NULL</strong> to get the particular table records.</li>
+<li>We used the <strong>EXISTS Condition</strong> with the <strong>UPDATE</strong> statement to <strong>update</strong> the table's records.</li>
+<li>We used the <strong>EXISTS Condition</strong> with the <strong>DELETE</strong> statement to <strong>remove</strong> the particular table's records.</li>
+</ul>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="postgresql-view.html">PostgreSQL view</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="postgresql-between-condition.html">&larr; prev</a>
+<a style="float:right" class="next" href="postgresql-view.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="dfb9bababbbdbebcb49fb5bea9beabafb0b6b1abf1bcb0b2">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/postgresql-exists-condition"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/postgresql-exists-condition"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/postgresql-exists-condition"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+ </a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+ </div>
+ </a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b9d1cbf9d3d8cfd8cdc9d6d0d7cd97dad6d4">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="147c66547e75627560647b7d7a603a777b793a">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/postgresql-exists-condition by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:54:55 GMT -->
+</html> 

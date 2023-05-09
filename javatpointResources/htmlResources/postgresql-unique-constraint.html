@@ -1,0 +1,1051 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/postgresql-unique-constraint by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:54:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>PostgreSQL Unique Constraint - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="PostgreSQL Unique Constraint - javatpoint" /><meta property="og:description" content="PostgreSQL Unique Constraint with examples database, table, create, select, insert, update, delete, join, function, index, clause, trigger, view, procedure etc." />
+<meta name="keywords" content="postgresql, tutorial, beginners, professionals, introduction, example, command, database, table, create, select, insert, update, delete, join, function, index, clause, trigger, view, procedure" /><meta name="description" content="PostgreSQL Unique Constraint with examples database, table, create, select, insert, update, delete, join, function, index, clause, trigger, view, procedure etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="postgresql-unique-constraint.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="PostgreSQL Unique Constraint - javatpoint" /><meta name="twitter:description" property="og:description" content="PostgreSQL Unique Constraint with examples database, table, create, select, insert, update, delete, join, function, index, clause, trigger, view, procedure etc." /><meta property="og:url" content="postgresql-unique-constraint.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="postgresql-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/postgresql.png" alt="postgresql" /> PostgreSQL</a></li>
+<li><a href="sql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/sql.png" alt="sql" /> SQL</a></li>
+<li><a href="pl-sql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/plsql.png" alt="plsql" /> PL/SQL</a></li>
+<li><a href="mysql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/mysql.png" alt="mysql" /> MySQL</a></li>
+<li><a href="mongodb-tutorial.html"><img src="https://static.javatpoint.com/images/icon/mongodb.png" alt="mongodb" /> MongoDB</a></li>
+<li><a href="sql-server-tutorial.html"><img src="https://static.javatpoint.com/images/icon/sqlserver.png" alt="sql server" /> SQL Server</a></li>
+<li><a href="oracle-tutorial.html"><img src="https://static.javatpoint.com/images/icon/oracle.png" alt="oracle" /> Oracle</a></li>
+<li><a href="sqlite-tutorial.html"><img src="https://static.javatpoint.com/images/icon/sqlite.png" alt="sqlite" /> SQLite</a></li>
+<li><a href="cassandra-tutorial.html"><img src="https://static.javatpoint.com/images/icon/cassandra.png" alt="cassandra" /> Cassandra</a></li>
+<li><a href="dbms-tutorial.html"><img src="https://static.javatpoint.com/images/icon/dbms.png" alt="dbms" /> DBMS</a></li>
+<li><a href="python-tutorial.html"><img src="https://static.javatpoint.com/images/icon/python.png" alt="python" /> Python</a></li>
+<li><a href="java-tutorial.html"><img src="https://static.javatpoint.com/images/icon/java.png" alt="java" /> Java</a></li>
+<li><a href="aptitude/quantitative.html"><img src="https://static.javatpoint.com/images/icon/aptitude.png" alt="aptitude" /> Aptitude</a></li>
+<li><a href="sql-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="sql interview questions" /> Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-tutorial.html">PostgreSQL Tutorial</a>
+<a href="postgresql-syntax.html">PostgreSQL Syntax</a>
+<a href="install-postgresql.html">Install PostgreSQL</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Database</span></h2>
+</div>
+<div class="leftmenu">
+<a href="connect-to-a-postgresql-database-server.html">Connect to a PostgreSQL DB</a>
+<a href="postgresql-create-database.html">PostgreSQL Create DB</a>
+<a href="postgresql-select-database.html">PostgreSQL Select Database</a>
+<a href="postgresql-drop-database.html">PostgreSQL Drop DB</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Table</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-create-table.html">PostgreSQL Create Table</a>
+<a href="postgresql-drop-table.html">PostgreSQL Drop Table</a>
+<a href="postgresql-show-table.html">PostgreSQL Show Table</a>
+<a href="postgresql-describe-table.html">PostgreSQL Describe Table</a>
+<a href="postgresql-alter-table.html">PostgreSQL ALTER table</a>
+<a href="postgresql-add-columns.html">PostgreSQL ADD Column</a>
+<a href="postgresql-drop-column.html">PostgreSQL Drop column</a>
+<a href="postgresql-change-column-type.html">Change Column Type</a>
+<a href="postgresql-rename-column.html">PostgreSQL Rename Column</a>
+<a href="postgresql-truncate-table.html">PostgreSQL Truncate table</a>
+<a href="postgresql-temporary-table.html">PostgreSQL temporary table</a>
+<a href="postgresql-column-alias.html">PostgreSQL Column Alias</a>
+<a href="postgresql-sequence.html">PostgreSQL Sequence</a>
+<a href="postgresql-identity-column.html">Identity Column</a>
+<a href="postgresql-upsert.html">PostgreSQL Upsert</a>
+<a href="postgresql-subquery.html">PostgreSQL Subquery</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Data Types</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-datatypes.html">PostgreSQL Datatypes</a>
+<a href="postgresql-numeric.html">PostgreSQL Numeric</a>
+<a href="postgresql-character.html">PostgreSQL Character</a>
+<a href="postgresql-text.html">PostgreSQL Text</a>
+<a href="postgresql-varchar.html">PostgreSQL Varchar</a>
+<a href="postgresql-boolean.html">PostgreSQL Boolean</a>
+<a href="postgresql-integer.html">PostgreSQL Integer</a>
+<a href="postgresql-smalllint.html">PostgreSQL SMALLLINT</a>
+<a href="postgresql-bigint.html">PostgreSQL BIGINT</a>
+<a href="postgresql-serial.html">PostgreSQL Serial</a>
+<a href="postgresql-date.html">PostgreSQL Date</a>
+<a href="postgresql-time.html">PostgreSQL Time</a>
+<a href="postgresql-timestamp.html">PostgreSQL Timestamp</a>
+<a href="postgresql-interval.html">PostgreSQL Interval</a>
+<a href="postgresql-uuid.html">PostgreSQL UUID</a>
+<a href="postgresql-json.html">PostgreSQL JSON</a>
+<a href="postgresql-hstore.html">PostgreSQL hstore</a>
+<a href="postgresql-array.html">PostgreSQL Array</a>
+<a href="postgresql-user-defined-data-type.html">User-Defined data type</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Schema</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-schema.html" class="l1">PostgreSQL Schema</a>
+<a href="postgresql-create-schema.html">PostgreSQL Create Schema</a>
+<a href="postgresql-drop-schema.html">PostgreSQL Drop Schema</a>
+<a href="postgresql-alter-schema.html">PostgreSQL ALTER Schema</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Queries</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-insert.html">PostgreSQL Insert</a>
+<a href="postgresql-select.html">PostgreSQL Select</a>
+<a href="postgresql-update.html">PostgreSQL Update</a>
+<a href="postgresql-delete.html">PostgreSQL Delete</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Clause</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-where-clause.html">PostgreSQL Where</a>
+<a href="postgresql-order-by-clause.html">PostgreSQL Order By</a>
+<a href="postgresql-group-by-clause.html">PostgreSQL Group By</a>
+<a href="postgresql-having-clause.html">PostgreSQL Having</a>
+<a href="postgresql-distinct.html">PostgreSQL Distinct</a>
+<a href="postgresql-limit.html">PostgreSQL Limit</a>
+<a href="postgresql-fetch-clause.html">PostgreSQL Fetch</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Conditions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-condition.html">PostgreSQL Condition</a>
+<a href="postgresql-and-condition.html">PostgreSQL And</a>
+<a href="postgresql-or-condition.html">PostgreSQL Or</a>
+<a href="postgresql-and-or-condition.html">PostgreSQL And & Or</a>
+<a href="postgresql-not-condition.html">PostgreSQL Not</a>
+<a href="postgresql-like-condition.html">PostgreSQL Like</a>
+<a href="postgresql-in-condition.html">PostgreSQL In</a>
+<a href="postgresql-not-in-condition.html">PostgreSQL Not In</a>
+<a href="postgresql-between-condition.html">PostgreSQL Between</a>
+<a href="postgresql-exists-condition.html">PostgreSQL Exists</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Views</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-view.html">PostgreSQL View</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Join</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-join.html">PostgreSQL Join</a>
+<a href="postgresql-inner-join.html">PostgreSQL INNER Join</a>
+<a href="postgresql-left-join.html">PostgreSQL Left Join</a>
+<a href="postgresql-right-join.html">PostgreSQL Right Join</a>
+<a href="postgresql-full-join.html">PostgreSQL Full Join</a>
+<a href="postgresql-cross-join.html">PostgreSQL Cross Join</a>
+<a href="postgresql-self-join.html">PostgreSQL Self Join</a>
+<a href="postgresql-natural-join.html">PostgreSQL Natural Join</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Trigger</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-trigger.html">PostgreSQL Trigger</a>
+<a href="postgresql-create-trigger.html">Create Trigger</a>
+<a href="postgresql-drop-trigger.html">DROP trigger</a>
+<a href="postgresql-alter-trigger.html">ALTER trigger</a>
+<a href="postgresql-disable-trigger.html">DISABLE trigger</a>
+<a href="postgresql-enable-trigger.html">ENABLE trigger</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Indexes</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-indexes.html">PostgreSQL Indexes</a>
+<a href="postgresql-create-index.html">PostgreSQL Create Index</a>
+<a href="postgresql-drop-index.html">PostgreSQL Drop Index</a>
+<a href="postgresql-list-indexes.html">PostgreSQL List Indexes</a>
+<a href="postgresql-unique-index.html">PostgreSQL Unique Index</a>
+<a href="postgresql-index-on-expression.html">PostgreSQL Index on Expression</a>
+<a href="postgresql-partial-index.html">PostgreSQL Partial Index</a>
+<a href="postgresql-reindex.html">PostgreSQL Reindex</a>
+<a href="postgresql-multi-column-indexes.html">PostgreSQL Multi-column Indexes</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Database Constraints</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-constraints.html">PostgreSQL Constraints</a>
+<a href="postgresql-primary-key.html">PostgreSQL Primary key</a>
+<a href="postgresql-foreign-key.html">PostgreSQL Foreign Key</a>
+<a href="postgresql-unique-constraint.html">Unique Constraint</a>
+<a href="postgresql-check-constraint.html">Check Constraint</a>
+<a href="postgresql-not-null-constraint.html">Not-Null Constraint</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Advance</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-functions.html">PostgreSQL Functions</a>
+<a href="postgresql-alias.html">PostgreSQL Alias</a>
+<a href="postgresql-date-time.html">PostgreSQL Date &amp; Time</a>
+<a href="psql-commands.html">Psql commands</a>
+<a href="postgresql-union.html">PostgreSQL Union</a>
+<a href="postgresql-intersect.html">PostgreSQL Intersect</a>
+<a href="postgresql-except.html">PostgreSQL Except</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Advance</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-versions.html">PostgreSQL versions</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="mongodb-vs-postgresql.html">MongoDB vs PostgreSQL</a>
+<a href="postgresql-vs-sql-server.html">PostgreSQL vs SQL Server</a>
+<a href="postgresql-vs-mariadb.html">PostgreSQL vs MariaDB</a>
+<a href="postgresql-vs-oracle.html">PostgreSQL vs Oracle</a>
+<a href="postgresql-vs-sqlite.html">PostgreSQL vs SQLite</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-interview-questions.html">SQL Interview</a>
+<a href="pl-sql-interview-questions.html">PL/SQL Interview</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Quiz</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-quiz.html">SQL Quiz</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="postgresql-check-constraint.html">next &rarr;</a>
+<a class="next" href="postgresql-foreign-key.html">&larr; prev</a>
+</div>
+<h1 class="h1">PostgreSQL Unique Constraint</h1>
+<p>In this section, we are going to understand the working of the <strong>PostgreSQL UNIQUE constraint,</strong> which is used to make sure that all values in a column of a table are exclusive.</p>
+<p><strong>Examples</strong> of the <strong>PostgreSQL Unique constraint,</strong> how to create a unique constraint on <strong>multiple columns, adding a unique <a href="postgresql-constraints.html">constraint</a> using a unique index</strong>, and also see how to <strong>drop a unique constraint</strong> for the particular table.</p>
+<h2 class="h2">What is PostgreSQL Unique key Constraint?</h2>
+<p>In <a href="postgresql-tutorial.html">PostgreSQL</a>, the <strong>UNIQUE CONSTRAINT</strong> is used to maintain the individuality of the values that we store into a field or a column of the table. It is compatible with a group of column constraints or column constraints and a table constraint.</p>
+<p>When we are using the <strong>unique constraint</strong>, an index on one or more columns generate automatically. If we add two different null values into a column in different rows, it does not interrupt the UNIQUE constraint's specification.</p>
+<p>Sometimes, if we want to ensure that values stored in a column or multiple columns are unique across the entire table, then a column cannot store <strong>duplicate values</strong>.</p>
+<p><strong>For example</strong></p>
+<ul class="points">
+<li>The <strong>Phone number</strong> of clients should be a <strong>unique column</strong> in the <strong><em>Clients</em></strong> </li>
+<li>The <strong>Roll numbers</strong> and the <strong>Email address</strong> should be the <strong>unique columns</strong> in the <strong><em>Student</em></strong></li>
+</ul>
+<p>When we have used the <strong>UNIQUE constraint</strong>, every time we insert a new row, it checks if the value is already in the table, rejects the modification and raise an error if the value already exists. And similar steps will be followed while updating the current data.</p>
+<h3 class="h3">Why we need to use the Unique constraint in PostgreSQL</h3>
+<ul class="points">
+<li>The Unique constraint can include the null value into the table.</li>
+<li>To avoid the two records from storing identical values into the column, the unique constraint is very useful.</li>
+<li>It also works with a foreign key to maintain the uniqueness of a table.</li>
+<li>In PostgreSQL, the unique constraint contains only the different values, which preserve the reliability and the integrity of the database for retrieving the information in an organized way.</li>
+</ul>
+<h3 class="h3">Unique constraint VS a primary key</h3>
+<p>The major difference between unique constraint and <a href="postgresql-primary-key.html">primary key</a> are as follows:</p>
+<table class="alt">
+<tr>
+<th>Unique Constraint</th>
+<th>Primary Key</th>
+</tr>
+<tr>
+<td>Some of the fields related to the <strong>unique constraint</strong> can have the null values if the combination of values are unique.</td>
+<td>None of the fields which are related to the primary key can include a null value.</td>
+</tr>
+</table>
+<h2 class="h2">How to create a Unique Constraint in PostgreSQL</h2>
+<p>We can create a <strong>PostgreSQL Unique Constraint</strong> with the help of the below commands:</p>
+<ul class="points">
+<li><strong>CREATE TABLE command</strong></li>
+<li><strong>ALTER TABLE command</strong> </li>
+</ul>
+<p>Now, we are discussing both the commands in detail.</p>
+<h3 class="h3">Creating a Unique Constraint using a CREATE TABLE command</h3>
+<p>In PostgreSQL, we can generate a <strong>Unique Constraint</strong> with the <a href="postgresql-create-table.html">CREATE TABLE command's</a> help.</p>
+<p><strong>The syntax for creating a Unique Constraint</strong></p>
+<p>The below illustrations are used to display how we can create a <strong>Unique Constraint</strong> using the CREATE TABLE command:</p>
+<p>The first syntax is used to create a <strong>Unique Constraint for one column</strong> into the table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+CREATE TABLE table_name(  
+col1 datatype,  
+col2 datatype UNIQUE,  
+ ...  
+);  
+</textarea></div>
+<p><strong>OR</strong></p>
+<p>We can use the second illustration to create <strong>Unique Constraint for multiple</strong> columns into the table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+CREATE TABLE table_name(  
+col1 col_definition,  
+col2 col_definition,  
+...  
+[CONSTRAINT constraint_name]  
+UNIQUE(column_name(s))  
+);  
+</textarea></div>
+<h4 class="n">Note: If we do not define a unique constraint name, PostgreSQL automatically creates a name for the particular column. Therefore, it is suggested to use the constraint name while generating a table.</h4>
+<p><strong>Description of Parameters</strong></p>
+<p>In the above syntax, we have used the following parameters, which we discussed in the below table:</p>
+<table class="alt">
+<tr>
+<th>Parameter Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>Table_name</strong></td>
+<td>It is the name of a table which we are going to create.</td>
+</tr>
+<tr>
+<td><strong>column1, column2</strong></td>
+<td>These are columns that we created in the table.</td>
+</tr>
+<tr>
+<td><strong>constraint_name</strong></td>
+<td>The constraint_name parameter is used to specify the name of the Unique Constraint.</td>
+</tr>
+<tr>
+<td><strong>Column_name(s)</strong></td>
+<td>These are the columns that are going to be a Unique Constraint.</td>
+</tr>
+</table>
+<h3 class="h3">Example of PostgreSQL Unique Constraint using Create command</h3>
+<p>To understand the <strong>PostgreSQL Unique Constraint's working,</strong> we will see the below example.</p>
+<p>In the below example, we create a new table called <strong><em>Customers</em></strong>, which contains <strong>multiple columns</strong>, such as <strong>Customer_ID, Customer_name, Address,</strong> and <strong>email_ID</strong>.</p>
+<p>And the <strong>email_id</strong> is the Unique column, which uniquely classifies the <strong>email id</strong> in the <strong><em>Customer</em></strong> table.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+CREATE TABLE Customers (
+	Customer_id SERIAL PRIMARY KEY,
+	Customer_name VARCHAR (25),
+Address VARCHAR(25),
+	email_id VARCHAR (50), 
+UNIQUE (email_id)
+);
+</textarea></div>
+<p><strong>OR</strong></p>
+<p>We can use the following command to create the <strong><em>Customers</em></strong> table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+CREATE TABLE Customers (
+	Customer_id SERIAL PRIMARY KEY,
+	Customer_name VARCHAR (25),
+Address VARCHAR(25),
+	email_id VARCHAR (50) UNIQUE
+);
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After implementing the above command, we will get the below message window, which displays that the <strong><em>Customers</em></strong> table has been created successfully into the <strong>jtp</strong> database.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-unique-constraint.png" alt="PostgreSQL Unique Constraint" />
+<p>After creating the new table as <strong><em>Customers</em></strong> successfully, we will enter some values into it with the <strong>INSERT</strong> command's help.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+INSERT INTO Customers(Customer_name, Address, email_id)   
+VALUES ('Chris Johnson', 'Los Angeles', 'Chris11@javatpoint.com'),   
+(' Daniel Rodriguez', 'San Diego', 'Rodriguezdan25@javatpoint.com'),
+('Isabella Smith', 'Dallas', 'Smithisa444@javatpoint.com'),
+('Penelope Brown', 'Seattle', 'Penelope194@javatpoint.com');  
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>On executing the above command, we will get the following message window, which displays that the <strong>four values</strong> have been inserted successfully into the <strong><em>Customers</em></strong> table.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-unique-constraint2.png" alt="PostgreSQL Unique Constraint" />
+<p>Now, we will insert another row with duplicate <strong>email_id</strong> into the <strong><em>Customers</em></strong> table, as shown in the below statement:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+INSERT INTO Customers(Customer_name, Address, email_id)   
+VALUES ( 'Savannah Smith', 'Boston', 'Smithisa444@javatpoint.com');
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After implementing the above insert command, PostgreSQL issued an error message, which is as follows:</p>
+<p><strong>ERROR: duplicate key value violates unique constraint "customers_email_id_key" DETAIL: Key (email_id)=(<a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="de8db3b7aab6b7adbfeaeaea9eb4bfa8bfaaaeb1b7b0aaf0bdb1b3">[email&#160;protected]</a>) already exists.</strong></p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-unique-constraint3.png" alt="PostgreSQL Unique Constraint" />
+<h3 class="h3">Generating a unique constraint on multiple columns</h3>
+<p>Let us see a sample example to understand the working of the <strong>PostgreSQL Unique constraints on multiple columns.</strong></p>
+<p>Suppose we want to specify the primary key on <strong>multiple columns</strong>; In that case, we can see the below <strong>Create command</strong> example, which help us to generate one new table as <strong><em>Customer_info.</em></strong> </p>
+<p><strong>And</strong> the combination of values in column <strong>Cust_username and Cust_email</strong> will be unique across the whole table. The value of the column <strong>Cust_username</strong> and <strong>Cust_email</strong> needs not to be unique.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+CREATE TABLE Customer_info (  
+    Cust_ID SERIAL,   
+    Cust_Username VARCHAR(45),  
+    Cust_name  VARCHAR (50) NOT NULL,   
+    Cust_email VARCHAR (50),  
+    Cust_address VARCHAR (30),
+    CONSTRAINT uc_Cust_username_Cust_email 
+Unique(Cust_username, Cust_email)  
+);  
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After implementing the above command, we will get the following message window, which displays that the <strong><em>Customer_info</em></strong> table has been created successfully into the <strong>Jtp</strong> database.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-unique-constraint4.png" alt="PostgreSQL Unique Constraint" />
+<h3 class="h3">Creating a Unique constraint using an ALTER TABLE command and adding a unique constraint using a unique index</h3>
+<p>We can generate a <strong>Unique constraint</strong> in PostgreSQL with the <strong>ALTER TABLE</strong> command's help, and we can also add the unique constraint using the <strong>PostgreSQL unique index.</strong></p>
+<p><strong>The syntax for creating a unique constraint</strong></p>
+<p>The below illustrations are used to create a <strong>Unique constraint</strong> with the <a href="postgresql-alter-table.html">ALTER TABLE command in PostgreSQL</a>:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+ALTER TABLE table_name
+ADD CONSTRAINT [ constraint_name ]
+UNIQUE(column_list);  
+</textarea></div>
+<p>In the above syntax, we have used the following parameters, which we discussed in the below table:</p>
+<table class="alt">
+<tr>
+<th>Parameter Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>Table_name</strong></td>
+<td>It is the name of a table, which we are going to modify.</td>
+</tr>
+<tr>
+<td><strong>Column_list</strong></td>
+<td>These are columns, which we created in the table.</td>
+</tr>
+<tr>
+<td><strong>constraint_name</strong></td>
+<td>It is used to define the unique constraint name.</td>
+</tr>
+</table>
+<h3 class="h3">Example of PostgreSQL Unique constraint using ALTER TABLE command and adding the unique constraint using a unique index</h3>
+<p>In the below example, we will understand the <strong>PostgreSQL Unique constraint</strong> working with the <strong>ALTER TABLE command</strong> and follow the below steps to add the <strong>unique constraint</strong> using a <strong>unique index.</strong></p>
+<p><strong>Step1: Creating a new table</strong></p>
+<p>Firstly, we will create a new table called <strong><em>Student</em></strong>, which does not contain the <strong>Unique column</strong> in the <strong>table description.</strong></p>
+<div class="codeblock"><textarea name="code" class="sql">
+CREATE TABLE Student (  
+Student_ID INT NOT NULL,   
+First_name VARCHAR(45),
+Last_name VARCHAR(50),   
+Student_Age INT,   
+Student_email VARCHAR(25) ,
+Student_roll_no INT
+ );  
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After implementing the above command, we will get the following message window, which displays that the <strong><em>Student</em></strong> table has been created successfully into the <strong><em>Jtp</em></strong> database.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-unique-constraint5.png" alt="PostgreSQL Unique Constraint" />
+<p><strong>Step2: Create a unique Index</strong></p>
+<p>After creating the <strong><em>Student</em></strong> table, we will create a new index based on the <strong>Student_email</strong> column.</p>
+<p>To get more information about the PostgreSQL Unique index refers to the below link:</p>
+<p><a href="postgresql-unique-index.html">https://www.javatpoint.com/postgresql-unique-index</a></p>
+<div class="codeblock"><textarea name="code" class="sql">
+CREATE UNIQUE INDEX CONCURRENTLY Student_Student_email
+ON Student(Student_email);
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After executing the above command, we will get the below message window displaying that the particular <strong>index</strong> has been created successfully.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-unique-constraint6.png" alt="PostgreSQL Unique Constraint" />
+<p><strong>Step3: Add the unique constraint to the Specified table</strong></p>
+<p>After creating the <strong>Student_Student_email</strong> index successfully, we are going to add a unique constraint to the <strong><em>Student</em></strong> table using the ALTER TABLE command's help, as shown in the following statement:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+ALTER TABLE Student
+ADD CONSTRAINT unique_Student_email
+UNIQUE USING INDEX Student_Student_email;
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>On executing the above command, we will get the below messages window: The <strong><em>Student</em></strong> table has been altered successfully.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-unique-constraint7.png" alt="PostgreSQL Unique Constraint" />
+<p>In the above screenshot, we can see that the PostgreSQL raise a notice, which says that the <strong>ALTER TABLE / ADD CONSTRAINT USING INDEX will rename index "student_student_email" to "unique_student_email".</strong></p>
+<p><strong>Note:</strong></p>
+<ul class="points">
+<li>The <strong>ALTER TABLE</strong>command obtains an exclusive lock on the table. If we have any incomplete transactions, it will wait for all transactions to complete before altering the table.</li>
+<li>To see the existing incomplete transactions, we should check the <strong>pg_stat_activity</strong> table with the help of the below command:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT 
+datid, datname, usename, state
+FROM pg_stat_activity;
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After implementing the above command, we will get the below output, where we can find the <strong>State column</strong> with the value <strong>idle and active</strong> in the transaction. And the <strong>idle state</strong> defines that these are <strong>incomplete transactions</strong>.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-unique-constraint8.png" alt="PostgreSQL Unique Constraint" />
+<h2 class="h2">How to Drop the PostgreSQL Unique Constraint</h2>
+<p>In PostgreSQL, we can remove the unique constraint with the help of the <strong>ALTER TABLE</strong> command.</p>
+<p><strong>The syntax for dropping a unique constraint</strong> </p>
+<p>The below illustrations are used to remove a unique constraint with the ALTER TABLE command in PostgreSQL:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+ALTER TABLE table_name  
+DROP CONSTRAINT constraint_name;  
+</textarea></div>
+<p>In the above syntax, we have used the following parameters, which we discussed in the below table:</p>
+<table class="alt">
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>table_name</strong></td>
+<td>The table name parameter is used to specify the table's name, which needs to be modified.</td>
+</tr>
+<tr>
+<td><strong>constraint_name</strong></td>
+<td>The constraint name parameter is used to define the unique constraint name, which we want to remove.</td>
+</tr>
+</table>
+<p><strong>Example of drop the PostgreSQL unique constraint using an ALTER TABLE command</strong></p>
+<p>Let's us see a sample example of removing the <strong>unique constraint</strong> from the particular table.</p>
+<p>For this, we are taking the <strong><em>Customer_info</em></strong> table to remove the unique constraint with the <strong>ALTER TABLE</strong> command's help, as shown in the below statement:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+ALTER TABLE Customer_info
+DROP CONSTRAINT uc_Cust_username_Cust_email;  
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After successfully implementing the above command, we will get the below message window displaying that the <strong>unique constraint (uc_Cust_username_Cust_email)</strong> has been dropped from the <strong><em>Customer_info</em></strong> table.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-unique-constraint9.png" alt="PostgreSQL Unique Constraint" />
+<h3 class="h3">Overview</h3>
+<p>In the <strong>PostgreSQL Unique Constraint</strong> section, we have learned the following topics:</p>
+<ul class="points">
+<li>We have used the <strong>CREATE TABLE</strong> command to create a <strong>Unique Constraint</strong> for the particular table.</li>
+<li>We have understood the concept of altering the PostgreSQL unique constraint using the <strong>CREATE TABLE</strong></li>
+<li>We added the unique constraint using the <strong>PostgreSQL unique index</strong> to the existing table.</li>
+<li>We have used the <strong>ALTER TABLE</strong> command to drop the <strong>unique constraint</strong> from the particular table.</li>
+</ul>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="postgresql-check-constraint.html">PostgreSQL Check Constraint</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="postgresql-foreign-key.html">&larr; prev</a>
+<a style="float:right" class="next" href="postgresql-check-constraint.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points"> 
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ddbbb8b8b9bfbcbeb69db7bcabbca9adb2b4b3a9f3beb2b0">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/postgresql-unique-constraint"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/postgresql-unique-constraint"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/postgresql-unique-constraint"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+ </div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+ <p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="523a20123833243326223d3b3c267c313d3f">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="452d37052f24332431352a2c2b316b262a286b">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/postgresql-unique-constraint by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:54:55 GMT -->
+</html> 

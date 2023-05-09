@@ -1,0 +1,733 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/entity-identification-problem-in-data-mining by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:22:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Entity Identification Problem in Data Mining - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Entity Identification Problem in Data Mining - Javatpoint" /><meta property="og:description" content="Entity Identification Problem in Data Mining with What is Data Mining, Techniques, Architecture, History, Tools, Data Mining vs Machine Learning, Social Media Data Mining, etc." />
+<meta name="keywords" content="data mining, data mining tutorial, what is data mining, data mining techniques, data mining architecture, history of data mining, tools, data mining vs machine learning, social media data mining, kdd process, implementation process, facebook data mining, social media data mining methods, data mining- cluster analysis" /><meta name="description" content="Entity Identification Problem in Data Mining with What is Data Mining, Techniques, Architecture, History, Tools, Data Mining vs Machine Learning, Social Media Data Mining, etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="entity-identification-problem-in-data-mining.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Entity Identification Problem in Data Mining - Javatpoint" /><meta name="twitter:description" property="og:description" content="Entity Identification Problem in Data Mining with What is Data Mining, Techniques, Architecture, History, Tools, Data Mining vs Machine Learning, Social Media Data Mining, etc." /><meta property="og:url" content="entity-identification-problem-in-data-mining.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="data-mining.html" class="selected">Data Mining</a></li>
+<li><a href="machine-learning.html">Machine Learning</a></li>
+<li><a href="dbms-tutorial.html">DBMS</a></li>
+<li><a href="artificial-intelligence-ai.html">AI</a></li>
+<li><a href="blockchain-tutorial.html">Blockchain</a></li>
+<li><a href="control-system-tutorial.html">Control System</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="examaccess.html">Quiz</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+<li><a href="comment.html">Comment</a></li>
+<li><a href="forum.html">Forum</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Data Mining</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-mining.html">Data Mining Tutorial</a>
+<a href="data-mining-techniques.html">Data Mining Techniques</a>
+<a href="implementation-process-of-data-mining.html">Implementation Process</a>
+<a href="data-mining-architecture.html">Data Mining Architecture</a>
+<a href="kdd-process-in-data-mining.html">Data Mining KDD Process</a>
+<a href="history-of-data-mining.html">Data Mining History</a>
+<a href="data-mining-tools.html">Data Mining Tools</a>
+<a href="data-mining-vs-machine-learning.html">Data Mining vs Machine Learning</a>
+
+<a href="facebook-data-mining.html">Facebook Data Mining</a>
+<a href="social-media-data-mining-methods.html">Social Media Data Mining Methods</a>
+<a href="data-mining-cluster-analysis.html">Data Mining Cluster Analysis</a>
+<a href="text-data-mining.html">Text Data Mining</a>
+<a href="bagging-vs-boosting.html">Bagging vs Boosting</a>
+<a href="data-mining-cluster-vs-data-warehousing.html">Data Mining vs Data Warehousing</a>
+<a href="social-media-data-mining.html">Social Media Data Mining</a>
+<a href="data-mining-bayesian-classifiers.html">Data Mining Bayesian Classification</a>
+<a href="data-mining-world-wide-web.html">Data Mining World Wide Web</a>
+<a href="data-mining-different-types-of-clustering.html">Different types of Clustering Algorithm</a>
+<a href="bitcoin-data-mining.html">Bitcoin Data Mining</a>
+<a href="orange-data-mining.html">Orange Data Mining</a>
+<a href="data-mining-vs-big-data.html">Data Mining vs Big Data</a>
+<a href="decision-tree-induction.html">Decision Tree Induction</a>
+<a href="educational-data-mining.html">Educational Data Mining</a>
+<a href="data-mining-in-healthcare.html">Data Mining in Healthcare</a>
+<a href="apriori-algorithm.html">Apriori Algorithm</a>
+<a href="data-integration-in-data-mining.html">Data Integration in Data Mining</a>
+<a href="data-mining-vs-text-mining.html">Data mining vs Text mining</a>
+<a href="discretization-in-data-mining.html">Discretization in data mining</a>
+<a href="redundancy-and-correlation-in-data-mining.html">Redundancy and Correlation in Data Mining</a>
+<a href="classification-of-data-mining-systems.html">Classification of Data Mining Systems</a>
+<a href="data-mining-models.html">Data Mining Models</a>
+<a href="data-mining-vs-data-science.html">Data mining vs Data Science</a>
+<a href="data-mining-vs-statistics.html">Data Mining vs Statistics</a>
+<a href="data-mining-vs-web-mining.html">Data Mining vs Web Mining</a>
+<a href="data-mining-vs-data-analysis.html">Data Mining vs Data Analysis</a>
+<a href="business-intelligence-vs-data-mining.html">Business Intelligence vs Data Mining</a>
+<a href="data-mining-vs-data-visualization.html">Data Mining vs Data Visualization</a>
+<a href="data-mining-vs-data-analytics.html">Data Mining vs Data Analytics</a>
+<a href="types-of-data-mining.html">Types of Data Mining</a>
+<a href="data-profiling-vs-data-mining.html">Data Profiling vs Data Mining</a>
+<a href="predictive-analytics-vs-data-mining.html">Predictive Analytics vs Data Mining</a>
+<a href="data-mining-vs-olap.html">Data Mining vs OLAP</a>
+<a href="descriptive-vs-predictive-data-mining.html">Descriptive vs Predictive Data Mining</a>
+<a href="spatial-vs-temporal-data-mining.html">Spatial vs Temporal Data Mining</a>
+<a href="classification-vs-clustering-in-data-mining.html">classification vs clustering</a>
+<a href="hierarchical-clustering-in-data-mining.html">Hierarchical clustering in data mining</a>
+<a href="density-based-clustering-in-data-mining.html">Density-based clustering in data mining</a>
+<a href="aggregation-in-data-mining.html">Aggregation in data mining</a>
+<a href="regression-in-data-mining.html">Regression in data mining</a>
+<a href="what-is-outlier-in-data-mining.html">What is Outlier in data mining</a>
+<a href="data-cleaning-in-data-mining.html">Data Cleaning in Data Mining</a>
+<a href="data-processing-in-data-mining.html">Data Processing in Data Mining</a>
+<a href="classification-and-predication-in-data-mining.html">Classification and Predication in Data Mining</a>
+<a href="data-mining-task-primitives.html">Data Mining Task Primitives</a>
+<a href="web-content-vs-web-structure-vs-web-usage-mining.html">Web Content vs Web Structure vs Web Usage Mining</a>
+<a href="what-is-binning-in-data-mining.html">What is Binning in Data Mining</a>
+<a href="kdd-vs-data-mining.html">KDD vs Data Mining</a>
+<a href="what-is-noise-in-data-mining.html">What is Noise in Data Mining</a>
+<a href="birch-in-data-mining.html">BIRCH in Data Mining</a>
+<a href="stemming-in-data-mining.html">Stemming in Data Mining</a>
+<a href="feature-transformation-in-data-mining.html">Feature Transformation in Data Mining</a>
+<a href="visual-and-audio-data-mining.html">Visual and Audio Data Mining</a>
+<a href="class-comparison-methods-in-data-mining.html">Class Comparison Methods in Data Mining</a>
+<a href="data-selection-in-data-mining.html">Data Selection in Data Mining</a>
+<a href="tasks-and-functionalities-of-data-mining.html">Tasks and Functionalities of Data Mining</a>
+<a href="ubiquitous-and-invisible-data-mining.html">Ubiquitous and Invisible Data Mining</a>
+<a href="entity-identification-problem-in-data-mining.html">Entity Identification Problem in Data Mining</a>
+<a href="numerosity-reduction-in-data-mining.html">Numerosity Reduction in Data Mining</a>
+<a href="market-basket-analysis-in-data-mining.html">Market Basket Analysis in Data Mining</a>
+<a href="what-is-multimedia-data-mining.html">What is Multimedia Data Mining</a>
+<a href="correlation-analysis-in-data-mining.html">Correlation Analysis in Data Mining</a>
+<a href="data-mining-services.html">Data Mining Services</a>
+<a href="trends-in-data-mining.html">Trends in Data Mining</a>
+<a href="data-harvesting-vs-data-mining.html">Data Harvesting vs Data Mining</a>
+<a href="data-mining-vs-artificial-intelligence.html">Data Mining vs Artificial Intelligence</a>
+<a href="data-mining-vs-data-exploration.html">Data Mining vs Data Exploration</a>
+<a href="data-mining-vs-process-mining.html">Data Mining vs Process Mining</a>
+<a href="web-scraping-vs-data-mining.html">Web Scraping vs Data Mining</a>
+<a href="data-wrangling.html">Data Wrangling</a>
+<a href="what-is-boosting-in-data-mining.html">What is Boosting in Data Mining</a>
+<a href="what-is-forecasting-in-data-mining.html">What is Forecasting in Data Mining</a>
+<a href="what-is-crisp-in-data-mining.html">What is CRISP in Data Mining</a>
+<a href="fp-growth-algorithm-in-data-mining.html">FP Growth Algorithm in Data Mining</a>
+<a href="weka-data-mining.html">Weka Data Mining</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-mining-mcq.html">Data Mining MCQ</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="numerosity-reduction-in-data-mining.html">next &rarr;</a>
+<a class="next" href="ubiquitous-and-invisible-data-mining.html">&larr; prev</a>
+</div>
+<h1 class="h1">Entity Identification Problem in Data Mining</h1>
+<p>Nowadays, data mining is used in almost all places where a large amount of data is stored and processed. Data Integration is one of the major tasks of data preprocessing. Integrating multiple databases or data files into a single store of identical data is known as Data Integration.</p>
+<p>Data Integration is usually performed to create data sets for machine learning algorithms and to predict the statistical information from the data during the data mining. We integrate data from various resources like banking transactions, invoices, customer records, Twitter, blog postings, image, audio or video data, electronic data interchange (EDI) files, spreadsheets, and sensor data.</p>
+<p>Data mining often requires data integration, merging data from multiple data stores, which combines data from multiple sources into a coherent data store, as in data warehousing. These sources may include multiple databases, data cubes, or flat files. There are many issues to consider during data integration, like Schema integration and object matching.</p>
+<p>So careful integration can help reduce and avoid redundancies and inconsistencies in the resulting data set. This can help improve the accuracy and speed of the subsequent data mining process. The semantic heterogeneity and structure of data pose great challenges in data integration. How can we match schema and objects from different sources? Or How can equivalent real-world entities from multiple data sources be matched up? This problem is known as the <strong><em>entity identification problem</em></strong>.</p>
+<h3 class="h3">Issues in Data Integration</h3>
+<p>Here are the following issues in data integration, such as:</p>
+<img src="https://static.javatpoint.com/tutorial/data-mining/images/entity-identification-problem-in-data-mining.png" alt="Entity Identification Problem in Data Mining" />
+<p><strong>1. Data redundancy</strong></p>
+<p>Redundant data occurs while we merge data from multiple databases. If the redundant data is not removed, incorrect results will be obtained during data analysis. Redundant data occurs due to the following reasons.</p>
+<ul class="points">
+<li><strong>Object identification:</strong> The same attribute or object may have different names in different databases.</li>
+<li><strong>Derivable data:</strong> One attribute may be a "derived" attribute in another table, e.g., annual revenue</li>
+</ul>
+<p><strong>2. Duplicate data attributes</strong></p>
+<p>Duplicates are usually present in the information in one or more other attributes.</p>
+<p><strong>3. Irrelevant attributes</strong> </p>
+<p>Some attributes in the data are not important, and they are not considered while performing the data mining tasks. For example, students' ID is often irrelevant to the task of predicting students' GPA</p>
+<p>. There is no use in having such irrelevant attributes in the data.</p>
+<p><strong>4. Entity Identification Problem</strong></p>
+<p>Entity Identification Problem occurs during the data integration. While integrating data from multiple resources, some data resources match each other, becoming reductant if they are integrated. Equivalent real-world entities from multiple data sources matched up are referred to as this problem.</p>
+<p>For example: A.cust-id =B.cust-number. Here A, B are two different database tables. Cust-id is the attribute of table A,cust-number is the attribute of table B. Here cust-id and cust-number are attributes of different tables, and there is no relationship between these tables, but the cust-id attribute and cust-number attribute are taking the same values. This is an example of an Entity Identification Problem in the relation. Meta Data can be used to avoid errors in such schema integration. This ensures that the source system's functional dependencies and referential constraints match the target system. Entity Identification Problem helps in detecting and resolving data value conflicts. Data is usually collected from multiple resources into a coherent store, and it can be of different dimensions and datatypes. There are different representations of data and different scales of data. Entity identification problems can occur in both virtual and actual database integration.</p>
+<ul class="points">
+<li><strong>Virtual Integration:</strong> A virtually integrated database is created on top of the component databases, usually using a common data model and integrated schema. The components retain their identities and usage. The effort in federated autonomous databases is in this direction.</li>
+<li><strong>Actual Integration:</strong> An actually integrated database is created from the component databases. The original databases are discarded, and the applications are migrated to the new integrated database.</li>
+</ul>
+<p>In a single database context, it is usually the case that an object instance can uniquely model a real-world entity. This property does not hold for multiple autonomous databases, and the problem of entity identification therefore arises. For example, when we add two object instances to a relation in a single database, the one-to-one correspondence between object instances and real-world entities assures that the two new object instances refer to distinct real-world entities. However, when the two object instances are added to relations in different databases, such one-to-one correspondence property may disappear.</p>
+<p>Pre-existing databases in most organizations are defined and populated by different people at different times in response to different organizational or end-user requirements. Such independent development of databases often results in two databases capturing parts of the same real-world domain. Typically, when there is a need to provide integrated access to these related databases, relating the representations of the same real-world entity from the two databases is often difficult, if not impossible, without specifying additional semantic information that resolves this ambiguity.</p>
+<h3 class="h3">Entity Identification in Database Integration</h3>
+<p>The task of integrating pre-existing autonomous databases has to resolve the logical heterogeneity that arises when the participating databases are designed independently of one another. Logical heterogeneity can occur at two levels, namely, schema level and instance level. The resolution of schema level heterogeneity is known as schema integration. The resolution of instance-level heterogeneity is known as instance integration.</p>
+<p><strong>1. Schema Level</strong></p>
+<p>The meta-data information of the participating databases, equally applicable to all instances, is incompatible. The incompatibility problems at this level include:</p>
+<ul class="points">
+<li><strong>Domain mismatch:</strong> The domains of similar attributes are not compatible in structure or semantics. For example, the currency attribute in one relation is in U.S. dollars, while the currency attribute in another relationship is yen. An example of a structural mismatch is the case when the name attribute in one relation has a data type of string. In contrast, the name attribute in another relation comprises three subattributes of string data type: lastname, firstname, and middle name. This is a case of semantic mismatch.</li>
+<li><strong>Schema mismatch:</strong> This problem arises when two databases' schema structures and semantics are not compatible. For example, the Employee table in one database may correspond to a union of Part-time-employee and Full-time-employee tables in another database.</li>
+<li><strong>Constraint mismatch:</strong> The constraints specified in the participating databases may be incompatible. For example, a graduate school database may require all graduate students to have a cumulative GPA of greater than 3.0. In contrast, the computer science department database may require all graduate students to have a cumulative GPA of greater than 3.5.</li>
+</ul>
+<p><strong>2. Instance Level</strong></p>
+<p>The schemas are compatible in structure (attribute domains), and semantics (attribute meaning), but the instances corresponding to the same real-world entity have yet to be identified and merged. The two problems that occur at this level are:</p>
+<ul class="points">
+<li><strong>Entity identification:</strong> This is the problem of identifying object instances from different databases that correspond to the same real-world entity.</li>
+<li><strong>Attribute value conflict:</strong> Attribute value conflict arises when the attribute values in the two databases, modeling the same property of a real-world entity, do not match. This conflict may be caused by data scaling conflict, inconsistent data, missing data, or even potential schema modeling errors. Data scaling conflict occurs when the domains of semantically related attributes use different units of measurement. Inconsistent data occur when semantically equivalent attributes have different values. Missing data refers to the situation when object instances modeling the same real-world do not have the same set of attributes. It is clear that attribute value conflict resolution can be performed only after the entity-identification problem has been resolved.</li>
+</ul>
+<p>Schema level homonym and synonym problems are usually resolved at the schema integration stage. In the case of actual database integration, the instance level problems must be resolved subsequently to complete the integration process. In the case of virtual database integration, the strategies and information required for resolving instance-level problems have to be specified during design time, i.e., the schema integration phase, but the actual processing only takes place during the query time.</p>
+<p>Instance integration may have to be performed whenever updating is done on the participating databases. Because entity identification is the first problem to be tackled in instance integration, effective and efficient approaches to handle it are necessary.</p>
+<h3 class="h3">Approaches</h3>
+<p>The existing approaches to entity identification can be categorized as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/data-mining/images/entity-identification-problem-in-data-mining2.png" alt="Entity Identification Problem in Data Mining" />
+<p><strong>1. Using key equivalence:</strong> Many approaches assume some common key exists between relations from different databases modeling the same entity type, e.g., Multibase. Because a key can be used for uniquely associating object instances with real-world entities, the equivalence of values of the common key can be used to resolve the problem. This approach, however, is limited because the relations may have no common key, even though they might share some common key attributes.</p>
+<p><strong>2. User-specified equivalence:</strong> This approach requires the user to specify equivalence between object instances, e.g., as a table that maps local object ids to global object ids, i.e., the responsibility of matching the object instance is assigned to the user. Because the matching table can be very large, this approach can potentially be extremely cumbersome. Nevertheless, it is a general approach and can handle synonym and homonym problems. This technique has been suggested for the Pegasus project.</p>
+<p><strong>3. Use of probabilistic key equivalence:</strong> Instead of insisting on full key equivalence, Pu suggested matching object instances using only a portion of the key values in the restricted domain. As an instance of the key equivalence, the name matching problem has been addressed by matching the subfields of names. If most of the subfields in two given names match, the names are considered to be identical. Although this approach can produce high confidence in the matching result, it applies only when a common key exists between relations. The probabilistic nature of matching may also admit erroneous matching.</p>
+<p><strong>4. Probabilistic attribute equivalence:</strong> Chatterjee and Segev proposed using all common attributes between two relations to determine entity equivalence. A comparison value is assigned based on a probabilistic model for each pair of records from two relations.</p>
+<p><strong>5. Using heuristic rules:</strong> Wang and Madnick attacked the problem using a knowledge-based approach. A set of heuristic rules is used to infer additional information about the object instances to be matched. Because the knowledge used is heuristic in nature, the matching result produced may not be correct.</p>
+<h3 class="h3">Solution of Entity Identification Problem</h3>
+<p>We propose a new approach to solve the entity identification problem. This approach differs from previous approaches in the following aspects:</p>
+<ol class="points">
+<li>Our technique is developed assuming that a sound matching result is desired. For example, a company that wants to dismiss employees with sales performance below expectation requires matching the employee records in one database and their performance records in another. The matched records must be correct; otherwise, some people may be wrongly fired. Our technique achieves soundness by using valid constraints about the integrated real world to perform matching. Object instances are matched only when they satisfy some identity rule. This contrasts with some approaches that rely heavily on heuristics or a probabilistic model.</li>
+<li>Our technique removes the requirement for a common key between relations to be matched. This offers a more general approach toward entity identification.</li>
+<li>Using a matching table to contain the result of entity identification, our technique does not exclude the use of other approaches to assert additional possible matching record pairs in the table. For example, a knowledgeable user can add entries directly to the matching table.</li>
+</ol>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="numerosity-reduction-in-data-mining.html">Numerosity Reduction in Data Mining</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="ubiquitous-and-invisible-data-mining.html">&larr; prev</a>
+<a style="float:right" class="next" href="numerosity-reduction-in-data-mining.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="65030000010704060e250f04130411150a0c0b114b060a08">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/entity-identification-problem-in-data-mining"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/entity-identification-problem-in-data-mining"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/entity-identification-problem-in-data-mining"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+ </a>
+ <a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+ <p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+  <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+ </a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ee869cae848f988f9a9e8187809ac08d8183">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="48203a0822293e293c382721263c662b272566">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/entity-identification-problem-in-data-mining by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:22:50 GMT -->
+</html> 

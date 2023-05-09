@@ -1,0 +1,1178 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/regression-testing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:39:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>What is Regression Testing? Meaning, Example and Types - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="What is Regression Testing? Meaning, Example and Types - javatpoint" /><meta property="og:description" content="What is Regression Testing? Meaning, Example and Types with introduction, software development life cycle, design, development, testing, quality assurance, quality control, methods, black box testing, white box testing, etc." />
+<meta name="keywords" content="software testing tutorial, software testing introduction, software development life cycle, design, development, testing, overview, quality assurance, quality control, assurance versus, methods, black box testing, white box testing, gray box testing, visual testing, manual testing, system testing, unit testing, system testing, alpha testing, beta testing, security testing, test plan, test case, estimation techniques, defects" /><meta name="description" content="What is Regression Testing? Meaning, Example and Types with introduction, software development life cycle, design, development, testing, quality assurance, quality control, methods, black box testing, white box testing, etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="regression-testing.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="What is Regression Testing? Meaning, Example and Types - javatpoint" /><meta name="twitter:description" property="og:description" content="What is Regression Testing? Meaning, Example and Types with introduction, software development life cycle, design, development, testing, quality assurance, quality control, methods, black box testing, white box testing, etc." /><meta property="og:url" content="regression-testing.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="software-testing-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/testing.png" alt="software testing" /> Software Testing</a></li>
+<li><a href="selenium-tutorial.html"><img src="https://static.javatpoint.com/images/icon/selenium.png" alt="selenium" /> Selenium</a></li>
+<li><a href="appium.html"><img src="https://static.javatpoint.com/images/icon/appium.png" alt="appium" /> Appium</a></li>
+<li><a href="jmeter-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jmeter.png" alt="jmeter" /> JMeter</a></li>
+<li><a href="junit-tutorial.html"><img src="https://static.javatpoint.com/images/icon/junit.png" alt="junit" /> JUnit</a></li>
+<li><a href="postman.html"><img src="https://static.javatpoint.com/images/icon/postman.png" alt="postman" /> Postman</a></li>
+<li><a href="jira-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jira.png" alt="jira" /> Jira</a></li>
+<li><a href="testng-tutorial.html"><img src="https://static.javatpoint.com/images/icon/testng.png" alt="testng" /> TestNG</a></li>
+<li><a href="soapui.html"><img src="https://static.javatpoint.com/images/icon/soapui.png" alt="soapui" /> SoapUI</a></li>
+<li><a href="uipath.html"><img src="https://static.javatpoint.com/images/icon/uipath.png" alt="uipath" /> UIPath</a></li>
+<li><a href="rpa.html"><img src="https://static.javatpoint.com/images/icon/rpa.png" alt="rpa" /> RPA</a></li>
+<li><a href="quality-assurance.html"><img src="https://static.javatpoint.com/images/icon/qa.png" alt="qa" /> QA</a></li>
+<li><a href="selenium-python.html"><img src="https://static.javatpoint.com/images/icon/selenium-python.png" alt="selenium python" /> Selenium Python</a></li>
+<li><a href="software-testing-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="manual testing interview questions" /> Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-tutorial.html">Tutorial</a>
+<a href="software-testing-principles.html">Software Testing Principles</a>
+<a href="software-development-life-cycle.html">Software Development Life Cycle</a>
+<a href="software-testing-life-cycle.html">Software Testing Life Cycle</a>
+<a href="types-of-software-testing.html">Types of Software Testing</a>
+<a href="levels-of-testing.html">Levels of Testing</a>
+<a href="test-maturity-model.html">Test Maturity Model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SDLC models</span></h2>
+</div>
+<div class="leftmenu">
+<a href="waterfall-model.html">Waterfall model</a>
+<a href="spiral-model.html">Spiral Model</a>
+<a href="hybrid-model.html">Hybrid Model</a>
+<a href="prototype-model.html">Prototype Model</a>
+<a href="v-model.html">V-model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="manual-testing.html">Manual Testing</a>
+<a href="automation-testing.html">Automation Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Manual</span></h2>
+</div>
+<div class="leftmenu">
+<a href="white-box-testing.html">White Box Testing</a>
+<a href="black-box-testing.html">Black Box Testing</a>
+<a href="grey-box-testing.html">Grey Box Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">White Box Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-flow-testing-in-white-box-testing.html">Data Flow Testing</a>
+<a href="control-flow-testing-in-white-box-testing.html">Control Flow Testing</a>
+<a href="branch-coverage-testing-in-white-box-testing.html">Branch Coverage Testing</a>
+<a href="statement-coverage-testing-in-white-box-testing.html">Statement Coverage Testing</a>
+<a href="decision-coverage-testing-in-white-box-testing.html">Decision Coverage Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Black Box Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="decision-table-technique-in-black-box-testing.html">Decision Table</a>
+<a href="all-pairs-testing-technique-in-black-box-testing.html">All-pair Testing</a>
+<a href="cause-and-effect-graph-technique-in-black-box-testing.html">Cause-Effect Testing</a>
+<a href="state-transition-technique-in-black-box-testing.html">State Transition</a>
+<a href="use-case-technique-in-black-box-testing.html">Use Case</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Black Box</span></h2>
+</div>
+<div class="leftmenu">
+<a href="functional-testing.html">Functional Testing</a>
+<a href="non-functional-testing.html">Non-Functional Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Functional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="unit-testing.html">Unit Testing</a>
+<a href="integration-testing.html">Integration Testing</a>
+<a href="system-testing.html">System Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Non-functional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="performance-testing.html">Performance Testing</a>
+<a href="usability-testing.html">Usability Testing</a>
+<a href="compatibility-testing.html">Compatibility Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Test case development</span></h2>
+</div>
+<div class="leftmenu">
+<a href="testing-documentation.html">Testing Documentation</a>
+<a href="test-scenario.html">Test Scenario</a>
+<a href="test-case.html">Test Case</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Testing Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="error-guessing-technique-in-black-box-testing.html">Error Guessing</a>
+<a href="equivalence-partitioning-technique-in-black-box-testing.html">Equivalence Portioning</a>
+<a href="boundary-value-analysis-in-black-box-testing.html">Boundary Value analysis</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Test Management</span></h2>
+</div>
+<div class="leftmenu">
+<a href="test-plan.html">Test Plan</a>
+<a href="test-case-review-process.html">Test case review process</a>
+<a href="traceability-matrix.html">Requirement Traceability Matrix</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Defect Tracking</span></h2>
+</div>
+<div class="leftmenu">
+<a href="bug-in-software-testing.html">Bug in Software Testing</a>
+<a href="software-testing-bug-life-cycle.html">Bug Life cycle</a>
+<a href="severity-and-priority-in-testing.html">Severity &amp; Priority</a>
+<a href="test-environment.html">Test Environment</a>
+<a href="defect-management-process.html">Defect Management Process</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Other types of Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="regression-testing.html">Regression Testing</a>
+<a href="smoke-testing.html">Smoke Testing</a>
+<a href="sanity-testing.html">Sanity Testing</a>
+<a href="static-testing.html">Static Testing</a>
+<a href="dynamic-testing.html">Dynamic Testing</a>
+<a href="load-testing.html">Load Testing</a>
+<a href="stress-testing.html">Stress Testing</a>
+<a href="recovery-testing.html">Recovery testing</a>
+<a href="exploratory-testing.html">Exploratory Testing</a>
+<a href="visual-testing.html">Visual Testing</a>
+<a href="acceptance-testing.html">Acceptance Testing</a>
+<a href="alpha-testing.html">Alpha Testing</a>
+<a href="beta-testing.html">Beta Testing</a>
+<a href="database-testing.html">Database Testing</a>
+<a href="mainframe-testing.html">Mainframe Testing</a>
+<a href="adhoc-testing.html">Adhoc Testing</a>
+<a href="globalization-testing.html">Globalization Testing</a>
+<a href="mutation-testing.html">Mutation Testing</a>
+<a href="security-testing.html">Security Testing</a>
+<a href="accessibility-testing.html">Accessibility Testing</a>
+<a href="structural-testing.html">Structural Testing</a>
+<a href="volume-testing.html">Volume Testing</a>
+<a href="scalability-testing.html">Scalability Testing</a>
+<a href="stability-testing.html">Stability Testing</a>
+<a href="spike-testing.html">Spike Testing</a>
+<a href="negative-testing.html">Negative Testing</a>
+<a href="positive-testing.html">Positive Testing</a>
+<a href="endurance-testing.html">Endurance Testing</a>
+<a href="reliability-testing.html">Reliability Testing</a>
+<a href="monkey-testing.html">Monkey Testing</a>
+<a href="agile-testing.html">Agile Testing</a>
+<a href="component-testing.html">Component Testing</a>
+<a href="gui-testing.html">GUI Testing</a>
+<a href="test-strategy.html">Test Strategy</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing Tools</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-tools.html">Software testing tools</a>
+<a href="test-management-tool.html">Test management tools</a>
+<a href="defect-or-bug-tracking-tool.html">Defect/Bug tracking tools</a>
+<a href="automation-testing-tool.html">Automation testing tools</a>
+<a href="performance-testing-tools.html">Performance testing tools</a>
+<a href="cross-browser-testing-tools.html">Cross-browser testing tools</a>
+<a href="integration-testing-tools.html">Integration testing tools</a>
+<a href="unit-testing-tools.html">Unit testing tools</a>
+<a href="mobile-testing-tools.html">Mobile Testing Tools</a>
+<a href="gui-testing-tools.html">GUI testing tools</a>
+<a href="security-testing-tools.html">Security testing tools</a>
+<a href="penetration-testing-tools.html">Penetration Testing Tools</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="automation-testing-vs-manual-testing.html">Automation Testing vs Manual Testing</a>
+<a href="load-testing-vs-stress-testing.html">Load Testing vs Stress Testing</a>
+<a href="smoke-testing-vs-sanity-testing.html">Smoke Testing vs Sanity Testing</a>
+<a href="system-testing-vs-acceptance-testing.html">System Testing vs Acceptance Testing</a>
+<a href="difference-between-quality-assurance-and-quality-control.html">Quality Assurance vs Quality Control</a>
+<a href="static-testing-vs-dynamic-testing.html">Static Testing vs Dynamic Testing</a>
+<a href="verification-and-validation-testing.html">Verification vs Validation Testing</a>
+<a href="alpha-testing-vs-beta-testing.html">Alpha Testing vs Beta Testing</a>
+<a href="black-box-testing-vs-white-box-testing-vs-grey-box-testing.html">Black Box vs. White Box vs. Grey Box Testing</a>
+<a href="globalization-testing-vs-localization-testing.html">Globalization Testing vs Localization Testing</a>
+<a href="test-case-vs-test-scenarios.html">Test Case vs Test Scenarios</a>
+<a href="test-plan-vs-test-strategy.html">Test Plan vs Test Strategy</a>
+<a href="boundary-value-analysis-vs-equivalence-partitioning.html">Boundary value analysis vs Equivalence partitioning</a>
+<a href="sdlc-vs-stlc.html">SDLC vs STLC</a>
+<a href="bug-vs-defect-vs-error-vs-fault-vs-failure.html">Bug vs Defect vs Error vs Fault vs Failure</a>
+<a href="testing-vs-debugging.html">Testing vs Debugging</a>
+<a href="frontend-testing-vs-backend-testing.html">Frontend Testing vs Backend Testing</a>
+<a href="hld-vs-lld.html">HLD vs LLD</a>
+<a href="brs-vs-srs.html">BRS vs SRS</a>
+<a href="positive-testing-vs-negative-testing.html">Positive Testing vs Negative Testing</a>
+<a href="top-down-vs-bottom-up-integration-testing.html">Top-Down vs Bottom-Up Integration Testing</a>
+<a href="use-case-vs-test-case.html">Use Case vs Test Case</a>
+<a href="monkey-testing-vs-gorilla-testing.html">Monkey Testing VS Gorilla Testing</a>
+<a href="stubs-vs-drivers.html">Stubs vs Drivers</a>
+<a href="component-testing-vs-unit-testing.html">Component Testing vs Unit Testing</a>
+<a href="software-testing-vs-embedded-testing.html">Software Testing vs Embedded Testing</a>
+<a href="gui-testing-vs-usability-testing.html">GUI Testing vs Usability Testing</a>
+<a href="sdet-vs-tester.html">SDET vs Tester</a>
+<a href="desktop-application-testing-vs-client-server-application-testing-vs-web-application-testing.html">Desktop Application testing vs Client-Server Application Testing vs Web Application Testing</a>
+<a href="active-testing.html">Active Testing</a>
+<a href="what-is-an-api.html">What is an API</a>
+<a href="automation-testing.html">Automation Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-mcq.html">Software Testing MCQ</a>
+<a href="software-testing-mcq-part-2.html">Software Testing MCQ Part 2</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-interview-questions.html">Software Testing Interview</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="smoke-testing.html">next &rarr;</a>
+<a class="next" href="defect-management-process.html">&larr; prev</a>
+</div>
+<h1 class="h1">What is Regression Testing?</h1>
+<p>Regression testing is a black box testing techniques. It is used to authenticate a code change in the software does not impact the existing functionality of the product. Regression testing is making sure that the product works fine with new functionality, <a href="bug-in-software-testing.html">bug</a> fixes, or any change in the existing feature.</p>
+<p>Regression testing is a type of <a href="software-testing-tutorial.html">software testing</a>. Test cases are re-executed to check the previous functionality of the application is working fine, and the new changes have not produced any bugs.</p>
+<p>Regression testing can be performed on a new build when there is a significant change in the original functionality. It ensures that the code still works even when the changes are occurring. Regression means Re-test those parts of the application, which are unchanged.</p>
+<p>Regression tests are also known as the Verification Method. Test cases are often automated. <a href="test-case.html">Test cases</a> are required to execute many times and running the same test case again and again manually, is time-consuming and tedious too.</p>
+<h3 class="h3">Example of Regression testing</h3>
+<p>Here we are going to take a case to define the regression testing efficiently:</p>
+<p>Consider a product Y, in which one of the functionality is to trigger confirmation, acceptance, and dispatched emails. It also needs to be tested to ensure that the change in the code not affected them. Regressing testing does not depend on any programming language like <a href="java-tutorial.html">Java</a>, <a href="cpp-tutorial.html">C++</a>, <a href="c-sharp-tutorial.html">C#</a>, etc. This method is used to test the product for modifications or any updates done. It ensures that any change in a product does not affect the existing module of the product. Verify that the bugs fixed and the newly added features not created any problem in the previous working version of the Software. </p>
+<h2 class="h2">When can we perform Regression Testing?</h2>
+<p>We do regression testing whenever the production code is modified.</p>
+<p>We can perform regression testing in the following scenario, these are:</p>
+<p><strong>1. When new functionality added to the application.</strong></p>
+<p><strong>Example:</strong></p>
+<p>A website has a login functionality which allows users to log in only with Email. Now providing a new feature to do login using Facebook.</p>
+<p><strong>2. When there is a Change Requirement.</strong></p>
+<p><strong>Example:</strong> </p>
+<p>Remember password removed from the login page which is applicable previously.</p>
+<p><strong>3. When the defect fixed</strong></p>
+<p><strong>Example:</strong></p>
+<p>Assume login button is not working in a login page and a tester reports a bug stating that the login button is broken. Once the bug fixed by developers, tester tests it to make sure Login Button is working as per the expected result. Simultaneously, tester tests other functionality which is related to the login button.</p>
+<p><strong>4. When there is a performance issue fix</strong> </p>
+<p><strong>Example:</strong> </p>
+<p>Loading of a home page takes 5 seconds, reducing the load time to 2 seconds.</p>
+<p><strong>5. When there is an environment change</strong></p>
+<p><strong>Example:</strong></p>
+<p>When we update the database from MySql to Oracle.</p>
+<h2 class="h2">How to perform Regression Testing?</h2>
+<p>The need for regression testing comes when software maintenance includes enhancements, error corrections, optimization, and deletion of existing features. These modifications may affect system functionality. Regression Testing becomes necessary in this case.</p>
+<p>Regression testing can be performed using the following techniques:</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/regression-testing-intro.png" alt="regression testing" />
+<p><strong>1. Re-test All:</strong></p>
+<p>Re-Test is one of the approaches to do regression testing. In this approach, all the test case suits should be re-executed. Here we can define re-test as when a test fails, and we determine the cause of the failure is a software fault. The fault is reported, we can expect a new version of the software in which defect fixed. In this case, we will need to execute the test again to confirm that the fault fixed. This is known as re-testing. Some will refer to this as confirmation testing.</p>
+<p>The re-test is very expensive, as it requires enormous time and resources.</p>
+<p><strong>2. Regression test Selection:</strong></p>
+<ul class="points">
+<li>In this technique, a selected test-case suit will execute rather than an entire test-case suit.</li>
+<li>The selected test case suits divided in two cases
+<ol class="points">
+<li>Reusable Test cases.</li>
+<li>Obsolete Test cases.</li>
+</ol></li>
+<li>Reusable test cases can use in succeeding regression cycle.</li>
+<li>Obsolete test cases can't use in succeeding regression cycle.</li>
+</ul>
+<p><strong>3. Prioritization of test cases:</strong></p>
+<p>Prioritize the test case depending on business impact, critical and frequently functionality used. Selection of test cases will reduce the regression test suite.</p>
+<h2 class="h2">What are the Regression Testing tools?</h2>
+<p>Regression Testing is a vital part of the QA process; while performing the regression we may face the below challenges:</p>
+<ul class="points">
+<li><strong>Time Consuming</strong><br>
+Regression Testing consumes a lot of time to complete. Regression testing involves existing tests again, so testers are not excited to re-run the test.</li>
+<li><strong>Complex</strong><br>
+Regression Testing is complex as well when there is a need to update any product; lists of the test are also increasing.</li>
+<li><strong>Communicating business rule</strong><br>
+Regression Testing ensures the existing product features are still in working order. Communication about regression testing with a non-technical leader can be a difficult task. The executive wants to see the product move forward and making a considerable time investment in regression testing to ensure existing functionality working can be hard.</li>
+<li><strong>Identify Impact Area</strong></li>
+<li><strong>Test Cases Increases Release by Release</strong></li>
+<li><strong>Less Resources</strong></li>
+<li><strong>No Accuracy</strong> </li>
+<li><strong>Repetitive Task</strong></li>
+<li><strong>Monotonous Job</strong></li>
+</ul>
+<h2 class="h2">Regression Testing Process</h2>
+<p>The regression testing process can be performed across the <strong>builds</strong> and the <strong>releases</strong>.</p>
+<h3 class="h3">Regression testing across the builds</h3>
+<p>Whenever the bug fixed, we retest the Bug, and if there is any dependent module, we go for a Regression Testing.</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/regression-testing-intro3.png" alt="regression testing" />
+<p><strong>For example</strong>, How we perform the regression testing if we have different builds as <strong>Build 1, Build 2, and Build 3</strong>, which having different scenarios.</p>
+<p><strong>Build1</strong></p>
+<ul class="points">
+<li>Firstly the client will provide the business needs.</li>
+<li>Then the development team starts developing the features.</li>
+<li>After that, the testing team will start writing the test cases; for example, they write 900 test cases for the release#1 of the product.</li>
+<li>And then, they will start implementing the test cases.</li>
+<li>Once the product is released, the customer performs one round of acceptance testing.</li>
+<li>And in the end, the product is moved to the production server.</li>
+</ul>
+<p><strong>Build2</strong></p>
+<ul class="points">
+<li>Now, the customer asks for 3-4 extra (new) features to be added and also provides the requirements for the new features.</li>
+<li>The development team starts developing new features.</li>
+<li>After that, the testing team will start writing the test case for the new features, and they write about 150 new test cases. Therefore, the total number of the test case written is 1050 for both the releases.</li>
+<li>Now the testing team starts testing the new features using 150 new test cases.</li>
+<li>Once it is done, they will begin testing the old features with the help of 900 test cases to verify that adding the new feature has damaged the old features or not.</li>
+<li>Here, testing the old features is known as <strong>Regression Testing</strong>.</li>
+<li>Once all the features (New and Old) have been tested, the product is handed over to the customer, and then the customer will do the acceptance testing.</li>
+<li>Once the acceptance testing is done, the product is moved to the production server.</li>
+</ul>
+<p><strong>Build3</strong></p>
+<ul class="points">
+<li>After the second release, the customer wants to remove one of the features like Sales.</li>
+<li>Then he/she will delete all the test cases which are belonging to the sales module (about 120 test cases).</li>
+<li>And then, test the other feature for verifying that if all the other features are working fine after removing the sales module test cases, and this process is done under the regression testing.</li>
+</ul>
+<p><strong>Note:</strong></p>
+<ul class="points">
+<li>Testing the stable features to ensure that it is broken because of the changes. Here changes imply that the <strong>modification, addition, bug fixing, or the deletion</strong>.</li>
+<li>Re-execution of the same test cases in the different builds or releases is to ensure that changes (modification, addition, bug fixing, or the deletion) are not introducing bugs in stable features.</li>
+</ul>
+<h2 class="h2">Regression Testing Across the Release</h2>
+<p>The regression testing process starts whenever there is a new Release for same project because the new feature may affect the old elements in the previous releases.</p>
+<p>To understand the regression testing process, we will follow the below steps:</p>
+<p><strong>Step1</strong></p>
+<p>There is no regression testing in <strong>Release#1</strong> because there is no modification happen in the Release#1 as the release is new itself.</p>
+<p><strong>Step2</strong></p>
+<p>The concept of Regression testing starts from <strong>Release#2</strong> when the customer gives some <strong>new requirements</strong>.</p>
+<p><strong>Step3</strong></p>
+<p>After getting the new requirements (modifying features) first, they (the developers and test engineers) will understand the needs before going to the <strong>impact analysis</strong>.</p>
+<p><strong>Step4</strong></p>
+<p>After understanding the new requirements, we will perform one round of <strong>impact analysis</strong> to avoid the major risk, but here the question arises who will do the Impact analysis?</p>
+<p><strong>Step5</strong></p>
+<p>The impact analysis is done by the <strong>customer</strong> based on their <strong>business knowledge</strong>, the <strong>developer</strong> based on their <strong>coding knowledge</strong>, and most importantly, it is done by the <strong>test engineer</strong> because they have the <strong>product knowledge</strong>.</p>
+<h4 class="n">Note: If a single person does, he/she may not cover all the impact areas, so we include all persons so that we may cover a maximum impact area, and Impact Analysis should be done at the early stages of the releases.</h4>
+<p><strong>Step6</strong></p>
+<p>Once we are done with the <strong>impact area</strong>, then the developer will prepare the <strong>impact area (document)</strong>, and the <strong>customer</strong> will also prepare the <strong>impact area document</strong> so that we can achieve the <strong>maximum coverage of impact analysis</strong>.</p>
+<p><strong>Step7</strong></p>
+<p>After completing the impact analysis, the developer, the customer, and the test engineer will send the <strong>Reports#</strong> of the impact area documents to the <strong>Test Lead</strong>. And in the meantime, the test engineer and the developer are busy working on the new test case.</p>
+<p><strong>Step8</strong></p>
+<p>Once the Test lead gets the Reports#, he/she will <strong>consolidate</strong> the reports and stored in the <strong>test case requirement repository</strong> for the release#1.</p>
+<h4 class="n">Note: Test case Repository: Here, we will save all the test case of releases.</h4>
+<p><strong>Step9</strong></p>
+<p>After that, the Test Lead will take the help of RTM and pick the necessary <strong>regression test case</strong> from the <strong>test case repository</strong>, and those files will be placed in the <strong>Regression Test Suite</strong>.</p>
+<p><strong>Note:</strong></p>
+<ul class="points">
+<li>The test lead will store the regression test case in the regression test suite for no further confusion.</li>
+<li><strong>Regression test suite</strong>: Here, we will save all the impact area test documents.</li>
+<li><strong>Regression Test Cases</strong>: These are the test cases of the old releases text document which need to be re-executed as we can see in the below image:</li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/regression-testing-intro4.png" alt="regression testing" />
+<p><strong>Step10</strong></p>
+<p>After that, when the test engineer has done working on the new test cases, the test lead will <strong>assign the regression test case</strong> to the test engineer.</p>
+<p><strong>Step11</strong></p>
+<p>When all the regression test cases and the new features are <strong>stable and pass</strong>, then check the <strong>impact area using the test case</strong> until it is durable for old features plus the new features, and then it will be handed over to the customer.</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/regression-testing-intro5.png" alt="regression testing" />
+<h2 class="h2">Types of Regression Testing</h2>
+<p>The different types of Regression Testing are as follows:</p>
+<ol class="points">
+<li>Unit Regression Testing [URT]</li>
+<li>Regional Regression Testing[RRT]</li>
+<li>Full or Complete Regression Testing [FRT]</li>
+</ol>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/regression-testing-intro6.png" alt="regression testing" />
+<h3 class="h3">1) Unit Regression Testing [URT]</h3>
+<p>In this, we are going to test only the changed unit, not the impact area, because it may affect the components of the same module.</p>
+<p><strong>Example1</strong></p>
+<p>In the below application, and in the first build, the developer develops the <strong>Search</strong> button that accepts <strong>1-15 characters</strong>. Then the test engineer tests the Search button with the help of the <strong>test case design technique</strong>.</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/regression-testing-intro7.png" alt="regression testing" />
+<p>Now, the client does some modification in the requirement and also requests that the <strong>Search button</strong> can accept the <strong>1-35 characters</strong>. The test engineer will test only the Search button to verify that it takes 1-35 characters and does not check any further feature of the first build.</p>
+<p><strong>Example2</strong></p>
+<p>Here, we have <strong>Build B001</strong>, and a defect is identified, and the report is delivered to the developer. The developer will fix the bug and sends along with some new features which are developed in the second <strong>Build B002</strong>. After that, the test engineer will test only after the defect is fixed.</p>
+<ul class="points">
+<li>The test engineer will identify that clicking on the <strong>Submit</strong> button goes to the blank page.</li>
+<li>And it is a defect, and it is sent to the developer for fixing it.</li>
+<li>When the new build comes along with the bug fixes, the test engineer will test only the Submit button.</li>
+<li>And here, we are not going to check other features of the first build and move to test the new features and sent in the second build.</li>
+<li>We are sure that fixing the <strong>Submit</strong>button is not going to affect the other features, so we test only the fixed bug.</li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/regression-testing-intro8.png" alt="regression testing" />
+<p>Therefore, we can say that by testing only the changed feature is called the <strong>Unit Regression Testing</strong>.</p>
+<h3 class="h3">2) Regional Regression testing [RRT]</h3>
+<p>In this, we are going to test the modification along with the impact area or regions, are called the <strong>Regional Regression testing</strong>. Here, we are testing the impact area because if there are dependable modules, it will affect the other modules also.</p>
+<p><strong>For example:</strong></p>
+<p>In the below image as we can see that we have four different modules, such as <strong>Module A, Module B, Module C, and Module D</strong>, which are provided by the developers for the testing during the first build. Now, the test engineer will identify the bugs in <strong>Module D</strong>. The bug report is sent to the developers, and the development team fixes those defects and sends the second build.</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/regression-testing-intro9.png" alt="regression testing" />
+<p>In the second build, the previous defects are fixed. Now the test engineer understands that the bug fixing in Module D has impacted some features in <strong>Module A and Module C</strong>. Hence, the test engineer first tests the Module D where the bug has been fixed and then checks the impact areas in <strong>Module A and Module C</strong>. Therefore, this testing is known as <strong>Regional regression testing.</strong></p>
+<p>While performing the regional regression testing, we may face the below problem:</p>
+<p><strong>Problem:</strong></p>
+<p>In the first build, the client sends some modification in requirement and also wants to add new features in the product. The needs are sent to both the teams, i.e., development and testing.</p>
+<p>After getting the requirements, the development team starts doing the modification and also develops the new features based on the needs.</p>
+<p>Now, the test lead sends mail to the clients and asks them that all are the impact areas that will be affected after the necessary modification have been done. Therefore, the customer will get an idea, which all features are needed to be tested again. And he/she will also send a mail to the development team to know which all areas in the application will be affected as a result of the changes and additions of new features.</p>
+<p>And similarly, the customer sends a mail to the testing team for a list of impact areas. Hence, the test lead will collect the impact list from the client, development team, and the testing team as well.</p>
+<p>This <strong>Impact list</strong> is sent to all the test engineers who look at the list and check if their features are modified and if yes, then they do <strong>regional regression testing</strong>. The impact areas and modified areas are all tested by the respective engineers. Every test engineer tests only their features that could have been affected as a result of the modification.</p>
+<p>The problem with this above approach is that the test lead may not get the whole idea of the impact areas because the development team and the client may not have so much time to revert his/her mails.</p>
+<p><strong>Solution</strong></p>
+<p>To resolve the above problem, we will follow the below process:</p>
+<p>When a new build comes along with the latest features and bug fixes, the testing team will arrange the meeting where they will talk about if their features are affecting because of the above modification. Therefore, they will do one round of <strong>Impact Analysis</strong> and generate the <strong>Impact List</strong>. In this particular list, the test engineer tries to enclose the maximum probable impact areas, which also decreases the chance of getting the defects.</p>
+<p>When a new build comes, the testing team will follow the below procedure:</p>
+<ul class="points">
+<li>They will do smoke testing to check the basic functionality of an application.</li>
+<li>Then they will test new features.</li>
+<li>After that, they will check the changed features.</li>
+<li>Once they are done with checking the changed features, the test engineer will re-test the bugs.</li>
+<li>And then they will check the impact area by performing the regional regression testing.</li>
+</ul>
+<h3 class="h3">Disadvantage of using Unit and Regional Regression testing</h3>
+<p>Following are some of the drawbacks of using unit and Regional regression testing:</p>
+<ul class="points">
+<li>We may miss some impact area.</li>
+<li>It is possible that we may identify the wrong impact area.</li>
+</ul>
+<h4 class="n">Note: We can say that the major work we do on the regional regression testing will lead us to get more number of defects. But, if we will perform the same dedication to work on the full regressing testing, we will get less number of defects. Therefore, we can determine here that enhancement in the testing effort will not help us to get more defects.</h4>
+<h3 class="h3">3) Full Regression testing [FRT]</h3>
+<p>During the second and the third release of the product, the client asks for adding 3-4 new features, and also some defects need to be fixed from the previous release. Then the testing team will do the Impact Analysis and identify that the above modification will lead us to test the entire product.</p>
+<p>Therefore, we can say that testing the <strong>modified features</strong> and <strong>all the remaining (old) features</strong> is called the <strong>Full Regression testing</strong>.</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/regression-testing-intro10.png" alt="regression testing" />
+<h3 class="h4">When we perform Full Regression testing?</h3>
+<p>We will perform the FRT when we have the following conditions:</p>
+<ul class="points">
+<li>When the modification is happening in the source file of the product. <strong>For example</strong>, JVM is the root file of the JAVA application, and if any change is going to happen in JVM, then the entire JAVA program will be tested.</li>
+<li>When we have to perform n-number of changes.</li>
+</ul>
+<p><strong>Note:</strong></p>
+<p>The regional regression testing is the ideal approach of regression testing, but the issue is, we may miss lots of defects while performing the Regional Regression testing.</p>
+<p>And here we are going to solve this issue with the help of the following approach:</p>
+<ul class="points">
+<li>When the application is given for the testing, the test engineer will test the first 10-14 cycle, and will do the <strong>RRT</strong>.</li>
+<li>Then for the 15th cycle, we do FRT. And again, for the next 10-15 cycle, we do <strong>Regional regression testing</strong>, and for the 31th cycle, we do the <strong>full regression testing</strong>, and we will continue like this.</li>
+<li>But for the last ten cycle of the release, we will perform only <strong>complete regression testing</strong>.</li>
+</ul>
+<p>Therefore, if we follow the above approach, we can get more defects.</p>
+<p><strong>The drawback of doing regression testing manually repeatedly:</strong></p>
+<ul class="points">
+<li>Productivity will decrease.</li>
+<li>It is a difficult job to do.</li>
+<li>There is no consistency in test execution.</li>
+<li>And the test execution time is also increased.</li>
+</ul>
+<p>Hence, we will go for the automation to get over with these issues; when we have n-number of the regression test cycle, we will go for the <strong>automation regression testing process</strong>.</p>
+<h2 class="h2">Automated Regression Testing Process</h2>
+<p>Generally we go for the automation whenever there are multiple releases or multiple regression cycle or there is the repetitive task.</p>
+<p>The automation regression testing process can be done in the following steps:</p>
+<p><strong>Note1:</strong></p>
+<p>The process of testing the application by using some tools is known as automation testing.</p>
+<p>Suppose if we take one sample example of a <strong>Login module</strong>, then how we can perform the regression testing.</p>
+<p>Here, the Login can be done in two ways, which are as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/regression-testing-intro11.png" alt="regression testing" />
+<p><strong>Manually:</strong> In this, we will perform regression only one and twice.</p>
+<p><strong>Automation:</strong> In this, we will do the automation multiple times as we have to write the test scripts and do the execution.</p>
+<h4 class="n">Note2: In real-time, if we have faced some issues such as:</h4>
+<table class="alt">
+<tr>
+<th>Issues</th>
+<th>Handle by</th>
+</tr>
+<tr>
+<td>New features</td>
+<td>Manual test engineer</td>
+</tr>
+<tr>
+<td>Regressing testing features</td>
+<td>Automation test engineer</td>
+</tr>
+<tr>
+<td>Remaining ( 110 feature + Release#1)</td>
+<td>Manual test engineer</td>
+</tr>
+</table>
+<p><strong>Step1</strong></p>
+<p>When the new release starts, we don't go for the automation because there is no concept of regression testing and regression test case as we understood this in the above process.</p>
+<p><strong>Step2</strong></p>
+<p>When the new release and the enhancement starts, we have two teams, i.e., manual team and the automation team.</p>
+<p><strong>Step3</strong></p>
+<p>The manual team will go through the requirements and also identify the impact area and hand over the <strong>requirement test suite</strong> to the automation team.</p>
+<p><strong>Step4</strong></p>
+<p>Now, the manual team starts working on the new features, and the automation team will start developing the test script and also start automating the <a href="test-case.html">test case</a>, which means that the regression test cases will be converted into the test script.</p>
+<p><strong>Step5</strong></p>
+<p>Before they (automation team) start automating the test case, they will also analyze which all cases can be automated or not.</p>
+<p><strong>Step6</strong></p>
+<p>Based on the analysis, they will start the automation i.e., converting every regression test cases into the test script.</p>
+<p><strong>Step7</strong></p>
+<p>During this process, they will take help of the <strong>Regression cases</strong> because they don't have product knowledge as well as the <strong>tool</strong> and the <strong>application</strong>.</p>
+<p><strong>Step8</strong></p>
+<p>Once the test script is ready, they will start the execution of these scripts on the new application [old feature]. Since, the test script is written with the help of the regression feature or the old feature.</p>
+<p><strong>Step9</strong></p>
+<p>Once the execution is completed, we get a different status like <strong>Pass/fail</strong>.</p>
+<p><strong>Step10</strong></p>
+<p>If the status is failed, which means it needs to be re-confirmed manually, and if the Bug exists, then it will report to the concerned developer. When the developer fixes that bug, the Bug needs to be re-tested along with the Impact area by the manual test engineer, and also the script needs to be re-executed by the automation test engineer.</p>
+<p><strong>Step11</strong></p>
+<p>This process goes on until all the new features, and the regression feature will be passed.</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/regression-testing-intro12.png" alt="regression testing" />
+<h3 class="h4">Benefits of doing regression testing by the automation testing:</h3>
+<ul class="points">
+<li><strong>Accuracy</strong> always exists because the task is done by the tools and tools never get bored or tired.</li>
+<li>The test script can be re-used across multiple releases.</li>
+<li><strong>Batch execution</strong> is possible using the automation i.e.; all the written test scripts can be executed parallel or simultaneously.</li>
+<li>Even though the number of regression test case increase release per release, and we don't have to increase the automation resource since some regression case are already automated from the previous release.</li>
+<li>It is a <strong>time-saving process</strong> because the execution is always faster than the manual method.</li>
+</ul>
+<h2 class="h2">How to select test cases for regression testing?</h2>
+<p>It was found from industry inspection. The several defects reported by the customer were due to last-minute bug fixes. These creating side effects and hence selecting the Test Case for regression testing is an art, not an easy task. </p>
+<p>Regression test can be done by:</p>
+<ul class="points">
+<li>A test case which has frequent defects</li>
+<li>Functionalities which are more visible to users.</li>
+<li>Test cases verify the core features of the product.</li>
+<li>All integration test cases</li>
+<li>All complex test cases</li>
+<li>Boundary value test cases</li>
+<li>A sample of successful test cases</li>
+<li>Failure of test cases</li>
+</ul>
+<h2 class="h2">Regression Testing Tools</h2>
+<p>If Software undergoes frequent changes, regression testing costs also increase. In those cases, manual execution of test cases increases test execution time as well as costs. In that case, automation testing is the best choice. The duration of automation depends on the number of test cases that remain reusable for successive regression cycles.</p>
+<p><strong>Following are the essential tools used for regression testing:</strong></p>
+<p><strong>Selenium</strong></p>
+<p>Selenium is an open-source tool. This tool used for automated testing of a web application. For browser-based regression testing, selenium used. Selenium used for UI level regression test for web-based application.</p>
+<p><strong>Ranorex Studio</strong></p>
+<p>All in one regression test automation for desktop, web, and mobile apps with built-in Selenium Web Driver. Ranorex Studio includes full IDE plus tools for codeless automation.</p>
+<p><strong>Quick Test Professional (QTP)</strong></p>
+<p>QTP is an automated testing tool used for Regression and Functional Testing. It is a Data-Driven, keyword-based tool. It used VBScript language for automation. If we open the QTP tool, we see the three buttons which are <strong>Record, Play and Stop</strong>. These buttons help to record every click and action performed on the computer system. It records the actions and play it back.</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/regression-testing-intro13.png" alt="regression testing" />
+<p><strong>Rational Functional Tester (RTF)</strong></p>
+<p>Rational functional tester is a Java tool used to automate the test cases of software applications. RTF used for automating regression test cases, and it also integrates with the rational functional tester.</p>
+<p>For more information about regression and automation testing tools refer to the below link:</p>
+<p><a href="automation-testing-tool.html">https://www.javatpoint.com/automation-testing-tool</a></p>
+<h2 class="h2">Regression Testing and Configuration Management</h2>
+<p>Configuration Management in the regression testing becomes imperative in Agile Environments, where a code is continuously modified. To ensure a valid regression test, we must follow the steps:</p>
+<ul class="points">
+<li>Changes are not allowed in the code during the regression testing phase.</li>
+<li>A regression test case must be unaffected developer changes.</li>
+<li>The database used for regression testing must be isolated; changes are not allowed in the database.</li>
+</ul>
+<h2 class="h2">Differences between Retesting and Regression Testing</h2>
+<p><strong>Re-testing Testing</strong> means testing the functionality or bug again to ensure the code fixed. If not set, defects need not be re-opened. If fixed, the defect closed.</p>
+<p>Re-testing is a type of testing which performed to check the test-cases that were unsuccessful in the final execution are successfully pass after the defects repaired.</p>
+<p><strong>Regression Testing</strong> means testing the software application when it undergoes a code change to ensure that new code has not affected other parts of the Software. </p>
+<p>Regression testing is a type of testing executed to check whether a code has not changed the existing functionality of the application.</p>
+<p><strong>Differences between the Re-testing and Regression Testing are as follows:</strong></p>
+<table class="alt">
+<tr>
+<th>Re-testing</th>
+<th>Regression Testing</th>
+</tr>
+<tr>
+<td>Re-testing is performed to ensure that the test cases that are failed in the final execution are passing after the defects fixed.</td>
+<td>Regression Testing is done to confirm whether the code change has not affected the existing features.</td>
+</tr>
+<tr>
+<td>Re-Testing works on defect fixes.</td>
+<td>The purpose of regression testing is to ensure that the code changes adversely not affect the existing functionality.</td>
+</tr>
+<tr>
+<td>Defect verification is the part of the Retesting.</td>
+<td>Regression testing does not include defect verification</td>
+</tr>
+<tr>
+<td>The priority of Retesting is higher than Regression Testing, so it is done before the Regression Testing.</td>
+<td>Based on the project type and availability of resources, regression testing can be parallel to Retesting.</td>
+</tr>
+<tr>
+<td>Re-Test is a planned Testing.</td>
+<td>Regression testing is a generic Testing.</td>
+</tr>
+<tr>
+<td>We cannot automate the test-cases for Retesting.</td>
+<td>We can do automation for regression testing; manual testing could be expensive and time-consuming.</td>
+</tr>
+<tr>
+<td>Re-testing is for failed test-cases.</td>
+<td>Regression testing is for passed Test-cases.</td>
+</tr>
+<tr>
+<td>Re-testing make sure that the original fault is corrected.</td>
+<td>Regression testing checks for unexpected side effect.</td>
+</tr>
+<tr>
+<td>Retesting executes defects with the same data and the same environment with different input with a new build.</td>
+<td>Regression testing is when there is a modification or changes become mandatory in an existing project.</td>
+</tr>
+<tr>
+<td>Re-testing cannot do before start testing.</td>
+<td>Regression testing can obtain test cases from the functional specification, user tutorials and manuals, and defects reports in regards to the corrected problem.</td>
+</tr>
+</table>
+
+<h2 class="h2">Advantages of Regression Testing</h2>
+<p>Advantages of Regression Testing are:</p>
+<ul class="points">
+<li>Regression Testing increases the product's quality.</li>
+<li>It ensures that any bug fix or changes do not impact the existing functionality of the product. </li>
+<li>Automation tools can be used for regression testing.</li>
+<li>It makes sure the issues fixed do not occur again.</li>
+</ul>
+<h2 class="h2">Disadvantages of Regression Testing</h2>
+<p>There are several advantages of Regression Testing though there are disadvantages as well.</p>
+<ul class="points">
+<li>Regression Testing should be done for small changes in the code because even a slight change in the code can create issues in the existing functionality.</li>
+<li>If in case automation is not used in the project for testing, it will time consuming and tedious task to execute the test again and again.</li>
+</ul>
+<h2 class="h2">Conclusion</h2>
+<p>Regression Testing is one of the essential aspects as it helps to deliver a quality product which saves organizations time and money. It helps to provide a quality product by making sure that any change in the code does not affect the existing functionality.</p>
+<p>For automating the regression test cases, there are several automation tools available. A tool should have the ability to update the <strong><em>test suite</em></strong> as the regression test suit needs to be updated frequently.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="smoke-testing.html">Smoke Testing</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="defect-management-process.html">&larr; prev</a>
+<a style="float:right" class="next" href="smoke-testing.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d8bebdbdbcbab9bbb398b2b9aeb9aca8b7b1b6acf6bbb7b5">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/regression-testing"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/regression-testing"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/regression-testing"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+  </a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="630b11230902150217130c0a0d174d000c0e">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="bdd5cffdd7dccbdcc9cdd2d4d3c993ded2d093">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/regression-testing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:39:42 GMT -->
+</html> 

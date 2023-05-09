@@ -1,0 +1,860 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/ios-imageview by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:49:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>iOS | ImageView - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="iOS | ImageView - Javatpoint" /><meta property="og:description" content="iOS | ImageView with XCode IDE Introduction, History and Versions, Views and View Controllers, Creating the first iOS application, Label, Button, TextField, Switch, Segmented Control, iOS UI Controls, iOS UI Views, iOS UIView Controllers, Tab Bar Interface etc." />
+<meta name="keywords" content="ios development using swift, ios development, ios tutorial, introduction to xcode ide, history and versions, views and view controllers, storyboard and interface builder, creating the first ios application, label, button, textfield, page control, date picker, slider, stepper, switch, segmented control, ios ui controls, ios ui views, ios ui view controllers, tab bar interface, navigation interface" /><meta name="description" content="iOS | ImageView with XCode IDE Introduction, History and Versions, Views and View Controllers, Creating the first iOS application, Label, Button, TextField, Switch, Segmented Control, iOS UI Controls, iOS UI Views, iOS UIView Controllers, Tab Bar Interface etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="ios-imageview.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="iOS | ImageView - Javatpoint" /><meta name="twitter:description" property="og:description" content="iOS | ImageView with XCode IDE Introduction, History and Versions, Views and View Controllers, Creating the first iOS application, Label, Button, TextField, Switch, Segmented Control, iOS UI Controls, iOS UI Views, iOS UIView Controllers, Tab Bar Interface etc." /><meta property="og:url" content="ios-imageview.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="swift-tutorial.html">Swift</a></li>
+<li><a href="ios-development-using-swift.html" class="selected">iOS Development</a></li>
+<li><a href="os-tutorial.html">OS</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="php-tutorial.html">PHP</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="jquery-ui-tutorial.html">jQuery UI</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+<li><a href="comment.html">Comment</a></li>
+<li><a href="forum.html">Forum</a></li>
+<li><a href="training.html">Training</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">iOS Development</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ios-development-using-swift.html">iOS Development using Swift</a>
+<a href="ios-introduction-to-xcode-ide.html">Introduction to XCode IDE</a>
+
+<a href="iphone-history-and-versions.html">iPhone History &amp; Versions</a>
+<a href="ios-views-and-view-controllers.html">Views &amp; View Controllers</a>
+<a href="ios-storyboard-and-interface-builder.html">Storyboard &amp; interface builder</a>
+<a href="creating-first-ios-application.html">Creating First iOS Application</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">iOS UI Controls</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ios-label.html">iOS: Label</a>
+<a href="ios-button.html">iOS: Button</a>
+<a href="ios-textfield.html">iOS: TextField</a>
+<a href="ios-datepicker.html">iOS: DatePicker</a>
+<a href="ios-slider.html">iOS: Slider</a>
+<a href="ios-stepper.html">iOS: Stepper</a>
+<a href="ios-switch.html">iOS: Switch</a>
+<a href="ios-segment-control.html">iOS: Segment Control</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">iOS Container Views</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ios-uiview.html">iOS: UIView</a>
+<a href="ios-tableview.html">iOS: TableView</a>
+<a href="ios-collectionview.html">iOS: CollectionView</a>
+<a href="ios-scrollview.html">iOS: ScrollView</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">iOS Content Views</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ios-activityindicator-view.html">iOS: ActivityIndicatorView</a>
+<a href="ios-imageview.html">iOS: ImageView</a>
+<a href="ios-pickerview.html">iOS: PickerView</a>
+<a href="ios-progressview.html">iOS: ProgressView</a>
+<a href="ios-webview.html">iOS: WebView</a>
+<a href="ios-mapview.html">iOS: MapView</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">iOS View Controllers</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ios-uiviewcontroller.html">iOS: UIViewController</a>
+<a href="ios-tableviewcontroller.html">iOS: Table View Controller</a>
+<a href="ios-collectionviewcontroller.html">iOS: Collection View Controller</a>
+<a href="ios-pageviewcontroller.html">iOS: PageViewController</a>
+<a href="ios-split-view-controller.html">iOS: Split View Controller</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Tab Bar Interface</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ios-tab-bar-controller.html">iOS: Tab Bar Controller</a>
+<a href="ios-tab-bar.html">iOS: Tab Bar</a>
+<a href="ios-tab-bar-item.html">iOS: Tab Bar Item</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Navigation Interface</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ios-navigation-controller.html">Navigation Controller</a>
+<a href="ios-navigation-bar.html">Navigation Bar</a>
+<a href="ios-navigation-item.html">Navigation Item</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Architecture Pattern</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ios-model-view-controller.html">Model View Controller</a>
+<a href="ios-model-view-view-model.html">Model View View-Model</a>
+<a href="ios-model-view-presenter.html">Model View Presenter</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Install Libraries</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ios-setting-up-cocoapods-for-xcode-projects.html">Setting Up Cocoapods for XCode Projects</a>
+<a href="ios-using-cocoapods-for-xcode-projects.html">Using Cocoapods for XCode Projects</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Web Request &amp; Parsing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ios-alamofire-library.html">Alamofire Library</a>
+<a href="ios-fetching-data-through-get-request-using-alamofire.html">Fetching data through Get Request</a>
+<a href="ios-parsing-json-response.html">Parsing JSON Response</a>
+<a href="ios-image-caching-with-alamofireimage.html">Image Caching</a>
+<a href="ios-pull-to-refresh-functionality.html">Pull to Refresh functionality</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">iOS UserDefaults</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ios-saving-data-in-userdefaults.html">Saving Data in UserDefaults</a>
+<a href="ios-getting-data-from-userdefaults.html">Getting Data from UserDefaults</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">CoreData &amp; Database</span></h2>
+</div>
+<div class="leftmenu">
+<a href="ios-coredata.html">CoreData</a>
+<a href="ios-managed-object-model.html">Managed Object Model</a>
+<a href="ios-persistent-object-coordinator.html">Persistent Object Coordinator</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Multithreading in Swift</span></h2>
+</div>
+<div class="leftmenu">
+<a href="multithreading-in-swift.html">Multithreading in Swift</a>
+<a href="concurrency-in-swift.html">Concurrency in swift</a>
+<a href="handling-background-tasks-in-swift.html">Handling Background Tasks</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="firebase-crashalytics-ios-swift.html">Firebase Crashalytics iOS Swift</a>
+<a href="ios-app-lifecycle.html">IOS app lifecycle</a>
+<a href="what-is-jailbreaking-in-ios.html">What is Jailbreaking in iOS</a>
+<a href="why-is-ios-better-than-android.html">Why is iOS better than Android</a>
+<a href="features-of-ios-14.html">Features of iOS 14</a>
+<a href="getting-user-location-in-ios.html">Getting user location in iOS</a>
+<a href="push-notifications-in-ios.html">Push Notifications in iOS</a>
+<a href="sign-in-with-apple-using-swift.html">Sign-in with Apple using swift</a>
+<a href="ssl-pinning-in-swift.html">SSL Pinning in Swift</a>
+<a href="xcode-12-features.html">XCode 12 Features</a>
+<a href="facebook-login-integration-in-ios.html">Facebook Login Integration in iOS</a>
+<a href="google-sign-in-integration-in-ios.html">Google Sign-in integration in iOS</a>
+<a href="how-to-capture-image-using-ios-app.html">How to capture the image using the iOS app</a>
+<a href="how-to-make-a-phone-call-in-ios-app.html">How to make a phone call in the iOS app</a>
+<a href="paytm-sdk-integration-in-ios.html">Paytm SDK Integration in iOS</a>
+<a href="razorpay-integration-in-ios.html">Razorpay Integration in iOS</a>
+<a href="uialertcontroller-in-swift.html">UIAlertController in Swift</a>
+<a href="using-sqlite-in-ios-app.html">Using SQLite in iOS app</a>
+<a href="creating-a-real-time-chat-application-using-firebase.html">Creating a real-time chat application using Firebase</a>
+<a href="using-realm-database-in-ios-app.html">Using Realm database in iOS app</a>
+<a href="machine-learning-in-ios.html">iOS: machine learning</a>
+<a href="what-is-coreml.html">What is CoreML</a>
+<a href="using-advanced-coreml.html">Using Advanced CoreML</a>
+<a href="access-control-in-swift-ios.html">Access Control in Swift iOS</a>
+<a href="memory-management-in-ios-applications.html">Memory Management in iOS applications</a>
+<a href="protocol-oriented-programming-in-ios-swift.html">Protocol Oriented Programming in iOS Swift</a>
+<a href="initialization-in-swift-ios.html">Initialization in Swift</a>
+<a href="parsing-a-static-json-file-in-ios-application.html">Parsing a Static JSON file in iOS application</a>
+<a href="sending-email-using-ios-application.html">Sending Email using the iOS application</a>
+<a href="using-avaudioplayer-to-play-sounds-in-ios-applications.html">Using AVAudioPlayer to play sounds in iOS applications</a>
+<a href="search-bar-in-ios-applications.html">Search Bar in iOS Applications</a>
+<a href="uiimage-in-ios.html">UIImage in iOS</a>
+<a href="uibarbuttonitem-in-ios.html">UIBarButtonItem in iOS</a>
+<a href="working-with-uibezierpath-in-ios-applications.html">Working with UIBezierPath in iOS applications</a>
+<a href="sfsafariviewcontroller-in-ios.html">SFSafariViewController in iOS</a>
+<a href="transforming-views-with-cgaffinetransform.html">Transforming Views with CGAffineTransform</a>
+<a href="uiactivityviewcontroller-in-ios.html">UIActivityViewController in iOS</a>
+<a href="using-uicolor-to-customize-app-appearance.html">Using UIColor to customize app appearance</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="ios-pickerview.html">next &rarr;</a>
+<a class="next" href="ios-activityindicator-view.html">&larr; prev</a>
+</div>
+<h1 class="h1">ScrollView</h1>
+<p>It is almost impossible to design and develop any iOS applications without using imageview. ImageView can be defined as an object that can display the images on the interface of the iOS applications. It is the instance of the UIImageView class, which inherits UIView.</p>
+<div class="codeblock"><textarea name="code" class="java">
+class UIImageView : UIView
+</textarea></div>
+<p>ImageView draws the image on the interface where the UIImage object specifies the image. We can use the imageview object to display the contents of various image files such as JPG or PNG. UIImageView class contains various methods and properties by using which we can configure the imageview programmatically. We can also configure the animated images to display on the interface.</p>
+<h3 class="h3">Adding ImageView to the interface</h3>
+<ol class="points">
+<li>Search for the UIImageView in the object library and drag the result to the storyboard.</li>
+<li>Define the auto-layout rules for the image view to govern its position and size on the different screen devices.</li>
+<li>Create a connection outlet of the imageview in the ViewController class. </li>
+<li>Assing the image to the imageview programmatically or using the storyboard.</li>
+</ol>
+<h3 class="h3">Adding images to the project in Xcode</h3>
+<p>Adding images to the project in Xcode is as simple as dragging an image file to the assets folder of the project in Xcode from the local device storage. </p>
+<p>Access the Assets.xcassets folder in the Xcode, as shown in the following image. This folder contains all the assets that are being used in the project, including the app icon. </p>
+<img src="https://static.javatpoint.com/tutorial/ios/images/ios-imageview.png" alt="iOS ImageView" />
+<p>Initially, there are no assets in the Xcode. To add a new imageset in the assets, right-click in the left pane below the AppIcon and choose New ImageSet from the list.</p>
+<img src="https://static.javatpoint.com/tutorial/ios/images/ios-imageview2.png" alt="iOS ImageView" />
+<p>This will create the New Image Set (folder in the assets). Here, we need to drag and drop the image files from the local device to the new image set in the Xcode.</p>
+<p>The following image shows an imageset where we can drop the image we want from the local device.</p>
+<img src="https://static.javatpoint.com/tutorial/ios/images/ios-imageview3.png" alt="iOS ImageView" />
+<p>In iOS applications, there three categories of images that can be added to the project based on the dimensions, I.e., 1X, 2X, and 3X. The above image also shows Universal mentioned below the image. It means that the image can be used for universal devices, including IPad and iPhone. However, we can specify the intended category of device in the right pane of the window, as shown in the following image.</p>
+<img src="https://static.javatpoint.com/tutorial/ios/images/ios-imageview4.png" alt="iOS ImageView" />
+<h3 class="h3">Interface Builder Attributes</h3>
+<table class="alt">
+<tr>
+<th>SN</th>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Image</td>
+<td>It represents an UIImage object to display. We can set the image from the storyboard or programmatically by using the image or animatedImages property of UIImageView class.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Highlighted</td>
+<td>It represents an UIImage object which is displayed when the imageview is highlighted. To set this attribute programmatically, we can use highlightedImage or highlightedAnimationImages property.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>State</td>
+<td>This attribute is used to change the initial state of imageview to highlighted. Use the isHighlighted property to check whether the imageview is in highlighted state.</td>
+</tr>
+</table>
+<h2 class="h3">Scaling images in ImageView</h3>
+<p>The contentMode property of the image view is used to determine how to display the image properly. If the size of the images to display using imageview doesn't match the size of the imageview itself, then we need to configure the appearance of the image on the interface. However, it is the best practice to use the same sizes images, but imageview can scale the images to fit all or some of the available spaces. The UIView.ContentMode.scaleAspectFit and UIView.ContentMode.scaleAspectFill modes scale the image to fit or fill the space while maintaining the image's original aspect ratio. The UIView.ContentMode.scaleToFill value scales the image without regard to the original aspect ratio, which can cause the image to appear distorted. Other content modes place the image at the appropriate location in the image view's bounds without scaling it.</p>
+<h3 class="h3">Image Transparency</h3>
+<p>If the size of the image is smaller than the imageview, than any transparency in the image leads to the background display through since the image is composited onto the imageview background and then onto the rest of the available image.</p>
+<ul class="points">
+<li>If the image view's isOpaque property is true, the image's pixels are composited on top of the image view's background color, and the alpha property of the image view is ignored.</li>
+<li>If the image view's isOpaque property is false, the alpha value of each pixel is multiplied by the image view's alpha value, with the resulting value becoming the actual transparency value for that pixel. If the image does not have an alpha channel, the alpha value of each pixel is assumed to be 1.0.</li>
+</ul>
+<h3 class="h3">Example 1</h3>
+<p>In this example, we will create an imageview and will set an UIImage object to the imageview programmatically by using its image property. For this purpose, we will add a new image to the Xcode project.</p>
+<p><strong>Interface Builder</strong></p>
+<p>To add an image view to the storyboard, search for imageview in the object library, and drag the result to the storyboard. </p>
+<img src="https://static.javatpoint.com/tutorial/ios/images/ios-imageview5.png" alt="iOS ImageView" />
+<p>Define the auto-layout rules for the image view to govern its size and position on different screen sizes. However, we will also add an image to the assets in Xcode from the local device, as shown in the below image.</p>
+<img src="https://static.javatpoint.com/tutorial/ios/images/ios-imageview6.png" alt="iOS ImageView" />
+<p>The main.storyboard is shown in the following image. </p>
+<img src="https://static.javatpoint.com/tutorial/ios/images/ios-imageview7.png" alt="iOS ImageView" />
+<p><strong>ViewController.swift</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+import UIKit
+
+
+class ViewController: UIViewController {
+
+
+    @IBOutlet weak var myImageView: UIImageView!
+    var img:UIImage = UIImage(named: "Image") ?? UIImage()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        myImageView.image = img
+        //myImageView.contentMode = .scaleToFill
+
+    }
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/ios/images/ios-imageview8.png" alt="iOS ImageView" />
+<p>The content mode of the imageview is set to scaleToFit by default. However, if we set it to scaleToFill, the output of the above program is shown in the following image.</p>
+<img src="https://static.javatpoint.com/tutorial/ios/images/ios-imageview9.png" alt="iOS ImageView" />
+<h3 class="h3">Adding touch events to the imageview</h3>
+<p>By default, the imageview doesn't respond to the events. However, we can set the imageview's isUserInteractionEnabled property to true to make the user interaction enabled for the imageview. We can configure the tap gestures for the imageview using UITapGestureRecognizer.</p>
+<p>Consider the following image in which, we will configure the tap gesture for the imageview shown in example 1.</p>
+<h3 class="h3">Example</h3>
+In this example, we will add another view controller to the storyboard we created in example 1. We will define a segue between the View Controllers with the identifier string "segue" as shown in the following image.</p>
+<p><strong>Main.storyboard</strong></p>
+<p>We will define the tap gesture recognizer for the image view and will set the isUserInteractionEnabled property </p>
+<img src="https://static.javatpoint.com/tutorial/ios/images/ios-imageview10.png" alt="iOS ImageView" />
+<p><strong>ViewController.swift</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var myImageView: UIImageView!
+    var img:UIImage = UIImage(named: "Image") ?? UIImage()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        myImageView.image = img
+        myImageView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: Selector("tappedImageView"))
+        myImageView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func tappedImageView (){
+        performSegue(withIdentifier: "segue", sender: self)
+    }
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/ios/images/imageViewExample.gif" alt="iOS ImageView" />
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="ios-pickerview.html">PickerView</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="ios-activityindicator-view.html">&larr; prev</a>
+<a style="float:right" class="next" href="ios-pickerview.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="dfb9bababbbdbebcb49fb5bea9beabafb0b6b1abf1bcb0b2">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/ios-imageview"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/ios-imageview"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/ios-imageview"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+  </div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="aac2d8eac0cbdccbdedac5c3c4de84c9c5c7">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="8be3f9cbe1eafdeafffbe4e2e5ffa5e8e4e6a5">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/ios-imageview by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:49:41 GMT -->
+</html> 

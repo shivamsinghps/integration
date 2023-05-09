@@ -1,0 +1,976 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/8086-microprocessor by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:46:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>8086 Microprocessor - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="8086 Microprocessor - javatpoint" /><meta property="og:description" content="8086 Microprocessor with Microprocessor Tutorial, Introduction, Evolution, Working of Microprocessor, Vector Processors, Features, Digital Signal Processors, Graphic Processors, Architecture, Intel, Set of 8085, Programming in 8085, Applications, Set of 8086, Configuration, Memory and I/O Interfacing, Peripheral Devices, Pins, Logical, Interrupts, Segment LED Display, bit numbers etc." />
+<meta name="keywords" content="microprocessor tutorial, introduction, evolution of microprocessors, working of microprocessor, vector processors, features of microprocessor, digital signal processors, graphic processors, architecture, intel, set of 8085, programming in 8085, applications, set of 8086, configuration, memory and i/o interfacing, peripheral devices, pins, logical, interrupts, segment led display, bit numbers" /><meta name="description" content="8086 Microprocessor with Microprocessor Tutorial, Introduction, Evolution, Working of Microprocessor, Vector Processors, Features, Digital Signal Processors, Graphic Processors, Architecture, Intel, Set of 8085, Programming in 8085, Applications, Set of 8086, Configuration, Memory and I/O Interfacing, Peripheral Devices, Pins, Logical, Interrupts, Segment LED Display, bit numbers etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="8086-microprocessor.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="8086 Microprocessor - javatpoint" /><meta name="twitter:description" property="og:description" content="8086 Microprocessor with Microprocessor Tutorial, Introduction, Evolution, Working of Microprocessor, Vector Processors, Features, Digital Signal Processors, Graphic Processors, Architecture, Intel, Set of 8085, Programming in 8085, Applications, Set of 8086, Configuration, Memory and I/O Interfacing, Peripheral Devices, Pins, Logical, Interrupts, Segment LED Display, bit numbers etc." /><meta property="og:url" content="8086-microprocessor.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="microprocessor-tutorial.html" class="selected">Microprocessor</a></li>
+<li><a href="computer-fundamentals-tutorial.html">Computer Fundamentals</a></li>
+<li><a href="computer-network-tutorial.html">Computer Network</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Microprocessor Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="microprocessor-tutorial.html">Microprocessor Tutorial</a>
+<a href="microprocessor-introduction.html">Microprocessor Introduction</a>
+<a href="types-of-microprocessors.html">Types of Microprocessors</a>
+<a href="microprocessor-architecture.html">Microprocessor Architecture</a>
+<a href="instruction-set-of-8085.html">Instruction Set of 8085</a>
+<a href="programming-in-8085.html">Programming in 8085</a>
+<a href="microprocessor-applications.html">Microprocessor Applications</a>
+<a href="8086-microprocessor.html">8086 Microprocessor</a>
+<a href="instruction-set-of-8086.html">Instruction Set of 8086</a>
+<a href="multiprocessor-configuration.html">Multiprocessor Configuration</a>
+<a href="memory-and-io-interfacing.html">Memory and I/O Interfacing</a>
+<a href="microcontroller.html">Microcontroller</a>
+<a href="peripheral-devices.html">Peripheral Devices</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="instruction-set-of-8086.html">next &rarr;</a>
+<a class="next" href="microprocessor-applications.html">&larr; prev</a>
+</div>
+<h1 class="h1">8086 microprocessor</h1>
+<h2 class="h2">Intel 8086</h2>
+<ul class="points">
+<li>Intel 8086 microprocessor is the enhanced version of Intel 8085 microprocessor. It was designed by Intel in 1976. </li>
+<li>The 8086 microprocessor is a16-bit, N-channel, HMOS microprocessor. Where the HMOS is used for "<strong>High-speed Metal Oxide Semiconductor</strong>".</li>
+<li>Intel 8086 is built on a single semiconductor chip and packaged in a 40-pin IC package. The type of package is DIP (Dual Inline Package).</li>
+<li>Intel 8086 uses 20 address lines and 16 data- lines. It can directly address up to 2<sup>20</sup> = 1 Mbyte of memory.</li>
+<li>It consists of a powerful instruction set, which provides operation like division and multiplication very quickly.</li>
+<li>8086 is designed to operate in two modes, i.e., Minimum and Maximum mode.</li>
+</ul>
+<h2 class="h3">Difference between 8085 and 8086 Microprocessor</h2>
+<table class="alt">
+<tr>
+<th>8085 Microprocessor</th>
+<th>8086 Microprocessor</th>
+</tr>
+<tr>
+<td>It is an 8-bit microprocessor.</td>
+<td>It is a 16-bit microprocessor.</td>
+</tr>
+<tr>
+<td>It has a 16-bit address line.</td>
+<td>It has a 20-bit address line.</td>
+</tr>
+<tr>
+<td>It has a 8-bit data bus.</td>
+<td>It has a 16-bit data bus.</td>
+</tr>
+<tr>
+<td>The memory capacity is 64 KB.</td>
+<td>The memory capacity is 1 MB.</td>
+</tr>
+<tr>
+<td>The Clock speed of this microprocessor is 3 MHz.	</td>
+<td>The Clock speed of this microprocessor varies between 5, 8 and 10 MHz for different versions.</td>
+</tr>
+<tr>
+<td>It has five flags.</td>
+<td>It has nine flags.</td>
+</tr>
+<tr>
+<td>8085 microprocessor does not support memory segmentation.</td>
+<td>8086 microprocessor supports memory segmentation.</td>
+</tr>
+<tr>
+<td>It does not support pipelining.</td>
+<td>It supports pipelining.</td>
+</tr>
+<tr>
+<td>It is accumulator based processor.</td>
+<td>It is general purpose register based processor.</td>
+</tr>
+<tr>
+<td>It has no minimum or maximum mode.</td>
+<td>It has minimum and maximum modes.</td>
+</tr>
+<tr>
+<td>In 8085, only one processor is used.</td>
+<td>In 8086, more than one processor is used. An additional external processor can also be employed.</td>
+</tr>
+<tr>
+<td>It contains less number of transistors compare to 8086 microprocessor. It contains about 6500 transistor.</td>
+<td>It contains more number of transistors compare to 8085 microprocessor. It contains about 29000 in size.</td>
+</tr>
+<tr>
+<td>The cost of 8085 is low.</td>
+<td>The cost of 8086 is high.</td>
+</tr>
+</table>
+<hr />
+<h2 class="h2">8086 pins configuration</h2>
+<img src="https://static.javatpoint.com/tutorial/microprocessor/images/8086-pins-configuration1.png" alt="8086 Microprocessor" />
+<p>The description of the pins of 8086 is as follows:</p>
+<p><strong>AD0-AD15 (Address Data Bus):</strong> Bidirectional address/data lines. These are low order address bus. They are multiplexed with data.</p>
+<p>When these lines are used to transmit memory address, the symbol A is used instead of AD, for example, A0- A15.</p>
+<p><strong>A16 - A19 (Output):</strong> High order address lines. These are multiplexed with status signals. </p>
+<p><strong>A16/S3, A17/S4:</strong> A16 and A17 are multiplexed with segment identifier signals S3 and S4.</p>
+<p><strong>A18/S5:</strong> A18 is multiplexed with interrupt status S5.</p>
+<p><strong>A19/S6:</strong> A19 is multiplexed with status signal S6.</p>
+<p><strong><span class="bt">BHE</span>/S7 (Output):</strong> Bus High Enable/Status. During T1, it is low. It enables the data onto the most significant half of data bus, D8-D15. 8-bit device connected to upper half of the data bus use BHE signal. It is multiplexed with status signal S7. S7 signal is available during T3 and T4.</p>
+<p><strong><span class="bt">RD</span> (Read):</strong> For read operation. It is an output signal. It is active when LOW.</p>
+<p><strong>Ready (Input):</strong> The addressed memory or I/O sends acknowledgment through this pin. When HIGH, it denotes that the peripheral is ready to transfer data.</p>
+<p><strong>RESET (Input):</strong> System reset. The signal is active HIGH.</p>
+<p><strong>CLK (input):</strong> Clock 5, 8 or 10 MHz.</p>
+<p><strong>INTR:</strong> Interrupt Request.</p>
+<p><strong>NMI (Input):</strong> Non-maskable interrupt request.</p>
+<p><strong><span class="bt">TEST</span> (Input):</strong> Wait for test control. When LOW the microprocessor continues execution otherwise waits.</p>
+<p><strong>VCC:</strong> Power supply +5V dc.</p>
+<p><strong>GND:</strong> Ground.</p>
+<h2 class="h2">Operating Modes of 8086</h2>
+<p>There are two operating modes of operation for Intel 8086, namely the <strong>minimum mode</strong> and the <strong>maximum mode</strong>.</p>
+<p>When only one 8086 CPU is to be used in a microprocessor system, the 8086 is used in the <strong>Minimum mode</strong> of operation. </p>
+<p>In a multiprocessor system 8086 operates in the <strong>Maximum mode</strong>.</p>
+<h2 class="h3">Pin Description for Minimum Mode</h2>
+<p>In this minimum mode of operation, the pin MN/<span class="bt">MX</span> is connected to 5V D.C. supply i.e. MN/<span class="bt">MX</span> = VCC.</p>
+<p><strong>The description about the pins from 24 to 31 for the minimum mode is as follows:</strong> </p>
+<p><strong><span class="bt">INTA</span> (Output):</strong> Pin number 24 interrupts acknowledgement. On receiving interrupt signal, the processor issues an interrupt acknowledgment signal. It is active LOW.</p>
+<p><strong>ALE (Output):</strong> Pin no. 25. Address latch enable. It goes HIGH during T1. The microprocessor 8086 sends this signal to latch the address into the Intel 8282/8283 latch. </p>
+<p><strong><span class="bt">DEN</span> (Output):</strong> Pin no. 26. Data Enable. When Intel 8287/8286 octal bus transceiver is used this signal. It is active LOW.</p>
+<p><strong>DT/<span class="bt">R</span> (output):</strong> Pin No. 27 data Transmit/Receives. When Intel 8287/8286 octal bus transceiver is used this signal controls the direction of data flow through the transceiver. When it is HIGH, data is sent out. When it is LOW, data is received. </p>
+<p><strong>M/<span class="bt">IO</span> (Output):</strong> Pin no. 28, Memory or I/O access. When this signal is HIGH, the CPU wants to access memory. When this signal is LOW, the CPU wants to access I/O device. </p>
+<p><strong><span class="bt">WR</span> (Output):</strong> Pin no. 29, Write. When this signal is LOW, the CPU performs memory or I/O write operation.</p>
+<p><strong>HLDA (Output):</strong> Pin no. 30, Hold Acknowledgment. It is sent by the processor when it receives HOLD signal. It is active HIGH signal. When HOLD is removed HLDA goes LOW.</p>
+<p><strong>HOLD (Input):</strong> Pin no. 31, Hold. When another device in microcomputer system wants to use the address and data bus, it sends HOLD request to CPU through this pin. It is an active HIGH signal.</p>
+<h2 class="h3">Pin Description for Maximum Mode</h2>
+<p>In the maximum mode of operation, the pin MN/¯MX is made LOW. It is grounded. The description about the pins from 24 to 31 is as follows:</p>
+<p><strong>QS1, QS0 (Output):</strong> Pin numbers 24, 25, Instruction Queue Status. Logics are given below:</p>
+<table class="alt">
+<tr>
+<th>QS1</th>
+<th>QS0</th>
+<th>Operation</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>No operation</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1<sup>st</sup> byte of opcode from queue.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>Empty the queue</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>Subsequent byte from queue</td>
+</tr>
+</table>
+<p><strong><span class="bt">S0</span>, <span class="bt">S1</span>, <span class="bt">S2</span> (Output):</strong> Pin numbers 26, 27, 28 Status Signals. These signals are connected to the bus controller of Intel 8288. This bus controller generates memory and I/O access control signals. Logics for status signal are given below:</p>
+<table class="alt">
+<tr>
+<th><span class="bt">S2</span></th>
+<th><span class="bt">S1</span></th>
+<th><span class="bt">S0</span></th>
+<th>Operation</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>Interrupt acknowledgement</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>Read data from I/O port</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>Write data from I/O port</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>Halt</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>Opcode fetch</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>Memory read</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>Memory write</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>Passive state</td>
+</tr>
+</table>
+<p><strong><span class="bt">LOCK</span> (Output):</strong> Pin no. 29. It is an active LOW signal. When this signal is LOW, all interrupts are masked and no HOLD request is granted. In a multiprocessor system all other processors are informed through this signal that they should not ask the CPU for relinquishing the bus control. </p>
+<p><span class="bt">RG</span>/<span class="bt">GT1</span>, <span class="bt">RQ</span>/<span class="bt">GT0</span> (Bidirectional): Pin numbers 30, 31, Local Bus Priority Control. Other processors ask the CPU by these lines to release the local bus. </p>
+<p>In the maximum mode of operation signals <span class="bt">WR</span>, ALE, <span class="bt">DEN</span>, DT/<span class="bt">R</span> etc. are not available directly from the processor. These signals are available from the controller 8288.</p>
+<hr />
+<h2 class="h2">Functional units of 8086</h2>
+<p>8086 contains two independent functional units: <strong>a Bus Interface Unit (BIU)</strong> and an <strong>Execution Unit (EU)</strong>.</p>
+<img src="https://static.javatpoint.com/tutorial/microprocessor/images/functional-units-of-8086.png" alt="8086 Microprocessor" />
+<p><strong>Fig: Block Diagram of Intel 8086 Microprocessor (8086 Architecture)</strong></p>
+<h2 class="h3">Bus Interface Unit (BIU)</h2>
+<p>The segment registers, instruction pointer and 6-byte instruction queue are associated with the bus interface unit (BIU). </p>
+<p>The BIU:</p>
+<ul class="points">
+<li>Handles transfer of data and addresses, </li>
+<li>Fetches instruction codes, stores fetched instruction codes in first-in-first-out register set called a <strong>queue</strong>, </li>
+<li>Reads data from memory and I/O devices, </li>
+<li>Writes data to memory and I/O devices,</li>
+<li>It relocates addresses of operands since it gets un-relocated operand addresses from EU. The EU tells the BIU from where to fetch instructions or where to read data.</li>
+</ul>
+<p>It has the following functional parts:</p>
+<ul class="points">
+<li><strong>Instruction Queue:</strong> When EU executes instructions, the BIU gets 6-bytes of the next instruction and stores them in the instruction queue and this process is known as instruction pre fetch. This process increases the speed of the processor. </li>
+<li><strong>Segment Registers:</strong> A segment register contains the addresses of instructions and data in memory which are used by the processor to access memory locations. It points to the starting address of a memory segment currently being used.<br>
+There are 4 segment registers in 8086 as given below:
+<ul class="points">
+<li><strong>Code Segment Register (CS):</strong> Code segment of the memory holds instruction codes of a program.</li>
+<li><strong>Data Segment Register (DS):</strong> The data, variables and constants given in the program are held in the data segment of the memory.</li>
+<li><strong>Stack Segment Register (SS):</strong> Stack segment holds addresses and data of subroutines. It also holds the contents of registers and memory locations given in PUSH instruction. </li>
+<li><strong>Extra Segment Register (ES):</strong> Extra segment holds the destination addresses of some data of certain string instructions. </li>
+</ul></li>
+</ul>
+<ul class="points">
+<li><strong>Instruction Pointer (IP):</strong> The instruction pointer in the 8086 microprocessor acts as a program counter. It indicates to the address of the next instruction to be executed. </li>
+</ul>
+<h2 class="h3">Execution Unit (EU)</h2>
+<ul class="points">
+<li>The <strong>EU</strong> receives opcode of an instruction from the queue, decodes it and then executes it. While Execution, unit decodes or executes an instruction, then the BIU fetches instruction codes from the memory and stores them in the queue. </li>
+<li>The BIU and EU operate in parallel independently. This makes processing faster.</li>
+<li>General purpose registers, stack pointer, base pointer and index registers, ALU, flag registers (FLAGS), instruction decoder and timing and control unit constitute execution unit (EU). Let's discuss them:</li>
+</ul>
+<ul class="points">
+<li><strong>General Purpose Registers:</strong> There are four 16-bit general purpose registers: AX (Accumulator Register), BX (Base Register), CX (Counter) and DX. Each of these 16-bit registers are further subdivided into 8-bit registers as shown below:</li>
+</ul>
+<table class="alt">
+<tr>
+<th>16-bit registers</th>
+<th>8-bit high-order registers</th>
+<th>8-bit low-order registers</th>
+</tr>
+<tr>
+<td>AX</td>
+<td>AH</td>
+<td>AL</td>
+</tr>
+<tr>
+<td>BX</td>
+<td>BH</td>
+<td>BL</td>
+</tr>
+<tr>
+<td>CX</td>
+<td>CH</td>
+<td>CL</td>
+</tr>
+<tr>
+<td>DX</td>
+<td>DH</td>
+<td>DL</td>
+</tr>
+</table>
+<ul class="points">
+<li><strong>Index Register:</strong> The following four registers are in the group of pointer and index registers:
+<ul class="points">
+<li>Stack Pointer (SP)</li>
+<li>Base Pointer (BP)</li>
+<li>Source Index (SI)</li>
+<li>Destination Index (DI)</li>
+</ul>
+</li>
+<li><strong>ALU:</strong> It handles all arithmetic and logical operations. Such as addition, subtraction, multiplication, division, AND, OR, NOT operations. </li>
+<li><strong>Flag Register:</strong> It is a 16?bit register which exactly behaves like a flip-flop, means it changes states according to the result stored in the accumulator. It has 9 flags and they are divided into 2 groups i.e. conditional and control flags.
+<ul class="points">
+<li><strong>Conditional Flags:</strong> This flag represents the result of the last arithmetic or logical instruction executed. Conditional flags are:
+<ul class="points">
+<li>Carry Flag</li>
+<li>Auxiliary Flag</li>
+<li>Parity Flag</li>
+<li>Zero Flag</li>
+<li>Sign Flag</li>
+<li>Overflow Flag</li>
+</ul></li>
+<li><strong>Control Flags:</strong> It controls the operations of the execution unit. Control flags are:
+<ul class="points">
+<li>Trap Flag</li>
+<li>Interrupt Flag</li>
+<li>Direction Flag</li>
+</ul></li></ul></li></ul>
+<hr />
+<h2 class="h2">Interrupts</h2>
+<p><strong>Interrupt</strong> is a process of creating a temporary halt during program execution and allows peripheral devices to access the microprocessor. </p>
+<p>Microprocessor responds to these interrupts with an <strong>interrupt service routine (ISR)</strong>, which is a short program or subroutine to instruct the microprocessor on how to handle the interrupt.</p>
+<p><strong>There are different types of interrupt in 8086:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/microprocessor/images/interrupts.png" alt="8086 Microprocessor" />
+<h2 class="h3">Hardware Interrupts</h2>
+<p><strong>Hardware interrupts</strong> are that type of interrupt which are caused by any peripheral device by sending a signal through a specified pin to the microprocessor. </p>
+<p><strong>The Intel 8086 has two hardware interrupt pins:</strong></p>
+<ul class="points">
+<li>NMI (Non-Maskbale Interrupt)</li>
+<li>INTR (Interrupt Request) Maskable Interrupt.</li>
+</ul>
+<p><strong>NMI:</strong> NMI is a single Non-Maskable Interrupt having higher priority than the maskable interrupt.</p>
+<ul class="points">
+<li>It cannot be disabled (masked) by user using software. </li>
+<li>It is used by the processor to handle emergency conditions.<br>
+<strong>For example:</strong> It can be used to save program and data in case of power failure. An external electronic circuitry is used to detect power failure, and to send an interrupt signal to 8086 through NMI line.</li>
+</ul>
+<p><strong>INTR:</strong> The INTR is a maskable interrupt. It can be enabled/disabled using interrupt flag (IF). After receiving INTR from external device, the 8086 acknowledges through INTA signal.</p>
+<p>It executes two consecutive interrupt acknowledge bus cycles.</p>
+<h2 class="h3">Software Interrupt</h2>
+<p>A microprocessor can also be interrupted by internal abnormal conditions such as overflow; division by zero; etc. A programmer can also interrupt microprocessor by inserting INT instruction at the desired point in the program while debugging a program. Such an interrupt is called a software interrupt. </p>
+<p>The interrupt caused by an internal abnormal conditions also came under the heading of software interrupt.</p>
+<p><strong>Example of software interrupts are:</strong></p>
+<ul class="points">
+<li>TYPE 0 (division by zero)</li>
+<li>TYPE 1 (single step execution for debugging a program)</li>
+<li>TYPE 2 represents NMI (power failure condition)</li>
+<li>TYPE 3 (break point interrupt)</li>
+<li>TYPE 4 (overflow interrupt)</li>
+</ul>
+<p><strong>Interrupt pointer table for 8086</strong></p>
+<img src="https://static.javatpoint.com/tutorial/microprocessor/images/interrupt-pointer-table.png" alt="8086 Microprocessor" />
+<p><strong>Fig: Interrupt pointer table for 8086</strong></p>
+<p>The 8086 can handle up to 256, hardware and software interrupts.</p>
+<p>1KB memory acts as a table to contain interrupt vectors (or interrupt pointers), and it is called interrupt vector table or interrupt pointer table. The 256 interrupt pointers have been numbered from 0 to 255 (FF hex). The number assigned to an interrupt pointer is known as type of that interrupt. For example, Type 0, Type 1, Type 2,...........Type 255 interrupt.</p>
+<hr />
+<h2 class="h2">Addressing modes of 8086</h2>
+<p>The way for which an operand is specified for an instruction in the accumulator, in a general purpose register or in memory location, is called <strong>addressing mode</strong>. </p>
+<p>The 8086 microprocessors have 8 addressing modes. Two addressing modes have been provided for instructions which operate on register or immediate data. </p>
+<p><strong>These two addressing modes are:</strong></p>
+<p><strong>Register Addressing:</strong> In register addressing, the operand is placed in one of the 16-bit or 8-bit general purpose registers. </p>
+<p><strong>Example</strong></p>
+<ul class="points">
+<li>MOV AX, CX</li>
+<li>ADD AL, BL</li>
+<li>ADD CX, DX</li>
+</ul>
+<p><strong>Immediate Addressing:</strong> In immediate addressing, the operand is specified in the instruction itself. </p>
+<p><strong>Example</strong></p>
+<ul class="points">
+<li>MOV AL, 35H</li>
+<li>MOV BX, 0301H</li>
+<li>MOV [0401], 3598H</li>
+<li>ADD AX, 4836H</li>
+</ul>
+<p>The remaining 6 addressing modes specify the location of an operand which is placed in a memory. </p>
+<p><strong>These 6 addressing modes are:</strong></p>
+<p><strong>Direct Addressing:</strong> In direct addressing mode, the operand?s offset is given in the instruction as an 8-bit or 16-bit displacement element. </p>
+<p><strong>Example</strong></p>
+<ul class="points">
+<li>ADD AL, [0301]</li>
+</ul>
+<p>The instruction adds the content of the offset address 0301 to AL. the operand is placed at the given offset (0301) within the data segment DS. </p>
+<p><strong>Register Indirect Addressing:</strong> The operand's offset is placed in any one of the registers BX, BP, SI or DI as specified in the instruction.</p>
+<p><strong>Example</strong></p>
+<ul class="points">
+<li>MOV AX, [BX]</li>
+</ul>
+<p>It moves the contents of memory locations addressed by the register BX to the register AX. </p>
+<p><strong>Based Addressing:</strong> The operand's offset is the sum of an 8-bit or 16-bit displacement and the contents of the base register BX or BP. BX is used as base register for data segment, and the BP is used as a base register for stack segment.</p>
+<p><strong>Effective address (Offset)</strong> = [BX + 8-bit or 16-bit displacement].</p>
+<p><strong>Example</strong></p>
+<ul class="points">
+<li>MOV AL, [BX+05]; an example of 8-bit displacement.</li>
+<li>MOV AL, [BX + 1346H]; example of 16-bit displacement.</li>
+</ul>
+<p><strong>Indexed Addressing:</strong> The offset of an operand is the sum of the content of an index register SI or DI and an 8-bit or 16-bit displacement.</p>
+<p>Offset (Effective Address) = [SI or DI + 8-bit or 16-bit displacement] </p>
+<p><strong>Example</strong></p>
+<ul class="points">
+<li>MOV AX, [SI + 05]; 8-bit displacement.</li>
+<li>MOV AX, [SI + 1528H]; 16-bit displacement.</li>
+</ul>
+<p><strong>Based Indexed Addressing:</strong> The offset of operand is the sum of the content of a base register BX or BP and an index register SI or DI. </p>
+<p>Effective Address (Offset) = [BX or BP] + [SI or DI]</p>
+<p>Here, BX is used for a base register for data segment, and BP is used as a base register for stack segment. </p>
+<p><strong>Example</strong></p>
+<ul class="points">
+<li>ADD AX, [BX + SI]</li>
+<li>MOV CX, [BX + SI]</li>
+</ul>
+<p><strong>Based Indexed with Displacement:</strong> In this mode of addressing, the operand's offset is given by:</p>
+<p><strong>Effective Address (Offset)</strong> = [BX or BP] + [SI or DI] + 8-bit or 16-bit displacement</p>
+<p><strong>Example</strong></p>
+<ul class="points">
+<li>MOV AX, [BX + SI + 05]; 8-bit displacement</li>
+<li>MOV AX, [BX + SI + 1235H]; 16-bit displacement</li>
+</ul>
+<br />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="instruction-set-of-8086.html">Instruction Set of 8086</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="microprocessor-applications.html">&larr; prev</a>
+<a style="float:right" class="next" href="instruction-set-of-8086.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="7b1d1e1e1f191a18103b111a0d1a0f0b1412150f55181416">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/8086-microprocessor"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/8086-microprocessor"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/8086-microprocessor"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+ <a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="533b21133932253227233c3a3d277d303c3e">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="630b11230902150217130c0a0d174d000c0e4d">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/8086-microprocessor by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:46:01 GMT -->
+</html> 

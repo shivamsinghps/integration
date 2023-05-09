@@ -1,0 +1,1157 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/javascript-execution-context by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 12:13:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>JavaScript Execution Context - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="JavaScript Execution Context - javatpoint" /><meta property="og:description" content="JavaScript Execution Context with javascript tutorial, introduction, javascript oops, application of javascript, loop, variable, objects, map, typedarray etc." />
+<meta name="keywords" content="javascript tutorial, introduction, javascript oops, application of javascript, loop, variable, data types, operators, javascript if, switch, operators, objects, form validation, map, typedarray" /><meta name="description" content="JavaScript Execution Context with javascript tutorial, introduction, javascript oops, application of javascript, loop, variable, objects, map, typedarray etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="javascript-execution-context.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="JavaScript Execution Context - javatpoint" /><meta name="twitter:description" property="og:description" content="JavaScript Execution Context with javascript tutorial, introduction, javascript oops, application of javascript, loop, variable, objects, map, typedarray etc." /><meta property="og:url" content="javascript-execution-context.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="javascript-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/js.png" alt="javascript" /> JavaScript</a></li>
+<li><a href="html-tutorial.html"><img src="https://static.javatpoint.com/images/icon/html.png" alt="html" /> HTML</a></li>
+<li><a href="css-tutorial.html"><img src="https://static.javatpoint.com/images/icon/css.png" alt="CSS" /> CSS</a></li>
+<li><a href="bootstrap-tutorial.html"><img src="https://static.javatpoint.com/images/icon/bootstrap.png" alt="Bootstrap" /> Bootstrap</a></li>
+<li><a href="jquery-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jquery.png" alt="jQuery" /> jQuery</a></li>
+<li><a href="nodejs-tutorial.html"><img src="https://static.javatpoint.com/images/icon/node-js.png" alt="Node.js" /> Node.js</a></li>
+<li><a href="php-tutorial.html"><img src="https://static.javatpoint.com/images/icon/php.png" alt="php" /> PHP</a></li>
+<li><a href="python-tutorial.html"><img src="https://static.javatpoint.com/images/icon/python.png" alt="python" /> Python</a></li>
+<li><a href="c-programming-language-tutorial.html"><img src="https://static.javatpoint.com/images/icon/c.png" alt="c" /> C</a></li>
+<li><a href="cpp-tutorial.html"><img src="https://static.javatpoint.com/images/icon/cpp.png" alt="c++" /> C++</a></li>
+<li><a href="java-tutorial.html"><img src="https://static.javatpoint.com/images/icon/java.png" alt="java" /> Java</a></li>
+<li><a href="c-sharp-tutorial.html"><img src="https://static.javatpoint.com/images/icon/csharp.png" alt="c#" /> C#</a></li>
+<li><a href="sql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/sql.png" alt="sql" /> SQL</a></li>
+<li><a href="android-tutorial.html"><img src="https://static.javatpoint.com/images/icon/android.png" alt="android" /> Android</a></li>
+<li><a href="javascript-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="interview questions" /> Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">JavaScript Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="javascript-tutorial.html">JavaScript Introduction</a>
+<a href="javascript-example.html">JavaScript Example</a>
+<a href="external-javascript-file.html">External JavaScript</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">JavaScript Basics</span></h2>
+</div>
+<div class="leftmenu">
+<a href="javascript-comment.html">JS Comment</a>
+<a href="javascript-variable.html">JS Variable</a>
+<a href="javascript-global-variable.html">JS Global Variable</a>
+<a href="javascript-data-types.html">JS Data Types</a>
+<a href="javascript-operators.html">JS Operators</a>
+<a href="javascript-if.html">JS If Statement</a>
+<a href="javascript-switch.html">JS Switch</a>
+<a href="javascript-loop.html">JS Loop</a>
+<a href="javascript-function.html">JS Function</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">JavaScript Objects</span></h2>
+</div>
+<div class="leftmenu">
+<a href="javascript-objects.html">JS Object</a>
+<a href="javascript-array.html">JS Array</a>
+<a href="javascript-string.html">JS String</a>
+<a href="javascript-date.html">JS Date</a>
+<a href="javascript-math.html">JS Math</a>
+<a href="javascript-number.html">JS Number</a>
+<a href="javascript-boolean.html">JS Boolean</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">JavaScript BOM</span></h2>
+</div>
+<div class="leftmenu">
+<a href="browser-object-model.html">Browser Objects</a>
+<a href="window-object.html">1) Window Object</a>
+<a href="javascript-history-object.html">2) History Object</a>
+<a href="javascript-navigator-object.html">3) Navigator Object</a>
+<a href="javascript-screen.html">4) Screen Object</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">JavaScript DOM</span></h2>
+</div>
+<div class="leftmenu">
+<a href="document-object-model.html">5) Document Object</a>
+<a href="document-getElementById()-method.html">getElementById</a>
+<a href="javascript-getelementsbyclassname.html">GetElementsByClassName()</a>
+<a href="document-getElementsByName()-method.html">getElementsByName</a>
+<a href="document-getElementsByTagName()-method.html">getElementsByTagName</a>
+<a href="javascript-innerHTML.html">JS innerHTML property</a>
+<a href="javascript-innerText.html">JS innerText property</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">JavaScript Validation</span></h2>
+</div>
+<div class="leftmenu">
+<a href="javascript-form-validation.html">JS form validation</a>
+<a href="javascript-form-validation.html#email">JS email validation</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">JavaScript OOPs</span></h2>
+</div>
+<div class="leftmenu">
+<a href="javascript-oops-classes.html">JS Class</a>
+<a href="javascript-objects.html">JS Object</a>
+<a href="javascript-oops-prototype-object.html">JS Prototype</a>
+<a href="javascript-oops-constructor-method.html">JS constructor Method</a>
+<a href="javascript-oops-static-method.html">JS static Method</a>
+<a href="javascript-oops-encapsulation.html">JS Encapsulation</a>
+<a href="javascript-oops-inheritance.html">JS Inheritance</a>
+<a href="javascript-oops-polymorphism.html">JS Polymorphism</a>
+<a href="javascript-oops-abstraction.html">JS Abstraction</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">JavaScript Cookies</span></h2>
+</div>
+<div class="leftmenu">
+<a href="javascript-cookies.html">JS Cookies</a>
+<a href="javascript-cookie-attributes.html">Cookie Attributes</a>
+<a href="javascript-cookie-with-multiple-name.html">Cookie with multiple Name</a>
+<a href="javascript-deleting-cookies.html">Deleting Cookies</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">JavaScript Events</span></h2>
+</div>
+<div class="leftmenu">
+<a href="javascript-events.html">JavaScript Events</a>
+<a href="javascript-addeventlistener.html">JavaScript addEventListener()</a>
+<a href="javascript-onclick-event.html">JS onclick event</a>
+<a href="javascript-dblclick-event.html">JS dblclick event</a>
+<a href="javascript-onload.html">JS onload event</a>
+<a href="javascript-onresize-event.html">JS onresize event</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Exception Handling</span></h2>
+</div>
+<div class="leftmenu">
+<a href="exception-handling-in-javascript.html">JS Exception Handling</a>
+<a href="javascript-try-catch.html">JavaScript try-catch</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">JavaScript Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="javascript-this-keyword.html">JS this Keyword</a>
+<a href="javascript-debugging.html">JS Debugging</a>
+<a href="javascript-hoisting.html">JS Hoisting</a>
+<a href="javascript-strict-mode.html">JS Strict Mode</a>
+<a href="javascript-promise.html">JavaScript Promise</a>
+<a href="javascript-compare-dates.html">JS Compare dates</a>
+<a href="javascript-array-length-property.html">JavaScript array.length</a>
+<a href="javascript-alert.html">JavaScript alert()</a>
+<a href="javascript-eval-function.html">JavaScript eval() function</a>
+<a href="javascript-closest.html">JavaScript closest()</a>
+<a href="javascript-continue-statement.html">JavaScript continue statement</a>
+<a href="javascript-getattribute-method.html">JS getAttribute() method</a>
+<a href="javascript-hide-elements.html">JS hide elements</a>
+<a href="javascript-prompt-dialog-box.html">JavaScript prompt()</a>
+<a href="javascript-removeattribute-method.html">removeAttribute() method</a>
+<a href="javascript-reset.html">JavaScript reset</a>
+<a href="javascript-return.html">JavaScript return</a>
+<a href="javascript-string-split.html">JS String split()</a>
+<a href="javascript-typeof-operator.html">JS typeof operator</a>
+<a href="javascript-ternary-operator.html">JS ternary operator</a>
+<a href="javascript-reload-method.html">JS reload() method</a>
+<a href="javascript-setattribute.html">JS setAttribute() method</a>
+<a href="javascript-setinterval-method.html">JS setInterval() method</a>
+<a href="javascript-settimeout-method.html">JS setTimeout() method</a>
+<a href="javascript-string-includes.html">JS string includes() method</a>
+<a href="calculate-current-week-number-in-javascript.html">Calculate current week number in JavaScript</a>
+<a href="calculate-days-between-two-dates-in-javascript.html">Calculate days between two dates in JavaScript</a>
+<a href="javascript-string-trim.html">JavaScript String trim()</a>
+<a href="javascript-timer.html">JavaScript timer</a>
+<a href="remove-elements-from-array-in-javascript.html">Remove elements from array</a>
+<a href="javascript-localstorage.html">JavaScript localStorage</a>
+<a href="javascript-offsetheight.html">JavaScript offsetHeight</a>
+<a href="confirm-password-validation-in-javascript.html">Confirm password validation</a>
+<a href="static-vs-const-in-javascript.html">Static vs Const</a>
+<a href="how-to-convert-comma-separated-string-into-an-array-in-javascript.html">How to Convert Comma Separated String into an Array in JavaScript</a>
+<a href="calculate-age-using-javascript.html">Calculate age using JavaScript</a>
+<a href="javascript-label-statement.html">JavaScript label statement</a>
+<a href="javascript-string-with-quotes.html">JavaScript String with quotes</a>
+<a href="how-to-create-dropdown-list-using-javascript.html">How to create dropdown list using JavaScript</a>
+<a href="how-to-disable-radio-button-using-javascript.html">How to disable radio button using JavaScript</a>
+<a href="check-if-the-value-exists-in-array-in-javascript.html">Check if the value exists in Array in Javascript</a>
+<a href="javascript-setinterval.html">Javascript Setinterval</a>
+<a href="javascript-debouncing.html">JavaScript Debouncing</a>
+<a href="javascript-print-method.html">JavaScript print() method</a>
+<a href="javascript-editable-table.html">JavaScript editable table</a>
+<a href="canvasjs.html">CanvasJS</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">JavaScript Advance</span></h2>
+</div>
+<div class="leftmenu">
+<a href="javascript-typedarray.html">JS TypedArray</a>
+<a href="javascript-set.html">JS Set</a>
+<a href="javascript-map.html">JS Map</a>
+<a href="javascript-weakset.html">JS WeakSet</a>
+<a href="javascript-weakmap.html">JS WeakMap</a>
+<a href="javascript-callback.html">JavaScript callback</a>
+<a href="javascript-closures.html">JavaScript closures</a>
+<a href="javascript-date-difference.html">JavaScript date difference</a>
+<a href="javascript-date-format.html">JavaScript date format</a>
+<a href="javascript-date-parse-method.html">JS date parse() method</a>
+<a href="javascript-defer.html">JavaScript defer</a>
+<a href="javascript-redirect.html">JavaScript redirect</a>
+<a href="javascript-scope.html">JavaScript scope</a>
+<a href="javascript-scroll.html">JavaScript scroll</a>
+<a href="javascript-sleep.html">JavaScript sleep</a>
+<a href="javascript-void.html">JavaScript void</a>
+<a href="javascript-form.html">JavaScript Form</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="jquery-vs-javascript.html">jQuery vs JavaScript</a>
+<a href="javascript-vs-php.html">JavaScript vs PHP</a>
+<a href="dart-vs-javascript.html">Dart vs. JavaScript</a>
+<a href="javascript-vs-angularjs.html">JavaScript Vs. Angular Js</a>
+<a href="javascript-vs-nodejs.html">JavaScript vs. Node.js</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="how-to-add-javascript-to-html.html">How to add JavaScript to html</a>
+<a href="how-to-enable-javascript-in-my-browser.html">How to enable JavaScript in my browser</a>
+<a href="difference-between-java-and-javascript.html">difference between Java and JavaScript</a>
+<a href="how-to-call-javascript-function-in-html.html">How to call JavaScript function in html</a>
+<a href="how-to-write-a-function-in-javascript.html">How to write a function in JavaScript</a>
+<a href="is-javascript-case-sensitive.html">Is JavaScript case sensitive</a>
+<a href="how-does-javascript-work.html">How does JavaScript Work</a>
+<a href="how-to-debug-javascript.html">How to debug JavaScript</a>
+<a href="how-to-enable-javascript-on-android.html">How to Enable JavaScript on Android</a>
+<a href="what-is-a-promise-in-javascript.html">What is a promise in JavaScript</a>
+<a href="what-is-hoisting-in-javascript.html">What is hoisting in JavaScript</a>
+<a href="what-is-vanilla-javascript.html">What is Vanilla JavaScript</a>
+<a href="how-to-add-a-class-to-an-element-using-javascript.html">How to add a class to an element using JavaScript</a>
+<a href="how-to-calculate-the-perimeter-and-area-of-a-circle-using-javascript.html">How to calculate the perimeter and area of a circle using JavaScript</a>
+<a href="how-to-create-an-image-map-in-javascript.html">How to create an image map in JavaScript</a>
+<a href="how-to-find-factorial-of-a-number-in-javascript.html">How to find factorial of a number in JavaScript</a>
+<a href="how-to-get-the-value-of-pi-using-javascript.html">How to get the value of PI using JavaScript</a>
+<a href="how-to-make-a-text-italic-using-javascript.html">How to make a text italic using JavaScript</a>
+<a href="what-are-the-uses-of-javascript.html">What are the uses of JavaScript</a>
+<a href="how-to-get-all-checked-checkbox-value-in-javascript.html">How to get all checked checkbox value in JavaScript</a>
+<a href="how-to-open-json-file.html">How to open JSON file</a>
+<a href="random-image-generator-in-javascript.html">Random image generator in JavaScript</a>
+<a href="how-to-add-object-in-array-using-javascript.html">How to add object in array using JavaScript</a>
+<a href="javascript-window-open-method.html">JavaScript Window open method</a>
+<a href="javascript-window-close-method.html">JavaScript Window close method</a>
+<a href="how-to-check-a-radio-button-using-javascript.html">How to check a radio button using JavaScript</a>
+<a href="javascript-const.html">JavaScript Const</a>
+<a href="javascript-function-to-check-array-is-empty-or-not.html">JavaScript function to check array is empty or not</a>
+<a href="javascript-multi-line-string.html">JavaScript multi-line String</a>
+<a href="javascript-anonymous-functions.html">JavaScript Anonymous Functions</a>
+<a href="implementing-javascript-stack-using-array.html">Implementing JavaScript Stack Using Array</a>
+<a href="javascript-classlist.html">JavaScript classList</a>
+<a href="javascript-code-editors.html">JavaScript Code Editors</a>
+<a href="javascript-let-keyword.html">JavaScript let keyword</a>
+<a href="random-string-generator-using-javascript.html">Random String Generator using JavaScript</a>
+<a href="javascript-queue.html">JavaScript Queue</a>
+<a href="event-bubbling-and-capturing-in-javascript.html">Event Bubbling and Capturing in JavaScript</a>
+<a href="how-to-select-all-checkboxes-using-javascript.html">How to select all checkboxes using JavaScript</a>
+<a href="javascript-change-event.html">JavaScript change Event</a>
+<a href="javascript-focusout-event.html">JavaScript focusout event</a>
+<a href="traverse-array-object-using-javascript.html">Traverse array object using JavaScript</a>
+<a href="javascript-create-and-download-csv-file.html">JavaScript create and download CSV file</a>
+<a href="how-to-make-beep-sound-in-javascript.html">How to make beep sound in JavaScript</a>
+<a href="how-to-add-a-whatsapp-share-button-in-a-website-using-javascript.html">How to add a WhatsApp share button in a website using JavaScript</a>
+<a href="javascript-execution-context.html">JavaScript Execution Context</a>
+<a href="javascript-queryselector.html">JavaScript querySelector</a>
+<a href="shallow-copy-in-javascript.html">Shallow Copy in JavaScript</a>
+<a href="how-to-toggle-password-visibility-in-javascript.html">How to Toggle Password Visibility in JavaScript</a>
+<a href="removing-duplicate-from-arrays-in-javascript.html">Removing Duplicate From Arrays</a>
+<a href="javascript-insertbefore.html">JavaScript insertBefore</a>
+<a href="javascript-select-option.html">JavaScript Select Option</a>
+<a href="get-and-set-scroll-position-of-an-element.html">Get and Set Scroll Position of an Element</a>
+<a href="getting-child-elements-of-a-node-in-javascript.html">Getting Child Elements of a Node in JavaScript</a>
+<a href="javascript-scrollintoview.html">JavaScript scrollIntoView</a>
+<a href="javascript-string-startswith.html">JavaScript String startsWith</a>
+<a href="js-first-class-function.html">JS First Class Function</a>
+<a href="javascript-default-parameters.html">JavaScript Default Parameters</a>
+<a href="javascript-recursion-in-real-life.html">JavaScript Recursion in Real Life</a>
+<a href="javascript-removechild.html">JavaScript removeChild</a>
+<a href="remove-options-from-select-list-in-javascript.html">Remove options from select list in JavaScript</a>
+<a href="javascript-calculator.html">JavaScript Calculator</a>
+<a href="palindrome-in-javascript.html">Palindrome in JavaScript</a>
+<a href="javascript-call-stack.html">JavaScript Call Stack</a>
+<a href="fibonacci-series-in-javascript.html">Fibonacci series in JavaScript</a>
+<a href="javascript-appendchild-method.html">JavaScript appendchild() method</a>
+<a href="ripple-effect-javascript.html">Ripple effect JavaScript</a>
+<a href="convert-object-to-array-in-javascript.html">Convert object to array in Javascript</a>
+<a href="javascript-async-and-await.html">JavaScript Async/Await</a>
+<a href="javascript-blob.html">JavaScript Blob</a>
+<a href="check-if-the-array-is-empty-or-null-or-undefined-in-javascript.html">Check if the array is empty or null, or undefined in JavaScript</a>
+<a href="javascript-animation.html">JavaScript Animation</a>
+<a href="javascript-design-patterns.html">JavaScript Design Patterns</a>
+<a href="canvasjs.html">CanvasJS</a>
+<a href="javascript-format-numbers-with-commas.html">JavaScript format numbers with commas</a>
+<a href="currying-in-javascript.html">Currying in JavaScript</a>
+<a href="javascript-hasownproperty.html">JavaScript hasOwnProperty</a>
+<a href="how-to-make-a-curved-active-tab-in-the-navigation-menu-using-html-css-and-javascript.html">How to make a curved active tab in the navigation menu using HTML CSS and JavaScript</a>
+<a href="http-cookies.html">Http Cookies</a>
+<a href="javascript-comparison.html">JavaScript Comparison</a>
+<a href="javascript-confirm.html">JavaScript Confirm</a>
+<a href="javascript-garbage.html">JavaScript Garbage</a>
+<a href="javascript-special-characters.html">JavaScript Special Characters</a>
+<a href="javascript-time-now.html">JavaScript Time Now</a>
+<a href="lodash_chain-method.html">Lodash_.chain() Method</a>
+<a href="underscorejs-_filter-function.html">Underscore.js _.filter Function</a>
+<a href="javascript-factory-function.html">JavaScript Factory Function</a>
+<a href="javascript-for-in-loop.html">JavaScript for...in Loop</a>
+<a href="window-location-in-javascript.html">Window Location in JavaScript</a>
+<a href="javascript-certification-free.html">JavaScript Certification Free</a>
+<a href="javascript-mutationobserver-function.html">JavaScript MutationObserver function</a>
+<a href="npm-uninstall-command.html">Npm uninstall command</a>
+<a href="npm-update-library-and-npm-list.html">Npm Update Library and Npm List</a>
+<a href="backend-project-ideas.html">Backend Project Ideas</a>
+<a href="how-to-become-a-font-end-developer.html">How to become a Front-End Developer</a>
+<a href="create-a-javascript-countdown-timer.html">Create a JavaScript Countdown Timer</a>
+<a href="detect-or-check-caps-lock-key-is-on-or-off-using-javascript.html">Detect or Check Caps Lock Key is ON or OFF using JavaScript</a>
+<a href="how-to-iterate-through-a-javascript-object.html">How to Iterate through a JavaScript Object</a>
+<a href="javascript-fetch-api.html">JavaScript Fetch API</a>
+<a href="javascript-history-pushstate-method.html">Javascript history.pushState() Method</a>
+<a href="javascript-infinity-property.html">JavaScript Infinity PROPERTY</a>
+<a href="javascript-insertadjacenthtml-method.html">JavaScript insertAdjacentHTML() method</a>
+<a href="how-to-use-console-in-javascript.html">How to use Console in JavaScript</a>
+<a href="insert-data-into-javascript-indexeddb.html">Insert data into javascript indexedDB</a>
+<a href="javascript-exponentiation-operator.html">JavaScript Exponentiation Operator</a>
+<a href="javascript-indexeddb.html">JavaScript indexedDB</a>
+<a href="javascript-offsetx-property.html">Javascript offsetX property</a>
+<a href="javascript-offsety-property.html">Javascript offsetY property</a>
+<a href="javascript-onunload-event.html">JavaScript onunload Event</a>
+<a href="javascript-trigger-click.html">JAVASCRIPT TRIGGER CLICK</a>
+<a href="npm-install-command.html">npm Install Command</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Lodash</span></h2>
+</div>
+<div class="leftmenu">
+<a href="lodash_find-method.html">Lodash _.find() Method</a>
+<a href="lodash_get-method.html">Lodash_.get() Method</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="javascript-mcq.html">JavaScript MCQ</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="javascript-interview-questions.html">JavaScript I/Q</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="javascript-queryselector.html">next &rarr;</a>
+<a class="next" href="how-to-add-a-whatsapp-share-button-in-a-website-using-javascript.html">&larr; prev</a>
+</div>
+<h1 class="h1">JavaScript Execution Context</h1>
+<p><strong><em>The topic is very much important for those who are JavaScript developers or want to have a deep knowledge of the working process of JavaScript.</em></strong></p>
+<p>Here, in this section, we will learn and understand the execution context of JavaScript, where we will discuss what it is, its types, execution stack, how the execution context is created and all about the execution phase. We will discuss each point one by one. Let's begin with the introductory part first.</p>
+<p>What actually is an Execution Context</p>
+<p>Execution context is the concept for describing the internal working of a code. In JavaScript, the environment that enables the <a href="javascript-tutorial.html">JavaScript</a> code to get executed is what we call <strong>JavaScript Execution Context</strong>. It is the execution context that decides which code section has access to the functions, variables, and objects used in the code. During the execution context, the specific code gets parsed line by line then the variables and functions are stored in the memory. An execution context is similar to a container that stores variables, and the code gets evaluated and then executed. Thus, it is the execution context that provides an environment for the specific code to get executed.</p>
+<h3 class="h3">Types of Execution Context</h3>
+<p>The types of execution context in JavaScript are:</p>
+<ul class="points">
+<li>Global Execution Context/GEC</li>
+<li>Functional Execution Context/FEC</li>
+<li>Eval Execution Context</li>
+</ul>
+<p>Begin to discuss each one by one:</p>
+<h2 class="h2">Global Execution Context</h2>
+<p>GEC / Global Execution Context is also called the base/default execution. Any JavaScript code which does not reside in any function will be present in the global execution context. The reason behind its name 'default execution context' where the code begins its execution when the file first loads in the web browser. GEC performs the two following tasks:</p>
+<ul class="points">
+<li>Firstly, it creates a global object where it is for Node.js and Window object for the browsers.</li>
+<li>Secondly, reference the Windows object to 'this' keyword.</li>
+<li>Create a memory heap in order to store variables and function references.</li>
+<li>Then it stores all the functions declarations in the memory heap area and the variables in the GEC with initial values as 'undefined'.</li>
+</ul>
+<p><em>With the above introduction, one should understand that the Global Execution Context is only one in every code because the JS engine is single-threaded, and thus, only one global environment is possible for executing the JavaScript code.</em></p>
+<h2 class="h2">Functional Execution Context</h2>
+<p>FEC or Functional Execution Code is that type of context which is created by the JavaScript engine when any function call is found. Every function has its own execution context, and thus unlike GEC, the FEC can be more than one. Also, FEC can access the entire code of the GEC, but it is not possible for GEC to access all the code of the FEC. During the GEC code execution, a function call is initiated, and when found by the JS engine, it creates a new FEC for that specific function.</p>
+<h3 class="h3">Eval Function Execution Context</h3>
+<p>Any JS code that gets executed within the eval function creates and holds its own execution context. However, the eval function is not used by the JavaScript developers, but it is a part of the Execution Context.</p>
+<h2 class="h2">Execution Stack</h2>
+<p>The execution stack is also known as <strong>Call Stack</strong>.</p>
+<p>The stack is the data structure that stores the values in the form of LIFO (last in, first out). Similarly, an execution stack is a stack that carries track of all the execution contexts developed during the script life cycle. A JavaScript developer must be known of the fact that JavaScript works as single-threaded where it is capable of executing a single task in the web browser at a time. Thus, for other actions, functions, and events, a stack is created and is known as the <strong>Execution Stack</strong>. At the bottom of the execution stack, GEC resides, and it is present by default in the stack. So, when beginning a JS code execution (i.e., during GEC execution), when any function is present in the code, and the JS engine searches it, it instantly creates a function execution context (FEC) for that function and pushes it on the top of the execution context stack. The particular execution context which is available at the top of the execution context stack will always get executed by the JS engine first. As soon as the execution of all the code is done, the JS engine pops out the function's execution context and then moves towards the next and so on. Generally, when the script loads in the browser, the first element will be the global execution context. But when a function execution is detected, the execution context is created and gets virtually placed on the top of the GEC. The process continues until the execution of the whole code gets completed.</p>
+<p>In order to understand the working process of the execution stack, let's consider an example code given below:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+let x = 'Hello World!';
+function a() {
+  console.log('It is the first function');
+function b() {
+  console.log('It is the second function');
+}
+b();
+}
+a();
+console.log('It is GEC);
+</textarea></div>
+<p>It is an example code to understand its working.</p>
+<p><strong>Explanation:</strong></p>
+<ul class="points">
+<li>Firstly, all the code is loaded into the browser.</li>
+<li>After it, the JS engine pushes/inserts the GEC at the top of the execution stack.<br>
+<img src="https://static.javatpoint.com/javascriptpages/images/javascript-execution-context.png" alt="JavaScript Execution Context" /></li>
+<li>As soon as the JS engine encounters the first function call, it set up a new FEC for it and adds it to the top of the current execution stack.<br>
+<img src="https://static.javatpoint.com/javascriptpages/images/javascript-execution-context2.png" alt="JavaScript Execution Context" /></li>
+<li>Then we can see that it is the invocation of the second function within the first function. Therefore JS engine setup a new FEC for the second function and insert it to the top of the stack.<br>
+<img src="https://static.javatpoint.com/javascriptpages/images/javascript-execution-context3.png" alt="JavaScript Execution Context" /></li>
+<li>When the second function is completed, the execution function is popped out of the stack, and controls move to the next execution context present in the stack, which is the first function execution context only.<br>
+<img src="https://static.javatpoint.com/javascriptpages/images/javascript-execution-context4.png" alt="JavaScript Execution Context" /></li>
+<li>When the first function gets executed completely, the execution stack of the first function popped out from the stack. Hence, the control reaches back to the GEC of the code.<br>
+<img src="https://static.javatpoint.com/javascriptpages/images/javascript-execution-context5.png" alt="JavaScript Execution Context" /></li>
+<li>At last, when the execution of the entire code gets completed, the JS engine removes the GEC from the current stack.</li>
+</ul>
+<p>In this way, the execution of the execution stack is performed.</p>
+<h2 class="h2">Creating an Execution Context</h2>
+<p>An execution context is created first, and then it is managed. The creation of the execution context is performed in two approaches:</p>
+<h3 class="h3">Creation Phase</h3>
+<p>The creation phase is the one in which the JS engine invokes a function but does not begin its execution. In this phase, the JS engine begins its compilation phase and scans the particular function code for compiling it but does not execute the code. Creation of the Execution Context is the responsibility of the JavaScript engine, and it creates it by performing the following described tasks:</p>
+<p><strong>Task 1: Creation of the Activation object/Variable Object:</strong> One of the special object of JavaScript that is like a container that holds all the information of the function arguments, variables as well as inner functions declaration. With this, it does not have the dunder proto property.</p>
+<p><strong>Task 2: Creation of the scope chain:</strong> After completing task 1, the JS engine initializes the scope chain. A scope chain is a list that has all the variables objects within which the current function exists. A scope chain also has the variable object of the GEC and carries the current function variable object.</p>
+<ul class="points">
+<li><strong>Determining 'this' value:</strong> Once the scope chain is created, the value of 'this' is initialized by the JS engine.</li>
+</ul>
+<p>Let's try to understand the creation of the Activation object with the help of the below example:</p>
+<p><strong>Example Code 1</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+function test (x, y) {
+  var z = 10;
+  
+  var w = 5;
+  w = function() {
+    return x - y;
+  }
+}
+test(12, 3);
+</textarea></div>
+<p>Now, the JS engine creates an <strong>executionContextObj</strong> for example code 1 after the invocation of test () and before executing its code. It can be seen in the below code:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+executionContextObj = {
+ variableObject: {}, // contains all variables, inner functions, arguments details of test()
+ scopechain: [], // contains list of all the scopes for test()
+ this // Value of this 
+}
+</textarea></div>
+<p>The Activation object contains the argument object that further contains the details about the arguments of the function. It carries the property name for every function and variables that are declared within the current function. In our case, the <strong>Activation object, for example, code 1will be:</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+variableObject = {
+  argumentObject : {
+    0: x,
+    1: y,
+    length: 2
+  },
+  x: 3,
+  y: 2
+  z: undefined,
+  w: undefined so the pointer points to the function definition of w
+}
+</textarea></div>
+<p><strong>Explanation:</strong></p>
+<ul class="points">
+<li>The JS engine has created the argument object, as you can see in the above code. Also, there exists a length property that contains the total number of arguments in the function. It is having only the property name and not its value.</li>
+<li>After this, for each variable in the function whose value is initialized with 'undefined', the JS engine setups a property on the activation or variable object. These arguments are also variables in the function, so are also a property of the argument object.</li>
+<li>If there is a situation where the variable is already present as the argument object property, then the JS engine moves on without taking any further action.</li>
+<li>When the JS engine finds a function definition within the current function, by using the name of the function, it creates a new property. As discussed above, function definitions get stored in heap memory. The function name property points to its definition in the heap memory.</li>
+<li>So, we can see in the above code that w is a variable. Therefore, it will get the value of 'undefined'. However, when a function with the same name is found, overriding will take place, and its value will point it to the definition of function w, which is stored in the heap memory. After it, the JS engine setup the scope chain and determine the value of 'this'.</li>
+</ul>
+<p>So, in this way, the creation phase works.</p>
+<h3 class="h3">Execution Phase</h3>
+<p>The execution phase is the next phase after finishing the creation phase. An execution phase is the one where the JS engines scan through the function in the code once again, i.e., one more time for updating the variable object with the values of the variables and then run the code. Let' see the execution stage or the complete code for the example which we have discussed above:</p>
+<p><strong>Example Code 2</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+x = 10;
+var y = 20;
+z = function(val) {
+  var p = 5;
+  var q= 10;
+    x = 30
+  function test () {
+    var r = 2;
+  }
+ test();
+}
+z(3);
+</textarea></div>
+<p>Firstly, the above code gets loaded in the browser. After that, the JS engine begins its compilation phase in order to create the execution objects. In the compilation phase, the JS engine manages and handles the declarations only and does not care about the values.</p>
+<p><strong>Now, in the execution phase, the following steps will be performed as described per line:</strong></p>
+<ol class="points">
+<li>Variable x is assigned with 10, which makes the JS engine not to think of it as a function declaration or variable declaration and moves further, i.e., to the third line. In the third line, it does not do anything as it is not any declaration.</li>
+<li>Next, the JS engine setup a property with 'z' (variable name)in the GEC object because z is a variable name and also in global declaration scope and will initialize it with an 'undefined' value.</li>
+<li>Moving to the fifth line of the code, a function declaration is encountered by the JS engine. The JS engine will store the function definition in the heap memory and, after that, will set up a property that will point to that specific heap memory location. It does not matter what is stored in the function, it just points to its location.</li>
+<li>As we can see in the last line, it is not any declaration of the code. Hence, the JS engine will not perform any action.</li>
+</ol>
+<p>So, in this way, the working of both the creation phase, as well as the execution phase, takes place.</p>
+<p><strong>GEC object after the creation phase stage</strong></p>
+<p>In the above explanation, we saw how the execution stack is created via the execution and creation phase for example code 2. However, we should take a deep understanding of the working of the GEC and FEC for the above-mentioned code only. Consider the below GEC object code for example code 2:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+        globalExecutionContextObj = {
+activationbj: {
+argumentObj : {
+length:0
+},
+y: undefined,
+z: Pointer to the function definition
+},
+scopeChain: [Global execution context variable object],
+this: value of this
+}
+</textarea></div>
+<p>As you can see above, no code is left, the JS engine moves to the execution phase for scanning the function once more. The JS engine updates the value of the variable then execute the code in the following way as described below per line:</p>
+<ul class="points">
+<li>Firstly, the JS engine finds that no property is there having name x in the variable object, so it adds this property in the GEC and initializes its value as 10.</li>
+<li>Next, the JS engine finds that a property with the name y in the variable object is present and thus updates its value to 20.</li>
+<li>At last, the JS engine does not take any action because it is a function declaration.</li>
+</ul>
+<p>Now, let's see the GEC object after the execution phase.</p>
+<p><strong>GEC object after Execution Phase</strong></p>
+<p><strong>In our example code 2:</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+globalExecutionContextObj = {
+  activationbj: {
+      argumentObj : {
+          length:0
+      },
+      y: 20,
+      z: Pointer to the function definition,
+      x: 10
+  },
+  scopeChain: [Global execution context variable object],
+  this: value of this
+}
+</textarea></div>
+<ul class="points">
+<li>Now, as z () gets called again, the JS engine again enters the compilation phase. Thus, it scans the function for creating the execution context object of it.</li>
+<li>The function z() has 'val' as its argument, so the JS engine will add 'val' in the argument object of the z() execution context object. Then it creates a property via the name 'val'.</li>
+<li>Next, it checks and finds if p is a property in the activation object of the function or not. Hence, it found that there is no such property exists, so it will add p as property then initialize its value to 'undefined'.</li>
+<li>Next, it is the duty of the JS engine to see if q is a property in the activation object of the function. Hence, it found that there is no such property exists, so it will add q as property then initialize its value to 'undefined'.</li>
+<li>Then, the JS engine proceeds to the next line as x = 30 is not a declaration.</li>
+<li>Then, the JS engine encounters a test () function declaration, and for it, it stores the function definition in the heap memory area. Then, it set up a property with the name 'test' that points to the location where function definition is stored. The JS engine does not focus on what is the value stored in it.</li>
+</ul>
+<p><strong>z execution object after the compilation phase</strong></p>
+<p><strong>Below is the code for the FEC object after completing the compilation phase:</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+zExecutionContextObj = {
+  activationbj: {
+      argumentObj : {
+          0: val,
+          length:1
+      },
+      val: 3,
+      p: undefined,
+      q: undefined
+      test: Pointer to the function definition,
+  },
+  scopeChain: [z variable object, Global execution context variable object],
+  this: value of this
+}
+</textarea></div>
+<p><strong>The code after the compilation phase of the example code 2 is performed as described below:</strong></p>
+<ul class="points">
+<li>It is the test () function call and not a declaration because of which the JS engine will not do anything.</li>
+<li>Now, the JS engine will proceed to the execution phase for executing the z () function by scanning it.</li>
+<li>In the execution phase, the variables p and q get the 5 and 10 as their values.</li>
+<li>Next, the JS engine finds that x is not a declaration and any property on z execution context object, so it moves to the GEC of the code via the scope chain and sees in the GEC any property with the name x exists or not. If not found, the JS engine will create a new property with the name x and will initialize it. In example code 2, the JS engine finds a property with the name x that already exists on the GEC object, so it updates its value to 30 from 10. One should note that the JS engine proceeds to the GEC in this case only, i.e., when it finds a variable in the execution phase which is not a property on the current execution context object</li>
+<li>After it, the JS engine sets up a test property and then will point to its heap location.</li>
+</ul>
+<p><strong>Execution Context Object of <em>z</em> after the execution phase</strong></p>
+<p><strong>In example code 2:</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+zExecutionContextObj = {
+  activationbj: {
+      argumentObj : {
+          0: val,
+          length:1
+      },
+      val: 3,
+      p: 5,
+      q: 10
+      test: Pointer to the function definition,
+  },
+  scopeChain: [z variable object, Global execution context variable object],
+  this: value of this
+}
+</textarea></div>
+<ul class="points">
+<li>In example code 2, once again, the JS engine moves to the compilation phase for creating the execution context object for 'test'.</li>
+<li>The test execution context object is having access to every function defined on z, on variables, and is also in the global scope using the scope chain.</li>
+<li>In the same way, z has access to every variable and object in the global scope. However, it cannot access the test variables and objects.</li>
+<li>The GEC of the code is not having any access to z or test variables or objects.</li>
+</ul>
+<p>So, this is how the execution context is created and is defined.</p>
+<h2 class="h2">Global Execution Context Vs. Function Execution Context</h2>
+<p><strong>There are the following differences between the two:</strong></p>
+<table class="alt">
+<tr>
+<th>Global Execution Context</th>
+<th>Function Execution Context</th>
+</tr>
+<tr>
+<td>It creates a global scope.</td>
+<td>It creates an argument object.</td>
+</tr>
+<tr>
+<td>It creates an object known as 'this.'</td>
+<td>It points to the Window object by default.</td>
+</tr>
+<tr>
+<td>It set up memory space for the functions and variables that are globally defined.</td>
+<td>It set up memory space for functions and variables that are defined within the function only.</td>
+</tr>
+<tr>
+<td>The GEC, while setting any function declaration in the memory, assigns a default value as 'undefined' to the variable declaration.</td>
+<td>The FEC, while setting any function declaration in the memory, assigns a default value as 'undefined' to the variable declaration. With this, it creates its own Execution Stack also.</td>
+</tr>
+</table>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="javascript-queryselector.html">JavaScript querySelector</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="how-to-add-a-whatsapp-share-button-in-a-website-using-javascript.html">&larr; prev</a>
+<a style="float:right" class="next" href="javascript-queryselector.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="37515252535556545c775d5641564347585e59431954585a">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/javascript-execution-context"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/javascript-execution-context"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/javascript-execution-context"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+ </div>
+</a>
+ <a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="325a40725853445346425d5b5c461c515d5f">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="244c56644e45524550544b4d4a500a474b490a">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/javascript-execution-context by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 12:13:58 GMT -->
+</html> 

@@ -1,0 +1,954 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/payment-gateway-integration-in-java by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:36:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Payment Gateway Integration in Java - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Payment Gateway Integration in Java - Javatpoint" /><meta property="og:description" content="Payment Gateway Integration in Java with java tutorial, features, history, variables, programs, operators, oops concept, array, string, map, math, methods, examples etc." />
+<meta name="keywords" content="java tutorial, features, history, variables, object, class, programs, operators, swith, for-loop, if-else, oops concept, inheritance, array, string, map, math, methods, examples" /><meta name="description" content="Payment Gateway Integration in Java with java tutorial, features, history, variables, programs, operators, oops concept, array, string, map, math, methods, examples etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="payment-gateway-integration-in-java.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Payment Gateway Integration in Java - Javatpoint" /><meta name="twitter:description" property="og:description" content="Payment Gateway Integration in Java with java tutorial, features, history, variables, programs, operators, oops concept, array, string, map, math, methods, examples etc." /><meta property="og:url" content="payment-gateway-integration-in-java.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div id="smoothmenu1" class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="java-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/java.png" alt="java" /> Java</a></li>
+<li><a href="java-programs.html"><img src="https://static.javatpoint.com/images/icon/java-program.png" alt="java programs" /> Programs</a></li>
+<li><a href="java-oops-concepts.html"><img src="https://static.javatpoint.com/images/icon/oops.png" alt="oops" /> OOPs</a></li>
+<li><a href="java-string.html"><img src="https://static.javatpoint.com/images/icon/string.png" alt="String" /> String</a></li>
+<li><a href="exception-handling-in-java.html"><img src="https://static.javatpoint.com/images/icon/exception.png" alt="Exception" /> Exception</a></li>
+<li><a href="multithreading-in-java.html"><img src="https://static.javatpoint.com/images/icon/multithreading.png" alt="Multithreading" /> Multithreading</a></li>
+<li><a href="collections-in-java.html"><img src="https://static.javatpoint.com/images/icon/collection.png" alt="Collections" /> Collections</a></li>
+<li><a href="javafx-tutorial.html"><img src="https://static.javatpoint.com/images/icon/javafx.png" alt="javafx" /> JavaFX</a></li>
+<li><a href="jsp-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jsp.png" alt="jsp" /> JSP</a></li>
+<li><a href="spring-tutorial.html"><img src="https://static.javatpoint.com/images/icon/spring.png" alt="spring" /> Spring</a></li>
+<li><a href="spring-boot-tutorial.html"><img src="https://static.javatpoint.com/images/icon/spring-boot.png" alt="Spring Boot" /> Spring Boot</a></li>
+<li><a href="free-java-projects.html"><img src="https://static.javatpoint.com/images/icon/projects.png" alt="Projects" /> Projects</a></li>
+<li><a href="corejava-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="interview questions" /> Interview Questions</a>
+</li>
+</ul>
+<br style="clear: left" />
+</div>
+</div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="java-tutorial.html">What is Java</a>
+<a href="history-of-java.html">History of Java </a>
+<a href="features-of-java.html">Features of Java </a>
+<a href="cpp-vs-java.html">C++ vs Java </a>
+<a href="simple-program-of-java.html">Hello Java Program</a>
+<a href="internal-details-of-hello-java-program.html">Program Internal</a>
+<a href="how-to-set-path-in-java.html">How to set path? </a>
+<a href="difference-between-jdk-jre-and-jvm.html">JDK, JRE and JVM </a>
+<a href="jvm-java-virtual-machine.html">JVM: Java Virtual Machine </a>
+<a href="java-variables.html">Java Variables</a>
+<a href="java-data-types.html">Java Data Types</a>
+<a href="unicode-system-in-java.html">Unicode System </a>
+
+<a href="operators-in-java.html">Operators </a>
+<a href="java-keywords.html">Keywords </a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Control Statements</span></h2>
+</div>
+<div class="leftmenu">
+<a href="control-flow-in-java.html">Java Control Statements</a>
+<a href="java-if-else.html">Java If-else</a>
+<a href="java-switch.html">Java Switch</a>
+<a href="java-for-loop.html">Java For Loop</a>
+<a href="java-while-loop.html">Java While Loop</a>
+<a href="java-do-while-loop.html">Java Do While Loop</a>
+<a href="java-break.html">Java Break</a>
+<a href="java-continue.html">Java Continue</a>
+<a href="java-comments.html">Java Comments</a>
+<a href="java-programs.html">Java Programs </a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Object Class</span></h2>
+</div>
+<div class="leftmenu">
+<a href="java-oops-concepts.html" class="l1">Java OOPs Concepts</a>
+<a href="java-naming-conventions.html" class="l1">Naming Convention</a>
+<a href="object-and-class-in-java.html" class="l1">Object and Class</a>
+<a href="method-in-java.html" class="l1">Method</a>
+<a href="java-constructor.html" class="l1">Constructor</a>
+<a href="static-keyword-in-java.html" class="l1">static keyword </a>
+<a href="this-keyword.html" class="l1">this keyword</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Inheritance</span></h2>
+</div>
+<div class="leftmenu">
+<a href="inheritance-in-java.html" class="l1">Inheritance(IS-A)</a>
+<a href="aggregation-in-java.html" class="l1">Aggregation(HAS-A)</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Polymorphism</span></h2>
+</div>
+<div class="leftmenu">
+<a href="method-overloading-in-java.html" class="l1">Method Overloading</a>
+<a href="method-overriding-in-java.html" class="l1">Method Overriding</a>
+<a href="covariant-return-type.html" class="l1">Covariant Return Type</a>
+<a href="super-keyword.html" class="l1">super keyword</a>
+<a href="instance-initializer-block.html" class="l1">Instance Initializer block</a>
+<a href="final-keyword.html" class="l1">final keyword</a>
+<a href="runtime-polymorphism-in-java.html" class="l1">Runtime Polymorphism</a>
+<a href="static-binding-and-dynamic-binding.html" class="l1">Dynamic Binding</a>
+<a href="downcasting-with-instanceof-operator.html" class="l1">instanceof operator</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Abstraction</span></h2>
+</div>
+<div class="leftmenu">
+<a href="abstract-class-in-java.html" class="l1">Abstract class</a>
+<a href="interface-in-java.html" class="l1">Interface</a>
+<a href="difference-between-abstract-class-and-interface.html" class="l1">Abstract vs Interface</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Encapsulation</span></h2>
+</div>
+<div class="leftmenu">
+<a href="package.html" class="l1">Package</a>
+<a href="access-modifiers.html" class="l1">Access Modifiers</a>
+<a href="encapsulation.html" class="l1">Encapsulation</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Array</span></h2>
+</div>
+<div class="leftmenu">
+<a href="array-in-java.html" class="l1">Java Array</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java OOPs Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="object-class.html" class="l1">Object class </a>
+<a href="object-cloning.html" class="l1">Object Cloning</a>
+<a href="java-math.html" class="l1">Math class </a>
+<a href="wrapper-class-in-java.html" class="l1">Wrapper Class</a>
+<a href="recursion-in-java.html" class="l1">Java Recursion</a>
+<a href="call-by-value-and-call-by-reference-in-java.html" class="l1">Call By Value </a>
+<a href="strictfp-keyword.html" class="l1">strictfp keyword</a>
+<a href="creating-api-document.html" class="l1">javadoc tool</a>
+<a href="command-line-argument.html" class="l1">Command Line Arg</a>
+<a href="difference-between-object-and-class.html" class="l1">Object vs Class</a>
+<a href="method-overloading-vs-method-overriding-in-java.html" class="l1">Overloading vs Overriding</a>
+</div>
+<div class="leftmenu2">
+<a href="java-string.html"><span>Java String</span></a>
+<a href="java-regex.html"><span>Java Regex</span></a>
+<a href="exception-handling-in-java.html"><span>Exception Handling</span></a>
+<a href="java-inner-class.html"><span>Java Inner classes</span></a>
+<a href="multithreading-in-java.html"><span>Java Multithreading</span></a>
+<a href="java-io.html"><span>Java I/O</span></a>
+<a href="java-networking.html"><span>Java Networking</span></a>
+<a href="java-awt.html"><span>Java AWT &amp; Events</span></a>
+<a href="java-swing.html"><span>Java Swing</span></a>
+<a href="javafx-tutorial.html"><span>JavaFX</span></a>
+<a href="java-applet.html"><span>Java Applet</span></a>
+<a href="java-reflection.html"><span>Java Reflection</span></a>
+<a href="java-date.html"><span>Java Date</span></a>
+<a href="java-string-to-int.html"><span>Java Conversion</span></a>
+<a href="collections-in-java.html"><span>Java Collection</span></a>
+<a href="java-jdbc.html"><span>Java JDBC</span></a>
+<a href="java-main-method.html"><span>Java Misc</span></a>
+<a href="New-features-in-java.html"><span>Java New Features</span></a>
+<a href="RMI.html"><span>RMI</span></a>
+<a href="internationalization-in-java.html"><span>Internationalization</span></a>
+<a href="corejava-interview-questions.html"><span>Interview Questions</span></a>
+<a href="java-mcq.html"><span>Java MCQ</span></a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="what-is-pmd.html">next &rarr;</a>
+<a class="next" href="java-clone-examples.html">&larr; prev</a>
+</div>
+<h1 class="h1">Payment Gateway Integration in Java</h1>
+<p>Engineers can, without much of a stretch, form a site for another person and for their motivation to begin a business. Indeed, running a startup effectively can be troublesome in the event that you haven't picked the right payment gateway administration. The right payment gateway administration permits clients simple exchanges on your site. Assuming you disregard the main piece of your site that is incorporating the payment gateway, then most likely, you will not obtain the outcome on your site that you are searching for. It is very much like the structure of a swanky store without a legitimate and effective charging counter.</p>
+<p>As an association, you should be cautious while picking a payment gateway choice. It ought to be as indicated by the client's insight on your sites through to income to online deals. Ensure that you deal with no less than 5 things referenced underneath while picking a payment gateway.</p>
+<ol class="points">
+<li>Security ought to be the highest need. Ensure that it ought be coordinated with the 3D security and consent to the PCI Information Security Standard (PCI DSS).</li>
+<li>Payout Time ought to be less to credit cash in your ledger.</li>
+<li>Integration should be simple and straightforward, or it can foster a uniquely coded answer for your foundation without any problem.</li>
+<li>Various monetary standards ought to be taken care of by the payment gateway for the clients utilizing various monetary standards across the world.</li>
+</ol>
+<h3 class="h3">Working of Payment Gateway Integration</h3>
+<p>A payment gateway goes probably as the central stuff tooth in the installment taking care of the system, whether you are making a purchase online or coming up. Inside an exchange, the front-end part assembles, moves and supports client information persistently to a seller's bank, where the real trade is then</p>
+<h3 class="h3">Types of Payment Gateways</h3>
+<p>There are mainly three types of Payment Gateways:</p>
+<p><strong>1. On-site payments:</strong> Gigantic extension associations will as a rule utilize close by installments dealt with on their own servers where the checkout experience and installments taking care of all work through your system.</p>
+<p>By and by the advantages are flipped - you'll have more control and commitment.</p>
+<p>If you handle installments on the spot, each variable counts, and any improvement to the shopping experience can roll out close to home improvements in your principal concern - especially substantial for any retailer with a high arrangement volume.</p>
+<p><strong>2. Checkout on-site, payment off-site:</strong> Through this strategy, the front-end checkout will occur on your site, yet the Payment taken care of happens through the entryway's back end.</p>
+<p>Like a redirected Payment gateway, this strategy can further develop the Payment processes while ensuring extended security rearward.</p>
+<p>Regardless, the weakness is that you won't have the choice to control the client's entire knowledge through the Payment gateway. Accepting you decide to go to this course, ensure that you are sure about the security of the Payment gateway.</p>
+<p><strong>3. Redirects:</strong> Redirect every now and again integrates decisions for elective payment methodologies, similar to an association allowing the use of PayPal. Right when the entry takes a client to a PayPal payment page to manage the all-out trade, it transforms into a Redirect.</p>
+<p>A free endeavour can use a Divert door to solidify the solace and security of a greater stage. Redirects partake in the advantage of ease for the retailer. In any case, they similarly mean less control for the merchant - and a second step for clients.</p>
+<h3 class="h3">Limitations</h3>
+<p>All payment gateways are not made equivalent. While picking a payment gateway, you'll need to comprehend and acknowledge a few limits - a considerable lot of which are inborn to the payment gateway framework.</p>
+<h3 class="h3">Selection of a Secure Payment Gateway</h3>
+<p>While picking a payment passage, there are various decisions to consider - none so much as security.</p>
+<p>According to an Experian report, 55% of clients say security is the primary piece of their electronic knowledge, and 49% accept that associations ought to have more clear wellbeing endeavours set up Online.</p>
+<h3 class="h3">Paytm Payment Gateway Integration in Java-Based Websites</h3>
+<p>Accepting online payments is critical usefulness in a site, particularly on a Web-based business site. Payment Gateway is liked by the large number of organizations, including a portion of India's driving unicorns. We are known for offering fast joining and safe customized checkout arrangements that upgrade the end clients' Payment experience.</p>
+<p>Payment Gateway offers powerful APIs that permit organizations to incorporate our payment solutions into their sites without any problem. We likewise let organizations acknowledge online payments by means of a wide variety of payment sources, in this way giving their clients the opportunity to pick their favoured payment choice.</p>
+<h3 class="h3">Server SDK Integration</h3>
+<p>Being a well-known programming language, numerous internet-based organizations utilize the Java stage to foster their sites. To add to the payment's usefulness, Payment Gateway offers a vigorous server-side pack explicitly intended for Java-based sites for significant APIs expected to incorporate Payment Gateway.</p>
+<p>Our pack permits a simple mix of Payment Gateway. With several means, online organizations can empower clients to pay through 100+ payment choices, including Wallet, Postpaid, fixed store, Visa, charge cards, EMI, net banking, and UPI. From there, the sky is the limit.</p>
+<p>Our unit additionally empowers online organizations to create the checksum expected for validation. In addition, they likewise gain admittance to the accompanying APIs:</p>
+<ol class="points">
+<li><strong>Initiate Transaction programming interface</strong>: Returns the exchange token utilized in other local APIs</li>
+<li><strong>Transaction Status Programming interface</strong>: Returns the situation with a specific exchange</li>
+<li><strong>Refund Programming interface</strong>: Starts total or fractional discount against a particular exchange</li>
+<li><strong>Refund Status Programming interface</strong>: Gets the subtleties of the discount exchange</li>
+</ol>
+<h3 class="h3">Steps involved in Payment Gateway Integration</h3>
+<p><strong>Step-1: Pre-requisites</strong></p>
+<ul class="points">
+<li>Ensure your site is based on either Java 1.7 or any of the later renditions</li>
+<li>You ought to have the Programming interface Keys with you</li>
+</ul>
+<p><strong>Step-2: SDK Installation</strong></p>
+<p>Add the maven repository to your task's POM utilizing the code underneath.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;repositories&gt;
+            &lt;repository&gt;
+                &lt;id&gt;my-repo1&lt;/id&gt;
+                 &lt;url&gt; http://artifactorypg.paytm.in/artifactory/libs-release &lt;/url&gt;
+&lt;/repository&gt;
+&lt;/repositories&gt;
+</textarea></div>
+<p>Add the maven reliance to your venture's POM utilizing the code beneath:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;dependency&gt;
+&lt;groupId&gt;com.paytm.pg&lt;/groupId&gt;
+&lt;artifactId&gt;paytm-pg&lt;/artifactId&gt;
+&lt;version&gt;0.0.6&lt;/version&gt;
+&lt;/dependency&gt;
+</textarea></div>
+<p>Utilize the code beneath to construct and introduce locally:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+mvn install
+</textarea></div>
+<p><strong>Step-3:</strong> SDK code implementation</p>
+<p><strong>i. For Installation:</strong></p>
+<p>You really want to introduce the obligatory parameters, for example, mid, climate, site, key, and so on, with the goal that these boundaries can call the SDK strategies to consider our payment gateway's APIs straightforwardly. You can do this by utilizing the beneath code:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+	// For Staging
+String environment = LibraryConstants.STAGING ENVIRONMENT;
+// For Production
+// String environment = LibraryConstants. PRODUCTION_ENVIRONMENT;
+// Find your mid, key, website in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys
+String mid = "YOUR_MID_HERE";
+String key = "YOUR_KEY_HERE";
+String website = "YOUR WEBSITE_NAME";
+String client_id = "YOUR_CLIENT_ID_HERE";
+String callbackUrl = "MERCANT_CALLBACK_URL": MerchantProperties.setCallbackUrl(callbackUrl);
+MerchantProperties.initialize(environment, mid, key, client_id, website);
+// If you want to add a log file to your project, use the below code LibraryConstants.LOGGER.setLevel(Level.ALL);
+FileHandler fh = null;
+fh = new FileHandler("/path/log/file.log"); fh.setFormatter(new SimpleFormatter());
+LibraryConstants.LOGGER.addHandler(fh);
+LibraryConstants.LOGGER.setUseParentHandlers (false);
+</textarea></div>
+<p><strong>ii. For payment:</strong></p>
+<ul class="points">
+<li>'Make Transaction Token' - For making a transaction token, you can carry out the code given underneath:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+EChannelld channelld EChannelld.WEB; 
+String orderld = "UNIQUE_ORDER_ID";
+Money txnAmount = new Money(EnumCurrency.INR, "1.00");
+UserInfo userinfo = new UserInfo(); userinfo.setCustId("CUSTOMER_ID");
+Payment Detail payment Details = new Payment Detail. PaymentDetailBuilder (channelld, orderld, txnAmount, userInfo).build();
+SDKResponse&lt;InitiateTransactionResponse&gt; response = Payment.createTxnToken(paymentDetails);
+</textarea></div>
+<ul class="points">
+<li>'GetPaymentStatus' - For making the payment status usefulness, you can utilize the code given underneath:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="xml">
+String orderld = "YOUR_ORDER_ID" PaymentStatusDetail paymentStatusDetail = new PaymentStatusDetail.PaymentStatusDetailBuilder(orderld).setReadTimeout(readTimeout ).build(); 
+SDKResponse&lt;NativePayment Status Response&gt; response = Payment.getPaymentStatus(paymentStatusDetail);
+</textarea></div>
+<p><strong>iii. Refund:</strong></p>
+<ul class="points">
+<li>'InitiateRefund' - For adding the usefulness of starting discounts, carry out the code given beneath:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="java">
+String orderld = "YOUR_ORDER_ID";
+String refid="REFERENCE_ID";
+String txnid="TRANSACTION_ID";
+String txnType = "REFUND":
+String refundAmount = "1";
+Time readTimeout = new Time(5, TimeUnit.MINUTES);
+RefundDetail refundDetail = new RefundDetail.RefundDetailBuilder(orderld, refid, txnid, txnType,refundAmount).setReadTimeout(readTimeout).build();
+SDKResponse&lt;AsyncRefund Response&gt;response = Refund.initiateRefund(refundDetail);
+</textarea></div>
+<ul class="points">
+<li>'GetRefundStatus' - For adding the usefulness of getting discount status, execute the code underneath:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="java">
+String orderld = "YOUR_ORDER_ID";
+String refid="REFERENCE_ID";
+Time read Timeout = new Time(5, TimeUnit.MINUTES);
+RefundStatusDetail refundStatusDetail = new
+RefundStatusDetail.RefundStatusDetailBuilder(orderld, refid) .setReadTimeout(read Timeout).build();
+SDKResponse&lt;NativeRefundStatusResponse&gt; response = Refund.getRefundStatus(refundStatusDetail):
+</textarea></div>
+<h2 class="h2">Some of the Payment Gateway Integration</h2>
+<h3 class="h3">1. Paytm</h3>
+<p>Paytm Payment Gateway is one of India's driving Payment Gateways. Paytm Payment Gateway offers innovation that is confided in by India's driving unicorns. Additionally, the Payment Gateway drives the Paytm application.</p>
+<p>Paytm Payment Gateway offers a moment, web-based onboarding and simple incorporation choices. The Payment Gateway upholds a wide range of sites and applications and has modules for all major internet business stages like WooCommerce, Shopify, Magento and 20+ more. Paytm Installment Entryway's element-pressed portable SDKs give the best checkout experience to a business' clients. It likewise offers prepared-to-utilize JS scraps and strong APIs.</p>
+<p>Paytm Installment Door is the main Payment Gateway to not impose a charge on UPI exchanges. It offers 0% MDR (trader rebate rate) on UPI and RuPay check cards. The Payment Gateway likewise has the business's most elevated achievement rates, T+1 settlements and backing for 2,500 exchanges each second.</p>
+<p>Moreover, Paytm's Global Payment Gateway enables Indian organizations to acknowledge worldwide payments in every significant cash from north of 200 nations. Indian organizations can sell their items across the globe with Paytm Payment Gateway with no extra Programming interface integrations.</p>
+<p><strong>Features of Paytm:</strong></p>
+<ul class="points">
+<li>Homegrown Credit cards upheld: Visa, Amex, Maestro, Master, Diner, and Discover.</li>
+<li>Shopping basket Units presently accessible: Opencart, Magento, Zencart, WordPress, Woocommerce, Joomla Righteousness Store, Prestashop, OSCommerce, WordPress Internet business, Ubercart, Simple computerized, WHMCS, ViArt, Opencart, CScart, Virtuemart, Drupal Trade, Moodle, Nopcommerce, Gravity structures.</li>
+<li>Integration kits are accessible in the accompanying conditions: PHP, ASP.NET, Ruby On Rails, JSP, VB.NET OSCommerce.</li>
+<li>Mobile Application Mix: Accessible for both Android and iOS.</li>
+</ul>
+<h3 class="h3">2. PayPal</h3>
+<p>Paypal is, to be sure, one of the most famous Payment Gateways, and it is notable in all nations. Paypal has been offering types of assistance throughout the previous twenty years, and presently it's offering types of assistance in excess of 200 business sectors all over the planet.</p>
+<p>Presently, it has in excess of 237 million dynamic record holders with a few stages, including Braintree, Venmo, and Xoom. Paypal is new in India, so the onboarding system is somewhat difficult for India. The explanation could be the staff who are a smidgen undertrained for the confirmation interaction. We should examine a portion of its key elements.</p>
+<p><strong>Features of PayPal:</strong></p>
+<ul class="points">
+<li>Paypal permits their shipper and the buyer to play out an exchange beyond 100 monetary standards, assets can be removed &igrave;n 56 monetary forms, and hold adjusts in 25 monetary standards in their Paypal enlisted account.</li>
+<li>No withdrawal charges, no startup expense, no end expense, and no month-to-month expenses.</li>
+<li>Portable Application Installment Entryway Reconciliation: iOS and Android.</li>
+<li>Various plans are accessible according to the requirements.</li>
+<li>You are not expected to store charge card or ledger data on your server. It allows high-security payments on low-security sites and makes PCI consistence more straightforward, even with minimal expense or complementary plan cloud facilitating.</li>
+</ul>
+<p><strong>Cost:</strong></p>
+<ul class="points">
+<li>Yearly support Charge: Free, Zero upkeep charges.</li>
+<li>Transaction Expense per Exchange: 4.4% + fixed charge in light of the cash</li>
+</ul>
+<p> </p>
+<h3 class="h3">3. PayU</h3>
+<p>One more rivalry for Razorpay is PayU (previously known as PayU Cash) which is the result of an Indian payment handling organization. PayU is a truly outstanding and easiest web-based payment arrangement that was intended to fill in the holes left by complex specialist organizations.</p>
+<p>They have a simple sign-up and fast onboarding process; additionally, it requires negligible advancement exertion. The UI is great. The help offers a solitary coordinated arrangement that gives clients begin getting neighbourhood payments to access all places where it works. PayU offers in excess of 250 nearby payment techniques and various cash choices. We should examine a portion of its key highlights.</p>
+<p><strong>Features:</strong></p>
+<ul class="points">
+<li>Global Payment/Credit card Backing: Upheld</li>
+<li>100+ Installment Choices including UPI, charge/Mastercards and net banking</li>
+<li>Documentation is best in the business as in a similar bar of Stripe and Razorpay.</li>
+<li>Upheld Web-based business CMS Frameworks: All significant CMS upheld</li>
+<li>Versatile Application Joining: Android, Windows, and iOS.</li>
+<li>Acknowledge payment in 100+ monetary standards</li>
+</ul>
+<p><strong>Cost:</strong></p>
+<ul class="points">
+<li>Yearly support Charge: Zero, no arrangement charges.</li>
+<li>Transaction Expense per Transaction: 2% + GST for every exchange. For American Express and Burger joints Cards, exchange expenses = 3% + GST for global exchanges and EMI payment choices. There is a set-up charge that should be paid alongside Yearly Support Charges (AMC). Additionally, the exchange rates are 3% + 6Rs for each exchange.</li>
+</ul>
+<h3 class="h3">4. Stripe</h3>
+<p>Stripe was sent off in 2010, and it is one of the most business standard instalment doors cherished by a ton of engineers. At the point when you visit the site, you will find an Engineer First segment around there, which is very noteworthy, and it makes one thing clear it was planned to remember the designers.</p>
+<p>Stripe payment Programming interface for designers gives admittance to strategies for tolerating payments, overseeing memberships, following client records, and sending solicitations. The UI is the most incredible in the business. A ton of good organizations are utilizing its administrations, like Lyft, Postmates, Doordash, TaskRabbit, Deliveroo, Slack, Kickstarter, and Pinterest.</p>
+<p><strong>Features:</strong></p>
+<ul class="points">
+<li>Clear and point-by-point documentation for designers to carry out the assistance</li>
+<li>Best designer and commercial centre devices. It permits you to construct strong associations with driving commercial centres and outsider programming, contact new crowds and augment recharging.</li>
+<li>Appropriate for global exchanges.</li>
+<li>Appropriate for enormous organizations who can utilize the designers in the house or recruit web advancement organizations for their undertakings.</li>
+<li>Stripe permits you to construct and consolidate times for testing in your arrangements or give coupons to help you devise and refine your methodologies.</li>
+</ul>
+<p><strong>Cost:</strong></p>
+<ul class="points">
+<li>Domestic: 2% for most cards given in India and 3% for cards given beyond India.</li>
+<li>Worldwide: 4.3% for cards given anyplace. Extra 2% for money change.</li>
+</ul>
+<h3 class="h3">5. RazorPay</h3>
+<p>Razorpay is the main Payment Gateway in India that permits organizations to acknowledge, process, and dispense Payments with its item suite. It permits you to get to all the payment modes, including Mastercard, charge card, net banking, UPI, and well-known wallets including Airtel Cash, FreeCharge, JioMoney, PayUmoney, Ola Cash, Mobikwik, and PayZapp. Razorpay additionally has an astounding UI interface, and the onboarding system is quite simple. Razorpay can work just when you give a legitimate bank account number, regardless of whether you just need to try out their UI.</p>
+<p><strong>Features:</strong></p>
+<ul class="points">
+<li>Documentation is first class in the business, directly onto precisely the same level as Stripe.</li>
+<li>Upheld Internet business CMS Framework: All significant ones, for example, WooCommerce, Magento, CS-Truck, Opencart, Shopify, WHCMS, WordPress, Arastta, and Prestashop.</li>
+<li>Portable Application Coordination: Versatile SDKs for Android and iOS by means of Cordova/Phonegap.</li>
+</ul>
+<p><strong>Cost:</strong></p>
+<ul class="points">
+<li>Yearly upkeep Charge: Zero, nobody time arrangement expense.</li>
+<li>Exchange charge per exchange: 2% per effective exchange; +1% for Coffee shops and Amex Cards, Global Cards, EMI.</li>
+</ul>
+<h3 class="h3">6. Instamojo</h3>
+<p>Instamojo is another Payment Gateway choice that is getting which is standing out nowadays. They have a very decent onboarding process. You can simply enter your duty data and bank subtleties, and that is essential to set up your record soon. Instamojo works with saving records. You don't have to have financial records. The UI is additionally extremely decent. We should examine a portion of its key highlights.</p>
+<p><strong>Features:</strong></p>
+<ul class="points">
+<li>Documentation is very great for Instamojo.</li>
+<li>Various Installment Choices are accessible including UPI, charge/Mastercards, net banking, and wallets</li>
+<li>Upheld Online business CMS Framework: All significant ones like Magento, Prestashop, Opencart, and so forth.</li>
+</ul>
+<p><strong>Cost:</strong></p>
+<ul class="points">
+<li>Yearly upkeep Charge: Zero</li>
+<li>Transaction Charge per Exchange: 2% + Rs 3 for each exchange.</li>
+</ul>
+<h3 class="h3">7. CCAvenue</h3>
+<p>CCAvenue is one of the biggest Payment gateways in India that offers a wide variety of payment choices. They offer 200+payment choices comprehensive of 6 Visas, for example, Amex, JCB, Coffee shops Club, Mastercard, Visa, and eZeClick. CCAvenue likewise permits a Multilingual payment page in 18 significant Indian and worldwide dialects. Their onboarding cycle is confounding for clients.</p>
+<p>They actually work on manual or actual desk work, which is an aggravation for the vast majority. You should send the messengers and records, and it might require a long time in the onboarding system. CCAvenue documentation is astonishing. Plenty of sites and articles are there to coordinate practically any tech stack. The CCAvenue UI is good.</p>
+<p><strong>Features:</strong></p>
+<ul class="points">
+<li>Global Payment/ Credit card: Upheld on CCAvenues. Your Online business store can address your item evaluation in quite a few monetary forms. Your clients can look at the CCAvenue instalment choices page utilizing their ideal cash.</li>
+<li>Multi-Cash Backing: CCAvenue permits the assortment of payments in 27 significant unfamiliar monetary standards.</li>
+<li>Upheld Internet business CMS Framework: CCAvenue has created a Programming interface for a large portion of the shopping baskets like Buildabazaar, Cubecart, Drupal, Interspire, Joomla, Magento, Magento Go, Martjack, Moodle, NopCommerce, Opencart, OsCommerce, PrestaShop, VirtueMart, WHMCS, WordPress, ZenCart.</li>
+<li>Versatile Application Installment Entryway Reconciliation: Android, iOS, and Windows.</li>
+</ul>
+<p><strong>Cost:</strong></p>
+<ol class="points">
+<li>No arrangement charge</li>
+<li>Yearly upkeep Charge for a Startup account: Rs 1200
+<li>Exchange Charge per Exchange:
+<ul class="points">
+<li>Homegrown Credit and Check cards on Visa, Mastercard, Maestro RuPay: Level charge @ 2%.</li>
+<li>Wallets: Freecharge, Mobikwik, OlaMoney, Jiomoney, Paytm, PayZapp, Jana Money, SBI Budd.y</li>
+<li>Portable Wallet: Level charge @ 2%</li>
+<li>IMPS and UPI: Level charge @ 2%</li>
+<li>Worldwide Charge cards on Visa, Mastercard, American Express, JCB and Cafes Club: Level expense @ 3%</li>
+<li>Taxes extra as relevant now and again.</li>
+</ul></li>
+</ol>
+<p>As fast as you get a possibility to communicate with any Payment gateway, coordinating, or coding for that, if it's not too much trouble, feel free to get the experience. It's worth the effort, and it will assist you with building your range of abilities. Picking one of the strong APIs permits you to acknowledge payment right on your site. There is a compelling reason need to divert your client to some outer site for payment. All the payment gateways administrations have a few upsides and downsides and being a designer, you must find the best one for your site, thinking about numerous elements and particularly client experience.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="what-is-pmd.html">What is PMD</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="java-clone-examples.html">&larr; prev</a>
+<a style="float:right" class="next" href="what-is-pmd.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="97f1f2f2f3f5f6f4fcd7fdf6e1f6e3e7f8fef9e3b9f4f8fa">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/payment-gateway-integration-in-java"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/payment-gateway-integration-in-java"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/payment-gateway-integration-in-java"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+ </a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+ </div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a4ccd6e4cec5d2c5d0d4cbcdcad08ac7cbc9">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="fa9288ba909b8c9b8e8a9593948ed4999597d4">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/payment-gateway-integration-in-java by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:36:59 GMT -->
+</html> 

@@ -1,0 +1,948 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/commit-protocol-in-dbms by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:21:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>COMMIT Protocol in DBMS - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="COMMIT Protocol in DBMS - javatpoint" /><meta property="og:description" content="COMMIT Protocol in DBMS with DBMS Overview, DBMS vs Files System, Architecture, Three schema Architecture, Generalization, Specialization, Relational Model concept etc." />
+<meta name="keywords" content="dbms overview, dbms vs files system, dbms architecture, three schema architecture, dbms language, dbms keys, dbms generalization, dbms specialization, relational model concept, sql introduction, advantage, dbms normalization, functional dependency, dbms schedule, concurrency control" /><meta name="description" content="COMMIT Protocol in DBMS with DBMS Overview, DBMS vs Files System, Architecture, Three schema Architecture, Generalization, Specialization, Relational Model concept etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="commit-protocol-in-dbms.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="COMMIT Protocol in DBMS - javatpoint" /><meta name="twitter:description" property="og:description" content="COMMIT Protocol in DBMS with DBMS Overview, DBMS vs Files System, Architecture, Three schema Architecture, Generalization, Specialization, Relational Model concept etc." /><meta property="og:url" content="commit-protocol-in-dbms.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="dbms-tutorial.html" class="selected">DBMS</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="pl-sql-tutorial.html">PL/SQL</a></li>
+<li><a href="sqlite-tutorial.html">SQLite</a></li>
+<li><a href="mongodb-tutorial.html">MongoDB</a></li>
+<li><a href="cassandra-tutorial.html">Cassandra</a></li>
+<li><a href="mysql-tutorial.html">MySQL</a></li>
+<li><a href="oracle-tutorial.html">Oracle</a></li>
+<li><a href="couchdb-tutorial.html">CouchDB</a></li>
+<li><a href="neo4j-tutorial.html">Neo4j</a></li>
+<li><a href="db2-tutorial.html">DB2</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DBMS Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="dbms-tutorial.html">DBMS Tutorial</a>
+<a href="what-is-database.html">What is Database</a>
+<a href="types-of-databases.html">Types of Databases</a>
+<a href="what-is-rdbms.html" class="l1">What is RDBMS</a>
+<a href="difference-between-dbms-and-rdbms.html" class="l1">DBMS vs RDBMS</a>
+<a href="dbms-vs-files-system.html">DBMS vs File System</a>
+<a href="dbms-architecture.html">DBMS Architecture</a>
+<a href="dbms-three-schema-architecture.html">Three schema Architecture</a>
+<a href="data-models.html">Data Models</a>
+<a href="dbms-data-model-schema-and-instance.html">Data model schema</a>
+<a href="dbms-data-independence.html">Data Independence</a>
+<a href="dbms-language.html">DBMS Language</a>
+<a href="acid-properties-in-dbms.html">ACID Properties in DBMS</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Data modeling</span></h2>
+</div>
+<div class="leftmenu">
+<a href="dbms-er-model-concept.html">ER model concept</a>
+<a href="dbms-notation-of-er-diagram.html">Notation for ER diagram</a>
+<a href="dbms-er-design-issues.html">ER Design Issues</a>
+<a href="dbms-mapping-constraints.html">Mapping constraints</a>
+<a href="dbms-keys.html">DBMS Keys</a>
+<a href="dbms-generalization.html">DBMS Generalization</a>
+<a href="dbms-specialization.html">DBMS Specialization</a>
+<a href="dbms-aggregation.html">DBMS Aggregation</a>
+<a href="dbms-reduction-of-er-diagram-into-table.html">Convert ER into table</a>
+<a href="dbms-relationship-of-higher-degree.html">Relationship of Higher Degree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Relational data Model</span></h2>
+</div>
+<div class="leftmenu">
+<a href="dbms-relational-model-concept.html">Relational Model concept</a>
+<a href="dbms-relational-algebra.html">Relational Algebra</a>
+<a href="dbms-join-operation.html">Join Operation</a>
+<a href="dbms-integrity-constraints.html">Integrity Constraints</a>
+<a href="dbms-relational-calculus.html">Relational Calculus</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Normalization</span></h2>
+</div>
+<div class="leftmenu">
+<a href="dbms-functional-dependency.html">Functional Dependency</a>
+<a href="dbms-inference-rule.html">Inference Rule</a>
+<a href="dbms-normalization.html">DBMS Normalization</a>
+<a href="dbms-first-normal-form.html">DBMS 1NF</a>
+<a href="dbms-second-normal-form.html">DBMS 2NF</a>
+<a href="dbms-third-normal-form.html">DBMS 3NF</a>
+<a href="dbms-boyce-codd-normal-form.html">DBMS BCNF</a>
+<a href="dbms-forth-normal-form.html">DBMS 4NF</a>
+<a href="dbms-fifth-normal-form.html">DBMS 5NF</a>
+<a href="dbms-relational-decomposition.html">Relational Decomposition</a>
+<a href="dbms-multivalued-dependency.html">Multivalued Dependency</a>
+<a href="dbms-join-dependency.html">Join Dependency</a>
+<a href="dbms-inclusion-dependence.html">Inclusion Dependence</a>
+<a href="dbms-canonical-cover.html">Canonical Cover</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Transaction Processing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="dbms-transaction-processing-concept.html">Transaction</a>
+<a href="dbms-transaction-property.html">Transaction Property</a>
+<a href="dbms-states-of-transaction.html">States of Transaction</a>
+<a href="dbms-schedule.html">DBMS Schedule</a>
+<a href="dbms-testing-of-serializability.html">Testing of Serializability</a>
+<a href="dbms-conflict-serializable-schedule.html">Conflict schedule</a>
+<a href="dbms-view-serializability.html">View Serializability</a>
+<a href="dbms-recoverability-of-schedule.html">Recoverability of Schedule</a>
+<a href="dbms-failure-classification.html">Failure Classification</a>
+<a href="dbms-log-based-recovery.html">Log-Based Recovery</a>
+<a href="dbms-checkpoint.html">DBMS Checkpoint</a>
+<a href="deadlock-in-dbms.html">Deadlock in DBMS</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Concurrency Control</span></h2>
+</div>
+<div class="leftmenu">
+<a href="dbms-concurrency-control.html">Concurrency Control</a>
+<a href="dbms-lock-based-protocol.html">Lock based Protocol</a>
+<a href="dbms-timestamp-ordering-protocol.html">Time stamping Protocol</a>
+<a href="dbms-validation-based-protocol.html">Validation based Protocol</a>
+<a href="dbms-thomas-write-rule.html">Thomas Write Rule</a>
+<a href="dbms-multiple-granularity.html">Multiple Granularity</a>
+<a href="dbms-recovery-concurrent-transaction.html">Recovery Concurrent Transaction</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">File organization</span></h2>
+</div>
+<div class="leftmenu">
+<a href="dbms-file-organization.html">File organization</a>
+<a href="dbms-sequential-file-organization.html">Sequential File Organization</a>
+<a href="dbms-heap-file-organization.html">Heap File Organization</a>
+<a href="dbms-hash-file-organization.html">Hash File Organization</a>
+<a href="dbms-b-plus-file-organization.html">B+ File Organization</a>
+<a href="dbms-indexed-sequential-access-method.html">DBMS ISAM</a>
+<a href="dbms-cluster-file-organization.html">Cluster File Organization</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Indexing and B+ Tree</span></h2>
+</div>
+<div class="leftmenu">
+<a href="indexing-in-dbms.html">Indexing in DBMS</a>
+<a href="dbms-b-plus-tree.html">B+ Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Hashing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="dbms-hashing.html">Hashing</a>
+<a href="dbms-static-hashing.html">Static Hashing</a>
+<a href="dbms-dynamic-hashing.html">Dynamic Hashing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">RAID</span></h2>
+</div>
+<div class="leftmenu">
+<a href="dbms-raid.html">RAID</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="decomposition-algorithms.html">Decomposition Algorithms</a>
+<a href="storage-system-in-dbms.html">Storage System in DBMS</a>
+<a href="data-dictionary-storage.html">Data Dictionary Storage</a>
+<a href="file-organization-storage.html">File Organization Storage</a>
+<a href="selection-of-raid-levels.html">Selection of RAID Levels</a>
+<a href="bitmap-indexing.html">Bitmap Indexing</a>
+<a href="buffer-replacement-strategies.html">Buffer Replacement Strategies</a>
+<a href="database-buffer.html">Database Buffer</a>
+<a href="estimating-query-cost.html">Estimating Query Cost</a>
+<a href="query-processing-in-dbms.html">Query Processing in DBMS</a>
+<a href="evaluation-of-expressions.html">Evaluation of Expressions</a>
+<a href="external-sort-merge-algorithm.html">External Sort-Merge Algorithm</a>
+<a href="hash-join-algorithm.html">Hash Join Algorithm</a>
+<a href="materialization-in-query-processing.html">Materialization in Query Processing</a>
+<a href="merge-join-algorithm.html">Merge Join Algorithm</a>
+<a href="nested-loop-join-algorithm.html">Nested-Loop Join Algorithm</a>
+<a href="selection-operation-in-query-processing.html">Selection Operation in Query Processing</a>
+<a href="double-pipelined-join-algorithm.html">Double-Pipelined Join Algorithm</a>
+<a href="implementation-of-pipelining.html">Implementation of Pipelining</a>
+<a href="pipelining-in-query-processing.html">Pipelining in Query Processing</a>
+<a href="dbms-advanced-query-optimization.html">Advanced Query Optimization</a>
+<a href="dbms-transforming-relational-expressions.html">Transforming Relational Expressions</a>
+<a href="dbms-candidate-key.html">Candidate Key</a>
+<a href="dbms-closure-of-an-attribute.html">Closure of an Attribute</a>
+<a href="dbms-questions-on-boyce-codd-normal-form.html">QUESTIONS ON BOYCE CODD NORMAL FORM</a>
+<a href="dbms-questions-on-normalization.html">QUESTIONS ON NORMALIZATION</a>
+<a href="dbms-questions-on-third-normal-form.html">QUESTIONS ON THIRD NORMAL FORM</a>
+<a href="dbms-equivalence-of-functional-dependency.html">EQUIVALENCE OF FUNCTIONAL DEPENDENCY</a>
+<a href="dbms-referential-integrity-constraint.html">Referential Integrity constraint</a>
+<a href="dbms-questions-on-lossy-and-lossless-decomposition.html">Questions on Lossy and Lossless Decomposition</a>
+<a href="dbms-lossy-and-lossless-decomposition-second-method.html">LOSSY OR LOSSLESS DECOMPOSITION (second method)</a>
+<a href="dbms-questions-to-identify-normal-form.html">QUESTIONS TO IDENTIFY NORMAL FORM</a>
+<a href="types-of-relationship-in-database-table.html">Types of Relationship in Database Table</a>
+<a href="candidate-key-in-dbms.html">Candidate Key in DBMS</a>
+<a href="primary-key-in-dbms.html">Primary Key in DBMS</a>
+<a href="super-key-in-dbms.html">Super Key in DBMS</a>
+<a href="alternate-key-in-dbms.html">Alternate Key in DBMS</a>
+<a href="composite-key-in-dbms.html">Composite Key in DBMS</a>
+<a href="foreign-key-in-dbms.html">Foreign Key in DBMS</a>
+<a href="surrogate-key-in-dbms.html">Surrogate Key in DBMS</a>
+<a href="unique-key-in-dbms.html">Unique Key in DBMS</a>
+<a href="dbms-purpose-of-normalization.html">Purpose of Normalization</a>
+<a href="commit-vs-rollback-in-sql.html">COMMIT vs ROLLBACK in SQL</a>
+<a href="ddl-vs-dml.html">DDL vs DML</a>
+<a href="denormalization-in-databases.html">Denormalization in Databases</a>
+<a href="er-model-vs-relational-model.html">ER Model vs Relational Model</a>
+<a href="database-security.html">Database Security</a>
+<a href="problems-with-er-model.html">Problems with ER Model</a>
+<a href="advantages-of-dbms.html">Advantages of DBMS</a>
+<a href="advantages-and-disadvantages-of-dbms.html">Advantages and Disadvantages of DBMS</a>
+<a href="commit-protocol-in-dbms.html">COMMIT Protocol in DBMS</a>
+<a href="anomalies-in-dbms.html">Anomalies in DBMS</a>
+<a href="functions-of-dbms.html">Functions of DBMS</a>
+<a href="dbms-examples.html">DBMS Examples</a>
+<a href="entity-in-dbms.html">Entity in DBMS</a>
+<a href="characteristics-of-dbms.html">Characteristics of DBMS</a>
+<a href="components-of-dbms.html">Components of DBMS</a>
+<a href="disadvantages-of-dbms.html">Disadvantages of DBMS</a>
+<a href="instance-and-schema-in-dbms.html">Instance and Schema in DBMS</a>
+<a href="data-abstraction-in-dbms.html">Data Abstraction in DBMS</a>
+<a href="database-applications.html">Database Applications</a>
+<a href="redundancy-in-dbms.html">Redundancy in DBMS</a>
+<a href="advantages-of-dbms-over-file-system.html">Advantages of DBMS over File System</a>
+<a href="attributes-in-dbms.html">Attributes in DBMS</a>
+<a href="difficulties-of-implementing-data-warehouses.html">Difficulties of Implementing Data Warehouses</a>
+<a href="economic-factors-choice-of-dbms.html">Economic Factors (Choice of DBMS)</a>
+<a href="enhanced-er-model.html">Enhanced ER Model</a>
+<a href="how-to-find-candidate-key-from-functional-dependencies.html">How to Find Candidate Key from Functional Dependencies</a>
+<a href="how-to-store-a-password-in-database.html">How to Store a Password in Database</a>
+<a href="timestamp-and-deadlock-prevention-schemes-in-dbms.html">Introduction to TimeStamp and Deadlock Prevention Schemes in DBMS</a>
+<a href="minimization-of-er-diagrams.html">Minimization of ER Diagrams</a>
+<a href="number-of-possible-super-keys-in-dbms.html">Number of Possible Super Keys in DBMS</a>
+<a href="personnel-involved-in-database-management-system.html">Personnel Involved in Database Management System</a>
+<a href="role-of-keys-in-cassandra.html">Role of Keys in Cassandra</a>
+<a href="transactions-in-dbms.html">Transactions in DBMS</a>
+<a href="tuple-in-dbms.html">Tuple in DBMS</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Introduction</span></h2>
+</div>
+<div class="leftmenu">
+<a href="dbms-sql-introduction.html">SQL Introduction</a>
+<a href="dbms-characteristics-of-sql.html">Characteristics of SQL</a>
+<a href="dbms-advantage-of-sql.html">Advantage of SQL</a>
+<a href="dbms-sql-datatype.html">SQl Datatype</a>
+<a href="dbms-sql-command.html">SQL Command</a>
+<a href="dbms-sql-operator.html">SQL Operator</a>
+<a href="dbms-sql-table.html">SQL Table</a>
+<a href="dbms-sql-select.html">SQL SELECT Statement</a>
+<a href="dbms-sql-insert.html">SQL INSERT Statement</a>
+<a href="dbms-sql-update.html">SQL Update Statement</a>
+<a href="dbms-sql-delete.html">SQL DELETE Statement</a>
+<a href="dbms-sql-view.html">SQL View</a>
+<a href="dbms-sql-index.html">SQL Index</a>
+<a href="dbms-sql-sub-queries.html">SQL Sub Queries</a>
+<a href="dbms-sql-clauses.html">SQL Clauses</a>
+<a href="dbms-sql-aggregate-function.html">SQL Aggregate Function</a>
+<a href="dbms-sql-joins.html">SQL JOIN</a>
+<a href="dbms-sql-set-operation.html">SQL Set Operation</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DBMS MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="dbms-mcq.html">DBMS MCQ</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="dbms-interview-questions.html">DBMS Interview</a>
+<a href="sql-interview-questions.html">SQL Interview</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="anomalies-in-dbms.html">next &rarr;</a>
+<a class="next" href="advantages-and-disadvantages-of-dbms.html">&larr; prev</a>
+</div>
+<h1 class="h1">COMMIT Protocol in DBMS</h1>
+<p>Distributed commit protocol basics of transactions and transactions states are discussed in this article in detail. Let us start the discussion by understanding the transactions and transaction states:</p>
+<h2 class="h2">What is a Transaction?</h2>
+<p>We may have a partially executed program since the level of atomicity is an instruction, meaning that either an instruction is performed completely or not, according to generic computation theory (operating system).</p>
+<p>However, from the perspective of a database management system (DBMS), a user performs a logical task (operation) that is always atomic in nature, meaning that there is no such thing as partial execution.</p>
+<p>Let us assume that we have to transfer 10000 rupees from the bank account of X to Y. The following instructions are needed to complete the following task:</p>
+<table class="alt">
+<tr>
+<td>1</td>
+<td>Read X</td>
+</tr>
+<tr>
+<td>2</td>
+<td>X = X - 10000</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Write X</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Read Y</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Y = Y + 10000</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Write Y</td>
+</tr>
+</table>
+<p>The system's ultimate state will be inconsistent if a failure occurs after executing the third instruction, as 10000 rupees will be deducted from X's account but will not be credited to Y's account.</p>
+<p>For a system to be consistent, here, X + Y == X' + Y'.</p>
+<p>We raise the level of atomicity and group all the instructions for a logical operation into a unit referred to as a transaction in order to solve this partial execution problem. Therefore, <strong><em>a transaction is officially defined as "A Set of Logically Related Instructions to Perform a Logical Unit of Work."</em></strong></p>
+<h3 class="h3">TRANSACTION STATES</h3>
+<p>There is a total of five states a transaction can acquire once at a time:</p>
+<ul class="points">
+<li><strong>ACTIVE</strong> - It is the initial state. A transaction will be in active state while it is executing its instructions.</li>
+<li><strong>PARTIALLY COMMITED</strong> - After the final instruction of a transaction has been processed, if the actual output is still temporarily stored in the main memory rather than on disc, then the transaction will remain in the partially committed state because it is still possible that the transaction will need to be aborted (due to any problem).</li>
+<li><strong>FAILED</strong> - Whenever it is detected that the transaction has failed due to any hardware and software problem, then that transaction will be in the failed state.</li>
+<li><strong>ABORTED</strong> - When a transaction has been rolled back, and the database has been returned to how it was before the execution began, the transaction is said to be in an Aborted state.</li>
+<li><strong>COMMITED</strong> - After a transaction is successfully completed, the execution of all its instructions and the database has undergone its final update, it enters the committed state.</li>
+</ul>
+<p>Now let us start with our main agenda.</p>
+<h2 class="h2">DISTRIBUTED DBMS - COMMIT PROTOCOLS</h2>
+<p>The transaction manager in a local database system just needs to inform the recovery manager of their choice to commit a transaction. However, in a distributed system, the transaction manager should consistently enforce the decision to commit and communicate it to all the servers in the various sites where the transaction is being conducted. Each site's processing ends when it reaches the partially committed transaction state, where it waits for all other transactions to get their partially committed states. Once it receives the signal that all the sites are prepared, it begins to commit. Either every site commits in a distributed system, or none of them does.</p>
+<p>To guarantee atomicity, the execution's ultimate result must be accepted by every site where transaction T was executed. T must either commit at every location or abort at every location. The transaction coordinator of T must carry out a commit protocol in order to guarantee this property.</p>
+<p>There is a total of three different Distributed DBMS Commit Protocols:</p>
+<ul class="points">
+<li>One-phase Commit,</li>
+<li>Two-phase Commit, and</li>
+<li>Three-phase Commit.</li>
+</ul>
+<h3 class="h3">1. One-Phase Commit</h3>
+<p>The distributed one-phase commit is the most straightforward commit protocol. Consider the scenario where the transaction is being carried out at a controlling site and several slave sites. These are the steps followed in the one-phase distributed commit protocol:</p>
+<ul class="points">
+<li>Each slave sends a "DONE" notification to the controlling site once it has successfully finished its transaction locally.</li>
+<li>The slaves await the commanding site's "Commit" or "Abort" message. This period of waiting is known as the window of vulnerability.</li>
+<li>The controlling site decides whether to commit or abort after receiving the "DONE" message from each slave. The commit point is where this happens. It then broadcasts this message to every slave.</li>
+<li>An acknowledgement message is sent to the controlling site by the slave once it commits or aborts in response to this message.</li>
+</ul>
+<h3 class="h3">2. Two-Phase Commit</h3>
+<p>The two-phase commit protocol (2PC), which is explained in this Section, is one of the most straightforward and popular commit methods. The vulnerability of one-phase commit methods is decreased by distributed two-phase commit. The following actions are taken in the two phases:</p>
+<p>Considering a transaction T that proceeds at site S<sub>i</sub> and is coordinated by the transaction coordinator C<sub>i</sub>.</p>
+<p>When T has completed, or when all the sites where T has run notify C<sub>i</sub> that T has accomplished, C<sub>i</sub> initiates the 2PC protocol.</p>
+<p><strong>Phase 1 - Obtaining a Decision</strong></p>
+<ul class="points">
+<li>Ci inserts the record &lt;<strong>prepare T</strong>&gt; into the log and forces it to be stored in a stable location. After that, it notifies every site where T was executed to prepare T.</li>
+<li>When such a communication is received, the transaction manager at that location decides whether it is willing to commit its share of T.<br>
+<img src="https://static.javatpoint.com/dbms/images/commit-protocol-in-dbms.png" alt="COMMIT Protocol in DBMS" /></li>
+<li>In response, it sends Ci an abort T message and adds a record with the text &lt;<strong>no T</strong>&gt; to the log if the response is negative. If the response is affirmative, it adds a record labelled &lt;<strong>ready T</strong>&gt; to the log and forces the log (along with every record labelled "T" in the log) into stable storage.</li>
+<li>A ready T message is then returned to C<sub>i</sub> by the transaction manager.</li>
+</ul>
+<p><strong>Phase 2 - Recording the Decision</strong></p>
+<ul class="points">
+<li>When all of the sites have responded to the "<strong>prepare T</strong>" message, or after a predetermined amount of time has passed since the "<strong>prepare< T</strong>" message was delivered, Ci can decide whether the transaction T can be committed or aborted.</li>
+<li>If Ci got a ready T message from every site involved in the transaction, transaction T can be committed. If not, then transaction T must be abandoned. Depending on the outcome, the log is either forced into stable storage, or a record is added to the log.<br>
+<img src="https://static.javatpoint.com/dbms/images/commit-protocol-in-dbms2.png" alt="COMMIT Protocol in DBMS" /></li>
+<li>The transaction's outcome has already been decided at this time. The coordinator then sends one of two messages to all involved sites: a "<strong>commit T</strong>" message or an "<strong>abort T</strong>" message. The message is entered into the log locally when a site receives it.</li>
+</ul>
+<p>Before sending the message ready T to the coordinator, a site where T was executed has the ability to unconditionally abort T at any point. Upon sending the message, the transaction is considered to be in the "<strong>ready state</strong>" at the destination. A site's pledge to carry out the coordinator's instructions to commit T or abort T is essentially expressed in the ready T message. The necessary data must first be kept in stable storage before such a commitment can be made. Otherwise, it might not be able to deliver on its promise if the site goes down after transmitting ready T. Furthermore, until the transaction is finished, any locks that were acquired as part of the transaction must be kept.</p>
+<p>The fate of T is decided as soon as at least one site answers with an abort T because an agreement is needed to commit a transaction. Because Si at the coordinator site is one of the sites where T was conducted, the coordinator has the authority to unilaterally decide to terminate T. The coordinator's writing of the decision (<strong>commit</strong> or <strong>abort</strong>) to the log and force of it into stable storage constitutes the final determination of the decision involving T. In some 2PC protocol implementations, a site notifies the coordinator with an "<strong>acknowledge</strong> <strong>T</strong>" message at the conclusion of the second phase. The coordinator adds the record "complete T" to the log when it receives the "<strong>acknowledge T</strong>" messages from all of the sites.</p>
+<h3 class="h3">HANDLING OF ERRORS:</h3>
+<p>The 2PC protocol reacts differently to various failure types:</p>
+<p><strong><em>A. Failure of a participating site</em></strong> - When a site fails, the coordinator Ci does the following things: The coordinator considers that the site responded to Ci with an abort T message if it fails before sending a ready T message. After receiving the ready T message from the site, if the site fails, the coordinator continues to carry out the rest of the commit protocol, as usual, oblivious to the site's failure.</p>
+<p>Once a participating site S<sub>k</sub> has recovered from a failure, it must review its log to see what happened to the transactions that were still being processed at the time of the failure. Assume that T is one such transaction. We examine each of the following scenarios:</p>
+<ul class="points">
+<li>When there is a "commit T" record in the log. In this instance, the website runs redo (T).</li>
+<li>When there is an "abort T" record in the log. This time, the website carries out an undo (T).</li>
+<li>When there is a "ready T" record in the log. To decide what will happen to T in this situation, the site must speak with C<sub>i</sub>. If C<sub>i</sub> is active, it notifies S<sub>k</sub> whether T was conceived normally or was aborted. It performs redo(T) in the first scenario and undo in the second scenario (T). S<sub>k</sub> must attempt to learn T's fate from other places if C<sub>i</sub> is unavailable. It accomplishes this by sending a query status T message to each system site.</li>
+<li>When the log doesn't have any control entries for T (abort, commit, ready). As a result, we are aware that S<sub>k</sub> failed before answering C<sub>i</sub>'s prepare T message. Because the failure of S<sub>k</sub> prevents the delivery of such a response, Ci must abort T according to our algorithm. Therefore, S<sub>k</sub> must perform undo (T).</li>
+</ul>
+<p><strong><em>B. Failure of the Coordinator</em></strong> - The participating sites must decide what happens to transaction T if the coordinator fails during the execution of the commit protocol for T. We'll see that there are times when the participating sites are unable to decide whether to commit or abort T. As a result, these sites are forced to wait for the failed coordinator to recover successfully.</p>
+<ul class="points">
+<li>If a record labelled "commit T" appears in the log of an active site, T should always be committed.</li>
+<li>An active site must abort T if it has an "abort T&gt;" record in its log.</li>
+<li>When an active site lacks a "ready T" record in its log, the unsuccessful coordinator Ci is unable to have made the decision to commit T since such a site is unable to have sent Ci a "ready T" message. But it's possible that the coordinator chose to commit T rather than to abort T. It is better to abort T than to wait for Ci to recover. As a result, the active sites must await Ci's recovery. As T's fate is still unknown, T can still be holding system resources.</li>
+<li>If none of the aforementioned scenarios apply, then all active sites must just have a record labelled "ready T" in their logs and no other control records, such as "abort T" or "commit T". It is difficult to tell whether a decision has been made because the coordinator failed until the coordinator recovers. If a decision has been made, it is also hard to tell what that decision is. The active sites must therefore wait for Ci to get better. T might still be holding system resources because of the uncertainty surrounding his or her fate.</li>
+</ul>
+<p><strong>Blocking Problem</strong> - For example, if locking is employed, T might hold locks on data at active sites. A condition like this is undesirable because it can take hours or days for Ci to become active once more. Other transactions might need to wait for T at this period. Therefore, data items might not just be unavailable on the failed site (Ci) but also on live sites. Because T is blocked while waiting for site Ci to recover, this circumstance is known as the "<strong><em>blocking< problem</em></strong>."</p>
+<p><strong><em>C. Network Partitioning</em></strong> - There are two outcomes when a network partitions:</p>
+<ul class="points">
+<li>Everyone involved, including the coordinator, stays in the same room. In this instance, the commit procedure is unaffected by the failure.</li>
+<li>There are various divisions to which the coordinator and its participants belong. It appears that the sites in the other partitions have failed from the perspective of the sites in one of the partitions. Sites outside the partition containing the coordinator merely carry out the protocol in response to the coordinator's failing. Following the standard commit protocol, the coordinator and the sites in the same partition as the coordinator do so under the assumption that the sites in the other partitions have failed.</li>
+</ul>
+<p>Therefore, the main drawback of the 2PC protocol is that coordinator failure may lead to blocking, in which case a choice between committing to or aborting T may need to be delayed until Ci recovers.</p>
+<h3 class="h3">Recovery and Concurrency Control</h3>
+<p>We can undertake recovery when a failed site resumes, for instance, by employing the recovery strategy. In-doubt transactions, which are defined as transactions for which a ready T&gt; log record is found but neither a commit T&gt; log record nor an abort T&gt; log record is found, must be treated differently by the recovery procedure in order to deal with distributed commit protocols. The recovered site must contact other sites, as stated in the section Handling of Errors, to learn the commit-abort status of such transactions.</p>
+<p>However, normal transaction processing at the site cannot start if recovery is carried out, as just stated, until all in-doubt transactions have been committed or rolled back. It may take some time to determine the status of transactions that are in doubt because several sites may need to be contacted. Additionally, if 2PC is employed and the coordinator fails, and no other site has knowledge of the commit-abort state of an incomplete transaction, recovery may become blocked. As a result, the website performing restart recovery can be unavailable for a considerable amount of time.</p>
+<h2 class="h2">3. Three-Phase Commit</h2>
+<p>The two-phase commit protocol can be extended to overcome the blocking issue using the three-phase commit (3PC) protocol, under particular assumptions.</p>
+<p>It is specifically anticipated that there will be no network partitions and that there won't be any more than k sites that fail, where k is a preset number. Under these presumptions, the protocol prevents blocking by adding a third phase that involves several sites in the commit decision.</p>
+<p>The coordinator initially makes certain that at least k other sites are aware that it planned to commit the transaction before immediately documenting the decision to commit in its persistent storage. In the event that the coordinator fails, the surviving sites initially choose a replacement.</p>
+<p>The protocol's status is checked by the new coordinator from the remaining locations; I If the coordinator had made the decision to commit, at minimum one of the other K sites it had notified would be online and would make sure the commit decision was upheld. If some site understood that the previous coordinator intended to complete the transaction, the new coordinator starts over with the third phase of the procedure. Otherwise, the transaction is aborted by the new coordinator.</p>
+<img src="https://static.javatpoint.com/dbms/images/commit-protocol-in-dbms3.png" alt="COMMIT Protocol in DBMS" />
+<p>The 3PC protocol has the advantage of not blocking until k sites fail, but it also has the disadvantage that a network partitioning might be mistaken for more than k sites failing, which would result in blocking. In addition, the protocol must be properly developed to prevent inconsistent results, such as transactions being committed in one partition but aborted in another, in the event of network partitioning (or more than k sites failing). The 3PC protocol is not frequently utilized due of its overhead.</p>
+<p>The three phases of the distributed three-phase commit protocol are as follows:</p>
+<p><strong>Phase one - Obtaining Preliminary Decision</strong></p>
+<ul class="points">
+<li>It is identical to the 2PC Phase one.</li>
+<li>Every site must be prepared to make a commitment if directed to do so</li>
+</ul>
+<p>Phase 2 of 2PC is divided into Phase Two and Phase Three in 3PC.</p>
+<p><strong>Phase Two -</strong></p>
+<p>Phase 2 involves the coordinator making a choice similar to the 2PC (known as the pre-commit decision) and documenting it in several (at least K).</p>
+<p><strong>Phase Three -</strong></p>
+<p>Phase 3 involves the coordinator notifying all participating sites whether to commit or abort.</p>
+<p>Under 3PC, despite the coordinator's failure, a choice can be committed using knowledge of pre-commit decisions.</p>
+<p>prevents blocking issues as long as &lt; K sites are inoperative.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="anomalies-in-dbms.html">Anomalies in DBMS</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="advantages-and-disadvantages-of-dbms.html">&larr; prev</a>
+<a style="float:right" class="next" href="anomalies-in-dbms.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="37515252535556545c775d5641564347585e59431954585a">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/commit-protocol-in-dbms"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/commit-protocol-in-dbms"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/commit-protocol-in-dbms"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+ <p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+ <p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+ <p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6e061c2e040f180f1a1e0107001a400d0103">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f19983b19b90879085819e989f85df929e9cdf">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/commit-protocol-in-dbms by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:21:41 GMT -->
+</html> 

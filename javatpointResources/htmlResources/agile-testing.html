@@ -1,0 +1,1126 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/agile-testing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:39:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Agile Testing - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Agile Testing - javatpoint" /><meta property="og:description" content="Agile Testing with introduction, software development life cycle, design, development, quality assurance, methods, black box testing, white box testing, etc." />
+<meta name="keywords" content="software testing tutorial, software testing introduction, software development life cycle, design, development, testing, overview, quality assurance, quality control, assurance versus, methods, black box testing, white box testing, alpha testing vs beta testing, gray box testing, visual testing, manual testing, system testing, unit testing, system testing, functional testing, non-functional testing, alpha testing, beta testing, security testing, test plan, test case, estimation techniques, defects" /><meta name="description" content="Agile Testing with introduction, software development life cycle, design, development, quality assurance, methods, black box testing, white box testing, etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="agile-testing.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Agile Testing - javatpoint" /><meta name="twitter:description" property="og:description" content="Agile Testing with introduction, software development life cycle, design, development, quality assurance, methods, black box testing, white box testing, etc." /><meta property="og:url" content="agile-testing.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="software-testing-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/testing.png" alt="software testing" /> Software Testing</a></li>
+<li><a href="selenium-tutorial.html"><img src="https://static.javatpoint.com/images/icon/selenium.png" alt="selenium" /> Selenium</a></li>
+<li><a href="appium.html"><img src="https://static.javatpoint.com/images/icon/appium.png" alt="appium" /> Appium</a></li>
+<li><a href="jmeter-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jmeter.png" alt="jmeter" /> JMeter</a></li>
+<li><a href="junit-tutorial.html"><img src="https://static.javatpoint.com/images/icon/junit.png" alt="junit" /> JUnit</a></li>
+<li><a href="postman.html"><img src="https://static.javatpoint.com/images/icon/postman.png" alt="postman" /> Postman</a></li>
+<li><a href="jira-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jira.png" alt="jira" /> Jira</a></li>
+<li><a href="testng-tutorial.html"><img src="https://static.javatpoint.com/images/icon/testng.png" alt="testng" /> TestNG</a></li>
+<li><a href="soapui.html"><img src="https://static.javatpoint.com/images/icon/soapui.png" alt="soapui" /> SoapUI</a></li>
+<li><a href="uipath.html"><img src="https://static.javatpoint.com/images/icon/uipath.png" alt="uipath" /> UIPath</a></li>
+<li><a href="rpa.html"><img src="https://static.javatpoint.com/images/icon/rpa.png" alt="rpa" /> RPA</a></li>
+<li><a href="quality-assurance.html"><img src="https://static.javatpoint.com/images/icon/qa.png" alt="qa" /> QA</a></li>
+<li><a href="selenium-python.html"><img src="https://static.javatpoint.com/images/icon/selenium-python.png" alt="selenium python" /> Selenium Python</a></li>
+<li><a href="software-testing-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="manual testing interview questions" /> Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-tutorial.html">Tutorial</a>
+<a href="software-testing-principles.html">Software Testing Principles</a>
+<a href="software-development-life-cycle.html">Software Development Life Cycle</a>
+<a href="software-testing-life-cycle.html">Software Testing Life Cycle</a>
+<a href="types-of-software-testing.html">Types of Software Testing</a>
+<a href="levels-of-testing.html">Levels of Testing</a>
+<a href="test-maturity-model.html">Test Maturity Model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SDLC models</span></h2>
+</div>
+<div class="leftmenu">
+<a href="waterfall-model.html">Waterfall model</a>
+<a href="spiral-model.html">Spiral Model</a>
+<a href="hybrid-model.html">Hybrid Model</a>
+<a href="prototype-model.html">Prototype Model</a>
+<a href="v-model.html">V-model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="manual-testing.html">Manual Testing</a>
+<a href="automation-testing.html">Automation Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Manual</span></h2>
+</div>
+<div class="leftmenu">
+<a href="white-box-testing.html">White Box Testing</a>
+<a href="black-box-testing.html">Black Box Testing</a>
+<a href="grey-box-testing.html">Grey Box Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">White Box Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-flow-testing-in-white-box-testing.html">Data Flow Testing</a>
+<a href="control-flow-testing-in-white-box-testing.html">Control Flow Testing</a>
+<a href="branch-coverage-testing-in-white-box-testing.html">Branch Coverage Testing</a>
+<a href="statement-coverage-testing-in-white-box-testing.html">Statement Coverage Testing</a>
+<a href="decision-coverage-testing-in-white-box-testing.html">Decision Coverage Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Black Box Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="decision-table-technique-in-black-box-testing.html">Decision Table</a>
+<a href="all-pairs-testing-technique-in-black-box-testing.html">All-pair Testing</a>
+<a href="cause-and-effect-graph-technique-in-black-box-testing.html">Cause-Effect Testing</a>
+<a href="state-transition-technique-in-black-box-testing.html">State Transition</a>
+<a href="use-case-technique-in-black-box-testing.html">Use Case</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Black Box</span></h2>
+</div>
+<div class="leftmenu">
+<a href="functional-testing.html">Functional Testing</a>
+<a href="non-functional-testing.html">Non-Functional Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Functional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="unit-testing.html">Unit Testing</a>
+<a href="integration-testing.html">Integration Testing</a>
+<a href="system-testing.html">System Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Non-functional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="performance-testing.html">Performance Testing</a>
+<a href="usability-testing.html">Usability Testing</a>
+<a href="compatibility-testing.html">Compatibility Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Test case development</span></h2>
+</div>
+<div class="leftmenu">
+<a href="testing-documentation.html">Testing Documentation</a>
+<a href="test-scenario.html">Test Scenario</a>
+<a href="test-case.html">Test Case</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Testing Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="error-guessing-technique-in-black-box-testing.html">Error Guessing</a>
+<a href="equivalence-partitioning-technique-in-black-box-testing.html">Equivalence Portioning</a>
+<a href="boundary-value-analysis-in-black-box-testing.html">Boundary Value analysis</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Test Management</span></h2>
+</div>
+<div class="leftmenu">
+<a href="test-plan.html">Test Plan</a>
+<a href="test-case-review-process.html">Test case review process</a>
+<a href="traceability-matrix.html">Requirement Traceability Matrix</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Defect Tracking</span></h2>
+</div>
+<div class="leftmenu">
+<a href="bug-in-software-testing.html">Bug in Software Testing</a>
+<a href="software-testing-bug-life-cycle.html">Bug Life cycle</a>
+<a href="severity-and-priority-in-testing.html">Severity &amp; Priority</a>
+<a href="test-environment.html">Test Environment</a>
+<a href="defect-management-process.html">Defect Management Process</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Other types of Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="regression-testing.html">Regression Testing</a>
+<a href="smoke-testing.html">Smoke Testing</a>
+<a href="sanity-testing.html">Sanity Testing</a>
+<a href="static-testing.html">Static Testing</a>
+<a href="dynamic-testing.html">Dynamic Testing</a>
+<a href="load-testing.html">Load Testing</a>
+<a href="stress-testing.html">Stress Testing</a>
+<a href="recovery-testing.html">Recovery testing</a>
+<a href="exploratory-testing.html">Exploratory Testing</a>
+<a href="visual-testing.html">Visual Testing</a>
+<a href="acceptance-testing.html">Acceptance Testing</a>
+<a href="alpha-testing.html">Alpha Testing</a>
+<a href="beta-testing.html">Beta Testing</a>
+<a href="database-testing.html">Database Testing</a>
+<a href="mainframe-testing.html">Mainframe Testing</a>
+<a href="adhoc-testing.html">Adhoc Testing</a>
+<a href="globalization-testing.html">Globalization Testing</a>
+<a href="mutation-testing.html">Mutation Testing</a>
+<a href="security-testing.html">Security Testing</a>
+<a href="accessibility-testing.html">Accessibility Testing</a>
+<a href="structural-testing.html">Structural Testing</a>
+<a href="volume-testing.html">Volume Testing</a>
+<a href="scalability-testing.html">Scalability Testing</a>
+<a href="stability-testing.html">Stability Testing</a>
+<a href="spike-testing.html">Spike Testing</a>
+<a href="negative-testing.html">Negative Testing</a>
+<a href="positive-testing.html">Positive Testing</a>
+<a href="endurance-testing.html">Endurance Testing</a>
+<a href="reliability-testing.html">Reliability Testing</a>
+<a href="monkey-testing.html">Monkey Testing</a>
+<a href="agile-testing.html">Agile Testing</a>
+<a href="component-testing.html">Component Testing</a>
+<a href="gui-testing.html">GUI Testing</a>
+<a href="test-strategy.html">Test Strategy</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing Tools</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-tools.html">Software testing tools</a>
+<a href="test-management-tool.html">Test management tools</a>
+<a href="defect-or-bug-tracking-tool.html">Defect/Bug tracking tools</a>
+<a href="automation-testing-tool.html">Automation testing tools</a>
+<a href="performance-testing-tools.html">Performance testing tools</a>
+<a href="cross-browser-testing-tools.html">Cross-browser testing tools</a>
+<a href="integration-testing-tools.html">Integration testing tools</a>
+<a href="unit-testing-tools.html">Unit testing tools</a>
+<a href="mobile-testing-tools.html">Mobile Testing Tools</a>
+<a href="gui-testing-tools.html">GUI testing tools</a>
+<a href="security-testing-tools.html">Security testing tools</a>
+<a href="penetration-testing-tools.html">Penetration Testing Tools</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="automation-testing-vs-manual-testing.html">Automation Testing vs Manual Testing</a>
+<a href="load-testing-vs-stress-testing.html">Load Testing vs Stress Testing</a>
+<a href="smoke-testing-vs-sanity-testing.html">Smoke Testing vs Sanity Testing</a>
+<a href="system-testing-vs-acceptance-testing.html">System Testing vs Acceptance Testing</a>
+<a href="difference-between-quality-assurance-and-quality-control.html">Quality Assurance vs Quality Control</a>
+<a href="static-testing-vs-dynamic-testing.html">Static Testing vs Dynamic Testing</a>
+<a href="verification-and-validation-testing.html">Verification vs Validation Testing</a>
+<a href="alpha-testing-vs-beta-testing.html">Alpha Testing vs Beta Testing</a>
+<a href="black-box-testing-vs-white-box-testing-vs-grey-box-testing.html">Black Box vs. White Box vs. Grey Box Testing</a>
+<a href="globalization-testing-vs-localization-testing.html">Globalization Testing vs Localization Testing</a>
+<a href="test-case-vs-test-scenarios.html">Test Case vs Test Scenarios</a>
+<a href="test-plan-vs-test-strategy.html">Test Plan vs Test Strategy</a>
+<a href="boundary-value-analysis-vs-equivalence-partitioning.html">Boundary value analysis vs Equivalence partitioning</a>
+<a href="sdlc-vs-stlc.html">SDLC vs STLC</a>
+<a href="bug-vs-defect-vs-error-vs-fault-vs-failure.html">Bug vs Defect vs Error vs Fault vs Failure</a>
+<a href="testing-vs-debugging.html">Testing vs Debugging</a>
+<a href="frontend-testing-vs-backend-testing.html">Frontend Testing vs Backend Testing</a>
+<a href="hld-vs-lld.html">HLD vs LLD</a>
+<a href="brs-vs-srs.html">BRS vs SRS</a>
+<a href="positive-testing-vs-negative-testing.html">Positive Testing vs Negative Testing</a>
+<a href="top-down-vs-bottom-up-integration-testing.html">Top-Down vs Bottom-Up Integration Testing</a>
+<a href="use-case-vs-test-case.html">Use Case vs Test Case</a>
+<a href="monkey-testing-vs-gorilla-testing.html">Monkey Testing VS Gorilla Testing</a>
+<a href="stubs-vs-drivers.html">Stubs vs Drivers</a>
+<a href="component-testing-vs-unit-testing.html">Component Testing vs Unit Testing</a>
+<a href="software-testing-vs-embedded-testing.html">Software Testing vs Embedded Testing</a>
+<a href="gui-testing-vs-usability-testing.html">GUI Testing vs Usability Testing</a>
+<a href="sdet-vs-tester.html">SDET vs Tester</a>
+<a href="desktop-application-testing-vs-client-server-application-testing-vs-web-application-testing.html">Desktop Application testing vs Client-Server Application Testing vs Web Application Testing</a>
+<a href="active-testing.html">Active Testing</a>
+<a href="what-is-an-api.html">What is an API</a>
+<a href="automation-testing.html">Automation Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-mcq.html">Software Testing MCQ</a>
+<a href="software-testing-mcq-part-2.html">Software Testing MCQ Part 2</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-interview-questions.html">Software Testing Interview</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="component-testing.html">next &rarr;</a>
+<a class="next" href="monkey-testing.html">&larr; prev</a>
+</div>
+<h1 class="h1">Agile Testing</h1>
+<p>The <strong>Software Testing</strong> process contains several testing procedures and techniques that simplify the testing process and increase its efficiency.</p>
+<p>In this tutorial, we are going to understand the following topic related to specified testing known as <strong>Agile Testing</strong>, which helps us to enhance our knowledge of Agile Testing:</p>
+<ul class="points">
+<li><strong>Introduction to Agile Testing</strong></li>
+<li><strong>Principle of Agile Testing</strong></li>
+<li><strong>How is Agile Methodology used in Testing?</strong></li>
+<li><strong>Agile Testing Strategies</strong></li>
+<li><strong>Agile Testing Quadrants</strong></li>
+<li><strong>Agile Testing Life Cycle</strong></li>
+<li><strong>What are the different challenges we faced during the agile Testing?</strong></li>
+<li><strong>Advantages of Agile Testing</strong></li>
+<li><strong>Disadvantages of Agile Testing</strong></li>
+</ul>
+<h2 class="h2">Introduction to Agile Testing</h2>
+<p>Here, we are discussing another essential <a href="software-testing-tutorial.html">software testing</a> technique, which is known as <strong><em>Agile Testing</em></strong>. Agile testing follows the standards of agile software development.</p>
+<p>Agile testing is an <strong>iterative and incremental method,</strong> and the necessities, which develop during the cooperation between the <strong>customer</strong> and <strong>self-establish teams</strong>.</p>
+<p>In agile testing, the word "<strong>Agile</strong>" primarily signifies something that can be performed quickly and immediately, but also in the area of <strong>software development</strong>.</p>
+<p>The core-functional agile team implements it in order to test the software product and its several modules. The implementation of agile testing makes sure to deliver a high quality product as bugs or defects get deleted in the initial stage of the project itself.</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/agile-testing.png" alt="Agile Testing" />
+<p>Unlike the <a href="waterfall-model.html">Waterfall model</a>, Agile Testing can create at the beginning of the project with endless incorporation between development and testing. It is not a sequential but the continuous process.</p>
+<p>The agile testing process is a smart way of testing complicated software, which accepts more effective results as compared to the traditional testing procedures.</p>
+<p>In the modern days of software testing, agile testing has gained a lot of <a href="acceptance-testing.html">acceptance</a> and significance. The execution of agile testing will help us identify the initial error and elimination, giving better results in less development time and costs.</p>
+<h2 class="h2">Principles of Agile Testing</h2>
+<p>Agile Testing includes various different principles that help us to increase the productivity of our software.</p>
+<ol class="points">
+<li><strong>Constant response</strong></li>
+<li><strong>Less documentation</strong></li>
+<li><strong>Continuous Testing</strong> </li>
+<li><strong>Customer Satisfaction</strong></li>
+<li><strong>Easy and clean code</strong></li>
+<li><strong>Involvement of the entire team</strong></li>
+<li><strong>Test-Driven</strong></li>
+<li><strong>Quick feedback</strong></li>
+</ol>
+<p>For our better understanding, let's see them one by one in detail:</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/agile-testing2.png" alt="Agile Testing" />
+<p><strong>1. Constant Response</strong></p>
+<p>The implementation of Agile testing delivers a response or feedback on an ongoing basis. Therefore, our product can meet the business needs.</p>
+<p>In other words, we can say that the Product and business requirements are understood throughout the constant response.</p>
+<p><strong>2. Less Documentation</strong></p>
+<p>The execution of agile testing requires less documentation as the Agile teams or all the test engineers use a reusable specification or a checklist. And the team emphases the test rather than the secondary information.</p>
+<p><strong>3. Continuous Testing</strong> </p>
+<p>The agile test engineers execute the testing endlessly as this is the only technique to make sure that the constant improvement of the product.</p>
+<p><strong>4. Customer Satisfaction</strong></p>
+<p>In any project delivery, customer satisfaction is important as the customers are exposed to their product throughout the development process.</p>
+<p>As the development phase progresses, the customer can easily modify and update requirements. And the tests can also be changed as per the updated requirements.</p>
+<p><strong>5. Easy and clean code</strong></p>
+<p>When the bugs or defects occurred by the agile team or the testing team are fixed in a similar iteration, which leads us to get the easy and clean code.</p>
+<p><strong>6. Involvement of the entire team</strong></p>
+<p>As we know that, the testing team is the only team who is responsible for a testing process in the <a href="software-development-life-cycle.html">Software Development Life Cycle</a>. But on the other hand, in agile testing, the <a href="business-analyst.html">business analysts (BA)</a> and the developers can also test the application or the software.</p>
+<p><strong>7. Test-Driven</strong></p>
+<p>While doing the agile testing, we need to execute the testing process during the implementation that helps us to decrease the development time. However, the testing is implemented after implementation or when the software is developed in the traditional process.</p>
+<p><strong>8. Quick response</strong></p>
+<p>In each iteration of agile testing, the business team is involved. Therefore, we can get continuous feedback that helps us to reduces the time of feedback response on development work.</p>
+<h2 class="h2">How is Agile Methodology used in Testing?</h2>
+<p>Agile Testing is a fast and informal testing process. In simple terms, we can say that it is specified as an advanced and <strong>dynamic type of Testing</strong> that is performed regularly throughout every iteration of the <strong>SDLC (Software Development Life Cycle)</strong> by the agile test engineers.</p>
+<p>If we deliver the software quickly with the best of the attributes, and the customer satisfaction is the primary concern at some stage in the agile testing process.</p>
+<h2 class="h2">Agile Testing Methodologies</h2>
+<p>When we are executing the agile testing, the team takes help from several agile methodologies, which support them in accomplishing the precise results.</p>
+<p>Some of the effective agile testing methodologies are as follows:</p>
+<ul class="points">
+<li><strong>Test-Driven Development (TDD)</strong></li>
+<li><strong>Behavior Driven Development (BDD)</strong></li>
+<li><strong>Exploratory Testing</strong></li>
+<li><strong>Acceptance Test-Driven Development (ATDD)</strong></li>
+<li><strong>Extreme Programming (XP)</strong></li>
+<li><strong>Session-Based Testing</strong></li>
+<li><strong>Dynamic Software Development Method (DSDM)</strong></li>
+<li><strong>Crystal Methodologies</strong></li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/agile-testing3.png" alt="Agile Testing" />
+<h3 class="h3">Test-Driven Development (TDD)</h3>
+<p>The test-driven development method begins with the test itself. As the name proposes, the TDD varies upon the repetition of the development cycle.</p>
+<p>We already knew that the first step in of development cycle is to create <strong>a unit test case.</strong> And in the next step, we will be designing the code that fits the test case in order to execute the test cases.</p>
+<p>Hence, the whole code is designed until the unit test passes. Generally, the test-driven development is executed by using the automated testing tools and implement on units and components of the code.</p>
+<h3 class="h3">Behavior-Driven Development (BDD)</h3>
+<p>The following method in agile testing is <strong>behavior-driven development</strong>. The BDD enhances the communication between the project stakeholders to facilitate the members adequately and understood all the components before the development process begins.</p>
+<p>It is constructed on the same rules as TDD and ATDD. Therefore, the code is developed as per the test case designed in this testing methodology too.</p>
+<p>The primary purpose of this development is to emphasize the identification of business needs and outputs. And the development should be consistent to a business output.</p>
+<p>In behavior-driven development, we need to follow the below steps:</p>
+<ol class="points">
+<li>Describe the behavior.</li>
+<li>Generating the test case.</li>
+<li>Writing code as per the test case is specified.</li>
+<li>Continuing the process until the code passes the test case.</li>
+</ol>
+<h3 class="h3">Exploratory Testing</h3>
+<p>In Software testing, <a href="exploratory-testing.html">exploratory testing</a> is one particular type where the test engineers have the fundamental freedom to explore the code and create the most effective software.</p>
+<p>In simple words, we can say that if we don't have the requirement, then we do one round of exploratory testing.</p>
+<p>Exploratory testing is a very significant part of the agile test as it helps discover the unknown risks from the software that a simple testing approach could not have noticed.</p>
+<p>To explore each aspect of the software functionality, the test engineer creates various test cases, executes different tests, and records the process to learn it and understand its particular flow.</p>
+<p>While performing the exploratory testing, we need to follow the below steps:</p>
+<ul class="points">
+<li>Exploring the application in all possible ways</li>
+<li>Understanding the flow of the application</li>
+<li>Preparing a test document</li>
+<li>Testing the application</li>
+</ul>
+<p>For more information related to the exploratory testing, refers to the following link: <a href="exploratory-testing.html">https://www.javatpoint.com/exploratory-testing</a>.</p>
+<h3 class="h3">Acceptance Test-Driven Development (ATDD)</h3>
+<p>Another methodology of agile testing is <strong>Acceptance Test-Driven Development (ATDD).</strong> The ATDD approach emphasizes the customer's requirements by involving the team members with different viewpoints.</p>
+<p>The team's members of development, testing, and the customers come together in order to develop the acceptance test from the customer's perspective.</p>
+<p>In <strong>Acceptance Test Driven Development</strong>, the code is acquired along with the developed acceptance test case.</p>
+<p>It is a very customer-centered methodology; the primary objective of using the ATDD methodology is to develop a program based on the user's view.</p>
+<h3 class="h3">Extreme Programming (XP)</h3>
+<p>The next significant agile methodology is <strong>Extreme Programming</strong> which is denoted as <strong>XP.</strong> When there is a continuous modification in the user requirements, we will go for the extreme programming methodology.</p>
+<p>Just like other agile testing methodologies, <strong>Extreme Programming</strong> is also a <strong>customer-centric</strong> methodology.</p>
+<p>The XP will help us deliver a quality product, which meets the customer's requirements that are made clear throughout the process of development and testing.</p>
+<h3 class="h3">Session-Based Testing</h3>
+<p>In the row of various agile testing methodologies, the next methodology is Session-based testing. It is mainly is created on the values of exploratory testing.</p>
+<p>Though session-based testing contains some structure and on the other hand, exploratory testing is performed unexpectedly without any planning. It is used to help us identify the hidden bugs and defects in the particular software.</p>
+<p>The session-based testing structure is prepared by executing the tests in continuous sessions where test engineers must report the tests, which took place throughout the process.</p>
+<h3 class="h3">Dynamic Software Development Method (DSDM)</h3>
+<p>Another effective method of agile testing is <strong>Dynamic Software Development Method.</strong> It is a <strong>Rapid Application Development</strong> (RAD) approach that offers a delivery framework to agile projects. </p>
+<p>In other words, we can say that the <strong>Dynamic Systems Development technique (DSDM)</strong> is a correlate degree agile code development approach, which gives a framework for developing and maintaining systems.</p>
+<p>The <strong>Dynamic Software Development Method</strong> can be used by users, development, and testing teams. </p>
+<p> </p>
+<h3 class="h3">Crystal Methodologies</h3>
+<p>The subsequent agile testing is <strong>crystal methodologies</strong>. This methodology mainly emphasizes recording, cyclic delivery, and wrap-up, which is to make sure during the various analyses.</p>
+<h2 class="h2">Agile Testing Quadrants</h2>
+<p>It has different quadrants to easily understand agile testing, which divides the whole testing process into <strong>four</strong> parts.</p>
+<p>In addition to the four quadrants, the left two specify the test engineer that code to write, and the right two quadrants help them understand the code improved with the support of response to the left quadrants.</p>
+<p>These agile testing quadrants may be understood as a traditional process or strategies to perform the end-to-end agile testing of a software application in four different stages, as we can see in the following image:</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/agile-testing4.png" alt="Agile Testing" />
+<p>Let us discuss them one by one to understand the process of agile testing:</p>
+<ol class="points">
+<li><strong>Quadrant 1 (Automated)</strong></li>
+<li><strong>Quadrant 2 (Automated and manual)</strong></li>
+<li><strong>Quadrant 3 (Manual)</strong></li>
+<li><strong>Quadrant 4 (Tools)</strong></li>
+</ol>
+<h3 class="h3">Quadrant 1 (Automated)</h3>
+<p>In the first quadrant of Agile testing, we will see mainly emphasis on the quality of the code. We can say internal code quality, which contains the test cases and test components that is executed by the test engineers.</p>
+<p>And these test cases are technology-driven and used for automation testing in order to enhance the code and support the testing team to perform their tasks.</p>
+<p>All through the first quadrant of agile testing, we can execute the following testing:</p>
+<ul class="points">
+<li>Unit Testing</li>
+<li>Component Testing</li>
+</ul>
+<h3 class="h3">Quadrant 2 (Automated and manual)</h3>
+<p>In the second quadrant of Agile testing, we will see mainly emphasis on the customer requirements given to the team before and throughout the testing procedures, which expands the business results of the newly created software.</p>
+<p>The test case involved in this second quadrant is <strong>business-driven</strong>, usually manual and automated functional tests, prototypes, and examples of test scenarios performed by the testing team.</p>
+<p>In quadrant 2, we can execute the following tests:</p>
+<ul class="points">
+<li>Testing scenarios which may occur and workflow</li>
+<li>Implementing the pair testing</li>
+<li>Testing the user story and experiences like prototypes.</li>
+</ul>
+<h3 class="h3">Quadrant 3 (Manual)</h3>
+<p>The third quadrant of agile testing primarily emphasizes the response for the previous two phases (<strong>Quadrant 1 and Quadrant 2</strong>).</p>
+<p>The execution of agile testing involves many iterations. And in this quadrant, these reviews and responses of the particular iterations are sustained that helps to strengthen the code.</p>
+<p>To test the user experience and determine business results allows the testing team to learn as the test develops.</p>
+<p>The team, business owners, and even customers realistically use the product. In the third quadrant, the test cases have been designed to implement automation testing, which helps us develop certainty in the particular product.</p>
+<p>In quadrant 3, below types of testing can be executed:</p>
+<ul class="points">
+<li><strong>Usability testing</strong></li>
+<li><strong>Collaborative testing</strong></li>
+<li><strong>Exploratory testing</strong></li>
+<li><strong>User acceptance testing</strong></li>
+<li><strong>Pair testing with customers</strong></li>
+</ul>
+<h3 class="h3">Quadrant 4 (Tools)</h3>
+<p>The last and fourth Quadrant of agile testing primarily emphasizes the product's non-functional requirements, including compatibility, performance, security, and constancy. </p>
+<p>In other words, we can say that the fourth Quadrant ensures that the code fulfils all the non-functional requirements.</p>
+<p>Like other Quadrants, various types of testing are performed in quadrant 4 to deliver the non-functional qualities and the expected value.</p>
+<ul class="points">
+<li><strong>Non-functional testing such as Stress testing, performance testing</strong>, and <strong>load testing, etc.</strong></li>
+<li>Scalability testing</li>
+<li><strong>Security Testing</strong></li>
+<li><strong>Data Migration Testing</strong></li>
+<li>Infrastructure testing</li>
+</ul>
+<h2 class="h2">Agile Test Plan</h2>
+<p>As compared to the waterfall model, the agile test plan is created and updated for every release. Furthermore, the agile test plan contains those types of testing executed in a specific iteration, such as test environments, test data requirements, test results, and infrastructure.</p>
+<p>The agile test plans emphasize the following:</p>
+<ul class="points">
+<li><strong>Testing Scope:</strong> The testing scope specifies the sprint goals, test scope, and test coverage in which the test will be implemented.</li>
+<li><strong>Performance and Load Testing:</strong> Here, it specifies the different testing methods and procedures.</li>
+<li><strong>Types of testing or levels as per the feature's complexity</strong>: It defines those types of testing or levels of testing which are going to be used. And also specifies the data and configurations for the test and the environment in which the test will be executed.</li>
+<li><strong>Mitigation or Risks Plan:</strong> It defines the backup plan prepared to overcome the risks or issues. And it also identifies the challenges which might face at the time of testing of the application in the current release.</li>
+<li><strong>Deliverables and Milestones:</strong> It sets the deliverables and milestones of the tests as per the customer's perspective.</li>
+<li><strong>Infrastructure Consideration:</strong> It governs the infrastructure which is required to perform the tests.</li>
+<li><strong>Resourcing:</strong> It lists out the test tasks and the occurrence of tests, which defines how many times the tests will be executed.</li>
+<li><strong>Establish the New functionalities</strong> which are being tested.</li>
+</ul>
+<h2 class="h2">Agile Testing Strategies</h2>
+<p>Agile testing has four different approaches, which help us to enhance our product quality.</p>
+<ol class="points">
+<li><strong>Iteration 0</strong></li>
+<li><strong>Construction iteration</strong></li>
+<li><strong>Release End Game or Transition Phase</strong></li>
+<li><strong>Production</strong></li>
+</ol>
+<p>Let us discuss them one by one in detail:</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/agile-testing5.png" alt="Agile Testing" />
+<h3 class="h3">1. Iteration 0</h3>
+<p>The first strategy or approach of agile testing is <strong>iteration 0.</strong> In this, we execute the preliminary setup tasks such as <strong>finding people for testing, establishing testing tools, preparing resources or usability testing lab, etc.</strong></p>
+<p>In Iteration 0, the below steps are accomplished:</p>
+<ul class="points">
+<li>Verifying a business case for the project and boundary situations, and the project scope.</li>
+<li>Summarise the important requirements and use cases that will determine the strategic trade-offs.</li>
+<li>Plan the initial project and cost valuation</li>
+<li>Detecting the risk.</li>
+<li>Outline one or more candidate designs</li>
+</ul>
+<h3 class="h3">2. Construction Iteration</h3>
+<p>The next strategy of agile testing is <strong>Construction Iteration</strong>. During this approach, the majority of the testing is performed.</p>
+<p>The construction iteration is performed as a set of iterations in order to create an increment of the solution. </p>
+<p>In simple words, we can say that the agile team follows the listed requirement within each iteration where they can acquire the most significant business needs or requirements left behind from the work item stack and then execute them.</p>
+<p>The construction iteration process divided into the following two types of testing:</p>
+<ul class="points">
+<li><strong>Confirmatory Testing</strong></li>
+<li><strong>Investigative Testing</strong></li>
+</ul>
+<p><strong>1. Confirmatory Testing</strong></p>
+<p>To ensure that the product meets all the stakeholders' requirements, we will execute the confirmatory testing.</p>
+<p>Confirmatory testing can be further separated into another two types of testing, which are as follows:</p>
+<ul class="points">
+<li><strong>Agile Acceptance Testing</strong></li>
+<li><strong>Developer Testing</strong></li>
+</ul>
+<p><strong>Agile Acceptance Testing:</strong> It is a combination of <a href="functional-testing.html">functional testing</a> and <a href="acceptance-testing.html">acceptance testing</a>. The agile acceptance testing can be executed by the development team and stakeholders together.</p>
+<p><strong>Developer Testing:</strong> It is a combination of <a href="unit-testing.html">unit testing</a> and <a href="integration-testing.html">integration testing</a>. And it validates both the application code as well as the database schema.</p>
+<h4 class="n">Note: We can automate both (agile acceptance testing and developer testing) to ensures that continuous regression testing has occurred.</h4>
+<p><strong>2. Investigative Testing</strong></p>
+<p>In order to test deep and identify all the issues, which are overlooked in <strong>confirmatory testing,</strong> we will execute the <strong>investigative testing.</strong></p>
+<h3 class="h3">3. Release End Game or Transition Phase</h3>
+<p>The third approach of agile testing is <strong>release</strong>. The objective of this specific approach is to implement our system effectively in production.</p>
+<p>The test engineer will be working on its defect stories in the end game. In the release end game or transition stage, we have the following activities:</p>
+<ul class="points">
+<li>Support Individuals</li>
+<li>Training of end-users</li>
+<li>Operational People</li>
+</ul>
+<p>Similarly, it involves some additional activities as well:</p>
+<ul class="points">
+<li>Back-up and Restoration</li>
+<li>Marketing of the product release</li>
+<li>User documentation</li>
+<li>Completion of system</li>
+</ul>
+<p>The last agile methodology testing stage encompasses whole system testing and acceptance testing. To complete our final testing phase without having any difficulties, we should have to test the product more thoroughly in construction iterations.</p>
+<h3 class="h3">4. Production</h3>
+<p>The product will move on to the <strong>production stage</strong> as soon as the <strong>release stage</strong> is completed.</p>
+<h2 class="h2">What are the different challenges we faced during the agile testing?</h2>
+<p>Generally, while performing agile testing, a testing team may face some challenges. Let see those challenges all together for our better understanding:</p>
+<ul class="points">
+<li><strong>Last-minute modification</strong></li>
+<li><strong>Tools selection</strong></li>
+<li><strong>Lack of documentation</strong></li>
+<li><strong>Repeated modifications in the code</strong></li>
+<li><strong>Limited test coverage</strong></li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/agile-testing6.png" alt="Agile Testing" />
+<ul class="points">
+<li><strong>Last-minute Modification</strong></li>
+</ul>
+<p>The most faced challenges during the agile testing are last-minute modifications by the client, which gives significantly less time to the testing team to design the test plan, which may affect the product quality. And sometimes, the test engineer is often required to play a semi-developer role.</p>
+<ul class="points">
+<li><strong>Tools Selection</strong></li>
+</ul>
+<p>The selection of tools during agile testing is essential because if we select the wrong tool, it will waste our time as well as money.</p>
+<p>As we already knew, the Test execution cycles are highly reduced, and for the regression testing, we will have minimal timing.</p>
+<ul class="points">
+<li><strong>Lack of Documentation</strong></li>
+</ul>
+<p>Another frequently faced challenge while executing agile testing is the lack of documentation. The probabilities of error are more agile as documentation is given less importance and ultimately puts more burden on the testing team.</p>
+<ul class="points">
+<li><strong>Repeated Modifications in the code</strong></li>
+</ul>
+<p>In an agile method, requirement modification and updation are fundamental, making it the major challenge for the Quality assurance team.</p>
+<ul class="points">
+<li><strong>Limited Test Coverage</strong></li>
+</ul>
+<p>In agile testing, new features are initiated quickly, decreasing the available time for the testing teams to find whether the latest features are as per the requirement and address the business suits.</p>
+<p>After seeing all the frequent challenges, the question arises how do we overcome them? Therefore, in the below topic, we are going to discuss that:</p>
+<h3 class="h3">How do we overcome Agile testing challenges?</h3>
+<p>As we understood from the definition of Agile Testing, it comprises less or no documentation, which creates problems for the testing team to predict the expected results and becomes the obstacle in the testing process.</p>
+<p>And it also makes it challenging to choose the direction and path of the testing to be performed. Hence, to overcome the agile testing challenges, we can implement the following best options:</p>
+<ul class="points">
+<li>We can execute the Exploratory Testing to conquer the agile testing challenges.</li>
+<li>We can perform the automated unit tests to speed up the agile testing process.</li>
+<li>Test-Driven Development could be a good option in order to overcome the agile testing challenges.</li>
+<li>Furthermore, we can overcome these issues or challenges with the help of the agile testing specification and make sure to perform improved and qualitative Testing in a guided way.</li>
+<li>We can implement automated Regression Testing.</li>
+</ul>
+<h2 class="h2">Agile Testing life cycle</h2>
+<p>Just like other types of testing has their life cycle process, Agile Testing life cycle completed into five different phases, as we can see in the following image:</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/agile-testing7.png" alt="Agile Testing" />
+<p>Let understand all the phases in detail:</p>
+<h3 class="h3">Phase1: Impact Assessment</h3>
+<p>The first phase of the Agile testing life cycle is <strong>Impact assessment.</strong> Here, we collect the inputs and responses from users and stakeholders to execute the impact assessment phase. This phase is also known as the feedback phase, which supports the test engineers to set the purpose for the next life cycle.</p>
+<h3 class="h3">Phase2: Agile Testing Planning</h3>
+<p>The second phase of the Agile testing life cycle is <strong>agile testing planning</strong>. In this phase, the developers, test engineers, stakeholders, customers, and end-users team up to plan the testing process schedules, regular meetings, and deliverables.</p>
+<h3 class="h3">Phase3: Release Readiness</h3>
+<p>The next phase of the Agile testing life cycle is <strong>release readiness</strong>, where test engineers have to review the features which have been created entirely and test if they are ready to go live or not and which ones need to go back to the previous development phase.</p>
+<h3 class="h3">Phase4: Daily Scrums </h3>
+<p><strong>Daily scrums</strong> are the next phase of the Agile testing life cycle, which involves the daily morning meetings to check on testing and determine the objectives for the day.</p>
+<p>And, in order to help the test engineers to understand the status of testing, the goals and targets of the day are set daily.</p>
+<h3 class="h3">Phase5: Test Agility Review</h3>
+<p>The last and final phase of the Agile life cycle is the <strong>test agility review.</strong> The test agility phase encompasses the weekly meetings with the stakeholders to evaluate and assess the progress against goals.</p>
+<p>In other words, we can say that the agility reviews are implemented regularly in the development process to analyze the progress of the development.</p>
+<h2 class="h2">Advantages of Agile Testing</h2>
+<p>For the past few years, Agile software testing has been a significant part of the IT field. Here, we are discussing some essential benefits of Agile testing:</p>
+<ul class="points">
+<li>Agile testing gives way to get regular <strong>feedback</strong> and reviews directly from the end-user, which helps us enhance the software product's quality and attribute.</li>
+<li>The implementation of agile testing will save lots of <strong>time</strong> and <strong>money,</strong> making the estimation of cost more transparent.</li>
+<li>Through daily meetings, we can determine better issues.</li>
+<li>Agile testing reduces <strong>documentation</strong>, or we can say it requires less documentation to execute the agile testing.</li>
+<li>The most significant advantage of implementing Agile software testing is reducing errors and enhancing software productivity.</li>
+<li>As we understood from the above discussion, the workload is divided into small parts in agile software development and restricts the developer from going off the track. And in the results, we will get more minor inconsistencies and higher efficiency.</li>
+</ul>
+<h2 class="h2">Disadvantage of Agile Testing</h2>
+<p>Agile testing is a creative method to test the software application, but still, we have some disadvantages of using Agile Testing:</p>
+<ul class="points">
+<li>The most significant disadvantage of agile testing is that if two or more members leave a job, it will lead to project failure.</li>
+<li>Determination is needed while performing any testing to test the application or the software and becomes inconsistent for the testing team.</li>
+<li>It makes it difficult for us to predict expected results because there are no or fewer documentation results into explicit conditions and requirements.</li>
+<li>Sometimes, it leads us to introduce new bugs in the system because the bug fixes, modifications, and releases repeatedly happen in agile testing.</li>
+</ul>
+<h2 class="h2">Overview</h2>
+<p>In this tutorial, we have seen the in-depth knowledge of agile testing like <strong>Principle of Agile Testing, Strategies, Quadrants, agile testing life cycle, different challenges we faced during the agile testing, and Advantages/ Disadvantages of Agile Testing.</strong></p>
+<p>After understanding all the topic mentioned earlier, we can say that Agile testing is one of the best approaches for the present-day software as this software are highly complex and demand comprehensive testing.</p>
+<p>It allows the test engineer to be flexible and able to encompassing any requirement modification.</p>
+<p>Agile testing is becoming very famous among significant software development organizations as it a very customer-centric one that ensures a high-quality product.</p>
+<p>The execution of agile testing requires the involvement of customers, a high level of communication among the developers, test engineers as they all are working together in order to test the particular software.</p>
+<p>And in a result, we can deliver a better quality of software that fulfils the customer and user expectations.</p>
+<p>In software testing, the agile methodology encompasses testing as soon as possible in the <strong>Software Development Life Cycle.</strong></p>
+<p>At last, we can say that the communication among the teams (development team, testing team, customers) plays an essential role in making the agile testing successful.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="component-testing.html">Component Testing</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="monkey-testing.html">&larr; prev</a>
+<a style="float:right" class="next" href="component-testing.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d2b4b7b7b6b0b3b1b992b8b3a4b3a6a2bdbbbca6fcb1bdbf">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/agile-testing"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/agile-testing"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/agile-testing"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+ </a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="5c342e1c363d2a3d282c33353228723f3331">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="365e44765c5740574246595f58421855595b18">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/agile-testing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:39:45 GMT -->
+</html> 

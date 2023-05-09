@@ -1,0 +1,1195 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/linear-equations-in-discrete-mathematics by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:04:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Linear Equations in Discrete mathematics - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Linear Equations in Discrete mathematics - javatpoint" /><meta property="og:description" content="Linear Equations in Discrete mathematics with introduction, sets theory, types of sets, set operations, algebra of sets, multisets, induction, relations, functions and algorithms etc." />
+<meta name="keywords" content="discrete mathematics, tutorial, dms, introduction, sets, sets theory, types of sets, set operations, algebra of sets, multisets, mathematical induction, relations, functions and algorithms, recursively, logic and propositional calculus, techniques of counting, probability, graphs" /><meta name="description" content="Linear Equations in Discrete mathematics with introduction, sets theory, types of sets, set operations, algebra of sets, multisets, induction, relations, functions and algorithms etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="linear-equations-in-discrete-mathematics.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Linear Equations in Discrete mathematics - javatpoint" /><meta name="twitter:description" property="og:description" content="Linear Equations in Discrete mathematics with introduction, sets theory, types of sets, set operations, algebra of sets, multisets, induction, relations, functions and algorithms etc." /><meta property="og:url" content="linear-equations-in-discrete-mathematics.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="dbms-tutorial.html">DBMS</a></li>
+<li><a href="data-structure-tutorial.html">DS</a></li>
+<li><a href="discrete-mathematics-tutorial.html" class="selected">DMS</a></li>
+<li><a href="daa-tutorial.html">DAA</a></li>
+<li><a href="graph-theory.html">Graph Theory</a></li>
+<li><a href="control-system-tutorial.html">Control System</a></li>
+<li><a href="aptitude/quantitative.html">Aptitude</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="kotlin-tutorial.html">Kotlin</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Discrete Mathematics</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-tutorial.html">Discrete Mathematics</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Sets Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/sets-introduction">Sets Introduction</a>
+<a href="types-of-sets.html">Types of Sets</a>
+<a href="sets-operations.html">Sets Operations</a>
+<a href="algebra-of-sets.html">Algebra of Sets</a>
+<a href="multisets.html">Multisets</a>
+<a href="inclusion-exclusion-principle.html">Inclusion-Exclusion Principle</a>
+<a href="mathematical-induction.html">Mathematical Induction</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Relations</span></h2>
+</div>
+<div class="leftmenu">
+<a href="binary-relation.html">Binary Relation</a>
+<a href="representation-of-relations.html">Representation of Relations</a>
+<a href="composition-of-relations.html">Composition of Relations</a>
+<a href="types-of-relations.html">Types of Relations</a>
+<a href="closure-properties-of-relations.html">Closure Properties of Relations</a>
+<a href="equivalence-relations.html">Equivalence Relations</a>
+<a href="partial-ordering-relations.html">Partial Ordering Relations</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Functions &amp; Algorithms</span></h2>
+</div>
+<div class="leftmenu">
+<a href="functions.html">Functions</a>
+<a href="types-of-functions.html">Types of Functions</a>
+<a href="identity-functions.html">Identity Functions</a>
+<a href="compositions-of-functions.html">Composition of Functions</a>
+<a href="mathematical-functions.html">Mathematical Functions</a>
+<a href="algorithms-and-functions.html">Algorithms &amp; Functions</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Logic &amp; Propositional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="propositions-and-compound-statements.html">Propositions &amp; Compound Statements</a>
+<a href="basic-logical-operations.html">Basic Logical Operations</a>
+<a href="conditional-and-biconditional-statements.html">Conditional &amp; Biconditional Statements</a>
+<a href="tautologies-and-contradiction.html">Tautologies &amp; Contradictions</a>
+<a href="predicate-logic.html">Predicate Logic</a>
+<a href="normal-forms.html">Normal Forms</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Counting Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="basic-counting-principles.html">Basic Counting Principles</a>
+<a href="permutation-and-combinations.html">Permutations &amp; Combinations</a>
+<a href="pigeonhole-principle.html">Pigeonhole Principle</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Recurrence Relations</span></h2>
+</div>
+<div class="leftmenu">
+<a href="recurrence-relations.html">Recurrence Relations</a>
+<a href="linear-recurrence-relations-with-constant-coefficients.html">Linear Recurrence Relations with Constant Coefficients</a>
+<a href="particular-solution.html">Particular Solution</a>
+<a href="total-solution.html">Total Solution</a>
+<a href="https://www.javatpoint.com/generating-functions">Generating Functions</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Probability Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="probability.html">Probability</a>
+<a href="addition-theorem.html">Addition Theorem</a>
+<a href="multiplication-theorem.html">Multiplication Theorem</a>
+<a href="conditional-probability.html">Conditional Probability</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Graph Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="introduction-of-graphs.html">Introduction of Graphs</a>
+<a href="types-of-graphs.html">Types of Graphs</a>
+<a href="representation-of-graphs.html">Representation of Graphs</a>
+<a href="isomorphic-and-homeomorphic-graphs.html">Isomorphic and Homeomorphic Graphs</a>
+<a href="regular-and-bipartite-graphs.html">Regular and Bipartite Graphs</a>
+<a href="planar-and-non-planar-graphs.html">Planar and Non-Planar Graphs</a>
+<a href="discrete-mathematics-dijkstras-algorithm.html">Dijkstra's Algorithm</a>
+<a href="discrete-mathematics-travelling-salesman-problem.html">Travelling Salesman Problem</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Binary Trees</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-introduction-of-trees.html">Introduction of Trees</a>
+<a href="discrete-mathematics-binary-trees.html">Binary Trees</a>
+<a href="discrete-mathematics-traversing-binary-trees.html">Traversing Binary Trees</a>
+<a href="discrete-mathematics-binary-search-trees.html">Binary Search Trees</a>
+<a href="discrete-mathematics-minimum-spanning-tree.html">Minimum Spanning Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Operator &amp; Postulates</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-binary-operation.html">Binary Operation</a>
+<a href="discrete-mathematics-properties-of-binary-operations.html">Property of Binary Operations</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Group Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-semigroup.html">SemiGroup</a>
+<a href="discrete-mathematics-group.html">Group</a>
+<a href="discrete-mathematics-subgroup.html">SubGroup</a>
+<a href="discrete-mathematics-normal-subgroup.html">Normal Subgroup</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Ordered Sets &amp; Lattices</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-partially-ordered-sets.html">Partially Ordered Sets</a>
+<a href="discrete-mathematics-hasse-diagrams.html">Hasse Diagrams</a>
+<a href="discrete-mathematics-lattices.html">Lattices</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Boolean Algebra</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-boolean-algebra.html">Boolean Algebra</a>
+<a href="discrete-mathematics-boolean-expression.html">Boolean Expression</a>
+<a href="discrete-mathematics-canonical-forms.html">Canonical Forms</a>
+<a href="discrete-mathematics-logic-gates-and-circuits.html">Logic Gates &amp; Circuits</a>
+<a href="discrete-mathematics-karnaugh-maps.html">Karnaugh Maps</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="proof-of-de-morgans-law.html">Proof of De Morgan's Law</a>
+<a href="discrete-mathematics-for-computer-science.html">Discrete mathematics for Computer Science</a>
+<a href="abelian-groups-in-discrete-mathematics.html">Abelian Groups in Discrete Mathematics</a>
+<a href="applications-of-discrete-mathematics-in-computer-science.html">Applications of Discrete Mathematics in Computer Science</a>
+<a href="rings-in-discrete-mathematics.html">Rings in Discrete Mathematics</a>
+<a href="order-of-group-in-discrete-mathematics.html">Order of Group in Discrete Mathematics</a>
+<a href="principle-of-duality-in-discrete-mathematics.html">Principle of Duality in Discrete Mathematics</a>
+<a href="atomic-propositions-in-discrete-mathematics.html">Atomic Propositions in Discrete Mathematics</a>
+<a href="applications-of-tree-in-discrete-mathematics.html">Applications of Tree in Discrete Mathematics</a>
+<a href="quantifiers-in-discrete-mathematics.html">Quantifiers</a>
+<a href="algebraic-structure-in-discrete-mathematics.html">Algebraic Structure</a>
+<a href="counting-principle.html">Counting principle</a>
+<a href="bijective-function-in-discrete-mathematics.html">Bijective Function in Discrete Mathematics</a>
+<a href="multinomial-theorem.html">Multinomial Theorem</a>
+<a href="lagranges-mean-value-theorem.html">Lagrange's Mean Value Theorem</a>
+<a href="cauchys-mean-value-theorem.html">Cauchy's Mean Value Theorem</a>
+<a href="rolles-mean-value-theorem.html">Rolle's Mean Value Theorem</a>
+<a href="semantic-difference-between-set-and-type.html">Semantic difference between Set and Type</a>
+<a href="application-of-group-theory-in-discrete-mathematics.html">Application of Group Theory in Discrete Mathematics</a>
+<a href="directed-and-undirected-graph-in-discrete-mathematics.html">Directed and Undirected graph in Discrete Mathematics</a>
+<a href="bayes-formula-for-conditional-probability.html">Bayes Formula for Conditional probability</a>
+<a href="function-vs-relation-in-discrete-mathematics.html">Difference between Function and Relation in Discrete Mathematics</a>
+<a href="recursive-functions-in-discrete-mathematics.html">Recursive functions in discrete mathematics</a>
+<a href="arguments-in-discrete-mathematics.html">Arguments in Discrete Mathematics</a>
+<a href="elementary-matrix-in-discrete-mathematics.html">Elementary Matrix in Discrete Mathematics</a>
+<a href="hypergeometric-distribution-in-discrete-mathematics.html">Hypergeometric Distribution in Discrete Mathematics</a>
+<a href="regular-grammar-in-discrete-mathematics.html">Regular Grammar in Discrete Mathematics</a>
+<a href="prime-number-in-discrete-mathematics.html">Prime Number in Discrete Mathematics</a>
+<a href="peano-axioms-number-system-discrete-mathematics.html">Peano Axioms Number System Discrete Mathematics</a>
+<a href="problems-of-monomorphism-and-epimorphism-in-discrete-mathematics.html">Problems of Monomorphism and Epimorphism in Discrete mathematics</a>
+<a href="properties-of-set-in-discrete-mathematics.html">Properties of Set in Discrete mathematics</a>
+<a href="principal-ideal-domain-in-discrete-mathematics.html">Principal Ideal Domain in Discrete mathematics</a>
+<a href="probable-error-formula-for-discrete-mathematics.html">Probable error formula for discrete mathematics</a>
+<a href="hypergraph-and-its-representation-in-discrete-mathematics.html">HyperGraph & its Representation in Discrete Mathematics</a>
+<a href="hashing-function-in-discrete-mathematics.html">Hashing Function in Discrete mathematics</a>
+<a href="doolittle-algorithm-lu-decomposition.html">Doolittle Algorithm: LU Decomposition</a>
+<a href="rsa-encryption-in-discrete-mathematics.html">RSA Encryption in Discrete Mathematics</a>
+<a href="introduction-to-mojette-transform.html">Introduction to Mojette Transform</a>
+<a href="negation-in-discrete-mathematics.html">Negation in Discrete mathematics</a>
+<a href="hamiltonian-graph-in-discrete-mathematics.html">Hamiltonian Graph in Discrete mathematics</a>
+<a href="relationship-between-number-of-nodes-and-height-of-binary-tree.html">Relationship between number of nodes and height of binary tree</a>
+<a href="independent-events-in-probability.html">Independent events in Probability</a>
+<a href="repeated-trials-in-probability.html">Repeated Trials in probability</a>
+<a href="betweenness-centrality.html">Betweenness Centrality</a>
+<a href="inference-theory-in-discrete-mathematics.html">Inference theory in discrete mathematics</a>
+<a href="https://www.javatpoint.com/tautology-in-discrete-mathematics">Tautology in Discrete Mathematics</a>
+<a href="walks-trails-path-circuit-and-cycle-in-discrete-mathematics.html">Walks, Trails, Path, Circuit and Cycle in Discrete mathematics</a>
+<a href="associative-law-in-discrete-mathematics.html">Associative Law in Discrete Mathematics</a>
+<a href="conjunction-in-discrete-mathematics.html">Conjunction in Discrete Mathematics</a>
+<a href="distributive-law-of-multiplication.html">Distributive Law of Multiplication</a>
+<a href="proof-by-contradiction-in-discrete-mathematics.html">Proof by Contradiction in Discrete mathematics</a>
+<a href="chromatic-number-of-graphs-graph-coloring-in-graph-theory.html">Chromatic Number of graphs</a>
+<a href="how-to-find-chromatic-number-graph-coloring-algorithm.html">How to find Chromatic Number</a>
+<a href="chromatic-polynomial-in-discrete-mathematics.html">Chromatic Polynomial in Discrete mathematics</a>
+<a href="identity-function-in-discrete-mathematics.html">Identity Function in Discrete mathematics</a>
+<a href="injective-function-in-discrete-mathematics.html">Injective Function in Discrete mathematics</a>
+<a href="many-to-one-function-in-discrete-mathematics.html">Many to one function in Discrete Mathematics</a>
+<a href="surjective-function-in-discrete-mathematics.html">Surjective Function in Discrete Mathematics</a>
+<a href="inverse-function-in-discrete-mathematics.html">Inverse Function in Discrete mathematics</a>
+<a href="sampling-and-inference.html">Sampling and Inference</a>
+<a href="constant-function-in-discrete-mathematics.html">Constant Function in Discrete Mathematics</a>
+<a href="graphing-functions-in-discrete-mathematics.html">Graphing Functions in Discrete mathematics</a>
+<a href="continuous-functions-in-discrete-mathematics.html">Continuous Functions in Discrete mathematics</a>
+<a href="linear-function-in-discrete-mathematics.html">Linear Function in Discrete mathematics</a>
+<a href="complement-of-graph-in-discrete-mathematics.html">Complement of Graph in Discrete mathematics</a>
+<a href="graph-isomorphism-in-discrete-mathematics.html">Graph isomorphism in Discrete Mathematics</a>
+<a href="euler-graph-in-discrete-mathematics.html">Euler Graph in Discrete Mathematics</a>
+<a href="planer-graph-in-discrete-mathematics.html">Planer Graph in Discrete Mathematics</a>
+<a href="bipartite-graph-in-discrete-mathematics.html">Bipartite Graph in Discrete mathematics</a>
+<a href="handshaking-theory-in-discrete-mathematics.html">Handshaking Theory in Discrete mathematics</a>
+<a href="konigsberg-bridge-problem-in-discrete-mathematics.html">Konigsberg Bridge Problem in Discrete mathematics</a>
+<a href="what-is-incidence-matrix-in-discrete-mathematics.html">What is Incidence matrix in Discrete mathematics</a>
+<a href="implication-in-discrete-mathematics.html">Implication in Discrete mathematics</a>
+<a href="incident-coloring-in-discrete-mathematics.html">Incident coloring in Discrete mathematics</a>
+<a href="biconditional-statement-in-discrete-mathematics.html">Biconditional Statement in Discrete Mathematics</a>
+<a href="in-degree-and-out-degree-in-discrete-mathematics.html">In-degree and Out-degree in discrete mathematics</a>
+<a href="law-of-logical-equivalence-in-discrete-mathematics.html">Law of Logical Equivalence in Discrete Mathematics</a>
+<a href="graph-theory-in-discrete-mathematics.html">Graph theory in Discrete Mathematics</a>
+<a href="discrete-infinite-groups.html">Discrete Infinite Groups</a>
+<a href="independent-set-in-discrete-mathematics.html">Independent set in discrete mathematics</a>
+<a href="inverse-of-a-matrix-in-discrete-mathematics.html">Inverse of a Matrix in Discrete mathematics</a>
+<a href="inverse-property-in-discrete-mathematics.html">Inverse property in Discrete mathematics</a>
+<a href="irrational-number-in-discrete-mathematics.html">Irrational Number in Discrete mathematics</a>
+<a href="linear-graph-in-discrete-mathematics.html">Linear Graph in Discrete Mathematics</a>
+<a href="linear-equations-vs-non-linear-equations.html">Difference between the Linear equations and Non-linear equations</a>
+<a href="lagrange-theorem-in-discrete-mathematics.html">Lagrange Theorem in Discrete mathematics</a>
+<a href="linear-equations-in-discrete-mathematics.html">Linear Equations in Discrete mathematics</a>
+<a href="limitation-and-propositional-logic-and-predicates.html">Limitation and Propositional Logic and Predicates</a>
+<a href="non-linear-function-in-discrete-mathematics.html">Non-linear Function in Discrete mathematics</a>
+<a href="lexicographic-orders.html">Lexicographic Orders</a>
+<a href="graph-measurements-in-discrete-mathematics.html">Graph Measurements in Discrete Mathematics</a>
+<a href="language-and-grammar-in-discrete-mathematics.html">Language and Grammar in Discrete mathematics</a>
+<a href="logical-connectives-in-discrete-mathematics.html">Logical Connectives in Discrete mathematics</a>
+<a href="propositional-logic-in-discrete-mathematics.html">Propositional Logic in Discrete mathematics</a>
+<a href="conditional-and-bi-conditional-connectivity.html">Conditional and Bi-conditional connectivity</a>
+<a href="problems-based-on-converse-inverse-and-contrapositive.html">Problems based on Converse, inverse and Contrapositive</a>
+<a href="nature-of-propositions-in-discrete-mathematics.html">Nature of Propositions in Discrete mathematics</a>
+<a href="pdnf-and-pcnf-in-discrete-mathematics.html">PDNF and PCNF in Discrete Mathematics</a>
+<a href="linear-correlation-in-discrete-mathematics.html">Linear Correlation in Discrete mathematics</a>
+<a href="equivalence-of-formula-in-discrete-mathematics.html">Equivalence of Formula in Discrete mathematics</a>
+<a href="discrete-time-signals-in-discrete-mathematics.html">Discrete time signals in Discrete Mathematics</a>
+<a href="m-array-tree-in-discrete-mathematics.html">M-array Tree in Discrete Mathematics</a>
+<a href="matrix-in-discrete-mathematics.html">Matrix in Discrete mathematics</a>
+<a href="type-of-matrices-in-discrete-mathematics.html">Type of matrices in Discrete mathematics</a>
+<a href="column-matrix-in-discrete-mathematics.html">Column matrix in discrete mathematics</a>
+<a href="zero-matrix-in-discrete-mathematics.html">Zero matrix in Discrete mathematics</a>
+<a href="rectangular-matrix-in-discrete-mathematics.html">Rectangular matrix in Discrete mathematics</a>
+<a href="row-matrix-in-discrete-mathematics.html">Row matrix in Discrete mathematics</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DMS MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-mcq.html">Discrete Matehmatics MCQ</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="limitation-and-propositional-logic-and-predicates.html">next &rarr;</a>
+<a class="next" href="lagrange-theorem-in-discrete-mathematics.html">&larr; prev</a>
+</div>
+<h1 class="h1">Linear Equations in Discrete mathematics</h1>
+<p>An equation will be known as a linear equation if it contains the highest power of variable 1. The linear equation is also known as the one-degree equation. There is a way in which we can indicate the linear equation in one variable, i.e., Ax+B = 0. Here, A is used to indicate the coefficient, x is used to indicate the variable, and B is used to indicate the constant. There is one more way in which a linear equation that has two variables can be indicated, i.e., Ax + By = C. Here, A, and B are used to indicate the coefficient, x and y are used to indicate the variables, and C is used to indicate the constants.</p>
+<h3 class="h3">What is Linear Equation?</h3>
+<p>A linear equation can be described as an equation that contains the highest degree of 1. That means a linear equation cannot have that type of variable whose exponent is more than 1. If we draw a graph with the help of a linear equation, then it will always form a straight line.</p>
+<p><strong>For example:</strong> Suppose there is a linear equation y = 2x+1. Now we will draw a graph for this equation like this:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/linear-equations-in-discrete-mathematics.png" alt="Linear Equations in Discrete mathematics" />
+<p>As we can see that the graph of equation y = 2x+1 is a straight line. There are some points in this graph which are described as follows:</p>
+<ul class="points">
+<li>When x increases in the above graph, y increases twice as fast, so we are required 2x.</li>
+<li>When x is 0 in this graph, y is already 1. So we are also required +1.</li>
+<li>And so: y = 2x+1</li>
+</ul>
+<p>Some examples values of this graph are described as follows:</p>
+<p>X y = 2x+1</p>
+<p>-1 y = 2*(-1) + 1 = -1</p>
+<p>0 y = 2*0 + 1 = 1</p>
+<p>1 y = 2*1 + 1 = 3</p>
+<p>2 y = 2*2 + 1 = 5</p>
+<p>We can check that all these points are part of the above shown straight line.</p>
+<h3 class="h3">Definition of Linear Equation</h3>
+<p>An equation can also be known as a mathematical statement that has the ability to contain an equal sign (=) between the algebraic expression. These types of an equation must contain degree 1. It always forms a straight line when we plot it on a graph. Because of this reason, this type of equation can be called the "linear equation". There are three ways to represent the linear equation, i.e., linear equation in one variable, linear equation in two variables, and linear equation in three variables.</p>
+<p>In the process of solution of linear equations, the values will be generated, which makes the given equation true when we substitute these values for the unknown values. <strong>For example:</strong> Suppose we have an equation x+2 = 0. This equation can only provide one solution, i.e., x = -2. But if there is a linear equation in two variables, then for this, the solutions are calculated in the form of Cartesian coordinates of a point of the Euclidean plane. Now we will show some equations and identify which are a linear equation and a non-linear equation.</p>
+<table class="alt">
+<tr>
+<th>Equations</th>
+<th>Linear or Non-linear</th>
+</tr>
+<tr>
+<td>y = 8x -9</td><td>This equation is linear because it has only one degree.</td>
+</tr>
+<tr>
+<td>y = x<sup>2</sup> -7</td>
+<td>This equation is non-linear because the variable x contains the highest as 2.</td>
+</tr>
+<tr>
+<td>?y +x = 6</td>
+<td>This equation is non-linear because the power of variable y is ½.</td>
+</tr>
+<tr>
+<td>y +3x -1 = 0</td>
+<td>This equation is linear because it has only one degree.</td>
+</tr>
+<tr>
+<td>y<sup>2</sup> -x = 9</td>
+<td>This equation is non-linear because the highest power of variable y is 2.</td>
+</tr>
+</table>
+<h3 class="h3">Formula of Linear Equation</h3>
+<p>With the help of formula of linear equation, we can express a linear equation. There are many ways in which we can do this. <strong>For example:</strong> We can express the linear equation in various ways, such as in slope intercept form, standard form, or the point-slope form. Now we will learn about the way in which a linear equation can be expressed with the help of learning the standard form of the linear equation. On the basis of the number of variables in the equation, the formula of a linear equation is dependent. We should also keep in mind that the highest degree of all variables in the equation must be one.</p>
+<h3 class="h3">Form of a Linear Equation</h3>
+<p>There are various forms in which we can show a linear equation, which is described as follows:</p>
+<ol class="points">
+<li>Standard form</li>
+<li>Slope intercept form</li>
+<li>Point slope form</li>
+<li>As a function</li>
+<li>Identity function</li>
+<li>Constant function</li>
+</ol>
+<p>Now we will learn them one by one in detail like this:</p>
+<p><strong>1. Standard form of Linear equations</strong></p>
+<p>There are three ways in which we can write linear equations, i.e., one variable form and two variable forms, and three variable forms. The one variable form is also known as the standard form.</p>
+<p>The standard or general form of the linear equation can be written in the following way for one variable:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+Ax + B = 0
+</textarea></div>
+<p>Here A and B are used to indicate the real numbers, and x is used to indicate the variable.</p>
+<p>The standard form of a linear equation can be written in the following way for two variables:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+Ax + By = C
+</textarea></div>
+<p>Here, x and y are used to indicate the variables, and A, B, and C are used to indicate the real numbers or constants.</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/linear-equations-in-discrete-mathematics2.png" alt="Linear Equations in Discrete mathematics" />
+<p>The standard form of a linear equation can be written in the following way for three variables:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+Ax + By + Cz + D = 0
+</textarea></div>
+<p>Here, x, y, and z are used to indicate the variables, and A, B, C, and D are used to indicate the real numbers in such a way that A &ne; 0, B &ne; 0, and C &ne; ;0.</p>
+<p><strong>2. Slope Intercept Form</strong></p>
+<p>The slope intercept form is a type of most common form to indicate a linear equation, which is described as follows:</p>
+<p>y= mx+b</p>
+<p>Here,</p>
+<p>m is used to indicate the slope of a line</p>
+<p>x and y are used to indicate the coordinates of x-axis and y-axis, respectively.</p>
+<p>b is used to indicate the y-intercept.</p>
+<p>The slope-intercept equation of a straight line is described in the following graph:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/linear-equations-in-discrete-mathematics3.png" alt="Linear Equations in Discrete mathematics" />
+<p><strong>For example:</strong> y = 3x + 7</p>
+<p>Slope, m = 3, and intercept b = 7.</p>
+<p>If there is a straight line that is parallel to the x-axis, in this case, the x coordinates will be zero. Therefore,</p>
+<div class="codeblock"><textarea name="code" class="xml">
+y = b
+</textarea></div>
+<p>If there is a line that is parallel to the y-axis, in this case, the y coordinates will be zero.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+mx + b = 0
+x = b /m
+</textarea></div>
+<p><strong>Slope:</strong> We can determine the slope of a line with the help of calculating the ratio of change in y coordinates to the change in x coordinates. The m is used to indicate the slope. The following formula is used to calculate the slope:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+m = (y2 - y1) /(x2 - x1)
+</textarea></div>
+<p>So basically, the slope is used to indicate the rise of line in the plane as well as the distance covered on the x-axis. We can also call the slope of a line as a gradient.</p>
+<p><strong>3. Point Slope form</strong></p>
+<p>If we consider the points in the x-y plane, then we can form a straight line equation in the form of a linear equation, which is described as follows:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+y - y1 = m(x-x1)
+</textarea></div>
+<p>Where (x1, y1) are used to indicate the coordinates of the point.</p>
+<p>There is one more way to express this, which is described as follows:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+y = mx + y - mx1 
+</textarea></div>
+<p>The point-slope equation of a straight line is described in the following graph:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/linear-equations-in-discrete-mathematics4.png" alt="Linear Equations in Discrete mathematics" />
+<p><strong>4. As a function:</strong></p>
+<p>a) Sometimes, we can write the linear equation in the form of a function with the help of f(x) instead of y.</p>
+<p><strong>For example:</strong></p>
+<p>y = 5x - 9</p>
+<p>f(x) = 5x - 9</p>
+<p>Both the above equations are the same.</p>
+<p>b) We cannot always write a function with the help of f(x).</p>
+<p><strong>For example:</strong></p>
+<p>y = 5x - 9</p>
+<p>w(u) = 5u - 9</p>
+<p>h(z) = 5z - 9</p>
+<p>All the above three equations are also the same.</p>
+<p><strong>5. Identity Function</strong></p>
+<p>A linear equation contains a special type of function, which is known as the identity function. The following syntax is used to indicate the identity function, which is described as follows:</p>
+<p>f(x) = x</p>
+<p>The graph of identity function is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/linear-equations-in-discrete-mathematics5.png" alt="Linear Equations in Discrete mathematics" />
+<p>The above graph creates a 45&deg;, and its slope is 1.</p>
+<p>In the case of identity function, the in-value and out-value will always be the same. That means the value we enter as an input gets the same value as output. That's why it is known as identity.</p>
+<table class="alt">
+<tr>
+<th>In</th>
+<th>Out</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>-2</td>
+</tr>
+<tr>
+<td>....etc</td>
+<td>....etc</td>
+</tr>
+</table>
+<p><strong>6. Constant Function</strong><p>
+<p>There is one more special type of linear function, which is known as the constant function. This function always draws a horizontal line. The following syntax is used to indicate the constant function, which is described as follows:</p>
+<p>f(x) = C</p>
+<p>The graphical representation of a constant function is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/linear-equations-in-discrete-mathematics6.png" alt="Linear Equations in Discrete mathematics" />
+<p>In the constant function, the f(x) will always equal to the constant value. In this case, the value of x will not matter. It is also equal to a constant value.</p>
+<p><strong>Summary:</strong></p>
+<p>A linear equation can be written in a lot of different forms, and some of them are described as follows:</p>
+<table class="alt">
+<tr>
+<th>Linear equation</th>
+<th>General Form</th>
+<th>Example</th>
+</tr>
+<tr>
+<td>General form</td>
+<td>Ax + By + C = 0</td>
+<td>7x + 5y - 8 = 0</td>
+</tr>
+<tr>
+<td>Slope intercept form</td>
+<td>y = mx + b</td>
+<td>y + 5x = 6</td>
+</tr>
+<tr>
+<td>Point slope form</td>
+<td>Y - y1 = m(x - x1)</td>
+<td>Y -5 = 7(x - 3)</td>
+</tr>
+<tr>
+<td>Intercept form</td>
+<td>x/a + y/b = 1</td>
+<td>x/2 + y/3 = 1</td>
+</tr>
+<tr>
+<td>As a function</td>
+<td>F(x) instead of y F(x) = x + c</td>
+<td>F(x) = x + 5</td>
+</tr>
+<tr>
+<td>Constant function</td>
+<td>F(x) = C</td>
+<td>F(x) = 8</td>
+</tr>
+<tr>
+<td>Identity Function</td>
+<td>F(x) = x</td>
+<td>f(x) = 5x</td>
+</tr>
+</table>
+<p>Where m is used to indicate the slope of a line and (a, b) is used to intercept the x-axis and y-axis.</p>
+<h3 class="h3">Graph of a Linear Equation</h3>
+<p>If there is a linear equation that has one variable, then it will form a <strong>vertical line</strong> in a graph, and that type of line will be parallel to the y-axis and vice versa, whereas if there is a linear equation that has two variables, then it will form a straight line in a graph. Now we will draw a graph for a linear equation that has two variables by some examples, which are described as follows:</p>
+<p><strong>Example:</strong> Here, we will have a linear equation in two variables x - 2y = 2. We will draw a graph for this equation.</p>
+<p>We will use some steps to plot the linear equation in a graph, which is described as follows:</p>
+<p><strong>Step 1:</strong> In this step, we have a linear equation x - 2y = 2.</p>
+<p><strong>Step 2:</strong> Now, we will use the form y = mx+b and convert the given equation into this form. After converting, we will get y = x/2 -1</p>
+<p><strong>Step 3:</strong> In this step, we will replace the x's value for different numbers, and the result of these replacements will get in the form of y to create the coordinates.</p>
+<p><strong>Step 4:</strong> In this step, we will put x = 0 in the above equation y = x/2 -1. After this, we will get y = 0/2 -1, i.e., y = -1. In the same way, if we put the x's value as 2 in the same equation, then we will get y = 2/2 -1, i.e., y = 0.</p>
+<p><strong>Step 5:</strong> In this step, we will put x's value as 4 in equation y = x/2 -1. After putting this, we will get y = 4/2 -1, i.e., y = 1. Similarly, if we put the x's value as -2 in the same equation, then we will get y = -2/2 -1, i.e., y = -2. Now the linear equation y = x/2 -1 will be satisfied by these pairs of values (x, y). In the following table, we can show the list of all the coordinates.</p>
+<table class="alt">
+<tr>
+<td><strong>x</strong></td>
+<td>0</td>
+<td>2</td>
+<td>4</td>
+<td>-2</td>
+</tr>
+<tr>
+<td><strong>y</strong></td>
+<td>-1</td>
+<td>0</td>
+<td>1</td>
+<td>-2</td>
+</tr>
+</table>
+<p><strong>Step 6:</strong> In the last step, we will plot all the above points (4, 1), (2, 0), (0, -1), and (-2, -2) on the graph, and when we join them, we will get a straight line. With the help of above steps, we can show a linear equation on a graph.</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/linear-equations-in-discrete-mathematics7.png" alt="Linear Equations in Discrete mathematics" />
+<h3 class="h3">Linear Equation in One variable</h3>
+<p>A linear equation in one variable can be described as an equation that contains only a single variable. These types of equations must be in the form Ax + B = C. Here, x is used to indicate an unknown variable that contains only one solution, and A, B are used to indicate the real numbers. With the help of this way, we can easily show a mathematical statement. The linear equation always contains a degree that must be equal to 1.</p>
+<p>An equation always has two sides, and both sides must be balanced so that we can solve a linear equation. The equality sign of the equation is used to show that both sides of the expression are equal. It is very easy to solve a linear equation that contains only one variable. We can get the unknown variable's value with the help of separating the variable and constants. We will keep the variable on one side of the equation, and constants are combined and put on the other side of the equation. After that, we will perform some operations on both sides in such a way that the balance of the equation will not be affected.</p>
+<p><strong>Example 1:</strong> Here, we have to solve a linear equation that has one variable, i.e., 2x + 5 = 23.</p>
+<p><strong>Solution:</strong> We can solve this equation if we keep the variable on the LHS and numbers on the RHS. This means we will do the equation in the following way such as 2x = 23-5. Now, we will solve the value of x and get 2x = 12. Finally, we will get x's value as x = 12 /2 = 6.</p>
+<p><strong>Example 2:</strong> Here, we have to solve a linear equation that has one variable, i.e., (2x-10) /2 = 3(x-1).</p>
+<p><strong>Solution:</strong> We will solve this with the help of some steps, which are described as follows:</p>
+<p><strong>Step 1:</strong> First, we will clear the fraction like this:</p>
+<p>(2x-10) / 2 = 3(x-1)</p>
+<p>x - 5 = 3(x-1)</p>
+<p><strong>Step 2:</strong> Now, we will simplify both sides of the equation like this:</p>
+<p>x - 5 = 3x-3</p>
+<p>x = 3x+2</p>
+<p><strong>Step 3:</strong> Now, we will isolate x like this:</p>
+<p>x - 3x = 2</p>
+<p>-2x = 2</p>
+<p>x = -1</p>
+<h3 class="h3">Linear Equation in Two Variables</h3>
+<p>A linear equation in two variables can be described as an equation that contains two variables. These types of equations must be in the form Ax + By + C = 0. Here, x and y are used to indicate two variables, and each variable has degree 1, and A, B and C are used to indicate the real numbers. The value of A, B and C must not be equal to zero. If there are two such linear equations, then that equation will be known as the simultaneous linear equation. <strong>For example:</strong> 5x + 3y + 17 = 0</p>
+<p>There can be infinite numbers of solutions for a single equation. If we want to find the value of two variables, then we have to choose a set of 2 equations like Ax + By + C = 0 and Dx + Ey + F = 0. Here, A, B, C, D, E, and F are used to indicate the constants, and A, B, D, and E must not be equal to zero.</p>
+<p><strong>For example:</strong> Here, we have to solve the equations x+5y = 7 and x = y.</p>
+<p><strong>Solution:</strong> From the question, we have two equations,</p>
+<p>x+5y = 7 ?? (1)</p>
+<p>x = y ??? (2)</p>
+<p>Now we will put the value of equation 2 into equation 1 and get the following:</p>
+<p>? y+5y = 7</p>
+<p>? 6y = 7</p>
+<p>? y = 7/6</p>
+<p>? x = y = 7/6</p>
+<h3 class="h3">Linear Equation in Three variables</h3>
+<p>If we want to find the value of three unknowns, then we have to choose a set of 3 equations. We can solve the linear equation with 3 variables with the help of using one of the most popular methods, i.e., matrix method.</p>
+<p>A1x + B1y + C1z + D1 = 0</p>
+<p>A2x + B2y + C2z + D2 = 0 and</p>
+<p>A3x + B3y + C3z + D3 = 0</p>
+<p><strong>Here</strong></p>
+<p>A1, A2, A3, B1, B2, B3, C1, C2, C3, D1, D2, and D3 are used to indicate the real numbers, where A1, A2, A3, B1, B2, B3, C1, C2, C3 must not be equal to zero. Here, x, y, and z are used to indicate the variables.</p>
+<p><strong>For example:</strong> Here, we have to solve the linear equations of three variables:</p>
+<p>x+3y-2z = 10</p>
+<p>2x-y+6z = 3</p>
+<p>x+y-2z = 5</p>
+<p><strong>Solution:</strong> From the above question, we have three equations. So we can use the following matrix to write these equations like this:</p>
+<p>AX = B</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/linear-equations-in-discrete-mathematics8.png" alt="Linear Equations in Discrete mathematics" />
+<p>Now we have to find the inverse of this matrix so that we can determine the matrix X like this:</p>
+<p>X = A<sup>-1</sup>B</p>
+<p>Here we will do the determinant of matrix A like this:</p>
+<p>|A| = 1(2-6) -3(-4 - 6) -2(2+1)</p>
+<p>= -4 -3(-10) -2(3)</p>
+<p>= -4 + 30 - 6</p>
+<p>= 20</p>
+<p>Now we will determine the adjoint of matrix A like this:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/linear-equations-in-discrete-mathematics9.png" alt="Linear Equations in Discrete mathematics" />
+<p>Now A<sup>-1</sup> = (adj A) /|A|</p>
+<p>A<sup>-1</sup> =</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/linear-equations-in-discrete-mathematics10.png" alt="Linear Equations in Discrete mathematics" />
+<p>X = A<sup>-1</sup>B</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/linear-equations-in-discrete-mathematics11.png" alt="Linear Equations in Discrete mathematics" />
+<p>=></p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/linear-equations-in-discrete-mathematics12.png" alt="Linear Equations in Discrete mathematics" />
+<p>Thus the solution of above equation is described as follows:</p>
+<p>X = 60 /23</p>
+<p>Y = 57 /23</p>
+<p>Z = 1 /23</p>
+<h3 class="h3">How to solve Linear Equations</h3>
+<p>An equation can be described as a weighted balance with the same amount of weight on both sides. The given equation will still be correct or will not be affected if we add or subtract the same number from the LHS and RHS of the equation. Similarly, the equation will be correct if we multiply or divide the same number from the LHS and RHS of the equation. To solve the linear equation, we put all constants on one side and variables on another side, and after that, we will try to determine the value of unknown variables. With the help of this process, we can solve a linear equation with one variable. Now, we will understand this concept with the help of an example, which is described as follows:</p>
+<p><strong>Example:</strong> Here, we have to solve an equation 5x-3 = 7.</p>
+<p>Now we will apply some mathematical operations on both sides of the equations, i.e., LHS and RHS, in such a way that the balance of it will not be disturbed. We will reduce the LHS to 5x by adding 3 to the LHS and RHS of the equation. Due to this addition, the balance of the equation will not be disturbed. So the new LHS will be 5x - 3 + 3 = 5x and the new RHS will be 7 + 3 = 10. Now we will reduce the LHS to x by dividing both sides of the equation by 5. Thus, we have x = 2. With the help of this way, we can solve a linear equation in one variable.</p>
+<h3 class="h3">Important Points</h3>
+<p>There are some points that are important when we are learning the linear equations, which are described as follows:</p>
+<ul class="points">
+<li>If the values of a given variable are useful to make a linear equation true, then those values will be known as the root or solution of the linear equation.</li>
+<li>If we add, subtract, multiply, or divide the same number on both the LHS and RHS of the given equation, in this case, the solution of a linear equation will be unaffected.</li>
+<li>The linear equation always draws a graph in the form of a straight line, whether it is in one variable or two variables.</li>
+</ul>
+<h3 class="h3">Examples of Linear Equations:</h3>
+<p>There are various examples of linear equations, and some of them are described as follows:</p>
+<p><strong>Example 1:</strong> In this example, we have a linear equation x = 16(x+5), and we have to solve it.</p>
+<p><strong>Solution:</strong> From the question, we have an equation x = 16(x+5)</p>
+<p>x = 16x + 75</p>
+<p>Now we will subtract 75 from both sides of the above equation like this:</p>
+<p>x - 75 = 16x+75-75</p>
+<p>x - 75 = 16x</p>
+<p>15x = -75</p>
+<p>x = -75/15</p>
+<p>x = -5</p>
+<p>Hence the value of x = -5.</p>
+<p><strong>Example 2:</strong> In this example, we have two equations, x-y = 12 and 2x+y = 22, and we have to solve them.</p>
+<p><strong>Solution:</strong> From the question, we have two equations</p>
+<p>x - y = 12 ....... (1)</p>
+<p>2x + y = 22 ....... (2)</p>
+<p>Now we will isolate equation (1) for x like this:</p>
+<p>x = y+12 ......... (3)</p>
+<p>Now we will put equation (3) into equation (2) like this:</p>
+<p>2(y+12) + y = 22</p>
+<p>3y+24 = 22</p>
+<p>3y = -2</p>
+<p>y = -2/3</p>
+<p>Now we will put y's value into x = y+12 like this:</p>
+<p>x = y+12</p>
+<p>x = -2/3 + 12</p>
+<p>x = 34/3</p>
+<p>Hence, the value of x = 34/3 and the value of y = -2/3</p>
+<p><strong>Example 3:</strong> In this example, we have a linear equation 5x - 95 = 75, and we have to solve it.</p>
+<p><strong>Solution:</strong> From the question, we have an equation 5x-95 = 75.</p>
+<p>5x = 75+95</p>
+<p>5x = 170</p>
+<p>x = 170/5</p>
+<p>x = 34</p>
+<p>Hence, the value of x is 34.</p>
+<p><strong>Example 4:</strong> In this example, ten times more of a number is equal to 50. Here, we have to form a linear equation and determine the value of an unknown number.</p>
+<p><strong>Solution:</strong> For this, we will assume that the unknown number is x. According to the question, we know that ten times of this number is equal to 50. This means 10x = 50. This equation is a linear equation that has one variable, and we can solve the value of this x, which is the unknown number. So,</p>
+<p>10x = 50</p>
+<p>x = 50/10</p>
+<p>x = 5</p>
+<p>Therefore, the unknown number = 5.</p>
+<p><strong>Example 5:</strong> In this example, the sum of two numbers is 32. Here, we have to determine both numbers by framing a linear equation if one number is 8 times more than the other.</p>
+<p><strong>Solution:</strong> Here, we will assume that the first number is x, so according to the question, the second number will be x+8. Now we can form a linear equation with the help of these values, which is described as follows:</p>
+<p>x + x+8= 32</p>
+<p>2x+8 = 32</p>
+<p>Now we will solve the above linear equation with the help of putting the variable on one side and constants on another side like this:</p>
+<p>2x = 32-8</p>
+<p>Now we will simplify the RHS and get the following:</p>
+<p>2x = 24</p>
+<p>x = 24 /2</p>
+<p>x = 12</p>
+<p>This means that our first number is 12. So, the second number will be</p>
+<p>12 + 8</p>
+<p>= 20</p>
+<p>Therefore, our two numbers are 12 and 20.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="limitation-and-propositional-logic-and-predicates.html">Limitation and Propositional Logic and Predicates</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="lagrange-theorem-in-discrete-mathematics.html">&larr; prev</a>
+<a style="float:right" class="next" href="limitation-and-propositional-logic-and-predicates.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="37515252535556545c775d5641564347585e59431954585a">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/linear-equations-in-discrete-mathematics"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/linear-equations-in-discrete-mathematics"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/linear-equations-in-discrete-mathematics"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+  <a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="38504a7852594e594c485751564c165b5755">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a5cdd7e5cfc4d3c4d1d5cacccbd18bc6cac88b">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/linear-equations-in-discrete-mathematics by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:04:17 GMT -->
+</html> 

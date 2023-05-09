@@ -1,0 +1,809 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/vb-net-date-and-time by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 18:04:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>VB.NET Date and Time - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="VB.NET Date and Time - Javatpoint" /><meta property="og:description" content="VB.NET Date and Time with What is VB.NET, VB.NET and Visual Basic, VB.NET vs C#, VB.NET vs Java, VB.NET Keywords, VB.NET Data Types, VB.NET Operators, VB.NET Loops, VB.NET GUI etc." />
+<meta name="keywords" content="vb net, vb.net tutorial, what is vb.net, vb.net vs visual basic, vb.net vs c#, vb.net vs java, download and install visual studio, vb.net hello world program, vb.net keywords, vb.net data types, vb.net variables and constant, vb.net operators, vb.net control statements, vb.net loops, vb.net collection, vb.net gui" /><meta name="description" content="VB.NET Date and Time with What is VB.NET, VB.NET and Visual Basic, VB.NET vs C#, VB.NET vs Java, VB.NET Keywords, VB.NET Data Types, VB.NET Operators, VB.NET Loops, VB.NET GUI etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="vb-net-date-and-time.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="VB.NET Date and Time - Javatpoint" /><meta name="twitter:description" property="og:description" content="VB.NET Date and Time with What is VB.NET, VB.NET and Visual Basic, VB.NET vs C#, VB.NET vs Java, VB.NET Keywords, VB.NET Data Types, VB.NET Operators, VB.NET Loops, VB.NET GUI etc." /><meta property="og:url" content="vb-net-date-and-time.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="vb-net.html" class="selected">VB.NET</a></li>
+<li><a href="net-framework.html">.Net</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="ado-net-tutorial.html">ADO.NET</a></li>
+<li><a href="asp-net-tutorial.html">ASP.NET</a></li>
+<li><a href="sql-server-tutorial.html">SQL Server</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="f-sharp-tutorial.html">F#</a></li>
+<li><a href="angularjs-tutorial.html">AngularJS</a></li>
+<li><a href="nodejs-tutorial.html">Node.js</a></li>
+<li><a href="expressjs-tutorial.html">Express.js</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="ajax-tutorial.html">Ajax</a></li>
+<li><a href="examaccess.html">Quiz</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="forum.html">Forum</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">VB.NET Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="vb-net.html">VB.NET Tutorial</a>
+<a href="vb-net-dot-net-framework-introduction.html">.NET Framework</a>
+<a href="vb-net-vs-visual-basic.html">VB.NET vs Visual Basic</a>
+<a href="vb-net-vs-c-sharp.html">VB.NET vs C#</a>
+<a href="vb-net-vs-java.html">VB.NET vs Java</a>
+<a href="vb-net-download-and-install-visual-studio.html">Download &amp; Install Visual Studio</a>
+<a href="vb-net-hello-world-program.html">Hello World Program</a>
+<a href="vb-net-keywords.html">VB.NET Keywords</a>
+<a href="vb-net-data-type.html">VB.NET Data Type</a>
+<a href="vb-net-variable-and-constant.html">Variable &amp; Constant</a>
+<a href="vb-net-operators.html">VB.NET Operators</a>
+<a href="vb-net-control-statements.html">Control Statements</a>
+<a href="vb-net-do-loop.html">VB.NET Do Loop</a>
+<a href="vb-net-for-next-loop.html">For Next Loop</a>
+<a href="vb-net-for-each-loop.html">For Each Loop</a>
+<a href="vb-net-while-end-loop.html">While End Loop</a>
+<a href="vb-net-with-end-with-statement.html">With &amp; With Statement</a>
+<a href="vb-net-exit-statement.html">VB.NET Exit Statement</a>
+<a href="vb-net-continue-statement.html">VB.NET Continue Statement</a>
+<a href="vb-net-goto-statement.html">VB.NET GoTo Statement</a>
+<a href="vb-net-enum.html">VB.NET Enum</a>
+<a href="vb-net-string.html">VB.NET String</a>
+<a href="vb-net-arraylist.html">VB.NET ArrayList</a>
+<a href="vb-net-hashtable.html">VB.NET HashTable</a>
+<a href="vb-net-stack.html">VB.NET Stack</a>
+<a href="vb-net-arrays.html">VB.NET Arrays</a>
+<a href="vb-net-queue.html">VB.NET Queue</a>
+<a href="vb-net-dynamic-array.html">VB.NET Dynamic Array</a>
+<a href="vb-net-namevaluecollection.html">NameValueCollection</a>
+<a href="vb-net-list.html">VB.NET List</a>
+<a href="vb-net-functions.html">VB.NET Functions</a>
+<a href="vb-net-sub.html">VB.NET Sub</a>
+<a href="vb-net-classes-and-object.html">Classes and Object</a>
+<a href="vb-net-multithreading.html">VB.NET Multithreading</a>
+<a href="vb-net-exception-handling.html">Exception Handling</a>
+<a href="vb-net-file-handling.html">File Handling</a>
+<a href="vb-net-date-and-time.html">VB.NET Date &amp; Time</a>
+<a href="vb-net-form-controls.html">VB.NET Form Controls</a>
+<a href="vb-net-label-control.html">VB.NET Label Control</a>
+<a href="vb-net-button-control.html">VB.NET Button Control</a>
+<a href="vb-net-textbox-control.html">VB.NET TextBox Control</a>
+<a href="vb-net-combobox-control.html">ComboBox Control</a>
+<a href="vb-net-listbox-control.html">ListBox Control</a>
+<a href="vb-net-checkedlistbox-control.html">CheckedListBox Control</a>
+<a href="vb-net-radiobutton-control.html">RadioButton Control</a>
+<a href="vb-net-checkbox-control.html">CheckBox Control</a>
+<a href="vb-net-picturebox-control.html">PictureBox Control</a>
+<a href="vb-net-progressbar-control.html">ProgressBar Control</a>
+<a href="vb-net-scrollbars-control.html">ScrollBars Control</a>
+<a href="vb-net-datetimepicker-control.html">DateTimePicker Control</a>
+<a href="vb-net-treeview-control.html">TreeView Control</a>
+<a href="vb-net-listview-control.html">ListView Control</a>
+<a href="vb-net-menu-control.html">Menu Control</a>
+<a href="vb-net-mdi-form.html">VB.NET MDI Form</a>
+<a href="vb-net-dialog-box.html">VB.NET Dialog Box</a>
+<a href="vb-net-color-dialog-box.html">Color Dialog Box</a>
+<a href="vb-net-font-dialog-box.html">Font Dialog Box</a>
+<a href="vb-net-openfile-dialog-box.html">OpenFile Dialog Box</a>
+<a href="vb-net-print-dialog-box.html">Print Dialog Box</a>
+<a href="keypress-event-in-vb-net.html">KeyPress Event</a>
+<a href="dynamic-controls-in-vb-net.html">Dynamic Controls</a>
+<a href="vb-net-timer-control.html">VB.NET Timer Control</a>
+<a href="how-to-keep-a-form-on-top-of-others-in-vb-net.html">How to keep a Form on top of others in VB.NET</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="vb-net-form-controls.html">next &rarr;</a>
+<a class="next" href="vb-net-file-handling.html">&larr; prev</a>
+</div>
+<h1 class="h1">VB.NET Date & Time</h1>
+<p>In VB.NET, we use the Date and Time function to perform various operations related to date and time. Sometimes we need to display the date and time in our application or web application, such as when the last post edited, upgradation of new software version or patch-up details, etc.</p>
+<p>In <strong>DateTime</strong> class, Date datatype stores date values, time values or date, and time values. Furthermore, to perform the date and time function, we need to import the <strong>System.DateTime</strong> class. The default value of DateTime is between 00:00:00 midnight, Jan 1, 0001 to 11:59:59 P.M., Dec 31, 9999 A.D.</p>
+<h2 class="h2">Properties and method of DateTime</h2>
+<p><strong>Date:</strong> It is used to return the date component of the DateTime Object.</p>
+<p><strong>Day:</strong> It is used to return the day of the month represented by the DateTime object.</p>
+<p><strong>DayOfWeek:</strong> It is used to return a particular day of the week represented by the DateTime object.</p>
+<p><strong>Minute:</strong> The Minute property is used to return the minute component by the DateTime object.</p>
+<p><strong>DateOfYear:</strong> It is used to return a day of the year represented by the DateTime object.</p>
+<p><strong>Hour:</strong> It is used to return the hour of the component of the date represented by the DateTime object.</p>
+<p><strong>Now:</strong> It is used to return the current date and time of the local system.</p>
+<p><strong>Month:</strong> The Month property is used to return the month name of the Datetime object.</p>
+<p><strong>Second:</strong> It is used to return the second of the DateTime object.</p>
+<p><strong>Ticks:</strong> It is used to return the number of ticks that refer to the DateTime object.</p>
+<p><strong>Today:</strong> It is used to return the current date of the system.</p>
+<p><strong>Year:</strong> It is used to return the year of the date represented by the DateTime object.</p>
+<p><strong>TimeOfDay:</strong> It is used to return the time of the day represented by the DateTime object.</p>
+<h3 class="h3">Methods</h3>
+<p>The following are the most commonly used methods of the DateTime.</p>
+<p><strong>DaysInMonth:</strong> The DaysInMonth method is used to return the total number of days in the specified month of the year.</p>
+<p><strong>Add:</strong> It is used to return a new DateTime value by adding the timespan value to the DateTime object value.</p>
+<p><strong>AddHours:</strong> It is used to return a new time by adding the hours to the value of the Datetime object.</p>
+<p><strong>AddYears:</strong> It is used to return the year by adding the year to the value of the DateTime object.</p>
+<p><strong>AddDays:</strong> It is used to return the new Day by adding the days to the value of the DateTime object.</p>
+<p><strong>AddMinutes:</strong> It is used to display the new time by adding the minutes to the Datetime object.</p>
+<p><strong>AddMonths:</strong> It is used to return the new time by adding the months to the value of the Datetime object.</p>
+<p><strong>AddSeconds:</strong> It is used to return the new time by adding the seconds to the value of the Datetime object.</p>
+<p><strong>IsLeapYear:</strong> It uses a Boolean value that represents whether the particular year is a leap year or not.</p>
+<h3 class="h3">Syntax:</h3>
+<p>Let's create an object of the DateTime.</p>
+<div class="codeblock"><textarea name="code" class="java">
+Dim obj_name As DateTime = New DateTime()
+</textarea></div>
+<p>Here, <strong>DateTime</strong> is a class for creating objects with the new keyword, and <strong>obj_name</strong> is the name of the object.</p>
+<p>Let's create a program to show the different functions of DateTime Class in <a href="vb-net.html">VB.NET</a>.</p>
+<p><strong>DiffDateTime.vb</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+ Imports System.DateTime
+Module DiffDateTimevb
+    Sub Main()
+        ' Create DT as an instance of DateTime
+        Dim DT As DateTime = New DateTime()
+        Console.WriteLine("Default Date and Time is :{0}", DT)
+        Console.WriteLine()
+        
+        Console.WriteLine(" Different function of DateTime")
+        Dim DoB As DateTime = New Date(1998, 9, 7, 12, 22, 30)
+        Console.WriteLine(" Day is : {0}", DoB.Day)
+        Console.WriteLine(" Month is : {0}", DoB.Month)
+        Console.WriteLine(" Year is : {0}", DoB.Year)
+        Console.WriteLine(" Hour is : {0}", DoB.Hour)
+        Console.WriteLine(" Minute is : {0}", DoB.Minute)
+        Console.WriteLine(" Second is : {0}", DoB.Second)
+        Console.WriteLine(" Millisecond is : {0}", DoB.Millisecond)
+        Console.WriteLine(" Day of Week is : {0}", DoB.DayOfWeek)
+        Console.WriteLine(" Day Of year is : {0}", DoB.DayOfYear)
+        Console.WriteLine(" Time of Day is : {0}", DoB.TimeOfDay)
+        Console.WriteLine(" Total Tick is : {0}", DoB.Ticks)
+
+        ' To get the Max Value of DateTime
+        Dim MDT As DateTime = DateTime.MaxValue
+        Console.WriteLine(" Max value of Date and Time is {0}", MDT)
+
+        ' To get the Min Value of DateTime
+        Dim MinDT As DateTime = DateTime.MinValue
+        Console.WriteLine(" Min value of Date and Time is {0}", MinDT)
+
+        ' Create a DateTime from string
+        Dim DString As String = "25/10/2020 5:10:29 PM"
+        Console.WriteLine("Display Date and Time from string : {0}", DString)
+        Console.WriteLine(" Press any key to exit?")
+        Console.ReadKey()
+    End Sub
+End Module
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/vb-net/images/vb-net-date-time.png" alt="VB.NET Date & Time" />
+<h3 class="h3">Get the Current Date and Time</h3>
+<p>Let's create a program to get the current Date and Time in VB.NET.</p>
+<p><strong>CurrDateTime.vb</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+Imports System.DateTime
+Module CurrDateTime
+    Sub Main()
+
+        'Display current Date And Time in the following ways.
+        Dim CurrDT As Date = Date.Now
+        Console.WriteLine(" Current Date and Time is {0}", CurrDT)
+        Dim CT As DateTime = DateTime.Now ' Use of Now
+        Console.WriteLine(" Current Date and Time is {0}", CT)
+        Dim TD As DateTime = DateTime.Today ' Use of Today
+        Console.WriteLine(" Today Date is {0}", TD)
+        Dim Ut As DateTime = DateTime.UtcNow ' Use of UtcNow
+        Console.WriteLine(" Current UtC Date and Time Zone is {0}", Ut)
+
+        Console.WriteLine(" Today is {0} {1}.", CT.DayOfWeek, CT.Day)
+        Console.WriteLine(" The month number is {0} and the year {1}.", CT.Month, CT.Year)
+        Console.WriteLine(" {0} hours, {1} minutes and the seconds is {2}", CT.Hour, CT.Minute, CT.Second)
+        ' Current Time
+        Console.WriteLine(" Current Time is {0}", Now.ToLongTimeString)
+        Console.WriteLine()
+        Console.WriteLine(" Press any key to exit...")
+        Console.ReadKey()
+    End Sub
+End Module
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/vb-net/images/vb-net-date-time2.png" alt="VB.NET Date & Time" />
+<h3 class="h3">Calculate DOB</h3>
+<p>To calculate DOB in a program, we need to use TimeSpan. The Timespan is used to store the difference between two dates. The difference between TimeSpan and DateTime is that the <strong>TimeSpan</strong> represents the <strong>time interval</strong> that can be a year or seconds, while DateTime represents the entire <strong>date</strong> over time.</p>
+<p>In the following example, we will calculate the age by using the Date of Birth (DOB) of the user.</p>
+<p><strong>DofBirth.vb</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+Imports System.DateTime
+Module DofBirth
+    Sub Main()
+        'Dim age1 As Double
+        Console.WriteLine(" Enter Your Date of Birth in DD/MM/YYYY format")
+        Dim DB As DateTime = New DateTime()
+        DB = Console.ReadLine()
+        Dim age As TimeSpan = DateTime.Today - DB
+
+        Console.WriteLine(" Currently, You are {0} years old", Math.Floor(age.Days / 365.255))
+        Console.WriteLine(" And You are {0} days or {1} hours old", age.TotalDays, age.TotalHours)
+        Console.WriteLine(" Press any key to exit...")
+        Console.ReadKey()
+    End Sub
+End Module
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/vb-net/images/vb-net-date-time3.png" alt="VB.NET Date & Time" />
+<h3 class="h3">Formatting Date</h3>
+<p>As the name defines, a date format is used in any application or web application to represent the date in different formats. For example, we specified the Date literal as <strong>#5/5/2018#</strong> for the date May 5, 2018 that represents the <strong>mm/dd/yyyy</strong> format of the date. We can also use the format <strong>dd/mm/yyyy</strong> to display the date 12 August, 2019. If a locale user used another format like, <strong>yyyy/mm/dd</strong>, the literal would be invalid or compile error.</p>
+<p>Here, we used the <strong>Format</strong> function of <strong>string</strong> class to convert a date literal to custom or local format. Further, we can also specify a predefined or user-defined format of the date.</p>
+<p>Let's create a program to display the various format of date in VB.NET.</p>
+<p><strong>Date_Format.vb</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+Imports System.DateTime
+Module Date_Format
+    Sub Main()
+        Console.WriteLine(" Display the different Format of Dates in VB.NET ")
+        Dim FT As DateTime = New DateTime(2005, 7, 26, 0, 0, 0)
+        ' Use format Specifier to display the various format of the date.
+        Console.WriteLine(" Format of Date 'd' : " & FT.ToString("d"))
+        Console.WriteLine(" Format of Date 'D' : " & FT.ToString("D"))
+        Console.WriteLine(" Format of Date 'R' : " & FT.ToString("R"))
+        Console.WriteLine(" Format of Date 'y' : " & FT.ToString("y"))
+        Console.WriteLine(" Format of Date 'f' : " & FT.ToString("f"))
+        Console.WriteLine(" Format of Date 'F' : " & FT.ToString("F"))
+        Console.WriteLine(" Format of Date 't' : " & FT.ToString("t"))
+        Console.WriteLine(" Format of Date 'T' : " & FT.ToString("T"))
+        Console.WriteLine(" Format of Date 'g' : " & FT.ToString("g"))
+        Console.WriteLine(" Format of Date 'G' : " & FT.ToString("G"))
+        Console.WriteLine(" Format of Date 'M' : " & FT.ToString("M"))
+        Console.WriteLine(" Press any key to exit...")
+        Console.ReadKey()
+    End Sub
+End Module
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/vb-net/images/vb-net-date-time4.png" alt="VB.NET Date & Time" />
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="vb-net-form-controls.html">VB.NET Form Controls</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="vb-net-file-handling.html">&larr; prev</a>
+<a style="float:right" class="next" href="vb-net-form-controls.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0b6d6e6e6f696a68604b616a7d6a7f7b6462657f25686466">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/vb-net-date-and-time"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/vb-net-date-and-time"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/vb-net-date-and-time"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+ <a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+ </div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e28a90a28883948396928d8b8c96cc818d8f">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="92fae0d2f8f3e4f3e6e2fdfbfce6bcf1fdffbc">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/vb-net-date-and-time by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 18:04:39 GMT -->
+</html> 

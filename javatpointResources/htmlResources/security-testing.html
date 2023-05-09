@@ -1,0 +1,973 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/security-testing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:39:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Security Testing - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Security Testing - javatpoint" /><meta property="og:description" content="Security Testing with introduction, software development life cycle, design, development, testing, quality assurance, quality control, methods, black box testing, white box testing, etc." />
+<meta name="keywords" content="software testing tutorial, software testing introduction, software development life cycle, design, development, testing, overview, quality assurance, quality control, assurance versus, methods, black box testing, white box testing, alpha testing vs beta testing, gray box testing, visual testing, manual testing, system testing, unit testing, system testing, functional testing, non-functional testing, alpha testing, beta testing, security testing, test plan, test case, estimation techniques, defects" /><meta name="description" content="Security Testing with introduction, software development life cycle, design, development, testing, quality assurance, quality control, methods, black box testing, white box testing, etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="security-testing.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Security Testing - javatpoint" /><meta name="twitter:description" property="og:description" content="Security Testing with introduction, software development life cycle, design, development, testing, quality assurance, quality control, methods, black box testing, white box testing, etc." /><meta property="og:url" content="security-testing.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="software-testing-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/testing.png" alt="software testing" /> Software Testing</a></li>
+<li><a href="selenium-tutorial.html"><img src="https://static.javatpoint.com/images/icon/selenium.png" alt="selenium" /> Selenium</a></li>
+<li><a href="appium.html"><img src="https://static.javatpoint.com/images/icon/appium.png" alt="appium" /> Appium</a></li>
+<li><a href="jmeter-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jmeter.png" alt="jmeter" /> JMeter</a></li>
+<li><a href="junit-tutorial.html"><img src="https://static.javatpoint.com/images/icon/junit.png" alt="junit" /> JUnit</a></li>
+<li><a href="postman.html"><img src="https://static.javatpoint.com/images/icon/postman.png" alt="postman" /> Postman</a></li>
+<li><a href="jira-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jira.png" alt="jira" /> Jira</a></li>
+<li><a href="testng-tutorial.html"><img src="https://static.javatpoint.com/images/icon/testng.png" alt="testng" /> TestNG</a></li>
+<li><a href="soapui.html"><img src="https://static.javatpoint.com/images/icon/soapui.png" alt="soapui" /> SoapUI</a></li>
+<li><a href="uipath.html"><img src="https://static.javatpoint.com/images/icon/uipath.png" alt="uipath" /> UIPath</a></li>
+<li><a href="rpa.html"><img src="https://static.javatpoint.com/images/icon/rpa.png" alt="rpa" /> RPA</a></li>
+<li><a href="quality-assurance.html"><img src="https://static.javatpoint.com/images/icon/qa.png" alt="qa" /> QA</a></li>
+<li><a href="selenium-python.html"><img src="https://static.javatpoint.com/images/icon/selenium-python.png" alt="selenium python" /> Selenium Python</a></li>
+<li><a href="software-testing-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="manual testing interview questions" /> Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-tutorial.html">Tutorial</a>
+<a href="software-testing-principles.html">Software Testing Principles</a>
+<a href="software-development-life-cycle.html">Software Development Life Cycle</a>
+<a href="software-testing-life-cycle.html">Software Testing Life Cycle</a>
+<a href="types-of-software-testing.html">Types of Software Testing</a>
+<a href="levels-of-testing.html">Levels of Testing</a>
+<a href="test-maturity-model.html">Test Maturity Model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SDLC models</span></h2>
+</div>
+<div class="leftmenu">
+<a href="waterfall-model.html">Waterfall model</a>
+<a href="spiral-model.html">Spiral Model</a>
+<a href="hybrid-model.html">Hybrid Model</a>
+<a href="prototype-model.html">Prototype Model</a>
+<a href="v-model.html">V-model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="manual-testing.html">Manual Testing</a>
+<a href="automation-testing.html">Automation Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Manual</span></h2>
+</div>
+<div class="leftmenu">
+<a href="white-box-testing.html">White Box Testing</a>
+<a href="black-box-testing.html">Black Box Testing</a>
+<a href="grey-box-testing.html">Grey Box Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">White Box Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-flow-testing-in-white-box-testing.html">Data Flow Testing</a>
+<a href="control-flow-testing-in-white-box-testing.html">Control Flow Testing</a>
+<a href="branch-coverage-testing-in-white-box-testing.html">Branch Coverage Testing</a>
+<a href="statement-coverage-testing-in-white-box-testing.html">Statement Coverage Testing</a>
+<a href="decision-coverage-testing-in-white-box-testing.html">Decision Coverage Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Black Box Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="decision-table-technique-in-black-box-testing.html">Decision Table</a>
+<a href="all-pairs-testing-technique-in-black-box-testing.html">All-pair Testing</a>
+<a href="cause-and-effect-graph-technique-in-black-box-testing.html">Cause-Effect Testing</a>
+<a href="state-transition-technique-in-black-box-testing.html">State Transition</a>
+<a href="use-case-technique-in-black-box-testing.html">Use Case</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Black Box</span></h2>
+</div>
+<div class="leftmenu">
+<a href="functional-testing.html">Functional Testing</a>
+<a href="non-functional-testing.html">Non-Functional Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Functional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="unit-testing.html">Unit Testing</a>
+<a href="integration-testing.html">Integration Testing</a>
+<a href="system-testing.html">System Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Non-functional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="performance-testing.html">Performance Testing</a>
+<a href="usability-testing.html">Usability Testing</a>
+<a href="compatibility-testing.html">Compatibility Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Test case development</span></h2>
+</div>
+<div class="leftmenu">
+<a href="testing-documentation.html">Testing Documentation</a>
+<a href="test-scenario.html">Test Scenario</a>
+<a href="test-case.html">Test Case</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Testing Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="error-guessing-technique-in-black-box-testing.html">Error Guessing</a>
+<a href="equivalence-partitioning-technique-in-black-box-testing.html">Equivalence Portioning</a>
+<a href="boundary-value-analysis-in-black-box-testing.html">Boundary Value analysis</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Test Management</span></h2>
+</div>
+<div class="leftmenu">
+<a href="test-plan.html">Test Plan</a>
+<a href="test-case-review-process.html">Test case review process</a>
+<a href="traceability-matrix.html">Requirement Traceability Matrix</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Defect Tracking</span></h2>
+</div>
+<div class="leftmenu">
+<a href="bug-in-software-testing.html">Bug in Software Testing</a>
+<a href="software-testing-bug-life-cycle.html">Bug Life cycle</a>
+<a href="severity-and-priority-in-testing.html">Severity &amp; Priority</a>
+<a href="test-environment.html">Test Environment</a>
+<a href="defect-management-process.html">Defect Management Process</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Other types of Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="regression-testing.html">Regression Testing</a>
+<a href="smoke-testing.html">Smoke Testing</a>
+<a href="sanity-testing.html">Sanity Testing</a>
+<a href="static-testing.html">Static Testing</a>
+<a href="dynamic-testing.html">Dynamic Testing</a>
+<a href="load-testing.html">Load Testing</a>
+<a href="stress-testing.html">Stress Testing</a>
+<a href="recovery-testing.html">Recovery testing</a>
+<a href="exploratory-testing.html">Exploratory Testing</a>
+<a href="visual-testing.html">Visual Testing</a>
+<a href="acceptance-testing.html">Acceptance Testing</a>
+<a href="alpha-testing.html">Alpha Testing</a>
+<a href="beta-testing.html">Beta Testing</a>
+<a href="database-testing.html">Database Testing</a>
+<a href="mainframe-testing.html">Mainframe Testing</a>
+<a href="adhoc-testing.html">Adhoc Testing</a>
+<a href="globalization-testing.html">Globalization Testing</a>
+<a href="mutation-testing.html">Mutation Testing</a>
+<a href="security-testing.html">Security Testing</a>
+<a href="accessibility-testing.html">Accessibility Testing</a>
+<a href="structural-testing.html">Structural Testing</a>
+<a href="volume-testing.html">Volume Testing</a>
+<a href="scalability-testing.html">Scalability Testing</a>
+<a href="stability-testing.html">Stability Testing</a>
+<a href="spike-testing.html">Spike Testing</a>
+<a href="negative-testing.html">Negative Testing</a>
+<a href="positive-testing.html">Positive Testing</a>
+<a href="endurance-testing.html">Endurance Testing</a>
+<a href="reliability-testing.html">Reliability Testing</a>
+<a href="monkey-testing.html">Monkey Testing</a>
+<a href="agile-testing.html">Agile Testing</a>
+<a href="component-testing.html">Component Testing</a>
+<a href="gui-testing.html">GUI Testing</a>
+<a href="test-strategy.html">Test Strategy</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing Tools</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-tools.html">Software testing tools</a>
+<a href="test-management-tool.html">Test management tools</a>
+<a href="defect-or-bug-tracking-tool.html">Defect/Bug tracking tools</a>
+<a href="automation-testing-tool.html">Automation testing tools</a>
+<a href="performance-testing-tools.html">Performance testing tools</a>
+<a href="cross-browser-testing-tools.html">Cross-browser testing tools</a>
+<a href="integration-testing-tools.html">Integration testing tools</a>
+<a href="unit-testing-tools.html">Unit testing tools</a>
+<a href="mobile-testing-tools.html">Mobile Testing Tools</a>
+<a href="gui-testing-tools.html">GUI testing tools</a>
+<a href="security-testing-tools.html">Security testing tools</a>
+<a href="penetration-testing-tools.html">Penetration Testing Tools</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="automation-testing-vs-manual-testing.html">Automation Testing vs Manual Testing</a>
+<a href="load-testing-vs-stress-testing.html">Load Testing vs Stress Testing</a>
+<a href="smoke-testing-vs-sanity-testing.html">Smoke Testing vs Sanity Testing</a>
+<a href="system-testing-vs-acceptance-testing.html">System Testing vs Acceptance Testing</a>
+<a href="difference-between-quality-assurance-and-quality-control.html">Quality Assurance vs Quality Control</a>
+<a href="static-testing-vs-dynamic-testing.html">Static Testing vs Dynamic Testing</a>
+<a href="verification-and-validation-testing.html">Verification vs Validation Testing</a>
+<a href="alpha-testing-vs-beta-testing.html">Alpha Testing vs Beta Testing</a>
+<a href="black-box-testing-vs-white-box-testing-vs-grey-box-testing.html">Black Box vs. White Box vs. Grey Box Testing</a>
+<a href="globalization-testing-vs-localization-testing.html">Globalization Testing vs Localization Testing</a>
+<a href="test-case-vs-test-scenarios.html">Test Case vs Test Scenarios</a>
+<a href="test-plan-vs-test-strategy.html">Test Plan vs Test Strategy</a>
+<a href="boundary-value-analysis-vs-equivalence-partitioning.html">Boundary value analysis vs Equivalence partitioning</a>
+<a href="sdlc-vs-stlc.html">SDLC vs STLC</a>
+<a href="bug-vs-defect-vs-error-vs-fault-vs-failure.html">Bug vs Defect vs Error vs Fault vs Failure</a>
+<a href="testing-vs-debugging.html">Testing vs Debugging</a>
+<a href="frontend-testing-vs-backend-testing.html">Frontend Testing vs Backend Testing</a>
+<a href="hld-vs-lld.html">HLD vs LLD</a>
+<a href="brs-vs-srs.html">BRS vs SRS</a>
+<a href="positive-testing-vs-negative-testing.html">Positive Testing vs Negative Testing</a>
+<a href="top-down-vs-bottom-up-integration-testing.html">Top-Down vs Bottom-Up Integration Testing</a>
+<a href="use-case-vs-test-case.html">Use Case vs Test Case</a>
+<a href="monkey-testing-vs-gorilla-testing.html">Monkey Testing VS Gorilla Testing</a>
+<a href="stubs-vs-drivers.html">Stubs vs Drivers</a>
+<a href="component-testing-vs-unit-testing.html">Component Testing vs Unit Testing</a>
+<a href="software-testing-vs-embedded-testing.html">Software Testing vs Embedded Testing</a>
+<a href="gui-testing-vs-usability-testing.html">GUI Testing vs Usability Testing</a>
+<a href="sdet-vs-tester.html">SDET vs Tester</a>
+<a href="desktop-application-testing-vs-client-server-application-testing-vs-web-application-testing.html">Desktop Application testing vs Client-Server Application Testing vs Web Application Testing</a>
+<a href="active-testing.html">Active Testing</a>
+<a href="what-is-an-api.html">What is an API</a>
+<a href="automation-testing.html">Automation Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-mcq.html">Software Testing MCQ</a>
+<a href="software-testing-mcq-part-2.html">Software Testing MCQ Part 2</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-interview-questions.html">Software Testing Interview</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="accessibility-testing.html">next &rarr;</a>
+<a class="next" href="mutation-testing.html">&larr; prev</a>
+</div>
+<h1 class="h1">Security Testing</h1>
+<h2 class="h2">What is security testing?</h2>
+<p>Security testing is an integral part of software testing, which is used to discover the weaknesses, risks, or threats in the software application and also help us to stop the nasty attack from the outsiders and make sure the security of our software applications.</p>
+<p>The primary objective of security testing is to find all the potential ambiguities and vulnerabilities of the application so that the software does not stop working. If we perform security testing, then it helps us to identify all the possible security threats and also help the programmer to fix those errors.</p>
+<p>It is a testing procedure, which is used to define that the data will be safe and also continue the working process of the software.</p>
+<h2 class="h2">Principle of Security testing</h2>
+<p>Here, we will discuss the following aspects of security testing:</p>
+<ul class="points">
+<li>Availability</li>
+<li>Integrity</li>
+<li>Authorization</li>
+<li>Confidentiality</li>
+<li>Authentication</li>
+<li>Non-repudiation</li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/security-testing.png" alt="Security Testing" />
+<h3 class="h4">Availability</h3>
+<p>In this, the data must be retained by an official person, and they also guarantee that the data and statement services will be ready to use whenever we need it.</p>
+<h3 class="h4">Integrity</h3>
+In this, we will secure those data which have been changed by the unofficial person. The primary objective of integrity is to permit the receiver to control the data that is given by the system.</p>
+<p>The integrity systems regularly use some of the similar fundamental approaches as confidentiality structures. Still, they generally include the data for the communication to create the source of an algorithmic check rather than encrypting all of the communication. And also verify that correct data is conveyed from one application to another.</p>
+<h3 class="h4">Authorization</h3>
+<p>It is the process of defining that a client is permitted to perform an action and also receive the services. The example of authorization is Access control.</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/security-testing2.png" alt="Security Testing" />
+<h3 class="h4">Confidentiality</h3>
+<p>It is a security process that protracts the leak of the data from the outsider's because it is the only way where we can make sure the security of our data.</p>
+<h3 class="h4">Authentication</h3>
+<p>The authentication process comprises confirming the individuality of a person, tracing the source of a product that is necessary to allow access to the private information or the system.</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/security-testing3.png" alt="Security Testing" />
+<h3 class="h4">Non- repudiation</h3>
+<p>It is used as a reference to the digital security, and it a way of assurance that the sender of a message cannot disagree with having sent the message and that the recipient cannot repudiate having received the message.</p>
+<p>The non-repudiation is used to ensure that a conveyed message has been sent and received by the person who claims to have sent and received the message.</p>
+<h2 class="h2">Key Areas in Security Testing</h2>
+<p>While performing the security testing on the web application, we need to concentrate on the following areas to test the application:</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/security-testing4.png" alt="Security Testing" />
+<h3 class="h3">System software security</h3>
+<p>In this, we will evaluate the vulnerabilities of the application based on different software such as <strong>Operating system, Database system</strong>, etc.</p>
+<h3 class="h3">Network security</h3>
+<p>In this, we will check the weakness of the network structure, such as <strong>policies and resources</strong>.</p>
+<h3 class="h3">Server-side application security</h3>
+<p>We will do the server-side application security to ensure that the server encryption and its tools are sufficient to protect the software from any disturbance.</p>
+<h3 class="h3">Client-side application security</h3>
+<p>In this, we will make sure that any intruders cannot operate on any browser or any tool which is used by customers.</p>
+<h2 class="h2">Types of Security testing</h2>
+<p>As per Open Source Security Testing techniques, we have different types of security testing which as follows:</p>
+<ul class="points">
+<li><strong>Security Scanning</strong></li>
+<li><strong>Risk Assessment</strong></li>
+<li><strong>Vulnerability Scanning</strong></li>
+<li><strong>Penetration testing</strong></li>
+<li><strong>Security Auditing</strong></li>
+<li><strong>Ethical hacking</strong></li>
+<li><strong>Posture Assessment</strong></li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/security-testing5.png" alt="Security Testing" />
+<h3 class="h3">Security Scanning</h3>
+<p>Security scanning can be done for both <a href="automation-testing.html">automation testing</a> and <a href="manual-testing.html">manual testing</a>. This scanning will be used to find the vulnerability or unwanted file modification in a web-based application, websites, network, or the file system. After that, it will deliver the results which help us to decrease those threats. Security scanning is needed for those systems, which depends on the structure they use.</p>
+<h3 class="h3">Risk Assessment</h3>
+<p>To moderate the risk of an application, we will go for risk assessment. In this, we will explore the security risk, which can be detected in the association. The risk can be further divided into three parts, and those are <strong>high, medium, and low</strong>. The primary purpose of the risk assessment process is to assess the vulnerabilities and control the significant threat.</p>
+<h3 class="h3">Vulnerability Scanning</h3>
+<p>It is an application that is used to determine and generates a list of all the systems which contain the desktops, servers, laptops, virtual machines, printers, switches, and firewalls related to a network. The vulnerability scanning can be performed over the automated application and also identifies those software and systems which have acknowledged the security vulnerabilities.</p>
+<h3 class="h3">Penetration testing</h3>
+<p>Penetration testing is a security implementation where a <a href="cyber-security-tutorial.html">cyber-security</a> professional tries to identify and exploit the weakness in the computer system. The primary objective of this testing is to simulate outbreaks and also finds the loophole in the system and similarly save from the intruders who can take the benefits.</p>
+<h3 class="h3">Security Auditing</h3>
+<p>Security auditing is a structured method for evaluating the security measures of the organization. In this, we will do the inside review of the application and the <a href="control-system-tutorial.html">control system</a> for the security faults.</p>
+<h3 class="h3">Ethical hacking</h3>
+<p><a href="ethical-hacking.html">Ethical hacking</a> is used to discover the weakness in the system and also helps the organization to fix those security loopholes before the nasty hacker exposes them. The ethical hacking will help us to increase the security position of the association because sometimes the ethical hackers use the same tricks, tools, and techniques that nasty hackers will use, but with the approval of the official person.</p>
+<p>The objective of ethical hacking is to enhance security and to protect the systems from malicious users' attacks.</p>
+<h3 class="h3">Posture Assessment</h3>
+<p>It is a combination of <strong>ethical hacking, risk assessments, and security scanning</strong>, which helps us to display the complete security posture of an organization.</p>
+<h2 class="h2">How we perform security testing</h2>
+<p>The security testing is needed to be done in the initial stages of the <a href="software-development-life-cycle.html">software development life cycle</a> because if we perform security testing after the software execution stage and the deployment stage of the SDLC, it will cost us more.</p>
+<p>Now let us understand how we perform security testing parallel in each stage of the software development life cycle(SDLC).</p>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/security-testing6.png" alt="Security Testing" />
+<p><strong>Step1</strong></p>
+<p><strong>SDLC:</strong> Requirement stage</p>
+<p><strong>Security Procedures:</strong> In the requirement phase of SDLC, we will do the security analysis of the business needs and also verify that which cases are manipulative and waste.</p>
+<p><strong>Step2</strong></p>
+<p><strong>SDLC:</strong> Design stage</p>
+<p><strong>Security Procedures:</strong> In the design phase of SDLC, we will do the <strong>security testing for risk</strong> exploration of the design and also embraces the security tests at the development of the test plan.</p>
+<p><strong>Step3</strong></p>
+<p><strong>SDLC:</strong> Development or coding stage</p>
+<p><strong>Security Procedures:</strong> In the coding phase of SDLC, we will perform the white box testing along with static and dynamic testing.</p>
+<p><strong>Step4</strong></p>
+<p><strong>SDLC:</strong> Testing (<a href="functional-testing.html">functional testing</a>, <a href="integration-testing.html">integration testing</a>, <a href="system-testing.html">system testing</a>) stage</p>
+<p><strong>Security Procedures:</strong> In the testing phase of SDLC, we will do one round of <strong>vulnerability scanning</strong> along with black-box testing.</p>
+<p><strong>Step 5</strong></p>
+<p><strong>SDLC:</strong> Implementation stage</p>
+<p><strong>Security Procedures:</strong> In the implementation phase of SDLC, we will perform <strong>vulnerability scanning</strong> again and also perform one round of <strong>penetration testing</strong>.</p>
+<p><strong>Step 6</strong></p>
+<p><strong>SDLC:</strong> Maintenance stage</p>
+<p><strong>Security Procedures:</strong> In the Maintenance phase of SDLC, we will do the <strong>impact analysis</strong> of impact areas.</p>
+<p>And the <strong>test plan</strong> should contain the following:</p>
+<ul class="points">
+<li>The test data should be linked to security testing.</li>
+<li>For security testing, we need the test tools.</li>
+<li>With the help of various security tools, we can analyze several test outputs.</li>
+<li>Write the test scenarios or test cases that rely on security purposes.</li>
+</ul>
+<h2 class="h2">Example of security testing</h2>
+<p>Generally, the type of security testing includes the problematic steps based on overthinking, but sometimes the simple tests will help us to uncover the most significant security threats.</p>
+<p>Let us see a sample example to understand how we do security testing on a web application:</p>
+<ul class="points">
+<li>Firstly, log in to the web application.</li>
+<li>And then log out of the web application.</li>
+<li>Then click the BACK button of the browser to verify that it was asking us to log in again, or we are already logged-in the application.</li>
+</ul>
+<h2 class="h2">Why security testing is essential for web applications</h2>
+<p>At present, web applications are growing day by day, and most of the web application is at risk. Here we are going to discuss some common weaknesses of the web application.</p>
+<ul class="points">
+<li>Client-side attacks</li>
+<li>Authentication</li>
+<li>Authorization</li>
+<li>Command execution</li>
+<li>Logical attacks</li>
+<li>Information disclosure</li>
+</ul>
+<h3 class="h3">Client-side attacks</h3>
+<p>The <a href="client-side-attacks.html">client-side attack</a> means that some illegitimate implementation of the external code occurs in the web application. And the data spoofing actions have occupied the place where the user believes that the particular data acting on the web application is valid, and it does not come from an external source.</p>
+<h4 class="n">Note: Here, Spoofing is a trick to create duplicate websites or emails.</h4>
+<h3 class="h3">Authentication</h3>
+<p>In this, the authentication will cover the outbreaks which aim to the web application methods of authenticating the user identity where the user account individualities will be stolen. The incomplete authentication will allow the attacker to access the functionality or sensitive data without performing the correct authentication.</p>
+<p><strong>For example,</strong> the <strong>brute force attack</strong>, the primary purpose of brute force attack, is to gain access to a web application. Here, the invaders will attempt n-numbers of usernames and password repeatedly until it gets in because this is the most precise way to block brute-force attacks.</p>
+<p>After all, once they try all defined number of an incorrect password, the account will be locked automatically.</p>
+<h3 class="h3">Authorization</h3>
+<p>The authorization comes in the picture whenever some intruders are trying to retrieve the sensitive information from the web application illegally.</p>
+<p><strong>For example</strong>, a perfect example of authorization is <strong>directory scanning</strong>. Here the directory scanning is the kind of outbreaks that deeds the defects into the webserver to achieve the illegal access to the folders and files which are not mentioned in the pubic area.</p>
+<p>And once the invaders succeed in getting access, they can download the delicate data and install the harmful software on the server.</p>
+<h3 class="h3">Command execution</h3>
+<p>The command execution is used when malicious attackers will control the web application.</p>
+<h3 class="h3">Logical attacks</h3>
+<p>The logical attacks are being used when the DoS (denial of service) outbreaks, avoid a web application from helping regular customer action and also restrict the application usage.</p>
+<h3 class="h3">Information disclosure</h3>
+<p>The information disclosures are used to show the sensitive data to the invaders, which means that it will cover bouts that planned to obtain precise information about the web application. Here the information leakage happens when a web application discloses the delicate data, like the error message or developer comments that might help the attacker for misusing the system.</p>
+<p><strong>For example,</strong> the password is passing to the server, which means that the password should be encoded while being communicated over the network.</p>
+<p><strong>Note:</strong></p>
+<p>The web application needs more security regarding its access along with data security; that's why the web developer will make the application in such a way to protect the application from <strong>Brute Force Attacks, <a href="sql-injection.html">SQL Injections</a>, Session Management, failure to Restrict URL Access and Cross-site scripting (XSS)</strong>. And also, if the web application simplifies the remote access points, then it must be protected too.</p>
+<p>Here, <strong>Session management</strong>: It is used to check whether the cookies can be re-used in another computer system during the login stage.</p>
+<p><strong>SQL injection:</strong> It is a code injection approach where the destructive SQL Statements are implanted into some queries, and it is implemented by the server.</p>
+<p><strong>Cross-site scripting (XSS):</strong> This is the technique through which the user introduces client-side script or the HTML in the user-interface of a web application and those additions are visible to other users.</p>
+<h2 class="h2">Myths and Facts of Security testing</h2>
+<p>Here, we will discuss the Myths and facts of security testing:</p>
+<table class="alt">
+<tr>
+<th>Myths</th>
+<th>Facts</th>
+</tr>
+<tr>
+<td>There is no profit on an asset in security testing.</td>
+<td>Security Testing can highlight the parts of enhancement, which help us to increase productivity and decrease interruption and also allow the maximum output.</td>
+</tr>
+<tr>
+<td>Nowadays, the Internet is not safe, and we will be buying the hardware or software to save the business and protect the system.</td>
+<td>Here, the fact is rather purchasing any software or hardware, the company first understands security and then follows the security process.</td>
+</tr>
+<tr>
+<td>If we have a small business and we do not require a security procedure.</td>
+<td>In that case, the fact is every organization needs a security procedure.</td>
+</tr>
+<tr>
+<td>The only technique to secure is to disconnect it.</td>
+<td>The one and the most excellent way to protect an association is to identify the Perfect Security. Here Perfect security can be accomplished by performing the implementation, compared with business, permitted, and manufacturing validations.</td>
+</tr>
+</table>
+<h2 class="h2">Security testing tools</h2>
+<p>We have various security testing tools available in the market, which are as follows:</p>
+<ul class="points">
+<li>SonarQube</li>
+<li>ZAP</li>
+<li>Netsparker</li>
+<li>Arachni</li>
+<li>IronWASP</li>
+</ul>
+<p>For more information about these tools, refer to the below link:</p>
+<p><a href="security-testing-tools.html">https://www.javatpoint.com/security-testing-tools</a></p>
+<h2 class="h2">Conclusion</h2>
+<p>For an application or the software, it is necessary to perform security testing to verify that the sensitive information is still private. In software testing, the security testing is essential because it helps us to save our necessary data ultimately. In this, the test engineer will act as an invader and test the system or detect the security defects.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="accessibility-testing.html">Accessibility testing</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="mutation-testing.html">&larr; prev</a>
+<a style="float:right" class="next" href="accessibility-testing.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="20464545444241434b604a41564154504f494e540e434f4d">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/security-testing"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/security-testing"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/security-testing"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+ <p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+  <p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="fd958fbd979c8b9c898d92949389d39e9290">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="bbd3c9fbd1dacddacfcbd4d2d5cf95d8d4d695">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/security-testing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:39:43 GMT -->
+</html> 

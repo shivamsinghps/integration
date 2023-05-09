@@ -1,0 +1,918 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/mqtt-protocol by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:34:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>MQTT Protocol | Message Queuing Telemetry Transport Protocol - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="MQTT Protocol | Message Queuing Telemetry Transport Protocol - javatpoint" /><meta property="og:description" content="MQTT Protocol | Message Queuing Telemetry Transport Protocol with Tutorial, features, types of computer network, cables and connectors, Intranet, Uses Of Computer Network, Hub, Software and Hardware, etc." />
+<meta name="keywords" content="computer network tutorial, routing, introduction, features, types of computer network, file sharing, components, cables and connectors, router, intranet, modem, uses of computer network, hub, software and hardware, security, client server network, disadvantages, advantages, lan, pan, man, wan" /><meta name="description" content="MQTT Protocol | Message Queuing Telemetry Transport Protocol with Tutorial, features, types of computer network, cables and connectors, Intranet, Uses Of Computer Network, Hub, Software and Hardware, etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="mqtt-protocol.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="MQTT Protocol | Message Queuing Telemetry Transport Protocol - javatpoint" /><meta name="twitter:description" property="og:description" content="MQTT Protocol | Message Queuing Telemetry Transport Protocol with Tutorial, features, types of computer network, cables and connectors, Intranet, Uses Of Computer Network, Hub, Software and Hardware, etc." /><meta property="og:url" content="mqtt-protocol.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="computer-network-tutorial.html" class="selected">Computer Network</a></li>
+<li><a href="dbms-tutorial.html">DBMS</a></li>
+<li><a href="data-structure-tutorial.html">DS</a></li>
+<li><a href="daa-tutorial.html">DAA</a></li>
+<li><a href="operating-system.html">Operating Systems</a></li>
+<li><a href="computer-fundamentals-tutorial.html">Computer Fundamentals</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="python-tutorial.html">Python</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Computer Network</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-tutorial.html">Tutorial</a>
+<a href="computer-network-introduction.html">Introduction</a>
+<a href="computer-network-features.html">Features</a>
+<a href="computer-network-architecture.html">Architecture</a>
+
+<a href="computer-network-components.html">Components</a>
+<a href="types-of-computer-network.html">Computer Network Types</a>
+<a href="computer-network-topologies.html">Topologies</a>
+<a href="computer-network-transmission-modes.html">Transmission Modes</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Models</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-models.html">Models</a>
+<a href="osi-model.html">OSI Model</a>
+<a href="computer-network-tcp-ip-model.html">TCP/IP Model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Physical Layer</span></h2>
+</div>
+<div class="leftmenu">
+
+<a href="computer-network-digital-transmission.html">Digital Transmission</a>
+
+<a href="transmission-media.html">Transmission Media</a>
+<a href="guided-transmission-media.html">Guided Media</a>
+<a href="unguided-transmission-media.html">UnGuided Media</a>
+<a href="multiplexing-in-computer-network.html">Multiplexing</a>
+<a href="computer-network-switching.html">Switching</a>
+<a href="computer-network-switching-modes.html">Switching Modes</a>
+<a href="computer-network-switching-techniques.html">Switching Techniques</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Data Link layer</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-link-layer.html">Data Link layer</a>
+<a href="computer-network-error-detection.html">Error Detection</a>
+<a href="computer-network-error-correction.html">Error Correction</a>
+<a href="data-link-controls.html">Data Link Controls</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Network Layer</span></h2>
+</div>
+<div class="leftmenu">
+<a href="network-layer.html">Network Layer</a>
+<a href="network-addressing.html">Network Addressing</a>
+<a href="computer-network-routing.html">Routing</a>
+<a href="network-layer-protocols.html">Network Layer Protocols</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Routing Algorithm</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-routing-algorithm.html">Routing Algorithm</a>
+<a href="distance-vector-routing-algorithm.html">Distance Vector</a>
+<a href="link-state-routing-algorithm.html">Link State Routing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Transport Layer</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-transport-layer.html">Transport Layer</a>
+<a href="computer-network-transport-layer-protocols.html">Transport Layer Protocols</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Application Layer</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-application-layer.html">Application Layer</a>
+<a href="computer-network-client-and-server-model.html">Client &amp; Server Model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Application Protocols</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-dns.html">DNS</a>
+<a href="computer-network-ftp.html">FTP</a>
+<a href="computer-network-telnet.html">Telnet</a>
+<a href="simple-mail-transfer-protocol.html">SMTP</a>
+<a href="simple-network-management-protocol.html">SNMP</a>
+<a href="computer-network-http.html">HTTP</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Network Security</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-security.html">Security</a>
+<a href="computer-network-privacy.html">Privacy</a>
+<a href="computer-network-digital-signature.html">Digital Signature</a>
+<a href="computer-network-pgp.html">PGP</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="router.html">What is Router</a>
+<a href="osi-vs-tcp-ip.html">OSI vs TCP/IP</a>
+<a href="tcp-vs-udp.html">TCP vs UDP</a>
+<a href="tcp.html">TCP</a>
+<a href="tcp-port.html">TCP Port</a>
+<a href="ipv4-vs-ipv6.html">IPv4 vs IPv6</a>
+<a href="arp-packet-format.html">ARP Packet Format</a>
+<a href="arp-table.html">ARP Table</a>
+<a href="working-of-arp.html">Working of ARP</a>
+<a href="ftp-client.html">FTP Client</a>
+<a href="ftp-commands.html">FTP Commands</a>
+<a href="ftp-server.html">FTP Server</a>
+<a href="i2c-protocol.html">I2P Protocol</a>
+<a href="sliding-window-protocol.html">Sliding Window Protocol</a>
+<a href="snmp.html">SNMP</a>
+<a href="spi-protocol.html">SPI Protocol</a>
+<a href="ip.html">IP</a>
+<a href="arp-commands.html">ARP Commands</a>
+<a href="arp-request.html">ARP Request</a>
+<a href="address-resolution-protocol.html">ARP - Address Resolution Protocol</a>
+<a href="address-resolution-protocol-and-its-types.html">ARP and its types</a>
+<a href="tcp-retransmission.html">TCP Retransmission</a>
+<a href="can-protocol.html">CAN Protocol</a>
+<a href="http-status-codes.html">HTTP Status Codes</a>
+<a href="http-vs-https.html">HTTP vs HTTPS</a>
+<a href="rip-protocol.html">RIP Protocol</a>
+<a href="udp-protocol.html">UDP Protocol</a>
+<a href="icmp-protocol.html">ICMP Protocol</a>
+<a href="mqtt-protocol.html">MQTT Protocol</a>
+<a href="ospf-protocol.html">OSPF Protocol</a>
+<a href="stop-and-wait-protocol.html">Stop &amp; Wait Protocol</a>
+<a href="imap-protocol.html">IMAP Protocol</a>
+<a href="pop-protocol.html">POP Protocol</a>
+<a href="cifs.html">CIFS</a>
+<a href="das.html">DAS</a>
+<a href="dimm.html">DIMM</a>
+<a href="iscsi.html">iSCSI</a>
+<a href="nas.html">NAS</a>
+<a href="nfs.html">NFS</a>
+<a href="nvme.html">NVMe</a>
+<a href="san.html">SAN</a>
+<a href="border-gateway-protocol.html">BGP</a>
+<a href="go-back-n-arq.html">Go-Back-N ARQ</a>
+<a href="rj-cable.html">RJ Cable</a>
+<a href="connection-oriented-vs-connectionless-service.html">Connection-Oriented vs Connectionless Service</a>
+<a href="cdma-vs-gsm.html">CDMA vs GSM</a>
+<a href="what-is-mac-address.html">What is MAC Address</a>
+<a href="modem-vs-router.html">Modem vs Router</a>
+<a href="switch-vs-router.html">Switch vs Router</a>
+<a href="usb-2-0-vs-usb-3-0.html">USB 2.0 vs USB 3.0</a>
+<a href="csma-ca-vs-csma-cd.html">CSMA CA vs CSMA CD</a>
+<a href="multiple-access-protocols.html">Multiple Access Protocols</a>
+<a href="uri-vs-url.html">URI vs URL</a>
+<a href="imap-vs-pop3.html">IMAP vs. POP3</a>
+<a href="ssh-meaning.html">SSH Meaning</a>
+<a href="utp-vs-stp.html">UTP vs STP</a>
+<a href="status-code-400.html">Status Code 400</a>
+<a href="mime-protocol.html">MIME Protocol</a>
+<a href="ip-address.html">IP address</a>
+<a href="what-is-a-proxy-server-and-how-does-it-work.html">What is a proxy server and how does it work</a>
+<a href="how-to-set-up-and-use-a-proxy-server.html">How to set up and use a proxy server</a>
+<a href="what-is-network-security.html">What is network security</a>
+<a href="www-is-based-on-which-model.html">WWW is based on which model</a>
+<a href="proxy-server-list.html">Proxy Server List</a>
+<a href="fundamentals-of-computer-networking.html">Fundamentals of Computer Networking</a>
+<a href="ip-address-format-and-table.html">IP Address Format and Table</a>
+<a href="bus-topology-vs-ring-topology.html">Bus topology vs Ring topology</a>
+<a href="bus-topology-vs-star-topology.html">Bus topology vs Star topology</a>
+<a href="circuit-switching-vs-packet-switching.html">Circuit Switching vs Packet switching</a>
+<a href="star-vs-ring-topology.html">star vs ring topology</a>
+<a href="router-vs-bridge.html">Router vs Bridge</a>
+<a href="tcp-connection-termination.html">TCP Connection Termination</a>
+<a href="image-steganography.html">Image Steganography</a>
+<a href="network-neutrality.html">Network Neutrality</a>
+<a href="onion-routing.html">Onion Routing</a>
+<a href="adaptive-security-appliance-features.html">ASA features</a>
+<a href="relabel-to-front-algorithm.html">Relabel-to-front Algorithm</a>
+<a href="types-of-server-virtualization-in-computer-network.html">Types of Server Virtualization in Computer Network</a>
+<a href="access-lists.html">Access Lists (ACL)</a>
+<a href="digital-subscriber-line.html">Digital Subscriber Line (DSL)</a>
+<a href="operating-system-based-virtualization.html">Operating system based Virtualization</a>
+<a href="context-based-access-control.html">Context based Access Control (CBAC)</a>
+<a href="cristians-algorithm.html">Cristian's Algorithm</a>
+<a href="service-set-identifier-in-computer-network.html">Service Set Identifier (SSID) in Computer Network</a>
+<a href="voice-over-internet-protocol.html">Voice over Internet Protocol (VoIP)</a>
+<a href="challenge-response-authentication-mechanism.html">Challenge Response Authentication Mechanism (CRAM)</a>
+<a href="extended-access-list.html">Extended Access List</a>
+<a href="li-fi-vs-wi-fi.html">Li-fi vs. Wi-fi</a>
+<a href="reflexive-access-list.html">Reflexive Access List</a>
+<a href="synchronous-optical-network.html">Synchronous Optical Network (SONET)</a>
+<a href="wifi-protected-access.html">Wifi protected access (WPA)</a>
+<a href="wifi-protected-setup.html">Wifi Protected Setup (WPS)</a>
+<a href="standard-access-list.html">Standard Access List</a>
+<a href="time-access-list.html">Time Access List</a>
+<a href="what-is-3d-internet.html">What is 3D Internet</a>
+<a href="4g-mobile-communication-technology.html">4G Mobile Communication Technology</a>
+<a href="types-of-wireless-transmission-media.html">Types of Wireless Transmission Media</a>
+<a href="best-computer-networking-courses.html">Best Computer Networking Courses</a>
+<a href="data-representation-in-computer-network.html">Data Representation</a>
+<a href="network-criteria.html">Network Criteria</a>
+<a href="classful-vs-classless-addressing.html">Classful vs Classless addressing</a>
+<a href="bootp-vs-rarp-in-computer-networking.html">Difference between BOOTP and RARP in Computer Networking</a>
+<a href="what-is-agp.html">What is AGP (Accelerated Graphics Port)</a>
+<a href="advantages-and-disadvantages-of-satellite-communication.html">Advantages and Disadvantages of Satellite Communication</a>
+<a href="external-ip-address.html">External IP Address</a>
+<a href="asynchronous-transfer-mode-in-computer-network.html">Asynchronous Transfer Mode (ATM) in Computer Network</a>
+<a href="types-of-authentication-protocols.html">Types of Authentication Protocols</a>
+<a href="what-is-a-cisco-packet-tracer.html">What is a CISCO Packet Tracer</a>
+<a href="how-does-bootp-work.html">How does BOOTP work</a>
+<a href="subnetting-in-computer-networks.html">Subnetting in Computer Networks</a>
+<a href="mesh-topology-advantages-and-disadvantages.html">Mesh Topology Advantages and Disadvantages</a>
+<a href="ring-topology-advantages-and-disadvantages.html">Ring Topology Advantages and Disadvantages</a>
+<a href="star-topology-advantages-and-disadvantages.html">Star Topology Advantages and Disadvantages</a>
+<a href="tree-topology-advantages-and-disadvantages.html">Tree Topology Advantages and Disadvantages</a>
+<a href="zigbee-technology-the-smart-home-protocol.html">Zigbee Technology-The smart home protocol</a>
+<a href="network-layer-in-osi-model.html">Network Layer in OSI Model</a>
+<a href="physical-layer-in-osi-model.html">Physical Layer in OSI Model</a>
+<a href="data-link-layer-in-osi-model.html">Data Link Layer in OSI Model</a>
+<a href="internet-explorer-shortcut-keys.html">Internet explorer shortcut keys</a>
+<a href="network-layer-security-ssl-protocols.html">Network Layer Security | SSL Protocols</a>
+<a href="presentation-layer-in-osi-model.html">Presentation Layer in OSI Model</a>
+<a href="session-layer-in-osi-model.html">Session Layer in OSI Model</a>
+<a href="subnet-mask.html">SUBNET MASK</a>
+<a href="transport-layer-security-secure-socket-layer-ssl-and-ssl-architecture.html">Transport Layer Security | Secure Socket Layer (SSL) and SSL Architecture</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="computer-network-mcq.html">Computer Network MCQ</a>
+<a href="computer-network-mcq-part2.html">Computer Network MCQ Part2</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="networking-interview-questions.html">Networking Questions</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="computer-network-tutorial.html">next &rarr;</a>
+<a class="next" href="icmp-protocol.html">&larr; prev</a>
+</div>
+<h1 class="h1">MQTT protocol</h1>
+<p>MQTT stands for <strong>Message Queuing Telemetry Transport</strong>. MQTT is a machine to machine internet of things connectivity protocol. It is an extremely lightweight and publish-subscribe messaging transport protocol. This protocol is useful for the connection with the remote location where the bandwidth is a premium. These characteristics make it useful in various situations, including constant environment such as for communication machine to machine and internet of things contexts. It is a publish and subscribe system where we can publish and receive the messages as a client. It makes it easy for communication between multiple devices. It is a simple messaging protocol designed for the constrained devices and with low bandwidth, so it's a perfect solution for the internet of things applications.</p>
+<h3 class="h3">Characteristics of MQTT</h3>
+<p>The MQTT has some unique features which are hardly found in other protocols. Some of the features of an MQTT are given below:</p>
+<ul class="points">
+<li>It is a machine to machine protocol, i.e., it provides communication between the devices.</li>
+<li>It is designed as a simple and lightweight messaging protocol that uses a publish/subscribe system to exchange the information between the client and the server.</li>
+<li>It does not require that both the client and the server establish a connection at the same time.</li>
+<li>It provides faster data transmission, like how WhatsApp/messenger provides a faster delivery. It's a real-time messaging protocol.</li>
+<li>It allows the clients to subscribe to the narrow selection of topics so that they can receive the information they are looking for.</li>
+</ul>
+<h3 class="h3">History of MQTT</h3>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/mqtt-protocol.png" alt="MQTT protocol" />
+<p>The MQTT was developed by Dr. Andy Stanford-Clark, <a href="ibm-full-form.html">IBM</a>, and Arlen Nipper. The previous versions of protocol 3.1 and 3.1.1 were made available under MQTT ORG. In 2014, the MQTT was officially published by OASIS. The OASIS becomes a new home for the development of the MQTT. Then, the OASIS started the further development of the MQTT. Version 3.1.1 is backward comfortable with a 3.1 and brought only minor changes such as changes to the connect message and clarification of the 3.1 version. The recent version of MQTT is 5.0, which is a successor of the 3.1.1 version. Version 5.0 is not backward, comfortable like version 3.1.1. According to the specifications, version 5.0 has a significant number of features that make the code in place.</p>
+<p>The major functional objectives in version 5.0 are:</p>
+<ul class="points">
+<li>Enhancement in the scalability and the large-scale system in order to set up with the thousands or the millions of devices.</li>
+<li>Improvement in the error reporting</li>
+</ul>
+<h3 class="h3">MQTT Architecture</h3>
+<p><strong>To understand the MQTT architecture, we first look at the components of the MQTT.</strong></p>
+<ul class="points">
+<li><strong>Message</strong></li>
+<li><strong>Client</strong></li>
+<li><strong>Server or Broker</strong></li>
+<li><strong>TOPIC</strong></li>
+</ul>
+<h3 class="h3">Message</h3>
+<p>The message is the data that is carried out by the protocol across the network for the application. When the message is transmitted over the network, then the message contains the following parameters:</p>
+<ol class="points">
+<li>Payload data</li>
+<li>Quality of Service (QoS)</li>
+<li>Collection of Properties</li>
+<li>Topic Name</li>
+</ol>
+<p><strong>Client</strong></p>
+<p>In MQTT, the subscriber and publisher are the two roles of a client. The clients subscribe to the topics to publish and receive messages. In simple words, we can say that if any program or device uses an MQTT, then that device is referred to as a client. A device is a client if it opens the network connection to the server, publishes messages that other clients want to see, subscribes to the messages that it is interested in receiving, unsubscribes to the messages that it is not interested in receiving, and closes the network connection to the server.</p>
+<p>In MQTT, the client performs two operations:</p>
+<p>In MQTT, the client performs two operations:</p>
+<p><strong>Publish:</strong> When the client sends the data to the server, then we call this operation as a publish.</p>
+<p><strong>Subscribe:</strong> When the client receives the data from the server, then we call this operation a subscription.</p>
+<p><strong>Server</strong></p>
+<p>The device or a program that allows the client to publish the messages and subscribe to the messages. A server accepts the network connection from the client, accepts the messages from the client, processes the subscribe and unsubscribe requests, forwards the application messages to the client, and closes the network connection from the client.</p>
+<p><strong>TOPIC</strong></p>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/mqtt-protocol2.png" alt="MQTT protocol" />
+<p>The label provided to the message is checked against the subscription known by the server is known as TOPIC.</p>
+<h3 class="h3">Architecture of MQTT</h3>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/mqtt-protocol3.png" alt="MQTT protocol" />
+<p>Now we will look at the architecture of MQTT. To understand it more clearly, we will look at the example. Suppose a device has a temperature sensor and wants to send the rating to the server or the broker. If the phone or desktop application wishes to receive this temperature value on the other side, then there will be two things that happened. The publisher first defines the topic; for example, the temperature then publishes the message, i.e., the temperature's value. After publishing the message, the phone or the desktop application on the other side will subscribe to the topic, i.e., temperature and then receive the published message, i.e., the value of the temperature. The server or the broker's role is to deliver the published message to the phone or the desktop application.</p>
+<h3 class="h3">MQTT Message Format</h3>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/mqtt-protocol4.png" alt="MQTT protocol" />
+<p>The MQTT uses the command and the command acknowledgment format, which means that each command has an associated acknowledgment. As shown in the above figure that the connect command has connect acknowledgment, subscribe command has subscribe acknowledgment, and publish command has publish acknowledgment. This mechanism is similar to the handshaking mechanism as in TCP protocol.</p>
+<p>Now we will look at the packet structure or message format of the MQTT.</p>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/mqtt-protocol5.png" alt="MQTT protocol" />
+<p>The MQTT message format consists of 2 bytes fixed header, which is present in all the MQTT packets. The second field is a variable header, which is not always present. The third field is a payload, which is also not always present. The payload field basically contains the data which is being sent. We might think that the payload is a compulsory field, but it does not happen. Some commands do not use the payload field, for example, disconnect message.</p>
+<h3 class="h3">Fixed Header</h3>
+<p>Let's observe the format of the fixed header.</p>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/mqtt-protocol6.png" alt="MQTT protocol" />
+<p>As we can observe in the above format that the fixed header contains two bytes. The first byte contains the following fields:</p>
+<ul class="points">
+<li><strong>MQTT Control Packet Type:</strong> It occupies 4 bits, i.e., 7 to 4-bit positions. This 4-bit is an assigned value, and each bit represents the MQTT control packet type.</li>
+<li><strong>Flag specific to each MQTT packet type:</strong> The remaining 4-bits represent flag specific to each MQTT packet type.</li>
+</ul>
+<p>The byte 2 contains the remaining length, which is a variable-length byte integer. It represents the number of bytes remaining in a current control packet, including data in the variable header and payload. Therefore, we can say that the remaining length is equal to the sum of the data in the variable header and the payload.</p>
+<p><strong>MQTT Control Packet Types</strong></p>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/mqtt-protocol7.png" alt="MQTT protocol" />
+<p>The above table shows the control packet types with 4-bit value and direction flow. As we can observe that every command is followed by acknowledgment like CONNECT has CONNACK, PUBLISH has PUBACK, PUBREC, PUBREL, and PUBCOMP, SUBSCRIBE has SUBACK, UNSUBSCRIBE has UNSUBACK.</p>
+<p><strong>Flag Bit</strong></p>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/mqtt-protocol8.png" alt="MQTT protocol" />
+<p>The above table shows the flag value associated with each command. Here, reserved refers to future use, which means that it is not being used right now. In the case of PUBLISH command, flag bits are further divided into DUP, QoS, and RETAIN, where DUP is a duplicate delivery of a PUBLISH packet, QoS is Quality of Service, and RETAIN is retained message flag.</p>
+<p><strong>Remaining length</strong></p>
+<p>The remaining length is a variable-length integer that denotes the number of bytes remaining within the current control packet, including data in the variable header and the payload. Therefore, the remaining length is equal to the data in the variable header plus payload.</p>
+<p>Remaining length = length of variable header + length of payload</p>
+<p>For example, if the length of the variable header is 20 and the length of the payload is 30, then the remaining length is 50.</p>
+<p>The remaining length can be used upto 4 bytes, and it starts from 2 bytes and can be used upto 4 bytes.</p>
+<p>This field uses 7-bit for the lengths, and MSB bit can be used to continue a flag. If the continuation flag is 1, the next byte is also a part of the <p>remaining length. If the continuation flag is 0, a byte is the last one of the remaining length.</p>
+<h3 class="h3">Variable header</h3>
+<p>Some types of MQTT control packet types contain an optional field also, i.e., variable header component. This field resides between the fixed header and the payload. The content of the variable header depends upon the packet type. The variable header contains the packet identifier field, which is common in several packet types. The variable header component of many MQTT control packet types includes 2-byte integer, i.e., the packet identifier field.</p>
+<p>The given list below contains the packet identifier field:</p>
+<ul class="points">
+<li>PUBLISH</li>
+<li>PUBACK</li>
+<li>PUBREC</li>
+<li>PUBREL</li>
+<li>PUBCOMP</li>
+<li>SUBSCRIBE</li>
+<li>SUBACK</li>
+<li>UNSUBSCRIBE</li>
+<li>UNSUBACK</li>
+</ul>
+<p><strong>Key points related to the packet identifier field:</strong></p>
+<ul class="points">
+<li>A PUBLISH packet should not contain the packet identifier field if the value of QoS (Quality of Service) is set to zero. It implies that if the value of QoS is greater than zero, only the PUBLISH packet will contain the packet identifier field.</li>
+<li>When a client sends a new SUBSCRIBE, UNSUBSCRIBE, or PUBLISH MQTT control packet, it should assign a non-zero packet identifier that is currently unused.</li>
+<li>When a server sends a new PUBLISH MQTT control packet, it should assign a non-zero packet identifier that is currently unused.</li>
+<li>A PUBACK, PUBREC, PUBUREL, PUBREC are the acknowledgment packets of PUBLISH command that contain the same packet identifier as the PUBLISH packet.</li>
+<li>A SUBACK and UNSUBACK are the acknowledgment packets of SUBSCRIBE and UNSUBSCRIBE, respectively. Both the packets, i.e., SUBACK and UNSUBACK, use the same packet identifier as the SUBSCRIBE and UNSUBSCRIBE packets.</li>
+<li>The packet identifier can be reusable after processing the corresponding acknowledgment packet. It can be defined as follows:</li>
+</ul>
+<p>If the value of QoS is 1 then the acknowledgment packet of PUBLISH would be PUBACK. If it processes the PUBACK, then the packet identifier of PUBACK can be reused.</p>
+<p>If the QoS value is 2 then the acknowledgment packet of PUBLISH would be either PUBCOMP or PUBREC.</p>
+<h3 class="h3">Payload</h3>
+<p>In the ICMP message format, the last MQTT control packet is the payload. This field contains the data which is to be sent. For example, in the case of the CONNECT packet, the payload is a client ID, the username and password, and the PUBLISH packet, the payload is just an application message.</p>
+<img src="https://static.javatpoint.com/tutorial/computer-network/images/mqtt-protocol9.png" alt="MQTT protocol" />
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="computer-network-tutorial.html">Computer Network Tutorial</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="icmp-protocol.html">&larr; prev</a>
+<a style="float:right" class="next" href="computer-network-tutorial.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+ <span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ef898a8a8b8d8e8c84af858e998e9b9f8086819bc18c8082">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/mqtt-protocol"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/mqtt-protocol"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/mqtt-protocol"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+ </div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+  <p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="5f372d1f353e293e2b2f3036312b713c3032">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="7f170d3f151e091e0b0f1016110b511c101251">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/mqtt-protocol by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:34:02 GMT -->
+</html> 

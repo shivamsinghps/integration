@@ -1,0 +1,1135 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/es6-loops by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:57:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>ES6 Loops: For, While, Do-While, Break, Continue - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="ES6 Loops: For, While, Do-While, Break, Continue - javatpoint" /><meta property="og:description" content="ES6 Loops with What is ES6, History of ES6, ES6 Versions, ES6 Loops, Environment Setup, ES6 Syntax, ES6 Operators, ES6 Variables, ES6 Functions, ES6 Cookies, ES6 Strings, ES6 Math etc." />
+<meta name="keywords" content="es6 tutorial, es6 introduction, what is es6, history of es6, es6 versions, es6 loops, es6 environment setup, es6 syntax, es6, es6 operators, es6 variables, es6 functions, es6 cookies, es6 strings, es6 math" /><meta name="description" content="ES6 Loops with What is ES6, History of ES6, ES6 Versions, ES6 Loops, Environment Setup, ES6 Syntax, ES6 Operators, ES6 Variables, ES6 Functions, ES6 Cookies, ES6 Strings, ES6 Math etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="es6-loops.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="ES6 Loops: For, While, Do-While, Break, Continue - javatpoint" /><meta name="twitter:description" property="og:description" content="ES6 Loops with What is ES6, History of ES6, ES6 Versions, ES6 Loops, Environment Setup, ES6 Syntax, ES6 Operators, ES6 Variables, ES6 Functions, ES6 Cookies, ES6 Strings, ES6 Math etc." /><meta property="og:url" content="es6-loops.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="es6.html" class="selected">ES6</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="cpp-tutorial.html">C++</a></li>
+<li><a href="php-tutorial.html">PHP</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="nodejs-tutorial.html">Node.js</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+<li><a href="comment.html">Comment</a></li>
+<li><a href="forum.html">Forum</a></li>
+<li><a href="training.html">Training</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">ES6 Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="es6.html">ES6 Tutorial</a>
+<a href="es6-versions.html">ES6 Versions</a>
+<a href="es6-environment-setup.html">ES6 Environment setup</a>
+<a href="es6-syntax.html">ES6 Syntax</a>
+<a href="es6-spread-operator.html">ES6 Spread Operator</a>
+<a href="es6-rest-parameter.html">ES6 Rest Parameter</a>
+<a href="es6-variables.html">ES6 Variables</a>
+<a href="es6-operators.html">ES6 Operators</a>
+<a href="es6-loops.html">ES6 Loops</a>
+<a href="es6-decision-making.html">ES6 Decision Making</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">ES6 Functions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="es6-functions.html">ES6 Functions</a>
+<a href="es6-arrow-function.html">ES6 Arrow Function</a>
+<a href="es6-generators.html">ES6 Generators</a>
+<a href="es6-immediately-invoked-function-expression.html">ES6 IIFE</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">ES6 Arrays</span></h2>
+</div>
+<div class="leftmenu">
+<a href="es6-arrays.html">ES6 Arrays</a>
+<a href="es6-array-methods.html">ES6 Array Methods</a>
+<a href="es6-array-destructuring.html">Array Destructuring</a>
+<a href="es6-map.html">ES6 Maps</a>
+<a href="es6-set.html">ES6 Sets</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">ES6 Objects</span></h2>
+</div>
+<div class="leftmenu">
+<a href="es6-objects.html">ES6 Objects</a>
+<a href="es6-object-destructuring.html">Object Destructuring</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">ES6 Class</span></h2>
+</div>
+<div class="leftmenu">
+<a href="es6-classes.html">ES6 Classes</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">ES6 Strings</span></h2>
+</div>
+<div class="leftmenu">
+<a href="es6-strings.html">ES6 Strings</a>
+<a href="es6-template-literals.html">ES6 Template Literals</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Advance Features</span></h2>
+</div>
+<div class="leftmenu">
+<a href="es6-events.html">ES6 Events</a>
+<a href="es6-cookies.html">ES6 Cookies</a>
+<a href="es6-dialog-boxes.html">ES6 Dialog Boxes</a>
+<a href="es6-page-redirect.html">ES6 Page Redirect</a>
+<a href="es6-numbers.html">ES6 Number</a>
+<a href="es6-boolean.html">ES6 Boolean</a>
+<a href="es6-void-keyword.html">ES6 void Keyword</a>
+<a href="es6-page-printing.html">ES6 Page Printing</a>
+<a href="es6-modules.html">ES6 Modules</a>
+<a href="es6-promises.html">ES6 Promises</a>
+<a href="es6-validations.html">ES6 Validations</a>
+<a href="es6-animation.html">ES6 Animation</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">ES6 Miscellaneous</span></h2>
+</div>
+<div class="leftmenu">
+<a href="es5-vs-es6.html">ES5 vs ES6</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="es6-interview-questions.html">ES6 Interview Questions</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="es6-decision-making.html">next &rarr;</a>
+<a class="next" href="es6-operators.html">&larr; prev</a>
+</div>
+<h1 class="h1">ES6 Loops</h1>
+<p>Looping statements in the programming languages help to execute the set of instructions/functions repeatedly while a condition evaluates to true. Loops are an ideal way to perform the execution of certain conditions repeatedly. In a loop, the repetition is termed as <strong>iteration.</strong></p>
+<p>You can see the classification of loops in the following figure:</p>
+<img src="https://static.javatpoint.com/tutorial/es6/images/es6-loops.png" alt="ES6 Loops" />
+<p>Let us try to understand the loops in the above image.</p>
+<h2 class="h2">Definite Loops</h2>
+<p>A definite loop has a definite/fixed number of iterations. In <a href="es6.html">ES6</a>, there are three types of definite loops that are listed below:</p>
+<table class="alt">
+<tr>
+<th>Definite Loop</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>for( ; ; ) Loop</strong></td>
+<td>It executes the block of code for a definite number of times.</td>
+</tr>
+<tr>
+<td><strong>for&hellip;in Loop</strong></td>
+<td>It iterates through the properties of the object.</td>
+</tr>
+<tr>
+<td><strong>for&hellip;of loop</strong></td>
+<td>Unlike object literals, it iterates the iterables (arrays, string, etc.).</td>
+</tr>
+</table>
+<p>Let us try to elaborate on the above loops.</p>
+<h3 class="h3">The for ( ; ; ) loop</h3>
+<p>The <strong>for ( ; ; ) loop</strong> is used to iterate a part of the program multiple times. If you have a fixed number of iterations, then it is always recommended to use 'for' loop.</p>
+<p class="pq"><strong>Syntax</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+for(initialization;condition;incr/decr){  
+//statement or code to be executed  
+}  
+</textarea></div>
+<p>The <strong>'for' loop</strong> includes some parts that are defined as follows:</p>
+<ul class="points">
+<li><strong>Initialization:</strong> It is the initial condition that is executed once at the starting of the loop. In this part, we initialize the variable, or it can also be used for the already initialized variable. It is an optional statement.</li>
+<li><strong>Condition:</strong> It is executed each time for testing the condition of the loop. It continues the execution of the loop until the condition is false. It returns only Boolean values that are either true or false. It is also an optional statement.</li>
+<li><strong>Increment/Decrement:</strong> It can increment or decrement the value of the variable, and it is also an optional statement.</li>
+<li><strong>Statement:</strong> It represents the body of the loop, which is executed every time until the conditional expression is false.</li>
+</ul>
+<p class="pq"><strong>Flowchart</strong></p>
+<img src="https://static.javatpoint.com/tutorial/es6/images/es6-loops2.jpg" alt="ES6 Loops" />
+<p class="pq"><strong>Example</strong></p>
+<p>In the following, there are three examples of <strong>'for' loop</strong> in which we are showing the <strong>simple 'for' loop, 'for' loop</strong> having <strong>multiple expressions</strong> and <strong>infinite 'for' loop.</strong></p>
+<ul class="points">
+<li>The table of 2 by using for loop.</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="java">
+var i;
+for(i=1;i&lt;=10;i++)
+{
+   console.log("2 x "+ i +" =", 2*i);
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>2 x 1 = 2
+2 x 2 = 4
+2 x 3 = 6
+2 x 4 = 8
+2 x 5 = 10
+2 x 6 = 12
+2 x 7 = 14
+2 x 8 = 16
+2 x 9 = 18
+2 x 10 = 20
+</pre></div>
+<ul class="points">
+<li><strong>for loop</strong> having <strong>multiple expressions</strong><br>
+You can combine the multiple assignments and final expressions in a single for loop by using the <strong>comma (, ) operator.</strong><br>
+Let us try to print the Fibonacci series by using the single for loop.</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="java">
+"use strict" 
+for(let temp, a = 0, b = 1; b&lt;40; temp = a, a = b, b = a + temp) 
+console.log(b);
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>1
+1
+2
+3
+5
+8
+13
+21
+34
+</pre></div>
+<ul class="points">
+<li>Infinite for loop<br>
+The example of <strong>infinite for loop</strong> is given as follows:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="java">
+for(;;)
+{  
+   console.log("infinitive loop");  // It will print infinite times
+}  
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>infinite loop
+infinite loop
+infinite loop
+infinite loop
+infinite loop
+infinite loop
+infinite loop
+infinite loop
+infinite loop
+infinite loop
+infinite loop
+infinite loop
+	.
+	.
+	.
+	.
+infinite loop
+</pre></div>
+<p>For terminating it, you can use ctrl + c.</p>
+<h3 class="h3">The for&hellip;in loop</h3>
+<p>The <strong>for&hellip;in loop</strong> is similar to <strong>for loop,</strong> which iterates through the properties of an object, i.e., when you require to visit the properties or keys of the object, then you can use <strong>for&hellip;in loop.</strong> It is a better choice when you are working with objects or dictionaries where the order of index is not essential.</p>
+<p class="pq"><strong>Syntax</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+for (variable_name in object_name) //Here in is the keyword
+{  
+  // statement or block to execute  
+}
+</textarea></div>
+<p>In every iteration, one property from the object is assigned to the name of the variable, and this loop continues till all of the object properties get covered.</p>
+<p class="pq"><strong>Example</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+function Mobile(model_no){
+this.Model = model_no;
+this.Color = 'White';
+this.RAM = '4GB';
+}
+var Samsung = new Mobile("Galaxy");
+for(var props in Samsung)
+{
+console.log(props+ " : " +Samsung[props]);
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>Model : Galaxy
+Color : White
+RAM : 4GB
+</pre></div>
+<p>If you pass the function in the properties of the object then this loop will give you the complete function in the output. You can it's illustration in the following code:</p>
+<div class="codeblock"><textarea name="code" class="java">
+function Mobile(model_no){
+this.Model = model_no;
+this.Color = 'White';
+this.RAM = '4GB';
+this.Price = function price() // The loop will give you this function as it is written here.
+{
+   console.log(this.model + "Price = Rs. 3300");
+}
+}
+var Samsung = new Mobile("Galaxy");
+for(var props in Samsung)
+{
+   console.log(props+ " : " +Samsung[props]);
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>Model : Galaxy
+Color : White
+RAM : 4GB
+Price : function price()
+{
+   console.log(this.model + "Price = Rs. 3300");
+}
+</pre></div>
+<p>So, you can also visit the methods by using the <strong>for&hellip;in loop.</strong></p>
+<h3 class="h3">The for&hellip;of loop</h3>
+<p>Unlike the object literals, this loop is used to iterate the iterables (arrays, string, etc.).</p>
+<p class="pq"><strong>Syntax</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+for(variable_name of object_name) // Here of is a keyword
+{  
+   //statement or block to execute  
+}
+</textarea></div>
+<p>In every iteration, one property from the iterables gets assigned to the variable_name, and the loop continues till the end of the iteration.</p>
+<p class="pq"><strong>Example</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+var fruits = ['Apple', 'Banana', 'Mango', 'Orange'];
+for(let value of fruits)
+{
+  console.log(value); 
+}
+
+/*
+You can also write the above code like:
+
+for(let value of ['Apple', 'Banana', 'Mango', 'Orange'])
+{
+  console.log(value); 
+}
+
+*/
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>Apple
+Banana
+Mango
+Orange
+</pre></div>
+<h2 class="h2">Indefinite Loops</h2>
+<p>An indefinite loop has infinite iterations. It is used when the number of iterations within the loop is intermediate or unknown.</p>
+<p>There are two types of indefinite loops that are listed below:</p>
+<table class="alt">
+<tr>
+<th>Indefinite Loops</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>while Loop</strong></td>
+<td>It executes the instructions each time till the defined condition evaluates to true.</td>
+</tr>
+<tr>
+<td><strong>do&hellip;while Loop</strong></td>
+<td>It is similar to the while loop, but the key difference is that the do&hellip;while loop executes the loop at once irrespective of the terminator condition.</td>
+</tr>
+</table>
+<p>Let us try to elaborate on the above loops.</p>
+<h3 class="h3">The while loop</h3>
+<p>A while loop is a control flow statement that allows the repeated execution of code based on the given Boolean condition. It consists of a block of code and an expression/condition.</p>
+<p>The while loop checks the expression/condition before the execution of block; that's why this control structure is often known as a pre-test loop.</p>
+<p class="pq"><strong>Syntax</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+while (condition) {
+   statements;
+}
+</textarea></div>
+<p class="pq"><strong>Flowchart</strong></p>
+<img src="https://static.javatpoint.com/tutorial/es6/images/es6-loops3.jpg" alt="ES6 Loops" />
+<p class="pq"><strong>Example</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+var y = 0;
+while (y &lt; 4) {
+    console.log(y);
+    y++;
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>0
+1
+2
+3
+</pre></div>
+<p class="pq"><strong>Points to remember</strong></p>
+<ul class="points">
+<li>The <strong>condition</strong> is always required in the while loop because it is necessary to run the loop. If the condition returns true, then the loop will start over again, but if it returns false, the loop will stop.</li>
+<li>If the condition will always true, then the loop will never end.</li>
+</ul>
+<h3 class="h3">The do&hellip;while loop</h3>
+<p>It is a control flow statement that executes a block of code at least once, and then it will depend upon the condition whether or not the loop executes the block repeatedly.</p>
+<p>The do&hellip;while loop checks the condition after the execution of the block, that's why this control structure is also known as the <strong>post-test loop.</strong> It is also possible that the condition always evaluates to true, which will create an <strong>infinite loop.</strong></p>
+<p class="pq"><strong>Syntax</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+do 
+{  
+  // block of statements to be executed;  
+} 
+while (expression); 
+</textarea></div>
+<p class="pq"><strong>Flowchart</strong></p>
+<img src="https://static.javatpoint.com/tutorial/es6/images/es6-loops4.jpg" alt="ES6 Loops" />
+<p class="pq"><strong>Example</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+var count = 6, fact = 1;
+do {
+    fact = fact * count--;
+} while (count &gt; 0);
+
+console.log(fact);
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>720
+</pre></div>
+<p>If you perform this example by using the <strong>while loop,</strong> then this will be written as:</p>
+<div class="codeblock"><textarea name="code" class="java">
+var count = 6, fact = 1;
+while (count &gt; 0) 
+{
+    fact = fact * count--;
+}
+console.log(fact);
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>720
+</pre></div>
+<p>The key difference between the above two examples is that the <strong>while loop</strong> is entered only if the condition passed to it will evaluate to true. But the <strong>do&hellip;while loop</strong> executes the statement once, it happens because of the starting iteration of the <strong>do&hellip;while loop</strong> does not consider as the Boolean expression. Then for the further iterations, the while will check the condition and takes the control out from the loop.</p>
+<h2 class="h2">The Loop control statements</h2>
+<p>The loop control statements are used for interrupting or control the flow of the execution. These statements change the execution from its normal sequence. JavaScript provides you the full control to handle the loops and switch statements.</p>
+<p>There may be some circumstances when you require to come out from the loop without reaching its bottom. There may also be some situations when you need to skip the part of the code and start the further iterations of the loop. So, for handling such situations in JavaScript, we have <strong>a break</strong> and <strong>continue</strong> statements.</p>
+<table class="alt">
+<tr>
+<th>Loop control statements</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>The break statement</strong></td>
+<td>The break statement is used to bring the control of the program out from the loop.</td>
+</tr>
+<tr>
+<td><strong>The continue statement</strong></td>
+<td>It skips the subsequent statements of the current iteration and brings control of the program to the beginning of the loop.</td>
+</tr>
+</table>
+<p>Let us try to elaborate on the above control statements.</p>
+<h3 class="h3">The break statement</h3>
+<p>It is used to take control of the program out from the loop. You can use the break statements within the loops or in the switch statements. Using a break statement within the loop causes the program to exit from the loop.</p>
+<p class="pq"><strong>Syntax</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+break;
+</textarea></div>
+<p class="pq"><strong>Example</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+var n = 1;
+while(n&lt;=7) 
+{ 
+   console.log("n="+n); 
+   if(n==4)
+   {
+       break;
+   } 
+   n++;
+}
+</textarea></div>
+<p>The above code will print the four values of <strong>n</strong> for the range of numbers within 1 to 7.</p>
+<p>When the value of n is <strong>4,</strong> then the loop forces the control to exit the loop because of the <strong>break statement.</strong> You will get the following output after the successful execution of the above code.</p>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>n=1
+n=2
+n=3
+n=4
+</pre></div>
+<h3 class="h3">The continue statement</h3>
+<p>Unlike the break statement, the continue statement does not exit from the loop. It terminates the current iteration of the loop and starts the next iteration.</p>
+<p class="pq"><strong>Syntax</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+continue;
+</textarea></div>
+<p class="pq"><strong>Example</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+var n = 0;
+while(n&lt;=5) 
+{ 
+   n++;
+   if(n==3)
+   {
+       continue;
+   } 
+   console.log("n = "+n); 
+}
+</textarea></div>
+<p>The above example will display the values of <strong>n,</strong> but it will skip the current iteration if the value of <strong>n</strong> will be <strong>3.</strong> You will get the following output after the successful execution of the above code.</p>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>n = 1
+n = 2
+n = 4
+n = 5
+n = 6
+</pre></div>
+<h2 class="h2">Use of Labels for controlling the flow</h2>
+<p>A <strong>label</strong> is nothing but an identifier followed by a <strong>colon (:),</strong> and it applied on a block of code or a statement. You can use the label with a <strong>break</strong> and <strong>continue</strong> to control the flow.</p>
+<p>You cannot use the line breaks in between the break and continue statement and its label name. Also, there should not be any statement in between the label name and an <strong>associated loop.</strong></p>
+<p class="pq"><strong>The syntax for defining the label</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+labelname:
+Statement
+</textarea></div>
+<p><strong>labelname:</strong> Any identifier of JavaScript, which is not a reserved word.</p>
+<p><strong>Statement:</strong> It is a JavaScript statement.</p>
+<h4 class="n">Note: In strict mode, you cannot use "let" as the label name. It will cause a syntax error because let is a reserved identifier.</h4>
+<table class="alt">
+<tr>
+<th>Label</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><strong>Label with the break statement </strong></td>
+<td>It is used to exit from the loop or from the switch statement without using a label reference, but with label reference, it is used to jump out from any code block.</td>
+</tr>
+<tr>
+<td><strong>Label with continue statement</strong></td>
+<td>It is used to skip one iteration of the loop with or without using the label reference.</td>
+</tr>
+</table>
+<h3 class="h3">Label with the break statement</h3>
+<p>Without using the label reference, you can use the break only to exit from the loop or from the switch, but by using the label reference, you can use the break to jump out from any code block.</p>
+<p class="pq"><strong>Syntax</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+break labelname; 
+</textarea></div>
+<p class="pq"><strong>Example</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+var x, y;
+
+loop1: 	       //The first for statement is labeled as "loop1."
+
+for (x = 1; x &lt; 4; x++) { 
+     loop2:    //The second for statement is labelled as "loop2"
+   for (y = 1; y &lt; 4; y++) {  
+      if (x === 2 && y === 2) {
+         break loop1;
+      }
+      console.log('x = ' + x + ', y = ' + y);
+   }
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>x = 1, y = 1
+x = 1, y = 2
+x = 1, y = 3
+x = 2, y = 1
+</pre></div>
+<h3 class="h3">Label with continue statement</h3>
+<p>The continue statement can only be used for skipping one loop iteration either with the label reference or without using the label reference.</p>
+<p class="pq"><strong>Syntax</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+continue labelname; 
+</textarea></div>
+<p class="pq"><strong>Example</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+var x, y;
+
+loop1:   //The first for statement is labelled as "loop1"
+for (x = 1; x &lt; 4; x++) {     
+   loop2:  //The second for statement is labelled as "loop2"
+   for (y = 1; y &lt; 4; y++) {   
+      if (x === 2 && y === 2) {
+         continue loop1;
+      }
+      console.log('x = ' + x + ', y = ' + y);
+   }
+}
+</textarea></div>
+<p>You can notice in the following output of the above code that it skips both "x = 2, y = 2" and "x = 2, y = 3".</p>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>x = 1, y = 1
+x = 1, y = 2
+x = 1, y = 3
+x = 2, y = 1
+x = 3, y = 1
+x = 3, y = 2
+x = 3, y = 3
+</pre></div>
+<h2 class="h2">Labeled function declarations</h2>
+<p>Before ECMAScript 6, the <strong>LabeledStatement</strong> specification didn't allow for the association of a label statement with a <strong>FunctionDeclaration.</strong> However, the labeled <strong>FunctionDeclaration</strong> was the allowable extension in <strong>non-strict code,</strong> and most of the browser-hosted implementations of ECMAScript supported that extension.</p>
+<p>But in ECMAScript 2015 (ES6), the grammar productions for the <strong>LabeledStatement</strong> allow the use of <strong>FunctionDeclaration</strong> as a <strong>LabeledItem,</strong> but it includes an error rule that causes a syntax error if that occurs.</p>
+<p>For the web browser compatibility, that rule is modified with the addition of underlined text:</p>
+<p><strong>LabeledItem : FunctionDeclaration</strong></p>
+<p>It will cause a syntax error if any of the source code of strict mode matches this rule.</p>
+<p>Starting with ECMAScript 2015, the labelled function declarations standardized for non-strict code:</p>
+<div class="codeblock"><textarea name="code" class="java">
+L: function hello() {}
+</textarea></div>
+<p>If you write the above code in strict mode then this will throw a syntax error:</p>
+<div class="codeblock"><textarea name="code" class="java">
+'use strict';
+L: function hello() {}
+// SyntaxError: In strict mode code, functions can only be declared at top level or inside a block.
+</textarea></div>
+<p>The <strong>Generator Functions</strong> can neither be labeled in <strong>non-strict mode</strong> nor in <strong>strict mode.</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+L: function* hello() 
+{
+}
+// SyntaxError: Generator Functions cannot be labelled
+</textarea></div>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="es6-decision-making.html">ES6 Decision-Making</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="es6-operators.html">&larr; prev</a>
+<a style="float:right" class="next" href="es6-decision-making.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="11777474757370727a517b70677065617e787f653f727e7c">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/es6-loops"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/es6-loops"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/es6-loops"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="cca4be8ca6adbaadb8bca3a5a2b8e2afa3a1">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6a02182a000b1c0b1e1a0503041e4409050744">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/es6-loops by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:57:06 GMT -->
+</html> 

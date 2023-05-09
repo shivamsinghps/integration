@@ -1,0 +1,2661 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/sql-string-functions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:55:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SQL String Functions - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="SQL String Functions - javatpoint" /><meta property="og:description" content="SQL String Functions with sql, tutorial, examples, insert, update, delete, select, join, database, table, join etc, SQL CAST Function, SQL Formatter." />
+<meta name="keywords" content="sql, tutorial, examples, insert, update, delete, select, join, database, table, join, what is sql, sql data types, sql operators, sql syntax, sql primary keys, sql vs nosql, sql where, sql and, sql or" /><meta name="description" content="SQL String Functions with sql, tutorial, examples, insert, update, delete, select, join, database, table, join etc, SQL CAST Function, SQL Formatter." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="sql-string-functions.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="SQL String Functions - javatpoint" /><meta name="twitter:description" property="og:description" content="SQL String Functions with sql, tutorial, examples, insert, update, delete, select, join, database, table, join etc, SQL CAST Function, SQL Formatter." /><meta property="og:url" content="sql-string-functions.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()"><div id=cf_alert_div><style>#cf_alert_div{margin:0 0 5px;padding:0;position:relative;top:0;left:0;display:block;z-index:99999;background-color:#f7f7f8;box-shadow:0 5px 5px rgba(0,0,0,.25)}#cf_alert_div a,#cf_alert_div a:visited{text-decoration:none;color:#276d9b;font-weight:600}#cf_alert_div strong{font-weight:600}#cf_alert_div table{width:100%}#cf_alert_div table td{vertical-align:middle}#cf_alert_div p{margin:0;padding:0;max-width:1100px}#cf_alert_div .wrapper{padding:0;margin:0;text-align:left;font-family:-apple-system,system-ui,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,helvetica neue,Arial,sans-serif;font-weight:400;font-style:normal;font-size:12px;padding:16px 3.334%}#cf_alert_div .wrapper td.refresh{text-align:center;min-width:140px}#cf_alert_div .wrapper td.refresh a{display:inline-block;padding:8px 24px;border:1.5px solid #276d9b;border-radius:5px;margin-right:20px}#cf_alert_div .wrapper td.content{position:relative;padding-right:25px;color:#1d1f20;font-size:14px;max-width:900px}#cf_alert_div .wrapper .x{position:absolute;top:0;right:-12.5px;height:25px;width:25px;cursor:pointer}#cf_alert_div .wrapper .x .line{display:block;height:15px;width:3px;position:absolute;top:5px;left:11px;background:#4e5255}#cf_alert_div .wrapper .x .line:first-of-type{transform:rotate(135deg)}#cf_alert_div .wrapper .x .line:last-of-type{transform:rotate(45deg)}</style><div class=wrapper><table><tr><td class=refresh><a href=# onclick="document.cookie='cf_use_ob%3d0%3bpath%3d/index.html';window.location.reload();return false;">Refresh</a><noscript style="margin:10px 0 10px 0;padding:0;font:12px Helvetica,Arial,sans-serif;color:#404040;display:block">(Enable JavaScript first.)</noscript></td><td class=content><p>This website <strong>www.javatpoint.com/sql-string-functions</strong> is currently offline. <a href=https://www.cloudflare.com/always-online/ target=_blank>Cloudflare's Always Online&trade;</a> shows a snapshot of this web page from the <a href=https://archive.org/web/ target=_blank>Internet Archive's Wayback Machine</a>. To check for the live version, click <strong>Refresh</strong>.</p><a class=x href="javascript:void(null);" onclick="document.getElementById('cf_alert_div').style.display='none';"><span class=line></span> <span class=line></span></a></td></tr></table></div></div>
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="sql-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/sql.png" alt="sql" /> SQL</a></li>
+<li><a href="pl-sql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/plsql.png" alt="plsql" /> PL/SQL</a></li>
+<li><a href="mysql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/mysql.png" alt="mysql" /> MySQL</a></li>
+<li><a href="mongodb-tutorial.html"><img src="https://static.javatpoint.com/images/icon/mongodb.png" alt="mongodb" /> MongoDB</a></li>
+<li><a href="postgresql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/postgresql.png" alt="postgresql" /> PostgreSQL</a></li>
+<li><a href="sql-server-tutorial.html"><img src="https://static.javatpoint.com/images/icon/sqlserver.png" alt="sql server" /> SQL Server</a></li>
+<li><a href="oracle-tutorial.html"><img src="https://static.javatpoint.com/images/icon/oracle.png" alt="oracle" /> Oracle</a></li>
+<li><a href="cassandra-tutorial.html"><img src="https://static.javatpoint.com/images/icon/cassandra.png" alt="cassandra" /> Cassandra</a></li>
+<li><a href="sqlite-tutorial.html"><img src="https://static.javatpoint.com/images/icon/sqlite.png" alt="sqlite" /> SQLite</a></li>
+<li><a href="dbms-tutorial.html"><img src="https://static.javatpoint.com/images/icon/dbms.png" alt="dbms" /> DBMS</a></li>
+<li><a href="python-tutorial.html"><img src="https://static.javatpoint.com/images/icon/python.png" alt="python" /> Python</a></li>
+<li><a href="java-tutorial.html"><img src="https://static.javatpoint.com/images/icon/java.png" alt="java" /> Java</a></li>
+<li><a href="aptitude/quantitative.html"><img src="https://static.javatpoint.com/images/icon/aptitude.png" alt="aptitude" /> Aptitude</a></li>
+<li><a href="sql-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="interview questions" /> Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-tutorial.html">What is SQL</a>
+<a href="sql-syntax.html" class="l1">SQL Syntax</a>
+<a href="sql-data-types.html" class="l1">SQL Data Types</a>
+<a href="sql-operators.html" class="l1">SQL Operators</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Database</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-create-database.html" class="l1">SQL CREATE Database</a>
+<a href="sql-drop-database.html" class="l1">SQL DROP Database</a>
+<a href="sql-rename-database.html" class="l1">SQL RENAME Database</a>
+<a href="sql-select-database.html" class="l1">SQL SELECT Database</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Table</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-table.html" class="l1">What is Table</a>
+<a href="sql-create-table.html" class="l1">SQL CREATE TABLE</a>
+<a href="sql-drop-table.html" class="l1">SQL DROP TABLE</a>
+<a href="sql-delete-table.html" class="l1">SQL DELETE TABLE</a>
+<a href="sql-rename-table.html" class="l1">SQL RENAME TABLE</a>
+<a href="sql-truncate-table.html" class="l1">SQL TRUNCATE TABLE</a>
+<a href="sql-copy-table.html" class="l1">SQL COPY TABLE</a>
+<a href="sql-temp-table.html" class="l1">SQL TEMP TABLE</a>
+<a href="sql-alter-table.html" class="l1">SQL ALTER TABLE</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Select</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-select.html" class="l1">SELECT Statement</a>
+<a href="sql-select-unique.html" class="l1">SQL SELECT UNIQUE</a>
+<a href="sql-select-distinct.html" class="l1">SQL SELECT DISTINCT</a>
+<a href="sql-select-count.html" class="l1">SQL SELECT COUNT</a>
+<a href="sql-select-top.html" class="l1">SQL SELECT TOP</a>
+<a href="sql-select-first.html" class="l1">SQL SELECT FIRST</a>
+<a href="sql-select-last.html" class="l1">SQL SELECT LAST</a>
+<a href="sql-select-random.html" class="l1">SQL SELECT RANDOM</a>
+<a href="sql-select-in.html" class="l1">SQL SELECT IN</a>
+<a href="sql-select-from-multiple-tables.html" class="l1">SQL SELECT Multiple</a>
+<a href="https://www.javatpoint.com/sql-select-date" class="l1">SQL SELECT DATE</a>
+<a href="sql-select-sum.html" class="l1">SQL SELECT SUM</a>
+<a href="sql-select-null.html" class="l1">SQL SELECT NULL</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Clause</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-where.html" class="l1">SQL WHERE</a>
+<a href="sql-and.html" class="l1">SQL AND</a>
+<a href="sql-or.html" class="l1">SQL OR</a>
+<a href="sql-with.html" class="l1">SQL WITH</a>
+<a href="sql-select-as.html" class="l1">SQL AS</a>
+<a href="having-clause-in-sql.html">SQL HAVING Clause</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Order By</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-order-by.html" class="l1">ORDER BY Clause</a>
+<a href="sql-order-by-asc.html" class="l1">ORDER BY ASC</a>
+<a href="sql-order-by-desc.html" class="l1">ORDER BY DESC</a>
+<a href="sql-order-by-random.html" class="l1">ORDER BY RANDOM</a>
+<a href="sql-order-by-limit.html" class="l1">ORDER BY LIMIT</a>
+<a href="sql-order-by-multiple-columns.html" class="l1">ORDER BY Multiple Cols</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Insert</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-insert.html" class="l1">INSERT Statement</a>
+<a href="sql-insert-multiple-rows.html" class="l1">INSERT Multiple Rows</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Update</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-update.html" class="l1">UPDATE Statement</a>
+<a href="sql-update-with-join.html" class="l1">SQL UPDATE JOIN</a>
+<a href="sql-update-date.html" class="l1">SQL UPDATE DATE</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Delete</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/sql-delete" class="l1">DELETE Statement</a>
+<a href="sql-delete-table.html" class="l1">SQL DELETE TABLE</a>
+<a href="https://www.javatpoint.com/sql-delete-row" class="l1">SQL DELETE ROW</a>
+<a href="sql-delete-all-rows.html" class="l1">SQL DELETE All Rows</a>
+<a href="sql-delete-duplicate-rows.html" class="l1">DELETE Duplicate Rows</a>
+<a href="https://www.javatpoint.com/sql-delete-database" class="l1">SQL DELETE DATABASE</a>
+<a href="sql-delete-view.html" class="l1">SQL DELETE VIEW</a>
+<a href="sql-delete-join.html" class="l1">SQL DELETE JOIN</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Join</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-join.html">SQL JOIN</a>
+<a href="sql-outer-join.html" class="l1">SQL Outer Join</a>
+<a href="sql-left-join.html" class="l1">SQL Left Join</a>
+<a href="sql-right-join.html" class="l1">SQL Right Join</a>
+<a href="sql-full-join.html" class="l1">SQL Full Join</a>
+<a href="sql-cross-join.html" class="l1">SQL Cross Join</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Keys</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-primary-key.html" class="l1">Primary Key</a>
+<a href="sql-foreign-key.html" class="l1">Foreign Key</a>
+<a href="sql-composite-key.html" class="l1">Composite Key</a>
+<a href="https://www.javatpoint.com/unique-key-in-sql" class="l1">Unique Key</a>
+<a href="alternate-key-in-sql.html" class="l1">Alternate Key</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Difference</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-vs-nosql.html" class="l1">SQL vs NoSQL</a>
+<a href="in-vs-exists.html">IN vs EXISTS</a>
+<a href="group-by-vs-order-by.html">Group By vs Order By</a>
+<a href="where-vs-having.html">WHERE vs HAVING</a>
+<a href="where-condition-in-sql.html">Where condition in SQL</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL Injection</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-injection.html">SQL Injection</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL String Functions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-string-functions.html">SQL String Functions</a>
+<a href="ltrim-function-in-sql.html">LTRIM Function in SQL</a>
+<a href="upper-function-in-sql.html">UPPER Function in SQL</a>
+<a href="rtrim-function-in-sql.html">RTRIM Function in SQL</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-formatter.html">SQL Formatter</a>
+<a href="sql-group-by.html">SQL group by</a>
+<a href="sql-add-drop-update-column-operation.html">SQL add/drop/update column operation</a>
+<a href="sql-cast-function.html">SQL CAST Function</a>
+<a href="sql-comments.html">SQL Comments</a>
+<a href="sql-concat-function.html">SQL CONCAT Function</a>
+<a href="cte-sql.html">CTE SQL</a>
+<a href="how-to-use-distinct-in-sql.html">How to use distinct in SQL</a>
+<a href="joining-three-or-more-tables-in-sql.html">Joining Three or More Tables in SQL</a>
+<a href="what-is-web-sql.html">What is Web SQL</a>
+<a href="how-to-create-functions-in-sql.html">How to create functions in SQL</a>
+<a href="how-to-run-sql-script.html">How to run SQL Script</a>
+<a href="how-to-delete-duplicate-rows-in-sql.html">How to Delete Duplicate Rows in SQL</a>
+<a href="sql-nth-highest-salary.html">Nth Highest salary</a>
+<a href="12-codds-rules.html">12 Codd's Rules</a>
+<a href="sql-except.html">SQL EXCEPT</a>
+<a href="types-of-sql-join.html">Types of SQL JOIN</a>
+<a href="change-datatype-of-column-in-sql.html">Change datatype of column in SQL</a>
+<a href="sql-auto-increment.html">SQL Auto Increment</a>
+<a href="sql-like.html">SQL Like</a>
+<a href="commit-and-rollback-in-sql.html">Commit and Rollback in SQL</a>
+<a href="sql-concatenate.html">SQL Concatenate</a>
+<a href="sql-get-month-from-the-date.html">SQL get month from the date</a>
+<a href="savepoint-in-sql.html">Savepoint in SQL</a>
+<a href="sql-order-by-date.html">SQL ORDER BY DATE</a>
+<a href="time-datatype-in-sql.html">TIME Datatype in SQL</a>
+<a href="sql-between.html">SQL BETWEEN</a>
+<a href="crud-operations-in-sql.html">SQL CRUD Operations</a>
+<a href="sql-index.html">SQL INDEX</a>
+<a href="scalar-functions-in-sql.html">Scalar Functions in SQL</a>
+<a href="set-operators-in-sql.html">SET Operators in SQL</a>
+<a href="types-of-sql-commands.html">Types of SQL Commands</a>
+<a href="tcl-commands-in-sql.html">TCL Commands in SQL</a>
+<a href="sql-subquery.html">SQL Subquery</a>
+<a href="sql-view.html">SQL View</a>
+<a href="constraints-in-sql.html">Constraints in SQL</a>
+<a href="https://www.javatpoint.com/pattern-matching-in-sql">Pattern Matching in SQL</a>
+<a href="sql-date-functions.html">SQL Date Functions</a>
+<a href="ddl-commands-in-sql.html">DDL Commands in SQL</a>
+<a href="dml-commands-in-sql.html">DML Commands in SQL</a>
+<a href="sql-case.html">SQL CASE</a>
+<a href="https://www.javatpoint.com/sql-inner-join">SQL Inner Join</a>
+<a href="sql-in-operator.html">SQL IN Operator</a>
+<a href="check-constraint-in-sql.html">Check Constraint in SQL</a>
+<a href="sql-clauses.html">SQL CLAUSES</a>
+<a href="sql-logical-operators.html">SQL LOGICAL OPERATORS</a>
+<a href="how-to-delete-column-from-table-in-sql.html">How to Delete Column from Table in SQL</a>
+<a href="how-to-add-column-in-the-table-in-sql.html">How to Add Column in the Table in SQL</a>
+<a href="how-to-delete-one-row-in-sql.html">How to Delete one row in SQL</a>
+<a href="how-to-change-the-column-value-in-sql.html">How to Change the Column Value in SQL</a>
+<a href="how-to-add-foreign-key-in-sql.html">How to Add Foreign Key in SQL</a>
+<a href="how-to-add-a-primary-key-in-sql.html">How to Add a Primary Key in SQL</a>
+<a href="how-to-insert-one-or-more-rows-in-sql.html">How to Insert One or More rows in SQL</a>
+<a href="how-to-use-like-in-sql.html">How to Use LIKE in SQL</a>
+<a href="cursor-in-sql.html">Cursor in SQL</a>
+<a href="drop-vs-truncate-in-sql.html">DROP vs Truncate in SQL</a>
+<a href="sql-comparison-operators.html">SQL Comparison Operators</a>
+<a href="sql-count-where.html">SQL COUNT WHERE</a>
+<a href="sql-select-min.html">SQL SELECT MIN</a>
+<a href="sql-stored-procedure.html">SQL Stored Procedure</a>
+<a href="sql-select-avg.html">SQL SELECT AVG</a>
+<a href="sql-select-max.html">SQL SELECT MAX</a>
+<a href="sql-add-column.html">SQL ADD COLUMN</a>
+<a href="how-to-use-auto-increment-in-sql.html">How to use Auto-Increment in SQL</a>
+<a href="sql-languages.html">SQL Languages</a>
+<a href="sql-arithmetic-operators.html">SQL Arithmetic Operators</a>
+<a href="how-to-use-group-by-in-sql.html">How to Use GROUP BY in SQL</a>
+<a href="how-to-use-order-by-in-sql.html">How to Use ORDER BY in SQL</a>
+<a href="trigger-in-sql.html">Trigger in SQL</a>
+<a href="what-is-race-condition.html">What is Race Condition</a>
+<a href="sql-count-distinct.html">SQL COUNT DISTINCT</a>
+<a href="sql-union.html">SQL UNION</a>
+<a href="how-to-use-any-keyword-in-sql.html">How to Use ANY keyword in SQL</a>
+<a href="how-to-use-check-in-sql.html">How to use CHECK in SQL</a>
+<a href="how-to-use-default-in-sql.html">How to use DEFAULT in SQL</a>
+<a href="how-to-use-not-null-in-sql.html">How to use NOT NULL in SQL</a>
+<a href="how-to-use-between-in-sql.html">How to Use BETWEEN in SQL</a>
+<a href="how-to-use-in-in-sql.html">How to Use IN in SQL</a>
+<a href="sql-intersect.html">SQL INTERSECT</a>
+<a href="https://www.javatpoint.com/how-to-use-union-in-sql">How to use UNION in SQL</a>
+<a href="sql-not-operator.html">SQL NOT Operator</a>
+<a href="instr-function-in-sql.html">INSTR Function in SQL</a>
+<a href="left-function-in-sql.html">LEFT Function in SQL</a>
+<a href="locate-function-in-sql.html">LOCATE Function in SQL</a>
+<a href="right-function-in-sql.html">RIGHT Function in SQL</a>
+<a href="strcmp-function-in-sql.html">STRCMP Function in SQL</a>
+<a href="how-to-use-having-in-sql.html">How to Use HAVING in SQL</a>
+<a href="concat-function-in-sql.html">CONCAT Function in SQL</a>
+<a href="lower-function-in-sql.html">LOWER Function in SQL</a>
+<a href="replace-function-in-sql.html">REPLACE Function in SQL</a>
+<a href="substr-function-in-sql.html">SUBSTR Function in SQL</a>
+<a href="mid-function-in-sql.html">MID Function in SQL</a>
+<a href="repeat-function-in-sql.html">REPEAT Function in SQL</a>
+<a href="substring_index-function-in-sql.html">SUBSTRING_INDEX Function in SQL</a>
+<a href="ascii-function-in-sql.html">ASCII Function in SQL</a>
+<a href="find_in_set-function-in-sql.html">FIND_IN_SET Function in SQL</a>
+<a href="position-function-in-sql.html">POSITION Function in SQL</a>
+<a href="space-function-in-sql.html">SPACE Function in SQL</a>
+<a href="substring-function-in-sql.html">SUBSTRING Function in SQL</a>
+<a href="char_length-function-in-sql.html">CHAR_LENGTH Function in SQL</a>
+<a href="character_length-function-in-sql.html">CHARACTER_LENGTH Function in SQL</a>
+<a href="format-function-in-sql.html">FORMAT Function in SQL</a>
+<a href="insert-function-in-sql.html">INSERT Function in SQL</a>
+<a href="bit_length-function-in-sql.html">BIT_LENGTH Function in SQL</a>
+<a href="concat_ws-function-in-sql.html">CONCAT_WS Function in SQL</a>
+<a href="length-function-in-sql.html">LENGTH Function in SQL</a>
+<a href="reverse-string-function-in-sql.html">REVERSE String Function in SQL</a>
+<a href="how-to-use-all-in-sql.html">How to Use ALL in SQL</a>
+<a href="sql-compare-string.html">SQL Compare String</a>
+<a href="sql-minus.html">SQL Minus</a>
+<a href="sql-modify-column.html">SQL MODIFY COLUMN</a>
+<a href="make_set-function-in-sql.html">MAKE_SET Function in SQL</a>
+<a href="field-function-in-sql.html">FIELD Function in SQL</a>
+<a href="char-function-in-sql.html">CHAR Function in SQL</a>
+<a href="elt-function-in-sql.html">ELT Function in SQL</a>
+<a href="count-function-in-sql.html">COUNT Function in SQL</a>
+<a href="power-function-in-sql.html">POWER Function in SQL</a>
+<a href="round-function-in-sql.html">ROUND Function in SQL</a>
+<a href="sum-function-in-sql.html">SUM Function in SQL</a>
+<a href="avg-function-in-sql.html">AVG Function in SQL</a>
+<a href="bin-function-in-sql.html">BIN Function in SQL</a>
+<a href="max-function-in-sql.html">MAX Function in SQL</a>
+<a href="min-function-in-sql.html">MIN Function in SQL</a>
+<a href="mod-function-in-sql.html">MOD Function in SQL</a>
+<a href="oct-function-in-sql.html">OCT Function in SQL</a>
+<a href="sign-function-in-sql.html">SIGN Function in SQL</a>
+<a href="sqrt-function-in-sql.html">SQRT Function in SQL</a>
+<a href="square-function-in-sql.html">SQUARE Function in SQL</a>
+<a href="abs-function-in-sql.html">ABS Function in SQL</a>
+<a href="cos-function-in-sql.html">COS Function in SQL</a>
+<a href="cot-function-in-sql.html">COT Function in SQL</a>
+<a href="sin-function-in-sql.html">SIN Function in SQL</a>
+<a href="acos-function-in-sql.html">ACOS Function in SQL</a>
+<a href="asin-function-in-sql.html">ASIN Function in SQL</a>
+<a href="atan-function-in-sql.html">ATAN Function in SQL</a>
+<a href="tan-function-in-sql.html">TAN Function in SQL</a>
+<a href="ceil-function-in-sql.html">CEIL Function in SQL</a>
+<a href="floor-function-in-sql.html">FLOOR Function in SQL</a>
+<a href="https://www.javatpoint.com/limit-function-in-sql">LIMIT Function in SQL</a>
+<a href="ceiling-function-in-sql.html">CEILING Function in SQL</a>
+<a href="degrees-function-in-sql.html">DEGREES Function in SQL</a>
+<a href="exp-function-in-sql.html">EXP Function in SQL</a>
+<a href="radians-function-in-sql.html">RADIANS Function in SQL</a>
+<a href="rand-function-in-sql.html">RAND Function in SQL</a>
+<a href="atn2-function-in-sql.html">ATN2 Function in SQL</a>
+<a href="log-function-in-sql.html">LOG Function in SQL</a>
+<a href="log2-function-in-sql.html">LOG2 Function in SQL</a>
+<a href="log10-function-in-sql.html">LOG10 Function in SQL</a>
+<a href="greatest-function-in-sql.html">GREATEST Function in SQL</a>
+<a href="pow-function-in-sql.html">POW Function in SQL</a>
+<a href="div-function-in-sql.html">DIV Function in SQL</a>
+<a href="least-function-in-sql.html">LEAST Function in SQL</a>
+<a href="ln-function-in-sql.html">LN Function in SQL</a>
+<a href="unicode-function-in-sql.html">UNICODE Function in SQL</a>
+<a href="replicate-function-in-sql.html">REPLICATE Function in SQL</a>
+<a href="truncate-function-in-sql.html">TRUNCATE Function in SQL</a>
+<a href="datalength-function-in-sql.html">DATALENGTH Function in SQL</a>
+<a href="nchar-function-in-sql.html">NCHAR Function in SQL</a>
+<a href="octet_length-function-in-sql.html">OCTET_LENGTH Function in SQL</a>
+<a href="patindex-function-in-sql.html">PATINDEX Function in SQL</a>
+<a href="pi-function-in-sql.html">PI Function in SQL</a>
+<a href="like-function-in-sql.html">LIKE Function in SQL</a>
+<a href="ord-function-in-sql.html">ORD Function in SQL</a>
+<a href="different-star-patterns-in-sql.html">Different Star Patterns in SQL</a>
+<a href="sql-general-functions-nvl-nvl2-decode-coalesce-nullif-lnnvl-and-nanvl.html">SQL General Functions: NVL, NVL2, DECODE, COALESCE, NULLIF, LNNVL and NANVL</a>
+<a href="sql-servers-categorization-of-stored-procedures-based-on-input-and-output-parameters.html">SQL Server's Categorization of Stored Procedures based on Input and Output Parameters</a>
+<a href="use-of-single-quotes-for-stored-procedure-paramete.html">Use of Single Quotes for Stored Procedure Parameters in SQL Server</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SQL MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-mcq.html">SQL MCQ</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PL/SQL Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="pl-sql-tutorial.html" class="l1">PL/SQL Tutorial</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-interview-questions.html" class="l1">SQL Interview</a>
+<a href="pl-sql-interview-questions.html" class="l1">PL/SQL Interview</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Quiz</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-quiz.html" class="l1">SQL Quiz</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="ltrim-function-in-sql.html">next &rarr;</a>
+<a class="next" href="sql-intersect.html">&larr; prev</a>
+</div>
+<h1 class="h1">SQL String Functions</h1>
+<p>In this article, you will learn about the various string functions of Structured Query Language in detail with examples.</p>
+<h2 class="h2">What are String Functions in SQL?</h2>
+<p>SQL String functions are the predefined functions that allow the database users for string manipulation. These functions only accept, process, and give results of the string data type.</p>
+<p>Following are the most important string functions in Structured Query Language:</p>
+<ol class="points">
+<li>ASCII()</li>
+<li>CHAR_LENGTH()</li>
+<li>CHARACTER_LENGTH()</li>
+<li>CONCAT()</li>
+<li>CONCAT_WS()</li>
+<li>FIND_IN_SET()</li>
+<li>FORMAT()</li>
+<li>INSERT()</li>
+<li>INSTR()</li>
+<li>LCASE()</li>
+<li>LEFT()</li>
+<li>LOCATE()</li>
+<li>LOWER()</li>
+<li>LPAD()</li>
+<li>LTRIM()</li>
+<li>MID()</li>
+<li>POSITION()</li>
+<li>REPEAT()</li>
+<li>REPLACE()</li>
+<li>REVERSE()</li>
+<li>RIGHT()</li>
+<li>RPAD()</li>
+<li>RTRIM()</li>
+<li>SPACE()</li>
+<li>STRCMP()</li>
+<li>SUBSTR()</li>
+<li>SUBSTRING()</li>
+<li>SUBSTRING_INDEX()</li>
+<li>UCASE()</li>
+<li>UPPER()</li>
+</ol>
+<p>Let's discuss each string function in brief with the SQL table.</p>
+<p>Now, we create a new table in SQL, which helps to understand each string function. The syntax for creating a new table in the SQL database is as follows:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+CREATE TABLE table_name
+(
+1st_Column Data Type (character_size of 1st Column),  
+2nd_Column Data Type (character_size of the 2nd column ),  
+3rd_Column Data Type (character_size of the 3rd column),  
+...  
+</textarea></div>
+<div class="codeblock"><textarea name="code" class="sql">
+Nth_Column Data Type (character_size of the Nth column)
+);  
+</textarea></div>
+<p>The following CREATE statement creates the <strong>Faculty_Info</strong> table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+CREATE TABLE Faculty_Info
+(
+Faculty_ID INT NOT NULL PRIMARY KEY,  
+Faculty_First_Name VARCHAR (100),  
+Faculty_Last_Name VARCHAR (100),  
+Faculty_Dept_Id INT NOT NULL,
+Faculty_AddressVarchar(120),
+Faculty_City Varchar (80),
+Faculty_Salary INT 
+);
+</textarea></div>
+<p>The following INSERT queries insert the records of college Faculties in the <strong>Faculty_Info</strong> table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+INSERT INTO Faculty_Info (Faculty_ID, Faculty_First_Name, Faculty_Last_NameFaculty_Dept_Id, Faculty_Address, Faculty_City, Faculty_Salary) VALUES (1001, Arush, Sharma, 4001, Aman Vihar, Delhi, 20000);
+INSERT INTO Faculty_Info (Faculty_ID, Faculty_First_Name, Faculty_Last_NameFaculty_Dept_Id, Faculty_Address, Faculty_City, Faculty_Salary) VALUES (1002, Bulbul, Roy, 4002, Nirman Vihar, Delhi, 38000 );
+INSERT INTO Faculty_Info (Faculty_ID, Faculty_First_Name, Faculty_Last_NameFaculty_Dept_Id, Faculty_Address, Faculty_City, Faculty_Salary) VALUES (1004, Saurabh, Sharma, 4001, Sector 128, Mumbai, 45000);
+INSERT INTO Faculty_Info (Faculty_ID, Faculty_First_Name, Faculty_Last_NameFaculty_Dept_Id, Faculty_Address, Faculty_City, Faculty_Salary) VALUES (1005, Shivani, Singhania, 4001, Vivek Vihar, Kolkata, 42000);
+INSERT INTO Faculty_Info (Faculty_ID, Faculty_First_Name, Faculty_Last_NameFaculty_Dept_Id, Faculty_Address, Faculty_City, Faculty_Salary) VALUES (1006, Avinash, Sharma, 4002, Sarvodya Calony, Delhi, 28000);
+INSERT INTO Faculty_Info (Faculty_ID, Faculty_First_Name, Faculty_Last_NameFaculty_Dept_Id, Faculty_Address, Faculty_City, Faculty_Salary)VALUES (1007, Shyam, Besas, 4003, Krishna Nagar, Lucknow, 35000);
+</textarea></div>
+<p>The following SELECT statement displays the inserted records of the above <strong>Faculty_Info</strong> table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT * FROM Faculty_Info; 
+</textarea></div>
+<br>
+<div class="table">
+<table class="alt">
+<tr>
+<th>Faculty_Id</th>
+<th>Faculty_First_Name</th>
+<th>Faculty_Last_Name</th>
+<th>Faculty_Dept_Id</th>
+<th>Faculty_Address</th>
+<th>Faculty_City</th>
+<th>Faculty_Salary</th>
+</tr>
+<tr>
+<td>1001</td>
+<td>Arush</td>
+<td>Sharma</td>
+<td>4001</td>
+<td>Aman Vihar</td>
+<td>Delhi</td>
+<td>20000</td>
+</tr>
+<tr>
+<td>1002</td>
+<td>Bulbul</td>
+<td>Roy</td>
+<td>4002</td>
+<td>Nirman Vihar</td>
+<td>Delhi</td>
+<td>38000</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>Saurabh</td>
+<td>Roy</td>
+<td>4001</td>
+<td>Sector 128</td>
+<td>Mumbai</td>
+<td>45000</td>
+</tr>
+<tr>
+<td>1005</td>
+<td>Shivani</td>
+<td>Singhania</td>
+<td>4001</td>
+<td>Vivek Vihar</td>
+<td>Kolkata</td>
+<td>42000</td>
+</tr>
+<tr>
+<td>1006</td>
+<td>Avinash</td>
+<td>Sharma</td>
+<td>4002</td>
+<td>Sarvodya Calony</td>
+<td>Delhi</td>
+<td>28000</td>
+</tr>
+<tr>
+<td>1007</td>
+<td>Shyam</td>
+<td>Besas</td>
+<td>4003</td>
+<td>Krishna Nagar</td>
+<td>Lucknow</td>
+<td>35000</td>
+</tr>
+</table>
+</div>
+<h2 class="h2">ASCII String Function</h2>
+<p>This function in SQL returns the ASCII value of the character in the output. It gives the ASCII value of the left-most character of the string.</p>
+<p><strong>Syntax of ASCII String Function:</strong></p>
+<p><strong>Syntax1: This syntax uses ASCII with the table column:</strong></p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT ASCII(Column_Name) as ASCII_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2: This syntax uses ASCII with the string:</strong></p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT ASCII(String);
+</textarea></div>
+<p><strong>Syntax3: This syntax uses ASCII with the character:</strong></p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT ASCII(Character);
+</textarea></div>
+<p><strong>Example of ASCII String function:</strong></p>
+<p>The following SELECT query uses ASCII code with the Faculty_City column of the above Faculty_Info table.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_City, ASCII(Faculty_City) AS ASCII_code_of_column FROM Faculty_Info;
+</textarea></div>
+<p>This query shows the ASCII code of the first character of all cities of the Faculty_City column.</p>
+<table class="alt">
+<tr>
+<th>Faculty_City</th>
+<th>ASCII_Code_of_column</th>
+</tr>
+<tr>
+<td>Delhi</td>
+<td>68</td>
+</tr>
+<tr>
+<td>Delhi</td>
+<td>68</td>
+</tr>
+<tr>
+<td>Mumbai</td>
+<td>77</td>
+</tr>
+<tr>
+<td>Kolkata</td>
+<td>75</td>
+</tr>
+<tr>
+<td>Delhi</td>
+<td>68</td>
+</tr>
+<tr>
+<td>Lucknow</td>
+<td>76</td>
+</tr>
+</table>
+<h2 class="h2">CHAR_LENGTH String Function</h2>
+<p>This string function returns the length of the specified word. It shows the number of characters from the word.</p>
+<h3 class="h3">Syntax of CHAR_LENGTH String Function:</h3>
+<p><strong>Syntax1: This syntax uses CHAR_LENGTH() with the table column:</strong></p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT CHAR_LENGTH(Column_Name) as Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2: This syntax uses CHAR_LENGTH() with the word:</strong></p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT CHAR_LENGTH(word);
+</textarea></div>
+<h3 class="h3">Examples of CHAR_LENGTH String function:</h3>
+<p><strong>Example 1:</strong> This example shows the number of characters of the JavaTpoint word:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT CHAR_LENGTH('JavaTpoint');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>10    
+</pre></div>
+<p><strong>Example 2:</strong> This example uses CHAR_LENGTH() with the Faculty_Last_Name column of the above Faculty_Info table.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Last_Name, CHAR_LENGTH(Faculty_Last_Name) AS Length_of_Last_Namecolumn FROM Faculty_Info;
+</textarea></div>
+<p>This query shows the total number of characters of the last name of each faculty.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Last_Name</th>
+<th>Length_of_Last_Namecolumn</th>
+</tr>
+<tr>
+<td>Sharma</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Roy</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Roy</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Singhania</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Sharma</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Besas</td>
+<td>5</td>
+</tr>
+</table>
+<h2 class="h2">CHARACTER_LENGTH String Function</h2>
+<p>This string function returns the length of the given string. It shows the number of all characters and spaces from the sentence.</p>
+<h3 class="h3">Syntax of CHARACTER_LENGTH String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses CHARACTER_LENGTH() with the table column:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT CHARACTER_LENGTH(Column_Name) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses CHARACTER_LENGTH() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT CHARACTER_LENGTH(String);
+</textarea></div>
+<h3 class="h3">Examples of CHARACTER_LENGTH String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query shows the total number of characters and spaces of the specified string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT CHARACTER_LENGTH('JavaTpoint is a good company');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>28  
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses CHARACTER_LENGTH() with the Faculty_Addresss column of the above Faculty_Info table.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, CHARACTER_LENGTH(Faculty_Address) AS Length_of_Address_column FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement shows the total number of characters and spaces of the address of each faculty.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>Length_of_Address_column</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>13</td>
+</tr>
+</table>
+<h2 class="h2">CONCAT String Function</h2>
+<p>This string function concatenates two strings or words and forms a new string in the result.</p>
+<h3 class="h3">Syntax of CONCAT String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses CONCAT() with table columns:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT CONCAT(Column_Name1, Column_Name2, ..... column_NameN) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses CONCAT() with multiple strings:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT CONCAT(String_1, String_2, String_3, ...., String_N);
+</textarea></div>
+<h3 class="h3">Examples of CONCAT string function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query appends the multiple strings into a single string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT CONCAT('JavaTpoint', ' is', ' a', ' good', ' company.');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>JavaTpoint is a good company  
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses CONCAT() with the Faculty_First_Name and Faculty_Last_Name columns of above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_First_Name, Faculty_Last_Name CONCAT(Faculty_First_Name, Faculty_Last_Name) AS Append_First_LastName FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement merges the first name and last name of each faculty as shown in the below table:</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<td>Faculty_First_Name</td>
+<td>Faculty_Last_Name</td>
+<td>Append_First_LastName</td>
+</tr>
+<tr>
+<td>Arush</td>
+<td>Sharma</td>
+<td>Arush Sharma</td>
+</tr>
+<tr>
+<td>Bulbul</td>
+<td>Roy</td>
+<td>Bulbul Roy</td>
+</tr>
+<tr>
+<td>Saurabh</td>
+<td>Roy</td>
+<td>Saurabh Roy</td>
+</tr>
+<tr>
+<td>Shivani</td>
+<td>Singhania</td>
+<td>Shivani Singhania</td>
+</tr>
+<tr>
+<td>Avinash</td>
+<td>Sharma</td>
+<td>Avinash Sharma</td>
+</tr>
+<tr>
+<td>Shyam</td>
+<td>Besas</td>
+<td>Shyam Besas</td>
+</tr>
+</table>
+<h2 class="h2">CONCAT_WS String Function</h2>
+<p>This string function concatenates multiple strings or words with the help of concatenating symbol. This function uses another parameter that denotes the concatenate symbol.</p>
+<h3 class="h3">Syntax of CONCAT_WS String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses CONCAT_WS() with table columns:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT CONCAT_WS( Concatenate_symbol, Column_Name1, Column_Name2, ..... column_NameN) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses CONCAT_WS() with multiple strings:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT CONCAT_WS(Concatenate_symbol, String_1, String_2, String_3, ...., String_N);
+</textarea></div>
+<h3 class="h3">Examples of CONCAT_WS String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query appends the multiple strings using the plus (+) symbol:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT CONCAT_WS('+', 'JavaTpoint', ' is', ' a', ' good', ' company');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>JavaTpoint+is+a+good+company  
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses CONCAT_WS() with the Faculty_First_Name and Faculty_Last_Name columns of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_First_Name, Faculty_Last_Name CONCAT_WS('.', Faculty_First_Name, Faculty_Last_Name) AS Append_First_LastName FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement merges the first name and last name of each faculty by the dot symbol.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<td>Faculty_First_Name</td>
+<td>Faculty_Last_Name</td>
+<td>Append_First_LastName</td>
+</tr>
+<tr>
+<td>Arush</td>
+<td>Sharma</td>
+<td>Arush.Sharma</td>
+</tr>
+<tr>
+<td>Bulbul</td>
+<td>Roy</td>
+<td>Bulbul.Roy</td>
+</tr>
+<tr>
+<td>Saurabh</td>
+<td>Roy</td>
+<td>Saurabh.Roy</td>
+</tr>
+<tr>
+<td>Shivani</td>
+<td>Singhania</td>
+<td>Shivani.Singhania</td>
+</tr>
+<tr>
+<td>Avinash</td>
+<td>Sharma</td>
+<td>Avinash.Sharma</td>
+</tr>
+<tr>
+<td>Shyam</td>
+<td>Besas</td>
+<td>Shyam.Besas</td>
+</tr>
+</table>
+<h2 class="h2">FIND_IN_SET String Function</h2>
+<p>This string function allows you to find the position of the searched_string in the set of strings.</p>
+<h3 class="h3">Syntax of FIND_IN_SET String Function:</h3>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT FIND_IN_SET(Concatenate_symbol, String_1, String_2, String_3, ...., String_N);
+</textarea></div>
+<h3 class="h3">Examples of FIND_IN_SET String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query searches 'a' character from the given set of characters:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT FIND_IN_SET('a', 'JavaTpoint, is, a, good, company');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>3 
+</pre></div>
+<p><strong>Example2:</strong> The following SELECT query searches 'Delhi' string from the given set of strings:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT FIND_IN_SET('Delhi', 'Mumbai, Goa, Banglore, Delhi, Kolkata, Chennai');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>4
+</pre></div>
+<p><strong>FORMAT String Function</strong></p>
+<p>This String function allows you to display the given string in the specified format.</p>
+<h3 class="h3">Syntax of FORMAT String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses FORMAT() with table column:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT FORMAT(Column_Name1, Format_String) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses FORMAT() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT FORMAT(String_1, Format_String);
+</textarea></div>
+<h3 class="h3">Examples of FORMAT String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query displays the number in the percentage format:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT FORMAT('0.958', 'Percent');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>95.80%   
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses FORMAT() with the Faculty_Salary column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Salary, FORMAT(Faculty_Salary, 'C') AS Currency_Salary FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement displays the salary of each faculty in the currency format.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Salary</th>
+<th>Currency_Salary</th>
+</tr>
+<tr>
+<td>20000</td>
+<td>$20000.00</td>
+</tr>
+<tr>
+<td>38000</td>
+<td>$38000.00</td>
+</tr>
+<tr>
+<td>45000</td>
+<td>$45000.00</td>
+</tr>
+<tr>
+<td>42000</td>
+<td>$42000.00</td>
+</tr>
+<tr>
+<td>28000</td>
+<td>$28000.00</td>
+</tr>
+<tr>
+<td>35000</td>
+<td>$35000.00</td>
+</tr>
+</table>
+<h2 class="h2">INSERT String Function</h2>
+<p>This string function allows the database users to insert the sub-string in the original string at the given index position.</p>
+<h3 class="h3">Syntax of INSERT String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses INSERT() with the column of the SQL:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT INSERT(Column_Name, Position, Number, String) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses INSERT() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT INSERT(String_1, Position, Number, String_2);
+</textarea></div>
+<h3 class="h3">Examples of INSERT String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query inserts the 'Tpoint' string at the fifth position in the 'JavaExcel' string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT INSERT('JavaExcel', 5, 6, 'Tpoint');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>JavaTpointExcel   
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses INSERT() with the Faculty_City column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_City, INSERT(Faculty_City, 3, 4, 'Agra') AS Insert_Agra FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement inserts the Agra string at the third position in the city of each faculty.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_City</th>
+<th>Insert_Agra</th>
+</tr>
+<tr>
+<td>Delhi</td>
+<td>DeAgralhi</td>
+</tr>
+<tr>
+<td>Delhi</td>
+<td>DeAgralhi</td>
+</tr>
+<tr>
+<td>Mumbai</td>
+<td>MuAgrambai</td>
+</tr>
+<tr>
+<td>Kolkata</td>
+<td>KoAgralkata</td>
+</tr>
+<tr>
+<td>Delhi</td>
+<td>DeAgralhi</td>
+</tr>
+<tr>
+<td>Lucknow</td>
+<td>LuAgracknow</td>
+</tr>
+</table>
+<h2 class="h2">INSTR String Function</h2>
+<p>This string function returns the index value of the first occurrence of the given character in the string.</p>
+<h3 class="h3">Syntax of INSTR String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses INSTR() with the column of the SQL:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT INSTR(Column_Name, character) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses INSTR() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT INSTR(String, character);
+</textarea></div>
+<h3 class="h3">Examples of INSTR String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query shows the index value of the 'T' character in the JavaTpoint string</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT INSTR('JavaTpoint', 'T');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>5  
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses INSTR() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, INSTR(Faculty_Address, 'a') AS INSTR_Address FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement converts the cities of all faculties into lower case letters.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>LCASE_Address</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Sactor 128</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>7</td>
+</tr>
+</table>
+<h2 class="h2">LCASE String Function</h2>
+<p>This string function allows users to convert the specified string into lower case letters.</p>
+<h3 class="h3">Syntax of LCASE String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses LCASE() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LCASE(Column_Name) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses LCASE() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LCASE(String);
+</textarea></div>
+<h3 class="h3">Examples of LCASE String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query converts the upper case letters of the given string into the lower case letters.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LCASE( 'The CAPITAL of INDIA is NEW DELHI');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>the capital of india is new delhi  
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses LCASE() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, LCASE(Faculty_Address) AS LCASE_Address FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement converts the cities of all faculties into lower case letters.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>LCASE_Address</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>aman vihar</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>nirman vihar</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>sector 128</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>vivek vihar</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>sarvodya colony</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>krishna nagar</td>
+</tr>
+</table>
+<h2 class="h2">LEFT String Function</h2>
+<p>This string function shows the leftmost characters from the given string. It reads the characters to the given index position.</p>
+<h3 class="h3">Syntax of LEFT String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses LEFT() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LEFT(Column_Name, Index_position) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses LEFT() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LEFT(String, Index_position);
+</textarea></div>
+<h3 class="h3">Examples of LEFT String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query shows the 11 leftmost characters from the given string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LEFT( 'The CAPITAL of INDIA is NEW DELHI', 11);
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>The CAPITAL  
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses LEFT() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, LEFT(Faculty_Address, 6) AS LEFT_Address FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement shows the 6 leftmost characters from the address of all faculties</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>LEFT_Address</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>Aman V</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>Nirman</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>Sector</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>Vivek</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>Sarvod</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>Krishn</td>
+</tr>
+</table>
+<h2 class="h2">LOCATE String Function</h2>
+<p>This string function shows the index value of the first occurrence of the word in the given string.</p>
+<h3 class="h3">Syntax of LOCATE String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses LOCATE() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LOCATE( Search_string, Column_Name, Search_position) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses LOCATE() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LOCATE(Search_string, String Search_position);
+</textarea></div>
+<h3 class="h3">Examples of LOCATE String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query shows the index value of the INDIA word in the given sentence:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LOCATE('INDIA','The CAPITAL of INDIA is NEW DELHI ', 1);
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>16   
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses LOCATE() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, LOCATE(' r ', Faculty_Address, 1) AS LOCATE_r_Address FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement shows the index value of 'r' in the address of each faculty.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>LOCATE_r_Address</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>2</td>
+</tr>
+</table>
+<h2 class="h2">LOWER String Function</h2>
+<p>This string function allows users to convert the specified string into lower case letters. This function is also the same as the LCASE() string function.</p>
+<h3 class="h3">Syntax of LOWER String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses LOWER() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LOWER(Column_Name) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses LOWER() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LOWER(String);
+</textarea></div>
+<h3 class="h3">Examples of LOWER String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query converts the upper case letters of the given string into the lower case letters.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LOWER( 'NEW DELHI IS THE CAPITAL OF INDIA');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>new delhi is the capital of india  
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses LOWER() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, LOWER(Faculty_Address) AS LOWER_Address FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement converts the cities of all faculties into lower case letters.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>LOWER_Address</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>aman vihar</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>nirman vihar</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>sector 128</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>vivek vihar</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>sarvodya colony</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>krishna nagar</td>
+</tr>
+</table>
+<h2 class="h2">LPAD String Function</h2>
+<p>This string function adds the given symbol to the left of the given string.</p>
+<h3 class="h3">Syntax of LPAD String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses LPAD() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LPAD(Column_Name, size, symbol) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses LPAD() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LPAD(String, size, symbol);
+</textarea></div>
+<h3 class="h3">Examples of LPAD String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query adds the # symbol three times to the left of the NEW string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LPAD( 'NEW', 6, '#');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>###NEW  
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses LPAD() with the Faculty_City column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_City, LPAD(Faculty_City, 10, '*') AS LPAD_City FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement adds the * (asterisk) symbol five times to the left of the city of all faculties:</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_City</th>
+<th>LPAD_City</th>
+</tr>
+<tr>
+<td>Delhi</td>
+<td>*****Delhi</td>
+</tr>
+<tr>
+<td>Delhi</td>
+<td>*****Delhi</td>
+</tr>
+<tr>
+<td>Mumbai</td>
+<td>****Mumbai</td>
+</tr>
+<tr>
+<td>Kolkata</td>
+<td>***Kolkata</td>
+</tr>
+<tr>
+<td>Delhi</td>
+<td>*****Delhi</td>
+</tr>
+<tr>
+<td>Lucknow</td>
+<td>***Lucknow</td>
+</tr>
+</table>
+<h2 class="h2">LTRIM String Function</h2>
+<p>This string function cuts the given character or string from the left of the given original string. It also removes the space from the left of the specified string.</p>
+<h3 class="h3">Syntax of LTRIM String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses LTRIM() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LTRIM(Column_Name, string) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses LTRIM() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LTRIM(Original_String, trimmed_string );
+</textarea></div>
+<h3 class="h3">Examples of LTRIM String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query trims the NEW DELHI words from the specified string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LTRIM( 'NEW DELHI IS THE CAPITAL OF INDIA', 'NEW DELHI');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>IS THE CAPITAL OF INDIA   
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query trims the space from the specified string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LTRIM( '              JAVATPOINT           ');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>'JAVATPOINT           '    
+</pre></div>
+<p><strong>Example 3:</strong> The following SELECT query trims the given character from the left of specified string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT LTRIM( '####98221545', '#');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>98221545   
+</pre></div>
+<p><strong>Example 4:</strong> The following SELECT query uses LTRIM() with the Faculty_Last_Name column of above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Last_Name, LTRIM(Faculty_Last_Name) AS LTRIM_LastName FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement trims the space from the left of the last name of all faculties:</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Last_Name</th>
+<th>LTRIM_LastName</th>
+</tr>
+<tr>
+<td>Sharma</td>
+<td>Sharma</td>
+</tr>
+<tr>
+<td>Roy</td>
+<td>Roy</td>
+</tr>
+<tr>
+<td>Roy</td>
+<td>Roy</td>
+</tr>
+<tr>
+<td>Singhania</td>
+<td>Singhania</td>
+</tr>
+<tr>
+<td>Sharma</td>
+<td>Sharma</td>
+</tr>
+<tr>
+<td>Besas</td>
+<td>Besas</td>
+</tr>
+</table>
+<h2 class="h2">MID String Function</h2>
+<p>This string function extracts the sub-string from the given position of the original string.</p>
+<h3 class="h3">Syntax of MID String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses MID() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT MID(Column_Name, Starting_Position, Length) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses MID() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT MID(Original_String, Starting_Position, Length);
+</textarea></div>
+<h3 class="h3">Examples of MID String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query shows the character from the 5<sup>th</sup> to the 10<sup>th</sup> position of the string.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT MID( 'NEW DELHI IS THE CAPITAL OF INDIA', 5, 10);
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>DELHI IS T   
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses MID() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, MID(Faculty_Address, 3, 8 ) AS MID_Address FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement shows the character from the 3<sup>rd</sup> position till the 8<sup>th</sup> position of the address.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>MID_Address</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>an Vihar</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>rman Vih</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>ctor 128</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>vek Viha</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>rvodya C</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>ishna Na</td>
+</tr>
+</table>
+<h2 class="h2">POSITION String Function</h2>
+<p>This string function finds the position of the first occurrence of the given string in the main string.</p>
+<h3 class="h3">Syntax of POSITION String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses POSITION() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT POSITION(String IN Column_Name) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses POSITION() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT POSITION(String IN Original_String);
+</textarea></div>
+<h3 class="h3">Examples of POSITION String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query finds the position of the IT Company string in the original string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT POSITION( 'IT Company' IN'javatpoint is an indian IT company');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>25   
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query finds the position of the 'H' string in the original string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT POSITION( 'H' IN'HINDUSTAN');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>1    
+</pre></div>
+<p><strong>Example 3:</strong> The following SELECT query uses POSITION() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, POSITION('a' IN Faculty_Address ) AS POSITION_a_IN Address FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement finds the position of character 'a' in the address of each faculty:</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>POSITION_a_IN Address</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>7</td>
+</tr>
+</table>
+<h2 class="h2">REPEAT String Function</h2>
+<p>This string function writes the given string or character till the given number of times.</p>
+<h3 class="h3">Syntax of REPEAT String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses REPEAT() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT REPEAT(Column_Name, Repetation_Number) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses REPEAT() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT REPEAT( String, Repetation_Number);
+</textarea></div>
+<h3 class="h3">Examples of REPEAT String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query writes the given string three times in the output.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT REPEAT( 'javatpoint is an indian IT company', 3);
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>javatpoint is an indian IT companyjavatpoint is an indian IT companyjavatpoint is an indian IT company   
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query writes the given character five times in the output.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT REPEAT( 'H ' , 5);
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>H H H H H  
+</pre></div>
+<p><strong>Example 3:</strong> The following SELECT query uses REPEAT() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, REPEAT( Faculty_Address, 2 ) AS REPEAT_Address FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement writes the address of each faulty two times in the Repeat_Address column.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>REPEAT_Address</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>Aman ViharAman Vihar</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>Nirman ViharNirman Vihar</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>Sector 128Sector 128</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>Vivek ViharVivek Vihar</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>Sarvodya CalonySarvodya Calony</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>Krishna NagarKrishna Nagar</td>
+</tr>
+</table>
+<h2 class="h2">REPLACE String Function</h2>
+<p>This string function cuts the given string by removing the given sub-string.</p>
+<h3 class="h3">Syntax of REPLACE String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses REPLACE() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT REPLACE(Column_Name, sub_string) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses REPLACE() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT REPLACE( Original_String, sub_string);	
+</textarea></div>
+<h3 class="h3">Examples of REPLACE String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query removes the 'javatpoint' word from the original string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT REPLACE( 'javatpoint Indian IT company javatpoint', 'javatpoint');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Indian IT company   
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query removes the given character H from the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT REPLACE( 'HIJHKHJKL' , 'H');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>IJKJKL    
+</pre></div>
+<p><strong>Example 3:</strong> The following SELECT query uses REPLACE() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, REPLACE( Faculty_Address, 'a' ) AS REPLACE_a_Address FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement removes the character a from the address of each faulty:</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>REPLACE_a_Address</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>Amn Vihr</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>Nirmn Vihr</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>Sector 128</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>Vivek Vihr</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>Srvody Clony</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>Krishn Ngr</td>
+</tr>
+</table>
+<h2 class="h2">REVERSE String Function</h2>
+<p>This string function of Structured query Language reverses all the characters of the string.</p>
+<h3 class="h3">Syntax of REVERSE String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses REVERSE() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT REVERSE(Column_Name) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses REVERSE() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT REVERSE(String);
+</textarea></div>
+<h3 class="h3">Examples of REVERSE String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query reverses the characters of the JavaTpoint string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT REVERSE( 'javatpoint');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>tnioptavaj    
+</pre></div>
+<p><strong>Example 3:</strong> The following SELECT query uses REVERSE() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, REVERSE( Faculty_Address ) AS REVERSE_Address FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement reverses the address of each faculty:</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>REVERSE_Address</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>rahiv nama</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>rahiv namrin</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>821 rotces</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>rahiv keviv</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>ynolac aydovras</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>ragan anhsirk</td>
+</tr>
+</table>
+<h2 class="h2">RIGHT String Function</h2>
+<p>This string function shows the right-most characters from the given string. It reads the characters from the right side to the given index position.</p>
+<h3 class="h3">Syntax of RIGHT String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses RIGHT() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT RIGHT(Column_Name, Index_position) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses RIGHT() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT RIGHT(String, Index_position);
+</textarea></div>
+<h3 class="h3">Examples of RIGHT String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query shows the 11 right-most characters from the given string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT RIGHT( 'The CAPITAL of INDIA is NEW DELHI', 11);
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>s NEW DELHI   
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses RIGHT() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, RIGHT(Faculty_Address, 7) AS RIGHT_Address FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement shows the 7 right-most characters from the address of each faculty.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>RIGHT_Address</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>n Vihar</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>n Vihar</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>tor 128</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>k Vihar</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>Calony</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>a Nagar</td>
+</tr>
+</table>
+<h2 class="h2">RPAD String Function</h2>
+<p>This string function adds the given symbol to the right of the given string.</p>
+<h3 class="h3">Syntax of RPAD String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses RPAD() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT RPAD(Column_Name, size, symbol) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses RPAD() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT RPAD(String, size, symbol);
+</textarea></div>
+<h3 class="h3">Examples of RPAD String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query adds the # symbol three times to the right of the NEW string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT RPAD( 'NEW', 6, '#');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>NEW###   
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses RPAD() with the Faculty_City column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_City, RPAD(Faculty_City, 10, '*') AS RPAD_City FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement adds the * (asterisk) symbol to the right of the city of each faculty.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_City</th>
+<th>RPAD_City</th>
+</tr>
+<tr>
+<td>Delhi</td>
+<td>Delhi*****</td>
+</tr>
+<tr>
+<td>Delhi</td>
+<td>Delhi*****</td>
+</tr>
+<tr>
+<td>Mumbai</td>
+<td>Mumbai****</td>
+</tr>
+<tr>
+<td>Kolkata</td>
+<td>Kolkata***</td>
+</tr>
+<tr>
+<td>Delhi</td>
+<td>Delhi*****</td>
+</tr>
+<tr>
+<td>Lucknow</td>
+<td>Lucknow***</td>
+</tr>
+</table>
+<h2 class="h2">RTRIM String Function</h2>
+<p>This string function cuts the given character or string from the right of the given original string. It also removes the space from the right of the specified string.</p>
+<h3 class="h3">Syntax of RTRIM String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses RTRIM() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT RTRIM(Column_Name) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses RTRIM() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT RTRIM(Original_String);
+</textarea></div>
+<h3 class="h3">Examples of RTRIM String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query trims the NEW DELHI words from the specified string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT RTRIM( 'NEW DELHI IS THE CAPITAL OF INDIA', 'CAPITAL OF INDIA');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>NEW DELHI IS THE   
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query trims the space from the right of the specified string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT RTRIM( '              JAVATPOINT           ');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>'              JAVATPOINT'   
+</pre></div>
+<p><strong>Example 3:</strong> The following SELECT query trims the given character from the right of the specified string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT RTRIM( '98221545####', '#');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>98221545    
+</pre></div>
+<p><strong>Example 4:</strong> The following SELECT query uses RTRIM() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, RTRIM(Faculty_Address) AS rtrimaddress FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement trims the space from the right of the address of each faculty:</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>rtrimaddress</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>Aman Vihar</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>Nirman Vihar</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>Sector 128</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>Vivek Vihar</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>Sarvodya Calony</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>Krishna Nagar</td>
+</tr>
+</table>
+<h2 class="h2">SPACE String Function</h2>
+<p>This string function adds the specified number of spaces.</p>
+<h3 class="h3">Syntax of SPACE String Function:</h3>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT SPACE(Number);
+</textarea></div>
+<h3 class="h3">Example of SPACE String function:</h3>
+<p>The following SELECT query adds the 11 spaces:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT SPACE(11);
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>___________   
+</pre></div>
+<h2 class="h2">STRCMP String Function</h2>
+<p>This string function compares the two specified strings with each other. This function returns 0 if both strings in SQL are similar, returns -1 if the first string is smaller than the second string, and returns 1 if the first string is bigger than the second string.</p>
+<h3 class="h3">Syntax of STRCMP String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses STRCMP() with the columns of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT STRCMP(Column_Name1, Column_Name2) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses STRCMP() with the two strings:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT STRCMP(String1, String2);
+</textarea></div>
+<h3 class="h3">Examples of STRCMP String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query compares the 'INDIA' string with the 'JavaTpoint' string.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT STRCMP( 'INDIA, 'JavaTpoint');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>-1   
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query compares the 'INDIA' string with the 'Point' string.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT STRCMP( 'INDIA, 'Point');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>0   
+</pre></div>
+<p><strong>Example 3:</strong> The following SELECT query uses STRCMP() with the Faculty_first_Name and Faculty_Last_Name columns of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_First_Name, Faculty_Last_Name, STRCMP(Faculty_First_Name, Faculty_Last_Name) AS STRCMP_Name FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement compares the first name and last name of each faculty.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_First_Name</th>
+<th>Faculty_Last_Name</th>
+<th>STRCMP_Name</th>
+</tr>
+<tr>
+<td>Arush</td>
+<td>Sharma</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>Bulbul</td>
+<td>Roy</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Saurabh</td>
+<td>Roy</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Shivani</td>
+<td>Singhania</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>Avinash</td>
+<td>Sharma</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Shyam</td>
+<td>Besas</td>
+<td>0</td>
+</tr>
+</table>
+<h2 class="h2">SUBSTR String Function</h2>
+<p>This string function extracts the sub-string from the given position of the original string.</p>
+<h3 class="h3">Syntax of SUBSTR String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses SUBSTR() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT SUBSTR(Column_Name, Starting_Position, Length) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses SUBSTR() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT SUBSTR(Original_String, Starting_Position, Length);
+</textarea></div>
+<h3 class="h3">Examples of SUBSTR String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query shows the character from the 5t<sup>h</sup> to the 10<sup>th</sup> position of the string.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT SUBSTR( 'NEW DELHI IS THE CAPITAL OF INDIA', 5, 10);
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>DELHI IS T  
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses SUBSTR() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, SUBSTR(Faculty_Address, 3, 8 ) AS SUBSTR_Address FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement shows the substring from the 3<sup>rd</sup> position to the 8<sup>th</sup> position of the address.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>SUBSTR_Address</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>an Vihar</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>rman Vih</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>ctor 128</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>vek Viha</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>rvodya C</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>ishna Na</td>
+</tr>
+</table>
+<h2 class="h2">SUBSTRING String Function</h2>
+<p>This string function shows the character of the given index value in the original string.</p>
+<h3 class="h3">Syntax of SUBSTRING String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses SUBSTRING() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT SUBSTRING(Column_Name, Index_Position, Starting_Position) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses SUBSTRING() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT SUBSTRING(Original_String, Index_Position, Starting_Position);
+</textarea></div>
+<h3 class="h3">Examples of SUBSTRING String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query shows the character of the fifth position from the left side.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT SUBSTRING('NEW DELHI IS THE CAPITAL OF INDIA', 5, 1);
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>D    
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses SUBSTRING() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, SUBSTRING(Faculty_Address, 3, 1 ) AS SUBSTRING_Address FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement shows the character of the 3rd position from the left side of the address of each faculty.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>SUBSTRING_Address</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>a</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>r</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>c</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>v</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>r</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>i</td>
+</tr>
+</table>
+<h2 class="h2">SUBSTRING_INDEX String Function</h2>
+<p>This string function shows the substring before the given symbol in the original string.</p>
+<h3 class="h3">Syntax of SUBSTRING_INDEX String Function:</h3>
+<p>This syntax uses SUBSTRING_INDEX() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT SUBSTRING_INDEX(Original_String, symbol, Starting_Position);
+</textarea></div>
+<h3 class="h3">Example of SUBSTRING_INDEX String function:</h3>
+<p>The following SELECT query shows the substring before the @ symbol:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT SUBSTRING_INDEX( 'NEW DELHI@IS THE CAPITAL OF INDIA', @, 1);
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>NEW DELHI  
+</pre></div>
+<h2 class="h2">UCASE String Function</h2>
+<p>This string function allows users to convert the specified string into upper case letters or capital letters.</p>
+<h2 class="h2">Syntax of UCASE String Function:</h2>
+<p><strong>Syntax1:</strong> This syntax uses UCASE() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT UCASE(Column_Name) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses UCASE() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT UCASE(String);
+</textarea></div>
+<h3 class="h3">Examples of UCASE String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query converts the lower case letters of a given string into the upper case letters.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT UCASE( 'The CAPITAL of INDIA is NEW DELHI');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>THE CAPITAL OF INDIA IS NEW DELHI'  
+</pre></div>
+<p><strong>Example 1:</strong> The following SELECT query converts the given small letter into a capital letter:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT UCASE( 'e');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>E   
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses UCASE() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, UCASE(Faculty_Address) AS UCASE_City FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement converts the cities of all faculties into capital letters.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>UCASE_Address</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>AMAN VIHAR</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>NIRMAN VIHAR</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>SECTOR 128</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>VIVEK VIHAR</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>SARVODYA CALONY</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>KRISHNA NAGAR</td>
+</tr>
+</table>
+<h2 class="h2">UPPER String Function</h2>
+<p>This string function allows users to convert the specified string into the UPPER case letters. This function is also the same as the UCASE() string function.</p>
+<h3 class="h3">Syntax of UPPER String Function:</h3>
+<p><strong>Syntax1:</strong> This syntax uses UPPER() with the column of the SQL table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT UPPER(Column_Name) AS Alias_Name FROM Table_Name;
+</textarea></div>
+<p><strong>Syntax2:</strong> This syntax uses UPPER() with the string:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT UPPER(String);
+</textarea></div>
+<h3 class="h3">Examples of UPPER String function:</h3>
+<p><strong>Example 1:</strong> The following SELECT query converts the LOWER caseletters of the given string into the UPPER case letters.</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT UPPER( 'new delhi is the capital of India');
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>NEW DELHI IS THE CAPITAL OF INDIA   
+</pre></div>
+<p><strong>Example 2:</strong> The following SELECT query uses UPPER() with the Faculty_Address column of the above Faculty_Info table:</p>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT Faculty_Address, UPPER(Faculty_Address) AS UPPER_Address FROM Faculty_Info;
+</textarea></div>
+<p>This SQL statement converts the cities of all faculties into the UPPER case letters.</p>
+<p><strong>Output:</strong></p>
+<table class="alt">
+<tr>
+<th>Faculty_Address</th>
+<th>UPPER_Address</th>
+</tr>
+<tr>
+<td>Aman Vihar</td>
+<td>AMAN VIHAR</td>
+</tr>
+<tr>
+<td>Nirman Vihar</td>
+<td>NIRMAN VIHAR</td>
+</tr>
+<tr>
+<td>Sector 128</td>
+<td>SECTOR 128</td>
+</tr>
+<tr>
+<td>Vivek Vihar</td>
+<td>VIVEK VIHAR</td>
+</tr>
+<tr>
+<td>Sarvodya Calony</td>
+<td>SARVODYA CALONY</td>
+</tr>
+<tr>
+<td>Krishna Nagar</td>
+<td>KRISHNA NAGAR</td>
+</tr>
+</table>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="ltrim-function-in-sql.html">LTRIM Function in SQL</a></span>
+</div>
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="sql-intersect.html">&larr; prev</a>
+<a style="float:right" class="next" href="ltrim-function-in-sql.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6b0d0e0e0f090a08002b010a1d0a1f1b0402051f45080406">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/sql-string-functions"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/sql-string-functions"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/sql-string-functions"><img src="images/pinterest32.png" alt="pinterest" /></a>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="bad2c8fad0dbccdbcecad5d3d4ce94d9d5d7">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="355d47755f54435441455a5c5b411b565a581b">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+</div></div>
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/sql-string-functions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:55:01 GMT -->
+</html> 

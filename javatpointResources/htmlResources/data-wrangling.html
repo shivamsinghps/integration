@@ -1,0 +1,778 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/data-wrangling by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:22:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Data Wrangling - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Data Wrangling - Javatpoint" /><meta property="og:description" content="Data Wrangling with What is Data Mining, Techniques, Architecture, History, Tools, Data Mining vs Machine Learning, Social Media Data Mining, etc." />
+<meta name="keywords" content="data mining, data mining tutorial, what is data mining, data mining techniques, data mining architecture, history of data mining, tools, data mining vs machine learning, social media data mining, kdd process, implementation process, facebook data mining, social media data mining methods, data mining- cluster analysis" /><meta name="description" content="Data Wrangling with What is Data Mining, Techniques, Architecture, History, Tools, Data Mining vs Machine Learning, Social Media Data Mining, etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="data-wrangling.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Data Wrangling - Javatpoint" /><meta name="twitter:description" property="og:description" content="Data Wrangling with What is Data Mining, Techniques, Architecture, History, Tools, Data Mining vs Machine Learning, Social Media Data Mining, etc." /><meta property="og:url" content="data-wrangling.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="data-mining.html" class="selected">Data Mining</a></li>
+<li><a href="machine-learning.html">Machine Learning</a></li>
+<li><a href="dbms-tutorial.html">DBMS</a></li>
+<li><a href="artificial-intelligence-ai.html">AI</a></li>
+<li><a href="blockchain-tutorial.html">Blockchain</a></li>
+<li><a href="control-system-tutorial.html">Control System</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="examaccess.html">Quiz</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+<li><a href="comment.html">Comment</a></li>
+<li><a href="forum.html">Forum</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Data Mining</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-mining.html">Data Mining Tutorial</a>
+<a href="data-mining-techniques.html">Data Mining Techniques</a>
+<a href="implementation-process-of-data-mining.html">Implementation Process</a>
+<a href="data-mining-architecture.html">Data Mining Architecture</a>
+<a href="kdd-process-in-data-mining.html">Data Mining KDD Process</a>
+<a href="history-of-data-mining.html">Data Mining History</a>
+<a href="data-mining-tools.html">Data Mining Tools</a>
+<a href="data-mining-vs-machine-learning.html">Data Mining vs Machine Learning</a>
+
+<a href="facebook-data-mining.html">Facebook Data Mining</a>
+<a href="social-media-data-mining-methods.html">Social Media Data Mining Methods</a>
+<a href="data-mining-cluster-analysis.html">Data Mining Cluster Analysis</a>
+<a href="text-data-mining.html">Text Data Mining</a>
+<a href="bagging-vs-boosting.html">Bagging vs Boosting</a>
+<a href="data-mining-cluster-vs-data-warehousing.html">Data Mining vs Data Warehousing</a>
+<a href="social-media-data-mining.html">Social Media Data Mining</a>
+<a href="data-mining-bayesian-classifiers.html">Data Mining Bayesian Classification</a>
+<a href="data-mining-world-wide-web.html">Data Mining World Wide Web</a>
+<a href="data-mining-different-types-of-clustering.html">Different types of Clustering Algorithm</a>
+<a href="bitcoin-data-mining.html">Bitcoin Data Mining</a>
+<a href="orange-data-mining.html">Orange Data Mining</a>
+<a href="data-mining-vs-big-data.html">Data Mining vs Big Data</a>
+<a href="decision-tree-induction.html">Decision Tree Induction</a>
+<a href="educational-data-mining.html">Educational Data Mining</a>
+<a href="data-mining-in-healthcare.html">Data Mining in Healthcare</a>
+<a href="apriori-algorithm.html">Apriori Algorithm</a>
+<a href="data-integration-in-data-mining.html">Data Integration in Data Mining</a>
+<a href="data-mining-vs-text-mining.html">Data mining vs Text mining</a>
+<a href="discretization-in-data-mining.html">Discretization in data mining</a>
+<a href="redundancy-and-correlation-in-data-mining.html">Redundancy and Correlation in Data Mining</a>
+<a href="classification-of-data-mining-systems.html">Classification of Data Mining Systems</a>
+<a href="data-mining-models.html">Data Mining Models</a>
+<a href="data-mining-vs-data-science.html">Data mining vs Data Science</a>
+<a href="data-mining-vs-statistics.html">Data Mining vs Statistics</a>
+<a href="data-mining-vs-web-mining.html">Data Mining vs Web Mining</a>
+<a href="data-mining-vs-data-analysis.html">Data Mining vs Data Analysis</a>
+<a href="business-intelligence-vs-data-mining.html">Business Intelligence vs Data Mining</a>
+<a href="data-mining-vs-data-visualization.html">Data Mining vs Data Visualization</a>
+<a href="data-mining-vs-data-analytics.html">Data Mining vs Data Analytics</a>
+<a href="types-of-data-mining.html">Types of Data Mining</a>
+<a href="data-profiling-vs-data-mining.html">Data Profiling vs Data Mining</a>
+<a href="predictive-analytics-vs-data-mining.html">Predictive Analytics vs Data Mining</a>
+<a href="data-mining-vs-olap.html">Data Mining vs OLAP</a>
+<a href="descriptive-vs-predictive-data-mining.html">Descriptive vs Predictive Data Mining</a>
+<a href="spatial-vs-temporal-data-mining.html">Spatial vs Temporal Data Mining</a>
+<a href="classification-vs-clustering-in-data-mining.html">classification vs clustering</a>
+<a href="hierarchical-clustering-in-data-mining.html">Hierarchical clustering in data mining</a>
+<a href="density-based-clustering-in-data-mining.html">Density-based clustering in data mining</a>
+<a href="aggregation-in-data-mining.html">Aggregation in data mining</a>
+<a href="regression-in-data-mining.html">Regression in data mining</a>
+<a href="what-is-outlier-in-data-mining.html">What is Outlier in data mining</a>
+<a href="data-cleaning-in-data-mining.html">Data Cleaning in Data Mining</a>
+<a href="data-processing-in-data-mining.html">Data Processing in Data Mining</a>
+<a href="classification-and-predication-in-data-mining.html">Classification and Predication in Data Mining</a>
+<a href="data-mining-task-primitives.html">Data Mining Task Primitives</a>
+<a href="web-content-vs-web-structure-vs-web-usage-mining.html">Web Content vs Web Structure vs Web Usage Mining</a>
+<a href="what-is-binning-in-data-mining.html">What is Binning in Data Mining</a>
+<a href="kdd-vs-data-mining.html">KDD vs Data Mining</a>
+<a href="what-is-noise-in-data-mining.html">What is Noise in Data Mining</a>
+<a href="birch-in-data-mining.html">BIRCH in Data Mining</a>
+<a href="stemming-in-data-mining.html">Stemming in Data Mining</a>
+<a href="feature-transformation-in-data-mining.html">Feature Transformation in Data Mining</a>
+<a href="visual-and-audio-data-mining.html">Visual and Audio Data Mining</a>
+<a href="class-comparison-methods-in-data-mining.html">Class Comparison Methods in Data Mining</a>
+<a href="data-selection-in-data-mining.html">Data Selection in Data Mining</a>
+<a href="tasks-and-functionalities-of-data-mining.html">Tasks and Functionalities of Data Mining</a>
+<a href="ubiquitous-and-invisible-data-mining.html">Ubiquitous and Invisible Data Mining</a>
+<a href="entity-identification-problem-in-data-mining.html">Entity Identification Problem in Data Mining</a>
+<a href="numerosity-reduction-in-data-mining.html">Numerosity Reduction in Data Mining</a>
+<a href="market-basket-analysis-in-data-mining.html">Market Basket Analysis in Data Mining</a>
+<a href="what-is-multimedia-data-mining.html">What is Multimedia Data Mining</a>
+<a href="correlation-analysis-in-data-mining.html">Correlation Analysis in Data Mining</a>
+<a href="data-mining-services.html">Data Mining Services</a>
+<a href="trends-in-data-mining.html">Trends in Data Mining</a>
+<a href="data-harvesting-vs-data-mining.html">Data Harvesting vs Data Mining</a>
+<a href="data-mining-vs-artificial-intelligence.html">Data Mining vs Artificial Intelligence</a>
+<a href="data-mining-vs-data-exploration.html">Data Mining vs Data Exploration</a>
+<a href="data-mining-vs-process-mining.html">Data Mining vs Process Mining</a>
+<a href="web-scraping-vs-data-mining.html">Web Scraping vs Data Mining</a>
+<a href="data-wrangling.html">Data Wrangling</a>
+<a href="what-is-boosting-in-data-mining.html">What is Boosting in Data Mining</a>
+<a href="what-is-forecasting-in-data-mining.html">What is Forecasting in Data Mining</a>
+<a href="what-is-crisp-in-data-mining.html">What is CRISP in Data Mining</a>
+<a href="fp-growth-algorithm-in-data-mining.html">FP Growth Algorithm in Data Mining</a>
+<a href="weka-data-mining.html">Weka Data Mining</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-mining-mcq.html">Data Mining MCQ</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="what-is-boosting-in-data-mining.html">next &rarr;</a>
+<a class="next" href="web-scraping-vs-data-mining.html">&larr; prev</a>
+</div>
+<h1 class="h1">Data Wrangling?</h1>
+<p>These days almost anything can be a valuable source of information. The primary challenge lies in extracting the insights from the said information and making sense of it, which is the point of Big Data. However, you also need to prep the data first, which is Data Wrangling in a nutshell.</p>
+<p>The nature of the information is that it requires a certain kind of organization to be adequately assessed. This process requires a crystal clear understanding of which operations need what sort of data. Let's look closer at wrangling data and explain why it is so important.</p>
+<h2 class="h2">What is Data Wrangling?</h2>
+<p>Sometimes, data Wrangling is referred to as <strong><em>data munging</em></strong>. It is the process of transforming and mapping data from one "raw" data form into another format to make it more appropriate and valuable for various downstream purposes such as analytics. The goal of data wrangling is to assure quality and useful data. Data analysts typically spend the majority of their time in the process of data wrangling compared to the actual analysis of the data.</p>
+<p>The process of data wrangling may include further munging, data visualization, data aggregation, training a statistical model, and many other potential uses. Data wrangling typically follows a set of general steps, which begin with extracting the raw data from the data source, "munging" the raw data (e.g., sorting) or parsing the data into predefined data structures, and finally depositing the resulting content into a data sink for storage and future use.</p>
+<p>Wrangling the data is usually accompanied by Mapping. The term "Data Mapping" refers to the element of the wrangling process that involves identifying source data fields to their respective target data fields. While Wrangling is dedicated to transforming data, Mapping is about connecting the dots between different elements.</p>
+<img src="https://static.javatpoint.com/tutorial/data-mining/images/data-wrangling.png" alt="Data Wrangling" />
+<h3 class="h3">Importance of Data Wrangling</h3>
+<p>Some may question if the amount of work and time devoted to data wrangling is worth the effort. A simple analogy will help you understand. The foundation of a skyscraper is expensive and time-consuming before the above-ground structure starts. Still, this solid foundation is extremely valuable for the building to stand tall and serve its purpose for decades. Similarly, once the code and infrastructure foundation are gathered for data handling, it will deliver immediate results (sometimes almost instantly) for as long as the process is relevant. However, skipping necessary data wrangling steps will lead to significant downfalls, missed opportunities, and erroneous models that damage the reputation of analysis within the organization.</p>
+<p>Data wrangling software has become an indispensable part of data processing. The primary importance of using data wrangling tools can be described as follows:</p>
+<ul class="points">
+<li>Making raw data usable. Accurately wrangled data guarantees that quality data is entered into the downstream analysis.</li>
+<li>Getting all data from various sources into a centralized location so it can be used.</li>
+<li>Piecing together raw data according to the required format and understanding the business context of data.</li>
+<li>Automated data integration tools are used as data wrangling techniques that clean and convert source data into a standard format that can be used repeatedly according to end requirements. Businesses use this standardized data to perform crucial, cross-data set analytics.</li>
+<li>Cleansing the data from the noise or flawed, missing elements.</li>
+<li>Data wrangling acts as a preparation stage for the <a href="https://www.simplilearn.com/what-is-data-mining-article" rel="nofollow" target="_blank">data mining process</a>, which involves gathering data and making sense of it.</li>
+<li>Helping business users make concrete, timely decisions.</li>
+</ul>
+<h4 class="n">NOTE: Data wrangling is a somewhat demanding and time-consuming operation both from computational capacities and human resources. Data wrangling takes over half of what data scientist does.</h4>
+<h3 class="h3">Data Wrangling Process</h3>
+<p>Data Wrangling is one of those technical terms that are more or less self-descriptive. The term "wrangling" refers to rounding up information in a certain way. This operation includes a sequence of the following processes:</p>
+<img src="https://static.javatpoint.com/tutorial/data-mining/images/data-wrangling2.png" alt="Data Wrangling" />
+<ol class="points">
+<li><strong>Discovery:</strong> Before starting the wrangling process, it is critical to think about what may lie beneath your data. It is crucial to think critically about what results from you anticipate from your data and what you will use it for once the wrangling process is complete. Once you've determined your objectives, you can gather your data.</li>
+<li><strong>Organization:</strong> After you've gathered your raw data within a particular dataset, you must structure your data. Due to the variety and complexity of data types and sources, raw data is often overwhelming at first glance.</li>
+<li><strong>Cleaning:</strong> When your data is organized, you can begin cleaning your data. Data cleaning involves removing outliers, formatting nulls, and eliminating duplicate data. It is important to note that cleaning data collected from web scraping methods might be more tedious than cleaning data collected from a database. Essentially, web data can be highly unstructured and require more time than structured datafrom a database.</li>
+<li><strong>Data enrichment:</strong> This step requires that you take a step back from your data to determine if you have enough data to proceed. Finishing the wrangling process without enough data may compromise insights gathered from further analysis. For example, investors looking to analyze product review data will want a significant amount of data to portray the market and increase investment intelligence</li>
+<li><strong>Validation:</strong> After determining you gathered enough data, you will need to apply validation rules to your data. Validation rules, performed in repetitive sequences, confirm that your data is consistent throughout your dataset. Validation rules will also ensure quality as well as security. This step follows similar logic utilized in data normalization, a data standardization process involving validation rules.</li>
+<li><strong>Publishing:</strong> The final step of the data munging process is data publishing. Data publishing involves preparing the data for future use. This may include providing notes and documentation of your wrangling process and creating access for other users and applications.</li>
+</ol>
+<h4 class="n">NOTE: Like many other data transformation processes, data wrangling is an iterative process requiring you to revisit your data regularly. To better understand the munging process, let's look at data mining, a subset of data wrangling.</h4>
+<h3 class="h3">Use Case of Data Wrangling</h3>
+<p>Data munging is used for diverse use-cases as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/data-mining/images/data-wrangling3.png" alt="Data Wrangling" />
+<p><strong>1. Fraud Detection:</strong> Using a data wrangling tool, a business can perform the following:</p>
+<ul class="points">
+<li>Distinguish corporate fraud by identifying unusual behavior by examining detailed information like multi-party and multi-layered emails or web chats.</li>
+<li>Support data security by allowing non-technical operators to examine and wrangle data quickly to keep pace with billions of daily security tasks.</li>
+<li>Ensure precise and repeatable modeling outcomes by standardizing and quantifying structured and unstructured data sets.</li>
+<li>Enhance compliance by ensuring your business complies with industry and government standards by following security protocols during integration.</li>
+</ul>
+<p><strong>2. Customer Behavior Analysis:</strong> A data-munging tool can quickly help your business processes get precise insights via customer behavior analysis. It empowers the marketing team to take business decisions into their hands and make the best of them. You can use data wrangling tools to:</p>
+<ul class="points">
+<li>Decrease the time spent on data preparation for analysis</li>
+<li>Quickly understand the business value of your data</li>
+<li>Allow your analytics team to utilize the customer behavior data directly</li>
+<li>Empower data scientists to discover data trends via data discovery and visual profiling.</li>
+</ul>
+<h3 class="h3">Data Wrangling Tools</h3>
+<p>There are different tools for data wrangling that can be used for gathering, importing, structuring, and cleaning data before it can be fed into analytics and BI apps. You can use automated tools for data wrangling, where the software allows you to validate data mappings and scrutinize data samples at every step of the transformation process. This helps to detect and correct errors in data mapping quickly.</p>
+<p>Automated data cleaning becomes necessary in businesses dealing with exceptionally large data sets. The data team or data scientist is responsible for Wrangling manual data cleaning processes. However, in smaller setups, non-data professionals are responsible for cleaning data before leveraging it.</p>
+<p>Various data wrangling methods range from munging data with scripts to spreadsheets. Additionally, with some of the more recent all-in-one tools, everyone utilizing the data can access and utilize their data wrangling tools. Here are some of the more common data wrangling tools available.</p>
+<ul class="points">
+<li>Spreadsheets / Excel Power Query is the most basic manual data wrangling tool.</li>
+<li>OpenRefine - An automated data cleaning tool that requires programming skills</li>
+<li>Tabula <ol class="points"> It is a tool suited for all data types</li>
+<li>Google DataPrep <ol class="points"> It is a data service that explores, cleans, and prepares data</li>
+<li>Data wrangler <ol class="points"> It is a data cleaning and transforming tool</li>
+<li>Plotly (data wrangling with Python) is useful for maps and chart data.</li>
+<li>CSVKit converts data.</li>
+</ul>
+<h3 class="h3">Benefits of Data Wrangling</h3>
+<p>As previously mentioned, big data has become an integral part of business and finance today. However, the full potential of said data is not always clear. Data processes, such as data discovery, are useful for recognizing your data's potential. But to fully unleash the power of your data, you will need to implement data. Here are some of the key benefits of data wrangling.</p>
+<img src="https://static.javatpoint.com/tutorial/data-mining/images/data-wrangling4.png" alt="Data Wrangling" />
+<ul class="points">
+<li><strong>Data consistency:</strong> The organizational aspect of data wrangling offers a resulting dataset that is more consistent. Data consistency is crucial for business operations that involve collecting data input by consumers or other human end-users. For example, if a human-end user submits personal information incorrectly, such as making a duplicate customer account, which would consequently impact further performance analysis.</li>
+<li><strong>Improved insights:</strong> Data wrangling can provide statistical insights about metadata by transforming the metadata to be more constant. These insights are often the result of increased data consistency, as consistent metadata allows automated tools to analyze the data faster and more accurately. Particularly, if one were to build a model regarding projected market performance, data wrangling would clean the metadata to allow your model to run without any errors.</li>
+<li><strong>Cost efficiency:</strong> As previously mentioned, because data-wrangling allows for more efficient data analysis and model-building processes, businesses will ultimately save money in the long run. For instance, thoroughly cleaning and organizing data before sending it off for integration will reduce errors and save developers time.
+<ul class="points">
+<li>Data wrangling helps to improve data usability as it converts data into a compatible format for the end system.</li>
+<li>It helps to quickly build data flows within an intuitive user interface and easily schedule and automate the data-flow process.</li>
+<li>Integrates various types of information and sources (like databases, web services, files, etc.)</li>
+<li>Help users to process very large volumes of data easily and easily share data-flow techniques.</li>
+</ul></li>
+</ul>
+<h3 class="h3">Data Wrangling Formats</h3>
+<p>Depending on the type of data you are using, your final result will fall into four final formats: de-normalized transactions, analytical base table (ABT), time series, or document library. Let's take a closer look at these final formats, as understanding these results will inform the first few steps of the data wrangling process, which we discussed above.</p>
+<img src="https://static.javatpoint.com/tutorial/data-mining/images/data-wrangling5.png" alt="Data Wrangling" />
+<ul class="points">
+<li><strong>Transactional data:</strong> Transactional data refers to business operation transactions. This data type involves detailed subjective information about particular transactions, including client documentation, client interactions, receipts, and notes regarding any external transactions.</li>
+<li><strong>Analytical Base Table (ABT):</strong> Analytical Base Table data involves data within a table with unique entries for each attribute column. ABT data is the most common business data type as it involves various data types that contribute to the most common data sources. Even more notable is that ABT data is primarily used for AI and ML, which we will examine later.</li>
+<li><strong>Time-series:</strong> Time series data involves data that has been divided by a particular amount of time or data that has a relation with time, particularly sequential time. For example, tracking data regarding an application's downloads over a year or tracking traffic data over a month would be considered time series data.</li>
+<li><strong>Document library:</strong> Lastly, document library data is information that involves a large amount of textual data, particularly text within a document. While document libraries contain rather massive amounts of data, automated data mining tools specifically designed for text mining can help extract entire texts from documents for further analysis.</li>
+</ul>
+<h3 class="h3">Data Wrangling Examples</h3>
+<p>Data wrangling techniques are used for various use cases. The most commonly used examples of data wrangling are for:</p>
+<ul class="points">
+<li>Merging several data sources into one data set for analysis</li>
+<li>Identifying gaps or empty cells in data and either filling or removing them</li>
+<li>Deleting irrelevant or unnecessary data</li>
+<li>Identifying severe outliers in data and either explaining the inconsistencies or deleting them to facilitate analysis</li>
+</ul>
+<p>Businesses also use data wrangling tools to</p>
+<ul class="points">
+<li>Detect corporate fraud</li>
+<li>Support data security</li>
+<li>Ensure accurate and recurring data modeling results</li>
+<li>Ensure business compliance with industry standards</li>
+<li>Perform Customer Behavior Analysis</li>
+<li>Reduce time spent on preparing data for analysis</li>
+<li>Promptly recognize the business value of your data</li>
+<li>Find out data trends</li>
+</ul>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="what-is-boosting-in-data-mining.html">What is Boosting in Data Mining</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="web-scraping-vs-data-mining.html">&larr; prev</a>
+<a style="float:right" class="next" href="what-is-boosting-in-data-mining.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="56303333323437353d163c3720372226393f38227835393b">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/data-wrangling"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/data-wrangling"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/data-wrangling"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+  <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+ </div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="4a22380a202b3c2b3e3a2523243e64292527">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="2e465c6e444f584f5a5e4147405a004d414300">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/data-wrangling by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:22:50 GMT -->
+</html> 

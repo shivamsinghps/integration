@@ -1,0 +1,738 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/grid-computing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:25:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Grid Computing - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Grid Computing - javatpoint" /><meta property="og:description" content="Grid Computing with Introduction, Advantages, Disadvantages, history of cloud computing, virtualization, software virtualization, hardware virtualization etc." />
+<meta name="keywords" content="cloud, computing, tutorial, introduction, basics, beginners, professionals, cloud computing tutorial, advantages of cloud computing, disadvantages of cloud computing, history of cloud computing, types of cloud, virtualization, software virtualization, hardware virtualization" /><meta name="description" content="Grid Computing with Introduction, Advantages, Disadvantages, history of cloud computing, virtualization, software virtualization, hardware virtualization etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="grid-computing.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Grid Computing - javatpoint" /><meta name="twitter:description" property="og:description" content="Grid Computing with Introduction, Advantages, Disadvantages, history of cloud computing, virtualization, software virtualization, hardware virtualization etc." /><meta property="og:url" content="grid-computing.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul><li><a href="index.html">Home</a></li>
+<li><a href="cloud-computing.html" class="selected">Cloud Computing</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="python-tutorial.html">Python</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="ajax-tutorial.html">AJAX</a></li>
+<li><a href="design-patterns-in-java.html">Design Pattern</a></li>
+<li><a href="examaccess.html">Quiz</a></li> <li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Cloud Computing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cloud-computing.html">What is Cloud Computing</a>
+<a href="advantages-and-disadvantages-of-cloud-computing.html">Advantage &amp; Disadvantage</a>
+<a href="https://www.javatpoint.com/history-of-cloud-computing">History of Cloud</a>
+<a href="cloud-computing-architecture.html">Cloud Computing Architecture</a>
+<a href="cloud-computing-technologies.html">Cloud Computing Technologies</a>
+<a href="cloud-computing-vs-grid-computing.html">Cloud Computing vs Grid Computing</a>
+<a href="how-does-cloud-computing-work.html">How Cloud work</a>
+<a href="cloud-computing-applications.html">Cloud Computing Applications</a>
+<a href="security-risks-of-cloud-computing.html">Security Risks of Cloud Computing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Cloud</span></h2>
+</div>
+<div class="leftmenu">
+<a href="types-of-cloud.html">Types of Cloud</a>
+<a href="public-cloud.html">Public Cloud</a>
+<a href="private-cloud.html">Private Cloud</a>
+<a href="hybrid-cloud.html">Hybrid Cloud</a>
+<a href="community-cloud.html">Community Cloud</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Cloud Service Models</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cloud-service-models.html">Cloud Service Models</a>
+<a href="infrastructure-as-a-service.html">IaaS Layer</a>
+<a href="platform-as-a-service.html">PaaS Layer</a>
+<a href="software-as-a-service.html">SaaS Layer</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Virtualization</span></h2>
+</div>
+<div class="leftmenu">
+<a href="virtualization-in-cloud-computing.html">What is Virtualization</a>
+<a href="cloud-computing-data-virtualization.html">Data Virtualization</a>
+<a href="hardware-virtualization.html">Hardware Virtualization</a>
+<a href="software-virtualization.html">Software Virtualization</a>
+<a href="server-virtualization.html">Server Virtualization</a>
+<a href="storage-virtualization.html">Storage Virtualization</a>
+<a href="os-virtualization.html">OS Virtualization</a>
+<a href="linux-virtualization.html">Linux Virtualization</a>
+<a href="windows-virtualization.html">Windows Virtualization</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Cloud Service Providers</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cloud-service-provider-companies.html">Cloud Service Provider Companies</a>
+<a href="how-to-create-amazon-ec2-window.html">Amazon EC2</a>
+<a href="aws-vs-azure-vs-google-cloud-platform.html">AWS vs Azure vs GCP</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Miscellaneous</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cloud-server.html">Cloud Server</a>
+<a href="cloud-deployment-model.html">Cloud Deployment Model</a>
+<a href="cloud-hypervisor.html">Cloud Hypervisor</a>
+<a href="cloud-computing-examples.html">Cloud Computing Examples</a>
+<a href="cloud-computing-jobs.html">Cloud Computing Jobs</a>
+<a href="features-of-cloud-computing.html">Features of Cloud Computing</a>
+<a href="multitenancy-in-cloud-computing.html">Multitenancy in Cloud computing</a>
+<a href="grid-computing.html">Grid Computing</a>
+<a href="aneka-in-cloud-computing.html">Aneka in Cloud Computing</a>
+<a href="scaling-in-cloud-computing.html">Scaling in Cloud Computing</a>
+<a href="how-does-multi-cloud-differ-from-a-hybrid-cloud.html">How Does Multi-Cloud Differ from A Hybrid Cloud</a>
+<a href="rapid-elasticity-in-cloud-computing.html">Rapid Elasticity in Cloud Computing</a>
+<a href="fog-computing-vs-cloud-computing.html">Fog computing vs Cloud computing</a>
+<a href="strategy-of-multi-cloud.html">Strategy of Multi-Cloud</a>
+<a href="service-level-agreements-in-cloud-computing.html">Service level agreements in Cloud Computing</a>
+<a href="xaas-in-cloud-computing.html">Xaas in Cloud Computing</a>
+<a href="resource-pooling-in-cloud-computing.html">Resource pooling in Cloud Computing</a>
+<a href="load-balancing-in-cloud-computing.html">Load Balancing in Cloud Computing</a>
+<a href="https://www.javatpoint.com/daas-in-cloud-computing">DaaS in Cloud Computing</a>
+<a href="what-is-cloud-computing-replacing.html">What is Cloud Computing Replacing</a>
+<a href="cloud-computing-vs-internet-of-things.html">Cloud computing vs Internet of Things</a>
+<a href="web-services-in-cloud-computing.html">Web Services in Cloud Computing</a>
+<a href="container-as-a-service-in-cloud-computing.html">CaaS in Cloud Computing</a>
+<a href="fault-tolerance-in-cloud-computing.html">Fault Tolerance in Cloud Computing</a>
+<a href="principles-of-cloud-computing.html">Principles of Cloud Computing</a>
+<a href="what-are-roots-of-cloud-computing.html">What are Roots of Cloud Computing</a>
+<a href="what-is-data-center-in-cloud-computing.html">What is Data Center in Cloud Computing</a>
+<a href="resiliency-in-cloud-computing.html">Resiliency in Cloud Computing</a>
+<a href="cloud-computing-security-architecture.html">Cloud Computing Security Architecture</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Cloud Computing MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cloud-computing-mcq.html">Cloud Computing MCQ</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="cloud-computing-interview-questions.html">Interview Questions</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="aneka-in-cloud-computing.html">next &rarr;</a>
+<a class="next" href="multitenancy-in-cloud-computing.html">&larr; prev</a>
+</div>
+<h1 class="h1">Grid Computing</h1>
+<p>The use of a widely dispersed system strategy to accomplish a common objective is called <strong><em>grid computing</em></strong>. A computational grid can be conceived as a decentralized network of interrelated files and non-interactive activities. Grid computing differs from traditional powerful computational platforms like cluster computing in that each unit is dedicated to a certain function or activity. Grid computers are also more diverse and spatially scattered than cluster machines and are not physically connected. However, a particular grid might be allocated to a unified platform, and grids are frequently utilized for various purposes. General-purpose grid network application packages are frequently used to create grids. The size of the grid might be extremely enormous.</p>
+<p>Grids are decentralized network computing in which a "super virtual computer" is made up of several loosely coupled devices that work together to accomplish massive operations. Distributed or grid computing is a sort of parallel processing that uses entire devices (with onboard CPUs, storage, power supply, network connectivity, and so on) linked to a network connection (private or public) via a traditional network connection, like <strong><em>Ethernet</em></strong>, for specific applications. This contrasts with the typical quantum computer concept, consisting of several cores linked by an elevated universal serial bus on a local level. This technique has been used in corporate entities for these applications ranging from drug development, market analysis, seismic activity, and backend data management in the assistance of e-commerce and online services. It has been implemented to computationally demanding research, numerical, and educational difficulties via volunteer computer technology.</p>
+<p>Grid computing brings together machines from numerous organizational sectors to achieve a similar aim, such as completing a single work and then vanishes just as rapidly. Grids can be narrowed to a group of computer terminals within a firm, such as accessible alliances involving multiple organizations and systems. "A limited grid can also be referred to as intra-nodes collaboration, while a bigger, broader grid can be referred to as inter-nodes cooperative".</p>
+<p>Managing Grid applications can be difficult, particularly when dealing with the data flows among distant computational resources. A grid sequencing system is a combination of workflow automation software that has been built expressly for composing and executing a sequence of mathematical or data modification processes or a sequence in a grid setting.</p>
+<h3 class="h3">History of Grid Computing</h3>
+<p>In the early nineties, the phrase "grid computing" was used as an analogy for rendering computational power as accessible as an electricity network.</p>
+<ul class="points">
+<li>When <strong><em>Ian Foster</em></strong> and <strong><em>Carl Kesselman</em></strong> launched their landmark article, "The Grid: Blueprint for a New Computing Infrastructure", the electric grid analogy for scalable computing immediately became classic (1999). The concept of grid computing (1961) predated this by centuries: computers as a utility service, similar to the telecommunications network.</li>
+<li><strong><em>Ian Foster</em></strong> and <strong><em>Steve Tuecke</em></strong> of the University of Chicago and <strong><em>Carl Kesselman</em></strong> of the University of Southern California's Computer Sciences Institute gathered together the grid's concepts (which included those from parallel development, object-oriented development, and online services). The three are popularly considered as the "fathers of the grid" because they initiated the initiative to establish the <strong><em>Globus Toolkit</em></strong>. Memory maintenance, safety providing, information transportation, surveillance, and a toolset for constructing extra services depending on the same platform, such as contract settlement, notification systems, trigger functions, and analytical expression, are all included in the toolkit.</li>
+<li>Although the <strong><em>Globus Toolbox</em></strong> maintains the de facto standard for developing grid systems, some possible technologies have been developed to address a part of the capabilities required to establish a worldwide or business grid.</li>
+<li>The phrase "cloud computing" became famous in 2007. It is dreamed up to the standard foster description of grid computing (in which computing resources are consumed as power is consumed from the electrical grid) and earlier utility computing. Grid computing is frequently (but not always) linked to the supply of cloud computing environment, as demonstrated by <strong><em>3tera's AppLogic</em></strong></li>
+</ul>
+<p>In summary, "distributed" or "grid" computing is reliant on comprehensive computer systems (with navigation CPU cores, storage, power supply units, network connectivity, and so on) attached to the network (personal, community, or the World wide web) via a traditional network connection, resulting in existing hardware, as opposed to the lower capacity of designing and developing a small number of custom supercomputers. The fundamental performance drawback is the lack of high-speed connectivity between the multiple CPUs and local storage facilities.</p>
+<h3 class="h3">Comparison between Grid and Supercomputers</h3>
+<p>In summary, "dispersed" or "grid" computer processing depends on comprehensive desktops (with inbuilt processors, backup, power supply units, networking devices, and so on) connected to the network (private, public, or the internet) via a traditional access point, resulting in embedded systems, as opposed to the reduced energy of designing and building a limited handful of modified powerful computers. The relevant performance drawback is the lack of high-speed links between the multiple CPUs and regional storage facilities.</p>
+<p>This configuration is well-suited to situations in which various concurrent calculations can be performed separately with no need for error values to be communicated among processors. Due to the low demand for connections among units compared to the power of the open network, the high-end scalability of geographically diverse grids is often beneficial. There are various coding and MC variations as well.</p>
+<p>Writing programs that can function in the context of a <strong><em>supercomputer</em></strong>, which may have a specialized version of windows or need the application to solve parallelism concerns, can be expensive and challenging. If a task can be suitably distributed, a "thin" shell of "grid" architecture can enable traditional, independent code to be executed on numerous machines, each solving a different component of the same issue. This reduces issues caused by several versions of the same code operating in the similar shared processing and disk area at the same time, allowing for writing and debugging on a single traditional system.</p>
+<h3 class="h3">Differences and Architectural Constraints</h3>
+<p>Integrated grids can combine computational resources from one or more persons or organizations (known as multiple administrative domains). This can make trades easier, such as computing services or charity computer science.</p>
+<p>One drawback of this function is that the machines that execute the equations may not be completely reliable. As a consequence, design engineers must include precautions to prevent errors or malicious respondents from generating false, misrepresentative, or incorrect results, as well as using the framework as a variable for invasion. This frequently entails allocating tasks to multiple nodes (assumedly with multiple owners) at irregular intervals and ensuring that at least two endpoints disclose the same solution for a provided workgroup. Inconsistencies would reveal networks that were dysfunctional or malevolent.</p>
+<p>There is no method of ensuring that endpoints will not opt-out of the connection at arbitrary periods thanks to the shortage of centralized power across the equipment. For unpredictably long durations, some nodes (such as workstations or dial-up Online subscribers) may be accessible for processing but not infrastructure technology. These variances can be compensated by allocating big workgroups (thus lowering the need for constant internet connectivity) and reallocating workgroups when a station refuses to disclose its output within the specified time frame.</p>
+<p>An additional range of social acceptability difficulties in the initial periods of grid computing included grid researchers' desire to extend their technology far beyond the initial subject of elevated computing or across departmental lines into other domains such as high-energy physics.</p>
+<p>The effects of credibility and accessibility on continuous quality improvement complexity can determine whether a specialized complex, idle workstations within the creating organization or an unrestricted extranet of amateurs or subcontractors is chosen. In many circumstances, the networking devices must believe the centralized system not to exploit the access granted by tampering with the functioning of other applications, mutilating stored information, sending personal information, or introducing new security vulnerabilities. Other systems use techniques like virtual machines to limit the amount of faith that "client" hubs must put in the centralized computer.</p>
+<p>Public systems that span organizational sectors (such as those used by various departments within the same company) frequently require the use of embedded devices with diverse operating systems and equipment configurations. There is an exchange with many programs among application development and the number of systems that can be maintained (and thus the size of the resulting network). Cross-platform languages can alleviate the requirement for this compromise but at the risk of sacrificing good performance on any specific node (due to run-time interpretation or lack of optimization for the particular platform). Several networking initiatives have developed universal architecture to observe frequency research and commercial enterprises to exploit a specifically associated grid or establish new grids. BOINC is a popular platform for research projects looking for public participants; a selection of others is provided after the post.</p>
+<p>In assertion, a system can be considered a surface among equipment and software. Many innovative sectors must be required with the middleware, and these may not be entity framework impartial. SLA management, trustworthiness, virtual organization control, license management, interfaces, and information management are just a few examples. These basic topics may be addressed in a commercial solution, but the workpiece of each is predominantly encountered in independent research initiatives investigating the sector.</p>
+<h3 class="h3">Segmentation of Grid Computing Market</h3>
+<p>Two views must be examined when segmenting the grid computing sector: the supplier sector and the consumer end:</p>
+<h3 class="h4">1. The Supplier's Perspective</h3>
+<p>The total grid market is made up of various submarkets. The grid middleware industry, the marketplace for frequency regulation, the cloud technology market, and the SaaS (software-as-a-service) market are examples of these markets.</p>
+<p>Grid middleware is a software package that allows diverse resources and Virtual Organizations to be shared. It is deployed and incorporated into the concerned industry's or firms' current infrastructure, providing a specialized layer between the heterogeneous infrastructure and the specified application programs. <strong><em>Globus Toolkit, gLite</em></strong>, and <strong><em>UNICORE</em></strong> are three major grid middlewares.</p>
+<p>Utility computing delivers grid computing and applications, either as an open grid utility or as a hosting solution for a single firm or virtual organization. IBM, Sun Microsystems, and HP are major participants in the grid computing sector.</p>
+<p>Grid-enabled apps are software programs that can take advantage of energy infrastructure. As previously stated, this is made feasible by using grid technology.</p>
+<p>"Software that is maintained, supplied, and remotely controlled by one or more suppliers" is what software as a service (SaaS) is. (Source: Gartner, 2007) Furthermore, SaaS projects are developed using a small piece of program and data requirements. They are accessed in a one-to-many paradigm, and SaaS uses a PAYG (pay-as-you-go) or a usage-based subscription system. Saas vendors aren't often the ones who control the computational capabilities needed to operate their services. As a result, Saas vendors could be able to tap into the utility computing market. For SaaS companies, the utility computing sector provides computational power.</p>
+<h3 class="h4">2. The Consumer Side</h3>
+<p>The diverse categories have important consequences for Information technology deployment strategy for enterprises on the consumption or consumer side of the grid computing market. Prospective grid consumers should consider the IT deployment method and the kind of IT funds invested, as both are critical factors in grid acceptance.</p>
+<h3 class="h3">Background of Grid Computing</h3>
+<p>In the early 1990s, the phrase "grid computing" was used as a concept for rendering computational complexity as accessible as an electricity network. When <strong><em>Ian Foster</em></strong> and <strong><em>Carl Kesselman</em></strong> released their landmark study, "The Grid: Blueprint for a New Computing Infrastructure," the power network analogy for ubiquitous computing immediately became classic (1999). The analogy of computing services (1961) predated this by decades: computing as a public entity, similar to the telephone system.</p>
+<p>Distributed.net and <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="d38096879a93bbbcbeb6a3bca3a6bfb2a1baa0b6b7">[email&#160;protected]</a> CPU scavenge and voluntary computation in 1997 and 1999, respectively, to harness the energy of linked PCs worldwide to discuss CPU-intensive research topics.</p>
+<p><strong><em>Ian Foster</em></strong> and <strong><em>Steve Tuecke</em></strong> of the University of Chicago and <strong><em>Carl Kesselman</em></strong> of the University of Southern California's Advanced Research Centre gathered together the grid's concepts (which included those from cloud applications, object-oriented computing, and Online services). The three are popularly considered as the "fathers of the grid" because they led the initiative to establish the Globus Framework. While the Globus Toolbox retains the standard for developing grid systems, several alternative techniques have been developed to address some of the capabilities required to establish a worldwide or business grid. Memory control, protection supply, data transportation, surveillance, and a toolset for constructing extra services based on similar infrastructures, such as contract settlement, alert systems, trigger events, and analytical expression, are all included in the toolkit.</p>
+<p>The phrase "cloud computing" became prominent in 2007. It is conceptually related to the classic Foster description of grid computing (in which computer resources are deployed as energy is used from the electrical grid) and previous utility computing. Grid computing is frequently (but not always) linked to the supply of cloud computing environment, as demonstrated by 3tera's AppLogic technology.</p>
+<h3 class="h3">The CPU as a Scavenger</h3>
+<p>In a system of members, CPU scavenges, cycle scrounging, or shared computing produces a "grid" from the excess capacity (whether global or internal to an organization). Generally, this strategy uses the 'spare' instructions units created by periodic inaction, such as at night, over lunch breaks, or during the (very brief but frequent) periods of inactive awaiting that desktop workstation CPUs encounter during the day. In actuality, in complement to direct Computational resources, contributing machines also offer some disc storage capacity, RAM, and communication bandwidth.</p>
+<p>The CPU scavenging model is used by many volunteers computing projects, such as BOINC. This model must be developed to handle such scenarios because nodes are likely to be "offline" from time to time as their owners use their resources for their primary purpose.</p>
+<p>Establishing an Opportunism Ecosystem, also known as Industrial Computer Grid, is another method of computation in which a customized task management solution harvests unoccupied desktops and laptops for computationally intensive workloads. HTCondor, an accessible, powerful computational feature for poorly graded decentralized rationalization of computationally intensive tasks, can, for example, be designed only to use computer devices where the mouse and keyboard are inactive, allowing it to strap squandered CPU power from otherwise inactive desktop workspaces successfully.</p>
+<p>HTCondor includes a task queuing system, schedule strategy, prioritization scheme, capacity tracking, and strategic planning, just like other packed batch processes. It can handle demand on a specialized cluster of machines or smoothly blend devoted assets (rack-mounted clusters) and non-dedicated desktops workstations (cycle scavenging) into a single desktop environment.</p>
+<h3 class="h3">Fastest Virtual Supercomputers</h3>
+<ul class="points">
+<li>BOINC - 29.8 PFLOPS as of April 7, 2020.</li>
+<li><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b1f7deddd5d8dfd6f1d9dedcd4">[email&#160;protected]</a> - 1.1 exaFLOPS as of March 2020.</li>
+<li><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="43062a2d3037262a2d030b2c2e26">[email&#160;protected]</a> has 3.489 PFLOPS as of February 2018.</li>
+<li><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="feadbbaab7beb691939b">[email&#160;protected]</a> - 1.11 PFLOPS as of April 7, 2020.</li>
+<li><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="90ddf9fcfbe9c7f1e9d0d8fffdf5">[email&#160;protected]</a> - 1.465 PFLOPS as of April 7, 2020.</li>
+<li>GIMPS - 0.558 PFLOPS as of March 2019.</li>
+</ul>
+<p>In addition, the Bitcoin Community has a compute power comparable to about 80,000 exaFLOPS as of March 2019 (Floating-point Operations per Second).</p>
+<p>Because the elements of the Bitcoin network (Bitcoin mining ASICs) perform only the specific cryptographic hash computation required by the Bitcoin protocol, this measurement reflects the number of FLOPS required equal to the hash output of the Bitcoin network rather than its capacity for general floating-point arithmetic operations.</p>
+<h3 class="h3">Today's Applications and Projects</h3>
+<p>Grids are a means to make the most of a group's information technology systems. Grid computing enables the Large Hadron Collider at CERN and solves challenges like protein function, financial planning, earthquake prediction, and environment modelling. They also allow for the provision of information technology as a commodity to both corporate and nongovernmental customers, with the latter contributing only for what they consume, similar to how energy or water is provided.</p>
+<p>The National Community Grid now has over 4 million workstations using the accessible Berkley Public Initiative for Network Computing (BOINC) technology as of October 2016. <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f1a2b4a5b8b1999e9c94">[email&#160;protected]</a> is one of the programs that use BOINC, and as of October 2016, it was employing over 400,000 machines to reach 0.828 TFLOPS. <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="4e0821222a2720290e2621232b">[email&#160;protected]</a>, which is not affiliated with BOINC, has reached more than 101 x86-equivalent petabytes on over 110,000 computers as of October 2016.</p>
+<p>Activities were sponsored by the Euro Zone thru the European Commission's foundation initiatives. The Eu Commission financed BEinGRID (Business Experiments in Grid) as an Integrative Program underneath the Sixth Framework (FP6) financing program. The project, which began on June 1, 2006, ended in November 2009, lasted 42 months. Atos Origin was in charge of the project's coordination. "To build effective paths to support grid computing across the EU and drive innovation into creative marketing strategies employing Grid technology," per the project fact page. Two experts examine several prototypes, one technically and one commercial, to identify best practices and commonalities from the trial solutions. The project is important not only because of its prolonged term but also because of its expenditure, which is the highest of any FP6 integral approach at 24.8 million Euros.</p>
+<p>The Eu Commission contributes 15.7 million, with the remaining funds coming from the 98 participating alliance partners. BEinGRID's achievements have been picked up and carried further by IT-Tude.com since the program's termination.BEinGRID's achievements have been picked up and moved further by IT-Tude.com ever since the project's termination.</p>
+<p>The Enabling Grids for E-sciencE initiative was a join to the European DataGrid (EDG) and grew into the European Power Grid. It was located in the European Union and included Asia and the United States. This, including the LHC Computing Grid (LCG), was created to aid research at CERN's Large Hadron Collider. Here, you may find a list of current LCG locations and real-time surveillance of the EGEE infrastructure. The essential tools and information are also available to the general public. Specialized fiber-optic lines, such as those established by CERN to meet the LCG's statistics demands, may one day be accessible to home users, allowing them to access the internet at rates up to 10,000 30 % faster than a regular fiber connection.</p>
+<p>In 1997, the distributed.net plan was initiated. The NASA Advanced Supercomputing Facility (NAS) used the Condor cycle scavenger to perform evolutionary algorithms on around 350 Sun Microsystems and SGI computers.</p>
+<p>United Technologies ran the Universal Technologies Cancer Research Project in 2001, which used its Grid MP technology to rotate among participant PCs linked to the internet. Before it was shut down in 2007, the initiative had 3.1 million computers running.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="aneka-in-cloud-computing.html">Aneka in Cloud Computing</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="multitenancy-in-cloud-computing.html">&larr; prev</a>
+<a style="float:right" class="next" href="aneka-in-cloud-computing.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="caacafafaea8aba9a18aa0abbcabbebaa5a3a4bee4a9a5a7">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/grid-computing"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/grid-computing"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/grid-computing"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+ </div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+ <a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+ </a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+ </div>
+</a>
+ <a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="2f475d6f454e594e5b5f4046415b014c4042">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b6dec4f6dcd7c0d7c2c6d9dfd8c298d5d9db98">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/grid-computing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:25:35 GMT -->
+</html> 

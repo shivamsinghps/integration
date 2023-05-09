@@ -1,0 +1,804 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/artificial-neural-network-in-tensorflow by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:09:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Artificial Neural Network in TensorFlow - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Artificial Neural Network in TensorFlow - Javatpoint" /><meta property="og:description" content="Artificial Neural Network in TensorFlow with TensorFlow Tutorial, TensorFlow Introduction, TensorFlow Installation, What is TensorFlow, TensorFlow Overview, TensorFlow Architecture, Installation of TensorFlow through conda, Installation of TensorFlow through pip, Advantages and Disadvantages of TensorFlow etc." />
+<meta name="keywords" content="tensorflow tutorial, tensorflow, tensorflow introduction, tensorflow installation, what is tensorflow, tensorflow overview, tensorflow architecture, installation of tensorflow through conda, installation of tensorflow through pip, pros and cons of tensorflow, advantages of tensorflow, disadvantages of tensorflow" /><meta name="description" content="Artificial Neural Network in TensorFlow with TensorFlow Tutorial, TensorFlow Introduction, TensorFlow Installation, What is TensorFlow, TensorFlow Overview, TensorFlow Architecture, Installation of TensorFlow through conda, Installation of TensorFlow through pip, Advantages and Disadvantages of TensorFlow etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="artificial-neural-network-in-tensorflow.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Artificial Neural Network in TensorFlow - Javatpoint" /><meta name="twitter:description" property="og:description" content="Artificial Neural Network in TensorFlow with TensorFlow Tutorial, TensorFlow Introduction, TensorFlow Installation, What is TensorFlow, TensorFlow Overview, TensorFlow Architecture, Installation of TensorFlow through conda, Installation of TensorFlow through pip, Advantages and Disadvantages of TensorFlow etc." /><meta property="og:url" content="artificial-neural-network-in-tensorflow.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="tensorflow.html" class="selected">TensorFlow</a></li>
+<li><a href="python-tutorial.html">Python</a></li>
+<li><a href="artificial-intelligence-ai.html">AI</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="cloud-computing.html">Cloud Computing</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="servlet-tutorial.html">Servlet</a></li>
+<li><a href="jsp-tutorial.html">JSP</a></li>
+<li><a href="struts-2-tutorial.html">Struts2</a></li>
+<li><a href="spring-tutorial.html">Spring</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">TensorFlow Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow.html">TensorFlow Tutorial</a>
+<a href="tensorflow-introduction.html">What is Tensorflow</a>
+<a href="installation-of-tensorflow-through-pip.html">Installation Through pip</a>
+<a href="installation-of-tensorflow-through-conda.html">Installation Through conda</a>
+<a href="tensorflow-architecture.html">Architecture of TensorFlow</a>
+<a href="advantage-and-disadvantage-of-tensorflow.html">Advantage &amp; Disadvantage</a>
+<a href="tensorflow-playground.html">TensorFlow Playground</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">TensorFlow Basics</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-basics.html">TensorFlow Basics</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">TensorFlow Perceptron</span></h2>
+</div>
+<div class="leftmenu">
+<a href="single-layer-perceptron-in-tensorflow.html">Single Layer Perceptron</a>
+<a href="hidden-layer-perceptron-in-tensorflow.html">Hidden Layer Perceptron</a>
+<a href="multi-layer-perceptron-in-tensorflow.html">Multi-layer Perceptron</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">ANN in TensorFlow</span></h2>
+</div>
+<div class="leftmenu">
+<a href="what-is-machine-learning-in-tensorflow.html">What is Machine Learning</a>
+<a href="artificial-neural-network-in-tensorflow.html">Artificial Neural Network</a>
+<a href="implementation-of-neural-network-in-tensorflow.html">Implementation of Neural Network</a>
+<a href="classification-of-neural-network-in-tensorflow.html">Classification of Neural Network</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Linear Regression</span></h2>
+</div>
+<div class="leftmenu">
+<a href="linear-regression-in-tensorflow.html">Linear Regression</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">CNN in TensorFlow</span></h2>
+</div>
+<div class="leftmenu">
+<a href="convolutional-neural-network-in-tensorflow.html">CNN Introduction</a>
+<a href="working-of-convolutional-neural-network-tensorflow.html">Working of CNN</a>
+<a href="training-of-cnn-in-tensorflow.html">Training of CNN</a>
+<a href="tensorflow-mnist-dataset-in-cnn.html">MNIST Dataset in CNN</a>
+<a href="cifar-10-and-cifar-100-dataset-in-tensorflow.html">CIFAR-10 &amp; CIFAR-100 Dataset</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">RNN in TensorFlow</span></h2>
+</div>
+<div class="leftmenu">
+<a href="recurrent-neural-network-in-tensorflow.html">RNN Introduction</a>
+<a href="working-of-rnn-in-tensorflow.html">Working of RNN</a>
+<a href="tensorflow-time-series-in-rnn.html">RNN Time Series</a>
+<a href="long-short-term-memory-rnn-in-tensorflow.html">LSTM RNN in Tensorflow</a>
+<a href="training-of-rnn-in-tensorflow.html">Training of RNN</a>
+<a href="tensorflow-types-of-rnn.html">Types of RNN</a>
+<a href="tensorflow-cnn-vs-rnn.html">CNN vs RNN</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Style Transferring</span></h2>
+</div>
+<div class="leftmenu">
+<a href="style-transferring-in-tensorflow.html">Style Transferring in TensorFlow</a>
+<a href="tensorflow-gram-matrix.html">Gram Matrix in Style Transferring</a>
+<a href="tensorflow-process-of-style-transferring.html">Process of Style Transferring</a>
+<a href="tensorflow-working-of-style-transferring.html">Working of Style Transferring</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">TensorBoard</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-tensorboard.html">TensorBoard</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-vs-pytorch.html">TensorFlow vs PyTorch</a>
+<a href="tensorflow-vs-keras.html">TensorFlow vs Keras</a>
+<a href="tensorflow-vs-theano.html">TensorFlow vs Theano</a>
+<a href="tensorflow-vs-caffe.html">TensorFlow vs Caffe</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Object Detection</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-object-detection.html">Object Detection</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">TensorFlow Debugging</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-debugging.html">TensorFlow Debugging</a>
+<a href="fixing-problem-in-tensorflow-debugging.html">Fixing Problem</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Miscellaneous Topics</span></h2>
+</div>
+<div class="leftmenu">
+<a href="tensorflow-forming-graphs.html">Forming Graphs</a>
+<a href="tensorflow-audio-recognition.html">Audio Recognition</a>
+<a href="tensorflow-apis.html">Tensorflow APIs</a>
+<a href="tensorflow-security.html">Tensorflow Security</a>
+<a href="tensorflow-single-and-multiple-gpu.html">Tensorflow Single and Multiple GPU</a>
+<a href="tensorflow-mobile.html">Tensorflow Mobile</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="implementation-of-neural-network-in-tensorflow.html">next &rarr;</a>
+<a class="next" href="what-is-machine-learning-in-tensorflow.html">&larr; prev</a>
+</div>
+<h1 class="h1">Artificial Neural Network in TensorFlow</h1>
+<p>Neural Network or <strong>artificial neural network</strong> (ANN) are modeled the same as the human brain. The human brain has a mind to think and analyze any task in a particular situation.</p>
+<p>But how can a machine think like that? For the purpose, an artificial brain was designed is known as a neural network. The neural network is made up many <strong>perceptron</strong>s.</p>
+<p><strong>Perceptron</strong> is a single layer neural network. It is a binary classifier and part of supervised learning. A simple model of the biological neuron in an artificial neural network is known as the perceptron. </p>
+<p>The artificial neuron has input and output. </p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/artificial-neural-network-in-tensorflow.png" alt="Artificial Neural Network in TensorFlow" />
+<p><strong>Representation of perceptron model mathematically.</strong></p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/artificial-neural-network-in-tensorflow-1.png" height="60px" alt="Artificial Neural Network in TensorFlow" />
+<p>Human brain has neurons for passing information, similarly neural network has nodes to perform the same task. Nodes are the mathematical functions.</p>
+<p>A neural network is based on the structure and function of biological neural networks. A neural network itself changes or learn based on input and output. The information flows through the system affect the structure of the artificial neural network because of its learning and improving the property.</p>
+<p>A <strong>Neural Network</strong> is also defined as:</p>
+<blockquote><em>A computing system made of several simple, highly interconnected processing elements, which process information by its dynamic state response to external inputs</em>.</blockquote>
+<p>A neural network can be made with multiple perceptrons. Where there are three layers- </p>
+<ul class="points">
+<li><strong>Input layer</strong>: Input layers are the real value from the data.</li>
+<li><strong>Hidden layer</strong>: Hidden layers are between input and output layers where three or more layers are deep network.</li>
+<li><strong>Output layer</strong>: It is the final estimate of the output.</li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/artificial-neural-network-in-tensorflow-2.png" alt="Artificial Neural Network in TensorFlow" />
+<h2 class="h2">Types of Artificial Neural Network</h2>
+<p>Neural Network works the same as the human nervous system functions. There are several types of neural network. These networks implementation are based on the set of parameter and mathematical operation that are required for determining the output.</p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/artificial-neural-network-in-tensorflow-3.png" alt="Artificial Neural Network in TensorFlow" />
+<h3 class="h3">Feedforward Neural Network (Artificial Neuron)</h3>
+<p><strong>FNN</strong> is the purest form of ANN in which input and data travel in only one direction. Data flows in an only forward direction; that's why it is known as <strong>the Feedforward Neural Network</strong>. The data passes through input nodes and exit from the output nodes. The nodes are not connected cyclically. It doesn't need to have a hidden layer. In FNN, there doesn't need to be multiple layers. It may have a single layer also.</p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/artificial-neural-network-in-tensorflow-4.png" alt="Artificial Neural Network in TensorFlow" />
+<p>It has a front propagate wave that is achieved by using a classifying activation function. All other types of neural network use backpropagation, but FNN can't. In FNN, the sum of the product's input and weight are calculated, and then it is fed to the output. Technologies such as <strong>face recognition</strong> and <strong>computer vision</strong> are used FNN.</p>
+<h3 class="h3">Redial basis function Neural Network</h3>
+<p><strong>RBFNN</strong> find the distance of a point to the centre and considered it to work smoothly. There are two layers in the RBF Neural Network. In the inner layer, the features are combined with the radial basis function. Features provide an output that is used in consideration. Other measures can also be used rather than Euclidean.</p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/artificial-neural-network-in-tensorflow-5.png" alt="Artificial Neural Network in TensorFlow" />
+<p><strong>Redial Basis Function</strong></p>
+<ul class="points">
+<li>We define a receptor t.</li>
+<li>Confronted maps are drawn around the receptor.</li>
+<li>For RBF Gaussian Functions are generally used. So we can define the radial distance <strong>r=||X-t||</strong>.</li>
+</ul>
+<p><strong>Redial Function=&Phi;(r) = exp (- r<sup>2</sup>/2&sigma;<sup>2</sup>)</strong>, where &sigma; &gt; 0</p>
+<p>This Neural Network is used in power restoration system. In the present era power system have increased in size and complexity. It's both factors increase the risk of major power outages. Power needs to be restored as quickly and reliably as possible after a blackout.</p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/artificial-neural-network-in-tensorflow-6.png" alt="Artificial Neural Network in TensorFlow" />
+<h3 class="h3">Multilayer Perceptron </h3>
+<p>A <strong>Multilayer Perceptron</strong> has three or more layer. The data that cannot be separated linearly is classified with the help of this network. This network is a fully connected network that means every single node is connected with all other nodes that are in the next layer. A <strong>Nonlinear Activation Function</strong> is used <strong>in Multilayer Perceptron</strong>. It's input and output layer nodes are connected as a directed graph. It is a deep learning method so that for training the network it uses <strong>backpropagation</strong>. It is extensively applied in speech recognition and machine translation technologies.</p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/artificial-neural-network-in-tensorflow-7.png" alt="Artificial Neural Network in TensorFlow" />
+<h3 class="h3">Convolutional Neural Network</h3>
+<p>In image classification and image recognition, a <strong>Convolutional Neural Network</strong> plays a vital role, or we can say it is the main category for those. Face recognition, object detection, etc., are some areas where CNN are widely used. It is similar to FNN, learn-able weights and biases are available in neurons.</p>
+<p>CNN takes an image as input that is classified and process under a certain category such as dog, cat, lion, tiger, etc. As we know, the computer sees an image as pixels and depends on the resolution of the picture. Based on image resolution, it will see h * w * d, where h= height w= width and d= dimension. For example, An RGB image is 6 * 6 * 3 array of the matrix, and the grayscale image is 4 * 4 * 3 array of the pattern.</p>
+<p>In CNN, each input image will pass through a sequence of convolution layers along with pooling, fully connected layers, filters (Also known as kernels). And apply Soft-max function to classify an object with probabilistic values 0 and 1.</p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/artificial-neural-network-in-tensorflow-8.jpg" alt="Artificial Neural Network in TensorFlow" />
+<h3 class="h3">Recurrent Neural Network </h3>
+<p><strong>Recurrent Neural Network</strong> is based on prediction. In this neural network, the output of a particular layer is saved and fed back to the input. It will help to predict the outcome of the layer. In Recurrent Neural Network, the first layer is formed in the same way as FNN's layer, and in the subsequent layer, the recurrent neural network process begins. </p>
+<p>Both inputs and outputs are independent of each other, but in some cases, it required to predict the next word of the sentence. </p>
+<p>Then it will depend on the previous word of the sentence. RNN is famous for its primary and most important feature, i.e., <strong>Hidden State</strong>. Hidden State remembers the information about a sequence.</p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/artificial-neural-network-in-tensorflow-9.png" alt="Artificial Neural Network in TensorFlow" />
+<p>RNN has a memory to store <strong>the result after calculation. RNN</strong> uses the same parameters on each input to perform the same task on all the hidden layers or data to produce the output. Unlike other neural networks, RNN parameter complexity is less.</p>
+<h3 class="h3">Modular Neural Network </h3>
+<p>In <strong>Modular Neural Network</strong>, several different networks are functionally independent. In MNN the task is divided into sub-task and perform by several systems. During the computational process, networks don't communicate directly with each other. All the interfaces are work independently towards achieving the output. Combined networks are more powerful than flat and unrestricted. Intermediary takes the production of each system, process them to produce the final output. </p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/artificial-neural-network-in-tensorflow-10.png" alt="Artificial Neural Network in TensorFlow" />
+<h3 class="h3">Sequence to Sequence Network</h3>
+<p>It is consist of two recurrent neural networks. Here, encoder processes the input and decoder processes the output. The encoder and decoder can either use for same or different parameter.</p>
+<p>Sequence-to-sequence models are applied in chatbots, machine translation, and question answering systems.</p>
+<h2 class="h2">Components of an Artificial Neural Network</h2>
+<h3 class="h3">Neurons</h3>
+<p><strong>Neurons</strong> are similar to the biological neurons. Neurons are nothing but the activation function. Artificial neurons or Activation function has a "<strong>switch on</strong>" characteristic when it performs the classification task. We can say when the input is higher than a specific value; the output should change state, i.e., 0 to 1, -1 to 1, etc. The sigmoid function is commonly used activation function in <strong>Artificial Neural Network</strong>.</p>
+<p><strong>F (Z) = 1/1+EXP (-Z)</strong></p>
+<h3 class="h3">Nodes</h3>
+<p>The biological neuron is connected in hierarchical networks, with the output of some neurons being the input to others. These networks are represented as a connected layer of nodes. Each node takes multiple weighted inputs and applies to the neuron to the summation of these inputs and generates an output.</p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/artificial-neural-network-in-tensorflow-11.jpg" alt="Artificial Neural Network in TensorFlow" />
+<h3 class="h3">Bias</h3>
+<p>In the neural network, we predict the output (y) based on the given input (x). We create a model, i.e. (mx + c), which help us to predict the output. When we train the model, it finds the appropriate value of the constants m and c itself.</p>
+<p>The constant c is the bias. Bias helps a model in such a manner that it can fit best for the given data. We can say bias gives freedom to perform best.</p>
+<h3 class="h3">Algorithm</h3>
+<p><strong>Algorithms</strong> are required in the neural network. Biological neurons have self-understanding and working capability, but how an artificial neuron will work in the same way? For this, it is necessary to train our artificial neuron network. For this purpose, there are lots of algorithms used. Each algorithm has a different way of working.</p>
+<p>There are five algorithms which are used in training of our ANN</p>
+<ul class="points">
+<li>Gradient Descent</li>
+<li>Newton's Method</li>
+<li>Conjugate Gradient</li>
+<li>Quasi Newton's</li>
+<li>Levenberg Marquardt </li>
+</ul>
+<h2 class="h3">Gradient Descent</h2>
+<p><strong>Gradient descent algorithm</strong> is also known as the <strong>steepest descent algorithm</strong>. It is the most straightforward algorithm which requires information from the gradient vector. GD algorithm is a first-order method.</p>
+<p>For simplicity we denote <strong>&fnof;(w<sup>(i)</sup>)</strong>=<strong>&fnof;<sup>(i)</sup></strong> and <strong>&nabla;&fnof;(w<sup>(i)</sup>)</strong>=<strong>g<sup>(i)</sup></strong>. The method starts from w<sup>(0)</sup> and moves from <strong>w<sup>(i)</sup></strong> to <strong>w<sup>(i+1)</sup></strong> in the training direction <strong>d<sup>(i)</sup></strong>=-<strong>g<sup>(i)</sup></strong> until a stopping criterion is satisfied. </p>
+<p>So the gradient descent method iterates in the following way.</p>
+<p><strong>w<sup>(i+1)</sup></strong> = <strong>w<sup>(i)</sup></strong> - <strong>g<sup>(i)</sup></strong><strong>n<sup>(i)</sup></strong>.</p>
+<h3 class="h3">Newton's Method</h3>
+<p><strong>Newton's method</strong> is a second-order algorithm. It makes use of the Hessian matrix. Its main task is to find better training directions by using the second derivatives of the loss function. </p>
+<p>Newton's method iterates as follows.</p>
+<p><strong>w<sup>(i+1)</sup></strong> = <strong>w<sup>(i)</sup></strong> - <strong>H<sup>(i)-1</sup></strong>.<strong>g<sup>(i)</sup></strong>For i = 0, 1.....</p>
+<p>Here, H<sup>(i)-1</sup>.g<sup>(i)</sup> is known as Newton's step. The change for parameters may move toward a maximum rather than a minimum. Below is the diagram of the training of a neural network with Newton's method. The improvement of the parameter is made by obtaining the training direction and a suitable training rate.</p>
+<h3 class="h3">Conjugate gradient</h3>
+<p><strong>Conjugate gradient</strong> works in between gradient descent and Newton's method. Conjugate gradient avoids the information requirements associated with evaluation, inversion of the Hessian matrix, and storage as required by Newton's method.</p>
+<p>In the CG algorithm, searching is done in a conjugate direction, which gives faster convergence rather than gradient descent direction. The training is done in a conjugate direction concerning the Hessian matrix. The improvement of the parameter is made by computing the conjugate training direction and then suitable training rate in that direction.</p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/artificial-neural-network-in-tensorflow-12.png" alt="Artificial Neural Network in TensorFlow" />
+<h3 class="h3">Quasi-Newton Method</h3>
+<p>Applications of Newton's method are costly in terms of computation. To evaluate the Hessian matrix, it requires many operations to do. For resolving this drawback, <strong>Quasi-Newton Method</strong> developed. It is also known as variable matric method. At each iteration of an algorithm, it builds up an approximation to the inverse hessian rather than calculating the hessian directly. Information on the first derivative of the loss function is used to compute approximation.</p>
+<p>The improvement of the parameter is made by obtaining a Quasi-Newton training direction and then finds a satisfactory training rate.</p>
+<img src="https://static.javatpoint.com/tutorial/tensorflow/images/artificial-neural-network-in-tensorflow-13.png" alt="Artificial Neural Network in TensorFlow" />
+<h3 class="h3">Levenberg Marquardt </h3>
+<p><strong>Levenberg Marquardt</strong> is also known as a damped least-squares method. This algorithm is designed to work with loss function specifically. This algorithm does not compute the Hessian matrix. It works with the <strong>Jacobian matrix</strong> and the <strong>gradient vector</strong>.</p>
+<p>In Levenberg Marquardt, the First step is to find the loss, the gradient, and the Hessian approximation, and then the dumpling parameter is adjusted.</p>
+<h2 class="h2">Advantages and Disadvantages of Artificial Neural Network</h2>
+<h3 class="h3">Advantages of ANN</h3>
+<ol class="points">
+<li>It stored the information on the entire network rather than the database.</li>
+<li>After the training of ANN, the data may give the result even with incomplete information.</li>
+<li>If one or more cell is corrupt of ANN, it does not prevent ANN to generate output.</li>
+<li>ANN has distributed memory that helps to generate the desired output.</li>
+<li>ANN can make a machine learnable.</li>
+<li>ANN has a parallel processing capability, which means it can perform more than one task at the same time.</li>
+</ol>
+<h3 class="h3">Disadvantages of ANN</h3>
+<ol class="points">
+<li>It requires a processor with parallel processing power according to their structure.</li>
+<li>Unexplained behaviour of the network is the main problem of ANN. ANN doesn't give a clue when it produces a probing solution.</li>
+<li>For the determination of the structure of ANN, no specific rules are providing.</li>
+<li>There is no information about the duration of the network.</li>
+<li>It's too typical to show the problem to the network.</li>
+</ol>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="implementation-of-neural-network-in-tensorflow.html">Implementation of Neural Network</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="what-is-machine-learning-in-tensorflow.html">&larr; prev</a>
+<a style="float:right" class="next" href="implementation-of-neural-network-in-tensorflow.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="aec8cbcbcacccfcdc5eec4cfd8cfdadec1c7c0da80cdc1c3">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/artificial-neural-network-in-tensorflow"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/artificial-neural-network-in-tensorflow"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/artificial-neural-network-in-tensorflow"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+ </div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="abc3d9ebc1caddcadfdbc4c2c5df85c8c4c6">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f29a80b29893849386829d9b9c86dc919d9fdc">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/artificial-neural-network-in-tensorflow by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 16:09:35 GMT -->
+</html> 

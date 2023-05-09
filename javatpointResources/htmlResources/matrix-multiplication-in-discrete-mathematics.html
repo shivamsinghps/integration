@@ -1,0 +1,1044 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/matrix-multiplication-in-discrete-mathematics by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:55:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Matrix Multiplication in Discrete mathematics - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Matrix Multiplication in Discrete mathematics - javatpoint" /><meta property="og:description" content="Matrix Multiplication in Discrete mathematics with introduction, sets theory, types of sets, set operations, algebra of sets, multisets, induction, relations, functions and algorithms etc." />
+<meta name="keywords" content="discrete mathematics, tutorial, dms, introduction, sets, sets theory, types of sets, set operations, algebra of sets, multisets, mathematical induction, relations, functions and algorithms, recursively, logic and propositional calculus, techniques of counting, probability, graphs" /><meta name="description" content="Matrix Multiplication in Discrete mathematics with introduction, sets theory, types of sets, set operations, algebra of sets, multisets, induction, relations, functions and algorithms etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="matrix-multiplication-in-discrete-mathematics.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Matrix Multiplication in Discrete mathematics - javatpoint" /><meta name="twitter:description" property="og:description" content="Matrix Multiplication in Discrete mathematics with introduction, sets theory, types of sets, set operations, algebra of sets, multisets, induction, relations, functions and algorithms etc." /><meta property="og:url" content="matrix-multiplication-in-discrete-mathematics.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="dbms-tutorial.html">DBMS</a></li>
+<li><a href="data-structure-tutorial.html">DS</a></li>
+<li><a href="discrete-mathematics-tutorial.html" class="selected">DMS</a></li>
+<li><a href="daa-tutorial.html">DAA</a></li>
+<li><a href="graph-theory.html">Graph Theory</a></li>
+<li><a href="control-system-tutorial.html">Control System</a></li>
+<li><a href="aptitude/quantitative.html">Aptitude</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="kotlin-tutorial.html">Kotlin</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Discrete Mathematics</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-tutorial.html">Discrete Mathematics</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Sets Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="https://www.javatpoint.com/sets-introduction">Sets Introduction</a>
+<a href="types-of-sets.html">Types of Sets</a>
+<a href="sets-operations.html">Sets Operations</a>
+<a href="algebra-of-sets.html">Algebra of Sets</a>
+<a href="multisets.html">Multisets</a>
+<a href="inclusion-exclusion-principle.html">Inclusion-Exclusion Principle</a>
+<a href="mathematical-induction.html">Mathematical Induction</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Relations</span></h2>
+</div>
+<div class="leftmenu">
+<a href="binary-relation.html">Binary Relation</a>
+<a href="representation-of-relations.html">Representation of Relations</a>
+<a href="composition-of-relations.html">Composition of Relations</a>
+<a href="types-of-relations.html">Types of Relations</a>
+<a href="closure-properties-of-relations.html">Closure Properties of Relations</a>
+<a href="equivalence-relations.html">Equivalence Relations</a>
+<a href="partial-ordering-relations.html">Partial Ordering Relations</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Functions &amp; Algorithms</span></h2>
+</div>
+<div class="leftmenu">
+<a href="functions.html">Functions</a>
+<a href="types-of-functions.html">Types of Functions</a>
+<a href="identity-functions.html">Identity Functions</a>
+<a href="compositions-of-functions.html">Composition of Functions</a>
+<a href="mathematical-functions.html">Mathematical Functions</a>
+<a href="algorithms-and-functions.html">Algorithms &amp; Functions</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Logic &amp; Propositional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="propositions-and-compound-statements.html">Propositions &amp; Compound Statements</a>
+<a href="basic-logical-operations.html">Basic Logical Operations</a>
+<a href="conditional-and-biconditional-statements.html">Conditional &amp; Biconditional Statements</a>
+<a href="tautologies-and-contradiction.html">Tautologies &amp; Contradictions</a>
+<a href="predicate-logic.html">Predicate Logic</a>
+<a href="normal-forms.html">Normal Forms</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Counting Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="basic-counting-principles.html">Basic Counting Principles</a>
+<a href="permutation-and-combinations.html">Permutations &amp; Combinations</a>
+<a href="pigeonhole-principle.html">Pigeonhole Principle</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Recurrence Relations</span></h2>
+</div>
+<div class="leftmenu">
+<a href="recurrence-relations.html">Recurrence Relations</a>
+<a href="linear-recurrence-relations-with-constant-coefficients.html">Linear Recurrence Relations with Constant Coefficients</a>
+<a href="particular-solution.html">Particular Solution</a>
+<a href="total-solution.html">Total Solution</a>
+<a href="https://www.javatpoint.com/generating-functions">Generating Functions</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Probability Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="probability.html">Probability</a>
+<a href="addition-theorem.html">Addition Theorem</a>
+<a href="multiplication-theorem.html">Multiplication Theorem</a>
+<a href="conditional-probability.html">Conditional Probability</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Graph Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="introduction-of-graphs.html">Introduction of Graphs</a>
+<a href="types-of-graphs.html">Types of Graphs</a>
+<a href="representation-of-graphs.html">Representation of Graphs</a>
+<a href="isomorphic-and-homeomorphic-graphs.html">Isomorphic and Homeomorphic Graphs</a>
+<a href="regular-and-bipartite-graphs.html">Regular and Bipartite Graphs</a>
+<a href="planar-and-non-planar-graphs.html">Planar and Non-Planar Graphs</a>
+<a href="discrete-mathematics-dijkstras-algorithm.html">Dijkstra's Algorithm</a>
+<a href="discrete-mathematics-travelling-salesman-problem.html">Travelling Salesman Problem</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Binary Trees</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-introduction-of-trees.html">Introduction of Trees</a>
+<a href="discrete-mathematics-binary-trees.html">Binary Trees</a>
+<a href="discrete-mathematics-traversing-binary-trees.html">Traversing Binary Trees</a>
+<a href="discrete-mathematics-binary-search-trees.html">Binary Search Trees</a>
+<a href="discrete-mathematics-minimum-spanning-tree.html">Minimum Spanning Tree</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Operator &amp; Postulates</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-binary-operation.html">Binary Operation</a>
+<a href="discrete-mathematics-properties-of-binary-operations.html">Property of Binary Operations</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Group Theory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-semigroup.html">SemiGroup</a>
+<a href="discrete-mathematics-group.html">Group</a>
+<a href="discrete-mathematics-subgroup.html">SubGroup</a>
+<a href="discrete-mathematics-normal-subgroup.html">Normal Subgroup</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Ordered Sets &amp; Lattices</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-partially-ordered-sets.html">Partially Ordered Sets</a>
+<a href="discrete-mathematics-hasse-diagrams.html">Hasse Diagrams</a>
+<a href="discrete-mathematics-lattices.html">Lattices</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Boolean Algebra</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-boolean-algebra.html">Boolean Algebra</a>
+<a href="discrete-mathematics-boolean-expression.html">Boolean Expression</a>
+<a href="discrete-mathematics-canonical-forms.html">Canonical Forms</a>
+<a href="discrete-mathematics-logic-gates-and-circuits.html">Logic Gates &amp; Circuits</a>
+<a href="discrete-mathematics-karnaugh-maps.html">Karnaugh Maps</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="proof-of-de-morgans-law.html">Proof of De Morgan's Law</a>
+<a href="discrete-mathematics-for-computer-science.html">Discrete mathematics for Computer Science</a>
+<a href="abelian-groups-in-discrete-mathematics.html">Abelian Groups in Discrete Mathematics</a>
+<a href="applications-of-discrete-mathematics-in-computer-science.html">Applications of Discrete Mathematics in Computer Science</a>
+<a href="rings-in-discrete-mathematics.html">Rings in Discrete Mathematics</a>
+<a href="order-of-group-in-discrete-mathematics.html">Order of Group in Discrete Mathematics</a>
+<a href="principle-of-duality-in-discrete-mathematics.html">Principle of Duality in Discrete Mathematics</a>
+<a href="atomic-propositions-in-discrete-mathematics.html">Atomic Propositions in Discrete Mathematics</a>
+<a href="applications-of-tree-in-discrete-mathematics.html">Applications of Tree in Discrete Mathematics</a>
+<a href="quantifiers-in-discrete-mathematics.html">Quantifiers</a>
+<a href="algebraic-structure-in-discrete-mathematics.html">Algebraic Structure</a>
+<a href="counting-principle.html">Counting principle</a>
+<a href="bijective-function-in-discrete-mathematics.html">Bijective Function in Discrete Mathematics</a>
+<a href="multinomial-theorem.html">Multinomial Theorem</a>
+<a href="lagranges-mean-value-theorem.html">Lagrange's Mean Value Theorem</a>
+<a href="cauchys-mean-value-theorem.html">Cauchy's Mean Value Theorem</a>
+<a href="rolles-mean-value-theorem.html">Rolle's Mean Value Theorem</a>
+<a href="semantic-difference-between-set-and-type.html">Semantic difference between Set and Type</a>
+<a href="application-of-group-theory-in-discrete-mathematics.html">Application of Group Theory in Discrete Mathematics</a>
+<a href="directed-and-undirected-graph-in-discrete-mathematics.html">Directed and Undirected graph in Discrete Mathematics</a>
+<a href="bayes-formula-for-conditional-probability.html">Bayes Formula for Conditional probability</a>
+<a href="function-vs-relation-in-discrete-mathematics.html">Difference between Function and Relation in Discrete Mathematics</a>
+<a href="recursive-functions-in-discrete-mathematics.html">Recursive functions in discrete mathematics</a>
+<a href="arguments-in-discrete-mathematics.html">Arguments in Discrete Mathematics</a>
+<a href="elementary-matrix-in-discrete-mathematics.html">Elementary Matrix in Discrete Mathematics</a>
+<a href="hypergeometric-distribution-in-discrete-mathematics.html">Hypergeometric Distribution in Discrete Mathematics</a>
+<a href="regular-grammar-in-discrete-mathematics.html">Regular Grammar in Discrete Mathematics</a>
+<a href="prime-number-in-discrete-mathematics.html">Prime Number in Discrete Mathematics</a>
+<a href="peano-axioms-number-system-discrete-mathematics.html">Peano Axioms Number System Discrete Mathematics</a>
+<a href="problems-of-monomorphism-and-epimorphism-in-discrete-mathematics.html">Problems of Monomorphism and Epimorphism in Discrete mathematics</a>
+<a href="properties-of-set-in-discrete-mathematics.html">Properties of Set in Discrete mathematics</a>
+<a href="principal-ideal-domain-in-discrete-mathematics.html">Principal Ideal Domain in Discrete mathematics</a>
+<a href="probable-error-formula-for-discrete-mathematics.html">Probable error formula for discrete mathematics</a>
+<a href="hypergraph-and-its-representation-in-discrete-mathematics.html">HyperGraph & its Representation in Discrete Mathematics</a>
+<a href="hashing-function-in-discrete-mathematics.html">Hashing Function in Discrete mathematics</a>
+<a href="doolittle-algorithm-lu-decomposition.html">Doolittle Algorithm: LU Decomposition</a>
+<a href="rsa-encryption-in-discrete-mathematics.html">RSA Encryption in Discrete Mathematics</a>
+<a href="introduction-to-mojette-transform.html">Introduction to Mojette Transform</a>
+<a href="negation-in-discrete-mathematics.html">Negation in Discrete mathematics</a>
+<a href="hamiltonian-graph-in-discrete-mathematics.html">Hamiltonian Graph in Discrete mathematics</a>
+<a href="relationship-between-number-of-nodes-and-height-of-binary-tree.html">Relationship between number of nodes and height of binary tree</a>
+<a href="independent-events-in-probability.html">Independent events in Probability</a>
+<a href="repeated-trials-in-probability.html">Repeated Trials in probability</a>
+<a href="betweenness-centrality.html">Betweenness Centrality</a>
+<a href="inference-theory-in-discrete-mathematics.html">Inference theory in discrete mathematics</a>
+<a href="https://www.javatpoint.com/tautology-in-discrete-mathematics">Tautology in Discrete Mathematics</a>
+<a href="walks-trails-path-circuit-and-cycle-in-discrete-mathematics.html">Walks, Trails, Path, Circuit and Cycle in Discrete mathematics</a>
+<a href="associative-law-in-discrete-mathematics.html">Associative Law in Discrete Mathematics</a>
+<a href="conjunction-in-discrete-mathematics.html">Conjunction in Discrete Mathematics</a>
+<a href="distributive-law-of-multiplication.html">Distributive Law of Multiplication</a>
+<a href="proof-by-contradiction-in-discrete-mathematics.html">Proof by Contradiction in Discrete mathematics</a>
+<a href="chromatic-number-of-graphs-graph-coloring-in-graph-theory.html">Chromatic Number of graphs</a>
+<a href="how-to-find-chromatic-number-graph-coloring-algorithm.html">How to find Chromatic Number</a>
+<a href="chromatic-polynomial-in-discrete-mathematics.html">Chromatic Polynomial in Discrete mathematics</a>
+<a href="identity-function-in-discrete-mathematics.html">Identity Function in Discrete mathematics</a>
+<a href="injective-function-in-discrete-mathematics.html">Injective Function in Discrete mathematics</a>
+<a href="many-to-one-function-in-discrete-mathematics.html">Many to one function in Discrete Mathematics</a>
+<a href="surjective-function-in-discrete-mathematics.html">Surjective Function in Discrete Mathematics</a>
+<a href="inverse-function-in-discrete-mathematics.html">Inverse Function in Discrete mathematics</a>
+<a href="sampling-and-inference.html">Sampling and Inference</a>
+<a href="constant-function-in-discrete-mathematics.html">Constant Function in Discrete Mathematics</a>
+<a href="graphing-functions-in-discrete-mathematics.html">Graphing Functions in Discrete mathematics</a>
+<a href="continuous-functions-in-discrete-mathematics.html">Continuous Functions in Discrete mathematics</a>
+<a href="linear-function-in-discrete-mathematics.html">Linear Function in Discrete mathematics</a>
+<a href="complement-of-graph-in-discrete-mathematics.html">Complement of Graph in Discrete mathematics</a>
+<a href="graph-isomorphism-in-discrete-mathematics.html">Graph isomorphism in Discrete Mathematics</a>
+<a href="euler-graph-in-discrete-mathematics.html">Euler Graph in Discrete Mathematics</a>
+<a href="planer-graph-in-discrete-mathematics.html">Planer Graph in Discrete Mathematics</a>
+<a href="bipartite-graph-in-discrete-mathematics.html">Bipartite Graph in Discrete mathematics</a>
+<a href="handshaking-theory-in-discrete-mathematics.html">Handshaking Theory in Discrete mathematics</a>
+<a href="konigsberg-bridge-problem-in-discrete-mathematics.html">Konigsberg Bridge Problem in Discrete mathematics</a>
+<a href="what-is-incidence-matrix-in-discrete-mathematics.html">What is Incidence matrix in Discrete mathematics</a>
+<a href="implication-in-discrete-mathematics.html">Implication in Discrete mathematics</a>
+<a href="incident-coloring-in-discrete-mathematics.html">Incident coloring in Discrete mathematics</a>
+<a href="biconditional-statement-in-discrete-mathematics.html">Biconditional Statement in Discrete Mathematics</a>
+<a href="in-degree-and-out-degree-in-discrete-mathematics.html">In-degree and Out-degree in discrete mathematics</a>
+<a href="law-of-logical-equivalence-in-discrete-mathematics.html">Law of Logical Equivalence in Discrete Mathematics</a>
+<a href="graph-theory-in-discrete-mathematics.html">Graph theory in Discrete Mathematics</a>
+<a href="discrete-infinite-groups.html">Discrete Infinite Groups</a>
+<a href="independent-set-in-discrete-mathematics.html">Independent set in discrete mathematics</a>
+<a href="inverse-of-a-matrix-in-discrete-mathematics.html">Inverse of a Matrix in Discrete mathematics</a>
+<a href="inverse-property-in-discrete-mathematics.html">Inverse property in Discrete mathematics</a>
+<a href="irrational-number-in-discrete-mathematics.html">Irrational Number in Discrete mathematics</a>
+<a href="linear-graph-in-discrete-mathematics.html">Linear Graph in Discrete Mathematics</a>
+<a href="linear-equations-vs-non-linear-equations.html">Difference between the Linear equations and Non-linear equations</a>
+<a href="lagrange-theorem-in-discrete-mathematics.html">Lagrange Theorem in Discrete mathematics</a>
+<a href="linear-equations-in-discrete-mathematics.html">Linear Equations in Discrete mathematics</a>
+<a href="limitation-and-propositional-logic-and-predicates.html">Limitation and Propositional Logic and Predicates</a>
+<a href="non-linear-function-in-discrete-mathematics.html">Non-linear Function in Discrete mathematics</a>
+<a href="lexicographic-orders.html">Lexicographic Orders</a>
+<a href="graph-measurements-in-discrete-mathematics.html">Graph Measurements in Discrete Mathematics</a>
+<a href="language-and-grammar-in-discrete-mathematics.html">Language and Grammar in Discrete mathematics</a>
+<a href="logical-connectives-in-discrete-mathematics.html">Logical Connectives in Discrete mathematics</a>
+<a href="propositional-logic-in-discrete-mathematics.html">Propositional Logic in Discrete mathematics</a>
+<a href="conditional-and-bi-conditional-connectivity.html">Conditional and Bi-conditional connectivity</a>
+<a href="problems-based-on-converse-inverse-and-contrapositive.html">Problems based on Converse, inverse and Contrapositive</a>
+<a href="nature-of-propositions-in-discrete-mathematics.html">Nature of Propositions in Discrete mathematics</a>
+<a href="pdnf-and-pcnf-in-discrete-mathematics.html">PDNF and PCNF in Discrete Mathematics</a>
+<a href="linear-correlation-in-discrete-mathematics.html">Linear Correlation in Discrete mathematics</a>
+<a href="equivalence-of-formula-in-discrete-mathematics.html">Equivalence of Formula in Discrete mathematics</a>
+<a href="discrete-time-signals-in-discrete-mathematics.html">Discrete time signals in Discrete Mathematics</a>
+<a href="m-array-tree-in-discrete-mathematics.html">M-array Tree in Discrete Mathematics</a>
+<a href="matrix-in-discrete-mathematics.html">Matrix in Discrete mathematics</a>
+<a href="type-of-matrices-in-discrete-mathematics.html">Type of matrices in Discrete mathematics</a>
+<a href="column-matrix-in-discrete-mathematics.html">Column matrix in discrete mathematics</a>
+<a href="zero-matrix-in-discrete-mathematics.html">Zero matrix in Discrete mathematics</a>
+<a href="rectangular-matrix-in-discrete-mathematics.html">Rectangular matrix in Discrete mathematics</a>
+<a href="row-matrix-in-discrete-mathematics.html">Row matrix in Discrete mathematics</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">DMS MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="discrete-mathematics-mcq.html">Discrete Matehmatics MCQ</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="addition-of-matrices-in-discrete-mathematics.html">next &rarr;</a>
+<a class="next" href="matrix-in-discrete-mathematics.html">&larr; prev</a>
+</div>
+<h1 class="h1">Matrix Multiplication in Discrete mathematics</h1>
+<h3 class="h3">Matrix</h3>
+<p>In discrete mathematics, we can deal with a lot of concepts with the help of matrices. A matrix is used to contain the rectangular array of numbers, and all these numbers, expressions, or symbols will be arranged in the form of rows and columns. There are several operations that can be performed on matrices, like subtraction, multiplication, addition, etc. In this section, we are going to learn about how to multiply two matrices, its formula, algorithms, examples of matrix multiplication, and many more.</p>
+<h3 class="h3">Matrix multiplication</h3>
+<p>A French mathematician Jacques Philippe Marie Binet was introduced the concept of matrix multiplication in 1812. In discrete mathematics, matrix multiplication can be described as an operation that is performed in matrices. Suppose we have two matrices, A and B. We can multiply these matrices if and only if both the matrices are compatible. Multiplication of a matrix can also be described as a binary operation that provides us a matrix with the help of multiplication of two given matrices. In the below section, we will learn about the rules of matrix multiplication.</p>
+<h3 class="h3">What is matrix Multiplication</h3>
+<p>The matrix multiplication is known as a binary operation which generates a matrix as an output when we multiply two matrices. If the given matrices are compatible, only then we will be able to multiply the matrices. Just like the arithmetic multiplication, the matrix multiplication will not be commutative, which indicates that the multiplication of matrices A and B provides us AB, which cannot be equal to BA in case of matrix multiplication, i.e., AB &ne; BA.</p>
+<p>If there are two matrices, A and B, and the number of columns in matrix A and the number of rows in matrix B are similar to each other, then these matrices will be known as compatible. That means the matrices A and B will be compatible if matrix A contains an order m&lowast;n and matrix B contains an order n&lowast;p.</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>Suppose we have two matrices, A and B. When we multiply them, then we will get AB in the result. If there is a matrix A, which is an m&lowast;n matrix, and another matrix B which is an n&lowast;p matrix, then the multiplication of these matrices will be matrix C which is in the order m&lowast;p.</p>
+<h3 class="h3">Definition of Matrix multiplication</h3>
+<p>We can also call matrix multiplication as a matrix product. If there are two matrices and we multiply them, then the resultant matrix will be a single matrix. Matrix multiplication is a type of binary operation.</p>
+<p>Suppose there are two matrices, A and B, then we can use the following way to indicate the product of these two matrices A and B:</p>
+<p>X = AB</p>
+<p>The product of two matrices is also known as the dot product of two matrices.</p>
+<h3 class="h3">Matrix multiplication by Scalar</h3>
+<p>Scalar multiplication can be defined as a multiplication of an integer with a matrix. We know that a matrix can be described as an array of numbers. It is used to have rows and columns. If we have a matrix and we multiply it by a scalar value, then that multiplication will be known as scalar multiplication. There can be one more case where we can multiply the two matrices. We will understand the process of doing this with the help of an example.</p>
+<p>In the following way, we can define the multiplication of a matrix by a scalar:</p>
+<p>Suppose there is a matrix A = [a<sub>ij</sub>]<sub>m&lowast;n</sub> and k is a scalar. If we multiply each element of A by scalar k, then we will get the result matrix kA. We can define it in one more way, i.e., kA = k [a<sub>ij</sub>]<sub>m&lowast;n</sub> = [k(a<sub>ij</sub>)]<sub>m&lowast;n</sub>, which indicates that (i, j)th element of kA is ka<sub>ij</sub> for all possible values of i and j.</p>
+<p><strong>For example:</strong> In this example, we will multiply the matrix by scalar value 4. The matrix is shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics2.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p><strong>Solution:</strong> From the question, we have the following matrix</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics3.png" alt="Matrix Multiplication in Discrete mathematics" />
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics4.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>Now we will get the following matrix by multiplying each element of A by 4 like this:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics5.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>So we get this matrix after multiplying the given matrix by the scalar value 4.</p>
+<h3 class="h3">Matrix multiplication condition</h3>
+<p>We can perform the multiplication operation of two given matrices only if the number of columns in 1<sup>st</sup> matrix and the number of rows in 2<sup>nd</sup> matrix are similar to each other. Therefore, the number of rows of 1<sup>st</sup> matrix and the number of columns of 2<sup>nd</sup> matrix will be contained in the result of matrix multiplication. So the order of resulting matrix will be known as the matrix multiplication order.</p>
+<h3 class="h3">Notation</h3>
+<p>If there is a matrix A, which is an a&lowast;b matrix, and another matrix B which is a b&lowast;c matrix, then the multiplication of A and B can be described as follows:</p>
+<p>X = AB</p>
+<p>Here matrix X is used to indicate the resultant matrix, which has an m&lowast;n dimension.</p>
+<p><strong>Formula of Matrix multiplication</strong></p>
+<p>We will use an example to understand the matrix multiplication formula, which is described as follows:</p>
+<p>Suppose there are two matrices, A and B, in such a way that</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics6.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>The resultant matrix C = AB can be indicated in the following way:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics7.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>Here C is the resultant matrix which is get by multiplication of matrix A&lowast;B. Suppose C has two elements, x and y. Then</p>
+<p>C<sub>xy</sub> = A<sub>x1</sub>B<sub>y1</sub> + A<sub>x2</sub>B<sub>y2</sub> + .... + A<sub>xb</sub>B<sub>by</sub> = ?<sup>b</sup><sub>k=1</sub> A<sub>xk</sub>B<sub>ky</sub></p>
+<p>For x = 1....a and y = 1....c</p>
+<h3 class="h3">How to Multiply matrices</h3>
+<p>With the help of a technique, we can learn the process of multiplication of matrices, i.e., the first rows will be multiplied by each and every element of columns, and after that, the rows will be filled up. With the help of following steps, we will learn how we can perform matrix multiplication:</p>
+<p><strong>Step 1:</strong> In this step, we will check the matrices' compatibility by ensuring that the number of columns in the 1<sup>st</sup> matrix and the number of rows in the 2<sup>nd</sup> rows are similar to each other.</p>
+<p><strong>Step 2:</strong> In this step, we will multiply the element of 1<sup>th</sup> row of 1<sup>st</sup> matrix by the elements of j<sup>th</sup> column in the 2<sup>nd</sup> matrix. After that, we will add the products.</p>
+<p><strong>Step 3:</strong> In the last step, we will place all the added products in their respective positions.</p>
+<p>Suppose we have two matrices, A and B, where A is an a&lowast;b matrix and B is a b&lowast;c matrix. The multiplication of both matrices will be indicated by matrix C in the following way:</p>
+<p>C = AB</p>
+<p>Suppose matrix C contains elements x and y. It will be defined as:</p>
+<p>C<sub>xy</sub> = A<sub>x1</sub>B<sub>y1</sub> + A<sub>x2</sub>B<sub>y2</sub> + .... + A<sub>xb</sub>B<sub>by</sub> = ?<sup>b</sup><sub>k=1</sub> A<sub>xk</sub>B<sub>ky</sub></p>
+<p>For x = 1....a and y = 1....c</p>
+<p>Now we will use the following example to understand the above steps for multiplication of matrices.</p>
+<p><strong>Example:</strong> In this example, we will determine the multiplication of following matrices.</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics8.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p><strong>Solution:</strong> As we can see that the above matrices are of order 3&lowast;2 and 2&lowast;1. So these matrices are compatible because the number of columns of 1<sup>st</sup> matrix and the number of rows of 2<sup>st</sup> is similar. Now we can perform the multiplication on these matrices, and the resultant matrix will contain the order 3&lowast;1.</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics9.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>Hence the result of this multiplication is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics10.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>In the above output matrix, we can see that when we multiply the element of 1<sup>st</sup> row of 1<sup>st</sup> matrix by the corresponding element of 1<sup>st</sup> column of 2<sup>st</sup> matrix, and then after adding them, we will get the first element of first row. So we should use the following steps to determine the element of i<sup>th</sup> row and j<sup>th</sup> column in the multiplication matrix like this:</p>
+<ul class="points">
+<li>First, we will choose the elements of i<sup>th</sup> row of 1<sup>st</sup> matrix.</li>
+<li>After that, we will choose the elements of j<sup>th</sup> column of 2<sup>nd</sup> matrix.</li>
+<li>Now, we will multiply the corresponding elements.</li>
+<li>Lastly, we will add the sum of all the products.</li>
+</ul>
+<h3 class="h3">Algorithm of Matrix multiplication</h3>
+<p>In case of matrix multiplication, we have four types of algorithms, which are described as follows:</p>
+<ol class="points">
+<li>Sub-cubic algorithm</li>
+<li>Divide and conquer algorithm</li>
+<li>Parallel and distributed algorithm</li>
+<li>Iterative algorithm</li>
+</ol>
+<p>These algorithms are mostly used in a lot of programming languages, like Java, C, etc, to perform online multiplications. There are some most common matrix multiplications, i.e., 2&lowast;2, 3&lowast;3, 4&lowast;4, etc. The operations of multiplication, subtraction, and addition will be performed on a matrix in the same way as we perform them on real or rational numbers.</p>
+<p>Matrix multiplication is a type of operation which is used in linear algebra. The matrices are used to contain a lot of applications. With the help of matrix multiplication, we can show linear mapping, which includes scalar addition and multiplication.</p>
+<p>On meshes, we can also determine a wide range of algorithms. With the help of this type of algorithm, we can minimize the inherent inefficiency of the standard array algorithm. In this case, there can be a delay in the arrival of data from two different matrices.</p>
+<h3 class="h3">Rules of Matrix multiplication</h3>
+<p>As we know that if two matrices are compatible, only then we will be able to multiply those matrices. That means the number of columns in the first matrix and the number of rows in the seconds must be similar to each other for the multiplication of matrices. If there is a matrix A which is an m&lowast;n matrix, and another matrix B which is an n&lowast;p matrix, then the order of multiplication of these matrices will m&lowast;p.</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics11.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>The rules and properties of matrix multiplication can be written in the following way with the help of above defined formula and procedure:</p>
+<ul class="points">
+<li>We can define the multiplication of two matrices, A and B if the number of columns in A and the number of rows in B are similar to each other.</li>
+<li>If we define the AB, then we will not require defining BA.</li>
+<li>If we have defined both AB and BA, it will not require AB = BA.</li>
+<li>If we get a zero matrix as the result of multiplication of two matrices, then it will not be required that one of the matrices is a zero matrix.</li>
+<li>If there are two square matrices, A and B, which have the same number of orders, then both AB and BA are defined.</li>
+</ul>
+<p><strong>For example:</strong></p>
+<ol class="points">
+<li>If we try to multiply a 4&lowast;3 matrix by a 3&lowast;4 matrix, then that matrix will be a valid matrix, which provides us a matrix of order 4&lowast;4.</li>
+<li>If there are two compatible matrices, 7&lowast;1 and 1&lowast;2, then the multiplication of these matrices will be a 7&lowast;1 matrix.</li>
+<li>There is no possibility of doing the multiplication of a 4&lowast;3 matrix and a 2&lowast;3 matrix.</li>
+</ol>
+<h3 class="h3">2&lowast;2 matrix multiplication</h3>
+<p>The process of doing the 2&lowast;2 matrix and the process of doing matrix multiplication of any order will be the same. To do this multiplication, we will first use the first matrix and multiply each element of each row of this matrix by the elements of each column in the second matrix. Lastly, we will do the addition of these products. The multiplication of two 2&lowast;2 matrices will generate the result in the form of a 2&lowast;2 matrix.</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics12.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>Suppose there are two 2&lowast;2 matrices, A and B, and we will do the multiplication of these matrices in the following way. The A and B matrices are described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics13.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>Now we will calculate each element of the product matrix AB in the following way:</p>
+<p>AB<sub>11</sub> = 3&lowast;6 + 7&lowast;5 = 53</p>
+<p>AB<sub>12</sub> = 3&lowast;2 + 7&lowast;8 = 62</p>
+<p>AB<sub>21</sub> = 4&lowast;6 + 9&lowast;5 = 69</p>
+<p>AB<sub>22</sub> = 4&lowast;2 + 9&lowast;8 = 80</p>
+<p>Hence, the multiplication matrix is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics14.png" alt="Matrix Multiplication in Discrete mathematics" />
+<h3 class="h3">3&lowast;3 Matrix Multiplication</h3>
+<p>With the help of matrix multiplication formula, we can perform the 3&lowast;3 matrix multiplication. This is because any two 3&lowast;3 matrices are compatible. The process of doing the 3&lowast;3 matrix and the process of doing matrix multiplication of any order will be the same. The multiplication of two 3&lowast;3 matrices will generate the result in the form of a 3&lowast;3 matrix.</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics15.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>In this matrix, we can see that the matrices contain the same dimension. That's why the resultant matrix will also contain the same dimension 3&lowast;3.</p>
+<p><strong>For example:</strong> Suppose there are two 3&lowast;3 matrices, A and B, and we will do the multiplication of these matrices in the following way. The A and B matrices are described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics16.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>Now we will calculate each element of the product matrix AB in the following way:</p>
+<p>AB<sub>11</sub> = 12&times;5 + 8&times;6 + 4&times;7 = 136</p>
+<p>AB<sub>12</sub>= 12&times;19 + 8&times;15 + 4&times;8 = 380</p>
+<p>AB<sub>13</sub>= 12&times;3 + 8&times;9 + 4&times;16 = 172</p>
+<p>AB<sub>21</sub>= 3&times;5 + 17&times;6 + 14&times;7 = 215</p>
+<p>AB<sub>22</sub>= 3&times;19 + 17&times;15 + 14&times;8 = 424</p>
+<p>AB<sub>23</sub>= 3&times;3 + 17&times;9 + 14&times;16 = 386</p>
+<p>AB<sub>31</sub>= 9&times;5 + 8&times;6 + 10&times;7 = 163</p>
+<p>AB<sub>32</sub>= 9&times;19 + 8&times;15 + 10&times;8 = 371</p>
+<p>AB<sub>33</sub> = 9&times;3 + 8&times;9 + 10&times;16 = 259</p>
+<p>Hence, the multiplication matrix is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics17.png" alt="Matrix Multiplication in Discrete mathematics" />
+<h3 class="h3">Properties of Matrix multiplication</h3>
+<p>There are some properties contained by the matrix multiplication, which are described as follows:</p>
+<p><strong>Commutative Property</strong></p>
+<p>The matrix multiplication does not contain the commutative property. The commutative law contains the following relation in the matrix multiplication:</p>
+<p>AB &ne; BA</p>
+<p>If we are doing the multiplication of two matrices, then the order will matter a lot. Now we will prove this with the help of an example which is described as follows:</p>
+<p><strong>For example:</strong></p>
+<p>Suppose there are two matrices, A and B where</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics18.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>Then the multiplication of A&lowast;B is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics19.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>But, the multiplication of B&lowast;A is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics20.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>We can see that the matrix AB &ne; BA</p>
+<p>Hence, the multiplication of two matrices cannot have the commutative property.</p>
+<p><strong>Associative Property</strong></p>
+<p>Suppose there are three matrices, A, B, and C. The associative law contains the following relation in the matrix multiplication:</p>
+<p>(AB)C = A(BC)</p>
+<p>Now we will prove this with the help of an example which is described as follows:</p>
+<p>Suppose there are three matrices, A, B, and C where</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics21.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>Now we will first solve the LHS(left-hand side) part of the equation, i.e., (AB)C</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics22.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>Now we will first solve the RHS(right-hand side) part of the equation, i.e., A(BC)</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics23.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>We can see that the LHS is equal to the RHS.</p>
+<p>Hence, the multiplication of three matrices will have the associative property.</p>
+<p><strong>Distributive Property</strong></p>
+<p>According to the distributive law, if there are two numbers that are added together and if we multiply them by a number, then the result of this multiplication and the result of doing each multiplication of the matrices separately will be the same. Suppose there are three matrices, A, B, and C. The distributive law contains the following relation in the matrix multiplication:</p>
+<p>A(B+C) = AB + AC</p>
+<p><strong>Multiplicative identity property</strong></p>
+<p>The identity law contains the following relation in the matrix multiplication:</p>
+<p>I = I.A = A</p>
+<p>Here, A is used to indicate the n&lowast;n matrix, and I is used to indicate an identity matrix of order n.</p>
+<p>Suppose there is a matrix A and an identity matrix I, which contains the following values:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics24.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p><strong>Dimension Property</strong></p>
+<p>In case of matrix multiplication, if there are two matrices m&lowast;n and m&lowast;a, then the product of these matrices will be m&lowast;a matrix.</p>
+<p>For example: If there is a matrix A which is a 2&lowast;3 matrix, and another matrix B, which is a 3&lowast;4 matrix, then the multiplication of these matrices AB will be 2&lowast;4 matrices.</p>
+<p><strong>Transpose property</strong></p>
+<p>Suppose there are two matrices, A and B. We can get the transpose of a product of these two matrices with the help of doing the multiplication of transpose of individual matrices in reverse order. The symbol T is used to indicate the transpose. The transpose of A and B is described as follows:</p>
+<p>(A&lowast;B)<sup>T</sup> = B<sup>T</sup> &lowast; A<sup>T</sup></p>
+<p><strong>Complex Conjugate</strong></p>
+<p>If there are two complex entries, A and B, in this case, (AB)<sup>&lowast;</sup> = B<sup>&lowast;</sup>A<sup>&lowast;</sup>.</p>
+<p><strong>Product with scalar</strong></p>
+<p>If there are two matrices, A and B, then the product of these matrices with the scalar value c will be distributed as follows:</p>
+<p>c(AB) = (cA)B = A(Bc)</p>
+<p><strong>Multiplication Property of Zero</strong></p>
+<p>Suppose there is a zero matrix, and if we multiply it by a given matrix, then we get the zero matrix as a resultant matrix.</p>
+<p>Suppose there is a zero matrix and a matrix A where</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics25.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>The product of matrix A and zero matrices is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics26.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>The resulting matrix will be a zero matrix, which is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics27.png" alt="Matrix Multiplication in Discrete mathematics" />
+<h3 class="h3">Important Points</h3>
+<p>There are some important points that we should know while learning matrix multiplications. These points are described as follows:</p>
+<ul class="points">
+<li>If we want to multiply the matrices, then these matrices must be compatible.</li>
+<li>With the help of following rule, we can get the order of a product matrix:<br>
+If there is a matrix A which is an m&lowast;n matrix, and another matrix B which is an n&lowast;p matrix, then the order of multiplication of these matrices will m&lowast;p.</li>
+<li>With the help of row-by-column multiplication, we can indicate the multiplication of matrices.</li>
+</ul>
+<p><strong>Example of Matrix multiplication</strong></p>
+<p>Matrix multiplication is used to contain a lot of examples, and some of them are described as follows:</p>
+<p><strong>Example 1:</strong> In this example, we will use the formula of matrix multiplication and determine the multiplication of matrices AB where</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics28.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p><strong>Solution:</strong> As we can see that the above matrices are of order 2&lowast;2. So these matrices are compatible because of the same order. Now we can perform the multiplication on these matrices, and the resultant matrix will contain the order 2&lowast;2.</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics29.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>Hence the multiplication of these matrices is described as follows:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics30.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p><strong>Example 2:</strong> In this example, we will use the previous example (example 1) and determine the BA. After this, we will check if AB = BA? Lastly, we will check whether the statement "matrix multiplication is commutative" is true or not.</p>
+<p><strong>Solution:</strong> First, we will do the multiplication of BA in the following way:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics31.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>From example 1 and example 2, we can see that <strong>AB &ne; BA</strong>.</p>
+<p>As we know that value of BA is:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics32.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p>And AB &ne; BA, so the matrix multiplication is not commutative.</p>
+<p><strong>Example 3:</strong> In this example, we will assume that there are two 4&lowast;4 matrices, A and B, and we have to multiply them. The value of matrices A and B are shown below:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics33.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p><strong>Solution:</strong> After multiplying both the matrices with the help of using same steps as described above, we will get the following matrix as a resultant matrix:</p>
+<img src="https://static.javatpoint.com/tutorial/dms/images/matrix-multiplication-in-discrete-mathematics34.png" alt="Matrix Multiplication in Discrete mathematics" />
+<p><strong>Example 4:</strong> In this example, there are two matrices, A and B, where A is used to contain the order 4&lowast;1, and B is used to contain the order 1&lowast;3. We have to check whether we can define both products AB and BA.</p>
+<p><strong>Solution:</strong> From the question, we know that</p>
+<p>Matrix A is used to contain the order 4&lowast;1</p>
+<p>Matrix B is used to contain the order 1&lowast;3.</p>
+<p>We can do the multiplication of AB only when the number of column in A and the number of rows in B is similar to each other. With the help of rules of matrix multiplication, we will get the resultant matrix as an order 4&lowast;3. We cannot define the multiplication of BA. This is because the number of columns in B and the number of rows in A are not similar to each other. Now we know that one of the multiplications cannot be defined, and the multiplication of AB is not necessarily equal to the multiplication of BA. Hence the matrix multiplication is not commutative.</p>
+<p>Hence the product AB can be defined, but the product of BA cannot be defined.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="addition-of-matrices-in-discrete-mathematics.html">Addition of Matrices in Discrete mathematics</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="matrix-in-discrete-mathematics.html">&larr; prev</a>
+<a style="float:right" class="next" href="addition-of-matrices-in-discrete-mathematics.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="86e0e3e3e2e4e7e5edc6ece7f0e7f2f6e9efe8f2a8e5e9eb">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/matrix-multiplication-in-discrete-mathematics"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/matrix-multiplication-in-discrete-mathematics"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/matrix-multiplication-in-discrete-mathematics"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+ <a href="rxjs.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+ </a>
+<a href="machine-learning.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+  <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="452d37052f24332431352a2c2b316b262a28">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="81e9f3c1ebe0f7e0f5f1eee8eff5afe2eeecaf">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/matrix-multiplication-in-discrete-mathematics by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:55:27 GMT -->
+</html> 

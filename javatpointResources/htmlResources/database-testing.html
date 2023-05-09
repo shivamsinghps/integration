@@ -1,0 +1,1172 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/database-testing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:39:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Database Testing - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Database Testing - javatpoint" /><meta property="og:description" content="Database Testing with introduction, software development life cycle, design, development, quality assurance, quality control, methods, black box testing, white box testing, etc." />
+<meta name="keywords" content="software testing tutorial, software testing introduction, software development life cycle, design, development, testing, overview, quality assurance, quality control, assurance versus, methods, black box testing, white box testing, alpha testing vs beta testing, gray box testing, visual testing, manual testing, system testing, unit testing, system testing, functional testing, non-functional testing, alpha testing, beta testing, security testing, test plan, test case, estimation techniques, defects" /><meta name="description" content="Database Testing with introduction, software development life cycle, design, development, quality assurance, quality control, methods, black box testing, white box testing, etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="database-testing.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Database Testing - javatpoint" /><meta name="twitter:description" property="og:description" content="Database Testing with introduction, software development life cycle, design, development, quality assurance, quality control, methods, black box testing, white box testing, etc." /><meta property="og:url" content="database-testing.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="software-testing-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/testing.png" alt="software testing" /> Software Testing</a></li>
+<li><a href="selenium-tutorial.html"><img src="https://static.javatpoint.com/images/icon/selenium.png" alt="selenium" /> Selenium</a></li>
+<li><a href="appium.html"><img src="https://static.javatpoint.com/images/icon/appium.png" alt="appium" /> Appium</a></li>
+<li><a href="jmeter-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jmeter.png" alt="jmeter" /> JMeter</a></li>
+<li><a href="junit-tutorial.html"><img src="https://static.javatpoint.com/images/icon/junit.png" alt="junit" /> JUnit</a></li>
+<li><a href="postman.html"><img src="https://static.javatpoint.com/images/icon/postman.png" alt="postman" /> Postman</a></li>
+<li><a href="jira-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jira.png" alt="jira" /> Jira</a></li>
+<li><a href="testng-tutorial.html"><img src="https://static.javatpoint.com/images/icon/testng.png" alt="testng" /> TestNG</a></li>
+<li><a href="soapui.html"><img src="https://static.javatpoint.com/images/icon/soapui.png" alt="soapui" /> SoapUI</a></li>
+<li><a href="uipath.html"><img src="https://static.javatpoint.com/images/icon/uipath.png" alt="uipath" /> UIPath</a></li>
+<li><a href="rpa.html"><img src="https://static.javatpoint.com/images/icon/rpa.png" alt="rpa" /> RPA</a></li>
+<li><a href="quality-assurance.html"><img src="https://static.javatpoint.com/images/icon/qa.png" alt="qa" /> QA</a></li>
+<li><a href="selenium-python.html"><img src="https://static.javatpoint.com/images/icon/selenium-python.png" alt="selenium python" /> Selenium Python</a></li>
+<li><a href="software-testing-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="manual testing interview questions" /> Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-tutorial.html">Tutorial</a>
+<a href="software-testing-principles.html">Software Testing Principles</a>
+<a href="software-development-life-cycle.html">Software Development Life Cycle</a>
+<a href="software-testing-life-cycle.html">Software Testing Life Cycle</a>
+<a href="types-of-software-testing.html">Types of Software Testing</a>
+<a href="levels-of-testing.html">Levels of Testing</a>
+<a href="test-maturity-model.html">Test Maturity Model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">SDLC models</span></h2>
+</div>
+<div class="leftmenu">
+<a href="waterfall-model.html">Waterfall model</a>
+<a href="spiral-model.html">Spiral Model</a>
+<a href="hybrid-model.html">Hybrid Model</a>
+<a href="prototype-model.html">Prototype Model</a>
+<a href="v-model.html">V-model</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="manual-testing.html">Manual Testing</a>
+<a href="automation-testing.html">Automation Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Manual</span></h2>
+</div>
+<div class="leftmenu">
+<a href="white-box-testing.html">White Box Testing</a>
+<a href="black-box-testing.html">Black Box Testing</a>
+<a href="grey-box-testing.html">Grey Box Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">White Box Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="data-flow-testing-in-white-box-testing.html">Data Flow Testing</a>
+<a href="control-flow-testing-in-white-box-testing.html">Control Flow Testing</a>
+<a href="branch-coverage-testing-in-white-box-testing.html">Branch Coverage Testing</a>
+<a href="statement-coverage-testing-in-white-box-testing.html">Statement Coverage Testing</a>
+<a href="decision-coverage-testing-in-white-box-testing.html">Decision Coverage Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Black Box Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="decision-table-technique-in-black-box-testing.html">Decision Table</a>
+<a href="all-pairs-testing-technique-in-black-box-testing.html">All-pair Testing</a>
+<a href="cause-and-effect-graph-technique-in-black-box-testing.html">Cause-Effect Testing</a>
+<a href="state-transition-technique-in-black-box-testing.html">State Transition</a>
+<a href="use-case-technique-in-black-box-testing.html">Use Case</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Black Box</span></h2>
+</div>
+<div class="leftmenu">
+<a href="functional-testing.html">Functional Testing</a>
+<a href="non-functional-testing.html">Non-Functional Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Functional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="unit-testing.html">Unit Testing</a>
+<a href="integration-testing.html">Integration Testing</a>
+<a href="system-testing.html">System Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Types of Non-functional</span></h2>
+</div>
+<div class="leftmenu">
+<a href="performance-testing.html">Performance Testing</a>
+<a href="usability-testing.html">Usability Testing</a>
+<a href="compatibility-testing.html">Compatibility Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Test case development</span></h2>
+</div>
+<div class="leftmenu">
+<a href="testing-documentation.html">Testing Documentation</a>
+<a href="test-scenario.html">Test Scenario</a>
+<a href="test-case.html">Test Case</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Testing Techniques</span></h2>
+</div>
+<div class="leftmenu">
+<a href="error-guessing-technique-in-black-box-testing.html">Error Guessing</a>
+<a href="equivalence-partitioning-technique-in-black-box-testing.html">Equivalence Portioning</a>
+<a href="boundary-value-analysis-in-black-box-testing.html">Boundary Value analysis</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Test Management</span></h2>
+</div>
+<div class="leftmenu">
+<a href="test-plan.html">Test Plan</a>
+<a href="test-case-review-process.html">Test case review process</a>
+<a href="traceability-matrix.html">Requirement Traceability Matrix</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Defect Tracking</span></h2>
+</div>
+<div class="leftmenu">
+<a href="bug-in-software-testing.html">Bug in Software Testing</a>
+<a href="software-testing-bug-life-cycle.html">Bug Life cycle</a>
+<a href="severity-and-priority-in-testing.html">Severity &amp; Priority</a>
+<a href="test-environment.html">Test Environment</a>
+<a href="defect-management-process.html">Defect Management Process</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Other types of Testing</span></h2>
+</div>
+<div class="leftmenu">
+<a href="regression-testing.html">Regression Testing</a>
+<a href="smoke-testing.html">Smoke Testing</a>
+<a href="sanity-testing.html">Sanity Testing</a>
+<a href="static-testing.html">Static Testing</a>
+<a href="dynamic-testing.html">Dynamic Testing</a>
+<a href="load-testing.html">Load Testing</a>
+<a href="stress-testing.html">Stress Testing</a>
+<a href="recovery-testing.html">Recovery testing</a>
+<a href="exploratory-testing.html">Exploratory Testing</a>
+<a href="visual-testing.html">Visual Testing</a>
+<a href="acceptance-testing.html">Acceptance Testing</a>
+<a href="alpha-testing.html">Alpha Testing</a>
+<a href="beta-testing.html">Beta Testing</a>
+<a href="database-testing.html">Database Testing</a>
+<a href="mainframe-testing.html">Mainframe Testing</a>
+<a href="adhoc-testing.html">Adhoc Testing</a>
+<a href="globalization-testing.html">Globalization Testing</a>
+<a href="mutation-testing.html">Mutation Testing</a>
+<a href="security-testing.html">Security Testing</a>
+<a href="accessibility-testing.html">Accessibility Testing</a>
+<a href="structural-testing.html">Structural Testing</a>
+<a href="volume-testing.html">Volume Testing</a>
+<a href="scalability-testing.html">Scalability Testing</a>
+<a href="stability-testing.html">Stability Testing</a>
+<a href="spike-testing.html">Spike Testing</a>
+<a href="negative-testing.html">Negative Testing</a>
+<a href="positive-testing.html">Positive Testing</a>
+<a href="endurance-testing.html">Endurance Testing</a>
+<a href="reliability-testing.html">Reliability Testing</a>
+<a href="monkey-testing.html">Monkey Testing</a>
+<a href="agile-testing.html">Agile Testing</a>
+<a href="component-testing.html">Component Testing</a>
+<a href="gui-testing.html">GUI Testing</a>
+<a href="test-strategy.html">Test Strategy</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing Tools</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-tools.html">Software testing tools</a>
+<a href="test-management-tool.html">Test management tools</a>
+<a href="defect-or-bug-tracking-tool.html">Defect/Bug tracking tools</a>
+<a href="automation-testing-tool.html">Automation testing tools</a>
+<a href="performance-testing-tools.html">Performance testing tools</a>
+<a href="cross-browser-testing-tools.html">Cross-browser testing tools</a>
+<a href="integration-testing-tools.html">Integration testing tools</a>
+<a href="unit-testing-tools.html">Unit testing tools</a>
+<a href="mobile-testing-tools.html">Mobile Testing Tools</a>
+<a href="gui-testing-tools.html">GUI testing tools</a>
+<a href="security-testing-tools.html">Security testing tools</a>
+<a href="penetration-testing-tools.html">Penetration Testing Tools</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="automation-testing-vs-manual-testing.html">Automation Testing vs Manual Testing</a>
+<a href="load-testing-vs-stress-testing.html">Load Testing vs Stress Testing</a>
+<a href="smoke-testing-vs-sanity-testing.html">Smoke Testing vs Sanity Testing</a>
+<a href="system-testing-vs-acceptance-testing.html">System Testing vs Acceptance Testing</a>
+<a href="difference-between-quality-assurance-and-quality-control.html">Quality Assurance vs Quality Control</a>
+<a href="static-testing-vs-dynamic-testing.html">Static Testing vs Dynamic Testing</a>
+<a href="verification-and-validation-testing.html">Verification vs Validation Testing</a>
+<a href="alpha-testing-vs-beta-testing.html">Alpha Testing vs Beta Testing</a>
+<a href="black-box-testing-vs-white-box-testing-vs-grey-box-testing.html">Black Box vs. White Box vs. Grey Box Testing</a>
+<a href="globalization-testing-vs-localization-testing.html">Globalization Testing vs Localization Testing</a>
+<a href="test-case-vs-test-scenarios.html">Test Case vs Test Scenarios</a>
+<a href="test-plan-vs-test-strategy.html">Test Plan vs Test Strategy</a>
+<a href="boundary-value-analysis-vs-equivalence-partitioning.html">Boundary value analysis vs Equivalence partitioning</a>
+<a href="sdlc-vs-stlc.html">SDLC vs STLC</a>
+<a href="bug-vs-defect-vs-error-vs-fault-vs-failure.html">Bug vs Defect vs Error vs Fault vs Failure</a>
+<a href="testing-vs-debugging.html">Testing vs Debugging</a>
+<a href="frontend-testing-vs-backend-testing.html">Frontend Testing vs Backend Testing</a>
+<a href="hld-vs-lld.html">HLD vs LLD</a>
+<a href="brs-vs-srs.html">BRS vs SRS</a>
+<a href="positive-testing-vs-negative-testing.html">Positive Testing vs Negative Testing</a>
+<a href="top-down-vs-bottom-up-integration-testing.html">Top-Down vs Bottom-Up Integration Testing</a>
+<a href="use-case-vs-test-case.html">Use Case vs Test Case</a>
+<a href="monkey-testing-vs-gorilla-testing.html">Monkey Testing VS Gorilla Testing</a>
+<a href="stubs-vs-drivers.html">Stubs vs Drivers</a>
+<a href="component-testing-vs-unit-testing.html">Component Testing vs Unit Testing</a>
+<a href="software-testing-vs-embedded-testing.html">Software Testing vs Embedded Testing</a>
+<a href="gui-testing-vs-usability-testing.html">GUI Testing vs Usability Testing</a>
+<a href="sdet-vs-tester.html">SDET vs Tester</a>
+<a href="desktop-application-testing-vs-client-server-application-testing-vs-web-application-testing.html">Desktop Application testing vs Client-Server Application Testing vs Web Application Testing</a>
+<a href="active-testing.html">Active Testing</a>
+<a href="what-is-an-api.html">What is an API</a>
+<a href="automation-testing.html">Automation Testing</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Software Testing MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-mcq.html">Software Testing MCQ</a>
+<a href="software-testing-mcq-part-2.html">Software Testing MCQ Part 2</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="software-testing-interview-questions.html">Software Testing Interview</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="mainframe-testing.html">next &rarr;</a>
+<a class="next" href="beta-testing.html">&larr; prev</a>
+</div>
+<h1 class="h1">Database Testing</h1>
+<p>In this section, we are going to understand <strong>Database testing</strong>, which checks the schema, tables, triggers, etc. of the database under test.</p>
+<p>And we also learn about following concept of database Testing:</p>
+<ul class="points">
+<li><strong>Why we need to use database Testing</strong></li>
+<li><strong>Database testing process</strong></li>
+<li><strong>Types of database testing</strong></li>
+<li><strong>How to perform database testing manually and with the help of automation tool</strong></li>
+<li><strong>What are the different challenges we may face during the database testing?</strong></li>
+<li><strong>Components of database testing.</strong></li>
+</ul>
+<p>Before we discuss <strong>database testing</strong>, firstly, we will understand the definition <strong>database.</strong></p>
+<h3 class="h3">What is a Database?</h3>
+<p>A <strong><a href="what-is-database.html">database</a></strong> is a prearranged collection of data containing the information and helps in data manipulation. A database can easily manage and retrieved by the user. We can establish data into tables, rows, columns, and indexes, making it easier to identify the appropriate data.</p>
+<p>In a Database, data management becomes a very easy task because we can use the databases as <strong>databases to retrieve</strong> the information like <strong>tables for storing data, function, triggers for data manipulation and view for data representations.</strong></p>
+<h4 class="n">Note: The Database is become more difficult over time due to the massive amount of data stored in a software system.</h4>
+<p>After understanding the database concept, we have now come to our main discussion on <strong>database testing</strong>.</p>
+<h2 class="h2">Introduction of Database Testing</h2>
+<p>In <a href="software-testing-tutorial.html">software testing</a>, <strong>Database Testing</strong> is testing, which is used to analyze the schema, tables, triggers, etc., of the database under test. It also assesses data integrity and consistency, which might include creating difficult queries to load and stress test the Database and review its responsiveness.</p>
+<p>Generally, it contains the layered process, which involves <strong>the data access, User Interface [UI], the business layer, along with the database layer.</strong></p>
+<p>During the database testing, we can cover the following database activities, such as:</p>
+<ul class="points">
+<li><strong>Testing data integrity</strong></li>
+<li><strong>Checking data validity</strong></li>
+<li><strong>Performance check relate</strong></li>
+<li><strong>Triggers and Functions in the database</strong></li>
+<li><strong>Testing various procedures</strong></li>
+</ul>
+<h2 class="h2">Why do we need to perform database testing?</h2>
+<p>If we performed the database testing, it would ensure the database's efficiency, maximum stability, performance, and security.</p>
+<p>And these features can be set aside on a check occasionally to confirm that the software application is stable as soon as deployed in a competitive environment. To perform database testing, we must have a basic knowledge of <strong>SQL</strong>.</p>
+<p>To get more information about the SQL, we can refer to the following link: <a href="sql-tutorial.html">https://www.javatpoint.com/sql-tutorial</a></p>
+<h2 class="h2">What is the purpose of the Database Testing?</h2>
+<p>The main objective of performing database testing is to make sure they follow the various aspects:</p>
+<ul class="points">
+<li><strong>Transaction's ACID Properties</strong></li>
+<li><strong>Data mapping</strong></li>
+<li><strong>Accuracy of Business Rule</strong> </li>
+<li><strong>Data integrity</strong></li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/database-testing.png" alt="Database Testing" />
+<h3 class="h3">1. Transaction's ACID Properties</h3>
+<p>The database testing will ensure <strong>the ACID properties of the transaction</strong>.</p>
+<p>A Database performs these four ACID properties. The ACID properties are as follows:</p>
+<ul class="points">
+<li><strong>Atomicity</strong></li>
+<li><strong>Consistency</strong></li>
+<li><strong>Isolation</strong></li>
+<li><strong>Durability</strong></li>
+</ul>
+<p><strong>Atomicity</strong></p>
+<ul class="points">
+<li>The term <strong>atomicity</strong> in transaction specifics that the data remains atomic, which implies that if any operation is performed on the data, it should be performed or implemented entirely or should not be implemented at all.</li>
+<li>It is also known as <strong>All-or-Nothing</strong>.</li>
+</ul>
+<p><strong>Consistency</strong></p>
+<ul class="points">
+<li>The term <strong>consistency</strong> specifies that the value should remain always preserved after the transaction is completed in the transaction.</li>
+<li>And the integrity of the data is very important therefore, the database remains consistent before and after the transaction. The data should always be correct.</li>
+</ul>
+<p><strong>Isolation</strong></p>
+<ul class="points">
+<li>In the transaction, the term <strong>isolation</strong> means separation, which specified that the multiple transactions could implement all at once without impacting one another and changing the database state.</li>
+<li>Or if two or more transactions occur concurrently, the consistency should remain preserved. </li>
+</ul>
+<p><strong>Durability</strong></p>
+<ul class="points">
+<li>The word <strong>durability</strong> makes sure the permanency of something, which further implies if a transaction is committed, it will keep the modifications without any fail irrespective of the effect of external factors.</li>
+<li>And the durability of the data should be so faultless even though the system fails, the database still survives.</li>
+</ul>
+<h3 class="h3">2. Data Mapping</h3>
+<p><strong>Data mapping</strong> is an essential feature in database testing, which is mainly focused on verifying the data that pass through back and out between the application and the backend database.</p>
+<p>Below are some of the important features tested in the data mapping:</p>
+<ul class="points">
+<li>We analyze whether the user interface or front-end methods are mapped constantly with the equivalent fields in the database table.</li>
+<li>Characteristically, this mapping information is specified in the requirements documents.</li>
+<li>When a specific action is done at the front-end of an application, an equivalent <strong>Create, Retrieve, Update and Delete [CRUD]</strong> activity gets used at the back-end.</li>
+<li>And then, the test engineer will have to assess if the correct activity is used and whether the user action in itself is effective or not.</li>
+</ul>
+<h3 class="h3">3. The Accuracy of the Business Rules</h3>
+<ul class="points">
+<li>Database testing ensures the accuracy of the business rules as we know that complex databases lead to complex components such as <strong>stored procedure triggers and relational constraints.</strong></li>
+<li>Therefore, the test engineer will come up with appropriate SQL commands to verify the complex objects.</li>
+</ul>
+<h3 class="h3">4. Data Integrity</h3>
+<ul class="points">
+<li>The database testing also makes sure the data integrity, where we can update, and the most recent shared data values should appear on all the forms and screens.</li>
+<li>And if the value should not be modified on one screen and show an older value on another, then the status can be updated concurrently.</li>
+</ul>
+<h2 class="h2">How to perform Database Testing</h2>
+<p>We can perform the database testing either manually or with the help of some automation tools.</p>
+<h3 class="h3">How to perform database testing manually</h3>
+<p>To perform database testing manually, which need to follow the below process:</p>
+<ul class="points">
+<li>Firstly, we will Open the <strong>SQL server</strong> in our local system.</li>
+<li>After that, we will open the <strong>query analyzer</strong> to write the command and retrieve the data.</li>
+<li>Once we can retrieve the specified data, we will compare the detailed data with the expected result.</li>
+<li>Then we can update or delete the data to check how the software application performs.</li>
+<li>The general test process of the testing database is not dissimilar from any other application. Therefore, to run the test, we can follow the below steps:</li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/database-testing2.png" alt="Database Testing" />
+<p><strong>Step1: Set up the test environment</strong></p>
+<p>Firstly, we need to prepare the test environment to test the software application.</p>
+<p><strong>Step2: Execute the test</strong></p>
+<p>Once we set up the test environment, we will run particular test case.</p>
+<p><strong>Step3: Check the results</strong></p>
+<p>When the test case is executed successfully without having any issues, we will check the specified test case results.</p>
+<p><strong>Step4: Validate the output with the expected one</strong></p>
+<p>After checking the test case result, we will validate the same output with the excepted one. If the results meet the excepted output, the test case will consider as a pass; otherwise, it will be marked as a fail.</p>
+<p><strong>Step5: Report the results to the stakeholders</strong></p>
+<p>And at last, we will report the results to the stakeholder of the particular software application.</p>
+<h4 class="n">Note: If we set-up the environment, the test engineer and developers will develop all possible scenarios, which can execute through the application.</h4>
+<p>Then, the test will involve running through these queries and checking the data integrity, which means that the resulting data will need to be truthful, accurate, complete, retrievable, and verifiable.</p>
+<p>And the test could also include monitoring data mapping, the different ACID properties, and ensuring the implemented business rules' accuracy.</p>
+<h2 class="h2">How automation can help in Database Testing</h2>
+<p>In software testing, <strong>Automation testing</strong> is used to decrease the repetitive manual work, which helps the test engineer focus more on critical features, which work the same for the database testing.</p>
+<p>Let's see a few scenarios where automation can be very useful for the test engineer:</p>
+<ul class="points">
+<li><strong>Modification in the database schema</strong></li>
+</ul>
+<p>When every schema is modified, the database needs in-depth testing to ensure that the things are in place. And the number of scenarios to be covered based on the size of the database. And this process is time-consuming if we have done it manually.</p>
+<ul class="points">
+<li><strong>Monitoring for data integrity issues</strong></li>
+</ul>
+<p>There can be a condition where a set of data gets corrupted in recovery or other actions because of human error or other issues.</p>
+<p>But if we consider the automated monitoring processes, it became easier to find those variations, and we can fix them as soon as possible.</p>
+<ul class="points">
+<li><strong>New or frequently altering applications</strong></li>
+</ul>
+<p>As we know that Agile methodology is the new era of testing, where we will have a new release to production at the end of every sprint, which implies it will take every 2-3 weeks to complete one round of testing.</p>
+<p>But with the help of automation features, which is completely constant and unchanged in the recent sprint, we can focus on new modified requirements.</p>
+<h2 class="h2">Database testing components</h2>
+<p>Following are the components of the database testing:</p>
+<ul class="points">
+<li><strong>Database schema</strong></li>
+<li><strong>Transactions</strong></li>
+<li><strong>Store procedure</strong></li>
+<li><strong>Field constraints</strong> </li>
+<li><strong>Triggers</strong></li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/database-testing3.png" alt="Database Testing" />
+<h3 class="h3">1. Database Schema</h3>
+<p>A database schema is used to describe the working of data in a Database and its organization. In other words, we can say that it is nothing but a proper classification of how the data will be planned inside the database.</p>
+<p>For testing those conditions, we have two ways, which are explained below:</p>
+<p><strong>One of the Below approaches can be used as per the tool's significance:</strong></p>
+<ul class="points">
+<li>We can use the <strong>SchemaCrawler</strong> tool, which is a free database schema discovery and comprehension tool.</li>
+<li><strong>Regular expressions</strong> are a good approach to verify the names of the specific fields and their values.</li>
+<li>To verify the schema, we can use the following SQL command:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="sql">
+DESC&lt;table name&gt;
+</textarea></div>
+<p><strong>Find the needs according to the Database operates</strong></p>
+<ul class="points">
+<li>The <strong>Field names</strong> begin or end with explicit characters.</li>
+<li>The Primary keys need to be generated before any other fields are designed.</li>
+<li>The specific values can or cannot be inserted in the fields that have a constraint.</li>
+<li>For easy recovery and search, the Foreign keys must be indexed completely.</li>
+</ul>
+<h3 class="h3">2. Transactions</h3>
+<p>One of the most important database testing components is <strong>transactions</strong> because while we are performing the database testing, the ACID properties need to satisfy.</p>
+<ul class="points">
+<li>The most commonly used statements are as below:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="sql">
+BEGIN TRANSACTIONTRANSACTION#
+END TRANSACTIONTRANSACTION#
+</textarea></div>
+<ul class="points">
+<li>To make sure the database remains in a consistent state, we can use the below <strong>ROLLBACK</strong> commands:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="sql">
+ROLLBACK TRANSACTION#
+</textarea></div>
+<ul class="points">
+<li>To ensure the modification have been reproduced, we can use a <strong>SELECT</strong> command after the implementation of the above command:</li>
+</ul>
+<div class="codeblock"><textarea name="code" class="sql">
+SELECT * FROM TABLENAME < Transactions Tables >
+</textarea></div>
+<h4 class="n">Note: In the above statement, the Transaction table is the table that includes the transaction.</h4>
+<h3 class="h3">3. Stored Procedure</h3>
+<p>The Stored Procedures are relatively parallel to user-defined functions. And the entire system works in looming with the most consistent and correct result.</p>
+<p>It can be used by <strong>Execute or Call Procedure</strong> commands, and generally, the output is in the format of result sets. The stored procedure system is used for multiple applications where data is kept in RDBMS.</p>
+<p>We can test the stored procedure throughout the <strong>white-box and black-box testing.</strong></p>
+<ul class="points">
+<li><strong>White box testing:</strong> In white box testing, the Stubs are used to invoke the stored procedures and then the output is verified in contradiction of the expected values.</li>
+<li><strong>Black box testing:</strong> In this, we can operate the <strong>application's front-end (UI</strong>). And also assess the implementation of the stored procedure and its outputs.</li>
+</ul>
+<h3 class="h3">4. Field Constraints</h3>
+<p>The next database testing components are <strong>Field Constraints</strong>, where the entire system works on the <strong>default value, exclusive value, and foreign key.</strong></p>
+<p>In this, we can easily verify the outcomes retrieved from the SQL commands, and</p>
+<p>to ensure that the object condition in the database is implemented, we can perform the Front-end (user interface) operations.</p>
+<h3 class="h3">5. Triggers</h3>
+<p>The <strong>trigger components</strong> are used to implement an entire table independently to record the output. In other words, we can say that a trigger (a piece of code) can be auto-instructed to be performed if a particular event takes place on a precise table.</p>
+<p>Let us see one <strong>sample example</strong>, where we can understand the working of trigger components in the database testing:</p>
+<ul class="points">
+<li>Suppose a new employee joined a company. And the employee is doing two tasks, which are <strong>development and testing</strong>. Then the employee is added to the <strong>Employee table.</strong></li>
+<li>Once he/she is added to the <strong>Employee table,</strong> a <strong>Trigger</strong> could add the employee to the equivalent <strong>task's</strong></li>
+<li>After that, we can follow the common process to test it, firstly the SQL command implanted in the Trigger independently and then it records the result.</li>
+<li>In the end, we can follow this process to perform the trigger as an entire system and then compare the outcomes.</li>
+</ul>
+<p>These types of tests are completed in two ways, which are as follows</p>
+<ul class="points">
+<li><strong><a href="white-box-testing.html">White-Box Testing</a></strong></li>
+<li><strong><a href="black-box-testing.html">Black-Box Testing</a></strong></li>
+</ul>
+<p>Both the white-box and black-box testing have their procedure and sets of rules, which help us get the precise result.</p>
+<h2 class="h2">Types of Database Testing</h2>
+<p>The database testing classified into three different types of testing, which are as follows:</p>
+<ul class="points">
+<li><strong>Structural testing</strong></li>
+<li><strong><a href="functional-testing.html">Functional testing</a></strong></li>
+<li><strong><a href="non-functional-testing.html">Non-functional testing</a></strong></li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/database-testing4.png" alt="Database Testing" />
+<p>Let understand each type one by one:</p>
+<h3 class="h3">Structural Database Testing</h3>
+<ul class="points">
+<li><strong>It</strong> is a most important database testing technique used to verify all the elements inside the data repository, which are primarily used for data storage and not allowed to be directly operated by end-users.</li>
+<li>If we want a successful conclusion of this testing, we must have a complete understanding of SQL commands.</li>
+<li>In structural database testing, we can test the database components that are not visible to users.</li>
+<li>The structural database testing is mostly vitally used to validate the database.</li>
+</ul>
+<h3 class="h3">Functional Database Testing</h3>
+<ul class="points">
+<li>The most important database testing approach is functional database testing, which is used to authorize a database's functional requirements from the end user's interpretation.</li>
+<li>The functional database testing's primary purpose is to test whether the end-user's transactions and operations are connected to the database work as expected or not.</li>
+</ul>
+<h3 class="h3">Non-functional Testing</h3>
+<p>In the topic of database testing, Non-functional testing can be divided into several types as vital by the business requirements.</p>
+<p>Some of the important parts of non-functional testing are listed below:</p>
+<ul class="points">
+<li>Load testing</li>
+<li>Stress Testing</li>
+<li><a href="security-testing.html">Security Testing</a></li>
+<li><a href="usability-testing.html">Usability Testing</a></li>
+<li><a href="compatibility-testing.html">Compatibility Testing</a></li>
+</ul>
+<h4 class="n">Note: The load testing and the stress testing come under Performance Testing, which helps two specific non-functional testing objectives.</h4>
+<h2 class="h2">What are the different challenges of Database Testing?</h2>
+<p>While performing database testing, we may encounter the following challenges.</p>
+<p>In the below table, we listed some common challenges and their solutions:</p>
+<table class="alt">
+<tr>
+<th>Different challenges</th>
+<th>Solutions</th>
+</tr>
+<tr>
+<td><strong>Testing huge data and production simulated the database</td>
+<td><ul class="points">
+<li>A scaled-down or enhanced database would be the best solution because it is as close as possible to the production data set.</li>
+<li>Although it is a good approach to test in a production-like environment, it could sometimes become a very challenging and time-consuming process to test on enormous data.</li>
+</ul></td>
+</tr>
+<tr>
+<td><strong>Re-usability of data again for testing and Test data creation</td>
+<td><ul class="points">
+<li>To resolve this specific issue, we need a better strategy to generate all the essential data for all the stretch repetitions. And then, we can use detailed data carefully.</li>
+<li>All the commands need to be separate from each other; for example, the input data and output of one command do not modify another command's output.</li>
+</ul></td>
+</tr>
+<tr>
+<td><strong>Separation of data and queries</td>
+<td><ul class="points">
+<li>The software product quality depends on the cost.</li>
+</ul></td>
+</tr>
+<tr>
+<td><strong>Cost and time were taken to get the data from a massive database</td>
+<td><ul class="points">
+<li>Therefore, it is significant to maintain a balance between the project timelines, expected quality and data load, and additional factors.</li>
+</ul></td>
+</tr>
+<tr>
+<td><strong>Frequently altering the database structure</td>
+<td><ul class="points">
+<li>While performing DB testing, the Database test engineers most frequently faced this challenge.</li>
+<li>The best solution for the particular challenges is that the DB tester needs to create the test cases and the SQL command derived from the specific structure, which gets modified at the time of implementation or through any other retesting.</li>
+<li>To avoid the final delays, we need to intercept the modification and the impact as early as possible.</li>
+</ul></td>
+</tr>
+<tr>
+<td><strong>Unwanted data modification</td>
+<td><ul class="points">
+<li>The best solution for unwanted data modification in DB testing is access control.</li>
+<li>We can provide access only to a limited number of people for the modification.</li>
+<li>And the access should be restricted for the EDIT and DELETE options.</li>
+</ul></td>
+</tr>
+</table>
+<h2 class="h2">Misconception or Myths related to Database Testing</h2>
+<p>When we are performing the database testing, we may undergo some misconceptions about database testing.</p>
+<p>Let us see them one by one and also understand the reality of the related myths:</p>
+<table class="alt">
+<tr>
+<th>Misconception or Myths</th>
+<th>Reality</th>
+</tr>
+<tr>
+<td><strong>The overall development process will slow down because of the database testing.</strong></td>
+<td>For this particular myth, the reality is that database testing helps us enhance the database application's overall quality.</td>
+</tr>
+<tr>
+<td><strong>Database Testing is a monotonous job, and it involves plenty of expertise.</strong></td>
+<td>In software testing, database testing is an efficient process, which gives long-term functional stability to the entire application.</td>
+</tr>
+<tr>
+<td><strong>Database testing is an expensive process.</strong></td>
+<td>Expenses on Database Testing is needed because any expenses on database testing is a long-term investment that leads to long-term robustness and constancy of the application.</td>
+</tr>
+<tr>
+<td><strong>Database testing increases additional work for bottlenecks.</strong></td>
+<td>In reverse, identifying the hidden defects with the help of database testing enhances more value to the overall work.</td>
+</tr>
+</table>
+<h2 class="h2">Automation tools used in database testing</h2>
+<p>We have several Database testing tools available in the market, but here we are discussing some of the most commonly used automation tools for database testing, which are as follows:</p>
+<ul class="points">
+<li>Data factory</li>
+<li>SQL test</li>
+<li>Mockup data</li>
+<li>MS SQL Server</li>
+<li>DbUnit</li>
+</ul>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/database-testing10.png" alt="Database Testing" />
+<h3 class="h3">Data Factory</h3>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/database-testing5.png" alt="Database Testing" />
+<ul class="points">
+<li>The data factory is one of the most popular tools used for database testing.</li>
+<li>Mostly it is used for commercial database testing tools, which means that the huge project can be tested by a data factory tool.</li>
+<li>It works as a data generator and data manager in the context of database testing.</li>
+<li>For handling the complex command with a large amount of data, it is the most efficient tool.</li>
+<li>This tool gives us a platform to easily perform the stress or load testing on the database.</li>
+</ul>
+<h3 class="h3">SQL Test</h3>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/database-testing6.png" alt="Database Testing" />
+<ul class="points">
+<li>The SQL test is the most frequently used Database testing tool available in the market.</li>
+<li>It is an open-source tool <strong>tSQLt</strong> framework, which means that it can be used by all the Database test engineer at least once.</li>
+<li>It allows us to execute the unit tests for SQL Server databases.</li>
+<li>With the help of this tool, we can easily execute extensive SQL tests.</li>
+<li>The major drawback of this tool is that it is slow compared to the other Database testing tools in the market.</li>
+</ul>
+<h3 class="h3">Mockup data</h3>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/database-testing7.png" alt="Database Testing" />
+<ul class="points">
+<li>The Mockup Data testing tool also comes under the Test Data Generator category, and it is commercial testing tool.</li>
+<li>In this tool, we need to add columns in our table to validate the outputs.</li>
+<li>It helps us to create a huge Amount of Data, CSV files and databases with accurate data.</li>
+<li>It rapidly creates a large amount of data and tests several tables for a relationship with foreign keys.</li>
+</ul>
+<h3 class="h3">MS SQL Server</h3>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/database-testing8.jpg" alt="Database Testing" />
+<ul class="points">
+<li>The Microsoft SQL server tool is extensively used to execute the unit testing.</li>
+<li>It is a commercial tool where we can generate in VB or C# projects, and the test engineer is expected to understand the project schema before starting the test.</li>
+<li>Even though we are creating the tests from a database project, we can use SQL Server Object Explorer.</li>
+<li>The main disadvantage of this tool is that it does not have any good user interface.</li>
+</ul>
+<h3 class="h3">DbUnit</h3>
+<img src="https://static.javatpoint.com/tutorial/software-testing/images/database-testing9.png" alt="Database Testing" />
+<ul class="points">
+<li>It is an open-source tool, which is also known as <strong>the JUnit extension</strong>.</li>
+<li>It helps us export and import data into a database to and from XML datasets and work on large databases.</li>
+<li>It performs the <strong>CLEAN-INSERT</strong> operation initially; that's why it does not perform any further clean-up.</li>
+<li>With <strong>the DBUnit</strong> tool's help, we can explore the data and connect relational and multidimensional databases.</li>
+</ul>
+<h2 class="h2">Conclusion</h2>
+<p>In the <strong>Database testing</strong> section, we have learned the following topics:</p>
+<ul class="points">
+<li>Database Testing is testing, which is used to analyze the schema, tables, triggers, etc., of the database under test.</li>
+<li>To understand the database testing process's key concepts, the database test engineer must be aware of database testing's various features, types, manual and automation processes, and database testing tools. </li>
+<li>With this tutorial's help, we get to know about the misconception or their solution of database testing.</li>
+</ul>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="mainframe-testing.html">Mainframe Testing</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="beta-testing.html">&larr; prev</a>
+<a style="float:right" class="next" href="mainframe-testing.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="16707373727477757d567c7760776266797f78623875797b">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/database-testing"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/database-testing"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/database-testing"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+  </div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+  <p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+ </div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+ </div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b3dbc1f3d9d2c5d2c7c3dcdaddc79dd0dcde">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="4e263c0e242f382f3a3e2127203a602d212360">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/database-testing by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:39:42 GMT -->
+</html> 

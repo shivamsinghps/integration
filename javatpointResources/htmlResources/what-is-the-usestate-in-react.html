@@ -1,0 +1,1012 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/what-is-the-usestate-in-react by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:01:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>What is the useState in React - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="What is the useState in React - javatpoint" /><meta property="og:description" content="What is the useState in React with ReactJS Tutorial, ReactJS Introduction, ReactJS Features, ReactJS Installation, Pros and Cons of ReactJS, Reactnative vs ReactJS, ReactJS Router etc." />
+<meta name="keywords" content="reactjs tutorial, reactjs introduction, react features, reactjs installation, pros and cons of reactjs, angularjs vs reactjs, reactnative vs reactjs, reactjs router, react flux, reactjs flux concept, reactjs animations, reactjs discussion, flux vs mvc" /><meta name="description" content="What is the useState in React with ReactJS Tutorial, ReactJS Introduction, ReactJS Features, ReactJS Installation, Pros and Cons of ReactJS, Reactnative vs ReactJS, ReactJS Router etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="what-is-the-usestate-in-react.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="What is the useState in React - javatpoint" /><meta name="twitter:description" property="og:description" content="What is the useState in React with ReactJS Tutorial, ReactJS Introduction, ReactJS Features, ReactJS Installation, Pros and Cons of ReactJS, Reactnative vs ReactJS, ReactJS Router etc." /><meta property="og:url" content="what-is-the-usestate-in-react.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="react-native-tutorial.html">React Native</a>
+<li><a href="reactjs-tutorial.html" class="selected">ReactJS</a></li>
+<li><a href="typescript-tutorial.html">TypeScript</a>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="framework7-tutorial.html">Framework7</a></li>
+<li><a href="computer-organization-and-architecture-tutorial.html">COA</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="selenium-tutorial.html">Selenium</a></li>
+<li><a href="servlet-tutorial.html">Servlet</a></li>
+<li><a href="jsp-tutorial.html">JSP</a></li>
+<li><a href="jquery-tutorial.html">jQuery</a></li>
+<li><a href="examaccess.html">Quiz</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+<li><a href="comment.html">Comment</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">ReactJS Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="reactjs-tutorial.html">ReactJS Tutorial</a>
+<a href="react-introduction.html">React Introduction</a>
+<a href="react-version.html">React Version</a>
+<a href="react-installation.html">React Installation</a>
+<a href="react-create-react-app.html">create-react-app</a>
+<a href="react-features.html">React Features</a>
+<a href="pros-and-cons-of-react.html">Pros &amp; Cons</a>
+<a href="reactjs-vs-angularjs.html">ReactJS vs AngularJS</a>
+<a href="reactjs-vs-reactnative.html">ReactJS vs ReactNative</a>
+<a href="react-vs-vue.html">React vs Vue</a>
+<a href="react-jsx.html">React JSX</a>
+<a href="react-components.html">React Components</a>
+<a href="react-state.html">React State</a>
+<a href="react-props.html">React Props</a>
+<a href="react-props-validation.html">React Props Validation</a>
+<a href="https://www.javatpoint.com/react-state-vs-props">React State vs Props</a>
+<a href="react-constructor.html">React Constructor</a>
+<a href="react-component-api.html">React Component API</a>
+<a href="react-component-life-cycle.html">Component Life Cycle</a>
+<a href="react-forms.html">React Forms</a>
+<a href="react-controlled-vs-uncontrolled-component.html">Controlled vs Uncontrolled</a>
+<a href="react-events.html">React Events</a>
+<a href="react-conditional-rendering.html">Conditional Rendering</a>
+<a href="react-lists.html">React Lists</a>
+<a href="react-keys.html">React Keys</a>
+<a href="react-refs.html">React Refs</a>
+<a href="react-fragments.html">React Fragments</a>
+<a href="react-router.html">React Router</a>
+<a href="https://www.javatpoint.com/react-css">React CSS</a>
+<a href="react-animation.html">React Animation</a>
+<a href="react-bootstrap.html">React Bootstrap</a>
+<a href="react-map.html">React Map</a>
+<a href="react-table.html">React Table</a>
+<a href="react-higher-order-components.html">Higher-Order Components</a>
+<a href="react-code-splitting.html">React Code Splitting</a>
+<a href="react-context.html">React Context</a>
+<a href="react-hooks.html">React Hooks</a>
+<a href="react-flux-concept.html">React Flux Concept</a>
+<a href="react-flux-vs-mvc.html">React Flux Vs MVC</a>
+<a href="react-redux.html">React Redux</a>
+<a href="react-redux-example.html">React Redux Example</a>
+<a href="react-portals.html">React Portals</a>
+<a href="react-error-boundaries.html">React Error Boundaries</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Misc.</span></h2>
+</div>
+<div class="leftmenu">
+<a href="loop-array-in-reactjs.html">Loop Array in React JS</a>
+<a href="react-axios-delete-request-example.html">React Axios Delete Request Example</a>
+<a href="react-multiple-checkbox.html">React Multiple Checkbox</a>
+<a href="react-icons.html">React-icons</a>
+<a href="react-date-picker.html">React Date Picker</a>
+<a href="react-helmet.html">React Helmet</a>
+<a href="inline-style-in-react.html">Inline Style in React</a>
+<a href="jquery-vs-react.html">jQuery vs. React</a>
+<a href="reactjs-architecture.html">ReactJS Architecture</a>
+<a href="reactjs-proptypes.html">ReactJS PropTypes</a>
+<a href="browserrouter-in-react.html">BrowserRouter in React</a>
+<a href="react-vs-svelte.html">React vs. Svelte</a>
+<a href="button-in-react.html">Button in React</a>
+<a href="what-is-dom-in-react.html">What is Dom in React</a>
+<a href="unit-testing-in-react.html">Unit Testing in React</a>
+<a href="carousel-in-react.html">Carousel in React</a>
+<a href="react-paginate.html">React-Paginate</a>
+<a href="what-is-the-usestate-in-react.html">What is the useState in React</a>
+<a href="react-time-picker.html">React Time-Picker</a>
+<a href="react-js-vs-node-js.html">React.js vs Node.js</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="reactjs-mcq.html">React.js MCQ</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview Questions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="react-interview-questions.html">ReactJS Interview</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="react-time-picker.html">next &rarr;</a>
+<a class="next" href="react-paginate.html">&larr; prev</a>
+</div>
+<h1 class="h1">What is the useState in React?</h1>
+<p><strong>useState() hook</strong> in React is a hook that allows us to state variables in our functional components.</p>
+<p>React has two types of components. The first one is class components which are ES6 classes that extend from the React, and the second one is functional components. Class-to-components will have state and lifecycle methods: the message class extends React. useState Hook is a special function which takes the initial state as the arguments and returns it as an input array.</p>
+<p><strong>Syntax:</strong> The first element is the initial state, and the second one is a function used to update the state.</p>
+<div class="codeblock"><textarea name="code" class="java">
+const [state, setState] = useState(initialState)
+</textarea></div>
+<p>We pass a function as an argument if the initial state is computed. And the return value of the function is used as the initial state.</p>
+<div class="codeblock"><textarea name="code" class="java">
+const [sum, setsum] = useState(function generateRandomInteger(){5=8+7);})
+</textarea></div>
+<p>The above function is the line function which calculates the sum of numbers and it set as the initial state of it.</p>
+<p><strong>To use useState, we need to import useState from the react as given below:</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+import React, { useState } from "react"
+</textarea></div>
+<p>useState() is a built-in function which comes by the React library.</p>
+<div class="codeblock"><textarea name="code" class="java">
+import { useState } from "react";
+</textarea></div>
+<p>useState() is only used inside a functional component.</p>
+<div class="codeblock"><textarea name="code" class="java">
+Application constant = () => {
+    const [counter, setCounter] = useState(0);
+    // ... JSX elements
+};
+</textarea></div>
+<p><strong>useState()</strong> cannot work on class component.</p>
+<p>useState() returns a tuple. The parameter of the array is the current state of value. The second parameter is the function that allows updating the value of the state.</p>
+<div class="codeblock"><textarea name="code" class="java">
+setCounter(counter + 1); // Incrementing the state value by 1
+</textarea></div>
+<h3 class="h3">React useState() example</h3>
+<div class="codeblock"><textarea name="code" class="java">
+Application constant = () =&gt; {
+    const [counter, setCounter] = React.useState(0);
+    const handleClick = () =&gt; setCounter(counter + 1);
+    return (
+      &lt;&gt;
+        &lt;h1&gt;Counter: {counter}&lt;/h1&gt;
+        &lt;button onClick={handleClick}&gt;Increase&lt;/button&gt;
+      &lt;/&gt;
+    );
+};
+</textarea></div>
+<h3 class="h3">Creating the React app:</h3>
+<p><strong>Step 1</strong>: Create a React app by using the command below:</p>
+<div class="codeblock"><textarea name="code" class="java">
+npx create-react-app (folder name)
+</textarea></div>
+<p><strong>Step 2</strong> After creating the project, i.e., folder name, access it by the command or syntax below:</p>
+<div class="codeblock"><textarea name="code" class="java">
+cd folder name
+</textarea></div>
+<p>The implementation of the use State () function</p>
+<p><strong>Application.js:</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+import React, { useState } of "react";
+function app (props) {
+  const [count, setRandomCount] =
+    useState(function generate RandomInteger() { return Math.floor(Math.random() * 200);
+  });
+  function clickHandler(e) {
+    setRandomCount(Math.floor(Math.random() * 200));
+  }
+  return (
+    &lt;div style={{margin: 'auto', width: 100, screen: 'lock'}}&gt;
+      &lt;h1&gt; {account} &lt;/h1&gt;
+        
+      &lt;p&gt;
+        &lt;button onClick={clickHandler}&gt; Click &lt;/button&gt;
+      &lt;/p&gt;
+  
+    &lt;/div&gt;
+  );
+};
+  
+export default App;
+</textarea></div>
+<p><strong>Step to run the application</strong>: Run the application by using the command from the root directory of the project:</p>
+<div class="codeblock"><textarea name="code" class="java">
+npm start
+</textarea></div>
+<p>A random number initializes the first count variable to use a random function and setRandomCount to update the count state.</p>
+<p>Whenever we click the onClick button, it calls the click Handler function, which resets the count variable by a random number.</p>
+<p>React's UseState Hook allows tracking the state in a function component.</p>
+<p>State refers to data that needs to be tracked in the application.</p>
+<div class="codeblock"><textarea name="code" class="java">
+import useState
+</textarea></div>
+<p>We first import it into our component to use useState Hook.</p>
+<div class="codeblock"><textarea name="code" class="java">
+import { useState } from "react";
+</textarea></div>
+<h3 class="h3">Initialize useState</h3>
+<p>We initialize our state by calling the use State on the function component.</p>
+<p>useState accepts the initial state and returns the two values which are given below:</p>
+<ul class="points">
+<li>The current status of useCase.</li>
+<li>And a function that updates the state.</li>
+</ul>
+<h3 class="h3">Example 1:</h3>
+<p>Initialize the state at the top of the function component.</p>
+<div class="codeblock"><textarea name="code" class="java">
+import { useState } from "react";
+function Favorite Color() {
+  const [color, setColor] = useState("");
+};
+</textarea></div>
+<p>Notice that we are destructuring the return values of useState.</p>
+<ul class="points">
+<li>The 1st value is color, which is the current state.</li>
+<li>The second value is the setColor, which is used to update the useState.</li>
+<li>These names of variables can have the name we like.</li>
+<li>We set a initial state to the empty string: useState(").</li>
+</ul>
+<p>Now we can include state anywhere in the component.</p>
+<h3 class="h3">Example 2:</h3>
+<p>Use the state variable in rendered component.</p>
+<div class="codeblock"><textarea name="code" class="java">
+import { useState } from "react";
+import ReactDOM from "react-dom/client";
+function Favorite Color() {
+    const [color, setColor] = useState("red");
+    back &lt;h1&gt;My favourite color is {color}!&lt;/h1&gt;
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(&lt;FavoriteColor /&gt;
+);
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/reactjs/images/what-is-the-usestate-in-react.png" alt="What is the useState in React" />
+<h3 class="h3">Update Status</h3>
+<p>We use our updated status feature to update status.</p>
+<p>We can never directly update the state. E.g., color = "red" is not allowed here.</p>
+<h3 class="h3">Example 3:</h3>
+<div class="codeblock"><textarea name="code" class="java">
+Use a button to update the state:
+import { useState } from "react";
+import ReactDOM from "react-dom/client";
+function Favorite Color() {
+    const [color, setColor] = useState("red");
+    return (
+      &lt;&gt;
+        &lt;h1&gt;My favorite color is {color}!&lt;/h1&gt;
+        &lt;button
+          type = "button"
+          onClick={() =&gt; setColor("blue")}
+        &gt;Blue&lt;/button&gt;
+      &lt;/&gt;
+    )
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(&lt;Favorite Color /&gt;);
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/reactjs/images/what-is-the-usestate-in-react2.png" alt="What is the useState in React" />
+<p>After clicking on the blue button, it turns blue like the below:</p>
+<img src="https://static.javatpoint.com/tutorial/reactjs/images/what-is-the-usestate-in-react3.png" alt="What is the useState in React" />
+<h3 class="h3">What Can State Hold?</h3>
+<p>UseState Hook is used to keep track of Strings, Like <strong>Numbers, Booleans, Arrays, Object</strong>s, and other combinations of these.</p>
+<p>We create multi-state Hooks to track individual values.</p>
+<h3 class="h3">Example 4:</h3>
+<div class="codeblock"><textarea name="code" class="java">
+Create multi-state hooks:
+import { useState } from "react";
+import ReactDOM from "react-dom/client";
+function Car() {
+    const [brand, setBrand] = useState("Ford");
+    const [model, setModel] = useState("Mustang");
+    const [year, setYear] = useState("1964");
+    const [color, setColor] = useState("red");
+    return (
+      &lt;&gt;
+        &lt;h1&gt;My {brand&lt;/h1&gt;
+        &lt;p&gt;
+          It is a {color} {model} of {year}.
+        &lt;/p&gt;
+      &lt;/&gt;
+    )
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(&lt;Car /&gt;);
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/reactjs/images/what-is-the-usestate-in-react4.png" alt="What is the useState in React" />
+<p>You can use a state and include an object instead!</p>
+<h3 class="h3">Example 5:</h3>
+<p>Create a single Hook that will holds an object:</p>
+<div class="codeblock"><textarea name="code" class="java">
+import { useState } from "react";
+import ReactDOM from "react-dom/client";
+
+function Car() {
+    const [car, setCar] = useStatus({
+      Brand: "Ford",
+      model: Mustang,
+      year: "1964",
+      Red color"
+    });
+
+    return (
+      &lt;&gt;
+        &lt;h1&gt;My {car.brand&lt;/h1&gt;
+        &lt;p&gt;
+          It is a {car.color} {car.model} of {car.year}.
+        &lt;/p&gt;
+      &lt;/&gt;
+    )
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(&lt;Car /&gt;);
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/reactjs/images/what-is-the-usestate-in-react5.png" alt="What is the useState in React" />
+<p>Since we are tracking a single object, we need to reference the object and the object's property rendering the component. When the state is updated, then the entire state is overwritten.</p>
+<h3 class="h3">What if we update the color of the car?</h3>
+<p>If we called setCar({color: "blue"}),</p>
+<p>it removes the model and year from the state.</p>
+<p>We use the JavaScript spread operator for this.</p>
+<h3 class="h3">Example 6:</h3>
+<p>Here, we are using the JavaScript spread operator to update the color of the car:</p>
+<div class="codeblock"><textarea name="code" class="java">
+import { useState } from "react";
+import ReactDOM from "react-dom/client";
+
+function Car() {
+    const [car, setCar] = useStat
+U.S({
+      Brand: "Ford",
+      model: mustang,
+      year: "1964",
+      Red color"
+    });
+
+  const updateColor = () =&gt; {
+    setCar(prevState =&gt; {
+      return {...previous state, color: "blue"}
+    });
+  }
+  return (
+    &lt;&gt;
+      &lt;h1&gt;My {car.brand&lt;/h1&gt;
+      &lt;p&gt;
+        It is a {car.color} {car.model} of {car.year}.
+      &lt;/p&gt;
+      &lt;button
+        type = "button"
+        onClick={updateColor}
+      &gt;Blue&lt;/button&gt;
+    &lt;/&gt;
+  )
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(&lt;Car /&gt;);
+</textarea></div>
+<p><strong>Output:</strong></p>
+<img src="https://static.javatpoint.com/tutorial/reactjs/images/what-is-the-usestate-in-react6.png" alt="What is the useState in React" />
+<p>Here, we need the current value of the state, where we pass a function to the setCar function. The function receives the previous value.</p>
+<p>We return an object, extending the state and overwriting only the car's color.</p>
+<p>React provides many hooks that allow to addition functionality of the components. These hooks are JavaScript functions that can import from the React package. However, hooks are available for function-based components, so they cannot be used inside a class component.</p>
+<h3 class="h3">What is useState, and when do we use it?</h3>
+<p>React provides many hooks that we can use in our application. useState and useEffect are the two important hooks that we use a lot.</p>
+<p><strong>UseState</strong> is a function that takes only one argument at a time, the initial state, and it returns two values: the current state and a state case.</p>
+<p>If we print the useState() function in the React dev tools (console.log(useState)), we notice that it returns an array containing the argument that you have put in the useState function.</p>
+<p>UseState Hook is used when you want to change the text after clicking a button, like creating a counter.</p>
+<h3 class="h3">Simple examples of useState</h3>
+<p>You first must import it from the React package to use the useState Hooks.</p>
+<p><strong>Here is an example:</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+import React, {useState} of 'react'
+</textarea></div>
+<p>Now, you can start using the Hook in the code without any problem. See the following example:</p>
+<div class="codeblock"><textarea name="code" class="java">
+import React, { useState } from 'react'
+function component () {
+  const [name, setName] = useState('Mehdi')
+}
+</textarea></div>
+<p>Note that we are using here the unstructured ES6 array in the component. So, the variable's name inside the array refers to the argument of the function useState.</p>
+<p>On the other hand, the setName variable refers to the function you add to update the state. We have a state name and call the setName() function.</p>
+<p>Let's use it by the return statement:</p>
+<div class="codeblock"><textarea name="code" class="java">
+import React, { useState } from 'react'
+function component () {
+
+  const [name, setName] = useState('Brad')
+  return &lt;h1&gt; My name is {name} &lt;/h1&gt;
+}
+//Returns: My name is Brad
+</textarea></div>
+<p>Since function components do not have a setState() function, you must use the setName() function to update it. It is how he changes the name from "Brad" to "John":</p>
+<div class="codeblock"><textarea name="code" class="java">
+import React, { useState } from 'react'
+function component () {
+  const [name, setName] = useState('Brad')
+  if(name === "Brad"){
+    setName("John")
+  }
+  return &lt;h1&gt; My name is {name} &lt;/h1&gt;
+}
+//Returns: My name is John
+</textarea></div>
+<h3 class="h3">Multiple-use state</h3>
+<p>You can call useState Hook as much as you need when you have many states.</p>
+<p><strong>Example:</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+import React, {useState} of 'react'
+function component () {
+   const [name, setName] = useState('Alex')
+   const [age, setAge] = usageStatus(15)
+   const [friends, setFriends] = useStatus(["Brad", "Mehdi"])
+   return &lt;h1&gt; My name is {name} and I am {age} &lt;/h1&gt;
+   //My name is Alex and I am 15 years old
+}
+</textarea></div>
+<p>The hook receives all javaScript <strong>boolean, data types, such as string, number array, and object.</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+useState() concept
+const [counter, setCounter] = React.useState(0);
+</textarea></div>
+<p>Here we will cover the basics of <strong>React.useState()</strong>.</p>
+<h3 class="h3">What is UseState Hook?</h3>
+<p>In React, functional components are stateless as we cannot manage their state. If we write a component when we need to add some state to it, you can use useState Hook with React <strong>16.8</strong>.</p>
+<p>useState allows to add of the React state of the running components.</p>
+<img src="https://static.javatpoint.com/tutorial/reactjs/images/what-is-the-usestate-in-react7.png" alt="What is the useState in React" />
+<br>
+<div class="codeblock"><textarea name="code" class="java">
+const [count, setCount] = useStatus()
+</textarea></div>
+<ul class="points">
+<li><em>count: It is used as the current state</em></li>
+<li><em>setCount: It is a function that updates the state</em></li>
+</ul>
+<p>It's similar to <strong>this.state.count</strong> and <strong>this.setState</strong> in a class, except we see them in a pair.</p>
+<p>The useState() Hook is the initial state of Hook. The state does not have to be an object.</p>
+<div class="codeblock"><textarea name="code" class="java">
+const [count, countSet] = useStatus(0)
+</textarea></div>
+<p>Below is the code snippet for a counter that uses a class component.</p>
+<img src="https://static.javatpoint.com/tutorial/reactjs/images/what-is-the-usestate-in-react8.png" alt="What is the useState in React" />
+<p>We want to implement a similar counter into the functional component.</p>
+<h3 class="h3">Import the useState Hook from the React App</h3>
+<p>Declare a new state variable by calling the useState Hook. Returns a value pair, counterValue, with the number of clicks and setCounter, that updates the counter value.</p>
+<p>Initialize counterValue to zero by passing zero as the useState argument.</p>
+<p>When the user clicks on setCounter with a new value, react will re-render the component and pass in the new value of the counterValue.</p>
+<img src="https://static.javatpoint.com/tutorial/reactjs/images/what-is-the-usestate-in-react9.png" alt="What is the useState in React" />
+<h3 class="h3">Conclusion</h3>
+<p>The useState Hook is one of the necessary and useful hooks we should know about. Also, it allows function components to do their internal state and features.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="react-time-picker.html">React Time-Picker</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="react-paginate.html">&larr; prev</a>
+<a style="float:right" class="next" href="react-time-picker.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f6909393929497959db69c9780978286999f9882d895999b">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/what-is-the-usestate-in-react"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/what-is-the-usestate-in-react"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/what-is-the-usestate-in-react"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+ </div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+ <p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+  <p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="2a42586a404b5c4b5e5a4543445e04494547">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="4e263c0e242f382f3a3e2127203a602d212360">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/what-is-the-usestate-in-react by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 17:01:07 GMT -->
+</html> 

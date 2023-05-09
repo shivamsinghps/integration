@@ -1,0 +1,3982 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/school-billing-system-in-c by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:09:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>School Billing System in C - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="School Billing System in C - javatpoint" /><meta property="og:description" content="School Billing System in C with Tutorial, C language with programming examples for beginners and professionals covering concepts, c pointers, c structures, c union, c strings etc." />
+<meta name="keywords" content="c, language, expressions, if else, c programs, loops, operators, function, string, for loop, what is c programming, tutorial, programming, example, beginners, professionals, interview questions" /><meta name="description" content="School Billing System in C with Tutorial, C language with programming examples for beginners and professionals covering concepts, c pointers, c structures, c union, c strings etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="school-billing-system-in-c.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="School Billing System in C - javatpoint" /><meta name="twitter:description" property="og:description" content="School Billing System in C with Tutorial, C language with programming examples for beginners and professionals covering concepts, c pointers, c structures, c union, c strings etc." /><meta property="og:url" content="school-billing-system-in-c.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="c-programming-language-tutorial.html" class="selected">C</a></li>
+<li><a href="cpp-tutorial.html">C++</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="sql-tutorial.html">SQL</a></li>
+<li><a href="html-tutorial.html">HTML</a></li>
+<li><a href="css-tutorial.html">CSS</a></li>
+<li><a href="javascript-tutorial.html">JavaScript</a></li>
+<li><a href="xml-tutorial.html">XML</a></li>
+<li><a href="ajax-tutorial.html">Ajax</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="cloud-computing.html">Cloud</a></li>
+<li><a href="design-patterns-in-java.html">Design Pattern</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-programming-language-tutorial.html">What is C Language</a>
+<a href="history-of-c-language.html">History of C </a>
+<a href="features-of-c-language.html">Features of C</a>
+<a href="how-to-install-c.html">How to install C</a>
+<a href="first-c-program.html">First C Program</a>
+<a href="compilation-process-in-c.html">Compilation Process in C</a>
+<a href="printf-scanf.html">printf scanf</a>
+<a href="variables-in-c.html">Variables in C</a>
+<a href="data-types-in-c.html">Data Types in c</a>
+<a href="keywords-in-c.html">Keywords in c</a>
+<a href="c-identifiers.html">C Identifiers</a>
+<a href="c-operators.html">C Operators</a>
+<a href="comments-in-c.html">C Comments</a>
+<a href="c-format-specifier.html">C Format Specifier</a>
+<a href="escape-sequence-in-c.html">C Escape Sequence</a>
+<a href="ascii-value-in-c.html">ASCII value in C</a>
+<a href="constants-in-c.html">Constants in C</a>
+<a href="literals-in-c.html">Literals in C</a>
+<a href="tokens-in-c.html">Tokens in C</a>
+<a href="c-boolean.html">C Boolean</a>
+<a href="static-in-c.html">Static in C</a>
+<a href="programming-errors-in-c.html">Programming Errors in C</a>
+<a href="compile-time-vs-runtime.html">Compile time vs Runtime</a>
+<a href="conditional-operator-in-c.html">Conditional Operator in C</a>
+<a href="bitwise-operator-in-c.html">Bitwise Operator in C</a>
+<a href="2s-complement-in-c.html">2s complement in C</a>
+<a href="test/c-fundamental-1.html"><span>C Fundamental Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Control Statements</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-if-else.html">C if-else</a>
+<a href="c-switch.html">C switch</a>
+<a href="if-else-vs-switch.html">if-else vs switch</a>
+<a href="c-loop.html">C Loops</a>
+<a href="do-while-loop-in-c.html">C do-while loop</a>
+<a href="while-loop-in-c.html">C while loop</a>
+<a href="for-loop-in-c.html">C for loop</a>
+<a href="nested-loops-in-c.html">Nested Loops in C</a>
+<a href="infinite-loop-in-c.html">Infinite Loop in C</a>
+<a href="c-break.html">C break</a>
+<a href="c-continue.html">C continue</a>
+<a href="c-goto.html">C goto</a>
+<a href="type-casting-in-c.html">Type Casting</a>
+<a href="test/c-control-statements-1.html"><span>C Control Statement Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Functions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="functions-in-c.html">What is function</a>
+<a href="call-by-value-and-call-by-reference-in-c.html">Call: Value &amp; Reference</a>
+<a href="recursion-in-c.html">Recursion in c</a>
+<a href="storage-classes-in-c.html">Storage Classes</a>
+<a href="test/c-functions-1.html"><span>C Functions Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Array</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-array.html">1-D Array</a>
+<a href="two-dimensional-array-in-c.html">2-D Array</a>
+<a href="return-an-array-in-c.html">Return an Array in C</a>
+<a href="passing-array-to-function-in-c.html">Array to Function</a>
+<a href="test/c-array-1.html"><span>C Array Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Pointers</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-pointers.html"><span>C Pointers</span></a>
+<a href="c-pointer-to-pointer.html"><span>C Pointer to Pointer</span></a>
+<a href="pointer-arithmetic-in-c.html"><span>C Pointer Arithmetic</span></a>
+<a href="dangling-pointers-in-c.html">Dangling Pointers in C</a>
+<a href="size-of-operator-in-c.html">sizeof() operator in C</a>
+<a href="const-pointer-in-c.html">const Pointer in C</a>
+<a href="void-pointer-in-c.html">void pointer in C</a>
+<a href="c-dereference-pointer.html">C Dereference Pointer</a>
+<a href="null-pointer-in-c.html">Null Pointer in C</a>
+<a href="c-function-pointer.html">C Function Pointer</a>
+<a href="function-pointer-as-argument-in-c.html">Function pointer as argument in C</a>
+<a href="test/c-pointers-1.html"><span>C Pointers Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Dynamic Memory</span></h2>
+</div>
+<div class="leftmenu">
+<a href="dynamic-memory-allocation-in-c.html"><span>Dynamic memory</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Strings</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-strings.html"><span>String in C</span></a>
+<a href="c-gets-puts.html"><span>C gets() &amp; puts()</span></a>
+<a href="c-string-functions.html"><span>C String Functions</span></a>
+<a href="c-strlen.html"><span>C strlen()</span></a>
+<a href="c-strcpy.html"><span>C strcpy()</span></a>
+<a href="c-strcat.html"><span>C strcat()</span></a>
+<a href="c-strcmp.html"><span>C strcmp()</span></a>
+<a href="c-strrev.html"><span>C strrev()</span></a>
+<a href="c-strlwr.html"><span>C strlwr()</span></a>
+<a href="c-strupr.html"><span>C strupr()</span></a>
+<a href="c-strstr.html"><span>C strstr()</span></a>
+<a href="test/c-string-1.html"><span>C String Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Math</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-math.html"><span>C Math Functions</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Structure Union</span></h2>
+</div>
+<div class="leftmenu">
+<a href="structure-in-c.html"><span>C Structure</span></a>
+<a href="typedef-in-c.html">typedef in C</a>
+<a href="array-of-structures-in-c.html"><span>C Array of Structures</span></a>
+<a href="nested-structure-in-c.html"><span>C Nested Structure</span></a>
+<a href="structure-padding-in-c.html">Structure Padding in C</a>
+<a href="c-union.html"><span>C Union</span></a>
+<a href="test/c-structure-union-enums-1.html"><span>C Structure Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C File Handling</span></h2>
+</div>
+<div class="leftmenu">
+<a href="file-handling-in-c.html"><span>C File Handling</span></a>
+<a href="fprintf-fscanf-in-c.html"><span>C fprintf() fscanf()</span></a>
+<a href="fputc-fgetc-in-c.html"><span>C fputc() fgetc()</span></a>
+<a href="fputs-fgets-in-c.html"><span>C fputs() fgets()</span></a>
+<a href="fseek-in-c.html"><span>C fseek()</span></a>
+<a href="rewind-in-c.html"><span>C rewind()</span></a>
+<a href="ftell-in-c.html"><span>C ftell()</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Preprocessor</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-preprocessor.html"><span>C Preprocessor</span></a>
+<a href="c-macros.html"><span>C Macros</span></a>
+<a href="c-preprocessor-include.html"><span>C #include</span></a>
+<a href="c-preprocessor-define.html"><span>C #define</span></a>
+<a href="c-preprocessor-undef.html"><span>C #undef</span></a>
+<a href="c-preprocessor-ifdef.html"><span>C #ifdef</span></a>
+<a href="c-preprocessor-ifndef.html"><span>C #ifndef</span></a>
+<a href="c-preprocessor-if.html"><span>C #if</span></a>
+<a href="c-preprocessor-else.html"><span>C #else</span></a>
+<a href="c-preprocessor-error.html"><span>C #error</span></a>
+<a href="c-preprocessor-pragma.html"><span>C #pragma</span></a>
+<a href="test/c-preprocessor-1.html"><span>C Preprocessor Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Command Line</span></h2>
+</div>
+<div class="leftmenu">
+<a href="command-line-arguments-in-c.html"><span>Command Line Arguments</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-expressions.html">C Expressions</a>
+<a href="c-data-segments.html">Data Segments</a>
+<a href="flow-of-c-program.html">Flow of C Program</a>
+<a href="classification-of-programming-languages.html">Classification of Programming Languages</a>
+<a href="enum-in-c.html">Enum in C</a>
+<a href="what-is-getch-in-c.html">What is getch() in C</a>
+<a href="what-is-the-function-call-in-c.html">What is the function call in C</a>
+<a href="typedef-vs-define-in-c.html">typedef vs define in C</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Programming Test</span></h2>
+</div>
+<div class="leftmenu">
+<a href="test/c-programming.html"><span>C Programming Test</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Programs</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-programs.html"><span>Top 10+ C Programs</span></a>
+<a href="fibonacci-series-in-c.html"><span>Fibonacci Series</span></a>
+<a href="prime-number-program-in-c.html"><span>Prime Number</span></a>
+<a href="palindrome-program-in-c.html"><span>Palindrome Number</span></a>
+<a href="c-program-to-compare-the-two-strings.html">C program to compare the two strings</a>
+<a href="strings-concatenation-in-c.html">Strings Concatenation in C</a>
+<a href="factorial-program-in-c.html"><span>Factorial</span></a>
+<a href="armstrong-number-in-c.html"><span>Armstrong Number</span></a>
+<a href="sum-of-digits-program-in-c.html"><span>Sum of digits</span></a>
+<a href="count-the-number-of-digits-in-c.html">Count the number of digits in C</a>
+<a href="c-program-to-reverse-number.html"><span>Reverse Number</span></a>
+<a href="c-program-to-swap-two-numbers-without-using-third-variable.html"><span>Swap Number</span></a>
+<a href="c-program-to-print-hello-without-semicolon.html"><span>Print "Hello" without ;</span></a>
+<a href="assembly-program-in-c.html"><span>Assembly code in C</span></a>
+<a href="c-program-without-main.html"><span>C program without main</span></a>
+<a href="matrix-multiplication-in-c.html"><span>Matrix Multiplication</span></a>
+<a href="c-program-to-convert-decimal-to-binary.html"><span>Decimal to Binary</span></a>
+<a href="c-program-to-convert-number-in-characters.html"><span>Number in Characters</span></a>
+<a href="c-program-to-print-alphabet-triangle.html"><span>Alphabet Triangle</span></a>
+<a href="c-program-to-print-number-triangle.html"><span>Number Triangle</span></a>
+<a href="c-program-to-generate-fibonacci-triangle.html"><span>Fibonacci Triangle</span></a>
+<a href="hexadecimal-to-binary-in-c.html">Hexadecimal to Binary</a>
+<a href="hexadecimal-to-decimal-in-c.html">Hexadecimal to Decimal</a>
+<a href="octal-to-hexadecimal-in-c.html">Octal to Hexadecimal in C</a>
+<a href="strong-number-in-c.html">Strong number in C</a>
+<a href="star-program-in-c.html">Star Program in C</a>
+<a href="itoa-function-in-c.html">itoa Function in C</a>
+<a href="extra-long-factorials-in-c.html">Extra Long Factorials in C</a>
+<a href="leap-year-program-in-c.html">Leap year program in C</a>
+<a href="perfect-number-program-in-c.html">Perfect Number Program in C</a>
+<a href="variables-vs-constants-in-c.html">Variables vs Constants</a>
+<a href="round-robin-program-in-c.html">Round Robin Program in C with Output</a>
+<a href="c-program-to-find-the-roots-of-quadratic-equation.html">C Program to find the roots of quadratic equation</a>
+<a href="type-casting-vs-type-conversion.html">Type Casting vs Type Conversion</a>
+<a href="how-to-run-a-c-program-in-visual-studio-code.html">How to run a C program in Visual Studio Code</a>
+<a href="modulus-operator-in-c-or-cpp.html">Modulus Operator in C/C++</a>
+<a href="sum-of-first-n-natural-numbers-in-c.html">Sum of first N natural numbers in C</a>
+<a href="big-o-notation-in-c.html">Big O Notation in C</a>
+<a href="lcm-of-two-numbers-in-c.html">LCM of two numbers in C</a>
+<a href="while-loop-vs-do-while-loop-in-c.html">while loop vs do-while loop in C</a>
+<a href="memory-layout-in-c.html">Memory Layout in C</a>
+<a href="balanced-parenthesis-in-c.html">Balanced Parenthesis in C</a>
+<a href="binary-to-decimal-number-in-c.html">Binary to Decimal Number in C</a>
+<a href="gcd-of-two-numbers-in-c.html">GCD of two numbers in C</a>
+<a href="getchar-function-in-c.html">Getchar() function in C</a>
+<a href="flowchart-in-c-programming-language.html">flowchart in C</a>
+<a href="simpson-method.html">Simpson Method</a>
+<a href="pyramid-patterns-in-c.html">Pyramid Patterns in C</a>
+<a href="random-function-in-c.html">Random Function in C</a>
+<a href="floyds-triangle-in-c.html">Floyd's Triangle in C</a>
+<a href="c-header-files.html">C Header Files</a>
+<a href="abs-function-in-c.html">abs() function in C</a>
+<a href="atoi-function-in-c.html">Atoi() function in C</a>
+<a href="structure-pointer-in-c.html">Structure Pointer in C</a>
+<a href="sprintf-in-c.html">sprintf() in C</a>
+<a href="range-of-int-in-c.html">Range of Int in C</a>
+<a href="c-program-to-convert-24-hour-time-to-12-hour-time.html">C Program to convert 24 Hour time to 12 Hour time</a>
+<a href="what-is-double-in-c.html">What is double in C</a>
+<a href="what-is-the-main-in-c.html">What is the main in C</a>
+<a href="calculator-program-in-c.html">Calculator Program in C</a>
+<a href="calloc-in-c.html">Calloc in C</a>
+<a href="user-defined-vs-library-function-in-c.html">user-defined vs library function in C</a>
+<a href="memset-c.html">Memset C</a>
+<a href="ascii-table-in-c.html">ASCII Table in C</a>
+<a href="static-function-in-c.html">Static function in C</a>
+<a href="reverse-a-string-in-c.html">Reverse a String in C</a>
+<a href="twin-prime-numbers-in-c.html">Twin Prime Numbers in C</a>
+<a href="strchr-function-in-c.html">strchr() function in C</a>
+<a href="structure-of-a-c-program.html">Structure of a C program</a>
+<a href="power-function-in-c.html">Power Function in C</a>
+<a href="malloc-in-c.html">Malloc in C</a>
+<a href="table-program-in-c.html">Table Program in C</a>
+<a href="types-of-recursion-in-c.html">Types of Recursion in C</a>
+<a href="convert-uppercase-to-lowercase-in-c.html">Convert Uppercase to Lowercase in C</a>
+<a href="unary-operator-in-c.html">Unary Operator in C</a>
+<a href="arithmetic-operator-in-c.html">Arithmetic Operator in C</a>
+<a href="ceil-function-in-c.html">Ceil Function in C</a>
+<a href="relational-operator-in-c.html">Relational Operator in C</a>
+<a href="assignment-operator-in-c.html">Assignment Operator in C</a>
+<a href="pre-increment-and-post-increment-operator-in-c.html">Pre-increment and Post-increment Operator in C</a>
+<a href="pointer-vs-array-in-c.html">Pointer vs array in C</a>
+<a href="restrict-keyword-in-c.html">Restrict keyword in C</a>
+<a href="exit-function-in-c.html">The exit() function in C</a>
+<a href="const-qualifier-in-c.html">Const Qualifier in C</a>
+<a href="sequence-points-in-c.html">Sequence Points in C</a>
+<a href="anagram-in-c.html">Anagram in C</a>
+<a href="increment-and-decrement-operators-in-c.html">Increment and Decrement Operators in C</a>
+<a href="logical-and-operator-in-c.html">Logical AND Operator in C</a>
+<a href="shift-operators-in-c.html">Shift Operators in C</a>
+<a href="near-far-and-huge-pointers-in-c.html">Near, Far, and Huge pointers in C language</a>
+<a href="magic-number-in-c.html">Magic Number in C</a>
+<a href="remove-duplicate-elements-from-an-array-in-c.html">Remove Duplicate Elements from an Array in C</a>
+<a href="generic-linked-list-in-c.html">Generic Linked list in C</a>
+<a href="isalnum-function-in-c.html">isalnum() function in C</a>
+<a href="isalpha-function-in-c.html">isalpha() function in C</a>
+<a href="bisection-method-in-c.html">Bisection Method in C</a>
+<a href="snprintf-function-in-c.html">snprintf() function in C</a>
+<a href="remove-an-element-from-an-array-in-c.html">Remove an element from an array in C</a>
+<a href="square-root-in-c.html">Square Root in C</a>
+<a href="isprint-function-in-c.html">isprint() function in C</a>
+<a href="isdigit-function-in-c.html">isdigit() function in C</a>
+<a href="isgraph-function-in-c.html">isgraph() function in C</a>
+<a href="logical-not-operator-in-c.html">Logical NOT (!) Operator in C</a>
+<a href="self-referential-structure.html">Self-referential structure</a>
+<a href="break-vs-continue-in-c.html">Break Vs. Continue in C</a>
+<a href="for-vs-while-loop-in-c.html">For vs. While loop in C</a>
+<a href="abort-function-in-c-programming.html">Abort() Function in C</a>
+<a href="assert-in-c-programming.html">Assert in C</a>
+<a href="floor-function-in-c-programming.html">Floor() Function in C</a>
+<a href="memcmp-in-c.html">memcmp() in C</a>
+<a href="find-day-from-day-in-c-without-using-function.html">Find Day from Day in C without Using Function</a>
+<a href="find-median-of-1d-array-using-functions-in-c.html">Find Median of 1D Array Using Functions in C</a>
+<a href="find-reverse-of-an-array-in-c-using-functions.html">Find Reverse of an Array in C Using Functions</a>
+<a href="find-occurrence-of-substring-in-c-using-function.html">Find Occurrence of Substring in C using Function</a>
+<a href="find-out-power-without-using-pow-function-in-c.html">Find out Power without Using POW Function in C</a>
+<a href="exponential-in-c.html">Exponential() in C</a>
+<a href="float-in-c.html">Float in C</a>
+<a href="islower-in-c.html">islower() in C</a>
+<a href="memcpy-in-c.html">memcpy() in C</a>
+<a href="memmove-in-c.html">memmove() in C</a>
+<a href="matrix-calculator-in-c.html">Matrix Calculator in C</a>
+<a href="bank-account-management-system.html">Bank Account Management System</a>
+<a href="library-management-system-in-c.html">Library Management System in C</a>
+<a href="calendar-application-in-c.html">8th Sep - Calendar Application in C</a>
+<a href="va_start-in-c-programming.html">8th Sep - va_start() in C programming</a>
+<a href="ascii-vs-unicode.html">8th Sep - Ascii vs Unicode</a>
+<a href="student-record-system-in-c.html">Student Record System in C</a>
+<a href="contact-management-system-in-c.html">Contact Management System in C</a>
+<a href="cricket-score-sheet-in-c.html">Cricket Score Sheet in C</a>
+<a href="c-or-cpp-tricky-programs.html">C/C++ Tricky Programs</a>
+<a href="clearing-the-input-buffer-in-c-or-cpp.html">Clearing the Input Buffer in C/C++</a>
+<a href="in-place-conversion-of-sorted-dll-to-balanced-bst.html">In-place Conversion of Sorted DLL to Balanced BST</a>
+<a href="merge-two-balanced-binary-search-trees.html">Merge Two Balanced Binary Search Trees</a>
+<a href="responsive-images-in-bootstrap-with-examples.html">Responsive Images in Bootstrap with Examples</a>
+<a href="why-cant-a-priority-queue-wrap-around-like-an-ordinary-queue.html">Why can't a Priority Queue Wrap around like an Ordinary Queue</a>
+<a href="customer-billing-system-in-c.html">Customer Billing System in C</a>
+<a href="builtin-functions-of-gcc-compiler.html">Builtin functions of GCC compiler</a>
+<a href="integer-promotions-in-c.html">Integer Promotions in C</a>
+<a href="bit-fields-in-c.html">Bit Fields in C</a>
+<a href="department-management-system-in-c.html">Department Management System in C</a>
+<a href="local-labels-in-c.html">Local Labels in C</a>
+<a href="school-billing-system-in-c.html">School Billing System in C</a>
+<a href="banking-account-system-in-c-using-file-handling.html">Banking Account System in C using File handling</a>
+<a href="data-structures-and-algorithms-in-c-set-1.html">Data Structures and Algorithms in C - Set 1</a>
+<a href="data-structures-and-algorithms-in-c-set-2.html">Data Structures and Algorithms in C - Set 2</a>
+<a href="employee-record-system-in-c.html">Employee Record System in C</a>
+<a href="hangman-game-in-c.html">Hangman Game in C</a>
+<a href="hospital-management-system-in-c.html">Hospital Management System in C</a>
+<a href="number-of-even-and-odd-numbers-in-a-given-range.html">Number of even and odd numbers in a given range</a>
+<a href="qsort-in-c.html">qsort() in C</a>
+<a href="quiz-game-in-c.html">Quiz game in C</a>
+<a href="an-array-of-strings-in-c.html">An Array of Strings in C</a>
+<a href="peak-element-in-the-array-in-c.html">Peak element in the Array in C</a>
+<a href="move-all-negative-elements-to-one-side-of-an-array-c.html">Move all negative elements to one side of an Array-C</a>
+<a href="reverse-an-array-in-c.html">Reverse an Array in C</a>
+<a href="3-way-merge-sort-in-c.html">3 way merge sort in c</a>
+<a href="segregate-0s-and-1s-in-an-array.html">Segregate 0s and 1s in an array</a>
+<a href="articulation-points-and-bridges.html">Articulation Points and Bridges</a>
+<a href="execution-of-printf-with-plus-plus-operators.html">Execution of printf with ++ Operators</a>
+<a href="understanding-the-extern-keyword-in-c.html">Understanding the extern Keyword in C</a>
+<a href="bankers-algorithm-in-c.html">Banker's Algorithm in C</a>
+<a href="fifo-page-replacement-algorithm-in-c.html">FIFO Page Replacement Algorithm in C</a>
+<a href="kruskals-algorithm-in-c.html">Kruskal's Algorithm in C</a>
+<a href="fcfs-program-in-c.html">FCFS Program in C</a>
+<a href="triple-des-algorithm-in-c.html">Triple DES Algorithm in C</a>
+<a href="window-sliding-technique-in-c.html">Window Sliding Technique in C</a>
+<a href="sleeping-barber-problem-solution-in-c.html">Sleeping Barber Problem Solution in C</a>
+<a href="how-to-add-matrix-in-c.html">How to Add Matrix in C</a>
+<a href="c-program-to-demonstrate-fork-and-pipe.html">C Program to Demonstrate fork() and pipe()</a>
+<a href="deadlock-prevention-using-bnkers-algorithm-in-c.html">Deadlock Prevention using Banker's Algorithm in C</a>
+<a href="simple-stopwatch-program-in-c.html">Simple Stopwatch Program in C</a>
+<a href="add-node-to-linked-list-in-c.html">Add Node to Linked List in C</a>
+<a href="how-to-add-two-array-in-c.html">How to Add two Array in C</a>
+<a href="algorithm-in-c-language.html">Algorithm in C language</a>
+<a href="add-digits-of-number-in-c.html">Add Digits of Number in C</a>
+<a href="add-element-in-array-in-c.html">Add Element in Array in C</a>
+<a href="add-string-in-c.html">Add String in C</a>
+<a href="add-two-matrices-in-c.html">Add Two Matrices in C</a>
+<a href="add-two-numbers-using-pointer-in-c.html">Add two numbers using Pointer in C</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">MCQ</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-language-mcq.html">C language MCQ</a>
+<a href="c-language-mcq-part-2.html">C language MCQ Part 2</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Math</span></h2>
+</div>
+<div class="leftmenu">
+<a href="prime-numbers-list.html">Prime Numbers List</a>
+<a href="composite-numbers-list.html">Composite Numbers List</a>
+<a href="square-numbers-list.html">Square Numbers List</a>
+<a href="binary-numbers-list.html">Binary Numbers List</a>
+<a href="fibonacci-numbers-list.html">Fibonacci Numbers List</a>
+<a href="how-many-ounces-in-a-cup.html">Ounces in a Cup</a>
+<a href="how-many-ounces-in-a-pound.html">Ounces in a Pound</a>
+<a href="how-many-ounces-in-a-gallon.html">Ounces in a Gallon</a>
+<a href="how-many-ounces-in-a-liter.html">Ounces in a Liter</a>
+<a href="how-many-ounces-in-a-pint.html">Ounces in a Pint</a>
+<a href="how-many-ounces-in-a-quart.html">Ounces in a Quart</a>
+<a href="how-many-ounces-in-a-tablespoon.html">Ounces in a Tablespoon</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">C Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="c-interview-questions.html">C Interview Questions</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="banking-account-system-in-c-using-file-handling.html">next &rarr;</a>
+<a class="next" href="local-labels-in-c.html">&larr; prev</a>
+</div>
+<h1 class="h1">School Billing System in C</h1>
+<p>In this article, you will learn about a project which demonstrates how to build a School Billing System in C language. You will learn this concept through a single program which details all the functions happening in the entire process. </p>
+<h2 class="h2">What is School Billing System, and why should we use it?</h2>
+<p>A simply generated database which stores all the details of the activities that are certainly happening in the school related to the payment and accounts section, which includes the students' account and the faculty account. We need to use this in order to have secured payment or billing data of the school and retrieve it whenever it is required.</p>
+<p>This program or database mainly stores the fee dues of the students, the salary that must be paid to the staff or faculty or non-teaching staff, the total amount paid by the students, the advance given by the students, etc. So, let us divide this whole concept into three modules or structures where the first one deals with the date, the second one deals with the data of the students and the third one deals with the data of the faculty &amp; the non-teaching staff. We are going to construct a program which is mainly based on switch cases and basic members of the programming language " C ".</p>
+<p>The module that the School Billing System program in C is segmented into are:</p>
+<ul class="points">
+<li>date</li>
+<li>student</li>
+<li>faculty and non-teaching staff</li>
+</ul>
+<p>Here, the module " date " indicates the entries of records on the particular date, i.e., student record entries or faculty record entries. If any of those records are entered newly on that particular date, this module can help us find the details of those records. It records or stores the date and month of the day when the records are stored. The module " student " indicates the details of the students' fees where the fee dues, advance paid, etc., are stored related to the student. It is used to manage the record of each student belonging to that school. The module " faculty " indicates the details of the salary that every faculty receives. It is used to manage the record of each faculty belonging to that school.</p>
+<p>The operations that can be performed using School Billing System in C are:</p>
+<ul class="points">
+<li>check for date</li>
+<li>add new student record or faculty record</li>
+<li>update an already existing record</li>
+<li>search an already existing record</li>
+<li>delete a record</li>
+<li>find the salary of a record</li>
+<li>find the fee of a record</li>
+</ul>
+<p>The operation " check for the date " allows you to access the actions that were taken on that specified date, like adding a new student record or a faculty record, etc. The operation " add new student record or faculty record " allows you to add a new record which belongs to the student or the faculty, or the non-teaching staff. This helps in increasing the number of records within the database. The operation " update an already existing record " helps you to modify or make changes within the existing records of the student or faculty or the non-teaching staff. For example, if the salary of a particular faculty is increased. So, the database performs the update operation using this strategy.</p>
+<p>The operation " search an already existing record " helps you to search the student record or the faculty record, or the non-teaching staff record by specifying any of their particulars so that all the data will be displayed. The operation " delete a record " helps you to delete a record which can be a student record or a faculty record, or a non-teaching staff record. Any record can be completely deleted from the linked database when this operation is performed. The operation " find the salary of a record " is used to find the salary of the record, which only belongs to the faculty and non-teaching staff but not the student. The operation " fee of a record " is used to find the total amount of fee that the particular student is supposed to pay and also specifies the fee dues ( if any ).</p>
+<p>Let us split this entire program into fragments in which each fragment consists of a method describing one of those operations discussed above one by one sequentially. After finding the methods for all the operations listed, let us merge all of the discussed methods to form software that deals with and represents the Student Record System. This makes our work more accessible and understandable.</p>
+<p>There can be several methods that can be involved within the program of School Billing System in C. Let us discuss each method one by one and then combine all the requisites of the program along with the discussed methods and then complete our project on the whole. </p>
+<h2 class="h2">Methods that are involved in the program:</h2>
+<ul class="points">
+<li><strong>start()</strong></li>
+</ul>
+<p>The method that enables the user to begin and initiate his or her operations is the " start() " method. The program will be initiated as soon as the method is accessed.</p>
+<ul class="points">
+<li><strong>check_date()</strong></li>
+</ul>
+<p>The method that allows you to access the actions that were taken on that specified date is " check_date() ". For example, adding a new student record or a faculty record on a particular date 20<sup>th</sup> February 2022 has taken place. So, when the required date " 20<sup>th</sup> February 2022 " has been entered as an input, the action taken on that day, i.e., adding a new student or a faculty record, will be displayed, which helps the user to know the activities that were taken place on that day. </p>
+<ul class="points">
+<li><strong>add_new_record()</strong></li>
+</ul>
+<p>The method that allows you to add a new record which belongs to the student or the faculty, or the non-teaching staff is " add_new_record() ". This helps in increasing the number of records within the database.</p>
+<ul class="points">
+<li><strong>update()</strong></li>
+</ul>
+<p>The method that helps and allows you to modify or make changes within the existing records of the student or the faculty or the non-teaching staff is the modification method or " update() ". For example, if the salary for a particular faculty is increased, the update() method will be accessed by the user in order to modify the salary details of that particular faculty whose salary is incremented.</p>
+<ul class="points">
+<li><strong>find_record()</strong></li>
+</ul>
+<p>The method that helps you to search the student record or the faculty record, or the non-teaching staff record by specifying any of their particulars so that all the data of that particular record will be displayed is " find_record() ".</p>
+<ul class="points">
+<li><strong>delete_record()</strong></li>
+</ul>
+<p>The method that " helps you to delete a record which can be a student record or a faculty record or a non-teaching staff record, is " delete_record() ". Any record can be completely deleted from the linked database when this operation is performed.</p>
+<ul class="points">
+<li><strong>find_record_salary()</strong></li>
+</ul>
+<p>The method that is used to find the salary of the record, which only belongs to the faculty and non-teaching staff but not the student is " find_record_salary() ".</p>
+<ul class="points">
+<li><strong>find_record_fee()</strong></li>
+</ul>
+<p>The method that is used to find the total amount of fee that the particular student is supposed to pay, the fee dues ( if any ), specifies the advance amount that is paid and the reimbursement (if any ) is " find_record_fee() ".</p>
+<p>These are the methods that are part of the program that infuses the School Billing System in C. We have learnt an overview of these methods from the above statements. Let us learn a detailed view of the methods discussed above and the code that meets their operational requirements. These methods are the basic steps and the pillars of the program, which in turn helps in the construction of a School Billing System in the programming language C.</p>
+<h3 class="h3">1. add_new_record()</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+// method that is declared 
+// to create a new record
+// which deals with student 
+// data or faculty data
+// or non-teaching staff 
+// data by scanning the 
+// requirements of the 
+// record 
+
+void add_new_record(int j)
+{
+    int differ, cdate, ddate, month = 0;
+    float ff;
+    char c = 'y';
+    // initially declaring the required 
+    // variables for the method
+    printf("\n\n");
+    printf(" YOU CAN ADD A NEW RECORD NOW !!");
+
+    // condition if the given argument
+    // is valued with 1
+    // i.e. if the value of j
+    // is 1, then the data will
+    // be belonging to a student
+    if(j == 1)
+    {
+        // iteration is initiated 
+        // so that the statements 
+        // can be repeated until the
+        // condition fails
+
+        while (c == 'Y' || c == 'y')
+        {
+            // if y is given
+            // whether capital or
+            // small alphabet " f "
+            int a = 1;
+            printf("\n");
+            // taking the input of
+            // name of the student
+            printf(" Enter the full name of the student:");
+            fflush(stdin);
+            scanf("%[^\n]",student.n);
+
+            // taking the input 
+            // of the class of the 
+            // new student
+            printf(" Enter the class: ");
+            fflush(stdin);
+            scanf("%2d", &student.r);
+            printf(" Enter the day and its month ");
+            printf("until which the fee is already paid");
+            fflush(stdin);
+            scanf("%2d %2d", &cdate, &ddate);
+            cdate = check_date(cdate, ddate);
+            student.dt.m = cdate;
+            ff = student.c / 10.0;
+            student.f = 1000 * (1 + ff);
+            differ =  mm - student.dt.m;
+            student.fine = (differ * student.f) * 1 / 100;
+            student.due = (differ) * student.f;
+            if(differ == 1)
+            {
+                student.tot = student.f;
+                student.fine = 0;
+            }
+            else
+            {
+                student.tot = student.fine + student.due;
+            }
+            fs = fopen(" student "," ab+ "); 
+            fwrite(&student , sizeof(student), 1, fs);
+            fclose(fs);
+       printf("\n\n Will you continue ");
+            printf("with the process? Y or N");
+
+            fflush(stdin);
+            c = getch();
+        }
+        getch();
+    }
+    if (j == 2)
+    {
+        while(c == 'y'||c == 'Y')
+        {
+            int a = 1;
+            printf("\n\n Enter the name of the ");
+            printf("faculty or non-teaching staff");
+            fflush(stdin);
+            scanf(" %[^\n]", teacher.n);
+            printf("\n Enter the faculty ");
+            printf("or non-teaching staff id:");
+            fflush(stdin);
+            scanf(" %d", &teacher.id);
+            printf("\n Enter the number of classes ");
+            printf("or shifts in a month: ");
+            scanf(" %d", &teacher.no);
+            fflush(stdin);
+            printf("\n Enter the day and month until ");
+            printf("which the salary is paid:")
+            scanf(" %d %d", &teacher.dt.m, &teacher.dt.d);
+            cdate = check_date(cdate, ddate);
+            teacher.dt.m = cdate;
+            teacher.sal = teacher.no * 500;
+            teacher.adv = (teacher.dt.m - mm - 1) * teacher.sal;
+            if (teacher.adv < 0) 
+            {
+                teacher.adv = 0;
+            }
+            teacher.tot = teacher.sal;
+            ft = fopen("teacher","ab+");
+            fwrite(&teacher, sizeof(teacher), 1, ft);
+            fclose(ft);
+            printf("\n\n Will you continue ");
+            printf("with the process? Y or N");
+            fflush(stdin);
+            c = getch();
+        }
+        fflush(stdin);
+        printf("\n\n");
+        system("pause");
+    }
+}
+</textarea></div>
+<p><strong>An explanation for the above program which showcases a method:</strong></p>
+<p>The method " add_new_record() " is used to add a new record which can belong to a student or a faculty, or non-teaching staff also. The type and category of the record that it belongs to can be of any specific type out of the intended types of the School. So, the main motive of this method is to add a new record and then build up another record within the database. So, the addition of a new record can only be done using this method.</p>
+<p>Initially, the required variables are declared with the perfect data types that are needed for the program. After the declaration of the variables, the method's operation is set to begin using the check box " Yes or No ". As soon as the user chooses to begin the method or add a new record, he or she is supposed to press " y " in order to convey their intention to the system to start the method's functioning.</p>
+<p>At the beginning of the main function of the program, the user is asked to give input whether he or she wants to enter a new student record or a new faculty record. So, if he or she chooses to enter a student record, then he or she must type 1. If not the student record and if he wants to enter the details of a faculty or non-teaching staff's record, he must choose and enter 2. So, according to the value of the variable " j " that is entered by the user, the function picks up the path and chooses the operation.</p>
+<p>When the value entered is 1, the student's details will be asked for input, and the user must enter the details one by one, which include name, class, fee paid, fee due, etc. If the fee of the student is already paid and there is some amount due, then that can also be displayed using the mentioned statements within the method. This method also includes a few operations irrespective of adding the record. Those operations are also involved within the method in order to have a clear note of their balance fee details, etc.</p>
+<p>If the user chooses the value of the variable " j " as 2, then the same iterations and operations will happen with the faculty record or the non-teaching staff record. So, the input taken for the value of the variable " j " decides the entry for the student module and the staff module. The salary details of the teaching staff and the non-teaching staff will be displayed, and the due or advance salary can also be known through this method.</p>
+<p>It is not directly calculated, but the method directs to another method that deals with all such operations ( the methods except add_student that are discussed here will be discussed in the upcoming statements ). In this way, for every sort of operation that is meant to be performed on the student's details, faculty details and non-teaching staff details, it can be done using the " add_new_record() " method.</p>
+<h3 class="h3">2. find_record()</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+// method that is declared 
+// to search record
+// which deals with student 
+// data or faculty data
+// or non-teaching staff 
+// data by scanning the 
+// requirements of the 
+// record
+void find_record(int j)
+{
+    // consider the required
+    // variables and declare them
+    char sname[50],tname[50];
+    int a = 1, choice;
+    char c = 'y';
+    // check the condition for which 
+    // the records must be searched
+    // condition verification regarding
+    // the student details
+    // or faculty details
+
+    // if the student data is 
+    // supposed to be searched
+    if (j == 1)
+    {
+        // while the user replies
+        // yes to continue
+        while(c == 'Y'||c == 'y')
+        {
+            int a = 1;
+            
+            printf("\n\n\t\t How do you want to search?");
+            printf("\n\n\t\t 1. Want to search by name:");
+            printf("\n\n\t\t 2. Want to search by class:");
+            printf("\n\n\t\t 3. Want to search by roll number:");
+            printf("\n\n\t\t 4. Exit");
+            printf("\n\n\t\t Enter your desired choice: ");
+            fflush(stdin);
+            scanf("%d", &choice);
+            // if the user wants to
+            // search the record by name
+            // of the student
+            if (choice == 1)
+            {
+                a = 1;
+                printf("\n\n Enter the name of the ");
+                printf("student that you want to find: ");
+                fflush(stdin);
+                // scanning the name of the student
+                scanf("%[^\n]", sname);
+                fs=fopen(" student "," rb ");
+                while(fread(&student, sizeof(student), 1, fs) == 1)
+                {
+                    if (strcmpi(sname, student.n) == 0)
+                    {
+                        a = 0;
+                        printf("\n Name of the student is %s", student.n);
+                        printf("\n Class of the student is %d", student.c);
+                        printf("\n The roll number of the student is %d", student.r);
+                        printf("\n Monthly fee of the student is %.2f",student.f);
+                        printf("\n Fee paid previously is %2d",student.dt.m);
+                        printf("\n Due left is %.2f",student.due);
+                        printf("\n Fine to be paid is %.2f",student.fine);
+                        printf("\n Total is %.2f\n\n", student.tot);
+                    }
+                }
+                if (a == 1)
+                    printf("\n\n The record that you ");
+                    printf("are searching for is not found.\n\n");
+                system("pause");
+                fflush(stdin);
+                fclose(fs);
+            }
+            // if the user wants to 
+            // search the record by using
+            // the class of the student
+            else if (choice == 2)
+            {
+                int cl;
+                a = 1;
+                printf("\n\n Enter the class of the student ");
+                printf("in order to find his or her details: ");
+                fflush(stdin);
+                cl = clscanf();
+                fs = fopen(" student "," rb ");
+                while(fread(&student, sizeof(student), 1, fs) == 1)
+                {
+                    if (student.c == cl)
+                    {
+                        a  = 0;
+                        printf("\n Name of the student is %s", student.n);
+                        printf("\n Class of the student is %d", student.c);
+                        printf("\n The roll number of the student is %d", student.r);
+                        printf("\n Monthly fee of the student is %.2f",student.f);
+                        printf("\n Fee paid previously is %2d",student.dt.m);
+                        printf("\n Due left is %.2f",student.due);
+                        printf("\n Fine to be paid is %.2f",student.fine);
+                        printf("\n Total is %.2f",student.tot);
+                    }
+                }
+                if (a == 1)
+                    printf("\n\n The record that you are ");
+                    printf("searching for is not found.\n\n");
+                system("pause");
+                fflush(stdin);
+                fclose(fs);
+            }
+            // if the user wants to 
+            // search the record by using
+            // the roll number of the student
+            else if (choice == 3)
+            {
+                int roll;
+                a = 1;
+                printf("\n\n Enter the roll number of the ");
+                printf("student in order to find the details: ");
+                fflush(stdin);
+                roll = clscanf();
+                fs = fopen(" student "," rb ");
+                while(fread(&student, sizeof(student), 1, fs) == 1)
+                {
+                    if (strcmpi(roll, student.r) == 0)
+                    {
+                        a = 0;
+                        printf("\n Name of the student is %s", student.n);
+                        printf("\n Class of the student is %d", student.c);
+                        printf("\n The roll number of the student is %d", student.r);
+                        printf("\n Monthly fee of the student is %.2f",student.f);
+                        printf("\n Fee paid previously is %2d",student.dt.m);
+                        printf("\n Due left is %.2f",student.due);
+                        printf("\n Fine to be paid is %.2f",student.fine);
+                        printf("\nTotal is %.2f",student.tot);
+                    }
+                }
+                if (a == 1)
+                    printf("\n\n The record that you are ");
+                    printf("searching for is not found.\n\n")
+                system("pause");
+                fflush(stdin);
+                fclose(fs);
+            }
+            // if the user desires 
+            // to exit 
+            else if(choice == 4)
+            {
+                exiting();
+            }
+            else
+            {
+                printf("\n\n\n\t\t The given input is invalid.\n\n\t\t");
+                system("pause");
+                find_record(1);
+            }
+            printf("\n\n If you want to continue, then press y or Y");
+            fflush(stdin);
+            c = getch();
+        }
+        getch();
+    }
+
+    // if the faculty data or 
+    // non-teaching staff data is 
+    // supposed to be searched
+    if (j == 2)
+    {
+        while(c  == 'Y'||c == 'y')
+        {
+            int a=1;
+            printf("\n\n Enter the name of the ");
+            printf("faculty or non-teaching staff ");
+            printf("to find their details: ");
+            fflush(stdin);
+            scanf("%[^\n]", tname);
+            ft=fopen(" teacher "," rb ");
+            while(fread(&teacher, sizeof(teacher), 1, ft) == 1)
+            {
+                // checking the condition
+                // whether the given input matches
+                // any of the data or record
+                // by checking with the corresponding 
+                // name of the faculty 
+                // or non-teaching staff
+                if (strcmp(tname, teacher.n) == 0)
+                {
+                    a = 0;
+                    printf("\n The name of the teacher is %s", teacher.n);
+                    printf("\n The id of the teacher is %d", teacher.id);
+                    printf("\n Last month when the salary is paid is %d", teacher.dt.m);
+                    printf("\n The salary that is paid per month is %.2f", teacher.sal);
+                    printf("\n The advance salary paid is %.2f",teacher.adv);
+                }
+            }
+            if (a == 1)
+                printf("\n\n The record that you are searching ");
+                printf("for is not found.")
+            printf("\n\n");
+            system("pause");
+            fflush(stdin);
+            fclose(ft);
+            printf("\n\n If you still want to continue ");
+            printf("with the process, then press Y or y");
+            fflush(stdin);
+            c=getch();
+        }
+        getch();
+    }
+
+}
+</textarea></div>
+<p><strong>An explanation for the above program which showcases a method:</strong></p>
+<p>The method " find_record() " is used to find the details of an already existing record, which can belong to a student or a faculty or non-teaching staff also. The type and category of the record that it belongs to can be of any specific type out of the intended types of the School. So, the main motive of this method is to find the details of the record. Using this method, we can find the details if any details of the record are supposed to be found using the name of the student or the faculty or the non-teaching staff. So, this method is very useful whenever there is a miscommunication that happened and whenever verification is required.</p>
+<p>Initially, the required variables are declared accordingly with their perfect data types that are needed for the program. After the declaration of the variables, the operation of the method " find_record() " will be ready to begin and asks for confirmation using the check box " Yes or No ". As soon as the user chooses to begin the method or find an already existing record, he or she is supposed to press " y " in order to convey their intention to the system to start the method's functioning.</p>
+<p>At the beginning of the main function of the program, the user is asked to give input on whether he or she wants to search for a student record or a faculty record which also includes non-teaching staff. So, if he or she chooses to search for a student record, then he or she must type 1. If not the student record and if he wants to search for the details of a faculty or non-teaching staff's record, then he must choose and enter 2. So, according to the value of the variable " j " that is entered by the user, the function picks up the path and chooses the operation.</p>
+<p>When the value entered is 1, any one of the details of the student's record will be asked for input, and the user must enter the input of details which can be a name or class, etc. In this method, we asked for an input of the name of the student. Any one of the details can be asked for input. If the fee of the student is already paid and there is some amount due, then that can also be displayed using the mentioned statements within the method. Other methods can also be linked and called in order to find the details but just define the details within the same method. Those operations are also involved within the method in order to have a clear note of their balance fee details or due details, etc.</p>
+<p>If the user chooses the value of the variable " j " as 2, then the same iterations and operations will happen with the faculty record or the non-teaching staff record. So, the input taken for the value of the variable " j " decides the entry for the student module and the staff module. The salary details of the teaching staff and the non-teaching staff will be displayed, and the due or advance salary can also be known through this method.</p>
+<p>All the statements defined in this method are directly calculated without calling any other methods that are included within the program. The only function calling that happens in the method is recursion, i.e., calling the function by itself. In this way, finding every sort of detail that is related to the student's records, faculty records and non-teaching staff records, it can be done using the " find_record() " method.</p>
+<h3 class="h3">3. update()</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+// method that is declared 
+// to update an already existing
+// record which deals with 
+// student data or faculty data
+// or non-teaching staff 
+// data by scanning the 
+// requirements of the 
+// record
+void update(int j)
+{
+    // consider the required
+    // variables in order to perform 
+    // the function or method
+
+    // name of the record
+    // either student or faculty
+    // or non-teaching staff
+    char name[50];
+    int a = 1;
+
+    int choice, cl, roll;
+    char c = 'y';
+
+    // if the user wants to
+    // modify the details of 
+    // the student
+    // then he or she must
+    // choose j as 1
+    if ( j == 1 )
+    {
+        // a loop that repeats 
+        // until the process is 
+        // completed, and the base
+        // condition becomes false
+        while( c == 'y' || c == 'Y' )
+        {
+            system("cls");
+            printf(" You can modify the record now!! ");
+            printf("\n\n\t\t Choose the type of ");
+            printf("modification that you want to perform.");
+            printf("\n\n\t\t 1. Modify by the name");
+            printf(" of the student ");
+            printf("\n\n\t\t 2. Modify by the name ");
+            printf("and class of the student ");
+            printf("\n\n\t\t 3. Modify by the name, ");
+            printf("roll number and class of the student ");
+            printf("\n\n\t\t 4. Exit ");
+            printf("\n\n\t\t Out of the above options, ");
+            printf("enter one choice number: ");
+            fflush(stdin);
+            scanf(" %d", &choice);
+            // if the user chooses 
+            // to modify the details
+            // using name of the student
+            if ( choice == 1 )
+            {
+                int a = 0;
+                printf("\n\n Enter the name of the student");
+                printf(" that you want to modify: ");
+                fflush(stdin);
+                // scanning the name of 
+                // the student
+                scanf(" %[^\n]",name);
+                fs=fopen("student","rb+");
+                while( fread(&student, sizeof(student), 1, fs) == 1 )
+                {
+                    a=1;
+                    if ( strcmpi(name, student.n) == 0 )
+                    {
+                        a=0;
+                        printf("\n Enter the new name of the student");
+                        printf(" that you want to modify: ");
+                        fflush(stdin);
+                        // scanning the new name
+                        // of the student
+                        scanf(" %[^\n]",student.n);
+                        printf("\n Enter the new class of the student");
+                        printf(" that you want to modify: ");
+                        fflush(stdin);
+                        // scanning and modifying the
+                        // new class of the student
+                        student.c = clscanf();
+                        printf("\n Enter the new roll number ");
+                        printf("of the student that you want to modify: ");
+                        fflush(stdin);
+                        // scanning the new roll  
+                        // number of the student 
+                        scanf("%d", &student.r);
+                        fseek(fs,-sizeof(student), SEEK_CUR);
+                        fwrite(&student, sizeof(student), 1, fs);
+                        fclose(fs);
+                    }
+                }
+                if ( a == 1 )
+                    printf("\n\n The record that you ");
+                    printf("are searching for is not ");
+                    printf("found !!");
+                else
+                    printf("\n\n The chosen records are ");
+                    printf("successfully modified !!");
+                printf("\n\n");
+                system("pause");
+            }
+            // if the user chooses 
+            // to modify the details
+            // using name and class 
+            // of the student
+            else if ( choice == 2 )
+            {
+                int a = 0;
+                printf("\n\n Enter the name of the student ");
+                printf("that you want to modify: ");
+                fflush(stdin);
+                // scanning the name of the
+                // student that you want to
+                // modify
+                scanf(" %[^\n]",name);
+                printf("\n\n Enter the class of the student ");
+                printf("that you want to modify: ");
+                fflush(stdin);
+                // scanning the class of the 
+                // student that you want to
+                // modify
+                cl=clscanf();
+                fs=fopen(" student "," rb+ ");
+                while( fread(&student, sizeof(student), 1, fs) == 1 )
+                {
+                    a=1;
+                    if ( strcmpi(name, student.n) == 0 && cl == student.c )
+                    {
+                        a=0;
+                        printf("\n Enter the new name of the student ");
+                        printf("that you want to modify: ");
+                        fflush(stdin);
+                        // scanning the new name of the 
+                        // student that you want to
+                        // modify
+                        scanf("%[^\n]", student.n);
+                        printf("\n Enter the new class of the student ");
+                        printf("that you want to modify: ");
+                        fflush(stdin);
+                        // scanning the new class of the 
+                        // student that you want to
+                        // modify
+                        student.c = clscanf();
+                        printf("\n Enter the new roll number of ");
+                        printf("the student that you want to modify: ");
+                        fflush(stdin);
+                        // scanning the new roll number 
+                        // of the student that you want 
+                        // to modify
+                        scanf("%d", &student.r);
+                        fseek(fs,-sizeof(student), SEEK_CUR);
+                        fwrite(&student, sizeof(student), 1, fs);
+                        fclose(fs);
+                    }
+                }
+                if ( a == 1 )
+                    printf("\n\n The record that you ");
+                    printf("are searching for is not ");
+                    printf("found !!");
+                else
+                    printf("\n\n The chosen records are ");
+                    printf("successfully modified !!");
+                printf("\n\n");
+                system("pause");
+            }
+            // if the user chooses 
+            // to modify the details
+            // using name, class and 
+            // roll number of the student
+            else if ( choice == 3 )
+            {
+                int a = 0;
+                printf("\n\n Enter the name of the student ");
+                printf("that you want to modify: ");
+                fflush(stdin);
+                // scanning the name of the
+                // student that you want to
+                // modify
+                scanf(" %[^\n]",name);
+                printf("\n\n Enter the class of the student ");
+                printf("that you want to modify: ");
+                fflush(stdin);
+                // scanning the class of the 
+                // student that you want to
+                // modify
+                cl = clscanf();
+                printf("\n\n Enter the roll number of the ");
+                printf("student that you want to modify: ");
+                fflush(stdin);
+                // scanning the roll number of the 
+                // student that you want to
+                // modify
+                scanf("%d", &roll);
+                fs=fopen(" student "," rb+ ");
+                while( fread(&student, sizeof(student), 1, fs) == 1 )
+                {
+                    a = 1;
+                    if (strcmpi(name, student.n) == 0 && cl == student.c && roll == student.r)
+                    {
+                        a = 0;
+                        printf("\n Enter the new name of the student ");
+                        printf("that you want to modify: ");
+                        fflush(stdin);
+                        // scanning the new name of the 
+                        // student that you want to
+                        // modify
+                        scanf(" %[^\n]",student.n);
+                        printf("\n Enter the new class of the student ");
+                        printf("that you want to modify: ");
+                        fflush(stdin);
+                        // scanning the new class of the 
+                        // student that you want to
+                        // modify
+                        student.c = clscanf();
+                        printf("\n Enter the new roll number of ");
+                        printf("the student that you want to modify: ");
+                        fflush(stdin);
+                        // scanning the new roll number 
+                        // of the student that you want 
+                        // to modify
+                        scanf("%d", &student.r);
+                        fseek(fs,-sizeof(student), SEEK_CUR);
+                        fwrite(&student, sizeof(student), 1, fs);
+                        fclose(fs);
+                    }
+                }
+                if (a == 1)
+                    printf("\n\n The record that you ");
+                    printf("are searching for is not ");
+                    printf("found !!");
+                else
+                    printf("\n\n The chosen records are ");
+                    printf("successfully modified !!");
+                printf("\n\n");
+                system("pause");
+            }
+            // if the user chooses to exit
+            // from the portal
+            else if (choice == 4)
+                exit(0);
+
+            // if an invalid entry
+            // is given
+            else
+            {
+                printf("\n\n\n\t\t The given input for choice ");
+                printf("is not valid\n\n\t\t");
+                system("pause");
+                update(1);
+            }
+
+            printf("\n\n If you still wish to continue with ");
+            printf("the above process the press y or Y");
+            fflush(stdin);
+            c=getch();
+        }
+        getch();
+    }
+    // if the user wants to
+    // modify the details of 
+    // the faculty or 
+    // non-teaching staff,
+    // then he or she must
+    // choose j as 2
+    if ( j == 2 )
+    {
+        while( c == 'y' || c == 'Y' )
+        {
+            int a=1;
+            printf(" Enter the name of the faculty");
+            printf(" or the non-teaching staff");
+            printf(" that you want to modify: ");
+            fflush(stdin);
+            // scanning the name of the
+            // faculty or the 
+            // non-teaching staff
+            scanf("%[^\n]", name);
+            ft = fopen(" teacher "," rb+ ");
+            while( fread(&teacher, sizeof(teacher), 1, ft) == 1)
+            {
+                if ( strcmpi(name, teacher.n) == 0)
+                {
+                    a=0;
+                    printf("\n Enter the new name of ");
+                    printf("the faculty or non-teaching");
+                    printf(" staff that you want to modify: ");
+                    fflush(stdin);
+                    // scanning the new name of the faculty
+                    // or the non-teaching staff
+                    scanf("%[^\n]", teacher.n);
+                    printf("\n Enter the new id of the ");
+                    printf("faculty or the non-teaching");
+                    printf(" faculty that you want to modify: ");
+                    fflush(stdin);
+                    // scanning the new id of the faculty
+                    // or the non-teaching staff
+                    scanf("%d", &teacher.id);
+                    fseek(ft, -sizeof(teacher), SEEK_CUR);
+                    fwrite(&teacher, sizeof(teacher), 1, ft);
+                    fclose(ft);
+                }
+            }
+
+            if (a == 1)
+                printf("\n\n The record that you ");
+                    printf("are searching for is not ");
+                    printf("found !!");
+                else
+                    printf("\n\n The chosen records are ");
+                    printf("successfully modified !!");
+                printf("\n\n");
+            system("pause");
+            fflush(stdin);
+
+            printf("\n\n If you still wish to continue with ");
+            printf("the above process the press y or Y");
+            fflush(stdin);
+            c = getch();
+        }
+        getch();
+    }
+}
+</textarea></div>
+<p><strong>An explanation for the above program which showcases a method:</strong></p>
+<p>The method " update() " is used to update the details of an already existing record, which can belong to a student or a faculty or non-teaching staff also. The type and category of the record that it belongs to can be of any specific type out of the intended types of the School. So, the main motive of this method is to find and modify the details of the required or specified record.</p>
+<p>Using this method, we can update the details, and the details of the record are supposed to be found by using the name of the student or the faculty or the non-teaching staff. So, this method is very useful whenever there is a miscommunication that happened and whenever verification and remodification are required.</p>
+<p>Initially, the required variables are declared accordingly with the perfect data types that are needed for the program. After the declaration of the variables, the operation of the method " update() " will be ready to begin and asks for confirmation using the check box " Yes or No ". As soon as the user chooses to begin the method or find an already existing record, he or she is supposed to press " y " in order to convey their intention to the system to start the method's functioning.</p>
+<p>At the beginning of the main function of the program, the user is asked to give input on whether he or she wants to search for a student record or a faculty record which also includes non-teaching staff. So, if he or she chooses to search for a student record, then he or she must type 1. If not the student record and if he wants to search for the details of a faculty or non-teaching staff's record, then he must choose and enter 2. So, according to the value of the variable " j " that is entered by the user, the function picks up the path and chooses the operation.</p>
+<p>When the value entered is 1, any one of the details of the student's record, i.e., either the name of the student or name and roll number of the student or name, class and roll number of the student, will be asked for input and the user must enter the input of details which can be a name or class, etc. This option can be chosen using the choice variable by giving input of any number mentioned within the above program.</p>
+<p>In this method, we asked for an input of the name of the student. Any one of the details can be asked for input. As soon as the name of the student is entered, the system searches for the record having that concurrent name and then allows the user to modify his/ her details accordingly, then which can also be displayed using the mentioned statements within the method. Other methods can also be linked and called in order to find the details but just define the details within the same method.</p>
+<p>If the user chooses the value of the variable " j " as 2, then the same iterations and operations will happen with the faculty record or the non-teaching staff record. So, the input taken for the value of the variable " j " decides the entry for the student module and the staff module. The salary details of the teaching staff and the non-teaching staff can be modified and displayed through this method. The id of the faculty or the non-teaching staff can also be modified through this method.</p>
+<p>If at all the entered input of the student or the faculty or the non-teaching staff is not matching with the details of the records present in the database, then the function returns the else body, which demonstrates with a statement " The record that you are searching for is not found ". With this statement, the user gets to a decision that the entered input is either invalid or wrong. In all the cases, whether it is a student record or a faculty record or a non-teaching staff record, the same procedure takes place until the record is found.</p>
+<p>All the statements defined in this method are directly calculated without calling any other methods that are included within the program. In this way, finding and modifying every sort of detail that is related to the student's records, faculty records and non-teaching staff records, it can be done using the " update() " method.</p>
+<h3 class="h3">4. delete_record()</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+// method that is declared 
+// to delete an already existing
+// record, which deals with 
+// student data or faculty data
+// or non-teaching staff 
+// data by scanning any of the 
+// details of the 
+// record
+void delete_record(int j)
+{
+    system("cls");
+    
+    printf("You have entered the deletion block !!");
+    // declare and define the 
+    // required variables
+    // for performing deletion
+    // operation
+
+    // name of the record
+    // either student or faculty
+    // or non-teaching staff
+    FILE *temp, *t1;
+    int a = 1;
+    char name[50], c = 'y';
+
+    // if the user wants to
+    // delete the details of 
+    // the student
+    // then he or she must
+    // choose j as 1
+    if ( j == 1 )
+    {
+        // a loop that repeats 
+        // until the process is 
+        // completed, and the base
+        // condition becomes false
+        while(c == 'y' || c == 'Y' )
+        {
+            int a = 1;
+            printf("\n\n Enter the name of student ");
+            printf("whose record you want to delete: ");
+            fflush(stdin);
+
+            // scanning the name of the
+            // student
+            scanf(" %[^\n]", name);
+
+            // opening the file in read mode
+            f = fopen("student", "rb");
+
+            // consider a temp variable
+            // which is set to open the file
+            // in write mode
+            temp = fopen(" tempfile ", " wb ");
+
+            // when the name of the student 
+            // entered is equal to one of the 
+            // names that are present within
+            // the records
+            while ( fread(&student, sizeof(student), 1, f) == 1 )
+            {
+                // deleting the student's record
+                // if the details are matched with
+                // the found record
+                if ( strcmp(student.n, name) == 0 )
+                {
+                    a = 0;
+                    continue;
+                }
+                else
+                {
+                    fwrite(&student, sizeof(student), 1,  temp);
+                }
+            }
+            // if any record is not
+            // yet deleted
+            if ( a == 1 )
+            {
+                printf("\n\n The record that you are");
+                printf(" searching for is not found !!");
+            }
+                
+            else
+            {
+                printf("\n\n The deletion of record ");
+                printf(" is completed successfully !!");
+            }
+                
+            printf("\n\n");
+            system("pause");
+            fflush(stdin);
+
+            fclose(fs);
+            fclose(temp);
+            system("del student");
+
+            // the data that is supposed to
+            // be deleted is initially stored
+            // in a temporary variable " temp "
+            // which is further lead to deletion
+            system("ren tempfile, student");
+       //renaming temp to student
+            printf("\n\n If you still wish to continue with the process, press y or Y");
+            fflush(stdin);
+            c = getch();
+        }
+        getch();
+    }
+    // if the user wants to
+    // delete the details of 
+    // the faculty or
+    // non-teaching staff, 
+    // then he or she must
+    // choose j as 2
+    if ( j == 2 )
+    {
+        a = 1;
+        char namet[50];
+        while( c == 'y' || c == 'Y' )
+        {
+            printf("\n\n Enter the name of the ");
+            printf("faculty or non-teaching ");
+            printf("staff that you want to delete: ");
+            fflush(stdin);
+            // scanning the name of 
+            // the faculty or non-teaching
+            // staff
+            scanf("%[^\n]", namet);
+
+            ft=fopen(" teacher ", " rb ");
+            t1=fopen(" tempfile1 ", " wb ");
+            while ( fread(&teacher, sizeof(teacher), 1, ft) == 1 )
+            {
+                if ( strcmp(teacher.n, namet) == 0 )
+                {
+                    a = 0;
+                    continue;
+                }
+                else
+                {
+                    fwrite(&teacher, sizeof(teacher), 1, t1);
+                }
+            }
+
+            if ( a == 1 )
+            {
+                printf("\n\n The record that you are");
+                printf(" searching for is not found !! ");
+            }
+                
+            else
+            {
+                printf("\n\n The deletion of the record");
+                printf(" is completed successfully !! ");
+            }
+                
+            printf("\n\n");
+            system("pause");
+            fflush(stdin);
+
+            fclose(ft);
+            fclose(t1);
+            system("del teacher");
+            system("ren tempfile1, teacher");
+            printf("\n\n If you still wish to continue with the process, press y or Y");
+            fflush(stdin);
+            c = getch();
+        }
+        getch();
+    }
+}
+</textarea></div>
+<p><strong>An explanation for the above program which showcases a method:</strong></p>
+<p>The method " delete_record() " is used to delete the complete details of an already existing record or can delete a record which can belong to a student or a faculty or non-teaching staff also. The type and category of the record that it belongs to can be of any specific type out of the intended types of the School. So, the main motive of this method is to find and delete the details of the required or specified record.</p>
+<p>Using this method, we can delete the record, and the details of the record are supposed to be found by using the name of the student or the faculty or the non-teaching staff. So, this method is very useful whenever a student leaves the school, or the staff have resigned so that their records can be removed from the database.</p>
+<p>Initially, the required variables are declared accordingly with the perfect data types that are needed for the program. After the declaration of the variables, the operation of the method " delete_record() " will be ready to begin and asks for the confirmation using the check box " Yes or No ". As soon as the user chooses to begin the method or find an already existing record, he or she is supposed to press " y " in order to convey their intention to the system to start the method's functioning.</p>
+<p>At the beginning of the main function of the program, the user is asked to give input on whether he or she wants to search for a student record or a faculty record which also includes non-teaching staff. So, if he or she chooses to search for a student record, then he or she must type 1. If not the student record and if he wants to search for the details of a faculty or non-teaching staff's record, then he must choose and enter 2. So, according to the value of the variable " j " that is entered by the user, the function picks up the path and chooses the operation.</p>
+<p>When the value entered is 1, the name of the student will be asked as input, and the user must enter the name after being asked. As soon as the user enters the name of the student through the input, the actual procedure of the program begins. In this program also, we asked an input on the name of the student. Any one of the details can be asked for input. As soon as the name of the student is entered, the system searches for the record having that concurrent name and then allows the user to delete the respective record accordingly, then which can also be displayed using the mentioned statements within the method.</p>
+<p>If the user chooses the value of the variable " j " as 2, then the same iterations and operations will happen with the faculty record or the non-teaching staff record. So, the input taken for the value of the variable " j " decides the entry for the student module and the staff module. The records of the teaching staff and the non-teaching staff can be deleted through this method by performing this step.</p>
+<p>If at all the entered input of the student or the faculty or the non-teaching staff is not matching with the details of the records present in the database, then the function returns the else body, which demonstrates with a statement " The record that you are searching for is not found ". With this statement, the user gets to a decision that the entered input is either invalid or wrong. In all the cases, whether it is a student record or a faculty record or a non-teaching staff record, the same procedure takes place until the record is found.</p>
+<h3 class="h3">5. find_record_salary()</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+// method that is declared 
+// to find the salary
+// of a faculty record or
+// non-teaching staff
+// record, which deals with 
+// faculty data or 
+// non-teaching staff 
+// data by scanning the 
+// requirements of the 
+// record
+
+void find_record_salary(int mm)
+{
+    system("cls");
+    
+    // consider the required
+    // variables in order to perform 
+    // the function or method
+
+    
+    FILE *f, *t;
+    int a = 1, day;
+
+    // name of the record
+    // either faculty record
+    // or non-teaching staff
+    // record
+    char name[50], c = 'y';
+    int month, differ, id;
+
+    // a loop that repeats 
+    // until the process is 
+    // completed, and the base
+    // condition becomes false
+    while(c == 'y'|| c == 'Y')
+    {
+        int a = 1;
+        fflush(stdin);
+        printf("\n\n Enter the name ");
+        printf("of the faulty or ");
+        printf("non-teaching staff record: ");
+
+        // scanning the name 
+        // of the faculty record
+        // or the non-teaching
+        // staff record
+        scanf(" %[^\n]", name);
+        printf("\n\n Enter the id of the ");
+        printf("faculty record or non-teaching");
+        printf(" staff record: ");
+
+        // scanning the id of the
+        // faculty record or
+        // non-teaching staff record
+        scanf(" %d",&id);
+
+        f = fopen(" teacher "," rb+ ");
+        t=fopen(" te "," wb+ ");
+
+        // through the below base condition
+        // within the while loop,
+        // the file is successfully opened
+        while(fread(&teacher, sizeof(teacher), 1, f) == 1)
+        {
+            // the name that is entered through
+            // the input is verified and compared
+            // with the existing names within the 
+            // database of records
+            if(strcmp(teacher.n, name) == 0 )
+            {
+                float lsal;
+                a = 0;
+                printf("\n\n Enter the month in which ");
+                printf("the last salary is paid")
+                fflush(stdin);
+
+                // scanning the month in which the
+                // last salary is paid
+                scanf("%d", &month);
+
+                // the month is assigned with
+                // the method calling, i.e.,
+                // check_date method 
+                // with two parameters, i.e., month 
+                // and day
+                month = check_date(month, day);
+
+                // the advance that is already
+                // given to the staff
+                // is being calculated here
+                teacher.adv = (month - mm - 1) * teacher.sal;
+                if (teacher.adv < 0)
+                {
+                    teacher.adv = 0;
+                }
+
+                // the month where last
+                // salary is paid and no.
+                // of months the salary must 
+                // be paid
+                lsal = mm - teacher.dt.m;
+
+                if(lsal < 0)
+                {
+                    lsal = 0;
+                }
+                teacher.tot = teacher.adv + teacher.sal * (1 + lsal);
+                if(month == teacher.dt.m) 
+                {
+                    teacher.tot = 0;
+                }
+                printf("\n The leftover monthly salary that is");
+                printf(" supposed to be paid is %.2f",lsal);
+
+                printf("\n The total salary is %.2f",teacher.tot);
+                printf("\n The advance salary given is %.2f",teacher.adv);
+                teacher.dt.m = month;
+                fwrite(&teacher, sizeof(teacher), 1, t);
+                fclose(f);
+                fclose(t);
+
+                if (a == 1)
+                {
+                    printf("\n\n The record that you are");
+                    printf(" searching for is not found !!");
+                }
+                else
+                {
+                    printf("\n\n The salary details ");
+                    printf("have been accurately printed !!");
+                }
+                    
+                printf("\n\n");
+                system("pause");
+                fflush(stdin);
+                system("del teacher");
+                system("ren te, teacher");
+            }
+        }
+        printf("\n\n If you still wish to continue, press y or Y");
+        fflush(stdin);
+        c = getch();
+    }
+    getch();
+}
+</textarea></div>
+<p><strong>An explanation for the above program which showcases a method:</strong></p>
+<p>The method " find_record_salary() " is used to find the salary of the faculty records or non-teaching staff records by using some of their details in order to verify the amount of salary paid and the leftover salary that is supposed to be paid. The type and category of the record that it belongs to can be of any specific type out of the intended types of the School. So, the main motive of this method is to find the details of the salary account of a required or specified record.</p>
+<p>Using this method, we can find the record's salary status, whether the complete salary is paid or not, whether there is any leftover salary in the previous month, whether the faculty or non-teaching staff previously took the salary in advance, etc. All these details can be found by using and accessing this method. All these details of a particular record are found using their name, id or both. So, this method is very useful whenever an issue arises regarding payments, and all the data can be clearly stored in the database.</p>
+<p>Initially, at the beginning of the program, the required variables are declared accordingly with the perfect data types that are needed for the program. After the declaration of the variables, the operation of the method " find_record_salary() " will be ready to begin and asks for confirmation using the check box " Yes or No ". As soon as the user chooses to begin the method or find an already existing record, he or she is supposed to press " y " in order to convey their intention to the system to start the method's functioning.</p>
+<p>At the beginning of the main function of the program or a method, the user is not asked to give input on whether he or she wants to search for a student record or a faculty record, as the salary aspect is only related to a faculty record or non-teaching staff record. There can be confusion between a faculty record and a non-teaching staff record, but in order to overcome such type of confusions, both the records are considered to be taken as a single category naming staff which includes faculty records and non-teaching staff records.</p>
+<p>So, he or she must choose to search for a staff record. There is no choice required. So, this is the major difference made within this method out of the other methods that were previously declared. After entering into the method or function body, the user is asked to give a name and an id of the faculty or non-teaching staff as input. As soon as the user enters the name and id of the faculty or non-teaching staff through the input, the actual procedure of the program begins. The name and id entered by the user will be compared with the names and ids of the records that are already existing in the database. As soon as the match is found, the operational procedure begins.</p>
+<p>When a name or id is matched with the input name or id of the faculty or non-teaching staff records, the details of the salary will be calculated, which includes the advance salary paid, the leftover salary that is supposed to be paid, the month in which the salary is paid as last, etc. If the advance paid to the faculty or non-teaching staff is less than 0 and this condition is satisfied, it generally means that no advance was paid previously.</p>
+<p>So, the advance amount variable is assigned with the value " 0 ", and similarly, if the salary that is paid at last in the month is equal to the previous month, then the leftover salary will be assigned with the value " 0 ". In the same way, the iterations and operations will process with the non-teaching staff record also. The salary details of records of the teaching staff, i.e., faculty and the non-teaching staff, can be displayed through this method performing this step.</p>
+<p>If at all the entered input of the faculty or the non-teaching staff is not matching with the details of the records present in the database, then the function returns the else body, which demonstrates with a statement, " The record that you are searching for is not found ". With this statement, the user gets to a decision that the entered input is either invalid or wrong. In all the cases, whether it is a faculty record or a non-teaching staff record, the same procedure takes place until the record is found.</p>
+<h3 class="h3">6. find_record_fee()</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+// method that is declared 
+// to find the fee details
+// of a student record
+// which deals with 
+// the student data 
+// by scanning the 
+// requirements of the 
+// record
+
+void find_record_fee(int mm)
+{
+    // consider the required
+    // variables in order to perform 
+    // the function or method
+    
+    FILE *f, *t;
+    int a = 0;
+
+    // name of the student
+    // record
+    char name[50], c = 'y';
+    int class, roll, month, differ;
+
+    // a loop that repeats 
+    // until the process is 
+    // completed, and the base
+    // condition becomes false
+    while(c == 'y' || c == 'Y')
+    {
+        int a = 1, day = 0;
+        fflush(stdin);
+        printf("\n\n Enter the name of ");
+        printf("the student that you want ");
+        printf("to find the fee details: ");
+
+        // scanning the name 
+        // of the student record
+        scanf("%[^\n]",name);         
+        printf("\n\n Enter the class of the ");
+        printf("student that you want to find");
+        printf(" the fee details: ");
+        fflush(stdin);
+
+        // scanning the class
+        // of the student record
+        class = clscanf();
+
+        printf("\n\n Enter the roll number ");
+        printf("of the student that you want to find");
+        printf(" the fee details: ");
+        fflush(stdin);
+
+        // scanning the roll number 
+        // of the student record
+        scanf("%d", &roll);
+
+        // opening the student file
+        // in read mode
+        f = fopen("student","rb+");
+
+        // write mode
+        t = fopen("te","wb");
+
+        // through the below base condition
+        // within the while loop,
+        // the file is successfully opened
+        while(fread(&student, sizeof(student), 1, f) == 1)
+        {
+            // the name, class and roll number
+            // that is entered through
+            // the input is verified and compared
+            // with the existing names within the 
+            // database of records
+            if(strcmp(student.n, name) == 0 && class == student.c && roll == student.r)
+            {
+                a = 0;
+                printf("\n\n Enter the last month upto ");
+                printf("which the fee is paid: ")
+                fflush(stdin);
+
+                // scanning the month
+                // in which the last 
+                // fee is paid
+                scanf("%d", &month);
+
+                month = check_date(month, day);
+                differ = mm - student.dt.m;
+                student.fine = (differ * student.f) * 0.01;
+                student.due = (differ) * student.f;
+                if (student.fine < 0)
+                {
+                    student.fine = 0;
+                } 
+                if (student.due < 0)
+                {
+                    student.due = 0;
+                } 
+                if (student.tot < 0)
+                {
+                    student.tot=0;
+                } 
+                student.tot = student.fine + student.due + student.adv;
+                printf("\n The fine that");
+                printf(" the student is supposed to pay is");
+                printf(" %.2f", student.fine);
+                printf("\n The left due that");
+                printf(" the student is supposed to pay is");
+                printf(" %.2f", student.due);
+                printf("\n The total amount that");
+                printf(" the student is supposed to pay is");
+                printf(" %.2f", student.tot);
+                printf("\n The advance amount that");
+                printf(" the student has already paid is");
+                printf(" %.2f", student.adv);
+                student.dt.m = month;
+                student.tot = 0;
+                student.fine = 0;
+                student.due = 0;
+                fwrite(&student, sizeof(student), 1, t);
+            }
+        }
+        if (a == 1)
+        {
+            printf("\n\n The record that you are");
+            printf("searching for is not found !!");
+        }
+            
+        printf("\n\n");
+        system("pause");
+        fflush(stdin);
+
+        fclose(f);
+        fclose(t);
+        system("del student");
+        system("ren te, student");
+        printf("\n\n If you still wish to continue the process, press y or Y");
+        fflush(stdin);
+        c = getch();
+    }
+    getch();
+}
+</textarea></div>
+<p><strong>An explanation for the above program which showcases a method:</strong></p>
+<p>The method " find_record_fee() " is used to find the fee details of the student records by using some of their details in order to verify the amount of fee is paid and the leftover fee that is supposed to be paid by the student. The type and category of the record that it belongs to can be of any specific type out of the intended types of the School. So, the main motive of this method is to find the details of the fee account of a required or specified student record.</p>
+<p>Using this method, we can find the student record's fee status, whether the complete fee is paid or not, whether there is any leftover fee that is supposed to be paid in the previous month, whether the student previously had a due, whether the student had paid an amount of advance fee, etc. All these details can be found by using and accessing this method. All these details of a particular record are found using the name, class and id of the student's record. So, this method is very useful whenever an issue arises regarding the fee payments, and all the data can be clearly stored in the database.</p>
+<p>Initially, at the beginning of the program, the required variables are declared accordingly with the perfect data types that are needed for the program. After the declaration of the variables, the operation of the method " find_record_fee() " will be ready to begin and asks for confirmation using the check box " Yes or No ". As soon as the user chooses to begin the method or find an already existing record, he or she is supposed to press " y " in order to convey their intention to the system to start the method's functioning.</p>
+<p>At the beginning of the main function of the program or a method, the user is not asked to give input on whether he or she wants to search for a student record or a faculty record, as the fee aspect is only related to a student record. So, he or she must choose to search for a student record. There is no choice required. So, this is the major difference made within this method out of the other methods that are previously declared, and this method is quite similar to that of the " find_record_salary() " method as the criteria of execution are almost the same, but the operation varies.</p>
+<p>After entering into the method or function body, the user is asked to give a name, a class and a roll number of the respective student as input. As soon as the user enters the name, class and roll number of the student through the input, the actual procedure of the program begins. The name, class and roll number entered by the user will be compared with the details of the records that are already existing in the database. As soon as the match is found, the operational procedure begins.</p>
+<p>When the complete details are matched with the inputs given by the user, the details of the fee will be calculated, which includes the advance fee paid, the leftover fee that is supposed to be paid, the month in which the fee is paid at last, etc. If the advance paid by the student is less than 0 and this condition is satisfied, it generally means that no advance was paid previously.</p>
+<p>So, the advance amount variable is assigned with the value " 0 ", and similarly if the fee that is paid at last in the month is equal to the previous month, then the leftover due fee will be assigned with the value " 0 ". In the same way, the iterations and operations will take place. The fee details of records of the students can be displayed through this method by performing this step.</p>
+<p>If at all the entered input of the student is not matching with the details of the records present in the database, then the function returns the else body, which demonstrates with a statement, " The record that you are searching for is not found ". With this statement, the user gets to a decision that the entered input is either invalid or wrong. In all the cases, whether it is a faculty record or a non-teaching staff record, the same procedure takes place until the record is found.</p>
+<h3 class="h3">7. check_date()</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+// method that is declared 
+// to check the date, 
+// making sure that it
+// has no mistakes
+// and the sequence of 
+// actions that are 
+// taken on that particular 
+// day regarding a student 
+// record or a faculty 
+// record or a non-teaching 
+// staff record
+
+int check_date(int month, int date)
+{
+    // consider the required
+    // variables in order to perform 
+    // the function or method
+    int mon, day;
+
+    // the condition defines that the month
+    // less than or equal to 12 and greater
+    // than or equal to 1
+    // Similarly, the date is greater than
+    // or equal to 1 and less than 
+    // or equal to 31
+
+    // if any one of the above 
+    // conditions are failed
+    // the method enters the if the condition
+    // and prints that the entered
+    // date is invalid
+    if (month > 12 || month < 1 || date < 1 || date > 31)
+    {
+        MessageBox(0," The entered date is invalid !! \nEnter the date again", " Error!",0);
+
+        fflush(stdin);
+        scanf("%d %d", &mon, &day);
+        mon = check_date(mon, day);
+    }
+    else
+        return (month);
+}
+</textarea></div>
+<p><strong>An explanation for the above program which showcases a method:</strong></p>
+<p>The method " check_date() " is used to verify the date entered by the user whether is valid or not. If the date entered is not valid, then the user is informed that the entered date is invalid and is asked to enter the date again. The verification is done by comparing the month and date separately. If the month entered is greater than 12 and less than 1, then it returns to the invalid statement. In the same way, if the date entered is greater than 31 or less than 1, then it returns to the invalid statement. In cases other than these, the program returns the corresponding month. So, the main motive of this method is to verify the date and check for its accuracy. </p>
+<h3 class="h3">8. clscanf()</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+// method that is declared
+// for the internal use of the
+// program in order to scan a 
+// few parameters of the records
+
+int clscanf()
+{
+
+    // declare the required 
+    // variables
+    int month, mon;
+    fflush(stdin);
+
+    // scanning the month 
+    scanf("%d", &month);
+    if (month > 12 || month < 1)
+    {
+
+        MessageBox(0,"The class entered is Invalid !! \nEnter the Class: ","Error!!",0);
+        fflush(stdin);
+        mon = clscanf();
+    }
+    else
+        return month;
+}
+</textarea></div>
+<p><strong>An explanation for the above program which showcases a method:</strong></p>
+<p>The method " clscanf() " is declared in order to scan the class where ever the scanning is required throughout the program by accessing this method. The method is declared in this way so that there will be no tampering taking place within the program where this method is used. As with all other methods, variables are declared at the beginning of the program and then used while scanning the class and checking the base condition. After verifying the base condition, if the condition is satisfied, then the " if body " is conquered and then scanning is performed. If the base condition given is not true or satisfied, then the " else body " is conquered, which returns to the variable " month ".</p>
+<h3 class="h3">9. exiting()</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+// method that is declared
+// to exit from the execution
+// of the program
+// as soon as an object or 
+// variable within the program
+// calls or access it
+
+void exiting()
+{
+    // declaring the required
+    // variables
+    int i;
+
+    system("color 0c");
+    printf("\n\n\t\t You have chosen to");
+    printf(" exit from the program\n\n");
+    printf("\n\n\t\t Thank you !!\n\n");
+
+    system("pause");
+    system("cls");
+
+    printf("\n\n\t\t\t Exiting from the program\n\n");
+
+    // loop declaration
+    // in order to 
+    // perform wait operation
+    for(i = 1; i <= 80; i++)
+    {
+        Sleep(50);
+        printf("*");
+    }
+    exit(0);
+}
+</textarea></div>
+<p><strong>An explanation for the above program which showcases a method:</strong></p>
+<p>The method " exit() " is used to exit from the execution of the program directly when the method is accessed. A variable " i " is considered at the beginning of the program, which is used all over the program as a single variable. If the " exit(0) " is accessed, it means that the user wants to exit from the execution of the program at that instance of time. As soon as the method is called, the program will stop its execution and returns to the initial terminal unless the user runs the program again. Not only exiting from the program, but there is a process for sleep also. The process of sleep denotes that the execution of the program is paused until a particular duration of time, and right after the completion of the given time, the process continues its execution.</p>
+<h3 class="h3">10. start()</h3>
+<div class="codeblock"><textarea name="code" class="Cpp">
+// method that is declared
+// to enable the program
+// and create an interface
+// to start the process of
+// the program provides all
+// the available choices
+
+void start()
+{
+    // consider the required
+    // variables in order to perform 
+    // the function or method
+    int i, j;
+
+    system("cls");
+    // enter the value of j
+    // so that the type of the
+    // record can be known by the
+    // system in order to execute
+    printf("\n\t\t Enter the type of the account from the following options !! ");
+    printf("\n\t\t 1. Student account");
+    printf("\n\t\t 2. Faculty and non-teaching staff account");
+    printf("\n\t\t 3. Exit ");
+    printf("\n\t\t Enter the option: ");
+    fflush(stdin);
+
+    // scanning the value of j
+    scanf("%d", &j);
+
+    // introducing a switch
+    // case in which all the above cases
+    // can be accessed and displayed
+    switch (j)
+    {
+        // if the entered value
+        // of j is 1
+        case 1:
+        {
+            system("cls");
+            printf("\n\t\t Enter the choice from the mentioned options below !! ");
+            printf("\n\t\t1. Add a record");
+            printf("\n\t\t2. Find a record");
+            printf("\n\t\t3. Update a record");
+            printf("\n\t\t4. Delete a record");
+            printf("\n\t\t5. Find fee of a record");
+            printf("\n\t\t6. Exit");
+            printf("\n\n Enter the choice:  ");
+            fflush(stdin);
+
+            // scanning the choice
+            scanf("%d", &i);
+
+            // internal switch case
+            // declared to access internal 
+            // functions of the student record
+            switch (i)
+            {
+                case 1:
+                    add_new_record(j);
+                    start();
+                case 2:
+                    find_record(j);
+                    start();
+                case 3:
+                    update(j);
+                    start();
+                case 4:
+                    delete_record(j);
+                    start();
+                case 5:
+                    find_record_fee(mm);
+                    start();
+                case 6:
+                    exiting();
+
+                default :
+                {
+                    printf("\n\n\t The input entered is Invalid !! ");
+                    
+                    system("pause");
+                    start();
+                }
+            }
+        }
+        case 2:
+        {
+
+            system("cls");
+            printf("\n\t\t Enter the choice from the mentioned options below !! ");
+            printf("\n\t\t1. Add a record");
+            printf("\n\t\t2. Find a record");
+            printf("\n\t\t3. Update a record");
+            printf("\n\t\t4. Delete a record");
+            printf("\n\t\t5. Find salary of a record");
+            printf("\n\t\t6. Exit");
+            printf("\n\n Enter the choice:  ");
+            fflush(stdin);
+
+            // scanning the choice
+            scanf("%d", &i);
+
+            switch (i)
+            {
+                case 1:
+                    add_new_record(j);
+                    start();
+                case 2:
+                    find_record(j);
+                    start();
+                case 3:
+                    update(j);
+                    start();
+                case 4:
+                    delete_record(j);
+                case 5:
+                    find_record_salary(mm);
+                    start();
+                case 6:
+                    exiting();
+                default :
+                {
+                    printf("\n\n\t The input entered is invalid");
+                    
+                    system("pause");
+                    start();
+                }
+
+            }
+        }
+        case 3:
+            exiting();
+        default :
+        {
+            printf("\n\n\t The input entered is Invalid !! ");
+            
+            system("pause");
+            start();
+        }
+        
+    }
+}
+</textarea></div>
+<p><strong>An explanation for the above program which showcases a method:</strong></p>
+<p>The method " start() " is declared in order to initiate the program by asking the input from the user and performing accordingly. There are several cases involved within this method which in turn denotes the process of response. After the declaration of the method, the variables " i " and " j " are defined for their own purposes. The purpose of the variable " i " is to control the flow of operations of the inner switch case, whereas the purpose of the variable " j " is to control the flow of operations of the outer switch case, which deals with the type of account.</p>
+<p>To be more precise, the variable " j " is responsible for accessing the type of record, whether the student record or the faculty record or the non-teaching staff record. If the value of the variable " j " is given as 1, then the user can access the student accounts, whereas if the value of variable " j " is given as 2, then the user can access the faculty or non-teaching staff accounts and if the value of the variable " j " is equal to 3, then the execution of the program will be stopped, and the user can exit. In this way, the value of the variable is useful throughout the program.</p>
+<p>The variable " i " is responsible for accessing the functions that are embedded within the account types. For example, in the student accounts, there are several functions like " add_new_record() ", " find_record_fee() ", "update() ", etc and in the staff accounts, there are several functions like "add_new_record() ", " find_record_salary() ", " find_record() " etc. In order to access these records in an organized way, the variable " i " is used. The value of the variable " j " is the main variable, in which the variable " i " is the sub-variable. If the value of the variable " i " is given as 1, then a new record will be added to the database. The type of record depends on the value of the variable " j " anyway.</p>
+<p>When the value of the variable " j " is considered as 1, then all the functions that are related to students' accounts can be accessed. Within the switch case of variable " j ", there is an internal switch case of the variable " i ", which improvises the functions of students' accounts. When the value of the variable " i " is equal to 1, then a new record, i.e., a new student record, can be added to the database by accessing the method " add_new_record() ".</p>
+<p>Similarly, if the value of the variable " i " is considered as 2, then an already existing record can be searched by accessing the method " find_record() ". In this way, all the other methods can be accessed and used using the start() method. Not only for students' accounts, this is applicable for the staff accounts also, which include both faculty accounts and non-teaching staff accounts. Using the internal switch case and by providing the j value as 2, the staff accounts can be handled and modified. So, we can surely mention that the method " start() " is very important for the complete program in order to perform any kind of operation.</p>
+<p>These are the methods or functions that are involved in the construction of the program " School Billing System in C ". This program is a combination of each and every method that is discussed above. Let us construct the program.</p>
+<p><strong>The program that demonstrates the " Student Record System in C ":</strong></p>
+<div class="codeblock"><textarea name="code" class="Cpp">
+// include all the 
+// libraries that 
+// are required
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<conio.h>
+
+// declare a structure
+// for including the date
+// along with its representatives
+struct date
+{
+    // d denotes the day
+    // m denotes the month
+    int d, m;
+};
+int clscanf();
+
+// declare a structure
+// for including the student
+// along with their representatives
+struct student
+{
+    struct date dt;
+    // f denotes the fee of the student
+    // fine denotes the fine that the student
+    // must pay
+    // tot denotes total fee
+    // adv denotes advance fee paid
+    // due denotes the due fee
+    float f, fine, tot, adv, due;
+    char n[50];
+    int r, c;
+} student, s;
+
+// declare a structure
+// for including the faculty 
+// and non-teaching staff
+// along with their representatives
+
+struct teacher
+{
+    struct date dt;
+    // sal denotes the salary
+    // of the staff
+    // adv denotes the advance
+    // salary paid to the staff
+    // tot denotes the total salary
+    float sal, adv, tot;
+    char n[50];
+    
+    int id, no;
+} teacher, t;
+
+// method declared to check the date
+int check_date(int, int);
+
+// method declared to add
+// a new record
+void add_new_record(int);
+
+// method declared to update
+// or modify a record
+void update(int);
+
+// method declared to find
+// a record
+void find_record(int);
+
+// method declared to delete
+// a record
+void delete_record(int);
+
+// method declared to find
+// the salary of staff record
+void find_record_salary(int);
+
+// method declared to find 
+// the fee of student record
+void find_record_fee(int);
+
+// declaring the files
+FILE *fs, *ft;
+
+// the variable mm denotes month
+// the variable dd denotes date
+int mm, dd;
+
+// method declared to exit
+// from the program
+void exiting();
+
+void start()
+{
+    // consider the required
+    // variables in order to perform 
+    // the function or method
+    int i, j;
+
+    system("cls");
+    // enter the value of j
+    // so that the type of the
+    // record can be known by the
+    // system in order to execute
+    printf("\n\t\t Enter the type of the account from the following options !! ");
+    printf("\n\t\t 1. Student account");
+    printf("\n\t\t 2. Faculty and non-teaching staff account");
+    printf("\n\t\t 3. Exit ");
+    printf("\n\t\t Enter the option: ");
+    fflush(stdin);
+
+    // scanning the value of j
+    scanf("%d", &j);
+
+    // introducing a switch
+    // case in which all the above cases
+    // can be accessed and displayed
+    switch (j)
+    {
+        // if the entered value
+        // of j is 1
+        case 1:
+        {
+            system("cls");
+            printf("\n\t\t Enter the choice from the mentioned options below !! ");
+            printf("\n\t\t1. Add a record");
+            printf("\n\t\t2. Find a record");
+            printf("\n\t\t3. Update a record");
+            printf("\n\t\t4. Delete a record");
+            printf("\n\t\t5. Find fee of a record");
+            printf("\n\t\t6. Exit");
+            printf("\n\n Enter the choice:  ");
+            fflush(stdin);
+
+            // scanning the choice
+            scanf("%d", &i);
+
+            // internal switch case
+            // declared to access internal 
+            // functions of the student record
+            switch (i)
+            {
+                case 1:
+                    add_new_record(j);
+                    start();
+                case 2:
+                    find_record(j);
+                    start();
+                case 3:
+                    update(j);
+                    start();
+                case 4:
+                    delete_record(j);
+                    start();
+                case 5:
+                    find_record_fee(mm);
+                    start();
+                case 6:
+                    exiting();
+
+                default :
+                {
+                    printf("\n\n\t The input entered is Invalid !! ");
+                    
+                    system("pause");
+                    start();
+                }
+            }
+        }
+        case 2:
+        {
+
+            system("cls");
+            printf("\n\t\t Enter the choice from the mentioned options below !! ");
+            printf("\n\t\t1. Add a record");
+            printf("\n\t\t2. Find a record");
+            printf("\n\t\t3. Update a record");
+            printf("\n\t\t4. Delete a record");
+            printf("\n\t\t5. Find salary of a record");
+            printf("\n\t\t6. Exit");
+            printf("\n\n Enter the choice:  ");
+            fflush(stdin);
+
+            // scanning the choice
+            scanf("%d", &i);
+
+            switch (i)
+            {
+                case 1:
+                    add_new_record(j);
+                    start();
+                case 2:
+                    find_record(j);
+                    start();
+                case 3:
+                    update(j);
+                    start();
+                case 4:
+                    delete_record(j);
+                case 5:
+                    find_record_salary(mm);
+                    start();
+                case 6:
+                    exiting();
+                default :
+                {
+                    printf("\n\n\t The input entered is invalid");
+                    
+                    system("pause");
+                    start();
+                }
+
+            }
+        }
+        case 3:
+            exiting();
+        default :
+        {
+            printf("\n\n\t The input entered is Invalid !! ");
+            
+            system("pause");
+            start();
+            
+        }
+        
+    }
+}
+
+// main section
+void main(void)
+{
+    int i, j, k;
+
+    // loop initiation
+    for(i = 0; i < 80; i++)
+    {
+        printf("\xdb");
+    }
+    printf("\n");
+
+    for(i = 0; i < 80; i++)
+    {
+        printf("\xdb");
+    }
+    system("color 0f");
+    
+    printf("\t Welcome to the world of Programming in C\n");
+    printf("\n\t You can work with the School Record System Project now !! \n");
+    
+    printf("\n\t Enter any key to continue !! ");
+
+    
+    /*for(i = 0; i < 5; i++)
+    {
+        // sleep time is 
+        // 0.5 seconds
+        // Sleep(500);
+
+        // sleep takes place
+        // when the execution of 
+        // one operation is being
+        // processed and the other
+        // operation is ready to start
+    }*/
+    getch();
+
+    // in order to clear 
+    // the terminal screen
+    system("cls");
+
+    printf("\n");
+
+    for(i = 0; i < 80; i++)
+    {
+        printf("\xdb");
+    }
+    system("color 6b");
+
+    
+    for(i = 0; i < 80; i++)
+    {
+        printf("\xdb");
+    }
+    printf("\nEnter any key to start the program !! \n");
+    /*for(i = 0; i < 5; i++)
+    {
+        
+        Sleep(500);
+    }*/
+
+    fflush(stdin);
+
+    getch();
+
+    system("cls");
+
+    system("color 0f");
+
+    printf("\n\t\tEnter the current Month and Date: ");
+    scanf("%d %d", &mm, &dd);
+    mm = check_date(mm, dd);
+    start();
+}
+
+void add_new_record(int j)
+{
+    int differ, cdate, ddate, month = 0;
+    float ff;
+    char c = 'y';
+    // initially declaring the required 
+    // variables for the method
+    printf("\n\n");
+    printf(" YOU CAN ADD A NEW RECORD NOW !!");
+
+    // condition if the given argument
+    // is valued with 1
+    // i.e. if the value of j
+    // is 1, then the data will
+    // be belonging to a student
+    if(j == 1)
+    {
+        // iteration is initiated 
+        // so that the statements 
+        // can be repeated until the
+        // condition fails
+
+        while (c == 'Y' || c == 'y')
+        {
+            // if y is given
+            // whether capital or
+            // small alphabet " f "
+            int a = 1;
+            printf("\n");
+            // taking the input of
+            // name of the student
+            printf(" Enter the full name of the student:");
+            fflush(stdin);
+            scanf("%[^\n]",student.n);
+
+            // taking the input 
+            // of the class of the 
+            // new student
+            printf(" Enter the class: ");
+            fflush(stdin);
+            scanf("%2d", &student.c);
+            printf(" Enter the day and its month ");
+            printf("until which the fee is already paid");
+            fflush(stdin);
+            scanf("%2d %2d", &cdate, &ddate);
+            cdate = check_date(cdate, ddate);
+            student.dt.m = cdate;
+            ff = student.c / 10.0;
+            student.f = 1000 * (1 + ff);
+            differ =  mm - student.dt.m;
+            student.fine = (differ * student.f) * 1 / 100;
+            student.due = (differ) * student.f;
+            if(differ == 1)
+            {
+                student.tot = student.f;
+                student.fine = 0;
+            }
+            else
+            {
+                student.tot = student.fine + student.due;
+            }
+            fs = fopen(" student "," ab+ "); 
+            fwrite(&student , sizeof(student), 1, fs);
+            fclose(fs);
+       printf("\n\n Will you continue ");
+            printf("with the process? Y or N");
+
+            fflush(stdin);
+            c = getch();
+        }
+        getch();
+    }
+    if (j == 2)
+    {
+        while(c == 'y'||c == 'Y')
+        {
+            int a = 1;
+            printf("\n\n Enter the name of the ");
+            printf("faculty or non-teaching staff");
+            fflush(stdin);
+            scanf(" %[^\n]", teacher.n);
+            printf("\n Enter the faculty ");
+            printf("or non-teaching staff id:");
+            fflush(stdin);
+            scanf(" %d", &teacher.id);
+            printf("\n Enter the number of classes ");
+            printf("or shifts in a month: ");
+            scanf(" %d", &teacher.no);
+            fflush(stdin);
+            printf("\n Enter the day and month until ");
+            printf("which the salary is paid:");
+            scanf(" %d %d", &teacher.dt.m, &teacher.dt.d);
+            cdate = check_date(cdate, ddate);
+            teacher.dt.m = cdate;
+            teacher.sal = teacher.no * 500;
+            teacher.adv = (teacher.dt.m - mm - 1) * teacher.sal;
+            if (teacher.adv < 0) 
+            {
+                teacher.adv = 0;
+            }
+            teacher.tot = teacher.sal;
+            ft = fopen("teacher","ab+");
+            fwrite(&teacher, sizeof(teacher), 1, ft);
+            fclose(ft);
+            printf("\n\n Will you continue ");
+            printf("with the process? Y or N");
+            fflush(stdin);
+            c = getch();
+        }
+        fflush(stdin);
+        printf("\n\n");
+        system("pause");
+    }
+}
+
+void find_record(int j)
+{
+    // consider the required
+    // variables and declare them
+    char sname[50],tname[50];
+    int a = 1, choice;
+    char c = 'y';
+    // check the condition for which 
+    // the records must be searched
+    // condition verification regarding
+    // the student details
+    // or faculty details
+
+    // if the student data is 
+    // supposed to be searched
+    if (j == 1)
+    {
+        // while the user replies
+        // yes to continue
+        while(c == 'Y'||c == 'y')
+        {
+            int a = 1;
+            
+            printf("\n\n\t\t How do you want to search?");
+            printf("\n\n\t\t 1. Want to search by name:");
+            printf("\n\n\t\t 2. Want to search by class:");
+            printf("\n\n\t\t 3. Want to search by roll number:");
+            printf("\n\n\t\t 4. Exit");
+            printf("\n\n\t\t Enter your desired choice: ");
+            fflush(stdin);
+            scanf("%d", &choice);
+            // if the user wants to
+            // search the record by name
+            // of the student
+            if (choice == 1)
+            {
+                a = 1;
+                printf("\n\n Enter the name of the ");
+                printf("student that you want to find: ");
+                fflush(stdin);
+                // scanning the name of the student
+                scanf("%[^\n]", sname);
+                fs=fopen(" student "," rb ");
+                while(fread(&student, sizeof(student), 1, fs) == 1)
+                {
+                    if (strcmp(sname, student.n) == 0)
+                    {
+                        a = 0;
+                        printf("\n Name of the student is %s", student.n);
+                        printf("\n Class of the student is %d", student.c);
+                        printf("\n The roll number of the student is %d", student.r);
+                        printf("\n Monthly fee of the student is %.2f",student.f);
+                        printf("\n Fee paid previously is in the month %2d",student.dt.m);
+                        printf("\n Due left is %.2f",student.due);
+                        printf("\n Fine to be paid is %.2f",student.fine);
+                        printf("\n Total is %.2f\n\n", student.tot);
+                    }
+                }
+                if (a == 1)
+                    printf("\n\n The record that you ");
+                    printf("are searching for is not found.\n\n");
+                system("pause");
+                fflush(stdin);
+                fclose(fs);
+            }
+            // if the user wants to 
+            // search the record by using
+            // the class of the student
+            else if (choice == 2)
+            {
+                int cl;
+                a = 1;
+                printf("\n\n Enter the class of the student ");
+                printf("in order to find his or her details: ");
+                fflush(stdin);
+                cl = clscanf();
+                fs = fopen(" student "," rb ");
+                while(fread(&student, sizeof(student), 1, fs) == 1)
+                {
+                    if (student.c == cl)
+                    {
+                        a  = 0;
+                        printf("\n Name of the student is %s", student.n);
+                        printf("\n Class of the student is %d", student.c);
+                        printf("\n The roll number of the student is %d", student.r);
+                        printf("\n Monthly fee of the student is %.2f",student.f);
+                        printf("\n Fee paid previously is in the month %2d",student.dt.m);
+                        printf("\n Due left is %.2f",student.due);
+                        printf("\n Fine to be paid is %.2f",student.fine);
+                        printf("\n Total is %.2f",student.tot);
+                    }
+                }
+                if (a == 1)
+                    printf("\n\n The record that you are ");
+                    printf("searching for is not found.\n\n");
+                system("pause");
+                fflush(stdin);
+                fclose(fs);
+            }
+            // if the user wants to 
+            // search the record by using
+            // the roll number of the student
+            else if (choice == 3)
+            {
+                int roll;
+                a = 1;
+                printf("\n\n Enter the roll number of the ");
+                printf("student in order to find the details: ");
+                fflush(stdin);
+                roll = clscanf();
+                fs = fopen(" student "," rb ");
+                while(fread(&student, sizeof(student), 1, fs) == 1)
+                {
+                    if (roll == student.r)
+                    {
+                        a = 0;
+                        printf("\n Name of the student is %s", student.n);
+                        printf("\n Class of the student is %d", student.c);
+                        printf("\n The roll number of the student is %d", student.r);
+                        printf("\n Monthly fee of the student is %.2f",student.f);
+                        printf("\n Fee paid previously is in the month %2d",student.dt.m);
+                        printf("\n Due left is %.2f",student.due);
+                        printf("\n Fine to be paid is %.2f",student.fine);
+                        printf("\nTotal is %.2f",student.tot);
+                    }
+                }
+                if (a == 1)
+                    printf("\n\n The record that you are ");
+                    printf("searching for is not found.\n\n");
+                system("pause");
+                fflush(stdin);
+                fclose(fs);
+            }
+            // if the user desires 
+            // to exit 
+            else if(choice == 4)
+            {
+                exiting();
+            }
+            else
+            {
+                printf("\n\n\n\t\t The given input is invalid.\n\n\t\t");
+                system("pause");
+                find_record(1);
+            }
+            printf("\n\n If you want to continue, then press y or Y");
+            fflush(stdin);
+            c = getch();
+        }
+        getch();
+    }
+
+    // if the faculty data or 
+    // non-teaching staff data is 
+    // supposed to be searched
+    if (j == 2)
+    {
+        while(c  == 'Y'||c == 'y')
+        {
+            int a=1;
+            printf("\n\n Enter the name of the ");
+            printf("faculty or non-teaching staff ");
+            printf("to find their details: ");
+            fflush(stdin);
+            scanf("%[^\n]", tname);
+            ft=fopen(" teacher "," rb ");
+            while(fread(&teacher, sizeof(teacher), 1, ft) == 1)
+            {
+                // checking the condition
+                // whether the given input matches
+                // any of the data or record
+                // by checking with the corresponding 
+                // name of the faculty 
+                // or non-teaching staff
+                if (strcmp(tname, teacher.n) == 0)
+                {
+                    a = 0;
+                    printf("\n The name of the teacher is %s", teacher.n);
+                    printf("\n The id of the teacher is %d", teacher.id);
+                    printf("\n Last month when the salary is paid is %d", teacher.dt.m);
+                    printf("\n The salary that is paid per month is %.2f", teacher.sal);
+                    printf("\n The advance salary paid is %.2f",teacher.adv);
+                }
+            }
+            if (a == 1)
+                printf("\n\n The record that you are searching ");
+                printf("for is not found.");
+            printf("\n\n");
+            system("pause");
+            fflush(stdin);
+            fclose(ft);
+            printf("\n\n If you still want to continue ");
+            printf("with the process, then press Y or y");
+            fflush(stdin);
+            c=getch();
+        }
+        getch();
+    }
+
+}
+
+
+void update(int j)
+{
+    // consider the required
+    // variables in order to perform 
+    // the function or method
+
+    // name of the record
+    // either student or faculty
+    // or non-teaching staff
+    char name[50];
+    int a = 1;
+
+    int choice, cl, roll;
+    char c = 'y';
+
+    // if the user wants to
+    // modify the details of 
+    // the student
+    // then he or she must
+    // choose j as 1
+    if ( j == 1 )
+    {
+        // a loop that repeats 
+        // until the process is 
+        // completed and the base
+        // condition becomes false
+        while( c == 'y' || c == 'Y' )
+        {
+            system("cls");
+            printf(" You can modify the record now!! ");
+            printf("\n\n\t\t Choose the type of ");
+            printf("modification that you want to perform.");
+            printf("\n\n\t\t 1. Modify by the name");
+            printf(" of the student ");
+            printf("\n\n\t\t 2. Modify by the name ");
+            printf("and class of the student ");
+            printf("\n\n\t\t 3. Modify by the name, ");
+            printf("roll number and class of the student ");
+            printf("\n\n\t\t 4. Exit ");
+            printf("\n\n\t\t Out of the above options, ");
+            printf("enter one choice number: ");
+            fflush(stdin);
+            scanf(" %d", &choice);
+            // if the user chooses 
+            // to modify the details
+            // using name of the student
+            if ( choice == 1 )
+            {
+                int a = 0;
+                printf("\n\n Enter the name of the student");
+                printf(" that you want to modify: ");
+                fflush(stdin);
+                // scanning the name of 
+                // the student
+                scanf(" %[^\n]",name);
+                fs=fopen("student","rb+");
+                while( fread(&student, sizeof(student), 1, fs) == 1 )
+                {
+                    a=1;
+                    if ( strcmp(name, student.n) == 0 )
+                    {
+                        a=0;
+                        printf("\n Enter the new name of the student");
+                        printf(" that you want to modify: ");
+                        fflush(stdin);
+                        // scanning the new name
+                        // of the student
+                        scanf(" %[^\n]",student.n);
+                        printf("\n Enter the new class of the student");
+                        printf(" that you want to modify: ");
+                        fflush(stdin);
+                        // scanning and modifying the
+                        // new class of the student
+                        student.c = clscanf();
+                        printf("\n Enter the new roll number ");
+                        printf("of the student that you want to modify: ");
+                        fflush(stdin);
+                        // scanning the new roll  
+                        // number of the student 
+                        scanf("%d", &student.r);
+                        fseek(fs, sizeof(student), SEEK_CUR);
+                        fwrite(&student, sizeof(student), 1, fs);
+                        fclose(fs);
+                    }
+                }
+                if ( a == 1 )
+                {
+                    printf("\n\n The record that you ");
+                    printf("are searching for is not ");
+                    printf("found !!");
+                }
+                    
+                else
+                {
+                    printf("\n\n The chosen records are ");
+                    printf("successfully modified !!");
+                }
+                    
+                printf("\n\n");
+                system("pause");
+            }
+            // if the user chooses 
+            // to modify the details
+            // using name and class 
+            // of the student
+            else if ( choice == 2 )
+            {
+                int a = 0;
+                printf("\n\n Enter the name of the student ");
+                printf("that you want to modify: ");
+                fflush(stdin);
+                // scanning the name of the
+                // student that you want to
+                // modify
+                scanf(" %[^\n]",name);
+                printf("\n\n Enter the class of the student ");
+                printf("that you want to modify: ");
+                fflush(stdin);
+                // scanning the class of the 
+                // student that you want to
+                // modify
+                cl=clscanf();
+                fs=fopen(" student "," rb+ ");
+                while( fread(&student, sizeof(student), 1, fs) == 1 )
+                {
+                    a=1;
+                    if ( strcmp(name, student.n) == 0 && cl == student.c )
+                    {
+                        a=0;
+                        printf("\n Enter the new name of the student ");
+                        printf("that you want to modify: ");
+                        fflush(stdin);
+                        // scanning the new name of the 
+                        // student that you want to
+                        // modify
+                        scanf("%[^\n]", student.n);
+                        printf("\n Enter the new class of the student ");
+                        printf("that you want to modify: ");
+                        fflush(stdin);
+                        // scanning the new class of the 
+                        // student that you want to
+                        // modify
+                        student.c = clscanf();
+                        printf("\n Enter the new roll number of ");
+                        printf("the student that you want to modify: ");
+                        fflush(stdin);
+                        // scanning the new roll number 
+                        // of the student that you want 
+                        // to modify
+                        scanf("%d", &student.r);
+                        fseek(fs, sizeof(student), SEEK_CUR);
+                        fwrite(&student, sizeof(student), 1, fs);
+                        fclose(fs);
+                    }
+                }
+                if ( a == 1 )
+                {
+                    printf("\n\n The record that you ");
+                    printf("are searching for is not ");
+                    printf("found !!");
+                }
+                    
+                else
+                {
+                    printf("\n\n The chosen records are ");
+                    printf("successfully modified !!");
+                }
+                    
+                printf("\n\n");
+                system("pause");
+            }
+            // if the user chooses 
+            // to modify the details
+            // using name, class and 
+            // roll number of the student
+            else if ( choice == 3 )
+            {
+                int a = 0;
+                printf("\n\n Enter the name of the student ");
+                printf("that you want to modify: ");
+                fflush(stdin);
+                // scanning the name of the
+                // student that you want to
+                // modify
+                scanf(" %[^\n]",name);
+                printf("\n\n Enter the class of the student ");
+                printf("that you want to modify: ");
+                fflush(stdin);
+                // scanning the class of the 
+                // student that you want to
+                // modify
+                cl = clscanf();
+                printf("\n\n Enter the roll number of the ");
+                printf("student that you want to modify: ");
+                fflush(stdin);
+                // scanning the roll number of the 
+                // student that you want to
+                // modify
+                scanf("%d", &roll);
+                fs=fopen(" student "," rb+ ");
+                while( fread(&student, sizeof(student), 1, fs) == 1 )
+                {
+                    a = 1;
+                    if (strcmp(name, student.n) == 0 && cl == student.c && roll == student.r)
+                    {
+                        a = 0;
+                        printf("\n Enter the new name of the student ");
+                        printf("that you want to modify: ");
+                        // fflush(stdin);
+                        // scanning the new name of the 
+                        // student that you want to
+                        // modify
+                        scanf(" %[^\n]",student.n);
+                        printf("\n Enter the new class of the student ");
+                        printf("that you want to modify: ");
+                        fflush(stdin);
+                        // scanning the new class of the 
+                        // student that you want to
+                        // modify
+                        student.c = clscanf();
+                        printf("\n Enter the new roll number of ");
+                        printf("the student that you want to modify: ");
+                        fflush(stdin);
+                        // scanning the new roll number 
+                        // of the student that you want 
+                        // to modify
+                        scanf("%d", &student.r);
+                        fseek(fs, sizeof(student), SEEK_CUR);
+                        fwrite(&student, sizeof(student), 1, fs);
+                        fclose(fs);
+                    }
+                }
+                if (a == 1)
+                {
+                    printf("\n\n The record that you ");
+                    printf("are searching for is not ");
+                    printf("found !!");
+                }
+                    
+                else
+                {
+                    printf("\n\n The chosen records are ");
+                    printf("successfully modified !!");
+                }
+                    
+                printf("\n\n");
+                system("pause");
+            }
+            // if the user chooses to exit
+            // from the portal
+            else if (choice == 4)
+                exiting(0);
+
+            // if an invalid entry
+            // is given
+            else
+            {
+                printf("\n\n\n\t\t The given input for choice ");
+                printf("is not valid\n\n\t\t");
+                system("pause");
+                update(1);
+            }
+
+            printf("\n\n If you still wish to continue with ");
+            printf("the above process the press y or Y");
+            fflush(stdin);
+            c=getch();
+        }
+        getch();
+    }
+    // if the user wants to
+    // modify the details of 
+    // the faculty or 
+    // non-teaching staff,
+    // then he or she must
+    // choose j as 2
+    if ( j == 2 )
+    {
+        while( c == 'y' || c == 'Y' )
+        {
+            int a=1;
+            printf(" Enter the name of the faculty");
+            printf(" or the non-teaching staff");
+            printf(" that you want to modify: ");
+            fflush(stdin);
+            // scanning the name of the
+            // faculty or the 
+            // non-teaching staff
+            scanf("%[^\n]", name);
+            ft = fopen(" teacher "," rb+ ");
+            while( fread(&teacher, sizeof(teacher), 1, ft) == 1)
+            {
+                if ( strcmp(name, teacher.n) == 0)
+                {
+                    a=0;
+                    printf("\n Enter the new name of ");
+                    printf("the faculty or non-teaching");
+                    printf(" staff that you want to modify: ");
+                    fflush(stdin);
+                    // scanning the new name of the faculty
+                    // or the non-teaching staff
+                    scanf("%[^\n]", teacher.n);
+                    printf("\n Enter the new id of the ");
+                    printf("faculty or the non-teaching");
+                    printf(" faculty that you want to modify: ");
+                    fflush(stdin);
+                    // scanning the new id of the faculty
+                    // or the non-teaching staff
+                    scanf("%d", &teacher.id);
+                    fseek(ft, sizeof(teacher), SEEK_CUR);
+                    fwrite(&teacher, sizeof(teacher), 1, ft);
+                    fclose(ft);
+                }
+            }
+
+            if (a == 1)
+            {
+                printf("\n\n The record that you ");
+                printf("are searching for is not ");
+                printf("found !!");
+            }
+                
+                else
+                {
+                    printf("\n\n The chosen records are ");
+                    printf("successfully modified !!");
+                }
+                    
+                printf("\n\n");
+            system("pause");
+            fflush(stdin);
+
+            printf("\n\n If you still wish to continue with ");
+            printf("the above process the press y or Y");
+            fflush(stdin);
+            c = getch();
+        }
+        getch();
+    }
+}
+
+void delete_record(int j)
+{
+    system("cls");
+    
+    printf("You have entered the deletion block !!");
+    // declare and define the 
+    // required variables
+    // for performing deletion
+    // operation
+
+    // name of the record
+    // either student or faculty
+    // or non-teaching staff
+    FILE *temp, *t1;
+    int a = 1;
+    char name[50], c = 'y';
+
+    // if the user wants to
+    // delete the details of 
+    // the student
+    // then he or she must
+    // choose j as 1
+    if ( j == 1 )
+    {
+        // a loop that repeats 
+        // until the process is 
+        // completed and the base
+        // condition becomes false
+        while(c == 'y' || c == 'Y' )
+        {
+            int a = 1;
+            printf("\n\n Enter the name of student ");
+            printf("whose record you want to delete: ");
+            fflush(stdin);
+
+            // scanning the name of the
+            // student
+            scanf(" %[^\n]", name);
+
+            // opening the file in read mode
+            fs = fopen("student", "rb");
+
+            // consider a temp variable
+            // which is set to open the file
+            // in write mode
+            temp = fopen(" tempfile ", " wb ");
+
+            // when the name of the student 
+            // entered is equal to one of the 
+            // names that are present within
+            // the records
+            while ( fread(&student, sizeof(student), 1, fs) == 1 )
+            {
+                // deleting the student's record
+                // if the details are matched with
+                // the found record
+                if ( strcmp(student.n, name) == 0 )
+                {
+                    a = 0;
+                    continue;
+                }
+                else
+                {
+                    fwrite(&student, sizeof(student), 1,  temp);
+                }
+            }
+            // if any record is not
+            // yet deleted
+            if ( a == 1 )
+            {
+                printf("\n\n The record that you are");
+                printf(" searching for is not found !!");
+            }
+                
+            else
+            {
+                printf("\n\n The deletion of record ");
+                printf(" is completed successfully !!");
+            }
+                
+            printf("\n\n");
+            system("pause");
+            fflush(stdin);
+
+            fclose(fs);
+            fclose(temp);
+            system("del student");
+
+            // the data that is supposed to
+            // be deleted is initially stored
+            // in a temporary variable " temp "
+            // which is further lead to deletion
+            system("ren tempfile, student");
+       //renaming temp to student
+            printf("\n\n If you still wish to continue with the process, press y or Y");
+            fflush(stdin);
+            c = getch();
+        }
+        getch();
+    }
+    // if the user wants to
+    // delete the details of 
+    // the faculty or
+    // non-teaching staff, 
+    // then he or she must
+    // choose j as 2
+    if ( j == 2 )
+    {
+        a = 1;
+        char namet[50];
+        while( c == 'y' || c == 'Y' )
+        {
+            printf("\n\n Enter the name of the ");
+            printf("faculty or non-teaching ");
+            printf("staff that you want to delete: ");
+            fflush(stdin);
+            // scanning the name of 
+            // the faculty or non-teaching
+            // staff
+            scanf("%[^\n]", namet);
+
+            ft=fopen(" teacher ", " rb ");
+            t1=fopen(" tempfile1 ", " wb ");
+            while ( fread(&teacher, sizeof(teacher), 1, ft) == 1 )
+            {
+                if ( strcmp(teacher.n, namet) == 0 )
+                {
+                    a = 0;
+                    continue;
+                }
+                else
+                {
+                    fwrite(&teacher, sizeof(teacher), 1, t1);
+                }
+            }
+
+            if ( a == 1 )
+            {
+                printf("\n\n The record that you are");
+                printf(" searching for is not found !! ");
+            }
+                
+            else
+            {
+                printf("\n\n The deletion of the record");
+                printf(" is completed successfully !! ");
+            }
+                
+            printf("\n\n");
+            system("pause");
+            fflush(stdin);
+
+            fclose(ft);
+            fclose(t1);
+            system("del teacher");
+            system("ren tempfile1, teacher");
+            printf("\n\n If you still wish to continue with the process, press y or Y");
+            fflush(stdin);
+            c = getch();
+        }
+        getch();
+    }
+}
+
+void find_record_salary(int mm)
+{
+    system("cls");
+    
+    // consider the required
+    // variables in order to perform 
+    // the function or method
+
+    
+    FILE *f, *t;
+    int a = 1, day;
+
+    // name of the record
+    // either faculty record
+    // or non-teaching staff
+    // record
+    char name[50], c = 'y';
+    int month, differ, id;
+
+    // a loop that repeats 
+    // until the process is 
+    // completed and the base
+    // condition becomes false
+    while(c == 'y'|| c == 'Y')
+    {
+        int a = 1;
+        fflush(stdin);
+        printf("\n\n Enter the name ");
+        printf("of the faulty or ");
+        printf("non-teaching staff record: ");
+
+        // scanning the name 
+        // of the faculty record
+        // or the non-teaching
+        // staff record
+        scanf(" %[^\n]", name);
+        printf("\n\n Enter the id of the ");
+        printf("faculty record or non-teaching");
+        printf(" staff record: ");
+
+        // scanning the id of the
+        // faculty record or
+        // non-teaching staff record
+        scanf(" %d",&id);
+
+        f = fopen(" teacher "," rb+ ");
+        t=fopen(" te "," wb+ ");
+
+        // through the below base condition
+        // within the while loop,
+        // the file is successfully opened
+        while(fread(&teacher, sizeof(teacher), 1, f) == 1)
+        {
+            // the name that is entered through
+            // the input is verified and compared
+            // with the existing names within the 
+            // database of records
+            if(strcmp(teacher.n, name) == 0 )
+            {
+                float lsal;
+                a = 0;
+                printf("\n\n Enter the month in which ");
+                printf("the last salary is paid");
+                fflush(stdin);
+
+                // scanning the month in which the
+                // last salary is paid
+                scanf("%d", &month);
+
+                // the month is assigned with
+                // the method calling, i.e.,
+                // check_date method 
+                // with two parameters, i.e., month 
+                // and day
+                month = check_date(month, day);
+
+                // the advance that is already
+                // given to the staff
+                // is being calculated here
+                teacher.adv = (month - mm - 1) * teacher.sal;
+                if (teacher.adv < 0)
+                {
+                    teacher.adv = 0;
+                }
+
+                // the month where last
+                // salary is paid and no.
+                // of months the salary must 
+                // be paid
+                lsal = mm - teacher.dt.m;
+
+                if(lsal < 0)
+                {
+                    lsal = 0;
+                }
+                teacher.tot = teacher.adv + teacher.sal * (1 + lsal);
+                if(month == teacher.dt.m) 
+                {
+                    teacher.tot = 0;
+                }
+                printf("\n The left over monthly salary that is");
+                printf(" supposed to be paid is %.2f",lsal);
+
+                printf("\n The total salary is %.2f",teacher.tot);
+                printf("\n The advance salary given is %.2f",teacher.adv);
+                teacher.dt.m = month;
+                fwrite(&teacher, sizeof(teacher), 1, t);
+                fclose(f);
+                fclose(t);
+
+                if (a == 1)
+                {
+                    printf("\n\n The record that you are");
+                    printf(" searching for is not found !!");
+                }
+                else
+                {
+                    printf("\n\n The salary details ");
+                    printf("have been accurately printed !!");
+                }
+                    
+                printf("\n\n");
+                system("pause");
+                fflush(stdin);
+                system("del teacher");
+                system("ren te, teacher");
+            }
+        }
+        printf("\n\n If you still wish to continue, press y or Y");
+        fflush(stdin);
+        c = getch();
+    }
+    getch();
+}
+
+void find_record_fee(int mm)
+{
+    // consider the required
+    // variables in order to perform 
+    // the function or method
+    
+    FILE *f, *t;
+    int a = 0;
+
+    // name of the student
+    // record
+    char name[50], c = 'y';
+    int class, roll, month, differ;
+
+    // a loop that repeats 
+    // until the process is 
+    // completed and the base
+    // condition becomes false
+    while(c == 'y' || c == 'Y')
+    {
+        int a = 1, day = 0;
+        fflush(stdin);
+        printf("\n\n Enter the name of ");
+        printf("the student that you want ");
+        printf("to find the fee details: ");
+
+        // scanning the name 
+        // of the student record
+        scanf("%[^\n]",name);         
+        printf("\n\n Enter the class of the ");
+        printf("student that you want to find");
+        printf(" the fee details: ");
+        fflush(stdin);
+
+        // scanning the class
+        // of the student record
+        class = clscanf();
+
+        printf("\n\n Enter the roll number ");
+        printf("of the student that you want to find");
+        printf(" the fee details: ");
+        fflush(stdin);
+
+        // scanning the roll number 
+        // of the student record
+        scanf("%d", &roll);
+
+        // opening the student file
+        // in read mode
+        f = fopen("student","rb+");
+
+        // write mode
+        t = fopen("te","wb");
+
+        // through the below base condition
+        // within the while loop,
+        // the file is successfully opened
+        while(fread(&student, sizeof(student), 1, f) == 1)
+        {
+            // the name, class and roll number
+            // that is entered through
+            // the input is verified and compared
+            // with the existing names within the 
+            // database of records
+            if(strcmp(student.n, name) == 0 && class == student.c && roll == student.r)
+            {
+                a = 0;
+                printf("\n\n Enter the last month upto ");
+                printf("which the fee is paid: ");
+                fflush(stdin);
+
+                // scanning the month
+                // in which the last 
+                // fee is paid
+                scanf("%d", &month);
+
+                month = check_date(month, day);
+                differ = mm - student.dt.m;
+                student.fine = (differ * student.f) * 0.01;
+                student.due = (differ) * student.f;
+                if (student.fine < 0)
+                {
+                    student.fine = 0;
+                } 
+                if (student.due < 0)
+                {
+                    student.due = 0;
+                } 
+                if (student.tot < 0)
+                {
+                    student.tot=0;
+                } 
+                student.tot = student.fine + student.due + student.adv;
+                printf("\n The fine that");
+                printf(" the student is supposed to pay is");
+                printf(" %.2f", student.fine);
+                printf("\n The left due that");
+                printf(" the student is supposed to pay is");
+                printf(" %.2f", student.due);
+                printf("\n The total amount that");
+                printf(" the student is supposed to pay is");
+                printf(" %.2f", student.tot);
+                printf("\n The advance amount that");
+                printf(" the student has already paid is");
+                printf(" %.2f", student.adv);
+                student.dt.m = month;
+                student.tot = 0;
+                student.fine = 0;
+                student.due = 0;
+                fwrite(&student, sizeof(student), 1, t);
+            }
+        }
+        if (a == 1)
+        {
+            printf("\n\n The record that you are");
+            printf("searching for is not found !!");
+        }
+            
+        printf("\n\n");
+        system("pause");
+        fflush(stdin);
+
+        fclose(f);
+        fclose(t);
+        system("del student");
+        system("ren te, student");
+        printf("\n\n If you still wish to continue the process, press y or Y");
+        fflush(stdin);
+        c = getch();
+    }
+    getch();
+}
+
+int check_date(int month, int date)
+{
+    // consider the required
+    // variables in order to perform 
+    // the function or method
+    int mon, day;
+
+    // the condition defines that the month
+    // less than or equal to 12 and greater
+    // than or equal to 1
+    // Similarly, date is greater than
+    // or equal to 1 and less than 
+    // or equal to 31
+
+    // if any one of the above 
+    // conditions are failed
+    // the method enters the if condition
+    // and prints that the entered
+    // date is invalid
+    if (month > 12 || month < 1 || date < 1 || date > 31)
+    {
+        
+
+        fflush(stdin);
+        scanf("%d %d", &mon, &day);
+        mon = check_date(mon, day);
+    }
+    else
+        return (month);
+}
+
+int clscanf()
+{
+
+    // declare the required 
+    // variables
+    int month, mon;
+    fflush(stdin);
+
+    // scanning the month 
+    scanf("%d", &month);
+    if (month > 12 || month < 1)
+    {
+
+       
+        fflush(stdin);
+        mon = clscanf();
+    }
+    else
+        return month;
+}   
+
+void exiting()
+{
+    // declaring the required
+    // variables
+    int i;
+
+    system("color 0c");
+    printf("\n\n\t\t You have chosen to");
+    printf(" exit from the program\n\n");
+    printf("\n\n\t\t Thank you !!\n\n");
+
+    system("pause");
+    system("cls");
+
+    printf("\n\n\t\t\t Exiting from the program\n\n");
+
+    // loop declaration
+    // in order to 
+    // perform wait operation
+    for(i = 1; i <= 80; i++)
+    {
+        //Sleep(50);
+        printf("*");
+    }
+    exit(0);
+}
+</textarea></div>
+<p>The above program is the combination of all the methods that are discussed previously, which are slightly modified according to the program requirements. The output of this program will be a window raised with several statements that are requested by the user. Let us run the program and have the output.</p>
+<p><strong>The output of the above program:</strong></p>
+<p>The below picture demonstrates the interface of the program as soon as it's running.</p>
+<img src="https://static.javatpoint.com/cpages/images/school-billing-system-in-c.jpg" alt="School Billing System in C" />
+<p>After this window appears on the screen, you can confirm that the code started running and the process is successful. When you see this screen, then press any key in order to continue with the further process.</p>
+<img src="https://static.javatpoint.com/cpages/images/school-billing-system-in-c2.jpg" alt="School Billing System in C" />
+<p>For another confirmation, the user is asked to enter any key on the second screen also. After the user enters a key, this screen disappears, and the below screen will be displayed.</p>
+<img src="https://static.javatpoint.com/cpages/images/school-billing-system-in-c3.jpg" alt="School Billing System in C" />
+<p>As shown in the above screen, the current month and date will be asked, and the user must enter the date and month likewise.</p>
+<img src="https://static.javatpoint.com/cpages/images/school-billing-system-in-c4.jpg" alt="School Billing System in C" />
+<p>The above picture demonstrates the screen that shows these options in which the type of account must be selected. As the user wanted to choose the student account, the user entered 1. After entering one, the options that are mentioned below will be displayed.</p>
+<img src="https://static.javatpoint.com/cpages/images/school-billing-system-in-c5.jpg" alt="School Billing System in C" />
+<p>Out of the given options that are related to the student account, one option must be chosen and entered. Initially, a record must be added to the internal database. So the option " Add a record " must be chosen, and its respective serial number, i.e., 1, must be entered.</p>
+<img src="https://static.javatpoint.com/cpages/images/school-billing-system-in-c6.jpg" alt="School Billing System in C" />
+<p>The respective details of the student have been entered. After the details are entered, again, the student account is selected and the option " Find a record " is chosen in order to check whether the previously entered information is stored or not.</p>
+<img src="https://static.javatpoint.com/cpages/images/school-billing-system-in-c7.jpg" alt="School Billing System in C" />
+<p>When the choice of input 2 is entered, then the system will be ready to search for a record when some of its credentials are given. So, the way in which the user prefers to find the record will be asked. If the user desires to search the record using its name, then he/she can choose option 1.</p>
+<img src="https://static.javatpoint.com/cpages/images/school-billing-system-in-c8.jpg" alt="School Billing System in C" />
+<p>After the user chooses 1 as their choice, then the below screen will be displayed. The name of the student must be given as input in order to find his / her details.</p>
+<img src="https://static.javatpoint.com/cpages/images/school-billing-system-in-c9.jpg" alt="School Billing System in C" />
+<br>
+<img src="https://static.javatpoint.com/cpages/images/school-billing-system-in-c10.jpg" alt="School Billing System in C" />
+<p>When the name is given as input and entered, then the details of that particular student will be displayed, as shown in the above picture. In the same way, the school billing system program works with the teacher accounts also.</p>
+<p>If the user wants to continue with the process, then a request will be raised regarding the confirmation of the program's execution. If the user desires to continue, he or she must press " y " or " Y " to continue. If any other key is entered, then the execution of the program will be stopped and will be exited. This is how the School Billing System program in C works.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="banking-account-system-in-c-using-file-handling.html">Banking Account System in C using File handling</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="local-labels-in-c.html">&larr; prev</a>
+<a style="float:right" class="next" href="banking-account-system-in-c-using-file-handling.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="cea8ababaaacafada58ea4afb8afbabea1a7a0bae0ada1a3">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/school-billing-system-in-c"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/school-billing-system-in-c"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/school-billing-system-in-c"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+  </div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+  </div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b1d9c3f1dbd0c7d0c5c1ded8dfc59fd2dedc">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="cda5bf8da7acbbacb9bda2a4a3b9e3aea2a0e3">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/school-billing-system-in-c by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:09:52 GMT -->
+</html> 

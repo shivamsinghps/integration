@@ -1,0 +1,1830 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/tetris-game-in-java by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:36:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Tetris Game in Java - Javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Tetris Game in Java - Javatpoint" /><meta property="og:description" content="Tetris Game in Java with java tutorial, features, history, variables, programs, operators, oops concept, array, string, map, math, methods, examples etc." />
+<meta name="keywords" content="java tutorial, features, history, variables, object, class, programs, operators, swith, for-loop, if-else, oops concept, inheritance, array, string, map, math, methods, examples" /><meta name="description" content="Tetris Game in Java with java tutorial, features, history, variables, programs, operators, oops concept, array, string, map, math, methods, examples etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="tetris-game-in-java.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Tetris Game in Java - Javatpoint" /><meta name="twitter:description" property="og:description" content="Tetris Game in Java with java tutorial, features, history, variables, programs, operators, oops concept, array, string, map, math, methods, examples etc." /><meta property="og:url" content="tetris-game-in-java.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div id="smoothmenu1" class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="java-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/java.png" alt="java" /> Java</a></li>
+<li><a href="java-programs.html"><img src="https://static.javatpoint.com/images/icon/java-program.png" alt="java programs" /> Programs</a></li>
+<li><a href="java-oops-concepts.html"><img src="https://static.javatpoint.com/images/icon/oops.png" alt="oops" /> OOPs</a></li>
+<li><a href="java-string.html"><img src="https://static.javatpoint.com/images/icon/string.png" alt="String" /> String</a></li>
+<li><a href="exception-handling-in-java.html"><img src="https://static.javatpoint.com/images/icon/exception.png" alt="Exception" /> Exception</a></li>
+<li><a href="multithreading-in-java.html"><img src="https://static.javatpoint.com/images/icon/multithreading.png" alt="Multithreading" /> Multithreading</a></li>
+<li><a href="collections-in-java.html"><img src="https://static.javatpoint.com/images/icon/collection.png" alt="Collections" /> Collections</a></li>
+<li><a href="javafx-tutorial.html"><img src="https://static.javatpoint.com/images/icon/javafx.png" alt="javafx" /> JavaFX</a></li>
+<li><a href="jsp-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jsp.png" alt="jsp" /> JSP</a></li>
+<li><a href="spring-tutorial.html"><img src="https://static.javatpoint.com/images/icon/spring.png" alt="spring" /> Spring</a></li>
+<li><a href="spring-boot-tutorial.html"><img src="https://static.javatpoint.com/images/icon/spring-boot.png" alt="Spring Boot" /> Spring Boot</a></li>
+<li><a href="free-java-projects.html"><img src="https://static.javatpoint.com/images/icon/projects.png" alt="Projects" /> Projects</a></li>
+<li><a href="corejava-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="interview questions" /> Interview Questions</a>
+</li>
+</ul>
+<br style="clear: left" />
+</div>
+</div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="java-tutorial.html">What is Java</a>
+<a href="history-of-java.html">History of Java </a>
+<a href="features-of-java.html">Features of Java </a>
+<a href="cpp-vs-java.html">C++ vs Java </a>
+<a href="simple-program-of-java.html">Hello Java Program</a>
+<a href="internal-details-of-hello-java-program.html">Program Internal</a>
+<a href="how-to-set-path-in-java.html">How to set path? </a>
+<a href="difference-between-jdk-jre-and-jvm.html">JDK, JRE and JVM </a>
+<a href="jvm-java-virtual-machine.html">JVM: Java Virtual Machine </a>
+<a href="java-variables.html">Java Variables</a>
+<a href="java-data-types.html">Java Data Types</a>
+<a href="unicode-system-in-java.html">Unicode System </a>
+
+<a href="operators-in-java.html">Operators </a>
+<a href="java-keywords.html">Keywords </a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Control Statements</span></h2>
+</div>
+<div class="leftmenu">
+<a href="control-flow-in-java.html">Java Control Statements</a>
+<a href="java-if-else.html">Java If-else</a>
+<a href="java-switch.html">Java Switch</a>
+<a href="java-for-loop.html">Java For Loop</a>
+<a href="java-while-loop.html">Java While Loop</a>
+<a href="java-do-while-loop.html">Java Do While Loop</a>
+<a href="java-break.html">Java Break</a>
+<a href="java-continue.html">Java Continue</a>
+<a href="java-comments.html">Java Comments</a>
+<a href="java-programs.html">Java Programs </a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Object Class</span></h2>
+</div>
+<div class="leftmenu">
+<a href="java-oops-concepts.html" class="l1">Java OOPs Concepts</a>
+<a href="java-naming-conventions.html" class="l1">Naming Convention</a>
+<a href="object-and-class-in-java.html" class="l1">Object and Class</a>
+<a href="method-in-java.html" class="l1">Method</a>
+<a href="java-constructor.html" class="l1">Constructor</a>
+<a href="static-keyword-in-java.html" class="l1">static keyword </a>
+<a href="this-keyword.html" class="l1">this keyword</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Inheritance</span></h2>
+</div>
+<div class="leftmenu">
+<a href="inheritance-in-java.html" class="l1">Inheritance(IS-A)</a>
+<a href="aggregation-in-java.html" class="l1">Aggregation(HAS-A)</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Polymorphism</span></h2>
+</div>
+<div class="leftmenu">
+<a href="method-overloading-in-java.html" class="l1">Method Overloading</a>
+<a href="method-overriding-in-java.html" class="l1">Method Overriding</a>
+<a href="covariant-return-type.html" class="l1">Covariant Return Type</a>
+<a href="super-keyword.html" class="l1">super keyword</a>
+<a href="instance-initializer-block.html" class="l1">Instance Initializer block</a>
+<a href="final-keyword.html" class="l1">final keyword</a>
+<a href="runtime-polymorphism-in-java.html" class="l1">Runtime Polymorphism</a>
+<a href="static-binding-and-dynamic-binding.html" class="l1">Dynamic Binding</a>
+<a href="downcasting-with-instanceof-operator.html" class="l1">instanceof operator</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Abstraction</span></h2>
+</div>
+<div class="leftmenu">
+<a href="abstract-class-in-java.html" class="l1">Abstract class</a>
+<a href="interface-in-java.html" class="l1">Interface</a>
+<a href="difference-between-abstract-class-and-interface.html" class="l1">Abstract vs Interface</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Encapsulation</span></h2>
+</div>
+<div class="leftmenu">
+<a href="package.html" class="l1">Package</a>
+<a href="access-modifiers.html" class="l1">Access Modifiers</a>
+<a href="encapsulation.html" class="l1">Encapsulation</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Array</span></h2>
+</div>
+<div class="leftmenu">
+<a href="array-in-java.html" class="l1">Java Array</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java OOPs Misc</span></h2>
+</div>
+<div class="leftmenu">
+<a href="object-class.html" class="l1">Object class </a>
+<a href="object-cloning.html" class="l1">Object Cloning</a>
+<a href="java-math.html" class="l1">Math class </a>
+<a href="wrapper-class-in-java.html" class="l1">Wrapper Class</a>
+<a href="recursion-in-java.html" class="l1">Java Recursion</a>
+<a href="call-by-value-and-call-by-reference-in-java.html" class="l1">Call By Value </a>
+<a href="strictfp-keyword.html" class="l1">strictfp keyword</a>
+<a href="creating-api-document.html" class="l1">javadoc tool</a>
+<a href="command-line-argument.html" class="l1">Command Line Arg</a>
+<a href="difference-between-object-and-class.html" class="l1">Object vs Class</a>
+<a href="method-overloading-vs-method-overriding-in-java.html" class="l1">Overloading vs Overriding</a>
+</div>
+<div class="leftmenu2">
+<a href="java-string.html"><span>Java String</span></a>
+<a href="java-regex.html"><span>Java Regex</span></a>
+<a href="exception-handling-in-java.html"><span>Exception Handling</span></a>
+<a href="java-inner-class.html"><span>Java Inner classes</span></a>
+<a href="multithreading-in-java.html"><span>Java Multithreading</span></a>
+<a href="java-io.html"><span>Java I/O</span></a>
+<a href="java-networking.html"><span>Java Networking</span></a>
+<a href="java-awt.html"><span>Java AWT &amp; Events</span></a>
+<a href="java-swing.html"><span>Java Swing</span></a>
+<a href="javafx-tutorial.html"><span>JavaFX</span></a>
+<a href="java-applet.html"><span>Java Applet</span></a>
+<a href="java-reflection.html"><span>Java Reflection</span></a>
+<a href="java-date.html"><span>Java Date</span></a>
+<a href="java-string-to-int.html"><span>Java Conversion</span></a>
+<a href="collections-in-java.html"><span>Java Collection</span></a>
+<a href="java-jdbc.html"><span>Java JDBC</span></a>
+<a href="java-main-method.html"><span>Java Misc</span></a>
+<a href="New-features-in-java.html"><span>Java New Features</span></a>
+<a href="RMI.html"><span>RMI</span></a>
+<a href="internationalization-in-java.html"><span>Internationalization</span></a>
+<a href="corejava-interview-questions.html"><span>Interview Questions</span></a>
+<a href="java-mcq.html"><span>Java MCQ</span></a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="factorial-trailing-zeroes-in-java.html">next &rarr;</a>
+<a class="next" href="ordered-pair-in-java.html">&larr; prev</a>
+</div>
+<h1 class="h1">Tetris Game in Java</h1>
+<p>One of the most common computer games ever created is the Tetris game. Nowadays we can play this game on mobile too. The game was designed, as well as created by Alexey Pajitnov in 1985. He was a Russian Programmer. A lot of different variation has come to this game has come in the market. However, in this tutorial, we will be creating a basic Tetris game.</p>
+<p>Tetris game is known as a block puzzle falling game. In a Tetris game, we have a total of seven different shapes known as Tetrominoes. Those seven Tetrominoes are Line-shape, Z-shape, S-shape, L-shape, T-shape, Square-shape, and a Mirrored L-shape. All the mentioned shapes are composed of only four squares. The shapes will fall down the board. The aim of a player playing the Tetris game is to rotate and move shapes so that they get fit as much as they can. If a complete row is formed, that row is destroyed, and the score is incremented. Until we top out, the Tetris game is played.</p>
+<p><strong>FileName:</strong> Window.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+// important import statement
+import javax.swing.JFrame;
+
+public class Window
+{
+
+// fields for width and height of the frame
+// these fields should never be changed knowingly or 
+// unknowingly across the whole program. Hence, they 
+// are declared as final
+public static final int WIDTH = 445; 
+public static final int HEIGHT = 629;
+
+private Board boardObj;
+private Title titleObj;
+private JFrame windowFrame;
+
+public Window()
+{
+
+// creating an object of the class JFrame
+windowFrame = new JFrame("Tetris");
+// setting the width and height
+windowFrame.setSize(WIDTH, HEIGHT);
+
+// after pressing the x button the frame should close
+windowFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+windowFrame.setLocationRelativeTo(null);
+windowFrame.setResizable(false);	
+
+// creating a new object of the class Board
+boardObj = new Board();
+// creating a new Title Object
+titleObj = new Title(this);
+
+// addinng the key listener
+windowFrame.addKeyListener(boardObj);
+
+// adding the mousemotion listener
+windowFrame.addMouseMotionListener(titleObj);
+
+// adding the mouse listener
+windowFrame.addMouseListener(titleObj);
+
+windowFrame.add(titleObj);
+
+// setting the visibility to true
+windowFrame.setVisible(true);
+}
+
+public void startTetris()
+{
+windowFrame.remove(titleObj);
+windowFrame.addMouseMotionListener(boardObj);
+windowFrame.addMouseListener(boardObj);
+windowFrame.add(boardObj);
+boardObj.sttGame();
+windowFrame.revalidate();
+}
+
+// main method
+public static void main(String[] argvs) 
+{
+
+
+// creating an anonymous object of the class Window
+new Window();
+}
+
+}
+</textarea></div>
+<p><strong>FileName:</strong> Title.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+// important import statements
+import java.awt.Graphics;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.Rectangle;
+import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.awt.image.BufferedImage;
+import javax.swing.JPanel;
+import javax.imageio.ImageIO;
+import javax.swing.Timer;
+
+public class Title extends JPanel implements MouseMotionListener, MouseListener
+{
+
+private static final long serialVerUID = 1L;
+
+// for x and y coordinates
+private int mousX, mousY;
+private Rectangle bnds;
+private boolean lftClick = false;
+private BufferedImage ttle;
+private BufferedImage instt;
+private BufferedImage ply;
+private Window win;
+private BufferedImage[] playBtn = new BufferedImage[2];
+private Timer tmr;
+
+
+public Title(Window win)
+{
+try 
+{
+ttle = ImageIO.read(Board.class.getResource("/Title.png" ));
+instt = ImageIO.read(Board.class.getResource("/arrow.png" ));
+ply = ImageIO.read(Board.class.getResource("/play.png" ));
+} 
+catch (IOException obj) 
+{
+obj.printStackTrace();
+}
+tmr = new Timer(1000 / 60, new ActionListener()
+{
+
+@Override
+public void actionPerformed(ActionEvent ae) 
+{
+repaint();
+}
+
+});
+tmr.start();
+mousX = 0;
+mousY = 0;
+
+playBtn[0] = ply.getSubimage(0, 0, 100, 80);
+playBtn[1] = ply.getSubimage(100, 0, 100, 80);
+
+bnds = new Rectangle(Window.WIDTH / 2 - 50, Window.HEIGHT / 2 - 100, 100, 80);
+this.win = win;
+
+
+
+}
+
+public void paintComponent(Graphics gr)
+{
+super.paintComponent(gr);
+
+if(lftClick && bnds.contains(mousX, mousY))
+{
+win.startTetris();
+}
+
+gr.setColor(Color.BLACK);
+
+gr.fillRect(0, 0, Window.WIDTH, Window.HEIGHT);
+
+gr.drawImage(ttle, Window.WIDTH / 2 - ttle.getWidth() / 2, Window.HEIGHT / 2 - ttle.getHeight() / 2 - 200, null);
+gr.drawImage(instt, Window.WIDTH / 2 - instt.getWidth() / 2, Window.HEIGHT / 2 - instt.getHeight() / 2 + 150, null);
+
+if(bnds.contains(mousX, mousY))
+{
+gr.drawImage(playBtn[0], Window.WIDTH / 2 - 50, Window.HEIGHT / 2 - 100, null);
+}
+else
+{
+gr.drawImage(playBtn[1], Window.WIDTH / 2 - 50, Window.HEIGHT / 2 - 100, null);
+}
+
+
+}
+
+// methods of various events
+@Override
+public void mouseClicked(MouseEvent me) 
+{	
+}
+
+@Override
+public void mousePressed(MouseEvent me) 
+{
+if(me.getButton() == MouseEvent.BUTTON1)
+{
+lftClick = true;
+}
+}
+
+@Override
+public void mouseReleased(MouseEvent me) 
+{
+if(me.getButton() == MouseEvent.BUTTON1)
+{
+lftClick = false;
+}
+}
+
+@Override
+public void mouseEntered(MouseEvent me) 
+{
+
+}
+
+@Override
+public void mouseExited(MouseEvent me) 
+{
+}
+
+@Override
+public void mouseDragged(MouseEvent me) 
+{
+mousX = me.getX();
+mousY = me.getY();
+}
+
+@Override
+public void mouseMoved(MouseEvent me) 
+{
+mousX = me.getX();
+mousY = me.getY();
+}	
+}
+</textarea></div>
+<p><strong>FileName:</strong> Board.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+// important import statements
+import java.awt.Color;
+import java.awt.BasicStroke;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.awt.event.MouseEvent;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.LineUnavailableException;
+import javax.swing.JPanel;
+import javax.imageio.ImageIO;
+import javax.swing.Timer;
+import javax.sound.sampled.Clip;
+
+public class Board extends JPanel implements KeyListener, MouseListener, MouseMotionListener
+{
+
+private static final long serialVerUID = 1L;
+
+private Clip msic;
+
+private BufferedImage blcks;
+private BufferedImage bkground;
+private BufferedImage paus;
+private BufferedImage rfresh;
+
+//the dimensions of the board (the area of playing the game)
+
+private final int brdHeight = 20;
+private final int brdWidth = 10;
+
+// the size of block used in the Tetris game
+
+private final int blckSize = 30;
+
+private int[][] board = new int[brdHeight][brdWidth];
+
+// array for all of the shapes that are possible in the game
+
+private Shape[] diffShapes = new Shape[7];
+
+// for the current shape
+
+private static Shape currShape;
+
+// for the next shape
+private static Shape nxtShape;
+
+// for the game loop
+
+private Timer timerLooper;
+
+private int FPS = 60;
+
+private int delay = 1000 / FPS;
+
+// variables for the mouse events
+
+private int mousX; 
+private int mousY; 
+
+private boolean lftClick = false;
+
+private Rectangle stpBounds;
+private Rectangle rfreshBounds;
+
+// a boolean fields that is true when the 
+// pause button is pressed
+private boolean gmPaused = false;
+
+// a boolean field that is true when the top
+// row is occupied
+private boolean gmOver = false;
+
+// buttons press lapse
+
+private Timer btnLapse = new Timer(300, new ActionListener()
+{
+
+@Override
+public void actionPerformed(ActionEvent ae) 
+{
+btnLapse.stop();
+}});
+
+// for handling the total score
+
+private int totalScore = 0;
+
+
+public Board()
+{
+// loading the Assets
+blcks = ImageLoader.loadImage("/tiles.png");
+
+bkground = ImageLoader.loadImage("/background.png");
+paus = ImageLoader.loadImage("/pause.png");
+rfresh = ImageLoader.loadImage("/refresh.png");
+
+msic = ImageLoader.loadMusic("/music.wav");
+
+msic.loop(Clip.LOOP_CONTINUOUSLY);
+
+mousX = 0;
+mousY = 0;
+
+stpBounds = new Rectangle(350, 500, paus.getWidth(), paus.getHeight() + paus.getHeight() / 2);
+rfreshBounds = new Rectangle(350, 500 - rfresh.getHeight() - 20, rfresh.getWidth(), rfresh.getHeight() + rfresh.getHeight() / 2);
+
+// creating the game timerLooper
+
+timerLooper = new Timer(delay, new GameLooper());
+
+// creating the differnt Tetrominoes 
+
+diffShapes[0] = new Shape(new int[][]
+{
+{1, 1, 1, 1}   // creating a linear shape
+}, blcks.getSubimage(0, 0, blckSize, blckSize), this, 1);
+
+diffShapes[1] = new Shape(new int[][]
+{
+{1, 1, 1},
+{0, 1, 0},   // creating a T shape
+}, blcks.getSubimage(blckSize, 0, blckSize, blckSize), this, 2);
+
+diffShapes[2] = new Shape(new int[][]
+{
+{1, 1, 1},
+{1, 0, 0},   // creating a L shape
+}, blcks.getSubimage(blckSize * 2, 0, blckSize, blckSize), this, 3);
+
+diffShapes[3] = new Shape(new int[][]{
+{1, 1, 1},
+{0, 0, 1},   // creating a J shape;
+}, blcks.getSubimage(blckSize * 3, 0, blckSize, blckSize), this, 4);
+
+diffShapes[4] = new Shape(new int[][]
+{
+{0, 1, 1},
+{1, 1, 0},   // creating a S shape;
+}, blcks.getSubimage(blckSize * 4, 0, blckSize, blckSize), this, 5);
+
+diffShapes[5] = new Shape(new int[][]
+{
+{1, 1, 0},
+{0, 1, 1},   // creating a Z shape;
+}, blcks.getSubimage(blckSize * 5, 0, blckSize, blckSize), this, 6);
+
+diffShapes[6] = new Shape(new int[][]
+{
+{1, 1},
+{1, 1},   // creating a square shape;
+}, blcks.getSubimage(blckSize * 6, 0, blckSize, blckSize), this, 7);
+
+
+}
+
+private void update()
+{	
+// pressing the pause button toggles the game state
+// if the the player is playing the game, then the game is paused
+// if the game is already paused, then the game starts
+if(stpBounds.contains(mousX, mousY) && lftClick && !btnLapse.isRunning() && !gmOver)
+{
+btnLapse.start();
+gmPaused = !gmPaused;
+}
+
+// pressing the refresh button starts the game from the beginning
+if(rfreshBounds.contains(mousX, mousY) && lftClick)
+{
+sttGame();
+}
+if(gmPaused || gmOver)
+{
+return;
+}
+currShape.update();
+}
+
+
+public void paintComponent(Graphics gr)
+{
+super.paintComponent(gr);
+
+gr.drawImage(bkground, 0, 0, null);
+
+
+for(int r = 0; r < board.length; r++)
+{
+for(int c = 0; c < board[r].length; c++)
+{
+
+if(board[r][c] != 0)
+{
+// drawing the tetromino that are currently residing on the board, after they have fall down
+gr.drawImage(blcks.getSubimage((board[r][c] - 1) * blckSize, 0, blckSize, blckSize), c * blckSize, r * blckSize, null);
+}				
+
+}
+}
+for(int r = 0; r < nxtShape.getCoords().length; r++)
+{
+for(int c = 0; c < nxtShape.getCoords()[0].length; c++)
+{
+if(nxtShape.getCoords()[r][c] != 0)
+{
+// drawing the next shape on the board, on the top right hand side
+gr.drawImage(nxtShape.getBlock(), c * 30 + 320, r * 30 + 50, null);	
+}
+}		
+}
+currShape.render(gr);
+
+if(stpBounds.contains(mousX, mousY))
+{
+gr.drawImage(paus.getScaledInstance(paus.getWidth() + 3, paus.getHeight() + 3, BufferedImage.SCALE_DEFAULT), stpBounds.x + 3, stpBounds.y + 3, null);
+}
+else
+{
+gr.drawImage(paus, stpBounds.x, stpBounds.y, null);
+}
+
+if(rfreshBounds.contains(mousX, mousY))
+{
+// when the mouse hovers over the refresh button, it shifts a bit 
+gr.drawImage(rfresh.getScaledInstance(rfresh.getWidth() + 3, rfresh.getHeight() + 3, BufferedImage.SCALE_DEFAULT), rfreshBounds.x + 3, rfreshBounds.y + 3, null);
+}
+else
+{
+// when the mouse goes away the refresh button, regains its place
+gr.drawImage(rfresh, rfreshBounds.x, rfreshBounds.y, null);
+}
+
+if(gmPaused)
+{
+// if the pause button is pressed 
+// game should be paused and the GAME PAUSED 
+// message is displayed on the screen
+String gmPausedString = "GAME PAUSED";
+
+// message is in the white color
+gr.setColor(Color.WHITE);
+
+// setting the font
+gr.setFont(new Font("Georgia", Font.BOLD, 30));
+
+// displaying the message
+gr.drawString(gmPausedString, 35, Window.HEIGHT / 2);
+}
+if(gmOver)
+{
+// when the Game is over, the GAME OVER message is displayed
+String gmOverString = "GAME OVER";
+// message is in the white color
+gr.setColor(Color.WHITE);
+
+// setting the font
+gr.setFont(new Font("Georgia", Font.BOLD, 30));
+
+// displaying the message
+gr.drawString(gmOverString, 50, Window.HEIGHT / 2);
+}	
+
+// color is white for displaying score
+gr.setColor(Color.WHITE);
+
+// font is Georgia for displaying the score
+gr.setFont(new Font("Georgia", Font.BOLD, 20));
+
+// displaying the String "SCORE"
+gr.drawString("SCORE", Window.WIDTH - 125, Window.HEIGHT / 2);
+
+// displaying the total score
+gr.drawString(totalScore + "", Window.WIDTH - 125, Window.HEIGHT / 2 + 30);
+
+Graphics2D gr2d = (Graphics2D)gr;
+
+gr2d.setStroke(new BasicStroke(2));
+gr2d.setColor(new Color(0, 0, 0, 100));
+
+// for drawing the horizontal lines across the board
+for(int i = 0; i <= brdHeight; i++)
+{
+gr2d.drawLine(0, i * blckSize, brdWidth * blckSize, i * blckSize);
+}
+
+// for drawing the vertical lines across the board
+for(int i = 0; i <= brdWidth; i++)
+{
+gr2d.drawLine(i * blckSize, 0, i * blckSize, brdHeight * 30);
+}
+}
+
+// a method that randomly determines the next Tetrominoes 
+// that is going to come in the game using the Math.random() method
+public void setNxtShape()
+{
+int idx = (int)(Math.random() * diffShapes.length);
+nxtShape = new Shape(diffShapes[idx].getCoords(), diffShapes[idx].getBlock(), this, diffShapes[idx].getColor());
+}
+
+
+public void setCurrShape()
+{
+// the next Tetromino found 
+// is the current shape
+currShape = nxtShape;
+setNxtShape();
+
+// We know that the current Tetromino will fall down and 
+// will occupy some of the playing area. Therefore, it 
+// is important to check whether the playing area is filled
+// upto the top row or not. If yes, then the game is over.
+for(int r = 0; r < currShape.getCoords().length; r++)
+{
+for(int c = 0; c < currShape.getCoords()[0].length; c++)
+{
+if(currShape.getCoords()[r][c] != 0)
+{
+if(board[currShape.getY() + r][currShape.getX() + c] != 0)
+{
+// if the control reaches here, then it means the game is over.
+gmOver = true;
+}
+}
+}		
+}
+
+}
+
+
+public int[][] getBoard()
+{
+return board;
+}
+
+@Override
+public void keyPressed(KeyEvent ke) 
+{
+if(ke.getKeyCode() == KeyEvent.VK_UP)
+{
+// for rotating the shape
+// up arrow key is pressed.
+currShape.rotateShape();
+}
+if(ke.getKeyCode() == KeyEvent.VK_RIGHT)
+{
+// for moving the Tetromino in the 
+// right direction, the right arrow key is pressed
+currShape.setDeltaX(1);
+}
+if(ke.getKeyCode() == KeyEvent.VK_LEFT)
+{
+// for moving the Tetromino in the 
+// left direction, the left arrow key is pressed
+currShape.setDeltaX(-1);
+}
+if(ke.getKeyCode() == KeyEvent.VK_DOWN)
+{
+
+// when the down arrow key is pressed and released,
+// the tetrominos will fall quickly towards
+// bottom
+currShape.speedUp();
+}
+}
+@Override
+public void keyReleased(KeyEvent ke) 
+{
+if(ke.getKeyCode() == KeyEvent.VK_DOWN)
+{
+// when the down arrow key is released
+// the speed with which the tetromino is falling down
+// goes back to the normal
+currShape.speedDown();
+}
+}
+
+@Override
+public void keyTyped(KeyEvent ke) 
+{
+
+}
+
+public void sttGame()
+{
+// start game occurs after the stop game.
+stpGame();
+
+// in the start game, next tetromino is determined
+// and the current tetromino is also determined
+setNxtShape();
+setCurrShape();
+// as the game is going to start, the gmOver variable is set to false
+// and the timer starts
+gmOver = false;
+timerLooper.start();
+
+}
+public void stpGame()
+{
+// in the stop game,
+// totalScore is set to zero,
+// and the playing aread is cleared
+totalScore = 0;
+
+for(int r = 0; r < board.length; r++)
+{
+for(int c = 0; c < board[r].length; c++)
+{
+board[r][c] = 0;
+}
+}
+timerLooper.stop();
+}
+
+
+class GameLooper implements ActionListener
+{
+
+@Override
+public void actionPerformed(ActionEvent ae) 
+{
+update();
+repaint();
+}
+
+}
+
+
+// getting the coordinates of the mouse events
+@Override
+public void mouseDragged(MouseEvent me) 
+{
+mousX = me.getX();
+mousY = me.getY();
+}
+
+@Override
+public void mouseMoved(MouseEvent me) 
+{
+mousX = me.getX();
+mousY = me.getY();
+}
+
+@Override
+public void mouseClicked(MouseEvent me) 
+{
+
+}
+
+@Override
+public void mousePressed(MouseEvent me) 
+{
+if(me.getButton() == MouseEvent.BUTTON1)
+{
+lftClick = true;
+}
+}
+
+@Override
+public void mouseReleased(MouseEvent me) 
+{
+if(me.getButton() == MouseEvent.BUTTON1)
+{
+lftClick = false;
+}
+}
+
+@Override
+public void mouseEntered(MouseEvent me) 
+{
+
+}
+
+@Override
+public void mouseExited(MouseEvent me) 
+{
+
+}
+
+// incrementing the total score by 1
+public void addScore()
+{
+totalScore = totalScore + 1;
+}
+
+}
+</textarea></div>
+<p><strong>FileName:</strong> ImageLoader.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+// important import statements
+import java.io.IOException;
+import java.awt.image.BufferedImage;
+import javax.sound.sampled.AudioSystem;
+import javax.imageio.ImageIO;
+import javax.sound.sampled.Clip;
+
+
+public class ImageLoader 
+{
+
+// method for loading the images
+public static BufferedImage loadImage(String strPath)
+{
+try 
+{
+System.out.println(strPath);
+return ImageIO.read(ImageLoader.class.getResource(strPath));
+} 
+catch (IOException obj) 
+{
+obj.printStackTrace();
+System.exit(1);
+}
+return null;
+
+}
+// method for loading the sound
+public static Clip loadMusic(String dir)
+{
+try
+{
+Clip clp = AudioSystem.getClip();
+clp.open(AudioSystem.getAudioInputStream(ImageLoader.class.getResource(dir)));
+return clp;
+}
+catch(Exception obj)
+{
+obj.printStackTrace();
+}
+return null;
+}
+}
+</textarea></div>
+<p><strong>FileName:</strong> Shape.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+// important import statements
+import java.awt.image.BufferedImage;
+import java.awt.Graphics;
+
+
+public class Shape 
+{
+
+// various fields of the class Shape
+private int color;
+
+private int x;
+private int y; 
+
+private long time;
+private long lastTime;
+
+private int nrml = 600;
+private int fst = 50;
+
+private int del;
+
+private BufferedImage blk;
+
+private int[][] coordinates;
+
+private int[][] ref;
+
+private int delX;
+
+private Board brd;
+
+// if the tetromino is collided, then the flag is true, otherwise false
+private boolean isCollided = false;
+private boolean movX = false;
+
+public Shape(int[][] coordinates, BufferedImage blk, Board brd, int color)
+{
+// constructor for initializing the fields
+this.coordinates = coordinates;
+this.blk = blk;
+this.brd = brd;
+this.color = color;
+delX = 0;
+x = 4;
+y = 0;
+del = nrml;
+time = 0;
+lastTime = System.currentTimeMillis();
+ref = new int[coordinates.length][coordinates[0].length];
+
+System.arraycopy(coordinates, 0, ref, 0, coordinates.length);
+
+}
+
+public void update()
+{
+// statements for moving the Tetrominoes from top to bottom
+movX = true;
+time = time + System.currentTimeMillis() - lastTime;
+lastTime = System.currentTimeMillis();
+
+// if the collision is true, then the position of the tetromino that
+// has fallen down recently, should be fixed on the playing area of the board
+if(isCollided)
+{
+for(int r = 0; r < coordinates.length; r++)
+{
+for(int c = 0; c < coordinates[0].length; c++)
+{
+if(coordinates[r][c] != 0)
+{
+brd.getBoard()[y + r][x + c] = color;
+}
+}
+}
+
+// after the position of the recently fell tetromino is fixed
+// we will determine the current shape that is going to fall down
+// also we will check for the completed lines (or rows). 
+checkLine();
+brd.setCurrShape();
+
+}
+
+
+
+// if we press the left arrow key or the right arrow key the
+// tetrominoes should move in the left or the right direction
+// In the if condition there are two sub conditions that are joined with &&
+// The first sub-condition is to check whether the tetrominoes is not going beyond the 
+// right side boundary and the second sub condition is for the left side boundary
+// The following code snippet will not work if the flag isCollided is true
+if(!(x + delX + coordinates[0].length > 10) && !(x + delX < 0))
+{
+
+// if the falling tetromino has reached the bottom or has
+// collided with the other tetromino then the tetromino should not move
+// hence movX is false
+for(int r = 0; r < coordinates.length; r++)
+{
+for(int c = 0; c < coordinates[r].length; c++)
+{
+if(coordinates[r][c] != 0)
+{
+if(brd.getBoard()[y + r][x + delX + c] != 0)
+{
+movX = false;
+}
+
+}
+}
+}
+
+if(movX)
+{
+// if move x is true, then we can move the tetromino 
+// in the left and the right direction
+x = x + delX;
+}
+
+}
+
+if(!(y + 1 + coordinates.length > 20))
+{
+
+for(int r = 0; r < coordinates.length; r++)
+{
+for(int c = 0; c < coordinates[r].length; c++)
+{
+if(coordinates[r][c] != 0)
+{	
+if(brd.getBoard()[y + 1 + r][x +  c] != 0)
+{
+// if the control reaches here, then it means
+// the the falling tetromino has collided with the other 
+// tetromino
+isCollided = true;
+}
+}
+}
+}
+
+if(time > del)
+{
+y = y + 1;
+time = 0;
+}
+}
+else
+{
+// if the control reaches here it means
+// the tetromino has collided with the bottom 
+// area of the board
+isCollided = true;
+}
+
+delX = 0;
+}
+
+public void render(Graphics gr)
+{
+
+for(int r = 0; r < coordinates.length; r++)
+{
+for(int col = 0; col < coordinates[0].length; col ++)
+{
+if(coordinates[r][col] != 0)
+{
+// for drawing the image of the falling tetromino on the playing area
+gr.drawImage(blk, col * 30 + x * 30, r * 30 + y * 30, null);	
+}
+}		
+}
+
+for(int r = 0; r < ref.length; r++)
+{
+for(int c = 0; c < ref[0].length; c++)
+{
+if(ref[r][r] != 0)
+{
+gr.drawImage(blk, c * 30 + 320, r * 30 + 160, null);	
+}	
+
+}
+
+}
+
+}
+
+// a method that checks for the completed (rows or lines)
+// if it finds the completed rows / lines it deletes those lines.
+private void checkLine()
+{
+int size = brd.getBoard().length - 1;
+
+for(int i = brd.getBoard().length - 1; i > 0; i--)
+{
+int count = 0;
+for(int j = 0; j < brd.getBoard()[0].length; j++)
+{
+if(brd.getBoard()[i][j] != 0)
+{
+// computing the block count that
+// are filled with the tetromino
+count = count + 1;
+}
+
+brd.getBoard()[size][j] = brd.getBoard()[i][j];
+}
+if(count < brd.getBoard()[0].length)
+{
+// deleting the completed row or line
+size  = size - 1;
+
+}
+
+// if all the blocks of a row is filled with the 
+// parts of tetrominoes, then we increment the score by 1
+if(count == brd.getBoard()[0].length)
+{
+brd.addScore();
+}
+}
+}
+
+// a method that handles the scenario, when we press the upward
+// key
+public void rotateShape()
+{
+
+int[][] rotatedShape = null;
+
+rotatedShape = transposeMatrix(coordinates);
+
+rotatedShape = reverseRows(rotatedShape);
+
+if((x + rotatedShape[0].length > 10) || (y + rotatedShape.length > 20))
+{
+return;
+}
+
+for(int row = 0; row < rotatedShape.length; row++)
+{
+for(int col = 0; col < rotatedShape[row].length; col ++)
+{
+if(rotatedShape[row][col] != 0)
+{
+if(brd.getBoard()[y + row][x + col] != 0)
+{
+return;
+}
+}
+}
+}
+coordinates = rotatedShape;
+}
+
+
+// The method comes into picture, when the up arrow is pressed
+// The method does transpose of the matrix
+private int[][] transposeMatrix(int[][] mtrx)
+{
+int[][] tmp = new int[mtrx[0].length][mtrx.length];
+for (int i = 0; i < mtrx.length; i++)
+{
+for (int j = 0; j < mtrx[0].length; j++)
+{
+tmp[j][i] = mtrx[i][j];
+}
+}
+return tmp;
+}
+
+
+// a method for reversing the rows of the matrix mtrx
+private int[][] reverseRows(int[][] mtrx)
+{
+
+int mdle = mtrx.length / 2;
+
+
+for(int i = 0; i < mdle; i++)
+{
+int[] tmp = mtrx[i];
+
+mtrx[i] = mtrx[mtrx.length - i - 1];
+mtrx[mtrx.length - i - 1] = tmp;
+}
+
+return mtrx;
+
+}
+
+
+// a method for retrieving the color
+public int getColor()
+{
+return color;
+}
+
+public void setDeltaX(int delX)
+{
+this.delX = delX;
+}
+
+// for speeding up the 
+// falling speed of the tetrominoes
+public void speedUp()
+{
+del = fst;
+}
+
+// for normal falling speed of the tetrominoes 
+public void speedDown()
+{
+del = nrml;
+}
+
+public BufferedImage getBlock()
+{
+return blk;
+}
+
+public int[][] getCoords()
+{
+return coordinates;
+}
+
+public int getX()
+{
+return x;
+}
+
+public int getY()
+{
+return y;
+}
+}
+</textarea></div>
+<h2 class="h2">Steps to Compile and Run the Game</h2>
+<p>The above-written program is not going to compile unless and until we provide assets to it. The audio file and the images have to be put along with the .java files. Observe the following.</p>
+<img src="https://static.javatpoint.com/core/images/tetris-game-in-java.png" alt="Tetris Game in Java" />
+<p>The Window.java file contains the main method. Therefore, it is the file we need compile. The file contains the code that invokes the constructor of the classes mentioned in the other files. Thus, compiling the Window.java file compiles the other files too. For running the game, use the command <em>java Window. </em>A few snapshots of the game is mentioned below.</p>
+<img src="https://static.javatpoint.com/core/images/tetris-game-in-java2.png" alt="Tetris Game in Java" />
+<br>
+<img src="https://static.javatpoint.com/core/images/tetris-game-in-java3.png" alt="Tetris Game in Java" />
+<br>
+<p><a href="https://static.javatpoint.com/core/download/Assests.rar">Download</a></p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="factorial-trailing-zeroes-in-java.html">Factorial Trailing Zeroes in Java</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="ordered-pair-in-java.html">&larr; prev</a>
+<a style="float:right" class="next" href="factorial-trailing-zeroes-in-java.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="f5939090919794969eb59f94839481859a9c9b81db969a98">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/tetris-game-in-java"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/tetris-game-in-java"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/tetris-game-in-java"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+ </div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+ <p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="afc7ddefc5ced9cedbdfc0c6c1db81ccc0c2">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="bfd7cdffd5dec9decbcfd0d6d1cb91dcd0d291">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/tetris-game-in-java by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:36:59 GMT -->
+</html> 

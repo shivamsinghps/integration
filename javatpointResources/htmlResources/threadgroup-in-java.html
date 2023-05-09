@@ -1,0 +1,1462 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/threadgroup-in-java by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:32:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Threadgroup in java - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Threadgroup in java - javatpoint" /><meta property="og:description" content="Java Threadgroup or Threadgroup in Java with example represents a group of thread that can be operated collectively with inheritance, polymorphism, abstraction, encapsulation, exception handling, multithreading, IO Streams, Networking, String, Regex, Collection, JDBC etc." />
+<meta name="keywords" content="java, threadgroup, example, multithreading, thread" /><meta name="description" content="Java Threadgroup or Threadgroup in Java with example represents a group of thread that can be operated collectively with inheritance, polymorphism, abstraction, encapsulation, exception handling, multithreading, IO Streams, Networking, String, Regex, Collection, JDBC etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="threadgroup-in-java.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Threadgroup in java - javatpoint" /><meta name="twitter:description" property="og:description" content="Java Threadgroup or Threadgroup in Java with example represents a group of thread that can be operated collectively with inheritance, polymorphism, abstraction, encapsulation, exception handling, multithreading, IO Streams, Networking, String, Regex, Collection, JDBC etc." /><meta property="og:url" content="threadgroup-in-java.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div id="smoothmenu1" class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="java-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/java.png" alt="java" /> Java</a></li>
+<li><a href="java-programs.html"><img src="https://static.javatpoint.com/images/icon/java-program.png" alt="java programs" /> Programs</a></li>
+<li><a href="java-oops-concepts.html"><img src="https://static.javatpoint.com/images/icon/oops.png" alt="oops" /> OOPs</a></li>
+<li><a href="java-string.html"><img src="https://static.javatpoint.com/images/icon/string.png" alt="String" /> String</a></li>
+<li><a href="exception-handling-in-java.html"><img src="https://static.javatpoint.com/images/icon/exception.png" alt="Exception" /> Exception</a></li>
+<li><a href="multithreading-in-java.html"><img src="https://static.javatpoint.com/images/icon/multithreading.png" alt="Multithreading" /> Multithreading</a></li>
+<li><a href="collections-in-java.html"><img src="https://static.javatpoint.com/images/icon/collection.png" alt="Collections" /> Collections</a></li>
+<li><a href="javafx-tutorial.html"><img src="https://static.javatpoint.com/images/icon/javafx.png" alt="javafx" /> JavaFX</a></li>
+<li><a href="jsp-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jsp.png" alt="jsp" /> JSP</a></li>
+<li><a href="spring-tutorial.html"><img src="https://static.javatpoint.com/images/icon/spring.png" alt="spring" /> Spring</a></li>
+<li><a href="spring-boot-tutorial.html"><img src="https://static.javatpoint.com/images/icon/spring-boot.png" alt="Spring Boot" /> Spring Boot</a></li>
+<li><a href="free-java-projects.html"><img src="https://static.javatpoint.com/images/icon/projects.png" alt="Projects" /> Projects</a></li>
+<li><a href="corejava-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="interview questions" /> Interview Questions</a>
+</li>
+</ul>
+<br style="clear: left" />
+</div>
+</div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<a href="java-tutorial.html"><span>Basics of Java </span></a>
+<a href="java-oops-concepts.html"><span>OOPs Concepts</span></a>
+<a href="java-string.html"><span>Java String</span></a>
+<a href="java-regex.html"><span>Java Regex</span></a>
+<a href="exception-handling-in-java.html"><span>Exception Handling</span></a>
+<a href="java-inner-class.html"><span>Java Inner classes</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Multithreading</span></h2>
+</div>
+<div class="leftmenu">
+<a href="multithreading-in-java.html">What is Multithreading</a>
+<a href="life-cycle-of-a-thread.html">Life Cycle of a Thread</a>
+<a href="how-to-create-a-thread-in-java.html">How to Create Thread</a>
+<a href="thread-scheduler-in-java.html">Thread Scheduler</a>
+<a href="thread-sleep-in-java.html">Sleeping a thread</a>
+<a href="can-we-start-a-thread-twice.html">Start a thread twice</a>
+<a href="what-if-we-call-java-run-method-directly.html">Calling run() method</a>
+<a href="java-join-method.html">Joining a thread</a>
+<a href="naming-a-thread-in-java.html">Naming a thread</a>
+<a href="priority-of-a-thread-in-java.html">Thread Priority</a>
+<a href="daemon-thread.html">Daemon Thread</a>
+<a href="java-thread-pool.html">Thread Pool</a>
+<a href="threadgroup-in-java.html">Thread Group</a>
+<a href="ShutdownHook-thread.html">ShutdownHook</a>
+<a href="multitasking-in-multithreading.html">Performing multiple task</a>
+<a href="Garbage-Collection.html">Garbage Collection</a>
+<a href="java-runtime-class.html">Runtime class</a>
+<a href="directloadf055.html?val=90">Multithreading quiz-1</a>
+<a href="directload27b8.html?val=91">Multithreading quiz-2</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java Synchronization</span></h2>
+</div>
+<div class="leftmenu">
+<a href="synchronization-in-java.html">Synchronization in java</a>
+<a href="synchronized-block-example.html">synchronized block</a>
+<a href="static-synchronization-example.html">static synchronization</a>
+<a href="deadlock-in-java.html">Deadlock in Java</a>
+<a href="inter-thread-communication-example.html">Inter-thread Comm</a>
+<a href="interrupting-a-thread.html">Interrupting Thread</a>
+<a href="reentrant-monitor-in-java.html">Reentrant Monitor</a>
+</div>
+<div class="leftmenu2">
+<a href="java-io.html"><span>Java I/O</span></a>
+<a href="java-networking.html"><span>Java Networking</span></a>
+<a href="java-awt.html"><span>Java AWT</span></a>
+<a href="java-swing.html"><span>Java Swing</span></a>
+<a href="javafx-tutorial.html"><span>JavaFX</span></a>
+<a href="java-applet.html"><span>Java Applet</span></a>
+<a href="java-reflection.html"><span>Java Reflection</span></a>
+<a href="java-date.html"><span>Java Date</span></a>
+<a href="java-string-to-int.html"><span>Java Conversion</span></a>
+<a href="collections-in-java.html"><span>Java Collection</span></a>
+<a href="java-jdbc.html"><span>Java JDBC</span></a>
+<a href="New-features-in-java.html"><span>Java New Features</span></a>
+<a href="RMI.html"><span>RMI</span></a>
+<a href="internationalization-in-java.html"><span>Internationalization</span></a>
+<a href="corejava-interview-questions.html"><span>Interview Questions</span></a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="ShutdownHook-thread.html">next &rarr;</a>
+<a class="next" href="java-thread-pool.html">&larr; prev</a>
+</div>
+<h1 class="h1">ThreadGroup in Java</h1>
+<p>Java provides a convenient way to group multiple threads in a single object. In such a way, we can suspend, resume or interrupt a group of threads by a single method call.</p>
+<h4 class="n">Note: Now suspend(), resume() and stop() methods are deprecated.</h4>
+<p>Java thread group is implemented by <em>java.lang.ThreadGroup</em> class.</p>
+<p>A ThreadGroup represents a set of threads. A thread group can also include the other thread group. The thread group creates a tree in which every thread group except the initial thread group has a parent. </p>
+<p>A thread is allowed to access information about its own thread group, but it cannot access the information about its thread group's parent thread group or any other thread groups.</p>
+<h2 class="h2">Constructors of ThreadGroup class</h2>
+<p>There are only two constructors of ThreadGroup class.</p>
+<table class="alt">
+<tr><th>No.</th><th>Constructor</th><th>Description</th></tr>
+<tr><td>1)</td><td>ThreadGroup(String name)</td><td>creates a thread group with given name.</td></tr>
+<tr><td>2)</td><td>ThreadGroup(ThreadGroup parent, String name)</td><td>creates a thread group with a given parent group and name.</td></tr>
+</table>
+<h2 class="h2">Methods of ThreadGroup class</h2>
+<p>There are many methods in ThreadGroup class. A list of ThreadGroup methods is given below.</p>
+<table class="alt">
+<tr>
+<th>S.N.</th>
+<th>Modifier and Type</th>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1)</td>
+<td>void</td>
+<td><a href="java-threadgroup-checkaccess-method.html">checkAccess()</a></td>
+<td>This method determines if the currently running thread has permission to modify the thread group.</td>
+</tr>
+<tr>
+<td>2)</td>
+<td>int</td>
+<td><a href="java-threadgroup-activecount-method.html">activeCount()</a></td>
+<td>This method returns an estimate of the number of active threads in the thread group and its subgroups.</td>
+</tr>
+<tr>
+<td>3)</td>
+<td>int</td>
+<td><a href="java-threadgroup-activegroupcount-method.html">activeGroupCount()</a></td>
+<td>This method returns an estimate of the number of active groups in the thread group and its subgroups.</td>
+</tr>
+<tr>
+<td>4)</td>
+<td>void</td>
+<td><a href="java-threadgroup-destroy-method.html">destroy()</a></td>
+<td>This method destroys the thread group and all of its subgroups.</td>
+</tr>
+<tr>
+<td>5)</td>
+<td>int</td>
+<td><a href="java-threadgroup-enumerate-method.html">enumerate(Thread[] list)</a></td>
+<td>This method copies into the specified array every active thread in the thread group and its subgroups.</td>
+</tr>
+<tr>
+<td>6)</td>
+<td>int</td>
+<td><a href="java-threadgroup-getmaxpriority-method.html">getMaxPriority()</a></td>
+<td>This method returns the maximum priority of the thread group.</td>
+</tr>
+<tr>
+<td>7)</td>
+<td>String</td>
+<td><a href="https://www.javatpoint.com/java-threadgroup-getname-method">getName()</a></td>
+<td>This method returns the name of the thread group.</td>
+</tr>
+<tr>
+<td>8)</td>
+<td>ThreadGroup</td>
+<td><a href="https://www.javatpoint.com/java-threadgroup-getparent-method">getParent()</a></td>
+<td>This method returns the parent of the thread group.</td>
+</tr>
+<tr>
+<td>9)</td>
+<td>void</td>
+<td><a href="https://www.javatpoint.com/java-threadgroup-interrupt-method">interrupt()</a></td>
+<td>This method interrupts all threads in the thread group.</td>
+</tr>
+<tr>
+<td>10)</td>
+<td>boolean</td>
+<td><a href="https://www.javatpoint.com/java-threadgroup-isdaemon-method">isDaemon()</a></td>
+<td>This method tests if the thread group is a daemon thread group.</td>
+</tr>
+<tr>
+<td>11)</td>
+<td>void</td>
+<td><a href="https://www.javatpoint.com/java-threadgroup-setdaemon-method">setDaemon(boolean daemon)</a></td>
+<td>This method changes the daemon status of the thread group.</td>
+</tr>
+<tr>
+<td>12)</td>
+<td>boolean</td>
+<td><a href="https://www.javatpoint.com/java-threadgroup-isdestroyed-method">isDestroyed()</a></td>
+<td>This method tests if this thread group has been destroyed.</td>
+</tr>
+<tr>
+<td>13)</td>
+<td>void</td>
+<td><a href="https://www.javatpoint.com/java-threadgroup-list-method">list()</a></td>
+<td>This method prints information about the thread group to the standard output.</td>
+</tr>
+<tr>
+<td>14)</td>
+<td>boolean</td>
+<td><a href="https://www.javatpoint.com/java-threadgroup-parentof-method">parentOf(ThreadGroup g</a></td>
+<td>This method tests if the thread group is either the thread group argument or one of its ancestor thread groups.</td>
+</tr>
+<tr>
+<td>15)</td>
+<td>void</td>
+<td><a href="https://www.javatpoint.com/java-threadgroup-suspend-method">suspend()</a></td>
+<td>This method is used to suspend all threads in the thread group.</td>
+</tr>
+<tr>
+<td>16)</td>
+<td>void</td>
+<td><a href="https://www.javatpoint.com/java-threadgroup-resume-method">resume()</a></td>
+<td>This method is used to resume all threads in the thread group which was suspended using suspend() method.</td>
+</tr>
+<tr>
+<td>17)</td>
+<td>void</td>
+<td><a href="https://www.javatpoint.com/java-threadgroup-setmaxpriority-method">setMaxPriority(int pri)</a></td>
+<td>This method sets the maximum priority of the group.</td>
+</tr>
+<tr>
+<td>18)</td>
+<td>void</td>
+<td><a href="https://www.javatpoint.com/java-threadgroup-stop-method">stop()</a></td>
+<td>This method is used to stop all threads in the thread group.</td>
+</tr>
+<tr>
+<td>19)</td>
+<td>String</td>
+<td><a href="https://www.javatpoint.com/java-threadgroup-tostring-method">toString()</a></td>
+<td>This method returns a string representation of the Thread group.</td>
+</tr>
+</table>
+<p>Let's see a code to group multiple threads.</p>
+<div class="codeblock"><textarea name="code" class="java">
+ThreadGroup tg1 = new ThreadGroup("Group A"); 
+Thread t1 = new Thread(tg1,new MyRunnable(),"one");   
+Thread t2 = new Thread(tg1,new MyRunnable(),"two");   
+Thread t3 = new Thread(tg1,new MyRunnable(),"three");  
+</textarea></div>
+<p>Now all 3 threads belong to one group. Here, tg1 is the thread group name, MyRunnable is the class that implements Runnable interface and "one", "two" and "three" are the thread names.</p>
+<p>Now we can interrupt all threads by a single line of code only.</p>
+<div class="codeblock"><textarea name="code" class="java">
+Thread.currentThread().getThreadGroup().interrupt();
+</textarea></div>
+<h2 class="h2">ThreadGroup Example</h2>
+<p class="filename">File: ThreadGroupDemo.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+public class ThreadGroupDemo implements Runnable{  
+    public void run() {  
+          System.out.println(Thread.currentThread().getName());  
+    }  
+   public static void main(String[] args) {  
+      ThreadGroupDemo runnable = new ThreadGroupDemo();  
+          ThreadGroup tg1 = new ThreadGroup("Parent ThreadGroup");  
+            
+          Thread t1 = new Thread(tg1, runnable,"one");  
+          t1.start();  
+          Thread t2 = new Thread(tg1, runnable,"two");  
+          t2.start();  
+          Thread t3 = new Thread(tg1, runnable,"three");  
+          t3.start();  
+               
+          System.out.println("Thread Group Name: "+tg1.getName());  
+         tg1.list();  
+  
+    }  
+   }  
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock"><pre>one
+two
+three
+Thread Group Name: Parent ThreadGroup
+java.lang.ThreadGroup[name=Parent ThreadGroup,maxpri=10]
+</pre></div>
+<h2 class="h2">Thread Pool Methods Example: int activeCount()</h2>
+<p>Let's see how one can use the method activeCount().</p>
+<p><strong>FileName:</strong> ActiveCountExample.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+// code that illustrates the activeCount() method
+
+// import statement
+import java.lang.*;
+
+
+class ThreadNew extends Thread
+{
+// constructor of the  class
+ThreadNew(String tName, ThreadGroup tgrp)
+{
+super(tgrp, tName);
+start();
+}
+
+// overriding the run method
+public void run()
+{
+
+for (int j = 0; j < 1000; j++)
+{
+try
+{
+Thread.sleep(5);
+}
+catch (InterruptedException e)
+{
+System.out.println("The exception has been encountered " + e);
+}
+}
+}
+}
+
+public class ActiveCountExample
+{
+// main method
+public static void main(String argvs[])
+{
+// creating the thread group
+ThreadGroup tg = new ThreadGroup("The parent group of threads");
+
+ThreadNew th1 = new ThreadNew("first", tg);
+System.out.println("Starting the first");
+
+ThreadNew th2 = new ThreadNew("second", tg);
+System.out.println("Starting the second");
+
+// checking the number of active thread by invoking the activeCount() method
+System.out.println("The total number of active threads are: " + tg.activeCount());
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock"><pre>Starting the first
+Starting the second
+The total number of active threads are: 2
+</pre></div>
+<h2 class="h2">Thread Pool Methods Example: int activeGroupCount()</h2>
+<p>Now, we will learn how one can use the activeGroupCount() method in the code.</p>
+<p><strong>FileName:</strong> ActiveGroupCountExample.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+// Java code illustrating the activeGroupCount() method
+
+// import statement
+import java.lang.*;
+
+
+class ThreadNew extends Thread
+{
+// constructor of the  class
+ThreadNew(String tName, ThreadGroup tgrp)
+{
+super(tgrp, tName);
+start();
+}
+
+// overriding the run() method
+public void run()
+{
+
+for (int j = 0; j < 100; j++)
+{
+try
+{
+Thread.sleep(5);
+}
+catch (InterruptedException e)
+{
+System.out.println("The exception has been encountered " + e);
+}
+
+}
+
+System.out.println(Thread.currentThread().getName() + " thread has finished executing");
+}
+}
+
+public class ActiveGroupCountExample
+{
+// main method
+public static void main(String argvs[])
+{
+// creating the thread group
+ThreadGroup tg = new ThreadGroup("The parent group of threads");
+
+ThreadGroup tg1 = new ThreadGroup(tg, "the child group");
+
+ThreadNew th1 = new ThreadNew("the first", tg);
+System.out.println("Starting the first");
+
+ThreadNew th2 = new ThreadNew("the second", tg);
+System.out.println("Starting the second");
+
+// checking the number of active thread by invoking the activeGroupCount() method
+System.out.println("The total number of active thread groups are: " + tg.activeGroupCount());
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock"><pre>Starting the first
+Starting the second
+The total number of active thread groups are: 1
+the second thread has finished executing
+the first thread has finished executing
+</pre></div>
+<h3 class="h3">Thread Pool Methods Example: void destroy()</h3>
+<p>Now, we will learn how one can use the destroy() method in the code.</p>
+<p><strong>FileName:</strong> DestroyExample.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+// Code illustrating the destroy() method
+
+// import statement
+import java.lang.*;
+
+
+class ThreadNew extends Thread
+{
+// constructor of the  class
+ThreadNew(String tName, ThreadGroup tgrp)
+{
+super(tgrp, tName);
+start();
+}
+
+// overriding the run() method
+public void run()
+{
+
+for (int j = 0; j < 100; j++)
+{
+try
+{
+Thread.sleep(5);
+}
+catch (InterruptedException e)
+{
+System.out.println("The exception has been encountered " + e);
+}
+
+}
+
+System.out.println(Thread.currentThread().getName() + " thread has finished executing");
+}
+}
+
+public class DestroyExample 
+{
+// main method
+public static void main(String argvs[]) throws SecurityException, InterruptedException
+{
+// creating the thread group
+ThreadGroup tg = new ThreadGroup("the parent group");
+
+ThreadGroup tg1 = new ThreadGroup(tg, "the child group");
+
+ThreadNew th1 = new ThreadNew("the first", tg);
+System.out.println("Starting the first");
+
+ThreadNew th2 = new ThreadNew("the second", tg);
+System.out.println("Starting the second");
+
+// waiting until the other threads has been finished
+th1.join();
+th2.join();
+
+// destroying the child thread group
+tg1.destroy();
+System.out.println(tg1.getName() + " is destroyed.");
+
+// destroying the parent thread group
+tg.destroy();
+System.out.println(tg.getName() + " is destroyed.");
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock"><pre>Starting the first
+Starting the second
+the first thread has finished executing
+the second thread has finished executing
+the child group is destroyed.
+the parent group is destroyed.
+</pre></div>
+<h2 class="h2">Thread Pool Methods Example: int enumerate()</h2>
+<p>Now, we will learn how one can use the enumerate() method in the code.</p>
+<p><strong>FileName:</strong> EnumerateExample.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+// Code illustrating the enumerate() method
+
+// import statement
+import java.lang.*;
+
+
+class ThreadNew extends Thread
+{
+// constructor of the class
+ThreadNew(String tName, ThreadGroup tgrp)
+{
+super(tgrp, tName);
+start();
+}
+
+// overriding the run() method
+public void run()
+{
+
+for (int j = 0; j < 100; j++)
+{
+try
+{
+Thread.sleep(5);
+}
+catch (InterruptedException e)
+{
+System.out.println("The exception has been encountered " + e);
+}
+
+}
+
+System.out.println(Thread.currentThread().getName() + " thread has finished executing");
+}
+}
+
+public class EnumerateExample 
+{
+// main method
+public static void main(String argvs[]) throws SecurityException, InterruptedException
+{
+// creating the thread group
+ThreadGroup tg = new ThreadGroup("the parent group");
+
+ThreadGroup tg1 = new ThreadGroup(tg, "the child group");
+
+ThreadNew th1 = new ThreadNew("the first", tg);
+System.out.println("Starting the first");
+
+ThreadNew th2 = new ThreadNew("the second", tg);
+System.out.println("Starting the second");
+
+// returning the number of threads kept in this array
+Thread[] grp = new Thread[tg.activeCount()];
+int cnt = tg.enumerate(grp);
+for (int j = 0; j < cnt; j++) 
+{
+System.out.println("Thread " + grp[j].getName() + " is found.");
+}
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock"><pre>Starting the first
+Starting the second
+Thread the first is found.
+Thread the second is found.
+the first thread has finished executing
+the second thread has finished executing
+</pre></div>
+<h2 class="h2">Thread Pool Methods Example: int getMaxPriority()</h2>
+<p>The following code shows the working of the getMaxPriority() method.</p>
+<p><strong>FileName:</strong> GetMaxPriorityExample.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+// Code illustrating the getMaxPriority() method
+
+// import statement
+import java.lang.*;
+
+
+class ThreadNew extends Thread
+{
+// constructor of the class
+ThreadNew(String tName, ThreadGroup tgrp)
+{
+super(tgrp, tName);
+start();
+}
+
+// overriding the run() method
+public void run()
+{
+
+for (int j = 0; j < 100; j++)
+{
+try
+{
+Thread.sleep(5);
+}
+catch (InterruptedException e)
+{
+System.out.println("The exception has been encountered " + e);
+}
+
+}
+
+System.out.println(Thread.currentThread().getName() + " thread has finished executing");
+}
+}
+
+public class GetMaxPriorityExample 
+{
+// main method
+public static void main(String argvs[]) throws SecurityException, InterruptedException
+{
+// creating the thread group
+ThreadGroup tg = new ThreadGroup("the parent group");
+
+ThreadGroup tg1 = new ThreadGroup(tg, "the child group");
+
+ThreadNew th1 = new ThreadNew("the first", tg);
+System.out.println("Starting the first");
+
+ThreadNew th2 = new ThreadNew("the second", tg);
+System.out.println("Starting the second");
+
+int priority = tg.getMaxPriority();
+
+System.out.println("The maximum priority of the parent ThreadGroup: " + priority);
+
+
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock"><pre>Starting the first
+Starting the second
+The maximum priority of the parent ThreadGroup: 10
+the first thread has finished executing
+the second thread has finished executing
+</pre></div>
+<h2 class="h2">Thread Pool Methods Example: ThreadGroup getParent()</h2>
+<p>Now, we will learn how one can use the getParent() method in the code.</p>
+<p><strong>FileName:</strong> GetParentExample.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+// Code illustrating the getParent() method
+
+// import statement
+import java.lang.*;
+
+
+class ThreadNew extends Thread
+{
+// constructor of the class
+ThreadNew(String tName, ThreadGroup tgrp)
+{
+super(tgrp, tName);
+start();
+}
+
+// overriding the run() method
+public void run()
+{
+
+for (int j = 0; j < 100; j++)
+{
+try
+{
+Thread.sleep(5);
+}
+catch (InterruptedException e)
+{
+System.out.println("The exception has been encountered" + e);
+}
+
+}
+
+System.out.println(Thread.currentThread().getName() + " thread has finished executing");
+}
+}
+
+public class GetMaxPriorityExample 
+{
+// main method
+public static void main(String argvs[]) throws SecurityException, InterruptedException
+{
+// creating the thread group
+ThreadGroup tg = new ThreadGroup("the parent group");
+
+ThreadGroup tg1 = new ThreadGroup(tg, "the child group");
+
+ThreadNew th1 = new ThreadNew("the first", tg);
+System.out.println("Starting the first");
+
+ThreadNew th2 = new ThreadNew("the second", tg);
+System.out.println("Starting the second");
+
+// printing the parent ThreadGroup 
+// of both child and parent threads
+System.out.println("The ParentThreadGroup for " + tg.getName() + " is " + tg.getParent().getName());
+System.out.println("The ParentThreadGroup for " + tg1.getName() + " is " + tg1.getParent().getName());
+
+
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock"><pre>Starting the first
+Starting the second
+The ParentThreadGroup for the parent group is main
+The ParentThreadGroup for the child group is the parent group
+the first thread has finished executing
+the second thread has finished executing
+</pre></div>
+<h2 class="h2">Thread Pool Methods Example: void interrupt()</h2>
+<p>The following program illustrates how one can use the interrupt() method.</p>
+<p><strong>FileName:</strong> InterruptExample.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+// Code illustrating the interrupt() method
+
+// import statement
+import java.lang.*;
+
+
+class ThreadNew extends Thread
+{
+// constructor of the class
+ThreadNew(String tName, ThreadGroup tgrp)
+{
+super(tgrp, tName);
+start();
+}
+
+// overriding the run() method
+public void run()
+{
+
+for (int j = 0; j < 100; j++)
+{
+try
+{
+Thread.sleep(5);
+}
+catch (InterruptedException e)
+{
+System.out.println("The exception has been encountered " + e);
+}
+
+}
+
+System.out.println(Thread.currentThread().getName() + " thread has finished executing");
+}
+}
+
+public class InterruptExample 
+{
+// main method
+public static void main(String argvs[]) throws SecurityException, InterruptedException
+{
+// creating the thread group
+ThreadGroup tg = new ThreadGroup("the parent group");
+
+ThreadGroup tg1 = new ThreadGroup(tg, "the child group");
+
+ThreadNew th1 = new ThreadNew("the first", tg);
+System.out.println("Starting the first");
+
+ThreadNew th2 = new ThreadNew("the second", tg);
+System.out.println("Starting the second");
+
+// invoking the interrupt method
+tg.interrupt();
+
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock"><pre>Starting the first
+Starting the second
+The exception has been encountered java.lang.InterruptedException: sleep interrupted
+The exception has been encountered java.lang.InterruptedException: sleep interrupted
+the second thread has finished executing
+the first thread has finished executing
+</pre></div>
+<h2 class="h2">Thread Pool Methods Example: boolean isDaemon()</h2>
+<p>The following program illustrates how one can use the isDaemon() method.</p>
+<p><strong>FileName:</strong> IsDaemonExample.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+// Code illustrating the isDaemon() method
+
+// import statement
+import java.lang.*;
+
+
+class ThreadNew extends Thread
+{
+// constructor of the class
+ThreadNew(String tName, ThreadGroup tgrp)
+{
+super(tgrp, tName);
+start();
+}
+
+// overriding the run() method
+public void run()
+{
+
+for (int j = 0; j < 100; j++)
+{
+try
+{
+Thread.sleep(5);
+}
+catch (InterruptedException e)
+{
+System.out.println("The exception has been encountered" + e);
+}
+
+}
+
+System.out.println(Thread.currentThread().getName() + " thread has finished executing");
+}
+}
+
+public class IsDaemonExample 
+{
+// main method
+public static void main(String argvs[]) throws SecurityException, InterruptedException
+{
+// creating the thread group
+ThreadGroup tg = new ThreadGroup("the parent group");
+
+ThreadGroup tg1 = new ThreadGroup(tg, "the child group");
+
+ThreadNew th1 = new ThreadNew("the first", tg);
+System.out.println("Starting the first");
+
+ThreadNew th2 = new ThreadNew("the second", tg);
+System.out.println("Starting the second");
+
+if (tg.isDaemon() == true)
+{
+System.out.println("The group is a daemon group.");
+}
+else
+{
+System.out.println("The group is not a daemon group.");
+}
+
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock"><pre>Starting the first
+Starting the second
+The group is not a daemon group.
+the second thread has finished executing
+the first thread has finished executing
+</pre></div>
+<h2 class="h2">Thread Pool Methods Example: boolean isDestroyed()</h2>
+<p>The following program illustrates how one can use the isDestroyed() method.</p>
+<p><strong>FileName:</strong> IsDestroyedExample.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+// Code illustrating the isDestroyed() method
+
+// import statement
+import java.lang.*;
+
+
+class ThreadNew extends Thread
+{
+// constructor of the class
+ThreadNew(String tName, ThreadGroup tgrp)
+{
+super(tgrp, tName);
+start();
+}
+
+// overriding the run() method
+public void run()
+{
+
+for (int j = 0; j < 100; j++)
+{
+try
+{
+Thread.sleep(5);
+}
+catch (InterruptedException e)
+{
+System.out.println("The exception has been encountered" + e);
+}
+
+}
+
+System.out.println(Thread.currentThread().getName() + " thread has finished executing");
+}
+}
+
+public class IsDestroyedExample 
+{
+// main method
+public static void main(String argvs[]) throws SecurityException, InterruptedException
+{
+// creating the thread group
+ThreadGroup tg = new ThreadGroup("the parent group");
+
+ThreadGroup tg1 = new ThreadGroup(tg, "the child group");
+
+ThreadNew th1 = new ThreadNew("the first", tg);
+System.out.println("Starting the first");
+
+ThreadNew th2 = new ThreadNew("the second", tg);
+System.out.println("Starting the second");
+
+if (tg.isDestroyed() == true)
+{
+System.out.println("The group has been destroyed.");
+}
+else
+{
+System.out.println("The group has not been destroyed.");
+}
+
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock"><pre>Starting the first
+Starting the second
+The group has not been destroyed.
+the first thread has finished executing
+the second thread has finished executing
+</pre></div>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="ShutdownHook-thread.html">ShutdownHook Thread in Java</a></span>
+</div>
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="java-thread-pool.html">&larr; prev</a>
+<a style="float:right" class="next" href="ShutdownHook-thread.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="284e4d4d4c4a494b436842495e495c584741465c064b4745">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/threadgroup-in-java"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/threadgroup-in-java"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/threadgroup-in-java"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+  <p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+ </a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+ </div>
+</a>
+ <a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="38504a7852594e594c485751564c165b5755">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="9bf3e9dbf1faedfaefebf4f2f5efb5f8f4f6b5">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/threadgroup-in-java by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:33:13 GMT -->
+</html> 

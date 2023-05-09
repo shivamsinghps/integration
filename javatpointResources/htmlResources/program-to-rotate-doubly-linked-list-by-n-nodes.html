@@ -1,0 +1,1229 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/program-to-rotate-doubly-linked-list-by-n-nodes by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:07:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Program to Rotate Doubly Linked List by N Nodes - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Program to Rotate Doubly Linked List by N Nodes - javatpoint" /><meta property="og:description" content="Program to Rotate Doubly Linked List by N Nodes on fibonacci, factorial, prime, armstrong, swap, reverse, search, sort, stack, queue, array, linkedlist, tree, graph etc." />
+<meta name="keywords" content="programs, programming examples, fibonacci, factorial, prime, armstrong, swap, reverse, search, sort, stack, queue, array, linkedlist, tree, graph" /><meta name="description" content="Program to Rotate Doubly Linked List by N Nodes on fibonacci, factorial, prime, armstrong, swap, reverse, search, sort, stack, queue, array, linkedlist, tree, graph etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="program-to-rotate-doubly-linked-list-by-n-nodes.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Program to Rotate Doubly Linked List by N Nodes - javatpoint" /><meta name="twitter:description" property="og:description" content="Program to Rotate Doubly Linked List by N Nodes on fibonacci, factorial, prime, armstrong, swap, reverse, search, sort, stack, queue, array, linkedlist, tree, graph etc." /><meta property="og:url" content="program-to-rotate-doubly-linked-list-by-n-nodes.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div id="smoothmenu1" class="ddsmoothmenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="programs-list.html" class="selected">Programs</a></li>
+<li><a href="c-programming-language-tutorial.html">C</a></li>
+<li><a href="cpp-tutorial.html">C++</a></li>
+<li><a href="c-sharp-tutorial.html">C#</a></li>
+<li><a href="java-tutorial.html">Java</a></li>
+<li><a href="servlet-tutorial.html">Servlet</a></li>
+<li><a href="jsp-tutorial.html">JSP</a></li>
+<li><a href="ejb-tutorial.html">EJB</a></li>
+<li><a href="struts-2-tutorial.html">Struts2</a></li>
+<li><a href="java-mail-api-tutorial.html">Mail</a></li>
+<li><a href="hibernate-tutorial.html">Hibernate</a></li>
+<li><a href="spring-tutorial.html">Spring</a></li>
+<li><a href="android-tutorial.html">Android</a></li>
+<li><a href="design-patterns-in-java.html">Design P</a></li>
+<li><a href="examaccess.html">Quiz</a></li>
+<li><a href="free-java-projects.html">Projects</a></li>
+<li><a href="corejava-interview-questions.html">Interview Q</a>
+<li><a href="comment.html">Comment</a>
+<li><a href="forum.html">Forum</a>
+<li><a href="training.html">Training</a>
+</li>
+</ul>
+<br style="clear: left" />
+</div>
+</div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Programs</span></h2>
+</div>
+<div class="leftmenu">
+<a href="programs-list.html#basic">Basic Programs</a>
+<a href="programs-list.html#number">Number Programs</a>
+<a href="programs-list.html#array">Array Programs</a>
+<a href="programs-list.html#matrix">Matrix Programs</a>
+<a href="programs-list.html#pattern">Pattern Programs</a>
+<a href="programs-list.html#string">String Programs</a>
+<a href="programs-list.html#tree">Tree Programs</a>
+<a href="programs-list.html#singly-linked-list">Singly Linked List</a>
+<a href="programs-list.html#circular-linked-list">Circular Linked List</a>
+<a href="programs-list.html#doubly-linked-list">Doubly Linked List</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="#">&rarr;next</a>
+<a class="next" href="#">&larr; prev</a>
+</div>
+<h2 class="h2">Q. Program to rotate doubly linked list by N nodes.</h2>
+<h3 class="h2">Explanation</h3>
+<p>In this program, we need to create a doubly linked list and rotate it by n node. This can be achieved by maintaining a pointer that starts from the head node and traverses the list until current points to the nth node. Move the list from head to the nth node and place it after tail. Now nth node will be the tail of the list and node next to nth node will be the new head. Here, n should always be greater than 0 but less than the size of the list.</p>
+<p>Original List:</p>
+<img src="https://static.javatpoint.com/programs/images/program-to-rotate-doubly-linked-list-by-n-nodes.png" alt="Program to rotate doubly linked list by N nodes" />
+<br>
+<p>List after rotating it by 3 nodes:</p>
+<img src="https://static.javatpoint.com/programs/images/program-to-rotate-doubly-linked-list-by-n-nodes2.png" alt="Program to rotate doubly linked list by N nodes" />
+<br>
+<p>In the above example, we need to rotate list by 3 nodes. First, we iterate through the list until current points to the 3rd node which is, in this case, are node 3. Move the list from node 1 to 3 and place it after tail. Now, node 4 will be new head and node 3 will be the new tail.</p>
+<h3 class="h2">Algorithm</h3>
+<ol class="points">
+<li>Define a Node class which represents a node in the list. It will have three properties: data, previous which will point to the previous node and next which will point to the next node.</li>
+<li>Define another class for creating the doubly linked list, and it has two nodes: head and tail. Initially, head and tail will point to null.</li>
+<li>addNode() will add node to the list:
+<ol class="pointsa">
+<li>It first checks whether the head is null, then it will insert the node as the head.</li>
+<li>Both head and tail will point to a newly added node.</li>
+<li>Head's previous pointer will point to null and tail's next pointer will point to null.</li>
+<li>If the head is not null, the new node will be inserted at the end of the list such that new node's previous pointer will point to tail.</li>
+<li>The new node will become the new tail. Tail's next pointer will point to null.</li>
+</ol></li>
+<li>rotateList() will rotate the list by given n nodes.
+<ol class="pointsa">
+<li>First, check whether n is 0 or greater than or equal to many nodes present in the list.</li>
+<li>If yes, print the list as it is.</li>
+<li>If no, define a node current which will point to head.</li>
+<li>Iterate through the list till current reaches the nth node.</li>
+<li>Tail's next will point to head node.</li>
+<li>Make node next to current as the new head. Head's previous will point to null.</li>
+<li>The current node will become tail of the list. Tail's next will point to null.</li>
+</ol></li>
+<li>display() will show all the nodes present in the list.
+<ol class="pointsa">
+<li>Define a new node 'current' that will point to the head. </li>
+<li>Print current.data till current points to null.</li>
+<li>Current will point to the next node in the list in each iteration.</li>
+</ol>
+</li>
+</ol>
+<hr />
+<h2 class="h2">Solution</h2>
+<h3 class="h3">Python</h3>
+<div class="codeblock"><textarea name="code" class="python">
+#Represent a node of doubly linked list
+class Node:
+    def __init__(self,data):
+        self.data = data;
+        self.previous = None;
+        self.next = None;
+        
+class RotateList:
+    #Represent the head and tail of the doubly linked list
+    def __init__(self):
+        self.head = None;
+        self.tail = None;
+        self.size = 0;
+        
+    #addNode() will add a node to the list
+    def addNode(self, data):
+        #Create a new node
+        newNode = Node(data);
+        
+        #If list is empty
+        if(self.head == None):
+            #Both head and tail will point to newNode
+            self.head = self.tail = newNode;
+            #head's previous will point to None
+            self.head.previous = None;
+            #tail's next will point to None, as it is the last node of the list
+            self.tail.next = None;
+        else:
+            #newNode will be added after tail such that tail's next will point to newNode
+            self.tail.next = newNode;
+            #newNode's previous will point to tail
+            newNode.previous = self.tail;
+            #newNode will become new tail
+            self.tail = newNode;
+            #As it is last node, tail's next will point to None
+            self.tail.next = None;
+        #Size will count the number of nodes present in the list
+        self.size = self.size + 1;
+        
+    #rotateList() will rotate the list by given n nodes
+    def rotateList(self, n):
+        #Initially, current will point to head
+        current = self.head;
+        
+        #n should not be 0 or greater than or equal to number of nodes present in the list
+        if(n == 0 or n &gt;= self.size):
+            return;
+        else:
+            #Traverse through the list till current point to nth node
+            #after this loop, current will point to nth node
+            for i in range(1, n):
+                current = current.next;
+                
+            #Now to move entire list from head to nth node and add it after tail
+            self.tail.next = self.head;
+            #Node next to nth node will be new head
+            self.head = current.next;
+            #Previous node to head should be None
+            self.head.previous = None;
+            #nth node will become new tail of the list
+            self.tail = current;
+            #tail's next will point to None
+            self.tail.next = None;
+            
+    #display() will print out the nodes of the list
+    def display(self):
+        #Node current will point to head
+        current = self.head;
+        if(self.head == None):
+            print("List is empty");
+            return;
+            
+        while(current != None):
+            #Prints each node by incrementing pointer.
+            print(current.data),
+            current = current.next;
+        print();
+        
+dList = RotateList();
+#Add nodes to the list
+dList.addNode(1);
+dList.addNode(2);
+dList.addNode(3);
+dList.addNode(4);
+dList.addNode(5);
+ 
+print("Original List: ");
+dList.display();
+ 
+#Rotates list by 3 nodes
+dList.rotateList(3);
+ 
+print("Updated List: ");
+dList.display();
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Original List: 
+1 2 3 4 5 
+Updated List: 
+4 5 1 2 3 
+</pre></div>
+<h3 class="h3">C</h3>
+<div class="codeblock"><textarea name="code" class="cpp">
+#include &lt;stdio.h&gt;
+ 
+//Represent a node of the doubly linked list
+
+struct node{
+    int data;
+    struct node *previous;
+    struct node *next;
+};    
+ 
+int size = 0;
+//Represent the head and tail of the doubly linked list
+struct node *head, *tail = NULL;
+ 
+//addNode() will add a node to the list
+void addNode(int data) {
+    //Create a new node
+    struct node *newNode = (struct node*)malloc(sizeof(struct node));
+    newNode-&gt;data = data;
+    
+    //If list is empty
+    if(head == NULL) {
+        //Both head and tail will point to newNode
+        head = tail = newNode;
+        //head's previous will point to NULL
+        head-&gt;previous = NULL;
+        //tail's next will point to NULL, as it is the last node of the list
+        tail-&gt;next = NULL;
+    }
+    else {
+        //newNode will be added after tail such that tail's next will point to newNode
+        tail-&gt;next = newNode;
+        //newNode's previous will point to tail
+        newNode-&gt;previous = tail;
+        //newNode will become new tail
+        tail = newNode;
+        //As it is last node, tail's next will point to NULL
+        tail-&gt;next = NULL;
+    }
+    //Size will count the number of nodes present in the list
+    size++;
+}
+ 
+//rotateList() will rotate the list by given n nodes
+void rotateList(int n) {
+    //Initially, current will point to head
+    struct node *current = head;
+    
+    //n should not be 0 or greater than or equal to number of nodes present in the list
+    if(n == 0 || n &gt;= size) 
+        return;
+    else {
+        //Traverse through the list till current point to nth node
+        //after this loop, current will point to nth node
+        for(int i = 1; i &lt; n; i++) 
+            current = current-&gt;next;
+        
+        //Now to move entire list from head to nth node and add it after tail
+        tail-&gt;next = head;
+        //Node next to nth node will be new head
+        head = current-&gt;next;
+        //Previous node to head should be NULL
+        head-&gt;previous = NULL;
+        //nth node will become new tail of the list
+        tail = current;
+        //tail's next will point to NULL
+        tail-&gt;next = NULL;
+    }
+}
+ 
+//display() will print out the nodes of the list
+void display() {
+    //Node current will point to head
+    struct node *current = head;
+    if(head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+    while(current != NULL) {
+        //Prints each node by incrementing pointer.
+        printf("%d ", current-&gt;data);
+        current = current-&gt;next;
+    }
+    printf("\n");
+}
+ 
+int main()
+{
+    //Add nodes to the list
+    addNode(1);
+    addNode(2);
+    addNode(3);
+    addNode(4);
+    addNode(5);
+    
+    printf("Original List: \n");
+    display();
+    
+    //Rotates list by 3 nodes
+    rotateList(3);
+    
+    printf("Updated List: \n");
+    display();
+ 
+    return 0;
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Original List: 
+1 2 3 4 5 
+Updated List: 
+4 5 1 2 3 
+</pre></div>
+<h3 class="h3">JAVA</h3>
+<div class="codeblock"><textarea name="code" class="java">
+public class RotateList {
+    
+    //Represent a node of the doubly linked list
+
+    class Node{
+        int data;
+        Node previous;
+        Node next;
+        
+        public Node(int data) {
+            this.data = data;
+        }
+    }
+    
+    int size = 0;
+    //Represent the head and tail of the doubly linked list
+    Node head, tail = null;
+    
+    //addNode() will add a node to the list
+    public void addNode(int data) {
+        //Create a new node
+        Node newNode = new Node(data);
+        
+        //If list is empty
+        if(head == null) {
+            //Both head and tail will point to newNode
+            head = tail = newNode;
+            //head's previous will point to null
+            head.previous = null;
+            //tail's next will point to null, as it is the last node of the list
+            tail.next = null;
+        }
+        else {
+            //newNode will be added after tail such that tail's next will point to newNode
+            tail.next = newNode;
+            //newNode's previous will point to tail
+            newNode.previous = tail;
+            //newNode will become new tail
+            tail = newNode;
+            //As it is last node, tail's next will point to null
+            tail.next = null;
+        }
+        //Size will count the number of nodes present in the list
+        size++;
+    }
+    
+    //rotateList() will rotate the list by given n nodes
+    public void rotateList(int n) {
+        //Initially, current will point to head
+        Node current = head;
+        
+        //n should not be 0 or greater than or equal to number of nodes present in the list
+        if(n == 0 || n &gt;= size) 
+            return;
+        else {
+            //Traverse through the list till current point to nth node
+            //after this loop, current will point to nth node
+            for(int i = 1; i &lt; n; i++) 
+                current = current.next;
+            
+            //Now to move entire list from head to nth node and add it after tail
+            tail.next = head;
+            //Node next to nth node will be new head
+            head = current.next;
+            //Previous node to head should be null
+            head.previous = null;
+            //nth node will become new tail of the list
+            tail = current;
+            //tail's next will point to null
+            tail.next = null;
+        }
+    }
+    
+    //display() will print out the nodes of the list
+    public void display() {
+        //Node current will point to head
+        Node current = head;
+        if(head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        while(current != null) {
+            //Prints each node by incrementing the pointer.
+
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
+    
+    public static void main(String[] args) {
+        
+        RotateList dList = new RotateList();
+        //Add nodes to the list
+        dList.addNode(1);
+        dList.addNode(2);
+        dList.addNode(3);
+        dList.addNode(4);
+        dList.addNode(5);
+        
+        System.out.println("Original List: ");
+        dList.display();
+        
+        //Rotates list by 3 nodes
+        dList.rotateList(3);
+        
+        System.out.println("Updated List: ");
+        dList.display();
+    }
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Original List: 
+1 2 3 4 5 
+Updated List: 
+4 5 1 2 3 
+</pre></div>
+<h3 class="h3">C#</h3>
+<div class="codeblock"><textarea name="code" class="CSharp">
+using System; 
+namespace DoublyLinkedList 
+{                     
+    public class Program
+    {
+        //Represent a node of the doubly linked list
+
+        public class Node&lt;T&gt;{
+            public T data;
+            public Node&lt;T&gt; previous;
+            public Node&lt;T&gt; next;
+            
+            public Node(T value) {
+                data = value;
+            }
+        }
+        
+        public class RotateList&lt;T&gt;{
+            int size = 0;
+            //Represent the head and tail of the doubly linked list
+            protected Node&lt;T&gt; head = null;             
+             protected Node&lt;T&gt; tail = null;
+            
+            //addNode() will add a node to the list
+            public void addNode(T data) {
+                //Create a new node
+                Node&lt;T&gt; newNode = new Node&lt;T&gt;(data);
+ 
+                //If list is empty
+                if(head == null) {
+                    //Both head and tail will point to newNode
+                    head = tail = newNode;
+                    //head's previous will point to null
+                    head.previous = null;
+                    //tail's next will point to null, as it is the last node of the list
+                    tail.next = null;
+                }
+                else {
+                    //newNode will be added after tail such that tail's next will point to newNode
+                    tail.next = newNode;
+                    //newNode's previous will point to tail
+                    newNode.previous = tail;
+                    //newNode will become new tail
+                    tail = newNode;
+                    //As it is last node, tail's next will point to null
+                    tail.next = null;
+                }
+                //Size will count the number of nodes present in the list
+                size++;
+            }
+            
+            //rotateList() will rotate the list by given n nodes
+            public void rotateList(int n) {
+                //Initially, current will point to head
+                Node&lt;T&gt; current = head;
+ 
+                //n should not be 0 or greater than or equal to number of nodes present in the list
+                if(n == 0 || n &gt;= size) 
+                    return;
+                else {
+                    //Traverse through the list till current point to nth node
+                    //after this loop, current will point to nth node
+                    for(int i = 1; i &lt; n; i++) 
+                        current = current.next;
+ 
+                    //Now to move entire list from head to nth node and add it after tail
+                    tail.next = head;
+                    //Node next to nth node will be new head
+                    head = current.next;
+                    //Previous node to head should be null
+                    head.previous = null;
+                    //nth node will become new tail of the list
+                    tail = current;
+                    //tail's next will point to null
+                    tail.next = null;
+                }
+            }
+    
+            //display() will print out the nodes of the list
+            public void display() {
+                //Node current will point to head
+                Node&lt;T&gt; current = head;
+                if(head == null) {
+                    Console.WriteLine("List is empty");
+                    return;
+                }
+                while(current != null) {
+                    //Prints each node by incrementing the pointer.
+
+                    Console.Write(current.data + " ");
+                    current = current.next;
+                }
+                Console.WriteLine();
+            }
+        }
+        
+        public static void Main()
+        {
+            RotateList&lt;int&gt; dList = new RotateList&lt;int&gt;();
+            //Add nodes to the list
+            dList.addNode(1);
+            dList.addNode(2);
+            dList.addNode(3);
+            dList.addNode(4);
+            dList.addNode(5);
+ 
+            Console.WriteLine("Original List: ");
+            dList.display();
+ 
+            //Rotates list by 3 nodes
+            dList.rotateList(3);
+ 
+            Console.WriteLine("Updated List: ");
+            dList.display();
+        }    
+    }
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Original List: 
+1 2 3 4 5 
+Updated List: 
+4 5 1 2 3 
+</pre></div>
+<h3 class="h3">PHP</h3>
+<div class="codeblock"><textarea name="code" class="php">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;?php
+//Represent a node of doubly linked list
+class Node{
+    public $data;
+    public $previous;
+    public $next;
+    
+    function __construct($data){
+        $this-&gt;data = $data;
+    }
+}
+class RotateList{
+    //Represent the head and tail of the doubly linked list
+    public $head;
+    public $tail;
+    public $size = 0;
+    function __construct(){
+        $this-&gt;head = NULL;
+        $this-&gt;tail = NULL;
+        $this-&gt;size = 0;
+    }
+    
+    //addNode() will add a node to the list
+    function addNode($data){
+        //Create a new node
+        $newNode = new Node($data);
+        
+        //If list is empty
+        if($this-&gt;head == NULL) {
+            //Both head and tail will point to newNode
+            $this-&gt;head = $this-&gt;tail = $newNode;
+            //head's previous will point to NULL
+            $this-&gt;head-&gt;previous = NULL;
+            //tail's next will point to NULL, as it is the last node of the list
+            $this-&gt;tail-&gt;next = NULL;
+        }
+        else {
+            //newNode will be added after tail such that tail's next will point to newNode
+            $this-&gt;tail-&gt;next = $newNode;
+            //newNode's previous will point to tail
+            $newNode-&gt;previous = $this-&gt;tail;
+            //newNode will become new tail
+            $this-&gt;tail = $newNode;
+            //As it is last node, tail's next will point to NULL
+            $this-&gt;tail-&gt;next = NULL;
+        }
+        //Size will count the number of nodes present in the list
+        $this-&gt;size++;
+    }
+    
+    //rotateList() will rotate the list by given n nodes
+    function rotateList($n) {
+        //Initially, current will point to head
+        $current = $this-&gt;head;
+        
+        //n should not be 0 or greater than or equal to number of nodes present in the list
+        if($n == 0 || $n &gt;= $this-&gt;size) 
+            return;
+        else {
+            //Traverse through the list till current point to nth node
+            //after this loop, current will point to nth node
+            for($i = 1; $i &lt; $n; $i++) 
+                $current = $current-&gt;next;
+            
+            //Now to move entire list from head to nth node and add it after tail
+            $this-&gt;tail-&gt;next = $this-&gt;head;
+            //Node next to nth node will be new head
+            $this-&gt;head = $current-&gt;next;
+            //Previous node to head should be NULL
+            $this-&gt;head-&gt;previous = NULL;
+            //nth node will become new tail of the list
+            $this-&gt;tail = $current;
+            //tail's next will point to NULL
+            $this-&gt;tail-&gt;next = NULL;
+        }
+    }
+    
+    //display() will print out the nodes of the list
+    function display() {
+        //Node current will point to head
+        $current = $this-&gt;head;
+        if($this-&gt;head == NULL) {
+            print("List is empty &lt;br&gt;");
+            return;
+        }
+        while($current != NULL) {
+            //Prints each node by incrementing pointer.
+            print($current-&gt;data . " ");
+            $current = $current-&gt;next;
+        }
+        print("&lt;br&gt;");
+    }
+}
+    
+$dList = new RotateList();
+//Add nodes to the list
+$dList-&gt;addNode(1);
+$dList-&gt;addNode(2);
+$dList-&gt;addNode(3);
+$dList-&gt;addNode(4);
+$dList-&gt;addNode(5);
+ 
+print("Original List: &lt;br&gt;");
+$dList-&gt;display();
+ 
+//Rotates list by 3 nodes
+$dList-&gt;rotateList(3);
+ 
+print("Updated List: &lt;br&gt;");
+$dList-&gt;display();
+?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Original List: 
+1 2 3 4 5 
+Updated List: 
+4 5 1 2 3 
+</pre></div>
+<br>
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="#">#</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="#">&larr; prev</a>
+<a style="float:right" class="next" href="#">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="afc9cacacbcdceccc4efc5ced9cedbdfc0c6c1db81ccc0c2">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/program-to-rotate-doubly-linked-list-by-n-nodes"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/program-to-rotate-doubly-linked-list-by-n-nodes"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/program-to-rotate-doubly-linked-list-by-n-nodes"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+ <p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+ <a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+ </div>
+</a>
+ <a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="ea8298aa808b9c8b9e9a8583849ec4898587">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="660e14260c0710071216090f08124805090b48">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/program-to-rotate-doubly-linked-list-by-n-nodes by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:07:28 GMT -->
+</html> 

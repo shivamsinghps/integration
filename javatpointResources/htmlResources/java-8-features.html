@@ -1,0 +1,1142 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/java-8-features by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 08:52:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Java 8 Features - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="Java 8 Features - javatpoint" /><meta property="og:description" content="Java 8 Features Tutorial with examples and topics on functional interface, anonymous class, lambda for list, lambda for comparable, default methods, method reference, java date and time, java nashorn, java optional, stream, filter etc." />
+<meta name="keywords" content="java, swing, tutorial, example, javax.swing, package" /><meta name="description" content="Java 8 Features Tutorial with examples and topics on functional interface, anonymous class, lambda for list, lambda for comparable, default methods, method reference, java date and time, java nashorn, java optional, stream, filter etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="java-8-features.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="Java 8 Features - javatpoint" /><meta name="twitter:description" property="og:description" content="Java 8 Features Tutorial with examples and topics on functional interface, anonymous class, lambda for list, lambda for comparable, default methods, method reference, java date and time, java nashorn, java optional, stream, filter etc." /><meta property="og:url" content="java-8-features.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()"><div id=cf_alert_div><style>#cf_alert_div{margin:0 0 5px;padding:0;position:relative;top:0;left:0;display:block;z-index:99999;background-color:#f7f7f8;box-shadow:0 5px 5px rgba(0,0,0,.25)}#cf_alert_div a,#cf_alert_div a:visited{text-decoration:none;color:#276d9b;font-weight:600}#cf_alert_div strong{font-weight:600}#cf_alert_div table{width:100%}#cf_alert_div table td{vertical-align:middle}#cf_alert_div p{margin:0;padding:0;max-width:1100px}#cf_alert_div .wrapper{padding:0;margin:0;text-align:left;font-family:-apple-system,system-ui,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,helvetica neue,Arial,sans-serif;font-weight:400;font-style:normal;font-size:12px;padding:16px 3.334%}#cf_alert_div .wrapper td.refresh{text-align:center;min-width:140px}#cf_alert_div .wrapper td.refresh a{display:inline-block;padding:8px 24px;border:1.5px solid #276d9b;border-radius:5px;margin-right:20px}#cf_alert_div .wrapper td.content{position:relative;padding-right:25px;color:#1d1f20;font-size:14px;max-width:900px}#cf_alert_div .wrapper .x{position:absolute;top:0;right:-12.5px;height:25px;width:25px;cursor:pointer}#cf_alert_div .wrapper .x .line{display:block;height:15px;width:3px;position:absolute;top:5px;left:11px;background:#4e5255}#cf_alert_div .wrapper .x .line:first-of-type{transform:rotate(135deg)}#cf_alert_div .wrapper .x .line:last-of-type{transform:rotate(45deg)}</style><div class=wrapper><table><tr><td class=refresh><a href=# onclick="document.cookie='cf_use_ob%3d0%3bpath%3d/index.html';window.location.reload();return false;">Refresh</a><noscript style="margin:10px 0 10px 0;padding:0;font:12px Helvetica,Arial,sans-serif;color:#404040;display:block">(Enable JavaScript first.)</noscript></td><td class=content><p>This website <strong>www.javatpoint.com/java-8-features</strong> is currently offline. <a href=https://www.cloudflare.com/always-online/ target=_blank>Cloudflare's Always Online&trade;</a> shows a snapshot of this web page from the <a href=https://archive.org/web/ target=_blank>Internet Archive's Wayback Machine</a>. To check for the live version, click <strong>Refresh</strong>.</p><a class=x href="javascript:void(null);" onclick="document.getElementById('cf_alert_div').style.display='none';"><span class=line></span> <span class=line></span></a></td></tr></table></div></div>
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div id="smoothmenu1" class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="java-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/java.png" alt="java" /> Java</a></li>
+<li><a href="java-programs.html"><img src="https://static.javatpoint.com/images/icon/java-program.png" alt="java programs" /> Programs</a></li>
+<li><a href="java-oops-concepts.html"><img src="https://static.javatpoint.com/images/icon/oops.png" alt="oops" /> OOPs</a></li>
+<li><a href="java-string.html"><img src="https://static.javatpoint.com/images/icon/string.png" alt="String" /> String</a></li>
+<li><a href="exception-handling-in-java.html"><img src="https://static.javatpoint.com/images/icon/exception.png" alt="Exception" /> Exception</a></li>
+<li><a href="multithreading-in-java.html"><img src="https://static.javatpoint.com/images/icon/multithreading.png" alt="Multithreading" /> Multithreading</a></li>
+<li><a href="collections-in-java.html"><img src="https://static.javatpoint.com/images/icon/collection.png" alt="Collections" /> Collections</a></li>
+<li><a href="javafx-tutorial.html"><img src="https://static.javatpoint.com/images/icon/javafx.png" alt="javafx" /> JavaFX</a></li>
+<li><a href="jsp-tutorial.html"><img src="https://static.javatpoint.com/images/icon/jsp.png" alt="jsp" /> JSP</a></li>
+<li><a href="spring-tutorial.html"><img src="https://static.javatpoint.com/images/icon/spring.png" alt="spring" /> Spring</a></li>
+<li><a href="spring-boot-tutorial.html"><img src="https://static.javatpoint.com/images/icon/spring-boot.png" alt="Spring Boot" /> Spring Boot</a></li>
+<li><a href="free-java-projects.html"><img src="https://static.javatpoint.com/images/icon/projects.png" alt="Projects" /> Projects</a></li>
+<li><a href="corejava-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="interview questions" /> Interview Questions</a>
+</li>
+</ul>
+<br style="clear: left" />
+</div>
+</div>
+<div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<a href="java-tutorial.html"><span>Basics of Java </span></a>
+<a href="java-oops-concepts.html"><span>OOPs Concepts</span></a>
+<a href="java-string.html"><span>Java String</span></a>
+<a href="java-regex.html"><span>Java Regex</span></a>
+<a href="exception-handling-in-java.html"><span>Exception Handling</span></a>
+<a href="java-inner-class.html"><span>Java Inner classes</span></a>
+<a href="multithreading-in-java.html"><span>Java Multithreading</span></a>
+<a href="java-io.html"><span>Java I/O</span></a>
+<a href="java-networking.html"><span>Java Networking</span></a>
+<a href="java-awt.html"><span>Java AWT</span></a>
+<a href="java-swing.html"><span>Java Swing</span></a>
+<a href="javafx-tutorial.html"><span>JavaFX</span></a>
+<a href="java-applet.html"><span>Java Applet</span></a>
+<a href="java-reflection.html"><span>Java Reflection</span></a>
+<a href="java-date.html"><span>Java Date</span></a>
+<a href="java-string-to-int.html"><span>Java Conversion</span></a>
+<a href="collections-in-java.html"><span>Java Collection</span></a>
+<a href="java-jdbc.html"><span>Java JDBC</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java New Features</span></h2>
+</div>
+<div class="leftmenu">
+<a href="New-features-in-java.html" class="l1">Java New Features</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java 9 Features</span></h2>
+</div>
+<div class="leftmenu">
+<a href="java-9-features.html">Java 9 Features</a>
+<a href="java-9-interface-private-methods.html">Interface Private Methods</a>
+<a href="java-9-try-with-resources.html">Try-With Resources</a>
+<a href="java-9-anonymous-classes.html">Anonymous Classes</a>
+<a href="java-9-safevarargs-annotation.html">SafeVarargs Annotation</a>
+<a href="java-9-factory-methods.html">Collection Factory Methods</a>
+<a href="java-9-process-api-improvement.html">Process API Improvement</a>
+<a href="java-9-new-version-string-scheme.html">Version-String Scheme</a>
+<a href="java-shell-tool.html">JShell (REPL)</a>
+<a href="java-9-module-system.html">Module System</a>
+<a href="java-9-control-panel.html">Control Panel</a>
+<a href="java-9-stream-api-improvement.html">Stream API Improvement</a>
+<a href="java-9-underscore-keyword.html">Underscore Keyword</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java 8 Features</span></h2>
+</div>
+<div class="leftmenu">
+<a href="java-8-features.html" class="l1">Java 8 Features</a>
+<a href="java-lambda-expressions.html" class="l1">Lambda Expressions</a>
+<a href="java-8-method-reference.html" class="l1">Method References</a>
+<a href="java-8-functional-interfaces.html" class="l1">Functional Interfaces</a>
+<a href="java-8-stream.html" class="l1">Stream API</a>
+<a href="java-8-stream-filter.html" class="l1">Stream Filter</a>
+<a href="java-base64-encode-decode.html" class="l1">Base64 Encode Decode</a>
+<a href="java-default-methods.html" class="l1">Default Methods</a>
+<a href="java-8-foreach.html" class="l1">forEach() method</a>
+<a href="java-8-collectors.html" class="l1">Collectors class</a>
+<a href="java-stringjoiner.html" class="l1">StringJoiner class</a>
+<a href="java-8-optional.html" class="l1">Optional class</a>
+<a href="java-nashorn.html" class="l1">JavaScript Nashorn</a>
+<a href="java-8-parallel-array-sorting.html" class="l1">Parallel Array Sort</a>
+<a href="java-8-type-inference.html" class="l1">Type Inference</a>
+<a href="java-8-method-parameter-reflection.html" class="l1">Parameter Reflection</a>
+<a href="java-8-type-annotations-and-repeating-annotations.html" class="l1">Type Annotations</a>
+<a href="java-8-jdbc-improvements.html" class="l1">JDBC Improvements</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java 7 Features</span></h2>
+</div>
+<div class="leftmenu">
+<a href="java-binary-literals.html" class="l1">Binary Literals</a>
+<a href="java-switch-with-string.html" class="l1">Switch with String</a>
+<a href="java-7-catch-multiple-exceptions.html" class="l1">Java 7 Multi Catch</a>
+<a href="java-try-with-resources.html" class="l1">Try with Resources</a>
+<a href="java-type-inference-for-generics.html" class="l1">Type Inference</a>
+<a href="java-numeric-literals-with-underscore.html" class="l1">Numeric Literals</a>
+<a href="java-7-jdbc-improvement.html" class="l1">Java 7 JDBC</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java 4/5 Features</span></h2>
+</div>
+<div class="leftmenu">
+<a href="assertion-in-java.html" class="l1">Java Assertion</a>
+<a href="for-each-loop.html" class="l1">Java For-each Loop</a>
+<a href="varargs.html" class="l1">Java Varargs</a>
+<a href="static-import-in-java.html" class="l1">Java Static Import</a>
+<a href="autoboxing-and-unboxing.html" class="l1">Java Autoboxing</a>
+<a href="enum-in-java.html" class="l1">Java Enums</a>
+<a href="java-annotation.html" class="l1">Java Annotations</a>
+<a href="generics-in-java.html" class="l1">Java Generics</a>
+</div>
+<div class="leftmenu2">
+<a href="RMI.html"><span>RMI</span></a>
+<a href="internationalization-in-java.html"><span>Internationalization</span></a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="java-lambda-expressions.html">next &rarr;</a>
+<a class="next" href="New-features-in-java.html">&larr; prev</a>
+</div>
+<h1 class="h1">Java 8 Features</h1>
+<p>Oracle released a new version of Java as Java 8 in March 18, 2014. It was a revolutionary release of the Java for software development platform. It includes various upgrades to the Java programming, JVM, Tools and libraries.</p>
+<h2 class="h2">Java 8 Programming Language Enhancements</h2>
+<p>Java 8 provides following features for Java Programming:</p>
+<ul class="points">
+<li>Lambda expressions, </li>
+<li>Method references, </li>
+<li>Functional interfaces, </li>
+<li>Stream API, </li>
+<li>Default methods, </li>
+<li>Base64 Encode Decode,</li>
+<li>Static methods in interface, </li>
+<li>Optional class, </li>
+<li>Collectors class, </li>
+<li>ForEach() method, </li>
+<li>Nashorn JavaScript Engine, </li>
+<li>Parallel Array Sorting, </li>
+<li>Type and Repating Annotations, </li>
+<li>IO Enhancements, </li>
+<li>Concurrency Enhancements, </li>
+<li>JDBC Enhancements etc.</li>
+</ul>
+<hr />
+<h2 class="h3">Lambda Expressions</h2>
+<p>Lambda expression helps us to write our code in functional style. It provides a clear and concise way to implement SAM interface(Single Abstract Method) by using an expression. It is very useful in collection library in which it helps to iterate, filter and extract data.</p>
+<p>For more information and examples: <a href="java-lambda-expressions.html">click here</a></p>
+<hr />
+<h2 class="h3">Method References</h2>
+<p>Java 8 Method reference is used to refer method of functional interface . It is compact and easy form of lambda expression. Each time when you are using lambda expression to just referring a method, you can replace your lambda expression with method reference.</p>
+<p>For more information and examples: <a href="java-8-method-reference.html">click here</a></p>
+<hr />
+<h2 class="h3">Functional Interface</h2>
+<p>An Interface that contains only one abstract method is known as functional interface. It can have any number of default and static methods. It can also declare methods of object class.</p>
+<p>Functional interfaces are also known as Single Abstract Method Interfaces (SAM Interfaces).</p>
+<p>For more information and examples: <a href="java-8-functional-interfaces.html">click here</a></p>
+<hr />
+<h2 class="h3">Optional</h2>
+<p>Java introduced a new class Optional in Java 8. It is a public final class which is used to deal with NullPointerException in Java application. We must import <em>java.util</em> package to use this class. It provides methods to check the presence of value for particular variable.</p>
+<p>For more information and examples: <a href="java-8-optional.html">click here</a></p>
+<hr />
+<h2 class="h3">forEach</h2>
+<p>Java provides a new method forEach() to iterate the elements. It is defined in Iterable and Stream interfaces.</p>
+<p>It is a default method defined in the Iterable interface. Collection classes which extends Iterable interface can use forEach() method to iterate elements.</p>
+<p>This method takes a single parameter which is a functional interface. So, you can pass lambda expression as an argument.</p>
+<p>For more information and examples: <a href="java-8-foreach.html">click here</a></p>
+<hr />
+<h2 class="h3">Date/Time API</h2>
+<p>Java has introduced a new Date and Time API since Java 8. The java.time package contains Java 8 Date and Time classes.</p>
+<p>For more information and examples: <a href="java-date.html">click here</a></p>
+<hr />
+<h2 class="h3">Default Methods</h2>
+<p>Java provides a facility to create default methods inside the interface. Methods which are defined inside the interface and tagged with default keyword are known as default methods. These methods are non-abstract methods and can have method body.</p>
+<p>For more information and examples: <a href="java-default-methods.html">click here</a></p>
+<hr />
+<h2 class="h3">Nashorn JavaScript Engine</h2>
+<p>Nashorn is a JavaScript engine. It is used to execute JavaScript code dynamically at JVM (Java Virtual Machine). Java provides a command-line tool <strong>jjs</strong> which is used to execute JavaScript code.</p>
+<p>You can execute JavaScript code by two ways:</p>
+<ol class="points">
+<li>Using jjs command-line tool, and </li>
+<li>By embedding into Java source code.</li>
+</ol>
+<p>For more information and examples: <a href="java-nashorn.html">click here</a></p>
+<hr />
+<h2 class="h3">StringJoiner</h2>
+<p>Java added a new final class StringJoiner in java.util package. It is used to construct a sequence of characters separated by a delimiter. Now, you can create string by passing delimiters like comma(,), hyphen(-) etc.</p>
+<p>For more information and examples: <a href="java-stringjoiner.html">click here</a></p>
+<hr />
+<h2 class="h3">Collectors</h2>
+<p>Collectors is a final class that extends Object class. It provides reduction operations, such as accumulating elements into collections, summarizing elements according to various criteria etc.</p>
+<p>For more information and examples: <a href="java-8-collectors.html">click here</a></p>
+<hr />
+<h2 class="h3">Stream API</h2>
+<p>Java 8 java.util.stream package consists of classes, interfaces and an enum to allow functional-style operations on the elements. It performs lazy computation. So, it executes only when it requires.</p>
+<p>For more information and examples: <a href="java-8-stream.html">click here</a></p>
+<hr />
+<h2 class="h3">Stream Filter</h2>
+<p>Java stream provides a method filter() to filter stream elements on the basis of given predicate. Suppose, you want to get only even elements of your list, you can do this easily with the help of filter() method.</p>
+<p>This method takes predicate as an argument and returns a stream of resulted elements.</p>
+<p>For more information and examples: <a href="java-8-stream-filter.html">click here</a></p>
+<hr />
+<h2 class="h3">Java Base64 Encoding and Decoding</h2>
+<p>Java provides a class Base64 to deal with encryption and decryption. You need to import java.util.Base64 class in your source file to use its methods.</p>
+<p>This class provides three different encoders and decoders to encrypt information at each level.</p>
+<p>For more information and examples: <a href="java-base64-encode-decode.html">click here</a></p>
+<hr />
+<h2 class="h3">Java Parallel Array Sorting</h2>
+<p>Java provides a new additional feature in Arrays class which is used to sort array elements parallelly. The parallelSort() method has added to java.util.Arrays class that uses the JSR 166 Fork/Join parallelism common pool to provide sorting of arrays. It is an overloaded method.</p>
+<p>For more information and examples: <a href="java-8-parallel-array-sorting.html">click here</a></p>
+<hr />
+<h2 class="h2">Java 8 Security Enhancements</h2>
+<p>1) The Java Secure Socket Extension(JSSE) provider enables the protocols Transport Layer Security (TLS) 1.1 and TLS 1.2 by default on the client side.</p>
+<p>2) A improved method AccessController.doPrivileged has been added which enables code to assert a subset of its privileges, without preventing the full traversal of the stack to check for other permissions.</p>
+<p>3) Advanced Encryption Standard (AES) and Password-Based Encryption (PBE) algorithms, such as PBEWithSHA256AndAES_128 and PBEWithSHA512AndAES_256 has been added to the SunJCE provider.</p>
+<p>4) Java Secure Socket Extension (SunJSSE) has enabled Server Name Indication (SNI) extension for client applications by default in JDK 7 and JDK 8 supports the SNI extension for server applications.
+The SNI extension is a feature that extends the SSL/TLS protocols to indicate what server name the client is attempting to connect to during handshaking.</p>
+<p>5) The SunJSSE is enhanced to support Authenticated Encryption with Associated Data (AEAD) algorithms. The Java Cryptography Extension (SunJCE) provider is enhanced to support AES/GCM/NoPadding cipher implementation as well as Galois/Counter Mode (GCM) algorithm parameters.</p>
+<p>6) A new command flag -importpassword is added to the keytool utility. It is used to accept a password and store it securely as a secret key. Classes such as java.security.DomainLoadStoreParameter andjava.security.PKCS12Attribute is added to support DKS keystore type.</p>
+<p>7) In JDK 8, the cryptographic algorithms have been enhanced with the SHA-224 variant of the SHA-2 family of message-digest implementations.</p>
+<p>8) Enhanced support for NSA Suite B Cryptography which includes: </p>
+<ul class="points">
+<li>OID registration for NSA Suite B cryptography algorithms</li>
+<li>Support for 2048-bit DSA key pair generation and additional signature algorithms for 2048-bit DSA keys such as SHA224withDSA and SHA256withDSA.</li>
+<li>Lifting of the keysize restriction from 1024 to 2048 for Diffie-Hellman (DH) algorithm.</li>
+</ul>
+<p>9) SecureRandom class provides the generation of cryptographically strong random numbers which is used for private or public keys, ciphers and signed messages.
+The getInstanceStrong() method was introduced in JDK 8, which returns an instance of the strongest SecureRandom. It should be used when you need to create RSA private and public key.
+SecureRandom includes following other changes:</p>
+<ul class="points">
+<li>Two new implementations has introduced for UNIX platforms, which provide blocking and non-blocking behavior.</li>
+</ul>
+<p>10) A new PKIXRevocationChecker class is included which checks the revocation status of certificates with the PKIX algorithm. It supports best effort checking, end-entity certificate checking, and mechanism-specific options. </p>
+<p>11) The Public Key Cryptography Standards 11 (PKCS) has been expanded to include 64-bit supports for Windows.</p>
+<p>12) Two new rcache types are added to Kerberos 5. Type none means no rcache at all, and type dfl means the DFL style file-based rcache. Also, the acceptor requested subkey is now supported. They are configured using the sun.security.krb5.rcache and sun.security.krb5.acceptor.subkey system properties. </p>
+<p>13) In JDK 8, Kerberos 5 protocol transition and constrained delegation are supported within the same realm.</p>
+<p>14) Java 8 has disabled weak encryption by default. The DES-related Kerberos 5 encryption types are not supported by default. These encryption types can be enabled by adding allow_weak_crypto=true in the krb5.conf file.</p>
+<p>15) You can set server name to null to denote an unbound server. It means a client can request for the service using any server name. After a context is established, the server can retrieve the name as a negotiated property with the key name SASL.BOUND_SERVER_NAME.</p>
+<p>16) Java Native Interface (JNI) bridge to native Java Generic Security Service (JGSS) is now supported on Mac OS X. You can set system property sun.security.jgss.native to true to enable it.</p>
+<p>17) A new system property, jdk.tls.ephemeralDHKeySize is defined to customize the ephemeral DH key sizes. The minimum acceptable DH key size is 1024 bits, except for exportable cipher suites or legacy mode (jdk.tls.ephemeralDHKeySize=legacy).</p>
+<p>18) Java Secure Socket Extension (JSSE) provider honors the client's cipher suite preference by default. However, the behavior can be changed to respect the server's cipher suite preference by calling SSLParameters.setUseCipherSuitesOrder(true) over the server.</p>
+<hr />
+<h2 class="h2">Java 8 Tools Enhancements</h2>
+<p>1) A jjs command is introduced, which invokes the Nashorn engine either in interactive shell mode, or to interpret script files.</p>
+<p>2) The java command is capable of launching JavaFX applications, provided that the JavaFX application is packaged correctly.</p>
+<p>3) The java command man page (both nroff and HTML) has been completely reworked. The advanced options are now divided into Runtime, Compiler, Garbage Collection, and Serviceability, according to the area that they affect. Several previously missing options are now described. There is also a section for options that were deprecated or removed since the previous release.</p>
+<p>4) New jdeps command-line tool allows the developer to analyze class files to determine package-level or class-level dependencies.</p>
+<p>5) You can access diagnostic commands remotely, which were previously accessible only locally via the jcmd tool. Remote access is provided using the Java Management Extensions (JMX), so diagnostic commands are exposed to a platform MBean registered to the platform MBean server. The MBean is the com.sun.management.DiagnosticCommandMBean interface.</p>
+<p>6) A new option -tsapolicyid is included in the jarsigner tool which enables you to request a signed time stamp from a Time Stamping Authority and attach it to a signed JAR file.</p>
+<p>7) A new method java.lang.reflect.Executable.getParameters is included which allows you to access the names of the formal parameters of any method or constructor. However, .class files do not store formal parameter names by default. To store formal parameter names in a particular .class file, and thus enable the Reflection API to retrieve formal parameter names, compile the source file with the -parameters option of the javac compiler.</p>
+<p>8) The type rules for binary comparisons in the Java Language Specification (JLS) Section 15.21 will now be correctly enforced by javac.</p>
+<p>9) In this release, the apt tool and its associated API contained in the package com.sun.mirror have been removed.</p>
+<h2 class="h3">Javadoc Enhancements</h2>
+<p>In Java SE 8, the following new APIs were added to the Javadoc tool.</p>
+<ul class="points">
+<li>A new DocTree API introduce a scanner which enables you to traverse source code that is represented by an abstract syntax tree. This extends the Compiler Tree API to provide structured access to the content of javadoc comments.</li>
+<li>The javax.tools package contains classes and interfaces that enable you to invoke the Javadoc tool directly from a Java application, without executing a new process.</li>
+<li>The "Method Summary" section of the generated documentation of a class or interface has been restructured. Method descriptions in this section are grouped by type. By default, all methods are listed. You can click a tab to view methods of a particular type (static, instance, abstract, concrete, or deprecated, if they exist in the class or interface).</li>
+<li>The javadoc tool now has support for checking the content of javadoc comments for issues that could lead to various problems, such as invalid HTML or accessibility issues, in the files that are generated by javadoc. The feature is enabled by default, and can also be controlled by the new -Xdoclint option.</li>
+</ul>
+<hr />
+<h2 class="h2">Pack200 Enhancements</h2>
+<p>The Java class file format has been updated because of JSR 292 which Supports Dynamically Typed Languages on the Java Platform.</p>
+<p>The Pack200 engine has been updated to ensure that Java SE 8 class files are compressed effectively. Now, it can recognize constant pool entries and new bytecodes introduced by JSR 292. As a result, compressed files created with this version of the pack200 tool will not be compatible with older versions of the unpack200 tool.</p>
+<hr />
+<h2 class="h2">Java 8 I/O Enhancements</h2>
+<p>In Java 8, there are several improvements to the java.nio.charset.Charset and extended charset implementations. It includes the following:</p>
+<ul class="points">
+<li>A New SelectorProvider which may improve performance or scalability for server. The /dev/poll SelectorProvider continues to be the default. To use the Solaris event port mechanism, run with the system property java.nio.channels.spi.Selector set to the value sun.nio.ch.EventPortSelectorProvider.</li>
+<li>The size of &lt;JDK_HOME&gt;/jre/lib/charsets.jar file is decreased.</li>
+<li>Performance has been improvement for the java.lang.String(byte[], &lowast;) constructor and the java.lang.String.getBytes() method.</li>
+</ul>
+<hr />
+<h2 class="h2">Java 8 Networking Enhancements</h2>
+<p>1) A new class java.net.URLPermission has been added. It represents a permission for accessing a resource defined by a given URL.</p>
+<p>2) A package jdk.net has been added which contains platform specific socket options and a mechanism for setting these options on all of the standard socket types. The socket options are defined in jdk.net.ExtendedSocketOptions.</p>
+<p>3) In class HttpURLConnection, if a security manager is installed, and if a method is called which results in an attempt to open a connection, the caller must possess either a "connect"SocketPermission to the host/port combination of the destination URL or a URLPermission that permits this request.</p>
+<p>If automatic redirection is enabled, and this request is redirected to another destination, the caller must also have permission to connect to the redirected host/URL.</p>
+<hr />
+<h2 class="h2">Java 8 Concurrency Enhancements</h2>
+<p>The java.util.concurrent package added two new interfaces and four new classes.</p>
+<h3 class="h3">Java.util.concurrent Interfaces</h3>
+<table class="alt">
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>public static interface CompletableFuture.AsynchronousCompletionTask</td>
+<td>It is a marker interface which is used to identify asynchronous tasks produced by async methods. It may be useful for monitoring, debugging, and tracking asynchronous activities.</td>
+</tr>
+<tr>
+<td>public interface CompletionStage&lt;T&gt;</td>
+<td>It creates a stage of a possibly asynchronous computation, that performs an action or computes a value when another CompletionStage completes. </td>
+</tr>
+</table>
+<hr />
+<h3 class="h3">Java.util.concurrent Classes</h3>
+<table class="alt">
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>public class CompletableFuture&lt;T&gt; extends Object implements Future&lt;T&gt;, CompletionStage&lt;T&gt;</td>
+<td>It is aFuture that may be explicitly completed, and may be used as a CompletionStage, supporting dependent functions and actions that trigger upon its completion.</td>
+</tr>
+<tr>
+<td>public static class ConcurrentHashMap.KeySetView&lt;K,V&gt; extends Object implements Set&lt;K&gt;, Serializable</td>
+<td>It is a view of a ConcurrentHashMap as a Set of keys, in which additions may optionally be enabled by mapping to a common value.</td>
+</tr>
+<tr>
+<td>public abstract class CountedCompleter&lt;T&gt; extends ForkJoinTask&lt;T&gt;</td>
+<td>A ForkJoinTask with a completion action performed when triggered and there are no remaining pending actions. </td>
+</tr>
+<tr>
+<td>public class CompletionException extends RuntimeException</td>
+<td>It throws an exception when an error or other exception is encountered in the course of completing a result or task.</td>
+</tr>
+</table>
+<h4 class="h4">New Methods in java.util.concurrent.ConcurrentHashMap class</h4>
+<p>ConcurrentHashMap class introduces several new methods in its latest release. It includes various forEach methods (forEach, forEachKey, forEachValue, and forEachEntry), search methods (search, searchKeys, searchValues, and searchEntries) and a large number of reduction methods (reduce, reduceToDouble, reduceToLong etc.). Other miscellaneous methods (mappingCount and newKeySet) have been added as well.</p>
+<h4 class="h4">New classes in java.util.concurrent.atomic</h4>
+<p>Latest release introduces scalable, updatable, variable support through a small set of new classes DoubleAccumulator, DoubleAdder, LongAccumulator andLongAdder. It internally employ contention-reduction techniques that provide huge throughput improvements as compared to Atomic variables.</p>
+<table class="alt">
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>public class DoubleAccumulator extends Number implements Serializable</td>
+<td>It is used for one or more variables that together maintain a running double value updated using a supplied function. </td>
+</tr>
+<tr>
+<td>public class DoubleAdder extends Number implements Serializable</td>
+<td>It is used for one or more variables that together maintain an initially zero double sum. </td>
+</tr>
+<tr>
+<td>public class LongAccumulator extends Number implements Serializable</td>
+<td>It is used for one or more variables that together maintain a running long value updated using a supplied function. </td>
+</tr>
+<tr>
+<td>public class LongAdder extends Number implements Serializable</td>
+<td>It is used for one or more variables that together maintain an initially zero long sum. </td>
+</tr>
+</table>
+<hr />
+<h3 class="h3">New methods in java.util.concurrent.ForkJoinPool Class</h3>
+<p>This class has added two new methods getCommonPoolParallelism() and commonPool(), which return the targeted parallelism level of the common pool, or the common pool instance, respectively.</p>
+<table class="alt">
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>public static ForkJoinPool commonPool()</td>
+<td>It returns the common pool instance. </td>
+</tr>
+<tr>
+<td>Public static int getCommonPoolParallelism()</td>
+<td>It returns the targeted parallelism level of the common pool.</td>
+</tr>
+</table>
+<h3 class="h3">New class java.util.concurrent.locks.StampedLock</h3>
+<p>A new class StampedLock is added which is used to add capability-based lock with three modes for controlling read/write access (writing, reading, and optimistic reading). This class also supports methods that conditionally provide conversions across the three modes. </p>
+<table class="alt">
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>public class StampedLock extends Object implements Serializable</td>
+<td>This class represents a capability-based lock with three modes for controlling read/write access.</td>
+</tr>
+</table>
+<hr />
+<h2 class="h2">Java API for XML Processing (JAXP) 1.6 Enhancements</h2>
+<p>In Java 8, Java API is added for XML Processing (JAXP) 1.6. It requires the use of the service provider loader facility which is defined by java.util.ServiceLoader to load services from service configuration files.</p>
+<p>The rationale for this is to allow for future modularization of the Java SE platform where service providers may be deployed by means other than JAR files and perhaps without the service configuration files.</p>
+<hr />
+<h2 class="h2">Java Virtual Machine Enhancements</h2>
+<p>The verification of invokespecial instructions has been tightened so that only an instance initialization method in the current class or its direct super class may be invoked.</p>
+<hr />
+<h2 class="h2">Java Mission Control 5.3 is included in Java 8</h2>
+<p>Java Mission Control (JMC) is an advanced set of tools that enables efficient and detailed data analysis and delivers advanced, unobtrusive Java monitoring and management. JMC provides sections for common analysis areas such as code performance, memory and latency.</p>
+<p>Babel Language Packs in Japanese and Simplified Chinese are now included by default in the Java Mission Control that is included in the JDK 8.</p>
+<hr />
+<h2 class="h2">Java 8 Internationalization Enhancements</h2>
+<h3 class="h3">1) Unicode Enhancements</h3>
+<p>The JDK 8 includes support for Unicode 6.2.0. It contains the following features.</p>
+<ul>
+<li>733 new characters including Turkish Lira sign.</li>
+</ul>
+<ul>
+<li>7 new scripts:</li>
+<ul>
+<li>Meroitic Hieroglyphs</li>
+<li>Meroitic Cursive </li>
+<li>Sora Sompeng</li>
+<li>Chakma</li>
+<li>Sharada</li>
+<li>Takri</li>
+<li>Miao</li>
+</ul>
+</ul>
+<ul class="points">
+<li>11 new blocks: including 7 blocks for the new scripts listed above and 4 blocks for the following existing scripts:</li>
+<li>Arabic Extended-A</li>
+<li>Sundanese Supplement</li>
+<li>Meetei Mayek Extensions</li>
+<li>Arabic Mathematical Alphabetical Symbols</li>
+</ul>
+<hr />
+<h3 class="h3">Adoption of Unicode CLDR Data and the java.locale.providers System Property</h3>
+<p>The Unicode Consortium has released the Common Locale Data Repository (CLDR) project to "support the world's languages, with the largest and most extensive standard repository of locale data available." The CLDR is becoming the de-facto standard for locale data.
+The CLDR's XML-based locale data has been incorporated into the JDK 8 release, however it is disabled by default.</p>
+<p>There are four distinct sources for locale data:</p>
+<ul class="points">
+<li>CLDR represents the locale data provided by the Unicode CLDR project.</li>
+<li>HOST represents the current user's customization of the underlying operating system's settings. It works only with the user's default locale, and the customizable settings may vary depending on the OS, but primarily Date, Time, Number, and Currency formats are supported. </li>
+<li>SPI represents the locale sensitive services implemented in the installed SPI providers.</li>
+<li>JRE represents the locale data that is compatible with the prior JRE releases. </li>
+</ul>
+<p>To select the desired locale data source, use the java.locale.providers system property. listing the data sources in the preferred order. For example:
+java.locale.providers=HOST,SPI,CLDR,JRE
+The default behavior is equivalent to the following setting:
+java.locale.providers=JRE,SPI</p>
+<hr />
+<h2 class="h2">Java 8 New Calendar and Locale APIs</h2>
+<p>The JDK 8 includes two new classes, several new methods, and a new return value for an existing static method.</p>
+<p>Two new abstract classes for service providers are added to the java.util.spi package.</p>
+<table class="alt">
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>public abstract class CalendarDataProvider extends LocaleServiceProvider</td>
+<td>It is an abstract class for service providers that provide locale-dependent Calendar parameters.</td>
+</tr>
+<tr>
+<td>public abstract class CalendarNameProvider extends LocaleServiceProvider</td>
+<td>It is an abstract class for service providers that provide localized string representations (display names) of Calendar field values. </td>
+</tr>
+</table>
+<p>A static method is now able to recognize Locale.UNICODE_LOCALE_EXTENSION for the numbering system.</p>
+<table class="alt">
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>public static final DecimalFormatSymbols getInstance(Locale locale)</td>
+<td>It is used to get the DecimalFormatSymbols instance for the specified locale. This method provides access to DecimalFormatSymbols instances for locales supported by the Java runtime itself as well as for those supported by installed DecimalFormatSymbolsProvider implementations.
+It throws NullPointerException if locale is null.</td>
+</tr>
+</table>
+<p>Added New methods in calender API:</p>
+<table class="alt">
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>public boolean isSupportedLocale(Locale locale)</td>
+<td>It returns true if the given locale is supported by this locale service provider. The given locale may contain extensions that should be taken into account for the support determination.
+It is define in java.util.spi.LocaleServiceProvider class
+</td>
+</tr>
+<tr>
+<td>public String getCalendarType()</td>
+<td>It returns the calendar type of this Calendar. Calendar types are defined by the Unicode Locale Data Markup Language (LDML) specification.
+It is defined in java.util.Calendar class.
+</td>
+</tr>
+</table>
+<p>New style specifiers are added for the Calendar.getDisplayName and Calendar.getDisplayNames methods to determine the format of the Calendar name.</p>
+<hr />
+<table class="alt">
+<tr>
+<th>Specifier</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>public static final int SHORT_FORMAT</td>
+<td>It is a style specifier for getDisplayName and getDisplayNames indicating a short name used for format.</td>
+</tr>
+<tr>
+<td>public static final int LONG_FORMAT</td>
+<td>It is a style specifier for getDisplayName and getDisplayNames indicating a long name used for format.</td>
+</tr>
+<tr>
+<td>public static final int SHORT_STANDALONE</td>
+<td>It is a style specifier for getDisplayName and getDisplayNames indicating a short name used independently, such as a month abbreviation as calendar headers.</td>
+</tr>
+<tr>
+<td>public static final int LONG_STANDALONE</td>
+<td>It is a style specifier for getDisplayName and getDisplayNames indicating a long name used independently, such as a month name as calendar headers.</td>
+</tr>
+</table>
+<p>Two new Locale methods for dealing with a locale's (optional) extensions.</p>
+<table class="alt">
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>public boolean hasExtensions()</td>
+<td>It returns true if this Locale has any extensions.</td>
+</tr>
+<tr>
+<td>public Locale stripExtensions()</td>
+<td>It returns a copy of this Locale with no extensions. If this Locale has no extensions, this Locale is returned itself.</td>
+</tr>
+</table>
+<p>Two new Locale.filter methods return a list of Locale instances that match the specified criteria, as defined in RFC 4647: </p>
+<table class="alt">
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>public static List&lt;Locale&gt;
+filter(List&lt;Locale.LanguageRange&gt; priorityList,Collection&lt;Locale&gt; locales)
+</td>
+<td>It returns a list of matching Locale instances using the filtering mechanism defined in RFC 4647. This is equivalent to filter(List, Collection, FilteringMode) when mode is Locale.FilteringMode.AUTOSELECT_FILTERING.</td>
+</tr>
+<tr>
+<td>public static List&lt;Locale&gt;
+filter(List&lt;Locale.LanguageRange&gt; priorityList,Collection&lt;Locale&gt; locales, Locale.FilteringMode mode)
+</td>
+<td>It returns a list of matching Locale instances using the filtering mechanism defined in RFC 4647.</td>
+</tr>
+</table>
+<p>Two new Locale.filterTags methods return a list of language tags that match the specified criteria, as defined in RFC 4647.</p>
+<table class="alt">
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>public static List&lt;String&gt; filterTags(List&lt;Locale.LanguageRange&gt; priorityList, Collection&lt;String&gt; tags)</td>
+<td>It returns a list of matching languages tags using the basic filtering mechanism defined in RFC 4647. This is equivalent to filterTags(List, Collection, FilteringMode) when mode is Locale.FilteringMode.AUTOSELECT_FILTERING.</td>
+</tr>
+<tr>
+<td>public static List&lt;String&gt; filterTags(List&lt;Locale.LanguageRange&gt; priorityList, Collection&lt;String&gt; tags, Locale.FilteringMode mode)</td>
+<td>It returns a list of matching languages tags using the basic filtering mechanism defined in RFC 4647.</td>
+</tr>
+</table>
+<p>Two new lookup methods return the best-matching locale or language tag using the lookup mechanism defined in RFC 4647.</p>
+<table class="alt">
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>public static Locale lookup(List&lt;Locale.LanguageRange&gt; priorityList, Collection&lt;Locale&gt; locales)</td>
+<td>It returns a Locale instance for the best-matching language tag using the lookup mechanism defined in RFC 4647.</td>
+</tr>
+<tr>
+<td>Public static String lookupTag(List&lt;Locale.LanguageRange&gt; priorityList,Collection&lt;String&gt; tags)</td>
+<td>It returns the best-matching language tag using the lookup mechanism defined in RFC 4647.</td>
+</tr>
+</table>
+<hr />
+<h2 class="h2">Other Java 8 Version Enhancements</h2>
+<h2 class="h3">Enhancements in JDK 8u5</h2>
+<p>1) The frequency in which the security prompts are shown for an application has been reduced.</p>
+<hr />
+<h2 class="h3">Enhancements in JDK 8u11</h2>
+<p>1) An option to suppress offers from sponsors when the JRE is installed or updated is available in the Advanced tab of the Java Control Panel.</p>
+<p>2) The Entry-Point attribute can be included in the JAR file manifest to identify one or more classes as a valid entry point for your RIA(Rich Internet application).</p>
+<hr />
+<h2 class="h3">Enhancements in JDK 8u20</h2>
+<p>1) The javafxpackager tool has been renamed to javapackager. This tool has been enhanced with new arguments for self-contained application bundlers.</p>
+<p>Follwing enhancements are related to the java tool:</p>
+<ul class="points">
+<li>An experimental JIT compiler option related to Restricted Transactional Memory (RTM) has been added.</li>
+<li>Several options related to string deduplication have been added.</li>
+<li>Several options related to Advanced Encryption Standard (AES) intrinsics have been added.</li>
+<li>Combinations of garbage collection options have been deprecated.</li>
+</ul>
+<p>2) Garbage Collection Tuning Guide has been added to the Java HotSpot Virtual Machine. It describes the garbage collectors included with the Java HotSpot VM and helps you to decide which garbage collector can best optimize the performance of your application, especially if it handles large amounts of data (multiple gigabytes), has many threads, and has high transaction rates.</p>
+<hr />
+<h2 class="h3">Enhancements in JDK 8u31</h2>
+<p>1) In this release, the SSLv3 protocol is removed from the Java Control Panel Advanced options.</p>
+<hr />
+<h2 class="h2">Enhancements in JDK 8u40</h2>
+<h3 class="h3">Java tool</h3>
+<p>1) The -XX:+CheckEndorsedAndExtDirs has been added because the endorsed-standards override mechanism (JDK-8065675) and the extension mechanism (JDK-8065702) have been deprecated. The option helps identify any existing uses of these mechanisms and is supported in JDK 7u80 and JDK 8u40.</p>
+<p>2) Java Flight Recorder (JFR) offers a variety of ways to unlock commercial features and enable JFR during the runtime of an application. </p>
+<p>It includes java command line options such as jcmd diagnostic commands and Graphical User Interface (GUI) controls within Java Mission Control. This flexibility enables you to provide the appropriate options at startup, or interact with JFR later.</p>
+<p>3) The option -XX:StartFlightRecording=parameter=value has a new parameter, dumponexit={true|false}, which specifies whether a dump file of JFR data should be generated when the JVM terminates in a controlled manner.</p>
+<p>4) The options related to Restricted Transactional Memory (RTM) are no longer experimental. These options include -XX:RTMAbortRatio=abort_ratio, -XX:RTMRetryCount=number_of_retries, -XX:+UseRTMDeopt, and -XX:+UseRTMLocking.</p>
+<p>5) In Java 8, Application Class Data Sharing (AppCDS) has been introduced. AppCDS extends CDS (Class Data Sharing) to enable classes from the standard extensions directories and the application class path to be placed in the shared archive. This is a commercial feature and is no longer considered experimental.</p>
+<p>6) New options -XX:+ResourceManagement and -XX:ResourceManagementSampleInterval=value have been added.</p>
+<p>7) Additional information about large pages has been added. Large Pages, also known as huge pages, are memory pages that are significantly larger than the standard memory page size. Large pages optimize processor Translation-Lookaside Buffers. The Linux options -XX:+UseHugeTLBFS, -XX:+UseSHM, and -XX:+UseTransparentHugePages have been documented.</p>
+<p>8) The option -XX:ObjectAlignmentInBytes=alignment has been documented.</p>
+<h3 class="h3">JJS tool</h3>
+<p>1) The option --optimistic-types=[true|false] has been added. It enables or disables optimistic type assumptions with deoptimizing recompilation. </p>
+<p>2) The option --language=[es5] has been added to the jjs tool. It specifies the ECMAScript language version.</p>
+<h3 class="h3">Javapackager tool</h3>
+<p>1) New arguments are available for OS X bundlers. The mac.CFBundleVersion argument identifies the internal version number to be used.</p>
+<p>2) The mac.dmg.simple argument indicates if DMG customization steps that depend on executing AppleScript code are skipped.</p>
+<h3 class="h3">Jcmd tool</h3>
+<p>Jcmd tool is used to dynamically interact with Java Flight Recorder (JFR). You can use it to unlock commercial features, enable/start/stop flight recordings, and obtain various status messages from the system.</p>
+<h3 class="h3">Jstat tool</h3>
+<p>The jstat tool has been updated with information about compressed class space which is a special part of metaspace.</p>
+<h3 class="h3">Virtual machine</h3>
+<p>The Scalable Native Memory Tracking HotSpot VM feature helps diagnose VM memory leaks and clarify users when memory leaks are not in the VM. Native Memory Tracker can be run without self-shutdown on large systems and without causing a significant performance impact beyond what is considered acceptable for small programs.</p>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="java-lambda-expressions.html">Java 8 Lambda Expressions</a></span>
+</div>
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="New-features-in-java.html">&larr; prev</a>
+<a style="float:right" class="next" href="java-lambda-expressions.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr></table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="e38586868781828088a38982958297938c8a8d97cd808c8e">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/java-8-features"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/java-8-features"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/java-8-features"><img src="images/pinterest32.png" alt="pinterest" /></a>
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+</div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="eb8399ab818a9d8a9f9b8482859fc5888486">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="c6aeb486aca7b0a7b2b6a9afa8b2e8a5a9abe8">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+</div></div>
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/java-8-features by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 08:52:10 GMT -->
+</html> 

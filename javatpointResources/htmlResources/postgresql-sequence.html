@@ -1,0 +1,1052 @@
+ <!DOCTYPE html><html lang="en">
+<!-- Mirrored from www.javatpoint.com/postgresql-sequence by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:54:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>PostgreSQL Sequence - javatpoint</title><link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png" />
+<link rel="stylesheet" type="text/css" href="https://static.javatpoint.com/link.css?v=5.1" async /><link rel="dns-prefetch" href="https://clients1.google.com/"><link rel="dns-prefetch" href="https://static.javatpoint.com/"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/"><link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://feedify.net/"><meta name="theme-color" content="#4CAF50" /><meta property="og:title" content="PostgreSQL Sequence - javatpoint" /><meta property="og:description" content="PostgreSQL Sequence with examples database, table, create, select, insert, update, delete, join, function, index, clause, trigger, view, procedure etc." />
+<meta name="keywords" content="postgresql, tutorial, beginners, professionals, introduction, example, command, database, table, create, select, insert, update, delete, join, function, index, clause, trigger, view, procedure" /><meta name="description" content="PostgreSQL Sequence with examples database, table, create, select, insert, update, delete, join, function, index, clause, trigger, view, procedure etc." /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="postgresql-sequence.html" />
+<meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta name="twitter:title" property="og:title" content="PostgreSQL Sequence - javatpoint" /><meta name="twitter:description" property="og:description" content="PostgreSQL Sequence with examples database, table, create, select, insert, update, delete, join, function, index, clause, trigger, view, procedure etc." /><meta property="og:url" content="postgresql-sequence.html" /><meta property="og:site_name" content="www.javatpoint.com" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@pagejavatpoint" /><meta name="twitter:domain" content="www.javatpoint.com" /><meta name="twitter:creator" content="@pagejavatpoint" />
+<link href="manifest.json" rel="manifest">
+<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = 'http://delivery.adrecover.com/37784/adRecover.js?ts=1543562646174'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+
+<script data-cfasync="false" type="text/javascript">
+(function (w, d) {
+  var siteId = "37780";
+  var targetElement =
+    d.getElementsByTagName("head")[0] || d.getElementsByTagName("body")[0];
+  var s = d.createElement("script");
+  s.src = "//cdn.adpushup.com/" + siteId + "/adpushup.js";
+  s.crossOrigin = "anonymous";
+  s.type = "text/javascript";
+  s.async = true;
+  targetElement.appendChild(s);
+  function sendErrorLog(log) {
+    var eventName = "script_error";
+    log.siteId = siteId;
+    var data = btoa(JSON.stringify(log));
+    var img = document.createElement("img");
+    img.src =
+      "https://aplogger.adpushup.com/log?event=HC_" + eventName + "&data=" + data;
+  }
+  var searchParams =
+    typeof URLSearchParams === "function" &&
+    new URLSearchParams(window.location.search);
+  if (searchParams) {
+    var isDebugModeOn = searchParams.has("apDebug");
+  }
+  w.addEventListener("error", function (event) {
+    try {
+      var filename = event.filename || "";
+      if (filename.indexOf("/" + siteId + "/adpushup.js") === -1) {
+        return;
+      }
+      var error = event.error;
+      if (error) {
+        var message = error.message;
+        var stack = error.stack;
+      }
+      message = message || event.message;
+      var log = {
+        message: message,
+        stack: stack || "",
+        timestamp: Math.floor(event.timeStamp),
+        type: "uncaughterror",
+      };
+      sendErrorLog(log);
+      !isDebugModeOn && event.preventDefault();
+    } catch (error) {}
+  });
+  w.addEventListener("unhandledrejection", function (event) {
+    var reason = event.reason;
+    if (typeof reason === "object") reason = JSON.stringify(reason);
+    var log = {
+      message: reason || "no reason found",
+      timestamp: Math.floor(event.timeStamp),
+      type: "unhandledrejection",
+    };
+    sendErrorLog(log);
+    !isDebugModeOn && event.preventDefault();
+  });
+  var ga = d.createElement("script");
+  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-Z0TZ7TDHS1";
+  ga.type = "text/javascript";
+  ga.async = true;
+  targetElement.appendChild(ga);
+  w.dataLayer = window.dataLayer || [];
+  w.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", "G-Z0TZ7TDHS1", {
+    custom_map: { dimension1: "siteid" },
+  });
+  w.gtag("event", "script-call", {
+    send_to: "G-Z0TZ7TDHS1",
+    siteid: siteId,
+  });
+  s.onerror = function (msg) {
+    w.gtag("event", "ad-block", {
+      send_to: "G-Z0TZ7TDHS1",
+      siteid: siteId,
+    });
+  };
+})(window, document);
+</script>
+</head>
+<body onload="highlightlink()">
+
+<button onclick="topFunction()" id="myBtn">&#8679; SCROLL TO TOP</button>
+<div id="page" style="margin:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><table style="width:100%;margin-bottom:5px"> <tr> <td> <div style="clear:both;float:left;width:230px;margin-top:15px;margin-left:20px"> <a href="index.html"><img src="https://static.javatpoint.com/images/logo/jtp_logo.png" alt="Javatpoint Logo" /></a> </div> <div style="float:left;width:60%;"><script> (function() { var cx = '005383125436438536544:y1edweedxwi'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script><gcse:search></gcse:search> </div> </td> </tr></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="images/menuhome64.png" alt="Go To Top" onclick="showmenu()" /></span>
+<span style="float:left"><a href="index.html"><img src="images/logo/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both">
+<script>
+  (function() {
+    var cx = '005383125436438536544:y1edweedxwi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+</div>
+</div>
+<div id="link" style="clear:both;z-index:999"> <div class="ddsmoothmenu">
+<ul>
+<li><a href="index.html"><img src="https://static.javatpoint.com/images/icon/home.png" alt="home" /> Home</a></li>
+<li><a href="postgresql-tutorial.html" class="selected"><img src="https://static.javatpoint.com/images/icon/postgresql.png" alt="postgresql" /> PostgreSQL</a></li>
+<li><a href="sql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/sql.png" alt="sql" /> SQL</a></li>
+<li><a href="pl-sql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/plsql.png" alt="plsql" /> PL/SQL</a></li>
+<li><a href="mysql-tutorial.html"><img src="https://static.javatpoint.com/images/icon/mysql.png" alt="mysql" /> MySQL</a></li>
+<li><a href="mongodb-tutorial.html"><img src="https://static.javatpoint.com/images/icon/mongodb.png" alt="mongodb" /> MongoDB</a></li>
+<li><a href="sql-server-tutorial.html"><img src="https://static.javatpoint.com/images/icon/sqlserver.png" alt="sql server" /> SQL Server</a></li>
+<li><a href="oracle-tutorial.html"><img src="https://static.javatpoint.com/images/icon/oracle.png" alt="oracle" /> Oracle</a></li>
+<li><a href="sqlite-tutorial.html"><img src="https://static.javatpoint.com/images/icon/sqlite.png" alt="sqlite" /> SQLite</a></li>
+<li><a href="cassandra-tutorial.html"><img src="https://static.javatpoint.com/images/icon/cassandra.png" alt="cassandra" /> Cassandra</a></li>
+<li><a href="dbms-tutorial.html"><img src="https://static.javatpoint.com/images/icon/dbms.png" alt="dbms" /> DBMS</a></li>
+<li><a href="python-tutorial.html"><img src="https://static.javatpoint.com/images/icon/python.png" alt="python" /> Python</a></li>
+<li><a href="java-tutorial.html"><img src="https://static.javatpoint.com/images/icon/java.png" alt="java" /> Java</a></li>
+<li><a href="aptitude/quantitative.html"><img src="https://static.javatpoint.com/images/icon/aptitude.png" alt="aptitude" /> Aptitude</a></li>
+<li><a href="sql-interview-questions.html"><img src="https://static.javatpoint.com/images/icon/interview.png" alt="sql interview questions" /> Interview Q</a></li>
+</ul>
+<br style="clear: left" />
+</div></div>
+<div class="mobilemenu" style="clear:both">
+
+<ins class="adPushupAds" data-adpControl="hqdgs" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSBDbV8zMDB4MjUwX01vYl8xNC85IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MzAwcHg7aGVpZ2h0OjI1MHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjcwMTQyNzI1MTkiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4="></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<div id="menu">
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Tutorial</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-tutorial.html">PostgreSQL Tutorial</a>
+<a href="postgresql-syntax.html">PostgreSQL Syntax</a>
+<a href="install-postgresql.html">Install PostgreSQL</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Database</span></h2>
+</div>
+<div class="leftmenu">
+<a href="connect-to-a-postgresql-database-server.html">Connect to a PostgreSQL DB</a>
+<a href="postgresql-create-database.html">PostgreSQL Create DB</a>
+<a href="postgresql-select-database.html">PostgreSQL Select Database</a>
+<a href="postgresql-drop-database.html">PostgreSQL Drop DB</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Table</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-create-table.html">PostgreSQL Create Table</a>
+<a href="postgresql-drop-table.html">PostgreSQL Drop Table</a>
+<a href="postgresql-show-table.html">PostgreSQL Show Table</a>
+<a href="postgresql-describe-table.html">PostgreSQL Describe Table</a>
+<a href="postgresql-alter-table.html">PostgreSQL ALTER table</a>
+<a href="postgresql-add-columns.html">PostgreSQL ADD Column</a>
+<a href="postgresql-drop-column.html">PostgreSQL Drop column</a>
+<a href="postgresql-change-column-type.html">Change Column Type</a>
+<a href="postgresql-rename-column.html">PostgreSQL Rename Column</a>
+<a href="postgresql-truncate-table.html">PostgreSQL Truncate table</a>
+<a href="postgresql-temporary-table.html">PostgreSQL temporary table</a>
+<a href="postgresql-column-alias.html">PostgreSQL Column Alias</a>
+<a href="postgresql-sequence.html">PostgreSQL Sequence</a>
+<a href="postgresql-identity-column.html">Identity Column</a>
+<a href="postgresql-upsert.html">PostgreSQL Upsert</a>
+<a href="postgresql-subquery.html">PostgreSQL Subquery</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Data Types</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-datatypes.html">PostgreSQL Datatypes</a>
+<a href="postgresql-numeric.html">PostgreSQL Numeric</a>
+<a href="postgresql-character.html">PostgreSQL Character</a>
+<a href="postgresql-text.html">PostgreSQL Text</a>
+<a href="postgresql-varchar.html">PostgreSQL Varchar</a>
+<a href="postgresql-boolean.html">PostgreSQL Boolean</a>
+<a href="postgresql-integer.html">PostgreSQL Integer</a>
+<a href="postgresql-smalllint.html">PostgreSQL SMALLLINT</a>
+<a href="postgresql-bigint.html">PostgreSQL BIGINT</a>
+<a href="postgresql-serial.html">PostgreSQL Serial</a>
+<a href="postgresql-date.html">PostgreSQL Date</a>
+<a href="postgresql-time.html">PostgreSQL Time</a>
+<a href="postgresql-timestamp.html">PostgreSQL Timestamp</a>
+<a href="postgresql-interval.html">PostgreSQL Interval</a>
+<a href="postgresql-uuid.html">PostgreSQL UUID</a>
+<a href="postgresql-json.html">PostgreSQL JSON</a>
+<a href="postgresql-hstore.html">PostgreSQL hstore</a>
+<a href="postgresql-array.html">PostgreSQL Array</a>
+<a href="postgresql-user-defined-data-type.html">User-Defined data type</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Schema</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-schema.html" class="l1">PostgreSQL Schema</a>
+<a href="postgresql-create-schema.html">PostgreSQL Create Schema</a>
+<a href="postgresql-drop-schema.html">PostgreSQL Drop Schema</a>
+<a href="postgresql-alter-schema.html">PostgreSQL ALTER Schema</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Queries</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-insert.html">PostgreSQL Insert</a>
+<a href="postgresql-select.html">PostgreSQL Select</a>
+<a href="postgresql-update.html">PostgreSQL Update</a>
+<a href="postgresql-delete.html">PostgreSQL Delete</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Clause</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-where-clause.html">PostgreSQL Where</a>
+<a href="postgresql-order-by-clause.html">PostgreSQL Order By</a>
+<a href="postgresql-group-by-clause.html">PostgreSQL Group By</a>
+<a href="postgresql-having-clause.html">PostgreSQL Having</a>
+<a href="postgresql-distinct.html">PostgreSQL Distinct</a>
+<a href="postgresql-limit.html">PostgreSQL Limit</a>
+<a href="postgresql-fetch-clause.html">PostgreSQL Fetch</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Conditions</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-condition.html">PostgreSQL Condition</a>
+<a href="postgresql-and-condition.html">PostgreSQL And</a>
+<a href="postgresql-or-condition.html">PostgreSQL Or</a>
+<a href="postgresql-and-or-condition.html">PostgreSQL And & Or</a>
+<a href="postgresql-not-condition.html">PostgreSQL Not</a>
+<a href="postgresql-like-condition.html">PostgreSQL Like</a>
+<a href="postgresql-in-condition.html">PostgreSQL In</a>
+<a href="postgresql-not-in-condition.html">PostgreSQL Not In</a>
+<a href="postgresql-between-condition.html">PostgreSQL Between</a>
+<a href="postgresql-exists-condition.html">PostgreSQL Exists</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Views</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-view.html">PostgreSQL View</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Join</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-join.html">PostgreSQL Join</a>
+<a href="postgresql-inner-join.html">PostgreSQL INNER Join</a>
+<a href="postgresql-left-join.html">PostgreSQL Left Join</a>
+<a href="postgresql-right-join.html">PostgreSQL Right Join</a>
+<a href="postgresql-full-join.html">PostgreSQL Full Join</a>
+<a href="postgresql-cross-join.html">PostgreSQL Cross Join</a>
+<a href="postgresql-self-join.html">PostgreSQL Self Join</a>
+<a href="postgresql-natural-join.html">PostgreSQL Natural Join</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Trigger</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-trigger.html">PostgreSQL Trigger</a>
+<a href="postgresql-create-trigger.html">Create Trigger</a>
+<a href="postgresql-drop-trigger.html">DROP trigger</a>
+<a href="postgresql-alter-trigger.html">ALTER trigger</a>
+<a href="postgresql-disable-trigger.html">DISABLE trigger</a>
+<a href="postgresql-enable-trigger.html">ENABLE trigger</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Indexes</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-indexes.html">PostgreSQL Indexes</a>
+<a href="postgresql-create-index.html">PostgreSQL Create Index</a>
+<a href="postgresql-drop-index.html">PostgreSQL Drop Index</a>
+<a href="postgresql-list-indexes.html">PostgreSQL List Indexes</a>
+<a href="postgresql-unique-index.html">PostgreSQL Unique Index</a>
+<a href="postgresql-index-on-expression.html">PostgreSQL Index on Expression</a>
+<a href="postgresql-partial-index.html">PostgreSQL Partial Index</a>
+<a href="postgresql-reindex.html">PostgreSQL Reindex</a>
+<a href="postgresql-multi-column-indexes.html">PostgreSQL Multi-column Indexes</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Database Constraints</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-constraints.html">PostgreSQL Constraints</a>
+<a href="postgresql-primary-key.html">PostgreSQL Primary key</a>
+<a href="postgresql-foreign-key.html">PostgreSQL Foreign Key</a>
+<a href="postgresql-unique-constraint.html">Unique Constraint</a>
+<a href="postgresql-check-constraint.html">Check Constraint</a>
+<a href="postgresql-not-null-constraint.html">Not-Null Constraint</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Advance</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-functions.html">PostgreSQL Functions</a>
+<a href="postgresql-alias.html">PostgreSQL Alias</a>
+<a href="postgresql-date-time.html">PostgreSQL Date &amp; Time</a>
+<a href="psql-commands.html">Psql commands</a>
+<a href="postgresql-union.html">PostgreSQL Union</a>
+<a href="postgresql-intersect.html">PostgreSQL Intersect</a>
+<a href="postgresql-except.html">PostgreSQL Except</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">PostgreSQL Advance</span></h2>
+</div>
+<div class="leftmenu">
+<a href="postgresql-versions.html">PostgreSQL versions</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Differences</span></h2>
+</div>
+<div class="leftmenu">
+<a href="mongodb-vs-postgresql.html">MongoDB vs PostgreSQL</a>
+<a href="postgresql-vs-sql-server.html">PostgreSQL vs SQL Server</a>
+<a href="postgresql-vs-mariadb.html">PostgreSQL vs MariaDB</a>
+<a href="postgresql-vs-oracle.html">PostgreSQL vs Oracle</a>
+<a href="postgresql-vs-sqlite.html">PostgreSQL vs SQLite</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Interview</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-interview-questions.html">SQL Interview</a>
+<a href="pl-sql-interview-questions.html">PL/SQL Interview</a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Quiz</span></h2>
+</div>
+<div class="leftmenu">
+<a href="sql-quiz.html">SQL Quiz</a>
+</div>
+<img src="wh.jpg" alt="JavaTpoint" />
+<br />
+<div id="leftad" style="margin-left:20px">
+
+<div id="17c09743-0b89-427c-ba64-e09f6a1745a2" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("17c09743-0b89-427c-ba64-e09f6a1745a2");
+		});
+	</script>
+</div>
+</div>
+</div>
+<div class="onlycontent">
+
+<div class="onlycontentad">
+<div id="9bbcb75d-b5e2-40e1-a811-e7680d1f59a4" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("9bbcb75d-b5e2-40e1-a811-e7680d1f59a4");
+		});
+	</script>
+</div>
+</div>
+<div class="onlycontentinner">
+<div id="city">
+<table>
+<tr><td>
+<div id="bottomnextup">
+<a class="next" href="postgresql-identity-column.html">next &rarr;</a>
+<a class="next" href="postgresql-column-alias.html">&larr; prev</a>
+</div>
+<h1 class="h1">PostgreSQL Sequence</h1>
+<p>In this section, we are going to understand the working of the <strong>PostgreSQL Sequence, examples</strong> of PostgreSQL Sequence, and understand how the sequence object is used to create a sequence of numbers, and see the example <strong>nextval() function.</strong></p>
+<p>And we also see the example of creating an <strong>ascending and descending</strong> sequence using the <strong>CREATE SEQUENCE</strong> command and remove the Sequence with the help of the <strong>DROP SEQUENCE</strong> command.</p>
+<h2 class="h2">What is PostgreSQL Sequence?</h2>
+<p>The Sequence is a generator used to create a progressive number that can help to produce a single <strong>primary key</strong> automatically and synchronize the keys across various rows or tables.</p>
+<p>In <strong><a href="postgresql-tutorial.html">PostgreSQL</a></strong>, a sequence is a user-defined schema-bound object which creates a sequence of integers depending on the particular requirement.</p>
+<p>In PostgreSQL sequence, the orders of numbers are important. Such as {5,6,7,8,9,10} and {10,9,8,7,6,5} are completely different sequences.</p>
+<p>We are using the <strong>CREATE SEQUENCE</strong> command to generate a sequence in PostgreSQL.</p>
+<h3 class="h3">PostgreSQL CREATE SEQUENCE command</h3>
+<ul class="points">
+<li>The <strong>PostgreSQL CREATE SEQUENCE</strong> command is used to generate an original sequence number generator, which also includes generating and setting a new different single-row table with the name.</li>
+<li>The generator will be maintained by the user who questions the statements.</li>
+<li>The PostgreSQL Sequences are built on <strong>bigint arithmetic</strong>; therefore, the <strong>range</strong> starts from <strong>-9223372036854775808 to 9223372036854775807</strong>. And we cannot surpass the range of an <strong>eight-byte</strong></li>
+<li>In PostgreSQL, the sequence name must be different from any additional sequence, <strong>table, view, index, or foreign table</strong> in a similar schema.</li>
+<li>The sequence is created in a particular schema, it is generated in the existing schema if a schema name is given earlier.</li>
+<li>We can use <strong>currval, setval, and nextval</strong> functions to operate on the sequence once the sequence has been generated.</li>
+<li>A schema name cannot be specified when generating a temporary sequence as the <strong>temporary sequences</strong> occur in a special schema.</li>
+</ul>
+<h3 class="h3">Syntax of PostgreSQL Create Sequence command</h3>
+<p>The syntax of the PostgreSQL Create Sequence is as follows:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+CREATE SEQUENCE [ IF NOT EXISTS ] sequence_name
+    [ AS { SMALLINT | INT | BIGINT } ]
+    [ INCREMENT [ BY ] increment ]
+    [ MINVALUE minvalue | NO MINVALUE ] 
+    [ MAXVALUE maxvalue | NO MAXVALUE ]
+    [ START [ WITH ] start ] 
+    [ CACHE cache ] 
+    [ [ NO ] CYCLE ]
+    [ OWNED BY { table_name.column_name | NONE } ]
+</textarea></div>
+<p>In the above Syntax, we have used the following parameters:</p>
+<table class="alt">
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>sequence_name</td>
+<td><ul class="points">
+<li>The sequence_name is different from any other sequences, indexes, tables, views, or foreign tables in a similar schema.</li>
+<li>We can define the sequence name subsequently the <strong>CREATE SEQUENCE</strong> </li>
+<li>And the <strong>IF NOT EXISTS condition</strong> tentatively generates a new sequence only if it does not exist.</li>
+</ul></td>
+</tr>
+<tr>
+<td>[ AS { SMALLINT | INT | BIGINT } ]</td>
+<td><ul class="points">
+<li>The data type of the sequence which regulates the sequence's maximum and minimum values.</li>
+<li>We can define the data type of the sequence, where the supported data type is INT, BIGINT, and SMALLINT.</li>
+<li>If we forgot to mention the data type, it takes it as BIGINT because it is a default data type for Sequence.</li>
+</ul></td>
+</tr>
+<tr>
+<td>[ INCREMENT [ BY ] increment ]</td>
+<td><ul class="points">
+<li>The increment describes the value, which has to be added to the existing sequence value to generate a new value and by default value is 1.</li>
+<li>Here, a <strong>positive (+) number</strong> will produce an <strong>ascending sequence,</strong> whereas a <strong>negative (-) number</strong> will generate a <strong>descending sequence</strong>.</li>
+</ul></td>
+</tr>
+<tr>
+<td>[ MINVALUE minvalue | NO MINVALUE ]<br>
+[ MAXVALUE maxvalue | NO MAXVALUE ]</td>
+<td><ul class="points">
+<li>If we use the <strong>NO MINVALUE and NO MAXVALUE</strong>, the sequence will take the default value.</li>
+<li>For an <strong>ascending sequence,</strong>the maximum default value is the <strong>maximum value of the Sequence data type</strong>, and the <strong>default minimum</strong> value is <strong>1</strong>.</li>
+<li>And for a <strong>descending sequence</strong>, the maximum default value <strong>is -1</strong>, and the <strong>default minimum value is the minimum value of the</strong> data type of the Sequence.</li>
+</ul></td>
+</tr>
+<tr>
+<td>[ START [ WITH ] start ]</td>
+<td><ul class="points">
+<li>The <strong>START</strong>clause is used to define the starting value of the sequence.</li>
+<li>And the default initial value is <strong>Max value</strong> for descending ones and <strong>Min value</strong> for ascending sequences.</li>
+</ul></td>
+</tr>
+<tr>
+<td>cache</td>
+<td><ul class="points">
+<li>One value can be created at a time, and by default, the sequence creates one value at a time that is <strong>no cache</strong>.</li>
+<li>The <strong>CACHE parameter is used to specify</strong> the total <strong>sequence numbers pre-allocated</strong> and stored in memory for earlier access.</li>
+</ul></td>
+</tr>
+<tr>
+<td>CYCLE | NO CYCLE</td>
+<td><ul class="points">
+<li>The <strong>CYCLE parameter</strong> allows us to resume the value if the limit is reached. The <strong>following number</strong> will be the <strong>maximum value</strong> for the <strong>descending sequence</strong> and the <strong>minimum value</strong> for the <strong>ascending sequence.</strong></li>
+<li>If we use NO CYCLE, when the limit is reached, or we are trying to get the next value, it will raise an error in the output.</li>
+<li>The <strong>NO CYCLE</strong> is the default if we do not define the <strong>CYCLE or NO CYCLE</strong>.</li>
+</ul></td>
+</tr>
+<tr>
+<td>OWNED BY table_name.column_name</td>
+<td><ul class="points">
+<li>At last, the <strong>OWNED BY parameter is used</strong> to link the table column with the sequence.</li>
+<li>Therefore, PostgreSQL will automatically drop the related sequence; if we drop the table or the column.</li>
+</ul></td>
+</tr>
+</table>
+<h4 class="n">Note: When we are using the SERIAL pseudo-type for a column of a table, in the background, PostgreSQL automatically generates a sequence, which is related to the column.</h4>
+<h3 class="h3">Examples of PostgreSQL Create Sequence</h3>
+<p>Let us see different examples to understand how <strong>PostgreSQL</strong> <strong>CREATE SEQUENCE</strong> works.</p>
+<ul class="points">
+<li><strong>Example of generating an ascending sequence</strong></li>
+</ul>
+<p>In the below example, the following command is used the <strong>CREATE SEQUENCE</strong> command for generating a new ascending sequence <strong>Starts</strong> from <strong>20</strong> with an <strong>increment</strong> of <strong>3</strong>.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+CREATE SEQUENCE jtpsequence
+INCREMENT 3
+START 20;
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After executing the above command, we will get the following message window, which displays that the <strong>Ascending sequence</strong> has been created successfully.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-sequence1.png" alt="PostgreSQL Sequence" />
+<p>Here, we can also use the <strong>nextval() function</strong> to get the next value from the sequence.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+SELECT nextval('jtpsequence');
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After implementing the above command, we will get the following output, displaying the next value from the sequence.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-sequence2.png" alt="PostgreSQL Sequence" />
+<p>And if we implement the above command again, we will get the next value from the sequence:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+SELECT nextval('jtpsequence');
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After executing the above command, we will get the below output, which displays the next value from the sequence.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-sequence3.png" alt="PostgreSQL Sequence" />
+<ul class="points">
+<li><strong>Example of generating a descending sequence</strong></li>
+</ul>
+<p>In the below example, the following command is used to generate a descending sequence from 5 to 1 with the <strong>cycle</strong> option:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+CREATE SEQUENCE five
+INCREMENT -1
+MINVALUE 1 
+MAXVALUE 5
+START 5
+CYCLE;
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>We will get the following message on executing the above command, which displays that the <strong><em>descending sequence</em></strong> has been created successfully into the <strong>Organization</strong> database.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-sequence4.png" alt="PostgreSQL Sequence" />
+<p>When we are implementing the below command several times, we will see the number began from <strong>5,4,3, 2, 1 and back to 5,4,3, 2, 1</strong> and so on:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+SELECT nextval('five');
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After executing the above command, we will get the below output, displaying the value from the sequence in descending order.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-sequence5.png" alt="PostgreSQL Sequence" />
+<ul class="points">
+<li><strong>Creating a sequence related to a table column</strong></li>
+</ul>
+<p>Let us see one sample example to understand how to create a sequence related to a table column.</p>
+<h3 class="h3">Step1: Creating a new table</h3>
+<p>Firstly, we are creating one new table as <strong><em>Purchase_details</em></strong> with the CREATE command's help and inserting some values using the <a href="postgresql-insert.html">INSERT command</a>.</p>
+<p>To create a <strong><em>Purchase_details</em></strong> into an <strong>Organization database</strong>, we use the <strong>CREATE</strong> command.</p>
+<p>The <strong><em>Purchase_details</em></strong> table contains the various columns, such as <strong>Purchase_id, Module_id, Module_text, and Cost,</strong> where the <strong>Purchase_id and Module_id</strong> column is the <strong>primary key</strong> column.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+CREATE TABLE Purchase_details(
+    Purchase_id SERIAL,
+    Module_id INT NOT NULL,
+    Module_text VARCHAR NOT NULL,
+    Cost DEC(10,2) NOT NULL,
+    PRIMARY KEY(Purchase_id, Module_id)
+);
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>We will get the following message on executing the above command, which displays that the <strong><em>Purchase_details</em></strong> table has been created successfully into the <strong>Organization</strong> database.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-sequence6.png" alt="PostgreSQL Sequence" />
+<h3 class="h3">Step2: Creating a new sequence</h3>
+<p>After creating the <strong><em>Purchase_details</em></strong> table successfully, we will create a new sequence using the <strong>CREATE SEQUENCE</strong> command, which is linked with the <strong>Module_id</strong> column of the <strong>Purchase_details</strong> table, as shown in the following command:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+CREATE SEQUENCE Purchase_module_id
+START 5
+INCREMENT 5
+MINVALUE 5
+OWNED BY Purchase_details.Module_id;
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>The new sequence has been created successfully after executing the above command:</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-sequence7.png" alt="PostgreSQL Sequence" />
+<h3 class="h3">Step3: Inserting the Data</h3>
+<p>After creating the <strong><em>Purchase_details</em></strong> table and a <strong>Purchase_module_id</strong> sequence successfully, we will insert some values into the <strong><em>Purchase_details</em></strong> table with the <strong>INSERT</strong> command's help.</p>
+<p>The below command is used to insert the various purchase line modules into the <strong><em>Purchase_details</em></strong> table.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+INSERT INTO 
+ Purchase_details(Purchase_id, Module_id, Module_text, cost)
+VALUES
+    (150, nextval('Purchase_module_id'),'Iphone11 max pro',500),
+    (150, nextval('Purchase_module_id'),'Smart LED Tv',650),
+    (150, nextval('Purchase_module_id'),'Home theatre',200);
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After implementing the above command, we will get the following message window, which displays that the three values have been inserted successfully into the <strong><em>Purchase_details</em></strong> table.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-sequence8.png" alt="PostgreSQL Sequence" />
+<h4 class="n">Note: In the above command, we have used the nextval() function to retrieve the Module_id value from the Purchase_module_id sequence.</h4>
+<h3 class="h3">Step4: Retrieving the data</h3>
+<p>After creating and inserting the <strong><em>Purchase_details</em></strong> table's values, we will use the <a href="postgresql-select.html"><strong>SELECT</strong> command</a> to retrieve the data from the <strong><em>Purchase_details</em></strong> table:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+SELECT Purchase_id, Module_id, Module_text, Cost
+FROM Purchase_details;
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After successfully implementing the above command, we will get the below result, which displays that the PostgreSQL returns the data present in the <strong><em>Purchase_details</em></strong> table:</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-sequence9.png" alt="PostgreSQL Sequence" />
+<ul class="points">
+<li><strong>Listing all sequences in a database</strong></li>
+</ul>
+<p>In the following command, we are listing all sequences present in the existing database:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+SELECT relname sequence_name
+FROM  pg_class 
+WHERE  relkind = 'S';
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>On implementing the above command, we will get the following result, which displays listing all the sequence in the <strong>Organization</strong> database:</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-sequence10.png" alt="PostgreSQL Sequence" />
+<ul class="points">
+<li><strong>Removing sequences</strong></li>
+</ul>
+<p>It will be automatically removed once the table is dropped, or the table's column is deleted if a sequence is connected with a table column.</p>
+<p>Manually, we can use the <strong>DROP SEQUENCE</strong> command for deleting a sequence.</p>
+<h3 class="h3">Syntax of removing the PostgreSQL sequence</h3>
+<p>The Syntax for removing the PostgreSQL sequence is as follows:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+DROP SEQUENCE [ IF EXISTS ] sequence_name [, ...] 
+[ CASCADE | RESTRICT ];
+</textarea></div>
+<p>In the above syntax, we have used the following parameters:</p>
+<table class="alt">
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Sequence_name</td>
+<td><ul class="points">
+<li>It is used to define the name of the sequence, which we want to delete.</li>
+</ul></td>
+</tr>
+<tr>
+<td>If EXISTS</td>
+<td><ul class="points">
+<li>We can use a list of <strong>comma-separated sequence names i</strong>f we need to remove several sequences at a time.</li>
+<li>And the <strong>IF EXISTS</strong> parameter temporarily removes the sequence if it present.</li>
+</ul></td>
+</tr>
+<tr>
+<td>CASCADE</td>
+<td><ul class="points">
+<li>if we want to delete objects based on the Sequence recursively, we can use the CASCADE option.</li>
+</ul></td>
+</tr>
+</table>
+<h3 class="h3">Example of PostgreSQL DROP SEQUENCE command</h3>
+<p>To drop the <strong><em>Purchase_details</em></strong> table, we have used the <a href="postgresql-drop-table.html"><strong>DROP TABLE</strong> command</a>; meanwhile, the Sequence <strong>Purchase_module_id</strong> is connected with the <strong>Module_id</strong> of the <strong>Purchase_details</strong>.</p>
+<p>Therefore, it is also removed repeatedly, as we can see in the below command:</p>
+<div class="codeblock"><textarea name="code" class="xml">
+DROP TABLE Purchase_details;
+</textarea></div>
+<p><strong>Output</strong></p>
+<p>After executing the above command, we will get the below message window, which displays that the <strong><em>Purchase_details</em></strong> has been removed successfully.</p>
+<img src="https://static.javatpoint.com/postgre/images/postgresql-sequence11.png" alt="PostgreSQL Sequence" />
+<h2 class="h2">Overview</h2>
+<p>In the <strong>PostgreSQL Sequence</strong> section, we have learned the following topics:</p>
+<ul class="points">
+<li>The <strong>PostgreSQL Sequence</strong> is used as a <strong>Sequence object</strong> for creating the list of sequences.</li>
+<li>We have <strong>used the CREATE SEQUENCE command to create a new sequence number</strong></li>
+<li>In this section, we also understand how to create an <strong>ascending</strong> and <strong>descending sequence</strong> with the <strong>CREATE SEQUENCE</strong></li>
+<li>We used the <strong>nextval() functions</strong> for <strong>retrieving the next value from the sequence.</strong></li>
+<li>We also see the example of dropping the sequence with the <strong>DROP SEQUENCE / DROP TABLE</strong></li>
+</ul>
+<hr />
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="postgresql-identity-column.html">PostgreSQL Identity Column</a></span>
+</div>
+
+<br /><br />
+<div id="bottomnext">
+<a style="float:left" class="next" href="postgresql-column-alias.html">&larr; prev</a>
+<a style="float:right" class="next" href="postgresql-identity-column.html">next &rarr;</a>
+</div>
+<br /><br />
+</td></tr>
+</table>
+</div>
+<hr class="hrhomebox" />
+<div><img class="lazyload" data-src="https://static.javatpoint.com/images/youtube-32.png" style="vertical-align:middle;" alt="Youtube" />
+<span class="h3" style="vertical-align:middle;font-size:22px"> For Videos Join Our Youtube Channel: <a href="https://bit.ly/2FOeX6S" target="_blank"> Join Now</a></span>
+</div>
+<hr class="hrhomebox" />
+<h3 class="h3">Feedback</h3>
+<ul class="points">
+<li>Send your Feedback to <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="2c4a4949484e4d4f476c464d5a4d585c43454258024f4341">[email&#160;protected]</a></li>
+</ul>
+<hr class="hrhomebox" />
+<h2 class="h2">Help Others, Please Share</h2>
+<a rel="nofollow" title="Facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=https://www.javatpoint.com/postgresql-sequence"><img src="images/facebook32.png" alt="facebook" /></a>
+<a rel="nofollow" title="Twitter" target="_blank" href="https://twitter.com/share?url=https://www.javatpoint.com/postgresql-sequence"><img src="images/twitter32.png" alt="twitter" /></a>
+<a rel="nofollow" title="Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https://www.javatpoint.com/postgresql-sequence"><img src="images/pinterest32.png" alt="pinterest" /></a>
+
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="5022809933" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Learn Latest Tutorials</h2>
+<div class="firsthomecontent">
+<a href="splunk.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/splunk.png" alt="Splunk tutorial" />
+<p>Splunk</p>
+</div>
+</a>
+<a href="spss.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/spss.png" alt="SPSS tutorial" />
+<p>SPSS</p>
+</div>
+</a>
+<a href="swagger.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/swagger.png" alt="Swagger tutorial" />
+<p>Swagger</p>
+</div>
+</a>
+<a href="t-sql.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/transact-sql.png" alt="T-SQL tutorial" />
+<p>Transact-SQL</p>
+</div>
+</a>
+<a href="tumblr.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/tumblr.png" alt="Tumblr tutorial" />
+<p>Tumblr</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="React tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="regex.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/regex.png" alt="Regex tutorial" />
+<p>Regex</p>
+</div>
+</a>
+<a href="reinforcement-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react.png" alt="Reinforcement learning tutorial" />
+<p>Reinforcement Learning</p>
+</div>
+</a>
+<a href="r-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/r-programming.png" alt="R Programming tutorial" />
+<p>R Programming</p>
+</div>
+</a>
+<a href="rxjs.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/rxjs.png" alt="RxJS tutorial" />
+<p>RxJS</p>
+</div>
+</a>
+<a href="react-native-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/react-native.png" alt="React Native tutorial" />
+<p>React Native</p>
+</div>
+</a>
+<a href="python-design-pattern.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-design-patterns.png" alt="Python Design Patterns" />
+<p>Python Design Patterns</p>
+</div>
+</a>
+<a href="python-pillow.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-pillow.png" alt="Python Pillow tutorial" />
+<p>Python Pillow</p>
+</div>
+</a>
+<a href="python-turtle-programming.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python-turtle.png" alt="Python Turtle tutorial" />
+<p>Python Turtle</p>
+</div>
+</a>
+<a href="keras.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/keras.png" alt="Keras tutorial" />
+<p>Keras</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Preparation</h2>
+<div class="firsthomecontent">
+<a href="aptitude/quantitative.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/aptitude/images/quantitative-aptitude-home.png" alt="Aptitude" />
+<p>Aptitude</p>
+</div>
+</a>
+<a href="reasoning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/reasoning/images/reasoning-home.png" alt="Logical Reasoning" />
+<p>Reasoning</p>
+</div>
+</a>
+<a href="verbal-ability.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/verbal-ability/images/verbal-ability-home.png" alt="Verbal Ability" />
+<p>Verbal Ability</p>
+</div>
+</a>
+<a href="interview-questions-and-answers.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/logo/interviewhome.png" alt="Interview Questions" />
+<p>Interview Questions</p>
+ </div>
+</a>
+<a href="company-interview-questions-and-recruitment-process.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/interview/images/company-home.jpeg" alt="Company Interview Questions" />
+<p>Company Questions</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">Trending Technologies</h2>
+<div class="firsthomecontent">
+<a href="artificial-intelligence-ai.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/artificial-intelligence.png" alt="Artificial Intelligence" />
+<p>Artificial Intelligence</p>
+</div>
+</a>
+<a href="aws-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/amazon-web-services.png" alt="AWS Tutorial" />
+<p>AWS</p>
+</div>
+</a>
+<a href="selenium-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/selenium.png" alt="Selenium tutorial" />
+<p>Selenium</p>
+</div>
+</a>
+<a href="cloud-computing.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cloud-computing.png" alt="Cloud Computing" />
+<p>Cloud Computing</p>
+</div>
+</a>
+<a href="hadoop-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/hadoop.png" alt="Hadoop tutorial" />
+<p>Hadoop</p>
+</div>
+</a>
+<a href="reactjs-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/reactjs.png" alt="ReactJS Tutorial" />
+<p>ReactJS</p>
+</div>
+</a>
+<a href="data-science.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-science.png" alt="Data Science Tutorial" />
+<p>Data Science</p>
+</div>
+</a>
+<a href="angular-7-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/angular7.png" alt="Angular 7 Tutorial" />
+<p>Angular 7</p>
+</div>
+</a>
+<a href="blockchain-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/blockchain.png" alt="Blockchain Tutorial" />
+<p>Blockchain</p>
+</div>
+</a>
+<a href="git.html">
+ <div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/git.png" alt="Git Tutorial" />
+<p>Git</p>
+</div>
+</a>
+<a href="machine-learning.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/machine-learning.png" alt="Machine Learning Tutorial" />
+<p>Machine Learning</p>
+</div>
+</a>
+<a href="devops.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/devops.png" alt="DevOps Tutorial" />
+<p>DevOps</p>
+</div>
+</a>
+</div>
+</fieldset>
+<hr class="hrhomebox" />
+
+<fieldset class="gra1">
+<h2 class="h3">B.Tech / MCA</h2>
+<div class="firsthomecontent">
+<a href="dbms-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dbms.png" alt="DBMS tutorial" />
+<p>DBMS</p>
+</div>
+</a>
+<a href="data-structure-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-structures.png" alt="Data Structures tutorial" />
+<p>Data Structures</p>
+</div>
+</a>
+<a href="daa-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/daa.png" alt="DAA tutorial" />
+<p>DAA</p>
+</div>
+</a>
+<a href="operating-system.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/operating-system.png" alt="Operating System" />
+<p>Operating System</p>
+</div>
+</a>
+<a href="computer-network-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-network.png" alt="Computer Network tutorial" />
+<p>Computer Network</p>
+</div>
+</a>
+<a href="compiler-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/compiler-design.png" alt="Compiler Design tutorial" />
+<p>Compiler Design</p>
+</div>
+</a>
+<a href="computer-organization-and-architecture-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-organization.png" alt="Computer Organization and Architecture" />
+<p>Computer Organization</p>
+</div>
+</a>
+<a href="discrete-mathematics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/discrete-mathematics.png" alt="Discrete Mathematics Tutorial" />
+<p>Discrete Mathematics</p>
+</div>
+</a>
+<a href="ethical-hacking.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/ethical-hacking.png" alt="Ethical Hacking" />
+<p>Ethical Hacking</p>
+</div>
+</a>
+<a href="computer-graphics-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/computer-graphics.png" alt="Computer Graphics Tutorial" />
+<p>Computer Graphics</p>
+</div>
+</a>
+<a href="software-engineering.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/software-engineering.png" alt="Software Engineering " />
+<p>Software Engineering</p>
+</div>
+</a>
+<a href="html-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/web-technology.png" alt="html tutorial" />
+<p>Web Technology</p>
+</div>
+</a>
+<a href="cyber-security-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cyber-security.png" alt="Cyber Security tutorial" />
+<p>Cyber Security</p>
+</div>
+</a>
+<a href="automata-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/automata.png" alt="Automata Tutorial" />
+<p>Automata</p>
+</div>
+</a>
+<a href="c-programming-language-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/c-programming.png" alt="C Language tutorial" />
+<p>C Programming</p>
+</div>
+</a>
+<a href="cpp-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/cpp.png" alt="C++ tutorial" />
+<p>C++</p>
+</div>
+</a>
+<a href="java-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/java.png" alt="Java tutorial" />
+<p>Java</p>
+</div>
+</a>
+<a href="net-framework.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/dot-net.png" alt=".Net Framework tutorial" />
+<p>.Net</p>
+</div>
+</a>
+<a href="python-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/python.png" alt="Python tutorial" />
+<p>Python</p>
+</div>
+</a>
+<a href="programs-list.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/programs.png" alt="List of Programs" />
+<p>Programs</p>
+</div>
+</a>
+<a href="control-system-tutorial.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/control-system.png" alt="Control Systems tutorial" />
+<p>Control System</p>
+</div>
+</a>
+<a href="data-mining.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-mining.png" alt="Data Mining Tutorial" />
+<p>Data Mining</p>
+</div>
+</a>
+<a href="data-warehouse.html">
+<div class="homecontent"><img class="lazyload" data-src="https://static.javatpoint.com/images/homeicon/data-warehouse.png" alt="Data Warehouse Tutorial" />
+<p>Data Warehouse</p>
+</div>
+</a>
+</div>
+</fieldset>
+</div>
+<br><br /><div class="mobilemenu" style="clear:both">
+<ins class="adPushupAds" data-adpControl="jrfe7" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByZXNwb25zaXZlbW9iaWxlZm9vdGVyIC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTpibG9jayIKICAgICBkYXRhLWFkLWNsaWVudD0iY2EtcHViLTQ2OTk4NTg1NDkwMjMzODIiCiAgICAgZGF0YS1hZC1zbG90PSI4MjIyODY2MzE4IgogICAgIGRhdGEtYWQtZm9ybWF0PSJhdXRvIgogICAgIGRhdGEtZnVsbC13aWR0aC1yZXNwb25zaXZlPSJ0cnVlIj48L2lucz4KPHNjcmlwdD4KKGFkc2J5Z29vZ2xlID0gd2luZG93LmFkc2J5Z29vZ2xlIHx8IFtdKS5wdXNoKHt9KTsKPC9zY3JpcHQ+"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div></div>
+<div id="right">
+<div id="e59d93b5-7231-4043-a19e-e7ec340efd1f" class="_ap_apex_ad">
+<script>
+		var adpushup = window.adpushup = window.adpushup || {};
+		adpushup.que = adpushup.que || [];
+		adpushup.que.push(function() {
+			adpushup.triggerAd("e59d93b5-7231-4043-a19e-e7ec340efd1f");
+		});
+	</script>
+</div>
+<br /><br />
+</div>
+
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;">
+
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+<br /><br />
+<ins class="adPushupAds" data-adpControl="6d5qg" data-ver="2" data-siteId="37780" data-ac="PHNjcmlwdCBhc3luYyBzcmM9Ii8vcGFnZWFkMi5nb29nbGVzeW5kaWNhdGlvbi5jb20vcGFnZWFkL2pzL2Fkc2J5Z29vZ2xlLmpzIj48L3NjcmlwdD4KPCEtLSByaWdodDEwMjRvbmx5IC0tPgo8aW5zIGNsYXNzPSJhZHNieWdvb2dsZSIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MTIwcHg7aGVpZ2h0OjYwMHB4IgogICAgIGRhdGEtYWQtY2xpZW50PSJjYS1wdWItNDY5OTg1ODU0OTAyMzM4MiIKICAgICBkYXRhLWFkLXNsb3Q9IjIxODAxMTg3MTYiPjwvaW5zPgo8c2NyaXB0PgooYWRzYnlnb29nbGUgPSB3aW5kb3cuYWRzYnlnb29nbGUgfHwgW10pLnB1c2goe30pOwo8L3NjcmlwdD4K"></ins><script data-cfasync="false" type="text/javascript">(function (w, d) { for (var i = 0, j = d.getElementsByTagName("ins"), k = j[i]; i < j.length; k = j[++i]){ if(k.className == "adPushupAds" && k.getAttribute("data-push") != "1") { ((w.adpushup = w.adpushup || {}).control = (w.adpushup.control || [])).push(k); k.setAttribute("data-push", "1");} } })(window, document);</script>
+</div>
+<br />
+<div id="footer" style="clear:both;width:100%">
+<div style="width:100%;margin-top:10px;color:white;background-image: linear-gradient(145deg,#52a2fc,#480fcc);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Javatpoint Services</h2> <p style="padding:0px 20px 0px 20px">JavaTpoint offers too many high quality services. Mail us on <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0e667c4e646f786f7a7e6167607a206d6163">[email&#160;protected]</a>, to get more information about given services. </p><ul class="points"> <li>Website Designing</li><li>Website Development</li><li>Java Development</li><li>PHP Development</li><li>WordPress</li><li>Graphic Designing</li><li>Logo</li><li>Digital Marketing</li><li>On Page and Off Page SEO</li><li>PPC</li><li>Content Development</li><li>Corporate Training</li><li>Classroom and Online Training</li><li>Data Entry</li></ul> <p style="padding-bottom:60px"></p></div><div style="width:100%;margin-top:-20px;color:white;background-image: linear-gradient(145deg,#dc8140,#b16b15);line-height:28px;"> <h2 style="padding:60px 0px 0px 20px">Training For College Campus</h2> <p style="padding:0px 20px 60px 20px">JavaTpoint offers college campus training on Core Java, Advance Java, .Net, Android, Hadoop, PHP, Web Technology and Python. Please mail your requirement at <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="315943715b50475045415e585f451f525e5c1f">[email&#160;protected]</a> <br>Duration: 1 week to 2 week<br></p></div><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var _gaq=_gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function(){var ga=document.createElement('script'); ga.type='text/javascript'; ga.async=true; ga.src=('https:'==document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script><div style="margin-top:5px;text-align:center"> <sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup> <a target="_blank" rel="nofollow noopener" href="https://feeds.feedburner.com/javatpointsonoo"><img src="https://static.javatpoint.com/images/social/rss1.png" alt="RSS Feed" /></a> <a target="_blank" rel="nofollow noopener" href="https://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="https://static.javatpoint.com/images/social/mail1.png" alt="Subscribe to Get Email Alerts" /></a> <a rel="nofollow noopener" target="_blank" href="https://www.facebook.com/javatpoint"><img src="https://static.javatpoint.com/images/social/facebook1.jpg" alt="Facebook Page" /></a> <a target="_blank noopener" rel="nofollow" href="https://twitter.com/pagejavatpoint"><img src="https://static.javatpoint.com/images/social/twitter1.png" alt="Twitter Page" /></a> <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCUnYvQVCrJoFWZhKK3O2xLg"><img src="https://static.javatpoint.com/images/youtube32.png" alt="YouTube" /></a> <a target="_blank" rel="nofollow noopener" href="https://javatpoint.blogspot.com/"><img src="https://static.javatpoint.com/images/social/blog.png" alt="Blog Page" /></a> </div><footer class="footer1"><div class="column4"><h3>Learn Tutorials</h3><a href="java-tutorial.html">Learn Java</a><a href="data-structure-tutorial.html">Learn Data Structures</a><a href="c-programming-language-tutorial.html">Learn C Programming</a><a href="cpp-tutorial.html">Learn C++ Tutorial</a><a href="c-sharp-tutorial.html">Learn C# Tutorial</a><a href="php-tutorial.html">Learn PHP Tutorial</a><a href="html-tutorial.html">Learn HTML Tutorial</a><a href="javascript-tutorial.html">Learn JavaScript Tutorial</a><a href="jquery-tutorial.html">Learn jQuery Tutorial</a><a href="spring-tutorial.html">Learn Spring Tutorial</a></div><div class="column4"><h3>Our Websites</h3><a href="index.html">Javatpoint.com</a><a rel="dofollow noopener" target="_blank" href="https://www.hindi100.com/">Hindi100.com</a><a rel="dofollow noopener" target="_blank" href="https://www.lyricsia.com/">Lyricsia.com</a><a rel="nofollow noopener" target="_blank" href="https://www.quoteperson.com/">Quoteperson.com</a><a rel="nofollow noopener" target="_blank" href="https://www.jobandplacement.com/">Jobandplacement.com</a></div><div class="column4"><h3>Our Services</h3><p>Website Development</p><p>Android Development</p><p>Website Designing</p><p>Digital Marketing</p><p>Summer Training</p><p>Industrial Training</p><p>College Campus Training</p></div><div class="column4"><h3>Contact</h3><p>Address: G-13, 2nd Floor, Sec-3</p><p>Noida, UP, 201301, India</p><p>Contact No: 0120-4256464, 9990449935</p><a href="contact-us.html">Contact Us</a> <a href="subscribe.html">Subscribe Us</a> <a href="privacy-policy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a><br><a href="sonoo-jaiswal.html">About Me</a></div></footer><footer class="footer2"><p>&copy; Copyright 2011-2021 www.javatpoint.com. All rights reserved. Developed by JavaTpoint.</p></footer>
+<div id="bot-root"></div>
+<script> 
+ (function() {
+ var e = document.createElement('script');
+ e.src = 'https://app.pushbrothers.com/js/notification-bot.js?cnfg=a3cc04a1-8471-450e-b01e-c9d752b16eb0';
+ document.getElementById('bot-root').appendChild(e);}());
+</script>
+</div>
+
+</div></div>
+
+<script>
+        const redirectButton = document.querySelector('#redirect');
+        redirectButton.addEventListener('click', () => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          const textArea = document.createElement('textarea');
+          const language = document.querySelector('#jtp_compiler').classList[0];
+          textArea.name = 'code';
+          textArea.value = document.querySelector('#jtp_compiler').textContent;
+          form.appendChild(textArea);
+          document.body.appendChild(form);
+          form.action = `https://onlinecompiler.javatpoint.com/`;
+          form.submit();
+        });
+      </script>
+<script src="https://static.javatpoint.com/js/shcoreandbrush.js"></script><script> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script src="https://static.javatpoint.com/lazysizes.min.js" async></script>
+</body> 
+<!-- Mirrored from www.javatpoint.com/postgresql-sequence by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:54:55 GMT -->
+</html> 
