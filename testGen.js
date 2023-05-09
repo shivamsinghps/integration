@@ -13,8 +13,9 @@ const reader = async () => {
 
   try {
     for (let fileno = 1; fileno <= 31; fileno++) {
-      console.log(file, "started");
       let file = `./prepdata/chunk${fileno}.txt`;
+      console.log(file, "started");
+
       const dataMap = fs.readFileSync(file, "utf-8");
       let Map = JSON.parse(dataMap);
       for (const element of Map) {
