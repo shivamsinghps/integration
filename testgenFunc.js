@@ -46,7 +46,6 @@ const paraphrase = async (sourceFile, outfile, filename) => {
     let x = 0;
     while (x < textOnlyList.length) {
       try {
-        console.log(textOnlyList[x], "processing");
         let processedData = await openai.createChatCompletion({
           model: "gpt-3.5-turbo",
           messages: [
@@ -167,4 +166,41 @@ sleep = async () => {
   });
 };
 
-module.exports = { htmlToJson, paraphrase, findNestedObj, writeHtmlFile };
+const linkReplacer = (tree, dataValue) => {
+  let data = JSON.stringify(tree, (_, nestedValue) => {
+    if (
+      nestedValue &&
+      nestedValue !== undefined &&
+      nestedValue.tag === "a" &&
+      nestedValue.attrs
+    ) {
+      let linkBool = hasLink(nestedValue.attrs.href, dataValue);
+      nestedValue.attrs.href = linkBool
+        ? nestedValue.attrs.href + ".html"
+        : "javascript:void(0)";
+    }
+    return nestedValue;
+  });
+
+  data = JSON.parse(data);
+  return data;
+};
+
+const hasLink = (link, files) => {
+  let i = 0;
+  while (i < files.length) {
+    if (link.includes(files[i])) {
+      return true;
+    }
+    i++;
+  }
+  return false;
+};
+
+module.exports = {
+  htmlToJson,
+  paraphrase,
+  findNestedObj,
+  writeHtmlFile,
+  linkReplacer
+};

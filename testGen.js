@@ -12,29 +12,32 @@ const reader = async () => {
   console.time("completed");
 
   try {
-    const [_, __, file] = process.argv;
-
-    const dataMap = fs.readFileSync(file, "utf-8");
-    let Map = JSON.parse(dataMap);
-    for (const element of Map) {
-      let [key, value] = element.split(" => ");
-      const outPath = key.split("/").slice(2, -1).join("/");
-      const filename = key.split("/").slice(-1);
-      let treeData = generatorFunction.htmlToJson(key);
-      console.log("json Generated");
-      let rephrasedData = await generatorFunction.paraphrase(
-        value,
-        outPath,
-        filename
-      );
-      console.log("rephrasing done");
-      const generatedData = generatorFunction.findNestedObj(
-        treeData,
-        rephrasedData
-      );
-      await generatorFunction.writeHtmlFile(generatedData, outPath, filename);
+    for (let fileno = 1; fileno <= 31; fileno++) {
+      console.log(file, "started");
+      let file = `./prepdata/chunk${fileno}.txt`;
+      const dataMap = fs.readFileSync(file, "utf-8");
+      let Map = JSON.parse(dataMap);
+      for (const element of Map) {
+        let [key, value] = element.split(" => ");
+        const outPath = key.split("/").slice(2, -1).join("/");
+        const filename = key.split("/").slice(-1);
+        let treeData = generatorFunction.htmlToJson(key);
+        console.log("json Generated");
+        let rephrasedData = await generatorFunction.paraphrase(
+          value,
+          outPath,
+          filename
+        );
+        console.log("rephrasing done");
+        const generatedData = generatorFunction.findNestedObj(
+          treeData,
+          rephrasedData
+        );
+        await generatorFunction.writeHtmlFile(generatedData, outPath, filename);
+      }
+      console.log(file, "processed");
+      console.timeEnd("completed");
     }
-    console.timeEnd("completed");
   } catch (error) {
     console.log(error.message);
     console.timeEnd("completed");
