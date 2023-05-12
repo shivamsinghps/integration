@@ -10,7 +10,7 @@ const process = require("process");
 
 const reader = async () => {
   try {
-    for (let fileno = 16; fileno <= 31; fileno++) {
+    for (let fileno = 17; fileno <= 31; fileno++) {
       let file = `./prepdata/chunk${fileno}.txt`;
       console.time("completed");
       console.log(file, "started");
@@ -38,7 +38,7 @@ const reader = async () => {
       console.timeEnd("completed");
     }
   } catch (error) {
-    console.log(error.message);
+    console.log({mainerror:error});
     console.timeEnd("completed");
   }
 };
