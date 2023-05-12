@@ -33,7 +33,7 @@ let setfiles = async () => {
     let value = item;
     return key + " => " + value;
   });
-  content = content.filter((item) => !data.includes(item));
+  content = content.filter((item) => !preData.includes(item));
   let resFiles = 0;
   if (content.length > 10) {
     resFiles = parseInt(content.length / 10);
