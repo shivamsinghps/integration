@@ -11,7 +11,7 @@ const process = require("process");
 const reader = async () => {
   try {
     for (let fileno = 1; fileno <= 15; fileno++) {
-      let file = `./prepdata/chunk${fileno}.txt`;
+      let file = `./prepdata33/chunk${fileno}.txt`;
       console.time("completed");
       console.log(file, "started");
       const dataMap = fs.readFileSync(file, "utf-8");
