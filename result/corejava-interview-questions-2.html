@@ -1,9 +1,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
 <!-- Mirrored from www.javatpoint.com/corejava-interview-questions-2 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:17:13 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+=======
+
+<!-- Mirrored from www.javatpoint.com/corejava-interview-questions-2 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:17:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 <head>
 <meta charset="UTF-8">
 <link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png">
@@ -466,6 +472,7 @@
 <hr>
 <h3 class="h3">102) What is Runtime Polymorphism?</h3>
 <p>Runtime polymorphism, also known as dynamic method dispatch, involves resolving a call to an overridden method during runtime rather than during the compilation process. This is achieved by calling an overridden method through a superclass' reference variable. The selection of the method to call is determined by the object referred to by the reference variable.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
  class Bike{
    void run(){System.out.println("running");}
@@ -481,6 +488,23 @@
 <span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=Splender" target="_blank">Test it Now</a></span>
 <p>Output:</p>
 <div class="codeblock3"><pre>running safely with 60km.
+=======
+<div class="codeblock"><textarea name="code" class="java">
+ class Bike{
+   void run(){System.out.println("running");}
+ }
+ class Splendor extends Bike{
+   void run(){System.out.println("running safely with 60km");}
+   public static void main(String args[]){
+     Bike b = new Splendor();//upcasting
+     b.run();
+   }
+ }
+</textarea></div>
+<span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=Splender" target="_blank">Test it Now</a></span>
+<p>Output:</p>
+<div class="codeblock3"><pre>running safely with 60km.
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <p>The concept of method overriding involves invoking a method that has been redefined in a subclass, using a reference variable of its superclass. The selection of which method to execute is dependent on the object that the reference variable is referring to.</p>
 <a href="runtime-polymorphism-in-java.html">More details.</a>
@@ -488,6 +512,7 @@
 <h3 class="h3">103) Can you achieve Runtime Polymorphism by data members?</h3>
 <p>No, because method overriding is used to achieve runtime polymorphism and data members cannot be overridden. We can override the member functions but not the data members. Consider the example given below.
 </p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
  class Bike{
   int speedlimit=90;
@@ -503,12 +528,30 @@
 <span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=Honda3" target="_blank">Test it Now</a></span>
 <p>Output:</p>
 <div class="codeblock3"><pre>90
+=======
+<div class="codeblock"><textarea name="code" class="java">
+ class Bike{
+  int speedlimit=90;
+ }
+ class Honda3 extends Bike{
+  int speedlimit=150;
+  public static void main(String args[]){
+   Bike obj=new Honda3();
+   System.out.println(obj.speedlimit);//90
+    }
+}
+</textarea></div>
+<span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=Honda3" target="_blank">Test it Now</a></span>
+<p>Output:</p>
+<div class="codeblock3"><pre>90
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <a href="runtime-polymorphism-in-java.html">More details.</a>
 <hr>
 <h3 class="h3">104) What is the difference between static binding and dynamic binding?</h3>
 <p>Static binding and dynamic binding are two ways of linking functions or methods to their objects. Static binding determines the object type during the compilation stage, while dynamic binding determines the object type during runtime.</p>
 <p><strong>Static Binding</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 class Dog{
  private void eat(){System.out.println("dog is eating...");}
@@ -533,10 +576,37 @@ class Dog extends Animal{
   a.eat();
  }
 }
+=======
+<div class="codeblock"><textarea name="code" class="java">
+class Dog{
+ private void eat(){System.out.println("dog is eating...");}
+
+ public static void main(String args[]){
+  Dog d1=new Dog();
+  d1.eat();
+ }
+}
+</textarea></div>
+<p><strong>Dynamic Binding</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+class Animal{
+ void eat(){System.out.println("animal is eating...");}
+}
+
+class Dog extends Animal{
+ void eat(){System.out.println("dog is eating...");}
+
+ public static void main(String args[]){
+  Animal a=new Dog();
+  a.eat();
+ }
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <a href="static-binding-and-dynamic-binding.html">More details.</a>
 <hr>
 <h3 class="h3">105) What is the output of the following Java program?</h3>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 class BaseTest 
 {
@@ -560,12 +630,38 @@ public class Test extends BaseTest
 </textarea></div>
 <p><strong>Output</strong></p>
 <div class="codeblock3"><pre>  Test:print() called
+=======
+<div class="codeblock"><textarea name="code" class="java">
+class BaseTest 
+{
+  void print()
+  {
+    System.out.println("BaseTest:print() called");
+  }
+}
+public class Test extends BaseTest 
+{
+  void print() 
+  {
+    System.out.println("Test:print() called");
+  }
+  public static void main (String args[])
+  {
+    BaseTest b = new Test();
+    b.print();
+  }
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>  Test:print() called
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <p><strong>Explanation</strong></p>
 <p>Dynamic method dispatch is showcased in this code. During runtime, the type of the reference variable named 'b' is determined. This method is checked during compile-time to see if it exists in the Base class. As it is overridden in the child class, the method present in the derived class is invoked during runtime.</p>
 <hr>
 <h3 class="h3">106) What is Java instanceOf operator?</h3>
 <p>The instanceof operator in Java is used for comparing the type of an instance and returns a boolean value of true or false. It is also called a type comparison operator. However, it should be noted that if the variable being tested with the instanceof operator is null, it will always return false. Here is an example of its usage.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 class Simple1{
  public static void main(String args[]){
@@ -577,6 +673,19 @@ class Simple1{
 <span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=Simple1" target="_blank">Test it Now</a></span>
 <p><strong>Output</strong></p>
 <div class="codeblock3"><pre>true
+=======
+<div class="codeblock"><textarea name="code" class="java">
+class Simple1{
+ public static void main(String args[]){
+ Simple1 s=new Simple1();
+ System.out.println(s instanceof Simple1);//true
+ }
+}
+</textarea></div>
+<span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=Simple1" target="_blank">Test it Now</a></span>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>true
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <p>If a class called Dog is a subclass of a parent class called Animal, then an instance of the Dog class can be treated as an instance of the Animal class as well. This means that the object of the subclass is also recognized as an object of its parent class. So, both the Dog class and the Animal class can be used to refer to the same object.</p>
@@ -587,8 +696,13 @@ class Simple1{
 <hr>
 <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle cm_jtp_wtc_responsive" style="display:inline-block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="6746133113"></ins>
+<<<<<<< HEAD
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
+=======
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </script>
 <h3 class="h3">107) What is the abstraction?</h3>
 <p>Abstraction is a technique used in programming to hide the complexity of implementation from users while showcasing only the essential features. For instance, when you send an SMS, you only see the message composition and sending process, but you're oblivious of the internal operation that makes it possible. Abstraction allows you to concentrate on the object's functionality rather than its working mechanism, making it more user-friendly.</p>
@@ -605,6 +719,7 @@ class Simple1{
 <hr>
 <h3 class="h3">109) What is the abstract class?</h3>
 <p>An abstract class is a type of class that cannot be directly used for creating objects. It's designed to be extended and have its methods implemented by subclasses. Abstract classes can have a range of methods including abstract, non-abstract, constructor, and static methods. Final methods can also be added which prevent the subclass from making any changes to the method's body. To clarify this concept, have a look at the example below.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
  abstract class Bike{
    abstract void run();
@@ -620,6 +735,23 @@ class Simple1{
 <span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=Honda4" target="_blank">Test it Now</a></span>
 <p><strong>Output</strong></p>
 <div class="codeblock3"><pre>running safely
+=======
+<div class="codeblock"><textarea name="code" class="java">
+ abstract class Bike{
+   abstract void run();
+ }
+ class Honda4 extends Bike{
+ void run(){System.out.println("running safely");}
+ public static void main(String args[]){
+  Bike obj = new Honda4();
+  obj.run();
+ }
+ }
+</textarea></div>
+<span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=Honda4" target="_blank">Test it Now</a></span>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>running safely
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <a href="abstract-class-in-java.html">More details.</a>
 <hr>
@@ -627,6 +759,7 @@ class Simple1{
 <p>If a class has an abstract method, it is necessary for that class to also be declared as abstract.</p>
 <hr>
 <h3 class="h3">111) Is the following program written correctly? If yes then what will be the output of the program?</h3>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 abstract class Calculate
 {
@@ -652,6 +785,33 @@ public class Main
 <p>The program's syntax appears to be correct. It correctly implements the abstract method multiply that was defined in the abstract class Calculation. As a result, the program should run without any issues. The expected output should be displayed on the screen when the program runs.</p>
 <p><strong>Output</strong></p>
 <div class="codeblock3"><pre>384
+=======
+<div class="codeblock"><textarea name="code" class="java">
+abstract class Calculate
+{
+    abstract int multiply(int a, int b);
+}
+ 
+public class Main
+{
+    public static void main(String[] args)
+    {
+        int result = new Calculate()
+        {    
+            @Override
+            int multiply(int a, int b)
+            {
+                return a*b;
+            }
+        }.multiply(12,32);
+        System.out.println("result = "+result);
+    }
+}
+</textarea></div>
+<p>The program's syntax appears to be correct. It correctly implements the abstract method multiply that was defined in the abstract class Calculation. As a result, the program should run without any issues. The expected output should be displayed on the screen when the program runs.</p>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>384
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">112) Can you use abstract and final both with a method?</h3>
@@ -674,9 +834,15 @@ In other words, you can say that interfaces can have abstract methods and variab
 <hr>
 <h3 class="h3">117) What is a marker interface?</h3>
 <p>A Marker interface is an interface that does not contain any data member or member functions. It is simply used to mark or notify the compiler that the classes that implement this interface have certain characteristics or properties. Two well-known examples of marker interfaces in Java are Serializable and Cloneable. To declare a marker interface, simply define an interface with no properties or methods.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public interface Serializable{  
 }  
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public interface Serializable{  
+}  
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">118) What are the differences between abstract class and interface?</h3>
@@ -703,6 +869,7 @@ public interface Serializable{
 <hr>
 <h3 class="h3">121) How to make a read-only class in Java? </h3>
 <p>To make a class read-only, one can set all fields as private so they can only be accessed via getter methods. These methods retrieve the value of the private property and return it to the main method, making it impossible to modify the value since no corresponding setter method is provided. For example, see the following illustration.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
   //A Java class which has only getter methods.  
 public class Student{  
@@ -713,10 +880,23 @@ public String getCollege(){
 return college;  
 }  
 }  
+=======
+<div class="codeblock"><textarea name="code" class="java">
+  //A Java class which has only getter methods.  
+public class Student{  
+//private data member  
+private String college="AKG";  
+//getter method for college  
+public String getCollege(){  
+return college;  
+}  
+}  
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">122) How to make a write-only class in Java? </h3>
 <p>To make a class write-only, its fields must be marked as private. This creates a class that only has setter methods, which accept values passed from the main method and set them to the private fields. It's not possible to read the properties of the class as there are no getter methods. Here is an example of how this can be implemented.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
   //A Java class which has only setter methods.  
 public class Student{  
@@ -727,6 +907,18 @@ public void setCollege(String college){
 this.college=college;  
 }  
 }  
+=======
+<div class="codeblock"><textarea name="code" class="java">
+  //A Java class which has only setter methods.  
+public class Student{  
+//private data member  
+private String college;  
+//getter method for college  
+public void setCollege(String college){  
+this.college=college;  
+}  
+}  
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea> </div>
 <hr>
 <h3 class="h3">123) What are the advantages of Encapsulation in Java?</h3>
@@ -746,6 +938,7 @@ this.college=college;
 <h3 class="h3">124) What is the package?</h3>
 <p>A package is a group of similar type of classes, interfaces, and sub-packages. It provides access protection and removes naming collision. The packages in Java can be categorized into two forms, inbuilt package, and user-defined package. There are many built-in packages such as Java, lang, awt, javax, swing, net, io, util, sql, etc. Consider the following example to create a package in Java.
 </p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 //save as Simple.java
 package mypack;
@@ -754,6 +947,16 @@ public class Simple{
     System.out.println("Welcome to package");
    }
 }
+=======
+<div class="codeblock"><textarea name="code" class="java">
+//save as Simple.java
+package mypack;
+public class Simple{
+ public static void main(String args[]){
+    System.out.println("Welcome to package");
+   }
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div><br>
 <img src="https://static.javatpoint.com/images/package.JPG" alt="package in java" title="package">
 <br>
@@ -769,6 +972,7 @@ If you are using an editor like notepad for java programming, use the following 
 </p><ul class="points">
 <li>Define a package <strong>package_name</strong>. Create the class with the name <strong>class_name</strong> and save this file with <strong>your_class_name.java</strong>.</li><br>
 <li>To compile the file, enter the following command in the terminal.</li>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 javac -d . your_class_name.java
 </textarea></div>
@@ -776,6 +980,15 @@ javac -d . your_class_name.java
 <li>To execute the Java class file, you can use its absolute file name. For instance, you can enter the complete filename and path in the command prompt to run the class file.</li>
 <div class="codeblock"><textarea name="code" class="java">
 java package_name.class_name
+=======
+<div class="codeblock"><textarea name="code" class="java">
+javac -d . your_class_name.java
+</textarea></div>
+<p>The command mentioned above helps in creating a package named "package_name" in the current working directory.</p>
+<li>To execute the Java class file, you can use its absolute file name. For instance, you can enter the complete filename and path in the command prompt to run the class file.</li>
+<div class="codeblock"><textarea name="code" class="java">
+java package_name.class_name
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 </ul>
 <hr>
@@ -835,6 +1048,7 @@ The classes that extend RuntimeException are known as unchecked exceptions, e.g.
 <hr>
 <h3 class="h3">136) Is it necessary that each try block must be followed by a catch block?</h3>
 <p>When writing Java code, it's not mandatory to have a catch block after every try block. Instead, you can have a catch block OR a finally block. If you anticipate that exceptions may be thrown, you should declare these in the throws clause of the method. For instance, here's an example to illustrate this.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public class Main{
      public static void main(String []args){
@@ -874,6 +1088,47 @@ public static void main(String args[])
 	catch(ArithmeticException ex){System.out.println(ex);}	
 	^
 1 error
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public class Main{
+     public static void main(String []args){
+        try{
+            int a = 1; 
+            System.out.println(a/0);
+        }
+        finally
+        {
+            System.out.println("rest of the code...");
+        }
+     }
+}
+	</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Exception in thread main java.lang.ArithmeticException:/ by zero
+rest of the code...
+</pre></div>
+<hr>
+<h3 class="h3">137) What is the output of the following Java program?</h3>
+<div class="codeblock"><textarea name="code" class="java">
+public class ExceptionHandlingExample {
+public static void main(String args[])
+{
+	try
+	{
+		int a = 1/0;
+		System.out.println("a = "+a);
+	}
+	catch(Exception e){System.out.println(e);}
+	catch(ArithmeticException ex){System.out.println(ex);}	
+}
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>ExceptionHandlingExample.java:10: error: exception ArithmeticException has already been caught
+	catch(ArithmeticException ex){System.out.println(ex);}	
+	^
+1 error
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <p><strong>Explanation</strong></p>
 <p>ArithmeticException is a type of exception that is a subclass of the Exception class. This means that it cannot be used after Exception in exception handling. Exception is the parent class for all types of exceptions, so it should be used last in the exception handling chain. No other class can be used after it.</p>
@@ -902,6 +1157,7 @@ public static void main(String args[])
 <a href="throws-keyword-and-difference-between-throw-and-throws.html">More details.</a>
 <hr>
 <h3 class="h3">142) What is the output of the following Java program?</h3>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
   public class Main{
      public static void main(String []args){
@@ -926,11 +1182,38 @@ Main.java:8: error: unexpected type
   required: class
   found:    int
 2 errors
+=======
+<div class="codeblock"><textarea name="code" class="java">
+  public class Main{
+     public static void main(String []args){
+        try
+        {
+            throw 90; 
+        }
+        catch(int e){
+            System.out.println("Caught the exception "+e);
+        }
+            
+    }
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>Main.java:6: error: incompatible types: int cannot be converted to Throwable
+            throw 90; 
+            ^
+Main.java:8: error: unexpected type
+        catch(int e){
+              ^
+  required: class
+  found:    int
+2 errors
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <p><strong>Explanation</strong></p>
 <p>Java programming language has a concept of throwable objects that can be thrown. However, attempting to throw an Integer object or any other basic data type from a block of code would result in a compilation error. In such a case, only throwable objects can be used to handle exceptions.</p>
 <hr>
 <h3 class="h3">143) What is the output of the following Java program?</h3>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 class Calculation extends Exception
 {
@@ -958,6 +1241,35 @@ public class Main{
 <p><strong>Output</strong></p>
 <div class="codeblock3"><pre>Calculation class is instantiated
 The sum is 30
+=======
+<div class="codeblock"><textarea name="code" class="java">
+class Calculation extends Exception
+{
+    public Calculation() 
+    {
+        System.out.println("Calculation class is instantiated");
+    }
+    public void add(int a, int b)
+    {
+        System.out.println("The sum is "+(a+b));
+    }
+}
+public class Main{
+     public static void main(String []args){
+        try
+        {
+            throw new Calculation(); 
+        }
+        catch(Calculation c){
+            c.add(10,20);
+        }
+    }
+} 
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>Calculation class is instantiated
+The sum is 30
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <p><strong>Explanation</strong></p>
 <p>
@@ -972,6 +1284,7 @@ The object of Calculation is thrown from the try block which is caught in the ca
 <hr>
 <h3 class="h3">146) What is exception propagation?</h3>
 <p>When a program encounters an error, it throws an exception. The exception is thrown from the top of the stack and if it's not caught, it moves down the call stack to the previous method. If it's still not caught, it drops even further down the call stack until it's either caught or reaches the bottom of the stack. This process is known as exception propagation. However, checked exceptions are not propagated by default.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 class TestExceptionPropagation1{
   void m(){
@@ -996,19 +1309,51 @@ class TestExceptionPropagation1{
 <p><strong>Output:</strong></p>
 <div class="codeblock3"><pre>exception handled
 normal flow...
+=======
+<div class="codeblock"><textarea name="code" class="java">
+class TestExceptionPropagation1{
+  void m(){
+    int data=50/0;
+  }
+  void n(){
+    m();
+  }
+  void p(){
+   try{
+    n();
+   }catch(Exception e){System.out.println("exception handled");}
+  }
+  public static void main(String args[]){
+   TestExceptionPropagation1 obj=new TestExceptionPropagation1();
+   obj.p();
+   System.out.println("normal flow...");
+  }
+}
+</textarea></div>
+<span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=TestExceptionPropagation1" target="_blank">Test it Now</a></span>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>exception handled
+normal flow...
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <img src="https://static.javatpoint.com/images/propagation.JPG" alt="exception propagation"><br>
 <a href="exception-propagation.html">More details.</a>
 <hr>
 <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle cm_jtp_wtc_responsive" style="display:inline-block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="6746133113"></ins>
+<<<<<<< HEAD
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
+=======
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </script>
 <hr>
 <a name="stringinterview"></a>
 <hr>
 <h3 class="h3">147) What is the output of the following Java program?</h3>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public class Main 
 {
@@ -1052,11 +1397,57 @@ public class Main
 b(): Main called
 finally block is called
 Exception is caught
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public class Main 
+{
+    void a()
+    {
+        try{
+        System.out.println("a(): Main called");
+        b();
+        }catch(Exception e)
+        {
+            System.out.println("Exception is caught");
+        }
+    }
+    void b() throws Exception
+    {
+     try{
+         System.out.println("b(): Main called");
+         c();
+     }catch(Exception e){
+         throw new Exception();
+     }
+     finally 
+     {
+         System.out.println("finally block is called");
+     }
+    }
+    void c() throws Exception 
+    {
+        throw new Exception();
+    }
+
+    public static void main (String args[])
+    {
+        Main m = new Main();
+        m.a();
+    }
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>a(): Main called
+b(): Main called
+finally block is called
+Exception is caught
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <p><strong>Explanation</strong></p>
 <p>The program starts by invoking the method a() of Main, which first prints a message and then calls method b(). Method b() in turn prints a message and invokes method c(). However, method c() throws an exception, which is caught by the catch block of method b(), but it is also rethrown using the statement "throw Exception()". Finally, the finally block of method b() executes and prints a message. Ultimately, the exception is handled by the catch block of the method a().</p>
 <hr>
 <h3 class="h3">148) What is the output of the following Java program?</h3>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public class Calculation 
 {
@@ -1095,6 +1486,46 @@ public class Calculation
 </textarea></div>
 <p><strong>Output</strong></p>
 <div class="codeblock3"><pre>result = 290
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public class Calculation 
+{
+    int a; 
+    public Calculation(int a)
+    {
+        this.a = a;
+    }
+    public int add()
+    {
+        a = a+10; 
+        try 
+        {
+            a = a+10; 
+            try 
+            {
+                a = a*10; 
+                throw new Exception(); 
+            }catch(Exception e){
+                a = a - 10;
+            }
+        }catch(Exception e)
+        {
+            a = a - 10; 
+        }
+        return a;
+    }
+    
+    public static void main (String args[])
+    {
+        Calculation c = new Calculation(10);
+        int result = c.add();
+        System.out.println("result = "+result);
+    }
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>result = 290
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <p><strong>Explanation</strong></p>
 <p>The class Calculation's instance variable 'a' is set to 10 through the class constructor during instantiation. When the add() method is called, it returns the value of 'result'. The add() method increases 'a' by 10 to become 20. Within the first try block, 'a' is increased by 10 to become 30. Within the second try block, 'a' is multiplied by 10 to become 300. However, this try block throws an exception which is caught by the corresponding catch block. This catch block reduces 'a' by 10 to set it to 290. Therefore, the add() method returns 290 which is assigned to 'result'. The outermost try block's catch block will never be executed since no exception can be handled by that block.</p>
@@ -1111,6 +1542,7 @@ public class Calculation
 <h3 class="h3">150) What is the meaning of immutable regarding String?</h3>
 <p>
 The simple meaning of immutable is unmodifiable or unchangeable. In Java, String is immutable, i.e., once string object has been created, its value can't be changed. Consider the following example for better understanding.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 class Testimmutablestring{
  public static void main(String args[]){
@@ -1123,6 +1555,20 @@ class Testimmutablestring{
 <span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=Testimmutablestring" target="_blank">Test it Now</a></span>
 <p><strong>Output:</strong></p>
 <div class="codeblock3"><pre>Sachin
+=======
+<div class="codeblock"><textarea name="code" class="java">
+class Testimmutablestring{
+ public static void main(String args[]){
+   String s="Sachin";
+   s.concat(" Tendulkar");//concat() method appends the string at the end
+   System.out.println(s);//will print Sachin because strings are immutable objects
+ }
+}
+</textarea></div>
+<span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=Testimmutablestring" target="_blank">Test it Now</a></span>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Sachin
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <a href="immutable-string.html">More details.</a>
 <hr>
@@ -1135,12 +1581,18 @@ Because Java uses the concept of the string literal. Suppose there are five refe
 <h3 class="h3">152) How many ways can we create the string object?</h3>
 <h3 class="h4">1) String Literal</h3>
 <p>A Java String literal is formed by enclosing a sequence of characters inside double quotation marks.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 String s="welcome";
+=======
+<div class="codeblock"><textarea name="code" class="java">
+String s="welcome";
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p> 
 Each time you create a string literal, the JVM checks the "string constant pool" first. If the string already exists in the pool, a reference to the pooled instance is returned. If the string doesn't exist in the pool, a new string instance is created and placed in the pool. String objects are stored in a special memory area known as the  string constant pool  For example:
 </p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 String s1="Welcome";
 String s2="Welcome";//It doesn't create a new instance
@@ -1148,16 +1600,32 @@ String s2="Welcome";//It doesn't create a new instance
 <h3 class="h4">2) By new keyword</h3>
 <div class="codeblock"><textarea name="code" class="java">
 String s=new String("Welcome");//creates two objects and one reference variable
+=======
+<div class="codeblock"><textarea name="code" class="java">
+String s1="Welcome";
+String s2="Welcome";//It doesn't create a new instance
+</textarea></div>
+<h3 class="h4">2) By new keyword</h3>
+<div class="codeblock"><textarea name="code" class="java">
+String s=new String("Welcome");//creates two objects and one reference variable
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>
 In such case, JVM will create a new string object in normal (non-pool) heap memory, and the literal "Welcome" will be placed in the constant string pool. The variable s will refer to the object in a heap (non-pool).
 </p>
 <hr>
 <h3 class="h3">153) How many objects will be created in the following code?</h3>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 String s1="Welcome";
 String s2="Welcome";
 String s3="Welcome";
+=======
+<div class="codeblock"><textarea name="code" class="java">
+String s1="Welcome";
+String s2="Welcome";
+String s3="Welcome";
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>The code provided will create only a single object. This is because strings in Java cannot be modified or changed once they are created, which is why they are referred to as immutable.</p>
 <a href="java-string.html">More details.</a>
@@ -1169,8 +1637,13 @@ To make Java more memory efficient (because no new objects are created if it exi
 <a href="java-string.html">More details.</a>
 <hr>
 <h3 class="h3">155) How many objects will be created in the following code?</h3>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 String s = new String("Welcome");
+=======
+<div class="codeblock"><textarea name="code" class="java">
+String s = new String("Welcome");
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>
 Two objects, one in string constant pool and other in non-pool(heap).
@@ -1178,6 +1651,7 @@ Two objects, one in string constant pool and other in non-pool(heap).
 <a href="java-string.html">More details.</a>
 <hr>
 <h3 class="h3">156) What is the output of the following Java program?</h3>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
   public class Test 
 {
@@ -1198,11 +1672,34 @@ Two objects, one in string constant pool and other in non-pool(heap).
 </textarea></div>
 <p><strong>Output</strong></p>
 <div class="codeblock3"><pre>  a equals b
+=======
+<div class="codeblock"><textarea name="code" class="java">
+  public class Test 
+{
+    public static void main (String args[])
+    {
+        String a = new String("Sharma is a good player");
+        String b = "Sharma is a good player";
+        if(a == b)
+        {
+            System.out.println("a == b");
+        }
+        if(a.equals(b))
+        {
+            System.out.println("a equals b");
+        }
+    }
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>  a equals b
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <p><strong>Explanation</strong></p>
 <p>The "==" operator in Java checks the equality of two string objects based on their references, whereas the "equals()" method checks the equality of the contents of two string objects. In the case where two string objects contain the same content, but were created using different methods (such as a constructor or a string literal), the references will not be equal and therefore "==" will return false, but "equals()" will return true.</p>
 <hr>
 <h3 class="h3">157) What is the output of the following Java program?</h3>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public class Test 
 {
@@ -1217,6 +1714,22 @@ public class Test
 </textarea></div>
 <p><strong>Output</strong></p>
 <div class="codeblock3"><pre>true
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public class Test 
+{
+    public static void main (String args[])
+    {
+        String s1 = "Sharma is a good player";
+        String s2 = new String("Sharma is a good player");
+        s2 = s2.intern();
+        System.out.println(s1 ==s2);
+    }
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>true
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <p><strong>Explanation</strong></p>
 <p>The intern method retrieves the String object reference from the string pool. In this scenario, s1 is created using a string literal, while s2 is created using the String pool. However, s2 is later updated to reference s1, and the == operator compares them as true.</p>
@@ -1240,6 +1753,7 @@ public class Test
 <hr>
 <h3 class="h3">160) How can we create an immutable class in Java?</h3>
 <p>To create a class that cannot be changed, we can define a final class in which all members are also declared final. Here is an illustration:</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public final class Employee{
 final String pancardNumber;
@@ -1253,11 +1767,27 @@ return pancardNumber;
 }
 
 }
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public final class Employee{
+final String pancardNumber;
+
+public Employee(String pancardNumber){
+this.pancardNumber=pancardNumber;
+}
+
+public String getPancardNumber(){
+return pancardNumber;
+}
+
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <a href="how-to-create-immutable-class.html">More details.</a>
 <hr>
 <h3 class="h3">161) What is the purpose of toString() method in Java?</h3>
 <p>The toString() method is utilized to obtain the string representation of an object, and when an object is printed, the method is called internally by the Java compiler. By customizing the toString() method, we can control the output to be returned, such as the object's state. This allows for a more streamlined implementation that doesn't require excessive amounts of code. We can achieve this by overriding the Object class's toString() method and defining it to return the object's values.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 
 class Student{
@@ -1287,6 +1817,37 @@ class Student{
 <p><strong>Output:</strong></p>
 <div class="codeblock3"><pre>101 Raj lucknow
 102 Vijay ghaziabad
+=======
+<div class="codeblock"><textarea name="code" class="java">
+
+class Student{
+ int rollno;
+ String name;
+ String city;
+
+ Student(int rollno, String name, String city){
+ this.rollno=rollno;
+ this.name=name;
+ this.city=city;
+ }
+ 
+ public String toString(){//overriding the toString() method
+  return rollno+" "+name+" "+city;
+ }
+ public static void main(String args[]){
+   Student s1=new Student(101,"Raj","lucknow");
+   Student s2=new Student(102,"Vijay","ghaziabad");
+   
+   System.out.println(s1);//compiler writes here s1.toString()
+   System.out.println(s2);//compiler writes here s2.toString()
+ }
+}
+
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>101 Raj lucknow
+102 Vijay ghaziabad
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <a href="understanding-toString()-method.html">More details.</a>
 <hr>
@@ -1296,6 +1857,7 @@ class Student{
 <hr>
 <h3 class="h3">163) Write a Java program to count the number of words present in a string?</h3>
 <p><strong>Program:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
   public class Test 
 {
@@ -1309,6 +1871,21 @@ class Student{
 </textarea></div>
 <p><strong>Output</strong></p>
 <div class="codeblock3"><pre>The Number of words present in the string are : 10
+=======
+<div class="codeblock"><textarea name="code" class="java">
+  public class Test 
+{
+    public static void main (String args[])
+    {
+        String s = "Sharma is a good player and he is so punctual";
+        String words[] = s.split(" ");
+        System.out.println("The Number of words present in the string are : "+words.length);
+    }
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>The Number of words present in the string are : 10
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">164) Name some classes present in <strong>java.util.regex</strong> package.</h3>
@@ -1328,6 +1905,7 @@ class Student{
 <p>To create a strong password, it must have a minimum length of 8 characters and a maximum length of 20 characters, and it must start with an alphabet. The remaining characters can be alphanumeric. To check if a password meets this criteria, you can use the regular expression ^[a-zA-Z][a-zA-Z0-9]{8,19}.</p>
 <hr>
 <h3 class="h3">167) What is the output of the following Java program?</h3>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import java.util.regex.*;
 class RegexExample2{
@@ -1345,6 +1923,25 @@ false
 false
 false 
 true
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import java.util.regex.*;
+class RegexExample2{
+public static void main(String args[]){
+System.out.println(Pattern.matches(".s", "as")); //line 4
+System.out.println(Pattern.matches(".s", "mk")); //line 5 
+System.out.println(Pattern.matches(".s", "mst")); //line 6
+System.out.println(Pattern.matches(".s", "amms")); //line 7
+System.out.println(Pattern.matches("..s", "mas")); //line 8
+}}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>true
+false 
+false
+false 
+true
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <p><strong>Explanation</strong></p>
 <p>The code snippet provided contains a series of conditions and prints the outputs based on those conditions. It checks if the length of the string is less than or equal to three and if the first character of the string is the letter 'a', with differing results based on these factors. It also checks for the presence of the letter 's' in the second and third positions of the string and prints true if the letter is present and false if it is not.</p>
@@ -1363,6 +1960,7 @@ true
 <hr>
 <h3 class="h3">169) What is a nested class? </h3>
 <p>A nested class is a class that is defined within another class or interface. It is used to group classes and interfaces logically and improve the readability and maintainability of the code. The nested class has access to all the data members of the outer class, including private methods and data members. To define a nested class, it should be enclosed within the outer class, using the appropriate syntax.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 class Java_Outer_class{  
  //code  
@@ -1370,6 +1968,15 @@ class Java_Outer_class{
   //code  
  }  
 }  
+=======
+<div class="codeblock"><textarea name="code" class="java">
+class Java_Outer_class{  
+ //code  
+ class Java_Nested_class{  
+  //code  
+ }  
+}  
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 	</textarea></div>
 <p>There exist two categories of nested classes, comprising static nested class and non-static nested class. The non-static nested class is sometimes referred to as an inner-class.</p>
 <a href="java-inner-class.html">More details.</a>
@@ -1399,6 +2006,7 @@ class Java_Outer_class{
 <a href="local-inner-class.html">More details.</a>
 <hr>
 <h3 class="h3">174) How many class files are created on compiling the OuterClass in the following program? </h3>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public class Person {
 String name, age, address;
@@ -1413,11 +2021,28 @@ public static void main (String args[])
   Person p = new Person();
 }
 }
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public class Person {
+String name, age, address;
+class Employee{
+  float salary=10000;
+}
+class BusinessMen{
+  final String gstin="�4433drt3$"; 
+}
+public static void main (String args[])
+{
+  Person p = new Person();
+}
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>After compiling the code, there will be three separate class-files generated: Person.class, Person$BusinessMen.class, and Person$Employee.class.</p>
 <hr>
 <h3 class="h3">175) What are anonymous inner classes?</h3>
 <p>Anonymous inner classes refer to classes that are generated and initialized automatically within an expression. They do not permit separate access modifiers to be applied to them, and cannot be declared as static or include static fields, classes, or methods. Essentially, an anonymous class is a class without a name, and only a single object is constructed from its definition. See the example below for further context.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 abstract class Person{
   abstract void eat();
@@ -1452,10 +2077,47 @@ class TestAnnonymousInner1{
 <span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=TestAnnonymousInner1" target="_blank">Test it Now</a></span>
 <p>Output:</p>
 <div class="codeblock3"><pre>nice fruits
+=======
+<div class="codeblock"><textarea name="code" class="java">
+abstract class Person{
+  abstract void eat();
+}
+class TestAnonymousInner{
+ public static void main(String args[]){
+  Person p=new Person(){
+  void eat(){System.out.println("nice fruits");}
+  };
+  p.eat();
+ }
+}
+</textarea></div>
+<span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=TestAnnonymousInner" target="_blank">Test it Now</a></span>
+<p>Output:</p>
+<div class="codeblock3"><pre>nice fruits
+</pre></div>
+<p>Here's an example that demonstrates how to use an anonymous class with an interface.</p>
+<div class="codeblock"><textarea name="code" class="java">
+interface Eatable{
+ void eat();
+}
+class TestAnnonymousInner1{
+ public static void main(String args[]){
+ Eatable e=new Eatable(){
+  public void eat(){System.out.println("nice fruits");}
+ };
+ e.eat();
+ }
+}
+</textarea></div>
+<span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=TestAnnonymousInner1" target="_blank">Test it Now</a></span>
+<p>Output:</p>
+<div class="codeblock3"><pre>nice fruits
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">176) What is the nested interface? </h3>
 <p>A nested interface is an interface declared inside a class or interface. It is static by default and used to group related interfaces for easy maintenance. The nested interface must be referred to by the external class or interface and cannot be accessed directly. If declared inside an interface, it must be public, but if declared within a class, it can have any access modifier. The syntax for declaring a nested interface is as follows.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 interface interface_name{  
  ...  
@@ -1463,6 +2125,15 @@ interface interface_name{
   ...  
  }  
 }   
+=======
+<div class="codeblock"><textarea name="code" class="java">
+interface interface_name{  
+ ...  
+ interface nested_interface_name{  
+  ...  
+ }  
+}   
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 	</textarea></div>
 <a href="nested-interface.html">More details.</a>
 <hr>
@@ -1486,6 +2157,7 @@ Garbage collection is a process of reclaiming the unused runtime objects. It is 
 <hr>
 <h3 class="h3">180) What is gc()?</h3>
 <p>The gc() method is a function used to activate the garbage collector in Java. It belongs to both the System and Runtime classes and is used to deal with unused objects and free up space, allowing it to be used again. Essentially, the gc() method triggers the Java Virtual Machine's cleanup process. An example demonstrating how the gc() method functions can provide greater clarity on its role.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public class TestGarbage1{
  public void finalize(){System.out.println("object is garbage collected");}
@@ -1501,6 +2173,23 @@ public class TestGarbage1{
 <span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=TestGarbage1" target="_blank">Test it Now</a></span>
 <div class="codeblock3"><pre>       object is garbage collected
        object is garbage collected
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public class TestGarbage1{
+ public void finalize(){System.out.println("object is garbage collected");}
+ public static void main(String args[]){
+  TestGarbage1 s1=new TestGarbage1();
+  TestGarbage1 s2=new TestGarbage1();
+  s1=null;
+  s2=null;
+  System.gc();
+ }
+}
+</textarea></div>
+<span class="testit"><a href="https://compiler.javatpoint.com/opr/test.jsp?filename=TestGarbage1" target="_blank">Test it Now</a></span>
+<div class="codeblock3"><pre>       object is garbage collected
+       object is garbage collected
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">181) How is garbage collection controlled?</h3>
@@ -1517,6 +2206,7 @@ To protect the identity of the writer, anonymous objects may be used in the crea
 </ul>
 <img src="https://static.javatpoint.com/images/java-garbage-collection-scenario.jpg" alt="Java Garbage Collection Scenario">
 <h3 class="h3">1) By nulling a reference:</h3>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 Employee e=new Employee();
 e=null;
@@ -1530,10 +2220,26 @@ e1=e2;//now the first object referred by e1 is available for garbage collection
 <h3 class="h3">3) By anonymous object:</h3>
 <div class="codeblock"><textarea name="code" class="java">
 new Employee();
+=======
+<div class="codeblock"><textarea name="code" class="java">
+Employee e=new Employee();
+e=null;
+</textarea></div>
+<h3 class="h3">2) By assigning a reference to another:</h3>
+<div class="codeblock"><textarea name="code" class="java">
+Employee e1=new Employee();
+Employee e2=new Employee();
+e1=e2;//now the first object referred by e1 is available for garbage collection
+</textarea></div>
+<h3 class="h3">3) By anonymous object:</h3>
+<div class="codeblock"><textarea name="code" class="java">
+new Employee();
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">183) What is the purpose of the finalize() method?</h3>
 <p>The finalize() method is a commonly used method that is called just before an object is garbage collected. Its purpose is to perform cleanup processing, such as freeing up resources, that are no longer needed by the object. It is important to note that finalize() is not a reserved keyword, but rather a method that is present in the object class. As such, it is available in every class since object class is the superclass of every class in Java. However, it is important to understand that neither finalization nor garbage collection is guaranteed. For example, an object may not be finalized or garbage collected if it has not been created using the new keyword.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public class FinalizeTest {
 	int j=12;
@@ -1552,6 +2258,26 @@ public class FinalizeTest {
 		new FinalizeTest().add();
 	}
 }
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public class FinalizeTest {
+	int j=12;
+	void add()
+	{
+		j=j+12;
+		System.out.println("J="+j);
+	}
+	public void finalize()
+	{
+		System.out.println("Object is garbage collected");
+	}
+	public static void main(String[] args) {
+		new FinalizeTest().add();
+		System.gc();
+		new FinalizeTest().add();
+	}
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 	</textarea></div>
 <hr>
 <h3 class="h3">184) Can an unreferenced object be referenced again?</h3>
@@ -1574,12 +2300,21 @@ The word "final" is a reserved term with special meaning in various contexts, an
 <hr>
 <h3 class="h3">188) How will you invoke any external process in Java? </h3>
 <p>The way to execute a command in Java is through the `Runtime.getRuntime().exec(?)` method. An example that demonstrates this is shown below.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public class Runtime1{
  public static void main(String args[])throws Exception{
   Runtime.getRuntime().exec("notepad");//will open a new notepad
  }
 }
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public class Runtime1{
+ public static void main(String args[])throws Exception{
+  Runtime.getRuntime().exec("notepad");//will open a new notepad
+ }
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <div class="q">
@@ -1610,6 +2345,7 @@ Each group of classes has a super class, which is java.io.InputStream for InputS
 <hr>
 <h3 class="h3">193) What are the FileInputStream and FileOutputStream?</h3>
 <p>The Java FileOutputStream class is used to write data to files as an output stream. If you need to save primitive values in a file, then the FileOutputStream class would be the appropriate choice. This class supports both byte-oriented and character-oriented data writing. However, when working with character-oriented data, the preferred class is FileWriter instead of FileOutputStream. Here is an example of using FileOutputStream to write a byte into a file.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import java.io.FileOutputStream;  
 public class FileOutputStreamExample {  
@@ -1637,6 +2373,35 @@ public class DataStreamExample {
           }catch(Exception e){System.out.println(e);}    
          }    
         }  
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import java.io.FileOutputStream;  
+public class FileOutputStreamExample {  
+    public static void main(String args[]){    
+           try{    
+             FileOutputStream fout=new FileOutputStream("D:\\testout.txt");    
+             fout.write(65);    
+             fout.close();    
+             System.out.println("success...");    
+            }catch(Exception e){System.out.println(e);}    
+      }    
+}  
+</textarea></div>
+<p> Java FileInputStream class  obtains input bytes from a file. It is used for reading byte-oriented data (streams of raw bytes) such as image data, audio, video, etc. You can also read character-stream data. However, for reading streams of characters, it is recommended to use FileReader class. Consider the following example for reading bytes from a file.
+</p><div class="codeblock"><textarea name="code" class="java">
+import java.io.FileInputStream;  
+public class DataStreamExample {  
+     public static void main(String args[]){    
+          try{    
+            FileInputStream fin=new FileInputStream("D:\\testout.txt");    
+            int i=fin.read();  
+            System.out.print((char)i);    
+  
+            fin.close();    
+          }catch(Exception e){System.out.println(e);}    
+         }    
+        }  
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
   </textarea>
 </div>
 <hr>
@@ -1650,6 +2415,7 @@ public class DataStreamExample {
 <li>The directory path "D:\\IO\\*" is associated with permission settings that apply to all files and directories within it, excluding any subdirectories.</li>
 </ul>
 <p>Here's an example of how permissions can be granted for a directory path and a file within it. In this scenario, read permission is given to the directory path while write permission is granted to the file.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="Java">
 package com.javatpoint;
 import java.io.*;
@@ -1671,6 +2437,29 @@ public class FilePermissionExample{
 </textarea></div>
 <p>Output</p>
 <div class="codeblock3"><pre>Read, Write permission is granted for the path D:\IO Package\java.txt
+=======
+<div class="codeblock"><textarea name="code" class="Java">
+package com.javatpoint;
+import java.io.*;
+import java.security.PermissionCollection;
+public class FilePermissionExample{
+     public static void main(String[] args) throws IOException {
+      String srg = "D:\\IO Package\\java.txt";
+      FilePermission file1 = new FilePermission("D:\\IO Package\\-", "read");
+      PermissionCollection permission = file1.newPermissionCollection();
+      permission.add(file1);
+           FilePermission file2 = new FilePermission(srg, "write");
+           permission.add(file2);
+         if(permission.implies(new FilePermission(srg, "read,write"))) {
+           System.out.println("Read, Write permission is granted for the path "+srg );
+             }else {
+            System.out.println("No Read, Write permission is granted for the path "+srg);            }
+     } 
+}
+</textarea></div>
+<p>Output</p>
+<div class="codeblock3"><pre>Read, Write permission is granted for the path D:\IO Package\java.txt
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">196) What are FilterStreams? </h3>
@@ -1683,6 +2472,7 @@ public class FilePermissionExample{
 <p>Java provides three methods allowing developers to obtain input from the console.</p>
 <ul class="points">
 <li><strong>Using BufferedReader class:</strong> we can take input from the console by wrapping System.in into an InputStreamReader and passing it into the BufferedReader. It provides an efficient reading as the input gets buffered. Consider the following example.</li>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import java.io.BufferedReader; 
 import java.io.IOException; 
@@ -1731,6 +2521,56 @@ String n=c.readLine();
 System.out.println("Welcome "+n);    
 }    
 }  
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import java.io.BufferedReader; 
+import java.io.IOException; 
+import java.io.InputStreamReader; 
+public class Person 
+{ 
+    public static void main(String[] args) throws IOException  
+    { 
+      System.out.println("Enter the name of the person");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
+        String name = reader.readLine(); 
+        System.out.println(name);         
+    } 
+} 
+</textarea></div>
+<li><strong>Using Scanner class:</strong> The Java Scanner class breaks the input into tokens using a delimiter that is whitespace by default. It provides many methods to read and parse various primitive values. Java Scanner class is widely used to parse text for string and primitive types using a regular expression. Java Scanner class extends Object class and implements Iterator and Closeable interfaces. Consider the following example.</li>
+<div class="codeblock"><textarea name="code" class="java">
+import java.util.*;  
+public class ScannerClassExample2 {    
+      public static void main(String args[]){                       
+          String str = "Hello/This is JavaTpoint/My name is Abhishek.";  
+          //Create scanner with the specified String Object  
+          Scanner scanner = new Scanner(str);  
+          System.out.println("Boolean Result: "+scanner.hasNextBoolean());            
+          //Change the delimiter of this scanner  
+          scanner.useDelimiter("/");  
+          //Printing the tokenized Strings  
+          System.out.println("---Tokenizes String---");   
+        while(scanner.hasNext()){  
+            System.out.println(scanner.next());  
+        }  
+          //Display the new delimiter  
+          System.out.println("Delimiter used: " +scanner.delimiter());            
+          scanner.close();  
+          }    
+}  
+  </textarea></div>
+<li><strong>Using Console class:</strong> The Java Console class is used to get input from the console. It provides methods to read texts and passwords. If you read the password using the Console class, it will not be displayed to the user. The java.io.Console class is attached to the system console internally. The Console class is introduced since 1.5. Consider the following example.</li>
+<div class="codeblock"><textarea name="code" class="java">
+import java.io.Console;  
+class ReadStringTest{    
+public static void main(String args[]){    
+Console c=System.console();    
+System.out.println("Enter your name: ");    
+String n=c.readLine();    
+System.out.println("Welcome "+n);    
+}    
+}  
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 </ul>
 <hr>
@@ -1748,6 +2588,7 @@ System.out.println("Welcome "+n);
 <hr>
 <h3 class="h3">201) How can you avoid serialization in child class if the base class is implementing the Serializable interface?</h3>
 <p>Preventing the serialization of a child class when the parent class implements the Serializable interface can be challenging. While it's not possible to do it directly, it can be achieved by implementing the writeObject() or readObject() methods in the child class and throwing NotSerializableException from these methods. To better understand this approach, let's consider the following example.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import java.io.FileInputStream; 
 import java.io.FileOutputStream; 
@@ -1816,6 +2657,76 @@ public class Test
         System.out.println("salary = " + emp1.salary); 
     } 
 } 
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import java.io.FileInputStream; 
+import java.io.FileOutputStream; 
+import java.io.IOException; 
+import java.io.NotSerializableException; 
+import java.io.ObjectInputStream; 
+import java.io.ObjectOutputStream; 
+import java.io.Serializable; 
+class Person implements Serializable 
+{ 
+    String name = " ";
+    public Person(String name)  
+    { 
+        this.name = name; 
+    }       
+} 
+class Employee extends Person
+{ 
+    float salary;
+    public Employee(String name, float salary)  
+    { 
+        super(name); 
+        this.salary = salary; 
+    } 
+    private void writeObject(ObjectOutputStream out) throws IOException 
+    { 
+        throw new NotSerializableException(); 
+    } 
+    private void readObject(ObjectInputStream in) throws IOException 
+    { 
+        throw new NotSerializableException(); 
+    } 
+      
+} 
+public class Test 
+{ 
+    public static void main(String[] args)  
+            throws Exception  
+    { 
+        Employee emp = new Employee("Sharma", 10000); 
+          
+        System.out.println("name = " + emp.name); 
+        System.out.println("salary = " + emp.salary); 
+          
+        FileOutputStream fos = new FileOutputStream("abc.ser"); 
+        ObjectOutputStream oos = new ObjectOutputStream(fos); 
+              
+        oos.writeObject(emp); 
+              
+        oos.close(); 
+        fos.close(); 
+              
+        System.out.println("Object has been serialized"); 
+          
+        FileInputStream f = new FileInputStream("ab.txt"); 
+        ObjectInputStream o = new ObjectInputStream(f); 
+              
+        Employee emp1 = (Employee)o.readObject(); 
+              
+        o.close(); 
+        f.close(); 
+              
+        System.out.println("Object has been deserialized"); 
+          
+        System.out.println("name = " + emp1.name); 
+        System.out.println("salary = " + emp1.salary); 
+    } 
+} 
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">202) Can a Serialized object be transferred via network?</h3>
@@ -1823,6 +2734,7 @@ public class Test
 <hr>
 <h3 class="h3">203) What is Deserialization?</h3>
 <p>Deserialization refers to the transformation of a serialized object back into its original form. This process is the opposite of serialization. When an ObjectInputStream is used, it can recreate an object or primitive data that had been previously written using an ObjectOutputStream.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import java.io.*;
 class Depersist{
@@ -1837,6 +2749,22 @@ class Depersist{
 }
 </textarea></div>
 <div class="codeblock3"><pre>211 ravi
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import java.io.*;
+class Depersist{
+ public static void main(String args[])throws Exception{
+  
+  ObjectInputStream in=new ObjectInputStream(new FileInputStream("f.txt"));
+  Student s=(Student)in.readObject();
+  System.out.println(s.id+" "+s.name);
+
+  in.close();
+ }
+}
+</textarea></div>
+<div class="codeblock3"><pre>211 ravi
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">204) What is the transient keyword?</h3>
@@ -1883,6 +2811,7 @@ class Depersist{
 
 Take a look at this code that sets up a connection between a client and server.</p>
 <p class="filename">File: MyServer.java</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import java.io.*;
 import java.net.*;
@@ -1915,10 +2844,45 @@ s.close();
 }catch(Exception e){System.out.println(e);}
 }
 }
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import java.io.*;
+import java.net.*;
+public class MyServer {
+public static void main(String[] args){
+try{
+ServerSocket ss=new ServerSocket(6666);
+Socket s=ss.accept();//establishes connection 
+DataInputStream dis=new DataInputStream(s.getInputStream());
+String  str=(String)dis.readUTF();
+System.out.println("message= "+str);
+ss.close();
+}catch(Exception e){System.out.println(e);}
+}
+}
+</textarea></div>
+<p class="filename">File: MyClient.java</p>
+<div class="codeblock"><textarea name="code" class="java">
+import java.io.*;
+import java.net.*;
+public class MyClient {
+public static void main(String[] args) {
+try{  
+Socket s=new Socket("localhost",6666);
+DataOutputStream dout=new DataOutputStream(s.getOutputStream());
+dout.writeUTF("Hello Server");
+dout.flush();
+dout.close();
+s.close();
+}catch(Exception e){System.out.println(e);}
+}
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">211) How do I convert a numeric IP address like 192.18.97.39 into a hostname like java.sun.com? </h3>
 <p>One way to obtain the host name of an IP address is by using the Java method InetAddress.getByName(). For instance, if we have the IP address 192.18.97.39, we can use this method to retrieve its corresponding host name. See the following example for illustration.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import java.io.*;  
 import java.net.*;  
@@ -1931,6 +2895,20 @@ System.out.println("Host Name: "+ip.getHostName());
 }catch(Exception e){System.out.println(e);}  
 }  
 }  
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import java.io.*;  
+import java.net.*;  
+public class InetDemo{  
+public static void main(String[] args){  
+try{  
+InetAddress ip=InetAddress.getByName("195.201.10.8");  
+
+System.out.println("Host Name: "+ip.getHostName());  
+}catch(Exception e){System.out.println(e);}  
+}  
+}  
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 	</textarea></div>
 <hr>
 <div class="q">
@@ -1961,6 +2939,7 @@ System.out.println("Host Name: "+ip.getHostName());
 </ul>
 <hr>
 <h3 class="h3">215) What is the output of the following Java program?</h3>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 class Simple{  
  public Simple()
@@ -1983,6 +2962,30 @@ class Test1{
 <p> Output 
 </p><div class="codeblock3"><pre>Constructor of Simple class is invoked
 Hello Java
+=======
+<div class="codeblock"><textarea name="code" class="java">
+class Simple{  
+ public Simple()
+ {
+   System.out.println("Constructor of Simple class is invoked");
+ }
+ void message(){System.out.println("Hello Java");}  
+}  
+  
+class Test1{  
+ public static void main(String args[]){  
+  try{  
+  Class c=Class.forName("Simple");  
+  Simple s=(Simple)c.newInstance();  
+  s.message();  
+  }catch(Exception e){System.out.println(e);}  
+ }  
+}  
+</textarea></div>
+<p> Output 
+</p><div class="codeblock3"><pre>Constructor of Simple class is invoked
+Hello Java
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <p><strong>Explanation</strong></p>
 <p>The Class class provides a method called newInstance() which can be used to dynamically create objects at runtime. In this particular code sample, an instance of the Simple class is created using this approach.</p>
@@ -2025,6 +3028,7 @@ Hello Java
 </ul>
 <hr>
 <h3 class="h3">220) What is the output of the below Java program?</h3>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public class Test1
 {
@@ -2044,6 +3048,27 @@ public class Test1
 </textarea></div>
 <p><strong>Output</strong></p>
 <div class="codeblock3"><pre>bye
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public class Test1
+{
+  public static void main(String[] args) {
+  Integer i = new Integer(201);
+  Integer j = new Integer(201);
+  if(i == j)
+  {
+    System.out.println("hello");
+  }
+  else 
+  {
+    System.out.println("bye");
+  }
+  }
+}
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>bye
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <p><strong>Explanation</strong></p>
 <p>The class Integer has a cache that stores integer values ranging from -127 to 127. This means that Integer objects can only be created within this range. It's important to note that the equality operator (==) will not function for values greater than 127. As a result, the output of the program will print "bye".</p>
@@ -2095,6 +3120,7 @@ One potential downside of object cloning is that it can lead to unexpected or un
 <hr>
 <h3 class="h3">227) What is a singleton class? </h3>
 <p>A singleton class is a class that can only be instantiated once. To make a class singleton, its constructor can be made private or a static getInstance method can be used. To understand this concept better, let's consider the following example.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 class Singleton{
     private static Singleton single_instance = null;
@@ -2123,10 +3149,41 @@ public class Main
         System.out.println("Second instance integer value:"+second.i);
     }
 }
+=======
+<div class="codeblock"><textarea name="code" class="java">
+class Singleton{
+    private static Singleton single_instance = null;
+    int i;
+     private Singleton ()
+     {
+         i=90;
+     }
+     public static Singleton getInstance()
+     {
+         if(single_instance == null)
+         {
+             single_instance = new Singleton();
+         }
+         return single_instance;
+     }
+}
+public class Main 
+{
+    public static void main (String args[])
+    {
+        Singleton first = Singleton.getInstance();
+        System.out.println("First instance integer value:"+first.i);
+        first.i=first.i+90;
+        Singleton second = Singleton.getInstance();
+        System.out.println("Second instance integer value:"+second.i);
+    }
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 	</textarea></div>
 <hr>
 <h3 class="h3">228) Write a Java program that prints all the values given at command-line.</h3>
 <p><strong>Program</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 class A{
 public static void main(String args[]){
@@ -2147,6 +3204,28 @@ jaiswal
 1
 3
 abc      
+=======
+<div class="codeblock"><textarea name="code" class="java">
+class A{
+public static void main(String args[]){
+
+for(int i=0;i&lt;args.length;i++)
+System.out.println(args[i]);
+
+}
+}
+</textarea></div>
+<div class="codeblock"><textarea name="code" class="java">
+compile by > javac A.java
+run by > java A sonoo jaiswal 1 3 abc
+</textarea></div>
+<p><strong>Output</strong></p>
+<div class="codeblock3"><pre>sonoo
+jaiswal
+1
+3
+abc      
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">229) Which containers use a border layout as their default layout? </h3>
@@ -2192,6 +3271,7 @@ abc
 <hr>
 <h3 class="h3">237) What is Locale? </h3>
 <p>A Locale object is utilized to access locale-specific information relating to a particular region's geography, politics, or culture. The information retrieved often includes aspects such as language, country name, and variant.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 
 import java.util.*;
@@ -2219,6 +3299,35 @@ USA
 eng
 en
 US
+=======
+<div class="codeblock"><textarea name="code" class="java">
+
+import java.util.*;
+public class LocaleExample {
+public static void main(String[] args) {
+Locale locale=Locale.getDefault();
+//Locale locale=new Locale("fr","fr");//for the specific locale
+
+System.out.println(locale.getDisplayCountry());
+System.out.println(locale.getDisplayLanguage());
+System.out.println(locale.getDisplayName());
+System.out.println(locale.getISO3Country());
+System.out.println(locale.getISO3Language());
+System.out.println(locale.getLanguage());
+System.out.println(locale.getCountry());
+	
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>United States
+English
+English (United States)
+USA
+eng
+en
+US
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">238)How will you load a specific locale? </h3>
@@ -2230,6 +3339,7 @@ US
 <hr>
 <h3 class="h3">239) What is a JavaBean?</h3>
 <p>A JavaBean is a type of software component written using the Java programming language. Its purpose is to be integrated and edited visually using software development environments, such as VisualAge for Java or JBuilder. The main advantage of JavaBeans is that they encapsulate multiple objects within a single component, allowing for easy access and maintenance from multiple locations. To create a JavaBean, you can follow a simple example and build a custom class.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 //Employee.java
 package mypack;
@@ -2242,6 +3352,20 @@ public int getId(){return id;}
 public void setName(String name){this.name=name;}
 public String getName(){return name;}
 }
+=======
+<div class="codeblock"><textarea name="code" class="java">
+//Employee.java
+package mypack;
+public class Employee implements java.io.Serializable{
+private int id;
+private String name;
+public Employee(){}
+public void setId(int id){this.id=id;}
+public int getId(){return id;}
+public void setName(String name){this.name=name;}
+public String getName(){return name;}
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">240) What is the purpose of using the Java bean?</h3>
@@ -2302,6 +3426,7 @@ public String getName(){return name;}
 <hr>
 <h3 class="h3">248) How to perform Bubble Sort in Java?</h3>
 <p>Here is an example code in Java that implements Bubble sort algorithm.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public class BubbleSort {
   public static void main(String[] args) {
@@ -2338,10 +3463,49 @@ public class BubbleSort {
 44
 78 
 101 
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public class BubbleSort {
+  public static void main(String[] args) {
+  int[] a = {10, 9, 7, 101, 23, 44, 12, 78, 34, 23};
+  for(int i=0;i&lt;10;i++)
+  {
+    for (int j=0;j&lt;10;j++)
+    {
+      if(a[i]&lt;a[j])
+      {
+        int temp = a[i];
+        a[i]=a[j];
+        a[j] = temp; 
+      }
+    }
+  }
+  System.out.println("Printing Sorted List ...");
+  for(int i=0;i&lt;10;i++)
+  {
+    System.out.println(a[i]);
+  }
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Printing Sorted List . . . 
+7
+9
+10
+12
+23
+34
+34
+44
+78 
+101 
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">249) How to perform Binary Search in Java?</h3>
 <p>Here is an example code in Java that demonstrates how to perform a binary search.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import java.util.*;
 public class BinarySearch {
@@ -2384,10 +3548,55 @@ public static int binarySearch(int[] a, int beg, int end, int item)
 <div class="codeblock3"><pre>Enter the item which you want to search 
 45 
 the location of the item is 5 
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import java.util.*;
+public class BinarySearch {
+public static void main(String[] args) {
+  int[] arr = {16, 19, 20, 23, 45, 56, 78, 90, 96, 100};
+  int item, location = -1;
+  System.out.println("Enter the item which you want to search");
+  Scanner sc = new Scanner(System.in);
+  item = sc.nextInt();
+  location = binarySearch(arr,0,9,item);
+  if(location != -1)
+  System.out.println("the location of the item is "+location);
+  else 
+    System.out.println("Item not found");
+  }
+public static int binarySearch(int[] a, int beg, int end, int item)
+{
+  int mid;
+  if(end &gt;= beg) 
+  { 
+    mid = (beg + end)/2;
+    if(a[mid] == item)
+    {
+      return mid+1;
+    }
+    else if(a[mid] &lt; item) 
+    {
+      return binarySearch(a,mid+1,end,item);
+    }
+    else 
+    {
+      return binarySearch(a,beg,mid-1,item);
+    }
+  }
+  return -1; 
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Enter the item which you want to search 
+45 
+the location of the item is 5 
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">250) How to perform Selection Sort in Java?</h3>
 <p>The following code is an implementation of the selection sort algorithm in Java.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public class SelectionSort {
 public static void main(String[] args) {
@@ -2435,10 +3644,60 @@ public static int smallest(int a[], int n, int i)
 44
 78
 101
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public class SelectionSort {
+public static void main(String[] args) {
+  int[] a = {10, 9, 7, 101, 23, 44, 12, 78, 34, 23};
+  int i,j,k,pos,temp;
+  for(i=0;i&lt;10;i++)
+  {
+    pos = smallest(a,10,i);
+    temp = a[i];
+    a[i]=a[pos];
+    a[pos] = temp;
+  }
+  System.out.println("\nprinting sorted elements...\n");
+  for(i=0;i&lt;10;i++)
+  {
+    System.out.println(a[i]);
+  }
+}
+public static int smallest(int a[], int n, int i)
+{
+  int small,pos,j;
+  small = a[i];
+  pos = i;
+  for(j=i+1;j&lt;10;j++)
+  {
+    if(a[j]&lt;small)
+    {
+      small = a[j];
+      pos=j;
+    }
+  }
+  return pos;
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>printing sorted elements...
+7
+9
+10
+12
+23
+23
+34
+44
+78
+101
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">251) How to perform Linear Search in Java?</h3>
 <p>You could try the following Java program to perform a Linear search algorithm.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import java.util.Scanner;
 
@@ -2476,10 +3735,50 @@ Item found at location 2
 Enter Item ?
 22
 Item not found
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import java.util.Scanner;
+
+public class Leniear_Search {
+public static void main(String[] args) {
+  int[] arr = {10, 23, 15, 8, 4, 3, 25, 30, 34, 2, 19};
+  int item,flag=0; 
+  Scanner sc = new Scanner(System.in);
+  System.out.println("Enter Item ?");
+  item = sc.nextInt();
+  for(int i = 0; i&lt;10; i++)
+  {
+    if(arr[i]==item)
+    {
+      flag = i+1;
+      break;
+    }
+    else 
+      flag = 0; 
+  }
+  if(flag != 0)
+  {
+    System.out.println("Item found at location" + flag);
+  }
+  else 
+    System.out.println("Item not found");
+  
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Enter Item ?
+23
+Item found at location 2
+Enter Item ?
+22
+Item not found
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">252) How to perform merge sort in Java?</h3>
 <p>Here is an example code in Java to implement the merge sort algorithm.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public class MyMergeSort
 {
@@ -2566,10 +3865,99 @@ for(int i =0; i&lt;arr.length;i++)
 89
 90
 101
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public class MyMergeSort
+{
+void merge(int arr[], int beg, int mid, int end)
+{
+
+int l = mid - beg + 1;
+int r = end - mid;
+
+intLeftArray[] = new int [l];
+intRightArray[] = new int [r];
+
+for (int i=0; i&lt;l; ++i)
+LeftArray[i] = arr[beg + i];
+
+for (int j=0; j&lt;r; ++j)
+RightArray[j] = arr[mid + 1+ j];
+
+
+int i = 0, j = 0;
+int k = beg;
+while (i&lt;l&&j&lt;r)
+{
+if (LeftArray[i] &lt;= RightArray[j])
+{
+arr[k] = LeftArray[i];
+i++;
+}
+else
+{
+arr[k] = RightArray[j];
+j++;
+}
+k++;
+}
+while (i&lt;l)
+{
+arr[k] = LeftArray[i];
+i++;
+k++;
+}
+
+while (j&lt;r)
+{
+arr[k] = RightArray[j];
+j++;
+k++;
+}
+}
+
+void sort(int arr[], int beg, int end)
+{
+if (beg&lt;end)
+{
+int mid = (beg+end)/2;
+sort(arr, beg, mid);
+sort(arr , mid+1, end);
+merge(arr, beg, mid, end);
+}
+}
+public static void main(String args[])
+{
+intarr[] = {90,23,101,45,65,23,67,89,34,23};
+MyMergeSort ob = new MyMergeSort();
+ob.sort(arr, 0, arr.length-1);
+
+System.out.println("\nSorted array");
+for(int i =0; i&lt;arr.length;i++)
+{
+  System.out.println(arr[i]+"");
+}
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Sorted array 
+23
+23
+23
+34
+45
+65
+67
+89
+90
+101
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">253) How to perform quicksort in Java?</h3>
 <p>Here's an example Java program that implements the quicksort algorithm.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public class QuickSort {
 public static void main(String[] args) {
@@ -2642,10 +4030,85 @@ public static void main(String[] args) {
 89
 90
 101
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public class QuickSort {
+public static void main(String[] args) {
+    int i;
+    int[] arr={90,23,101,45,65,23,67,89,34,23};
+    quickSort(arr, 0, 9);
+    System.out.println("\n The sorted array is: \n");
+    for(i=0;i&lt;10;i++)
+    System.out.println(arr[i]);
+  }
+  public static int partition(int a[], int beg, int end)
+  {
+    
+    int left, right, temp, loc, flag; 
+    loc = left = beg;
+    right = end;
+    flag = 0;
+    while(flag != 1)
+    {
+      while((a[loc] &lt;= a[right]) && (loc!=right))
+      right--;
+      if(loc==right)
+      flag =1;
+      elseif(a[loc]&gt;a[right])
+      {
+        temp = a[loc];
+        a[loc] = a[right];
+        a[right] = temp;
+        loc = right;
+      }
+      if(flag!=1)
+      {
+        while((a[loc] &gt;= a[left]) && (loc!=left))
+        left++;
+        if(loc==left)
+        flag =1;
+        elseif(a[loc] &lt;a[left])
+        {
+          temp = a[loc];
+          a[loc] = a[left];
+          a[left] = temp;
+          loc = left;
+        }
+      }
+    }
+    returnloc;
+  }
+  static void quickSort(int a[], int beg, int end)
+  {
+    
+    int loc;
+    if(beg&lt;end)
+    {
+      loc = partition(a, beg, end);
+      quickSort(a, beg, loc-1);
+      quickSort(a, loc+1, end);
+    }
+  }
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>The sorted array is: 
+23
+23
+23
+34
+45
+65
+67
+89
+90
+101
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">254) Write a program in Java to create a doubly linked list containing n nodes.</h3>
 <p>Reworded: The program described below generates a doubly linked list comprising a total of n nodes.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
   public class CountList {
     
@@ -2743,10 +4206,110 @@ public static void main(String[] args) {
 <div class="codeblock3"><pre>Nodes of doubly linked list: 
 1 2 3 4 5 
 Count of nodes present in the list: 5
+=======
+<div class="codeblock"><textarea name="code" class="java">
+  public class CountList {
+    
+    //Represent a node of the doubly linked list
+
+    class Node{
+        int data;
+        Node previous;
+        Node next;
+        
+        public Node(int data) {
+            this.data = data;
+        }
+    }
+    
+    //Represent the head and tail of the doubly linked list
+    Node head, tail = null;
+    
+    //addNode() will add a node to the list
+    public void addNode(int data) {
+        //Create a new node
+        Node newNode = new Node(data);
+        
+        //If list is empty
+        if(head == null) {
+            //Both head and tail will point to newNode
+            head = tail = newNode;
+            //head's previous will point to null
+            head.previous = null;
+            //tail's next will point to null, as it is the last node of the list
+            tail.next = null;
+        }
+        else {
+            //newNode will be added after tail such that tail's next will point to newNode
+            tail.next = newNode;
+            //newNode's previous will point to tail
+            newNode.previous = tail;
+            //newNode will become new tail
+            tail = newNode;
+            //As it is last node, tail's next will point to null
+            tail.next = null;
+        }
+    }
+    
+    //countNodes() will count the nodes present in the list
+    public int countNodes() {
+        int counter = 0;
+        //Node current will point to head
+        Node current = head;
+        
+        while(current != null) {
+            //Increment the counter by 1 for each node
+            counter++;
+            current = current.next;
+        }
+        return counter;
+    }
+    
+    //display() will print out the elements of the list
+    public void display() {
+        //Node current will point to head
+        Node current = head;
+        if(head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        System.out.println("Nodes of doubly linked list: ");
+        while(current != null) {
+            //Prints each node by incrementing the pointer.
+
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+    }
+    
+    public static void main(String[] args) {
+        
+        CountList dList = new CountList();
+        //Add nodes to the list
+        dList.addNode(1);
+        dList.addNode(2);
+        dList.addNode(3);
+        dList.addNode(4);
+        dList.addNode(5);
+        
+        //Displays the nodes present in the list
+        dList.display();
+        
+        //Counts the nodes present in the given list
+        System.out.println("\nCount of nodes present in the list: " + dList.countNodes());
+    }
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Nodes of doubly linked list: 
+1 2 3 4 5 
+Count of nodes present in the list: 5
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">255) Write a program in Java to find the maximum and minimum value node from a circular linked list.</h3>
 <p>Please provide the original content so that I can rephrase it without plagiarism.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public class MinMax {
     //Represents the node of list.
@@ -2844,10 +4407,110 @@ public class MinMax {
 <p><strong>Output:</strong></p>
 <div class="codeblock3"><pre>Minimum value node in the list: 1
 Maximum value node in the list: 20
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public class MinMax {
+    //Represents the node of list.
+    public class Node{
+        int data;
+        Node next;
+        public Node(int data) {
+            this.data = data;
+        }
+    }
+    
+    //Declaring head and tail pointer as null.
+    public Node head = null;
+    public Node tail = null;
+    
+    //This function will add the new node at the end of the list.
+    public void add(int data){
+        //Create new node
+        Node newNode = new Node(data);
+        //Checks if the list is empty.
+        if(head == null) {
+             //If list is empty, both head and tail would point to new node.
+            head = newNode;
+            tail = newNode;
+            newNode.next = head;
+        }
+        else {
+            //tail will point to new node.
+            tail.next = newNode;
+            //New node will become new tail.
+            tail = newNode;
+            //Since, it is circular linked list tail will points to head.
+            tail.next = head;
+        }
+    }
+    
+    //Finds out the minimum value node in the list
+    public void minNode() {
+        Node current = head;
+        //Initializing min to initial node data
+        int min = head.data;
+        if(head == null) {
+            System.out.println("List is empty");
+        }
+        else {
+             do{
+                 //If current node's data is smaller than min
+                 //Then replace value of min with current node's data
+                 if(min &gt; current.data) {
+                     min = current.data;
+                 }
+                 current= current.next;
+            }while(current != head);
+        
+            System.out.println("Minimum value node in the list: "+ min);
+        }
+    }
+        
+    //Finds out the maximum value node in the list
+    public void maxNode() {
+        Node current = head;
+        //Initializing max to initial node data
+        int max = head.data;
+        if(head == null) {
+            System.out.println("List is empty");
+        }
+        else {
+             do{
+                 //If current node's data is greater than max
+                 //Then replace value of max with current node's data
+                 if(max &lt; current.data) {
+                     max = current.data;
+                 }
+                 current= current.next;
+                }while(current != head);
+             
+            System.out.println("Maximum value node in the list: "+ max);
+        }
+    }
+                
+    public static void main(String[] args) {
+        MinMax cl = new MinMax();
+        //Adds data to the list
+        cl.add(5);
+        cl.add(20);
+        cl.add(10);
+        cl.add(1);
+        //Prints the minimum value node in the list
+        cl.minNode();
+        //Prints the maximum value node in the list
+        cl.maxNode();
+    }
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Minimum value node in the list: 1
+Maximum value node in the list: 20
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">256) Write a program in Java to calculate the difference between the sum of the odd level and even level nodes of a Binary Tree.</h3>
 <p>Please provide the original content so that I can rephrase it without plagiarism.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import java.util.LinkedList;
 import java.util.Queue;
@@ -2948,6 +4611,108 @@ public class DiffOddEven {
 </textarea></div>
 <p><strong>Output:</strong></p>
 <div class="codeblock3"><pre>Difference between sum of odd level and even level nodes: 11
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import java.util.LinkedList;
+import java.util.Queue;
+ 
+public class DiffOddEven {
+    
+    //Represent a node of binary tree
+    public static class Node{
+        int data;
+        Node left;
+        Node right;
+        
+        public Node(int data){
+            //Assign data to the new node, set left and right children to null
+            this.data = data;
+            this.left = null;
+            this.right = null;
+            }
+        }
+    
+    //Represent the root of binary tree
+    public Node root;
+  
+    public DiffOddEven(){
+        root = null;
+    }
+ 
+    //difference() will calculate the difference between sum of odd and even levels of binary tree
+    public int difference() {
+          int oddLevel = 0, evenLevel = 0, diffOddEven = 0;
+          
+          //Variable nodesInLevel keep tracks of number of nodes in each level
+          int nodesInLevel = 0;
+          
+          //Variable currentLevel keep track of level in binary tree
+          int currentLevel = 0;
+          
+          //Queue will be used to keep track of nodes of tree level-wise
+          Queue&lt;Node&gt; queue = new LinkedList&lt;Node&gt;();
+          
+          //Check if root is null
+          if(root == null) {
+              System.out.println("Tree is empty");
+              return 0;
+          }
+          else {
+              //Add root node to queue as it represents the first level
+              queue.add(root);
+              currentLevel++;
+              
+              while(queue.size() != 0) {
+                  
+                  //Variable nodesInLevel will hold the size of queue i.e. number of elements in queue
+                  nodesInLevel = queue.size();
+                  
+                  while(nodesInLevel &gt; 0) {
+                      Node current = queue.remove();
+                      
+                    //Checks if currentLevel is even or not.
+                      if(currentLevel % 2 == 0)
+                          //If level is even, add nodes's to variable evenLevel
+                          evenLevel += current.data;
+                      else
+                          //If level is odd, add nodes's to variable oddLevel
+                          oddLevel += current.data;
+                      
+                      //Adds left child to queue
+                      if(current.left != null)
+                          queue.add(current.left);
+                      //Adds right child to queue
+                      if(current.right != null) 
+                          queue.add(current.right);
+                     nodesInLevel--;
+                  }
+                  currentLevel++;
+              }
+              //Calculates difference between oddLevel and evenLevel
+              diffOddEven = Math.abs(oddLevel - evenLevel);
+          }
+          return diffOddEven;
+      }
+  
+    public static void main (String[] args) {
+        
+        DiffOddEven bt = new DiffOddEven();
+        //Add nodes to the binary tree
+        bt.root = new Node(1);
+        bt.root.left = new Node(2);
+        bt.root.right = new Node(3);
+        bt.root.left.left = new Node(4);
+        bt.root.right.left = new Node(5);
+        bt.root.right.right = new Node(6);
+    
+        //Display the difference between sum of odd level and even level nodes
+        System.out.println("Difference between sum of odd level and even level nodes: " + bt.difference());
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Difference between sum of odd level and even level nodes: 11
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <div class="nexttopicdiv">
@@ -3350,6 +5115,11 @@ Using someone else's work without proper attribution is a grave violation that c
 <script type="text/javascript"> dp.SyntaxHighlighter.HighlightAll('code'); </script>
 <script src="https://static.javatpoint.com/lazysizes.min.js" async=""></script>
 </body>
+<<<<<<< HEAD
 
 <!-- Mirrored from www.javatpoint.com/corejava-interview-questions-2 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:17:32 GMT -->
+=======
+
+<!-- Mirrored from www.javatpoint.com/corejava-interview-questions-2 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:17:32 GMT -->
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </html>

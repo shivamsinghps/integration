@@ -1,9 +1,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
 <!-- Mirrored from www.javatpoint.com/python-pandas-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:51:33 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+=======
+
+<!-- Mirrored from www.javatpoint.com/python-pandas-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:51:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 <head>
 <meta charset="UTF-8">
 <link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png">
@@ -494,6 +500,7 @@
 <p class="pq"><strong>Rewritten: 
 
 In this example, a DataFrame is created using a list.</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import pandas as pd  
 # a list of strings  
@@ -519,6 +526,33 @@ print (info)
 0      101        B.Sc
 1      102        B.Tech
 2      103        M.Tech
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import pandas as pd  
+# a list of strings  
+a = ['Python', 'Pandas']  
+# Calling DataFrame constructor on list  
+info = pd.DataFrame(a)  
+print(info)  
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>	0
+0   Python
+1   Pandas
+</pre></div>
+<p class="pq"><strong>Here is an example: Construct a DataFrame using a dictionary of ndarrays:</strong></p>
+<div class="codeblock"><textarea name="code" class="java">
+import pandas as pd  
+info = {'ID' :[101, 102, 103],'Department' :['B.Sc','B.Tech','M.Tech',]}  
+info = pd.DataFrame(info)  
+print (info) 
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>       ID      Department
+0      101        B.Sc
+1      102        B.Tech
+2      103        M.Tech
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">10) Explain Categorical data in Pandas?</h3>
@@ -536,6 +570,7 @@ print (info)
 <p class="pq"><strong>"How to create a Series from a dictionary" can be restated to "Generating a Series using a dictionary."</strong></p>
 <p>A Series object can be created from a Python dictionary. If the dictionary is used as input without specifying an index, the index will be generated in sorted order using the keys from the dictionary.</p>
 <p>When a dictionary is accessed with an index parameter, the values associated with a specific label in the index are retrieved.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import pandas as pd  
 import numpy as np  
@@ -548,6 +583,20 @@ print (a)
 y     1.0
 z     2.0
 dtype: float64
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import pandas as pd  
+import numpy as np  
+info = {'x' : 0., 'y' : 1., 'z' : 2.}  
+a = pd.Series(info)  
+print (a)  
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>x     0.0
+y     1.0
+z     2.0
+dtype: float64
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">12) How can we create a copy of the series in Pandas?</h3>
@@ -561,6 +610,7 @@ dtype: float64
 <p>A popular data structure of the pandas library is the DataFrame. It is designed to hold data in a two-dimensional array format with labeled rows and columns. This structure is commonly used for storing and managing data within programs, as it provides a convenient way to access specific data points and manipulate data. DataFrames have two indexes: a row index and a column index, which enable more efficient data access and management.</p>
 <p class="pq"><strong>Generate a new DataFrame with no data in it.</strong></p>
 <p>Here's an example of how to generate a blank DataFrame using Pandas:</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 # importing the pandas library  
 import pandas as pd  
@@ -571,10 +621,23 @@ print (info)
 <div class="codeblock3"><pre>Empty DataFrame
 Columns: []
 Index: []
+=======
+<div class="codeblock"><textarea name="code" class="java">
+# importing the pandas library  
+import pandas as pd  
+info = pd.DataFrame()  
+print (info)  
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Empty DataFrame
+Columns: []
+Index: []
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">14) How will you add a column to a pandas DataFrame?</h3>
 <p>It is possible to include additional columns in an existing DataFrame. You can do this by using the following code to add the new column.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 # importing the pandas library  
 import pandas as pd    
@@ -610,6 +673,43 @@ c      3.0       3         60.0      63.0
 d      4.0       4         NaN      NaN
 e      5.0       5         NaN      NaN
 f      NaN       6        NaN      NaN
+=======
+<div class="codeblock"><textarea name="code" class="java">
+# importing the pandas library  
+import pandas as pd    
+info = {'one' : pd.Series([1, 2, 3, 4, 5], index=['a', 'b', 'c', 'd', 'e']),  
+             'two' : pd.Series([1, 2, 3, 4, 5, 6], index=['a', 'b', 'c', 'd', 'e', 'f'])}  
+ 
+info = pd.DataFrame(info)  
+  
+# Add a new column to an existing DataFrame object   
+  
+print ("Add new column by passing series")  
+info['three']=pd.Series([20,40,60],index=['a','b','c'])  
+print (info)  
+print ("Add new column using existing DataFrame columns")  
+info['four']=info['one']+info['three']  
+print (info)  
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Add new column by passing series
+      one     two      three
+a     1.0      1        20.0
+b     2.0      2        40.0
+c     3.0      3        60.0
+d     4.0      4        NaN
+e     5.0      5        NaN
+f     NaN      6        NaN
+
+Add new column using existing DataFrame columns
+       one      two       three      four
+a      1.0       1         20.0      21.0
+b      2.0       2         40.0      42.0
+c      3.0       3         60.0      63.0
+d      4.0       4         NaN      NaN
+e      5.0       5         NaN      NaN
+f      NaN       6        NaN      NaN
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">15) How to add an Index, row, or column to a Pandas DataFrame?</h3>
@@ -653,6 +753,7 @@ Removing a column from your DataFrame can be done using several methods, such as
 <hr>
 <h3 class="h3">19) How to get the items of series A not present in series B?</h3>
 <p>One way to eliminate common elements in two Python lists p1 and p2 is by using the isin() function. This function allows us to check if each element in p1 is present in p2 and remove those elements accordingly.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import pandas as pd
 p1 = pd.Series([2, 4, 6, 8, 10])
@@ -664,10 +765,24 @@ p1[~p1.isin(p2)]
 1    4
 2    6
 dtype: int64
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import pandas as pd
+p1 = pd.Series([2, 4, 6, 8, 10])
+p2 = pd.Series([8, 10, 12, 14, 16])
+p1[~p1.isin(p2)]
+</textarea></div>
+<p><strong>Solution</strong></p>
+<div class="codeblock3"><pre>0    2
+1    4
+2    6
+dtype: int64
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">20) How to get the items not common to both series A and series B?</h3>
 <p>In order to obtain the items that are unique to both p1 and p2, we can use the following example as a guide.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import pandas as pd
 import numpy as np
@@ -686,10 +801,31 @@ p_u[~p_u.isin(p_i)]
 6    14
 7    16
 dtype: int64
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import pandas as pd
+import numpy as np
+p1 = pd.Series([2, 4, 6, 8, 10])
+p2 = pd.Series([8, 10, 12, 14, 16])
+p1[~p1.isin(p2)]
+p_u = pd.Series(np.union1d(p1, p2))  # union
+p_i = pd.Series(np.intersect1d(p1, p2))  # intersect
+p_u[~p_u.isin(p_i)]
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>0     2
+1     4
+2     6
+5    12
+6    14
+7    16
+dtype: int64
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">21) How to get the minimum, 25th percentile, median, 75th, and max of a numeric series?</h3>
 <p>We have the ability to determine the smallest value, 25th percentile, median, 75th percentile, and largest value of the variable "p".</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import pandas as pd
 import numpy as np
@@ -700,10 +836,23 @@ np.percentile(p, q=[0, 25, 50, 75, 100])
 </textarea></div>
 <p><strong>Output:</strong></p>
 <div class="codeblock3"><pre>array([ 4.61498692, 12.15572753, 14.67780756, 17.58054104, 33.24975515])
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import pandas as pd
+import numpy as np
+p = pd.Series(np.random.normal(14, 6, 22))
+state = np.random.RandomState(120)
+p = pd.Series(state.normal(14, 6, 22))
+np.percentile(p, q=[0, 25, 50, 75, 100])
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>array([ 4.61498692, 12.15572753, 14.67780756, 17.58054104, 33.24975515])
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">22) How to get frequency counts of unique items of a series?</h3>
 <p>To determine the frequency with which each distinct value p occurs, we can carry out a frequency count as illustrated in the following example:</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import pandas as pd
 import numpy as np
@@ -717,10 +866,26 @@ r    4
 q    3
 p    3
 u    3
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import pandas as pd
+import numpy as np
+p= pd.Series(np.take(list('pqrstu'), np.random.randint(6, size=17)))
+p = pd.Series(np.take(list('pqrstu'), np.random.randint(6, size=17)))
+p.value_counts()
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>s    4
+r    4
+q    3
+p    3
+u    3
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">23) How to convert a numpy array to a dataframe of given shape? </h3>
 <p>One way to present series p as a tabular form is by creating a dataframe with 6 rows and 2 columns. This would allow for easier readability and manipulation of the data.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import pandas as pd
 import numpy as np
@@ -739,10 +904,31 @@ print(info)
 4  3  5  3  3  3
 5  2  5  3  6  4
 6  3  6  6  6  5
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import pandas as pd
+import numpy as np
+p = pd.Series(np.random.randint(1, 7, 35))
+# Input
+p = pd.Series(np.random.randint(1, 7, 35))
+info = pd.DataFrame(p.values.reshape(7,5))
+print(info)
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>0  1  2  3  4
+0  3  2  5  5  1
+1  3  2  5  5  5
+2  1  3  1  2  6
+3  1  1  1  2  2
+4  3  5  3  3  3
+5  2  5  3  6  4
+6  3  6  6  6  5
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">24) How can we convert a Series to DataFrame?</h3>
 <p>One way to convert a Pandas series object to a DataFrame is by using the Series.to_frame() function. This function transforms the series into a DataFrame.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 Series.to_frame(name=None)
 </textarea></div>
@@ -757,6 +943,22 @@ s.to_frame()
 0          a
 1          b
 2          c
+=======
+<div class="codeblock"><textarea name="code" class="java">
+Series.to_frame(name=None)
+</textarea></div>
+<p>The "name" parameter refers to the object and has a default value of None. If a value is passed, it will be used as the series name instead of the default name.</p>
+<div class="codeblock"><textarea name="code" class="java">
+s = pd.Series(["a", "b", "c"],  
+name="vals")  
+s.to_frame()  
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>       vals
+0          a
+1          b
+2          c
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">25) What is Pandas NumPy array?</h3>
@@ -765,8 +967,13 @@ s.to_frame()
 <h3 class="h3">26) How can we convert DataFrame into a NumPy array?</h3>
 <p>To execute complex mathematical operations, converting Pandas DataFrame to numpy arrays is often required. This can be accomplished using the DataFrame.to_numpy() function.</p>
 <p>The method DataFrame.to_numpy() is utilized to convert a DataFrame object into a NumPy ndarray.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 DataFrame.to_numpy(dtype=None, copy=False)  
+=======
+<div class="codeblock"><textarea name="code" class="java">
+DataFrame.to_numpy(dtype=None, copy=False)  
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">27) How can we convert DataFrame into an excel file?</h3>
@@ -797,6 +1004,7 @@ DataFrame.to_numpy(dtype=None, copy=False)
 <hr>
 <h3 class="h3">32) How to convert String to date?</h3>
 <p>The following code showcases the process of converting a string into a date.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 fromdatetime import datetime  
   
@@ -819,6 +1027,30 @@ print(dmy_dt3)
 <div class="codeblock3"><pre>2017-07-14 00:00:00
 2017-07-14 00:00:00
 2018-07-14 00:00:00
+=======
+<div class="codeblock"><textarea name="code" class="java">
+fromdatetime import datetime  
+  
+# Define dates as the strings     
+dmy_str1 = 'Wednesday, July 14, 2018'  
+dmy_str2 = '14/7/17'  
+dmy_str3 = '14-07-2017'  
+  
+# Define dates as the datetime objects  
+dmy_dt1 = datetime.strptime(date_str1, '%A, %B %d, %Y')  
+dmy_dt2 = datetime.strptime(date_str2, '%m/%d/%y')  
+dmy_dt3 = datetime.strptime(date_str3, '%m-%d-%Y')  
+  
+#Print the converted dates  
+print(dmy_dt1)  
+print(dmy_dt2)  
+print(dmy_dt3)  
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>2017-07-14 00:00:00
+2017-07-14 00:00:00
+2018-07-14 00:00:00
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">33) What is Data Aggregation?</h3>
@@ -1275,6 +1507,11 @@ The following are some interview questions related to data structures:
 <script type="text/javascript"> dp.SyntaxHighlighter.HighlightAll('code'); </script>
 <script src="https://static.javatpoint.com/lazysizes.min.js" async=""></script>
 </body>
+<<<<<<< HEAD
 
 <!-- Mirrored from www.javatpoint.com/python-pandas-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:51:33 GMT -->
+=======
+
+<!-- Mirrored from www.javatpoint.com/python-pandas-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 13:51:33 GMT -->
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </html>

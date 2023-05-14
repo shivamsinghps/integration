@@ -1,9 +1,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
 <!-- Mirrored from www.javatpoint.com/java-support-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:34:18 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+=======
+
+<!-- Mirrored from www.javatpoint.com/java-support-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:34:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 <head>
 <meta charset="UTF-8">
 <link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png">
@@ -452,6 +458,7 @@
 <hr>
 <h3 class="h3">2) To check whether the entered string is Palindrome or not?</h3>
 <p><strong>TestString.java:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import java.util.*;
 public class TestString
@@ -481,10 +488,42 @@ System.out.println("The string is not a palindrome");
 <p><strong>Output:</strong></p>
 <div class="codeblock3"><pre>Enter the string : asddsa
 The string is palindrome
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import java.util.*;
+public class TestString
+{
+public static void main(String args[])
+{
+String a, b = "";
+Scanner s = new Scanner(System.in);
+System.out.print("Enter the string : ");
+a = s.nextLine();
+int n = a.length();
+for(int i = n-1; i >= 0; i--)
+{
+b = b + a.charAt(i);
+}
+if(a.equalsIgnoreCase(b))
+{
+System.out.println("The string is palindrome");
+}
+else
+{
+System.out.println("The string is not a palindrome");
+}
+}
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Enter the string : asddsa
+The string is palindrome
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">3) Write a java program to print the total arrangement of any string.</h3>
 <p><strong>StringArrangements.java:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 import java.util.Scanner;
 public class StringArrangements {  
@@ -535,6 +574,58 @@ ab
 All the permutations of the string are: 
 ab
 ba
+=======
+<div class="codeblock"><textarea name="code" class="java">
+import java.util.Scanner;
+public class StringArrangements {  
+	//Creating a Function to swap the characters of the string
+    public static String swapString(String a, int i, int j) {  
+        char[] b =a.toCharArray();  
+        char ch;  
+        ch = b[i];  
+        b[i] = b[j];  
+        b[j] = ch;  
+        return String.valueOf(b);  
+    }  
+      
+    public static void main(String[] args)  
+    {  
+    	Scanner sc= new Scanner(System.in);
+    	System.out.println("Enter String");
+    	String str=sc.nextLine();
+    	int len =str.length();
+        System.out.println("All the permutations of the string are: ");  
+        generatePermutation(str, 0, len);  
+    }  
+      
+    //Generating different permutations of the string  
+    public static void generatePermutation(String str, int start, int end)  
+    {  
+        //Printing the permutations  
+        if (start == end-1)  
+            System.out.println(str);  
+        else  
+        {  
+            for (int i = start; i < end; i++)  
+            {  
+                //Swapping the string by fixing a character  
+                str = swapString(str,start,i);  
+                //Recursively calling function generatePermutation() for rest of the characters   
+                generatePermutation(str,start+1,end);  
+                //Backtracking and swapping the characters again.  
+                str = swapString(str,start,i);  
+            }  
+        }  
+    }  
+}
+</textarea></div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3"><pre>Enter String
+ab
+All the permutations of the string are: 
+ab
+ba
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </pre></div>
 <hr>
 <h3 class="h3">4) Explain some real-life examples of multithreading.</h3>
@@ -551,6 +642,7 @@ ba
 <hr>
 <h3 class="h3">6) Write a Java program to print a pyramid star pattern?</h3>
 <p><strong>PyramidStarPattern.java:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 public class PyramidStarPattern  
 {    
@@ -573,6 +665,30 @@ System.out.println();
 }   
 }   
 }
+=======
+<div class="codeblock"><textarea name="code" class="java">
+public class PyramidStarPattern  
+{    
+public static void main(String args[])   
+{    
+//i is used for rows and j for columns      
+//This row will specify the number of rows
+int i, j, row = 6;        
+for (i=0; i<row; i++)="" {="" This="" loop="" will="" provide="" space="" for="" (j="row-i;" j="">1; j--)   
+{  
+System.out.print(" ");   
+}   
+for (j=0; j<=i; j++ )   
+{   
+//prints star      
+System.out.print("* ");   
+}   
+//It will throw the cursor in a new line after printing each line  
+System.out.println();   
+}   
+}   
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </row;></textarea></div>
 <p><strong>Output:</strong></p>
 <img src="https://static.javatpoint.com/interview/images/java-support-interview-questions-q6.png" alt="Java Support Interview Questions">
@@ -601,6 +717,7 @@ System.out.println();
 <hr>
 <h3 class="h3">14) How do you set the Java_Home environment variable in Linux?</h3>
 <p>In Linux, the process of configuring environment variables involves setting up the global configuration for all users. This can be done in either the /etc/profile or /etc/bash.bashrc file.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 # vi /etc/profile
 </textarea></div>
@@ -611,6 +728,18 @@ export PATH=$PATH:/usr/java/jdk1.8./bin
 <p>To activate the path settings, we first need to edit the environment variables. This can be done by accessing the System Properties window and selecting the Advanced tab. From there, we can click the "Environment Variables" button and edit the "Path" variable by adding the directory that contains the desired executable file. Once we have added the directory to the "Path" variable, we need to save and close the file. Finally, we can activate the path settings by executing a command to apply the changes immediately.</p>
 <div class="codeblock"><textarea name="code" class="java">
 # source /etc/profile
+=======
+<div class="codeblock"><textarea name="code" class="java">
+# vi /etc/profile
+</textarea></div>
+<p>Here are steps you can take to complete the task:</p>
+<div class="codeblock"><textarea name="code" class="java">
+export PATH=$PATH:/usr/java/jdk1.8./bin
+</textarea></div>
+<p>To activate the path settings, we first need to edit the environment variables. This can be done by accessing the System Properties window and selecting the Advanced tab. From there, we can click the "Environment Variables" button and edit the "Path" variable by adding the directory that contains the desired executable file. Once we have added the directory to the "Path" variable, we need to save and close the file. Finally, we can activate the path settings by executing a command to apply the changes immediately.</p>
+<div class="codeblock"><textarea name="code" class="java">
+# source /etc/profile
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">15) What is the full form SQL?</h3>
@@ -1084,6 +1213,11 @@ Interviews are an essential part of the hiring process for most companies. Inter
 <script type="text/javascript"> dp.SyntaxHighlighter.HighlightAll('code'); </script>
 <script src="https://static.javatpoint.com/lazysizes.min.js" async=""></script>
 </body>
+<<<<<<< HEAD
 
 <!-- Mirrored from www.javatpoint.com/java-support-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:34:18 GMT -->
+=======
+
+<!-- Mirrored from www.javatpoint.com/java-support-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:34:18 GMT -->
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </html>

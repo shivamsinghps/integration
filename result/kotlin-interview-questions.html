@@ -1,9 +1,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
 <!-- Mirrored from www.javatpoint.com/kotlin-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:34:24 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+=======
+
+<!-- Mirrored from www.javatpoint.com/kotlin-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:34:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 <head>
 <meta charset="UTF-8">
 <link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png">
@@ -477,12 +483,18 @@
 <h3 class="h3">8) How can you create a singleton in Kotlin?</h3>
 <p>In Kotlin, we can implement a singleton pattern using the object keyword.</p>
 <p><strong>Syntax:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 object SomeSingleton
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+object SomeSingleton
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>Here's a possible rephrased version:
 
 The given Kotlin object would be transformed into the following Java code that performs the same functionality:</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 public final class SomeSingleton {
    public static final SomeSingleton INSTANCE;
@@ -494,6 +506,19 @@ public final class SomeSingleton {
       new SomeSingleton();
    }
 }
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+public final class SomeSingleton {
+   public static final SomeSingleton INSTANCE;
+   private SomeSingleton() {
+      INSTANCE = (SomeSingleton)this;
+      System.out.println("init complete");
+   }
+   static {
+      new SomeSingleton();
+   }
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>One recommended approach for implementing singletons on a JVM is by creating an inner static class with a private static final instance of the singleton. This method allows for lazy initialization that is thread-safe without having to rely on a complex locking algorithm like double-checked locking.</p>
 <hr>
@@ -501,6 +526,7 @@ public final class SomeSingleton {
 <p>The primary constructor in Kotlin is defined within the class header, and doesn't require a separate constructor declaration within the class body, as is the case in Java.</p>
 <p>Kotlin provides a convenient way to define the constructor directly in the class declaration.</p>
 <p><strong>I'm sorry, I cannot provide a rephrased content if you haven't provided me with the original content. Please provide me with the original content that needs to be rephrased.</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 class Person constructor(name: String, age: Int, salary: Int) {
 } 
@@ -510,12 +536,24 @@ class Person constructor(name: String, age: Int, salary: Int) {
 <div class="codeblock"><textarea name="code" class="xml">
 class Person (name: String, age: Int, salary: Int) {
 }
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+class Person constructor(name: String, age: Int, salary: Int) {
+} 
+</textarea></div>
+<p>Similar to methods or functions, a constructor is a special kind of method that takes parameters, each with its own data type. These parameters are used to initialize the variables within the class.</p>
+<p>If there are no annotations or modifiers such as public, private, or protected, it's possible to exclude the constructor keyword in the code.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+class Person (name: String, age: Int, salary: Int) {
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>One way to make your code more straightforward and comprehensible is to eliminate the constructor keyword.</p>
 <hr>
 <h3 class="h3">10) What do you understand by Null safety in Kotlin?</h3>
 <p>Kotlin has a significant benefit over other programming languages due to its null safety feature. This helps eliminate the risks associated with null references in code, which has been referred to as "The Billion Dollar Mistake". In many languages, including Java, accessing a member of a null reference would result in a null reference exception, also known as a NullPointerException or NPE for short. However, Kotlin's type system helps prevent this common problem.</p>
 <p>In Kotlin programming language, there is a distinction between references that can hold null (known as nullable references) and those that cannot (known as non-null references) within the type system. This means that a variable of type String in Kotlin cannot hold null values.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 var a: String = "abc"
 a = null // compilation error
@@ -525,10 +563,22 @@ a = null // compilation error
 var b: String? = "abc"
 b = null // ok
 print(b)
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+var a: String = "abc"
+a = null // compilation error
+</textarea></div>
+<p>To enable the possibility of having null values, we can define a variable as a nullable string by denoting it with "String?" in its declaration.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+var b: String? = "abc"
+b = null // ok
+print(b)
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">11) How can you ensure null safety in Kotlin?</h3>
 <p>Kotlin has a feature called null safety that aims to prevent NullPointerExceptions, which are common errors in Java. When accessing a null variable in Java, NullPointerExceptions are thrown. However, Kotlin's null safety feature will catch this error during compilation, producing an error message.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 var name: String = "MindOrks"
 name = null //error
@@ -538,13 +588,29 @@ name = null //error
 var name: String? = "MindOrks"
 print(name?.length) // ok
 name = null // ok 
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+var name: String = "MindOrks"
+name = null //error
+</textarea></div>
+<p>One way to solve the problem of accessing a null variable in Java is to assign null values to a variable and declare its name as a nullable string. Then, when you need to access the variable, use a safe call operator (?). This will prevent programming errors that occur when trying to access a null value.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+var name: String? = "MindOrks"
+print(name?.length) // ok
+name = null // ok 
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">12) What is a data class in Kotlin?</h3>
 <p>Kotlin introduces the concept of a data class which is intended to be used as a container to hold data and provide access to it. A data class is designated by the "data" keyword.</p>
 <p><strong>Syntax:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 data class User(val name: String, val age: Int) 
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+data class User(val name: String, val age: Int) 
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>To ensure that the generated code behaves consistently and meaningfully, certain requirements must be met by the data classes.</p>
 <ul class="points">
@@ -567,20 +633,35 @@ data class User(val name: String, val age: Int)
 <hr>
 <h3 class="h3">17) What do you understand by the Ranges operator in Kotlin?</h3>
 <p>The range operator is useful for iterating through a range of values in a program. It is represented by two dots (..) in its operator form.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 for (i in 1..15)
 print(i)
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+for (i in 1..15)
+print(i)
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>Here's a rephrased version: This code snippet will display numbers from 1 to 15 when executed.</p>
 <hr>
 <h3 class="h3">18) Where should we use var and where val in Kotlin?</h3>
 <p>Kotlin programming language allows the use of 'var' keyword when variables are subject to change frequently. This comes in handy when retrieving the location of an Android device.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 var integerVariable : Int? = null
 </textarea></div>
 <p>In Kotlin, the keyword "val" is utilized to represent variables that remain constant throughout the class. This is useful when setting the text of a TextView or Button through code.</p>
 <div class="codeblock"><textarea name="code" class="xml">
 val stringVariables : String = "Button's Constant or final Text"
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+var integerVariable : Int? = null
+</textarea></div>
+<p>In Kotlin, the keyword "val" is utilized to represent variables that remain constant throughout the class. This is useful when setting the text of a TextView or Button through code.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+val stringVariables : String = "Button's Constant or final Text"
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">19) What is the difference between a safe calls(?.) and a null check(!!) in Kotlin?</h3>
@@ -588,6 +669,7 @@ val stringVariables : String = "Button's Constant or final Text"
 
 Kotlin offers two ways to deal with null safety: safe calls (?.) and null checks (!!). Safe calls enable you to access a property or call a method on a nullable object without risking a NullPointerException. With a safe call, the statement will short-circuit and return null if the object is null. A null check, on the other hand, assumes that the object isn't null and makes the compiler silently ignore the null safety check. If you use a null check on a null value, the result will be a NullPointerException. So, it's important to choose the right technique depending on the context to ensure your code is safe and efficient.</p>
 <p>The ?. operator, known as the safe call operator, is a handy tool for executing code only if the referenced variable is not null. In other words, it provides a convenient way to check for null values and handle them accordingly. When used with a variable or method, it first checks if the value is null, and if it is, returns null without further execution. If the value is not null, it proceeds to execute the code as expected.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 var name: String? = "JavaTpoint"
 println(name?.length) // 10
@@ -601,11 +683,27 @@ var name: String? = "JavaTpoint"
 println(name?.length) // 10
 name = null
 println(name!!.length) // KotlinNullPointerException
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+var name: String? = "JavaTpoint"
+println(name?.length) // 10
+name = null
+println(name?.length) // null
+</textarea></div>
+<p>To generate a NullPointerException when the value of a variable is null, you have two options, which are checking for null or using the !! operator.</p>
+<p><strong>See the example:</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+var name: String? = "JavaTpoint"
+println(name?.length) // 10
+name = null
+println(name!!.length) // KotlinNullPointerException
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">20) What is the basic difference between the fold and reduce in Kotlin? Also, specify when to use which?</h3>
 <p><strong>The fold and reduce functions in Kotlin have distinct differences that set them apart from each other.</strong></p>
 <p>The fold operation accepts an initial value and the first execution of the lambda expression you provide. It receives both the initial value and the first element of the collection as arguments.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 listOf(1, 2, 3).fold(0) { sum, element -> sum + element }
 </textarea></div>
@@ -613,6 +711,15 @@ listOf(1, 2, 3).fold(0) { sum, element -> sum + element }
 <p>In the "reduce" method, the initial value is not specified. The first element of the collection is used as the starting point for the accumulator instead.</p>
 <div class="codeblock"><textarea name="code" class="xml">
 listOf(1, 2, 3).reduce { sum, element -> sum + element }
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+listOf(1, 2, 3).fold(0) { sum, element -> sum + element }
+</textarea></div>
+<p>When using a lambda function, the first invocation will typically include the initial or default values for any parameters. This feature is especially useful for cases where a default value needs to be specified for the operation.</p>
+<p>In the "reduce" method, the initial value is not specified. The first element of the collection is used as the starting point for the accumulator instead.</p>
+<div class="codeblock"><textarea name="code" class="xml">
+listOf(1, 2, 3).reduce { sum, element -> sum + element }
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>The lambda function is a small anonymous function that can have any number of arguments but only one expression. It is typically used as a shortcut for defining a function, especially when it's needed only once. In the example given above, the lambda function is represented by the term 'sum'. When this lambda function is called, it will request two parameters, namely 1 and 2.</p>
 <hr>
@@ -622,6 +729,7 @@ listOf(1, 2, 3).reduce { sum, element -> sum + element }
 
 Examples of when usage in Kotlin can be found in various instances where coders need to execute a certain block of code if a given condition is met. The when expression is particularly useful when dealing with multiple conditions because it provides an alternative to using an extensive if-else block. Some possible scenarios where when can be employed include checking user input, determining the type of a variable, and selecting the appropriate method to call based on the input received.</strong></p>
 <p><strong>Reword this information in order to avoid plagiarism.</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 when(number) {
     1 -> println("One")
@@ -636,10 +744,27 @@ when {
     number < 1 -> print("Number is less than 1")
     number > 1 -> print("Number is greater than 1")
 }
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+when(number) {
+    1 -> println("One")
+    2, 3 -> println("Two or Three")
+    4 -> println("Four")
+    else -> println("Number is not between 1 and 4")
+}
+</textarea></div>
+<p><strong>"when" without arguments:</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+when {
+    number < 1 -> print("Number is less than 1")
+    number > 1 -> print("Number is greater than 1")
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p><strong>Rewritten: 
 
 All types are permissible in the "when" condition.</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 fun describe(obj: Any): String =
     when (obj) {
@@ -667,12 +792,42 @@ when(number) {
     !in 9..12 -> println("Number not in between 9 and 12") //statement 5
     else -> println("Number is not between 1 and 8") //statement 6
 }
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+fun describe(obj: Any): String =
+    when (obj) {
+      1 -> "One"
+      "Hello" -> "Greeting"
+      is Long -> "Long"
+      !is String -> "Not a string"
+      else -> "Unknown"
+    }
+</textarea></div>
+<p><strong>Smart casting:</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+when (x) {
+    is Int -> print("X is integer")
+    is String -> print("X is string")
+}
+</textarea></div>
+<p><strong>Ranges:</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+when(number) {
+    1 -> println("One") //statement 1
+    2 -> println("Two") //statement 2
+    3 -> println("Three") //statement 3
+    in 4..8 -> println("Number between 4 and 8") //statement 4
+    !in 9..12 -> println("Number not in between 9 and 12") //statement 5
+    else -> println("Number is not between 1 and 8") //statement 6
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">22) What do you understand by the Null safety in Kotlin?</h3>
 <p>Kotlin's type system is designed to prevent null references in code, which is commonly known as the Billion Dollar Mistake.</p>
 <p>It's not uncommon for programming languages like Java to experience a common problem where accessing a null reference's member leads to a null reference exception. This exception is equivalent to the NullPointerException in Java.</p>
 <p>In Kotlin programming language, there is a distinction between references that can hold null (known as nullable references) and those that cannot (known as non-null references) within the type system. This means that a variable of type String in Kotlin cannot hold null values.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 var a: String = "abc"
 a = null // compilation error
@@ -682,6 +837,17 @@ a = null // compilation error
 var b: String? = "abc"
 b = null // ok
 print(b)
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+var a: String = "abc"
+a = null // compilation error
+</textarea></div>
+<p><strong>One can make a variable nullable in programming by declaring it as a string with a question mark after it, like String?:. This allows the variable to accept null values.</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+var b: String? = "abc"
+b = null // ok
+print(b)
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">23) Do we have a ternary operator in Kotlin just like Java?</h3>
@@ -690,10 +856,17 @@ print(b)
 <h3 class="h3">24) What is Elvis operator in Kotlin?</h3>
 <p>Kotlin allows us to assign null values to variables using the null safety feature. To verify if a value contains null, we can use if-else statements or utilize the Elvis operator, which is represented by ?:</p>
 <p><strong>For example:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 var name:String? = "Mindorks"
 val nameLength = name?.length ?: -1
 println(nameLength)
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+var name:String? = "Mindorks"
+val nameLength = name?.length ?: -1
+println(nameLength)
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>The ?: operator used in the example will give the length of the name if the input has a value, but will return -1 if the input is null. This means that it provides a way to handle null values in the code.</p>
 <hr>
@@ -703,10 +876,17 @@ println(nameLength)
 <h3 class="h3">26) What do you understand by lazy initialization in Kotlin?</h3>
 <p>Lazy initialization is a feature in Kotlin that allows you to delay the initialization of a variable until you actually use it in your code. This ensures that the variable is initialized only when necessary and only once. Once it's initialized, you can continue using the same value.</p>
 <p>Lazy initialization is a technique where a property is only initialized when it's first accessed. This is achieved through the use of the lazy() function, which takes in a lambda and returns an instance of lazy. This instance can behave like a delegate that implements a lazy property: when the property is accessed for the first time, the lambda passed to the lazy() function is executed and the resulting value is stored. For all subsequent accesses to the property, the stored value is simply returned.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 val test: String by lazy {
     val testString = "some value"
 }
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+val test: String by lazy {
+    val testString = "some value"
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">27) How many types of constructors are used in Kotlin?</h3>
@@ -719,6 +899,7 @@ val test: String by lazy {
 <h3 class="h3">28) What is Lateinit in Kotlin, and when is it used?</h3>
 <p>The term "lateinit" refers to the process of delaying the initialization of a variable until a later time, rather than initializing it within the constructor. This approach is commonly used when you want to avoid initializing variables right away.</p>
 <p>To ensure proper initialization of a variable before using it, you can use the lateinit keyword. This will delay the allocation of memory until the variable is actually initialized. Keep in mind that this keyword cannot be used for primitive types like Int or Long.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 lateinit var test: String
 fun doSomething() {
@@ -726,6 +907,15 @@ fun doSomething() {
     println("Length of string is "+test.length)
     test = "change value"
 }
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+lateinit var test: String
+fun doSomething() {
+    test = "Some value"
+    println("Length of string is "+test.length)
+    test = "change value"
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p><strong>The following situations are where this technique is commonly applied:</strong></p>
 <ul class="points">
@@ -772,20 +962,34 @@ Let me provide you with guidance regarding how to set up unit testing.</strong> 
 <hr>
 <h3 class="h3">33) What do you understand by data classes in Kotlin?</h3>
 <p>Data classes in Kotlin are designed specifically to hold data. These classes are distinguished by the use of the "data" keyword. Here is an example of a data class:</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 data class Developer(val name: String, val age: Int)
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+data class Developer(val name: String, val age: Int)
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>If we assign the data class tag to a class, the implementation of certain functions such as hashCode(), equals(), toString(), and copy() in Java are not required. The compiler generates them automatically, which results in a more streamlined code base. However, there are some additional prerequisites that data classes must satisfy.</p>
 <hr>
 <h3 class="h3">34) What is the use of Companion Objects in Kotlin?</h3>
 <p>In Kotlin programming, the concept of Companion Objects is essential as the language does not support static members or methods like other languages such as Java or C#. In situations where a function needs to be accessed without having to instantiate a class but requires access to the internal properties of that class, such functions can be declared as members of a Companion Object declared inside the class.</p>
 <p><strong>For example:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 class EventManager {
     companion object FirebaseManager {
     }  
 }
 val firebaseManager = EventManager.FirebaseManager 
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+class EventManager {
+    companion object FirebaseManager {
+    }  
+}
+val firebaseManager = EventManager.FirebaseManager 
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>The companion object is a unique feature in Kotlin. It is a singleton and can be treated and passed around just like any other object. If you are working with Java code and require a true static member, you can use the @JvmStatic annotation on a member within the companion object.</p>
 <hr>
@@ -795,9 +999,15 @@ val firebaseManager = EventManager.FirebaseManager
 <h3 class="h3">36) How can we perform String Interpolation in Kotlin?</h3>
 <p>Kotlin language allows the use of String Interpolation to embed variables and perform operations within a string. This is achieved through the usage of the $ sign to incorporate variables and the {} sign to perform operations.</p>
 <p><strong>For example:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 var name = "JavaTpoint"
 print("The best tutorial website is: $name")
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+var name = "JavaTpoint"
+print("The best tutorial website is: $name")
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">37) Name some features which are available in Kotlin but not in Java?</h3>
@@ -815,6 +1025,7 @@ print("The best tutorial website is: $name")
 <p>The == operator in Kotlin is commonly utilized to compare variable values, while the === operator is employed to verify if the variables' references are equivalent or not.</p>
 <p>Primitive types in JavaScript are checked for value and not reference using the === operator.</p>
 <p><strong>Example:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 // primitive example
 val int1 = 10 
@@ -826,6 +1037,19 @@ val num1 = Integer(10)
 val num2 = Integer(10)
 println(num1 == num2) // true
 println(num1 === num2) //false
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+// primitive example
+val int1 = 10 
+val int2 = 10
+println(int1 == int2) // true
+println(int1 === int2) // true
+// wrapper example
+val num1 = Integer(10)
+val num2 = Integer(10)
+println(num1 == num2) // true
+println(num1 === num2) //false
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">39) Can we use primitive types such as int, double, float in Kotlin?</h3>
@@ -880,15 +1104,26 @@ The 'let' keyword can only be used for variables.</td>
 <h3 class="h3">41) What do you understand by destructuring in Kotlin?</h3>
 <p>Destructuring is a feature in Kotlin that allows you to easily extract multiple values from objects or arrays. It is useful when you need to extract data from various objects and store them in separate variables. This feature is commonly used in places where data is being received or manipulated. By destructuring an object, you can easily extract its values and assign them to variables for further processing.</p>
 <p><strong>For Example:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 val (name, age) = developer
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+val (name, age) = developer
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>Here's a rephrased version of the content:
 
 After collecting personal information from customers such as their names and ages, businesses can analyze and use this data to better target their marketing efforts. By understanding the age demographics of their audience, businesses can tailor their products or services to appeal to certain age groups. Additionally, knowing a customer's name can lead to a more personalized and friendly interaction between the customer and the business. Ultimately, collecting and utilizing this information can help businesses improve their overall customer experience.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 println(name)
 println(age)
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+println(name)
+println(age)
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">42) What are coroutines in Kotlin?</h3>
@@ -901,6 +1136,7 @@ println(age)
 <hr>
 <h3 class="h3">44) What are the extension functions in Kotlin?</h3>
 <p>In Kotlin, extension functions are properties that can be added to a class without inheriting from it. They are used to add new functionalities or methods to an existing class. For instance, if we have views that require manipulation of their visibility, we can create an extension function that performs this function for all views.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 fun View.show() {
  this.visibility = View.VISIBLE
@@ -910,10 +1146,22 @@ fun View.hide() {
 }
 and to use it, we use, like,
 toolbar.hide()
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+fun View.show() {
+ this.visibility = View.VISIBLE
+}
+fun View.hide() {
+ this.visibility = View.GONE
+}
+and to use it, we use, like,
+toolbar.hide()
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">45) What do you understand by the Kotlin double-bang (!!) operator?</h3>
 <p>The double-bang operator in Kotlin is used to convert a value to a non-null type. However, it is important to note that if the value is null, it will throw a KotlinNullPointerException and terminate the program. This operator is also known as the not-null assertion operator.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 Example: 
 fun main(args: Array&lt;String&gt;) {
@@ -921,6 +1169,15 @@ fun main(args: Array&lt;String&gt;) {
     email = null
     println(email!!)
 }
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+Example: 
+fun main(args: Array&lt;String&gt;) {
+    var email: String?
+    email = null
+    println(email!!)
+}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>In situations where developers are completely certain about the non-null value of a specific operator, it is appropriate to use it.</p>
 <hr>
@@ -1297,6 +1554,11 @@ Below are some questions that you may encounter during an interview for a positi
 <script type="text/javascript"> dp.SyntaxHighlighter.HighlightAll('code'); </script>
 <script src="https://static.javatpoint.com/lazysizes.min.js" async=""></script>
 </body>
+<<<<<<< HEAD
 
 <!-- Mirrored from www.javatpoint.com/kotlin-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:34:24 GMT -->
+=======
+
+<!-- Mirrored from www.javatpoint.com/kotlin-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:34:24 GMT -->
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </html>

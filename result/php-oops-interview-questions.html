@@ -1,9 +1,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
 <!-- Mirrored from www.javatpoint.com/php-oops-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:17:13 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+=======
+
+<!-- Mirrored from www.javatpoint.com/php-oops-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:17:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 <head>
 <meta charset="UTF-8">
 <link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png">
@@ -480,6 +486,7 @@
 <p>It is possible to call the parent constructor by using the code "parent::__construct()". However, there are two cases to consider when calling the parent constructor.</p>
 <p>In a scenario where the child class already has its own constructor, it is not possible to directly invoke the constructor of the parent class. To address this issue, we would need to include the parent constructor's parameter within the child constructor.</p>
 <p><strong>Example:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 &lt;?php
    class father{
@@ -495,11 +502,29 @@
    }
 $obj = new son();
 ?&gt; 
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?php
+   class father{
+      public function __construct(){
+         echo "this is the parent class"."&lt;br&gt;";
+      }
+   }
+   class son extends father{
+      public function __construct(){
+         parent::__construct();
+         echo "parent class is called using child";
+      }
+   }
+$obj = new son();
+?&gt; 
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p><strong>Output:</strong></p>
 <img src="https://static.javatpoint.com/interview/images/php-oops-interview-questions1.png" alt="PHP OOPs Interview Questions">
 <p>There are two cases when dealing with constructors in child classes. In the first case, if the child class contains a constructor, it must call the parent constructor using the super keyword and passing any required arguments. In the second case, if the child class does not have a constructor of its own, it can directly call the parent constructor without using any special method.</p>
 <p><strong>Example:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 &lt;?php
    class father{
@@ -513,6 +538,21 @@ $obj = new son();
    
 $obj = new son();
 ?&gt;
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?php
+   class father{
+      public function __construct(){
+         echo "this is the parent class"."&lt;br&gt;";
+      }
+   }
+   class son extends father{
+
+      }
+   
+$obj = new son();
+?&gt;
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p><strong>Output:</strong></p>
 <img src="https://static.javatpoint.com/interview/images/php-oops-interview-questions2.png" alt="PHP OOPs Interview Questions">
@@ -520,6 +560,7 @@ $obj = new son();
 <h3 class="h3">11) Parent constructor is called implicitly when an object of the class is created?</h3>
 <p>The decision between implicit and explicit calling of parent constructors depends on whether or not the child class has its own constructor. If the child class has a constructor, the parent constructor will be called explicitly. But if the child class does not have its own constructor, the parent constructor will be called implicitly.</p>
 <p>Sure, I can help with that! Can you please provide me with the content that you want me to rephrase?</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 &lt;?PHP
    class father{
@@ -535,10 +576,28 @@ $obj = new son();
    }
 $obj = new son();
 ?&gt;
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?PHP
+   class father{
+      public function __construct(){
+         echo "called parent constructor explicitly as the child class its own constructor"."&lt;br&gt;";
+      }
+   }
+   class son extends father{
+      public function __construct(){
+         parent::__construct();
+         echo "parent class is called using child class explicitly";
+      }
+   }
+$obj = new son();
+?&gt;
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p><strong>Output:</strong></p>
 <img src="https://static.javatpoint.com/interview/images/php-oops-interview-questions3.png" alt="PHP OOPs Interview Questions">
 <p>I'm sorry, I cannot rephrase the content without knowing what content you are referring to. Please provide me with more information.</p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 &lt;?php
    class father{
@@ -552,6 +611,21 @@ $obj = new son();
    
 $obj = new son();
 ?&gt;
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?php
+   class father{
+      public function __construct(){
+         echo "called parent constructor implicitly as the child class does not contain its own constructor"."&lt;br&gt;";
+      }
+   }
+   class son extends father{
+
+      }
+   
+$obj = new son();
+?&gt;
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p><strong>Output:</strong></p>
 <img src="https://static.javatpoint.com/interview/images/php-oops-interview-questions4.png" alt="PHP OOPs Interview Questions">
@@ -567,6 +641,7 @@ $obj = new son();
 <h3 class="h3">13) What is a class?</h3>
 <p>A class serves as a framework for an object, providing a means to store variables and functions that come together to make a package called an object.</p>
 <p><strong>Example:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 &lt;?php
 class Person{ 
@@ -591,6 +666,32 @@ echo $obj2-&gt;getUserDetails();
 $obj3=new Person("Ram", 23);
 echo $obj3-&gt;getUserDetails();
 ?&gt;
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?php
+class Person{ 
+public $name; 
+public $age; 
+function __construct($name, $age){ 
+  $this-&gt;name = $name; 
+  $this-&gt;age = $age; 
+  } 
+function getUserDetails(){ 
+  return "Hi, My Name is ".$this-&gt;name." and I'm ". $this-&gt;age ." old 
+"."&lt;br&gt;"; 
+} 
+}
+
+$obj=new Person("Raghav", 20);
+echo $obj-&gt;getUserDetails();
+$obj1=new Person("Raghu", 21);
+echo $obj1-&gt;getUserDetails();
+$obj2=new Person("Rahul", 22);
+echo $obj2-&gt;getUserDetails();
+$obj3=new Person("Ram", 23);
+echo $obj3-&gt;getUserDetails();
+?&gt;
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p><strong>Output:</strong></p>
 <img src="https://static.javatpoint.com/interview/images/php-oops-interview-questions5.png" alt="PHP OOPs Interview Questions">
@@ -598,6 +699,7 @@ echo $obj3-&gt;getUserDetails();
 <h3 class="h3">14) What is an object?</h3>
 <p>In programming, objects are created from classes. Objects can be thought of as instances of a class. They possess properties and behaviors that are defined by the class they belong to. Essentially, an object in programming is similar to an object in the real world, with its own unique characteristics and actions.</p>
 <p><strong>Syntax:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 $ name = new className;
 </textarea></div>
@@ -624,6 +726,34 @@ echo $obj2-&gt;getUserDetails();
 $obj3=new People("jkl");
 echo $obj3-&gt;getUserDetails();
 ?&gt;
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+$ name = new className;
+</textarea></div>
+<p><strong>Example:</strong></p>
+<div class="codeblock"><textarea name="code" class="xml">
+&lt;?php
+class people{ 
+public $name; 
+public $age; 
+function __construct($name){ 
+  $this-&gt;name = $name; 
+  } 
+function getUserDetails(){ 
+  return "Hi, My Name is ".$this-&gt;name."&lt;br&gt;"; 
+} 
+}
+
+$obj=new people("abc");
+echo $obj-&gt;getUserDetails();
+$obj1=new People("def");
+echo $obj1-&gt;getUserDetails();
+$obj2=new People("ghi");
+echo $obj2-&gt;getUserDetails();
+$obj3=new People("jkl");
+echo $obj3-&gt;getUserDetails();
+?&gt;
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p><strong>Output:</strong></p>
 <img src="https://static.javatpoint.com/interview/images/php-oops-interview-questions6.png" alt="PHP OOPs Interview Questions">
@@ -673,16 +803,28 @@ echo $obj3-&gt;getUserDetails();
 <h3 class="h3">16) What are Constructor and Destructor?</h3>
 <p>A constructor is a specific type of function that is automatically called whenever an object is created from a class. It is unique in the sense that it is not explicitly called in the code but is executed automatically upon object creation.</p>
 <p><strong>Syntax:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 //Old (PHP4) - class myNewClass{ function myClass()}
 //New (PHP5+) - class myNewClass{ function __construct()}
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+//Old (PHP4) - class myNewClass{ function myClass()}
+//New (PHP5+) - class myNewClass{ function __construct()}
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <h4 class="n">Note - Old-style constructors are DEPRECATED in PHP 7.0 and will be eliminated in a future variant. You ought to continuously utilize __construct() in new code.</h4>
 <p>A destructor is a unique function that is executed automatically whenever an object is either deleted or goes out of its scope. In other words, a destructor is automatically invoked when we destroy an object.</p>
 <p><strong>Syntax:</strong></p>
+<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="xml">
 class myClass{ function __construct() 
                           function __destruct()} }
+=======
+<div class="codeblock"><textarea name="code" class="xml">
+class myClass{ function __construct() 
+                          function __destruct()} }
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">17) Give a basic explanation of the Member Variable and Member function?</h3>
@@ -1062,6 +1204,11 @@ class myClass{ function __construct()
 <script type="text/javascript"> dp.SyntaxHighlighter.HighlightAll('code'); </script>
 <script src="https://static.javatpoint.com/lazysizes.min.js" async=""></script>
 </body>
+<<<<<<< HEAD
 
 <!-- Mirrored from www.javatpoint.com/php-oops-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:17:13 GMT -->
+=======
+
+<!-- Mirrored from www.javatpoint.com/php-oops-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:17:13 GMT -->
+>>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </html>
