@@ -70,7 +70,6 @@ const paraphrase = async (sourceFile, outfile, filename) => {
       } catch (error) {
         retry += 1;
         if (retry < max_retry) {
-          console.log(error);
           await sleep();
         } else {
           throw new Error("Please check OPENAI limits");
@@ -80,7 +79,7 @@ const paraphrase = async (sourceFile, outfile, filename) => {
     writeParsedData(outfile, filename, results);
     return results;
   } catch (error) {
-    console.log(error.message);
+    console.log({error:error.message});
   }
 };
 
