@@ -1,15 +1,9 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
 
 <!-- Mirrored from www.javatpoint.com/ansible-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:33:53 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
-=======
-
-<!-- Mirrored from www.javatpoint.com/ansible-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:33:53 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 <head>
 <meta charset="UTF-8">
 <link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png">
@@ -508,31 +502,20 @@
 <hr>
 <h3 class="h3">11) What are Ad-hoc commands? </h3>
 <p>Ad-hoc commands refer to one-line commands used to complete specific tasks. They can be considered as a substitute to playbooks. An instance of an Ad-hoc command is exemplified below:</p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 ansible host -m netscaler -a "nsc_host=nsc.example.com user=ansiuser password=ansipass"
-=======
-<div class="codeblock"><textarea name="code" class="java">
-ansible host -m netscaler -a "nsc_host=nsc.example.com user=ansiuser password=ansipass"
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>This Ad-hoc command utilizes the NetScaler module to deactivate the server.</p>
 <hr>
 <h3 class="h3">12) How would you access a variable of the first host in a group?</h3>
 <p>To access a variable of the first host in a group, use the commands provided below.</p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 {{ hostvars[groups['webservers'][0]]['ansible_eth0']['ipv4']['address'] }}
-=======
-<div class="codeblock"><textarea name="code" class="java">
-{{ hostvars[groups['webservers'][0]]['ansible_eth0']['ipv4']['address'] }}
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>The command is retrieving the hostname of the initial machine found in the group named "webservers". If you're utilizing a template, you can utilize jinja2 "#set" to accomplish this, or alternatively set_fact.</p>
 <hr>
 <h3 class="h3">13) How to keep secrete data in a playbook?</h3>
 <p>One can conceal sensitive information in verbose output while maintaining its completeness by using a specific command.</p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 -	name: secrete task
 shell: /user/bin/do_somthing -value={{secrete value}}
@@ -542,17 +525,6 @@ no_log: True
 <div class="codeblock"><textarea name="code" class="java">
 -	hosts: all
 no_log: True
-=======
-<div class="codeblock"><textarea name="code" class="java">
--	name: secrete task
-shell: /user/bin/do_somthing -value={{secrete value}}
-no_log: True 
-</textarea></div>
-<p>One way to use the no_log attribute in Ansible is by including it in a task to prevent sensitive data such as passwords and keys from being logged. It can also be used at the playbook level to apply the no_log attribute to the entire play.</p>
-<div class="codeblock"><textarea name="code" class="java">
--	hosts: all
-no_log: True
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">14) What are Ansible Vaults, and why are they used? </h3>
@@ -562,7 +534,6 @@ no_log: True
 <h3 class="h3">15) What is the way to access shell environment variables in Ansible? </h3>
 <p>To retrieve variables already present in Ansible, the recommended approach is to use the 'env' lookup plugin.</p>
 <p>Let's say you need to retrieve the value of the Office environment from the management machine, which can be achieved through a command.</p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 ---
 # ...
@@ -570,15 +541,6 @@ vars:
 local_home: "{{ lookup('env','Office') }}"
 I
 {{ ansible_env.SOME_VARIABLE }}
-=======
-<div class="codeblock"><textarea name="code" class="java">
----
-# ...
-vars:
-local_home: "{{ lookup('env','Office') }}"
-I
-{{ ansible_env.SOME_VARIABLE }}
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">16) Who you can copy file recursively onto a target host?</h3>
@@ -586,28 +548,16 @@ I
 <hr>
 <h3 class="h3">17) How do you set the path or any other environment variable for a task?</h3>
 <p>To set environment variables in Ansible, you can use the 'environment' keyword. This can be applied to either a task or an entire playbook. This allows you to set the path and other variables as needed. Examples of how to accomplish this are available in Ansible documentation.</p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 environment:
 PATH: "{{ansible_env.PATH}}:/thingy/bin"
 SOME: value
-=======
-<div class="codeblock"><textarea name="code" class="java">
-environment:
-PATH: "{{ansible_env.PATH}}:/thingy/bin"
-SOME: value
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">18) How can you see all variables for a host?</h3>
 <p>To access all the variables associated with a particular hostname, you can make use of the "host vary" variable. This stores host variables with their respective hostnames as keys. To view the variables set for the hostname "localhost", you can use the following command as an example:</p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="java">
 ansible -m debug -a "var=hostvars[inventory_hostname]"
-=======
-<div class="codeblock"><textarea name="code" class="java">
-ansible -m debug -a "var=hostvars[inventory_hostname]"
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">19) What is the difference between the Variable Name and Environment Variable in Ansible?</h3>
@@ -1028,11 +978,6 @@ Interviewers often ask questions related to data structures during interviews. T
 <script type="text/javascript"> dp.SyntaxHighlighter.HighlightAll('code'); </script>
 <script src="https://static.javatpoint.com/lazysizes.min.js" async=""></script>
 </body>
-<<<<<<< HEAD
 
 <!-- Mirrored from www.javatpoint.com/ansible-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:33:53 GMT -->
-=======
-
-<!-- Mirrored from www.javatpoint.com/ansible-interview-questions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:33:53 GMT -->
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </html>

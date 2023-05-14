@@ -1,15 +1,9 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
 
 <!-- Mirrored from www.javatpoint.com/top-coding-interview-questions-on-arrays-c by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:34:24 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
-=======
-
-<!-- Mirrored from www.javatpoint.com/top-coding-interview-questions-on-arrays-c by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:34:24 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 <head>
 <meta charset="UTF-8">
 <link rel="SHORTCUT ICON" href="https://static.javatpoint.com/images/favicon2.png">
@@ -458,7 +452,6 @@ Let's explore some typical coding questions that you may encounter during interv
 <p>An optimized code is required to find the peak element in an array. While iterating the whole array takes O(n) time, we only need to find one peak element instead of all of them. Thus, parts of the array can be eliminated while searching for the element to increase efficiency.</p>
 <p>The approach used in the solution was the Binary search method. This algorithm was employed to reduce the number of array elements that need to be traversed during the search process. Despite the fact that the array may not be in a sorted order, the aim was to identify a locally large element.</p>
 <p><strong>Code:</strong></p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="Cpp">
 int Peak(int arr[], int l, int h, int n)
 {
@@ -479,35 +472,12 @@ int Peak(int arr[], int l, int h, int n)
 		Peak(arr, l, h, n);
 	}
 }
-=======
-<div class="codeblock"><textarea name="code" class="Cpp">
-int Peak(int arr[], int l, int h, int n)
-{
-	int i, mid;
-	mid = l + (h - l)/2;
-	if((mid == 0) || arr[mid - 1] &lt;= arr[mid] && arr[mid + 1] &lt;= arr[mid])
-	{
-		return mid;
-	}
-	if(arr[mid - 1] &gt; arr[mid])
-	{
-		h = mid - 1;
-		Peak(arr, l, h, n);
-	}
-	if(arr[mid + 1] &gt; arr[mid])
-	{
-		l = mid + 1;
-		Peak(arr, l, h, n);
-	}
-}
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">2) Write a function to reverse the elements of an array using recursion.</h3>
 <p><strong>Solution:</strong></p>
 <p>To swap elements in an array, we can initialize two variables - one with the value of 0, and the other with the value of (n - 1), where n is the length of the array. We can then swap values in the array by incrementing the first variable and decrementing the second variable until they reach the middle element or pass each other.</p>
 <p><strong>Function:</strong></p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="Cpp">
 void reverse(int l, int h, int arr[])
 {
@@ -521,21 +491,6 @@ void reverse(int l, int h, int arr[])
 	arr[h] = temp;
 	reverse(l + 1, h - 1, arr);
 }
-=======
-<div class="codeblock"><textarea name="code" class="Cpp">
-void reverse(int l, int h, int arr[])
-{
-	if(l &gt;= h)
-	{
-		return;
-	}
-	int temp;
-	temp = arr[l];
-	arr[l] = arr[h];
-	arr[h] = temp;
-	reverse(l + 1, h - 1, arr);
-}
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">3) Write a function to segregate an array of 0's and 1's by traversing the array only once.</h3>
@@ -553,7 +508,6 @@ For example:
 <p><strong>Reword: "Elements located at the beginning and the end of an array are considered as variables."</strong></p>
 <p><strong>Way to think:</strong></p>
 <p>To arrange the elements in an array with 0's first followed by 1's, we can use two variables - l and h - that store the indexes of the first and last elements, respectively. The aim is to traverse the elements from both ends, with l starting from the beginning and h from the end, to ensure that the 0's are placed before the 1's. If l comes across a 1 or h encounters a 0, the elements need to be swapped in order to maintain the correct order.</p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="Cpp">
 int* segregation(int arr[], int n)
 {
@@ -578,39 +532,12 @@ int* segregation(int arr[], int n)
 	}
 	return arr;
 }
-=======
-<div class="codeblock"><textarea name="code" class="Cpp">
-int* segregation(int arr[], int n)
-{
-	int temp, l = 0;
-	int h = n - 1;
-	while(l &lt; h)
-	{
-		if(arr[l] == 0)
-		{
-			l++;
-		}
-		else if(arr[h] == 1)
-		{
-			h--;
-		}
-		else
-		{
-			temp = arr[l];
-			arr[l] = arr[h];
-			arr[h] = temp;
-		}
-	}
-	return arr;
-}
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p><strong>Reworded: 
 
 The two variables located at the start of the array:</strong></p>
 <p><strong>Way to think:</strong></p>
 <p>To arrange 0's before 1's in an array, we can use two variables. One variable will be used to traverse the array and check the values of each element, while the other variable will stay at a fixed index. The approach is to swap the elements at the two variables whenever the traversal variable encounters a 0. This way, we can ensure that the 0's are placed before the 1's in the array.</p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="Cpp">
 int* segregation(int arr[], int n)
 {
@@ -631,28 +558,6 @@ int* segregation(int arr[], int n)
 	}
 	return arr;
 }
-=======
-<div class="codeblock"><textarea name="code" class="Cpp">
-int* segregation(int arr[], int n)
-{
-	int i, j, temp;
-	j = 0;
-	for(i = 0; i &lt; n; i++)
-	{
-		if(arr[i] == 0)
-		{
-			if(i != j)
-			{
-				temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
-				j++;
-			}
-		}
-	}
-	return arr;
-}
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p>Both methods involve iterating through the entire array once.</p>
 <hr>
@@ -661,7 +566,6 @@ int* segregation(int arr[], int n)
 <p>To solve the given problem, we can use a similar approach as we did in the problem mentioned earlier. The problem involves an array of integers containing positive and negative values arranged in a random order. The task is to rearrange the array in such a way that all positive integers come before negative integers or vice versa.</p>
 <p>The previous task involved coding to organize an array with 0's first followed by 1's. Similarly, for this task, we are required to apply the same technique to sort an array such that negative elements appear first, followed by positive elements.</p>
 <p><strong>Reword: "Elements located at the beginning and the end of an array are considered as variables."</strong></p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="Cpp">
 int* arrangement(int arr[], int n)
 {
@@ -686,37 +590,10 @@ int* arrangement(int arr[], int n)
 	}
 	return arr;
 }
-=======
-<div class="codeblock"><textarea name="code" class="Cpp">
-int* arrangement(int arr[], int n)
-{
-	int temp, l = 0;
-	int h = n - 1;
-	while(l &lt; h)
-	{
-		if(arr[l] &lt; 0)
-		{
-			l++;
-		}
-		else if(arr[h] &gt; 0)
-		{
-			h--;
-		}
-		else
-		{
-			temp = arr[l];
-			arr[l] = arr[h];
-			arr[h] = temp;
-		}
-	}
-	return arr;
-}
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <p><strong>Reworded: 
 
 The two variables located at the start of the array:</strong></p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="Cpp">
 int* arrangement(int arr[], int n)
 {
@@ -737,28 +614,6 @@ int* arrangement(int arr[], int n)
 	}
 	return arr;
 }
-=======
-<div class="codeblock"><textarea name="code" class="Cpp">
-int* arrangement(int arr[], int n)
-{
-	int i, j, temp;
-	j = 0;
-	for(i = 0; i &lt; n; i++)
-	{
-		if(arr[i] &lt; 0)
-		{
-			if(i != j)
-			{
-				temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
-				j++;
-			}
-		}
-	}
-	return arr;
-}
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">5) Write a C function to find the maximum sum of k consecutive elements in the given array.</h3>
@@ -771,7 +626,6 @@ int* arrangement(int arr[], int n)
 <p>To find the maximum sum of 2 consecutive indices in an array, we can create a window of size 2 and slide it over the array. As we move the window, we add up the elements within the window and keep track of the maximum sum found so far. Finally, we return the maximum sum obtained.</p>
 <img src="https://static.javatpoint.com/interview/images/top-coding-interview-questions-on-arrays-c2.png" alt="Top Coding Interview Questions on Arrays-C">
 <p><strong>Code:</strong></p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="Cpp">
 int maxsum(int a[], int k, int n)
 {
@@ -795,31 +649,6 @@ int maxsum(int a[], int k, int n)
 	}
 	return maxm;
 }
-=======
-<div class="codeblock"><textarea name="code" class="Cpp">
-int maxsum(int a[], int k, int n)
-{
-	if(n &lt; k)
-	{
-		return -1;
-	}
-	int i, sum, maxm = 0;
-	for(i = 0; i &lt; k; i++)
-	{
-		maxm = maxm + a[i];
-	}
-	sum = maxm;
-	for(i = k; i &lt; n; i++)
-	{
-		sum += a[i] - a[i - k]; /*subtract the last element of the previous window and add the first element of the current window*/
-		if(sum &gt; maxm)
-		{
-			maxm = sum;
-		}
-	}
-	return maxm;
-}
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">6) Write a C function to find a Sub-array with a given sum from an array of non-negative numbers.</h3>
@@ -835,7 +664,6 @@ int maxsum(int a[], int k, int n)
 <p><strong>For example:</strong></p>
 <img src="https://static.javatpoint.com/interview/images/top-coding-interview-questions-on-arrays-c3.png" alt="Top Coding Interview Questions on Arrays-C">
 <p><strong>Code:</strong></p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="Cpp">
 void subarray(int a[], int sum, int n)
 {
@@ -856,28 +684,6 @@ void subarray(int a[], int sum, int n)
 	}
 	printf("No sub-array found");
 }
-=======
-<div class="codeblock"><textarea name="code" class="Cpp">
-void subarray(int a[], int sum, int n)
-{
-	int cursum = a[0], start = 0, i;
-	for(i = 1; i &lt;= n; i++)
-	{
-		while(cursum > sum && start &lt; i - 1)
-		{
-			cursum -= a[start];
-			start++;
-		}
-		if (cursum == sum)
-		{
-			printf("Sub-array from %d to %d index", start, i - 1);
-			exit(0);
-		}
-		cursum = cursum + a[i];
-	}
-	printf("No sub-array found");
-}
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">7) Write a C function to find the occurrence of a given integer in the given sorted array.</h3>
@@ -904,7 +710,6 @@ Rephrased: Determine the position of the final instance of the integer using Bin
 <li><strong>Lastoc:</strong> To find the last occurring index of the integer in the remaining array.</li>
 <li><strong>Count</strong>: To count the number of occurrences of the integer from firstoc to lastoc.</li>
 </ol>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="Cpp">
 int firstoc(int arr[], int l, int h, int k, int n)
 {
@@ -959,62 +764,6 @@ int count(int arr[], int k, int n)
 	last = lastoc(arr, first, n - 1, k, n);
 	return last - first + 1;
 }
-=======
-<div class="codeblock"><textarea name="code" class="Cpp">
-int firstoc(int arr[], int l, int h, int k, int n)
-{
-	if(h &gt;= l)
-	{
-		int mid = l + (h - l)/2;
-		if((mid == 0 || k &gt; arr[mid - 1]) && arr[mid] == k)
-		{
-			return mid;
-		}
-		else if(k &gt; arr[mid])
-		{
-			return firstoc(arr, (mid + 1), h, k, n);
-		}
-		else
-		{
-			return firstoc(arr, l, (mid - 1), k, n);
-		}
-	}
-	return -1;
-}
-int lastoc(int arr[], int l, int h, int k, int n)
-{
-	if(h &gt;= l)
-	{
-		int mid = l + (h - l)/2;
-		if((mid == n - 1 || k &lt; arr[mid + 1]) && arr[mid] == k)
-		{
-			return mid;
-		}
-		else if(k &lt; arr[mid])
-		{
-			return lastoc(arr, l, mid - 1, k, n);
-		}
-		else
-		{
-			
-			return lastoc(arr, mid + 1, h, k, n);
-		}
-	}
-	return -1;
-}
-
-int count(int arr[], int k, int n)
-{
-	int first, last;
-	first = firstoc(arr, 0, n - 1, k, n);
-	if(first == -1)
-	{
-		return 0;
-	}
-	last = lastoc(arr, first, n - 1, k, n);
-	return last - first + 1;
-}
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">8) Write an efficient function in C to find the LCM using the GCD of two numbers.</h3>
@@ -1022,7 +771,6 @@ int count(int arr[], int k, int n)
 <p>The concept is based on how the Lowest Common Multiple (LCM) and Greatest Common Divisor (GCD) of two numbers are related. Let the two numbers be a and b.</p>
 <p>The result of multiplying two numbers is equal to the product of their least common multiple and greatest common divisor.</p>
 <p>The formula to find the Least Common Multiple of two numbers a and b, states that it is equal to the product of the two numbers divided by their Greatest Common Divisor.</p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="Cpp">
 int gcd(int num1, int num2)
 {
@@ -1036,28 +784,12 @@ int lcm(int a, int b)
 {
 	return (a / gcd(a, b))*b;
 }
-=======
-<div class="codeblock"><textarea name="code" class="Cpp">
-int gcd(int num1, int num2)
-{
-	if(num1 == 0)
-	{
-		return num2;
-	}
-	return gcd(num2 % num1, num1);
-}
-int lcm(int a, int b)
-{
-	return (a / gcd(a, b))*b;
-}
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">9) Write a C function to find the sum of digits of a number and print the number reversed in C.</h3>
 <p><strong>Solution:</strong></p>
 <p>We can extract the digits of a number by using division and modulus with multiples of 10. This helps us to calculate the sum of all the digits, which we can then reverse.</p>
 <p><strong>Code:</strong></p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="Cpp">
 int rev(int num)
 {
@@ -1072,22 +804,6 @@ int rev(int num)
 	printf("Sum of digits of the number: %d", sum);
 	return rev;
 }
-=======
-<div class="codeblock"><textarea name="code" class="Cpp">
-int rev(int num)
-{
-	int i, rem = 0, sum = 0, rev = 0;
-	while(num > 0)
-	{
-		rem = num % 10;
-		sum = sum + rem;
-		rev = rev * 10 + rem;
-		num = num / 10;
-	}
-	printf("Sum of digits of the number: %d", sum);
-	return rev;
-}
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <h3 class="h3">10) Write a C function to determine if a given year is a leap year.</h3>
@@ -1098,7 +814,6 @@ int rev(int num)
 <li>A number that is divisible by 4 but is not divisible by 100.</li>
 </ol>
 <p><strong>Code:</strong></p>
-<<<<<<< HEAD
 <div class="codeblock"><textarea name="code" class="Cpp">
 void leap(int year)
 {
@@ -1116,25 +831,6 @@ void leap(int year)
 	}
 
 }
-=======
-<div class="codeblock"><textarea name="code" class="Cpp">
-void leap(int year)
-{
-	if((year % 4 == 0) && (year % 100 != 0))
-	{
-		printf("%d is a leap year");	
-	}
-	else if(year % 400 == 0)
-	{
-		printf("%d is a leap year", year);
-	}
-	else
-	{
-		printf("%d is a non-leap year");
-	}
-
-}
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </textarea></div>
 <hr>
 <br><br>
@@ -1499,11 +1195,6 @@ void leap(int year)
 <script type="text/javascript"> dp.SyntaxHighlighter.HighlightAll('code'); </script>
 <script src="https://static.javatpoint.com/lazysizes.min.js" async=""></script>
 </body>
-<<<<<<< HEAD
 
 <!-- Mirrored from www.javatpoint.com/top-coding-interview-questions-on-arrays-c by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:34:24 GMT -->
-=======
-
-<!-- Mirrored from www.javatpoint.com/top-coding-interview-questions-on-arrays-c by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2023 15:34:24 GMT -->
->>>>>>> 0f4472b14c27f664ee52ac33563d9bac0628389f
 </html>
