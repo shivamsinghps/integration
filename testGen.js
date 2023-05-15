@@ -10,7 +10,7 @@ const process = require("process");
 
 const reader = async () => {
   try {
-    for (let fileno = 6; fileno <= 15; fileno++) {
+    for (let fileno = 13; fileno <= 15; fileno++) {
       let file = `./prepdata33/chunk${fileno}.txt`;
       console.time("completed");
       console.log(file, "started");
