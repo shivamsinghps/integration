@@ -25,11 +25,13 @@ const processHtmlToText = async (inputFile) => {
     imgblocks.forEach((val) => {
       let data = val.getAttribute("src");
       if (data !== null) {
+        console.log('1');
         let newLink = data.replace("https://static.javatpoint.com", "/Assets");
         val.setAttribute("src", newLink);
       } else {
         let data2 = val.getAttribute("data-src");
         if (data2 !== null) {
+          console.log('2');
           let newLink = data2.replace(
             "https://static.javatpoint.com",
             "/Assetss"
