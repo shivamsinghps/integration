@@ -32,9 +32,10 @@ const processHtmlToText = async (inputFile) => {
         if (data2 !== null) {
           let newLink = data2.replace(
             "https://static.javatpoint.com",
-            "/Assets"
+            "/Assetss"
           );
-          val.removeAttribute('data-src')
+          val.setAttribute("data-src", "");
+
           val.setAttribute("src", newLink);
         }
       }
