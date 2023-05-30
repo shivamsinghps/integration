@@ -9,7 +9,8 @@ let setfiles = async () => {
   const [_, __, sourceHTMLs] = process.argv;
   let HTMLfiles = await glob(`${sourceHTMLs}/**/*.html`);
   for (const item of HTMLfiles) {
-    await processHtmlToText(item, outPath);
+    await processHtmlToText(item);
+    console.log(item + "done");
   }
   console.log("Completed");
 };
@@ -26,15 +27,23 @@ const processHtmlToText = async (inputFile) => {
       if (data !== null) {
         let newLink = data.replace("https://static.javatpoint.com", "/Assets");
         val.setAttribute("src", newLink);
+      } else {
+        let data2 = val.getAttribute("data-src");
+        if (data2 !== null) {
+          let newLink = data2.replace(
+            "https://static.javatpoint.com",
+            "/Assets"
+          );
+          val.setAttribute("src", newLink);
+        }
       }
     });
     fs.writeFileSync(inputFile, dom.serialize(), "utf-8");
-    // await writeFile(outPath, "Assets", result);
   } catch (error) {
     console.log(error);
     return;
   }
 };
 
-// setfiles();
-processHtmlToText("./result2/ab-initio-interview-questions.html");
+setfiles();
+// processHtmlToText("./result2/ab-initio-interview-questions.html");
