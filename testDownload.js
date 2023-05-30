@@ -20,7 +20,7 @@ const getPath = async (dir, path, filename) => {
 
 const processAssets = async () => {
   try {
-    const data = fs.readFileSync("./demo2/Assets.txt", "utf-8");
+    const data = fs.readFileSync("./demo2/AssetsLazy.txt", "utf-8");
     let assetList = data.split("\n");
     for (let i = 0; i < assetList.length; i++) {
       let newPath = assetList[i].replace("https://static.javatpoint.com/", "");
@@ -28,7 +28,7 @@ const processAssets = async () => {
       console.log({ values, newPath, i });
       let filename = values[values.length - 1];
       let path = values.slice(0, -1).join("/");
-      await downloadandWriteAsset(assetList[i], "./Assets/", path, filename);
+      await downloadandWriteAsset(assetList[i], "./result/Assets/", path, filename);
       console.log("Completed " + i);
     }
     console.log("Completed the downloading of assets");

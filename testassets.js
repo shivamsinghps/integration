@@ -26,12 +26,12 @@ const processHtmlToText = async (
     let imgblocks = dom.window.document.querySelectorAll("img");
 
     imgblocks.forEach((val) => {
-      let data = val.getAttribute("src");
+      let data = val.getAttribute("data-src");
       if (data !== null && data.includes("http")) {
-        result = result + val.getAttribute("src") + "\n";
+        result = result + val.getAttribute("data-src") + "\n";
       }
     });
-    await writeFile(outPath, "Assets", result);
+    await writeFile(outPath, "AssetsLazy", result);
   } catch (error) {
     console.log(error);
     return;
