@@ -34,6 +34,7 @@ const processHtmlToText = async (inputFile) => {
             "https://static.javatpoint.com",
             "/Assets"
           );
+          val.removeAttribute('data-src')
           val.setAttribute("src", newLink);
         }
       }
